@@ -115,6 +115,42 @@ class ARCContractTests(unittest.TestCase):
             issues = validate(ROOT, "scaffold")
         self.assertIn("ARC Neuro repository identity mismatch", issues)
 
+
+    def test_non_object_json_roots_fail_cleanly(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for invalid in ([], None, "not an object"):
+                (root/"broken.json").write_text(json.dumps(invalid), encoding="utf-8")
+                issues = []
+                self.assertEqual(load_json(root, "broken.json", issues), {})
+                self.assertTrue(any("Invalid JSON root" in x for x in issues))
+
+    def test_non_string_repo_fails_validation_without_crash(self):
+        self.assertFalse(github_repo_url(None, "https://github.com/owner/repo"))
+        self.assertFalse(github_repo_url(42, "https://github.com/owner/repo"))
+
+    def test_duplicate_repo_with_distinct_project_ids_is_rejected(self):
+        def injected(root, relative, issues):
+            data = load_json(root, relative, issues)
+            if relative == "portfolio/projects.json":
+                first = {**candidate(), "visibility": "public"}
+                second = {**first, "id": "msc-second"}
+                data["projects"] = [first, second]
+            return data
+        with patch("validate_repository.load_json", side_effect=injected):
+            issues = validate(ROOT, "scaffold")
+        self.assertTrue(any("Duplicated project repository" in x for x in issues))
+
+    def test_catalog_fails_closed_for_malformed_projects(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root/"portfolio").mkdir()
+            path = root/"portfolio/projects.json"
+            for invalid in ([], {"projects": "unexpected"}, {"projects": [5]}):
+                path.write_text(json.dumps(invalid), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    render(root)
+
     def test_public_pages_urls_reject_markup_injection(self):
         self.assertTrue(safe_public_page_url("https://matpomgit.github.io/msc-example/"))
         self.assertFalse(safe_public_page_url("https://host.example/)[malicious](x"))
