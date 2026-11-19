@@ -14,6 +14,7 @@ from validate_repository import validate, github_repo_url, safe_public_page_url,
 from build_public_catalog import render
 from check_freshness import inspect_project
 from project_state import load_project_state, check_project_state
+from public_approvals import project_digest, load_publication_approvals, is_approved_project, same_repo_github_pages, check_publication_approvals
 
 
 def candidate():
@@ -101,9 +102,105 @@ class ARCContractTests(unittest.TestCase):
             (root/"portfolio/projects.json").write_text(json.dumps({"projects":[{
                 **candidate(),"public_listing":True,"pages_url":"https://internal.example/private"
             }]}),encoding="utf-8")
+            (root/"portfolio/publication-approvals.json").write_text(json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8")
             result=render(root)
             self.assertNotIn("Private project",result)
             self.assertNotIn("internal.example",result)
+
+
+    @staticmethod
+    def synthetic_public_project():
+        return {
+            **candidate(),
+            "title": "Synthetic open project",
+            "visibility": "public",
+            "public_listing": True,
+            "pages_url": "https://matpomgit.github.io/msc-example/",
+        }
+
+    @staticmethod
+    def synthetic_approval(project):
+        return {
+            "project_id": project["id"],
+            "project_sha256": project_digest(project),
+            "review_url": (
+                "https://github.com/MatPomGit/arc-neuro/pull/123"
+                "#pullrequestreview-456"
+            ),
+            "reviewed_by": "MatPomGit",
+            "approved_on": "2026-11-19",
+        }
+
+    def test_unapproved_opt_in_is_not_published(self):
+        project = self.synthetic_public_project()
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root/"portfolio").mkdir()
+            (root/"portfolio/projects.json").write_text(
+                json.dumps({"projects": [project]}), encoding="utf-8",
+            )
+            (root/"portfolio/publication-approvals.json").write_text(
+                json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8",
+            )
+            self.assertNotIn("Synthetic open project", render(root))
+        issues = []
+        check_publication_approvals(ROOT, [project], issues)
+        self.assertTrue(any("Missing or stale public approval" in issue for issue in issues))
+
+    def test_matching_synthetic_approval_renders_project(self):
+        project = self.synthetic_public_project()
+        approval = self.synthetic_approval(project)
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root/"portfolio").mkdir()
+            (root/"portfolio/projects.json").write_text(
+                json.dumps({"projects": [project]}), encoding="utf-8",
+            )
+            (root/"portfolio/publication-approvals.json").write_text(
+                json.dumps({"schema_version": 1, "approvals": [approval]}), encoding="utf-8",
+            )
+            self.assertIn("Synthetic open project", render(root))
+        self.assertTrue(is_approved_project(project, {project["id"]: approval}))
+
+    def test_changed_metadata_invalidates_existing_approval(self):
+        project = self.synthetic_public_project()
+        approval = self.synthetic_approval(project)
+        revised = {**project, "title": "New public title"}
+        self.assertFalse(is_approved_project(revised, {project["id"]: approval}))
+        self.assertFalse(is_approved_project({**project, "pages_url": "https://other.example.org/"},
+                                            {project["id"]: approval}))
+
+    def test_noncanonical_pages_host_is_denied(self):
+        project = {**self.synthetic_public_project(),
+                   "pages_url": "https://other.example.org/msc-example/"}
+        approval = self.synthetic_approval(project)
+        self.assertFalse(same_repo_github_pages(project))
+        self.assertFalse(is_approved_project(project, {project["id"]: approval}))
+
+    def test_approval_registry_rejects_invalid_and_duplicate_evidence(self):
+        project = self.synthetic_public_project()
+        approval = self.synthetic_approval(project)
+        cases = [
+            [{**approval, "reviewed_by": "not-the-owner"}],
+            [{**approval, "review_url": "https://example.org/not-a-review"}],
+            [{**approval, "project_sha256": "not-sha256"}],
+            [{**approval, "approved_on": "2026-02-30"}],
+            [approval, approval],
+        ]
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root/"portfolio").mkdir()
+            target = root/"portfolio/publication-approvals.json"
+            for records in cases:
+                target.write_text(
+                    json.dumps({"schema_version": 1, "approvals": records}),
+                    encoding="utf-8",
+                )
+                with self.assertRaises(ValueError):
+                    load_publication_approvals(root)
+
+    def test_public_approvals_registry_is_initially_empty(self):
+        self.assertEqual(load_publication_approvals(ROOT), {})
 
     def test_duplicate_project_ids_blocked(self):
         with tempfile.TemporaryDirectory() as d:
@@ -202,6 +299,7 @@ class ARCContractTests(unittest.TestCase):
             root = Path(d)
             (root/"portfolio").mkdir()
             path = root/"portfolio/projects.json"
+            (root/"portfolio/publication-approvals.json").write_text(json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8")
             for invalid in ([], {"projects": "unexpected"}, {"projects": [5]}):
                 path.write_text(json.dumps(invalid), encoding="utf-8")
                 with self.assertRaises(ValueError):
