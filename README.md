@@ -33,3 +33,9 @@ Stan bieżący projektu i historyczna migawka służą różnym celom. Testy pub
 Zobacz [zakres programu](docs/scientific-scope.md), [zasady publikacji](docs/publication-policy.md), [politykę danych](docs/data-policy.md) i [reprodukowalność](REPRODUCIBILITY.md).
 
 Powiązane zadanie: [#1](https://github.com/MatPomGit/arc-neuro/issues/1).
+
+## Licencja
+
+Autorski kod i związana z nim dokumentacja tego repozytorium są udostępniane na licencji [MIT](LICENSE) (© 2026 Mateusz Pomianek). Przy ponownym wykorzystaniu zachowaj informację o prawach autorskich i treść licencji.
+
+Licencja nie obejmuje automatycznie zasobów zewnętrznych, połączonych repozytoriów, artykułów naukowych, danych uczestników ani materiałów osób trzecich. Takie zasoby podlegają odrębnym warunkom i zgodom. Publiczna dostępność informacji nie jest równoznaczna z prawem do ich dalszego wykorzystania.

@@ -7,7 +7,7 @@
   "owner": "Mateusz Pomianek",
   "scope": "Neuronauka poznawcza, afekt, samoregulacja, psychofizjologia, neurorozwój, relacje społeczne i psychometria.",
   "default_branch": "main",
-  "license_spdx": "UNDECIDED",
+  "license_spdx": "MIT",
   "pages_status": "not_configured",
   "pages_url": null,
   "public_catalog_policy": "explicit_opt_in",
