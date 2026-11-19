@@ -1,16 +1,18 @@
 schema_version: 1
 repository_type: research_program
 template_version: 1.0.0
-programme: arc-REPLACE
-scientific_owner: REPLACE_OWNER
-updated: null
-phase: scaffold
+programme: arc-neuro
+scientific_owner: Mateusz Pomianek
+updated: 2026-11-19
+phase: public_programme_index_initialization
 projects_registered: 0
 papers_registered: 0
-public_catalog_status: not_configured
+public_catalog_status: empty_no_explicitly_approved_entries
 pages_status: not_configured
 hardware_validation_status: not_run
 last_live_audit: null
 known_blockers:
-  - configure_programme_owner_scope_and_projects
-next_action: inventory_primary_msc_repositories
+  - no_public_project_listings_approved
+  - pages_publication_not_configured
+  - licences_and_manuscript_ownership_require_review
+next_action: review_public_project_candidates_after_explicit_approval

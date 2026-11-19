@@ -37,7 +37,7 @@ REPOSITORY = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 
 
 def github_repo_url(repo: str, url: str) -> bool:
-    if not REPOSITORY.fullmatch(repo) or not isinstance(url, str):
+    if not isinstance(repo, str) or not REPOSITORY.fullmatch(repo) or not isinstance(url, str):
         return False
     parsed = urlparse(url)
     return (parsed.scheme == "https" and parsed.hostname == "github.com"
@@ -63,10 +63,14 @@ def safe_public_page_url(url: object) -> bool:
 def load_json(root: Path, relative: str, issues: list[str]):
     p = root / relative
     try:
-        return json.loads(p.read_text(encoding="utf-8"))
+        data = json.loads(p.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         issues.append(f"Invalid JSON in {relative}: {type(exc).__name__}")
         return {}
+    if not isinstance(data, dict):
+        issues.append(f"Invalid JSON root in {relative}: expected object")
+        return {}
+    return data
 
 
 def safe_submodule_path(v: str) -> bool:
@@ -95,6 +99,11 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
     if meta.get("template_version") != "1.0.0":
         issues.append("Unexpected program template version")
     programme = meta.get("programme")
+    # This deployed arc-neuro repository is public; metadata cannot disable privacy checks.
+    if programme != "arc-neuro":
+        issues.append("ARC Neuro repository identity mismatch")
+    if meta.get("repository_visibility") != "public":
+        issues.append("ARC Neuro repository must remain public in metadata")
     if phase == "publish" and programme not in ALLOWED_PROGRAMMES:
         issues.append("Programme must be one of four approved ARC names")
     if meta.get("owner_of_raw_data") is not False or meta.get("public_catalog_policy") != "explicit_opt_in":
@@ -130,7 +139,7 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
         project_ids.add(ident)
         if not github_repo_url(repo, url):
             issues.append(f"Invalid project repository URL: {ident}")
-        if repo in project_repos:
+        if repo in project_repos.values():
             issues.append(f"Duplicated project repository: {repo}")
         project_repos[ident] = repo
         if p.get("role") not in ALLOWED_ROLES or p.get("status") not in ALLOWED_STATUSES:
@@ -143,6 +152,10 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
             issues.append(f"Project references unknown research line: {ident}")
         if p.get("visibility") not in ALLOWED_VISIBILITY or not isinstance(p.get("public_listing"), bool):
             issues.append(f"Invalid visibility/public_listing: {ident}")
+        # In a public programme repository, even non-listed private metadata
+        # becomes visible to anonymous GitHub users.
+        if p.get("visibility") != "public":
+            issues.append(f"Private repository recorded in public ARC source: {ident}")
         if p.get("public_listing"):
             if p.get("visibility") != "public":
                 issues.append(f"Private project marked for public listing: {ident}")

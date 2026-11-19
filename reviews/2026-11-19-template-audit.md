@@ -1,5 +1,7 @@
 # Niezależny audyt `repo-template-arc` — 2026-11-19
 
+*Wersja publiczna: usunięto odniesienia do niepublicznej infrastruktury. Pierwotna ocena techniczna dotyczy stanu szablonu z podanej daty i nie jest oceną bieżącego PR.*
+
 **Baza:** `main` @ `a85cd647fa5fb92ad65855668acee250417ef917`.  
 **Zakres:** szablon nadrzędnego programu badawczego `arc-*`, rejestry `msc-*`, źródła zależności `app-*`/`lib-*`, audyt aktualności SHA, katalog publiczny oraz governance.  
 **Metoda:** statyczna inspekcja plików i konfiguracji GitHub; bez uruchamiania testów, audytu zdalnych repozytoriów ani wdrożenia Pages. Ustalenia są oceną pokrycia kontroli, nie dowodem wycieku lub błędnych wyników.
@@ -17,7 +19,7 @@
 | Zarządzanie publikacjami naukowymi | 7/10 |
 | Automatyczne CI i bramki PR | 2/10 |
 | Inicjalizacja i obsługa wieloprojektowa | 7/10 |
-| Integracja z Research Autopilot | 8/10 |
+| Spójność przekrojowa portfela | 8/10 |
 
 ### Mocne strony potwierdzone w repozytorium
 
@@ -34,11 +36,11 @@
 | ARC-01 | P0 | Brak `.github/workflows/`; brak wykonanych GitHub Actions. Ruleset `main` ogranicza usuwanie/non-fast-forward, lecz nie wymaga CI ani review. | Minimalny offline CI na `pull_request`/`push`, testy rejestrów, generatora i walidatora, potem wymagane status checks i przegląd. |
 | ARC-02 | P0 | `build_public_catalog.py` uznaje sam `public_listing=true` i syntaktyczny HTTPS za wystarczający warunek umieszczenia wpisu. Nie ma maszynowego dowodu zatwierdzenia publikacji; walidator nie potwierdza istnienia ani publicznej dostępności URL. | Rozdzielić życzenie publikacji od udokumentowanego zatwierdzenia; walidować bezpieczną domenę i pochodzenie metadanych; wymagać przeglądu przed publikacją całego `docs/`, nie tylko wygenerowanej listy. |
 | ARC-03 | P0 | `scripts/validate_repository.py` sprawdza wybrane pola `program.json`, ale nie czyta treści `PROJECT_STATE.yaml`; liczniki projektów/artykułów mogą być niezgodne z rejestrami. | Parsować YAML, walidować schematy i spójność `programme`, właściciela, `template_version`, statusów oraz liczników względem JSON. |
-| ARC-04 | P1 | Weryfikacja `papers.json` sprawdza właściciela, repo i status, ale nie wymaga źródła dowodowego dla wpisu accepted/published ani poprawnego DOI; unikalność właściciela między różnymi repo ARC nie jest sprawdzana globalnie. | Dodać kontrolę pochodzenia statusów i identyfikatorów, a globalne konflikty właściciela wykrywać centralnie w Research Autopilot. |
+| ARC-04 | P1 | Weryfikacja `papers.json` sprawdza właściciela, repo i status, ale nie wymaga źródła dowodowego dla wpisu accepted/published ani poprawnego DOI; unikalność właściciela między różnymi repo ARC nie jest sprawdzana globalnie. | Dodać kontrolę pochodzenia statusów i identyfikatorów, a globalne konflikty właściciela wykrywać w odrębnej kontroli przekrojowej. |
 | ARC-05 | P1 | `check_freshness.py` przy pustym katalogu i bez `--require-current` zwraca kod 0, mimo `NO_PROJECTS`; `STALE` bez tego przełącznika również nie jest kodem błędu. | Utrzymać rozróżnienie kodu procesu i stanu naukowego; zapewnić jawny tryb strict dla bramek audytowych i testy jego semantyki, bez wymuszania aktualnego HEAD w historycznej reprodukcji. |
 | ARC-06 | P1 | Rejestry `portfolio/*.json` są puste, a przykłady nie tworzą pełnej, testowanej ścieżki: rejestracja projektu → artykuł → dependency → `snapshot_sha` → kontrola katalogu. | Dodać mały syntetyczny fixture end-to-end oraz testy negatywne: prywatny rekord, konflikt ID, brak SHA, niepoprawny URL i niezgodny gitlink. |
 | ARC-07 | P1 | `CITATION.cff` nadal ma `REPLACE_AUTHOR` zamiast wymaganej tożsamości autora. | Mateusz Pomianek jest zawsze co najmniej jednym z autorów repozytorium programu; dopuszczać współautorów z udokumentowanym wkładem i uzgodnioną kolejnością. |
-| ARC-08 | P1 | Szablon nie ma skryptu idempotentnej konfiguracji `program.json`, `PROJECT_STATE.yaml`, `CITATION.cff`, `VERSION`, `README.md`; można pozostawić rozbieżne placeholdery. | Dodać lekki inicjalizator i testy generowania nowego ARC, bez kopiowania logiki schedulera. |
+| ARC-08 | P1 | Szablon nie ma skryptu idempotentnej konfiguracji `program.json`, `PROJECT_STATE.yaml`, `CITATION.cff`, `VERSION`, `README.md`; można pozostawić rozbieżne placeholdery. | Dodać lekki inicjalizator i testy generowania nowego ARC, bez powielania komponentów poza zakresem szablonu. |
 | ARC-09 | P1 | `.gitmodules` jest sprawdzany pod kątem ścieżek, ale brak pełnej weryfikacji zgodności URL submodułu z kanonicznym `repository` w rejestrze. | Porównywać URL `.gitmodules` i repo z portfela oraz `gitlink` z `snapshot_sha`; bezpiecznie raportować `UNAVAILABLE`. |
 | ARC-10 | P2 | `template_version=1.0.0` jest zaszyte w walidatorze, podczas gdy `VERSION=0.1.0` opisuje stan repo; nie ma procesu migracji potomnych projektów. | Rozdzielić wersję szablonu i wydania programu, wprowadzić SemVer, changelog i kompatybilne migracje. |
 | ARC-11 | P2 | W `load_json` poprawny JSON o nieoczekiwanym typie korzenia (np. lista zamiast obiektu) może wywołać błąd wykonania przy `.get`. | Walidować typy korzeni plików rejestrów, zwracać czytelne `FAIL`; rozszerzyć testy o celowo uszkodzone dane. |
@@ -50,9 +52,9 @@ Przykładowo `safe_public_page_url` sprawdza podstawową składnię i część h
 
 **Autorstwo.** Mateusz Pomianek pozostaje co najmniej jednym z autorów repozytorium programu w `CITATION.cff` i metadanych dokumentacji. Dodatkowi współautorzy są możliwi po potwierdzeniu rzeczywistego wkładu oraz uzgodnieniu kolejności i afiliacji. Autorstwo oprogramowania/programu nie zastępuje właściwego ustalania autorów poszczególnych artykułów w kanonicznych `msc-*`; prawa autorskie i tożsamość autora commita to odrębne kwestie.
 
-**Runnery.** Repozytoria **publiczne mogą używać GitHub-hosted runners** do krótkich, izolowanych testów offline (np. `ubuntu-latest`). Stałe lokalne runnery HomeServer/Andromeda nie są konieczne do zwykłej walidacji. Żadne sekrety, identyfikatory prywatnych źródeł ani dane uczestników nie mogą trafić do niezaufanego CI; `audit-live` wymagający prywatnych poświadczeń jest oddzielnym, kontrolowanym zadaniem. Stosować `permissions: contents: read`, unikać wykonywania kodu z niezaufanych PR przez uprzywilejowane `pull_request_target`, przestrzegać limitów usług i zasady zero dodatkowych wydatków bez zgody.
+**Runnery.** Repozytoria **publiczne mogą używać GitHub-hosted runners** do krótkich, izolowanych testów offline (np. `ubuntu-latest`). Kod niezaufanych PR nie może być wykonywany na środowiskach uprzywilejowanych. Żadne sekrety, identyfikatory prywatnych źródeł ani dane uczestników nie mogą trafić do niezaufanego CI; `audit-live` wymagający prywatnych poświadczeń jest oddzielnym, kontrolowanym zadaniem. Stosować `permissions: contents: read`, unikać wykonywania kodu z niezaufanych PR przez uprzywilejowane `pull_request_target`, przestrzegać limitów usług i zasady zero dodatkowych wydatków bez zgody.
 
-**Granice.** ARC nie uruchamia własnego kontrolera/schedulera poza Research Autopilot, nie dubluje manuskryptów, aplikacji ani katalogu aparatury. Publikacja GitHub Pages oraz przenoszenie projektów wymagają odrębnej decyzji.
+**Granice.** ARC nie dubluje manuskryptów, aplikacji ani katalogu aparatury. Publikacja GitHub Pages oraz przenoszenie projektów wymagają odrębnej decyzji.
 
 ## Zadania i kryteria zakończenia
 
@@ -62,7 +64,7 @@ Przykładowo `safe_public_page_url` sprawdza podstawową składnię i część h
 - [ ] Parsować `PROJECT_STATE.yaml` i walidować spójność z rejestrami oraz `program.json`.
 
 ### P1: stabilne utrzymanie portfela
-- [ ] Weryfikacja statusów publikacyjnych i źródeł dowodowych; globalna unikalność właścicieli przez Research Autopilot.
+- [ ] Weryfikacja statusów publikacyjnych i źródeł dowodowych; globalna unikalność właścicieli w odrębnej kontroli przekrojowej.
 - [ ] Testowany fixture obejmujący projekt, artykuł, zależność, SHA, submoduł i katalog.
 - [ ] Idempotentny inicjalizator czterech wariantów ARC, z wymaganym autorem Mateuszem Pomiankiem i opcjonalnymi współautorami.
 - [ ] Doprecyzować semantykę strict w `audit-live`, nie nadpisując zamrożonych SHA.

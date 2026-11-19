@@ -20,4 +20,4 @@ ARC (strategia, rejestry, publiczny katalog)
 
 **Dwa widoki SHA:** `snapshot_sha` służy do odtwarzania i wersjonowania indeksu; `remote_head_sha` jest odczytywany na żywo przez narzędzie audytu i nie zastępuje automatycznie snapshotu. Nie porównywać daty `README.md` z rzeczywistym stanem zdalnego repo.
 
-**Sprzęt:** indeks zawiera tylko `equipment_id`, `contract_path`, `validation_status`; prawdziwe kontrakty i identyfikatory fizyczne pozostają w kanonicznym katalogu Research Autopilot. Nie utożsamiać standardowego Quest 3 z urządzeniem do śledzenia wzroku.
+**Sprzęt:** indeks zawiera wyłącznie zatwierdzone `equipment_id`, `contract_path` i `validation_status`. Pełne kontrakty aparatury pozostają przy badaniach kanonicznych. Nie utożsamiać standardowego Quest 3 z urządzeniem do śledzenia wzroku.

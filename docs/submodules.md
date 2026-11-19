@@ -12,4 +12,4 @@ W pliku `portfolio/projects.json` ustaw `submodule_path` i **dokładny** `snapsh
 
 Do bieżących ocen użyj `python scripts/bootstrap.py --mode audit-live`: skrypt porównuje `git ls-remote` z `snapshot_sha`, niczego nie checkoutuje i raportuje `STALE`/`CURRENT`/`UNAVAILABLE`. Wymaga własnego uprzednio skonfigurowanego bezpiecznego uwierzytelnienia; nie wpisuj tokenów do adresów URL.
 
-Git subtree przechowuje kopię historii/kodu i nie synchronizuje się sam. Nie stosować do ciągle aktualizowanych podprojektów. Dostęp do prywatnych repo zapewnia osobno zaakceptowana tożsamość GitHub App/credential helper. Brak uprawnień nie oznacza, że repozytorium jest aktualne.
+Git subtree przechowuje kopię historii/kodu i nie synchronizuje się sam. Nie stosować do ciągle aktualizowanych podprojektów. Weryfikacja projektów niepublicznych pozostaje poza zakresem publicznego portalu. Brak uprawnień oznacza stan `UNAVAILABLE`, a nie dowód aktualności.

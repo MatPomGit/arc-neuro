@@ -12,9 +12,14 @@ def safe_text(text:str)->str:
 
 
 def render(root:Path)->str:
-    projects=json.loads((root/"portfolio/projects.json").read_text(encoding="utf-8")).get("projects",[])
+    source=json.loads((root/"portfolio/projects.json").read_text(encoding="utf-8"))
+    if not isinstance(source, dict) or not isinstance(source.get("projects"), list):
+        raise ValueError("portfolio/projects.json requires an object with projects array")
+    projects=source["projects"]
     public=[]
     for p in projects:
+        if not isinstance(p, dict):
+            raise ValueError("portfolio/projects.json contains a non-object project")
         if p.get("visibility")!="public" or p.get("public_listing") is not True:
             continue
         url=p.get("pages_url")
@@ -35,7 +40,12 @@ def render(root:Path)->str:
 def main(argv:list[str]|None=None)->int:
     root=Path(__file__).resolve().parents[1]
     path=root/"docs/projects.md"
-    path.write_text(render(root),encoding="utf-8")
+    try:
+        rendered=render(root)
+    except (OSError, ValueError) as exc:
+        print(f"FAIL: invalid project catalog source ({type(exc).__name__})", file=sys.stderr)
+        return 1
+    path.write_text(rendered,encoding="utf-8")
     print("Public project catalog generated; private projects excluded")
     return 0
 

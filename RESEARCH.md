@@ -1,18 +1,15 @@
-# Zakres naukowy i zarządzanie publikacjami
+# Program naukowy ARC Neuro
 
-**Program:** REPLACE_PROGRAM_NAME  
-**Główne pytanie:** REPLACE_SCIENTIFIC_SCOPE  
-**Kryterium przypisania:** główna hipoteza i główny wynik, nie użyta metoda pomocnicza.
+**Właściciel:** Mateusz Pomianek.
 
-## Programy
+ARC Neuro obejmuje hipotezy o procesach poznawczych, emocjach, regulacji zachowania, relacjach społecznych, neuroróżnorodności oraz o trafności i rzetelności pomiaru psychologicznego i psychofizjologicznego.
 
-- ARC Neuro: wyniki dotyczące człowieka, poznania, afektu i NDD.
-- ARC AI: nowe algorytmy, fuzja, adaptacja, niepewność i walidacja metod.
-- ARC XR: interfejsy AR/VR/MR i przestrzenne zachowanie.
-- ARC Robo: działanie, percepcja i bezpieczeństwo robotów.
+## Granice programów
 
-Każdy manuskrypt ma tylko jednego właściciela w rejestrze. Istniejące czasopisma, preprinty i DOI są stanami udokumentowanymi w oryginalnym projekcie `msc-*`. Program nie przechowuje fałszywych wyników ani nie zmienia statusu publikacji bez dowodów.
+O przynależności projektu decydują główna hipoteza, zmienne zależne i rodzaj naukowego wkładu. Nowa metoda obliczeniowa może należeć do ARC AI, przestrzenne interfejsy do ARC XR, a percepcja i działanie robotów do ARC Robo. Badania interdyscyplinarne mogą wskazywać programy powiązane, ale każdy manuskrypt ma dokładnie jednego kanonicznego właściciela.
 
-## Rejestr dowodów
+## Własność materiałów
 
-Oryginalne protokoły, SAP, etyka, dane i artefakty wynikowe należą do `msc-*`. Program przechowuje odnośnik, wersję/commit oraz stan w `portfolio/papers.json` i `portfolio/dependencies.json`. Rozstrzyganie niezgodności następuje na podstawie repozytorium kanonicznego, nie streszczenia portalu.
+Manuskrypt, zamrożony protokół, prerejestracja, plan analiz, dane i rejestr dowodów należą do repozytorium projektu. ARC utrzymuje tylko dozwolone metadane i odnośniki. Prywatne projekty i ich SHA nie są zapisywane w repozytorium publicznym bez odrębnego zatwierdzenia. Statusy wyników, recenzji i publikacji wymagają wiarygodnego potwierdzenia.
+
+Syntetyczne dane i testy oprogramowania nie są dowodem empirycznej skuteczności metody u człowieka. Projekt badawczy spełnia własne wymogi etyczne, metodologiczne i prawne.

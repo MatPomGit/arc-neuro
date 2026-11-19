@@ -35,7 +35,7 @@ def main(argv:list[str]|None=None) -> int:
         print("UNAVAILABLE: git or credentials inaccessible")
         return 3
     if r.returncode != 0:
-        print("UNAVAILABLE: submodule checkout failed; check approved GitHub App access")
+        print("UNAVAILABLE: submodule checkout failed; verify authorized repository access")
         return 3
     print("PINNED_OK: submodules fetched at commits recorded by parent Git")
     return 0
