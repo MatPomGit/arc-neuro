@@ -7,3 +7,9 @@ Każdy `msc-*` ma własną stronę GitHub Pages, jeśli materiały zostały zatw
 ## Zakres licencji programu
 
 Plik [`LICENSE`](../LICENSE) zawiera standardową licencję MIT dla autorskiego kodu i dokumentacji ARC Neuro. Licencja nie obejmuje automatycznie tekstów manuskryptów, materiałów wydawców, zbiorów danych, wyników zewnętrznych projektów ani zasobów osób trzecich. Ich autorstwo, licencję i uprawnienia do publikacji należy ustalić oddzielnie przed dodaniem do katalogu.
+
+## Bramka publicznego indeksowania
+
+Sama deklaracja `public_listing=true` nie jest zgodą na publikację. Wymagany jest odrębny wpis w [rejestrze zatwierdzeń](../portfolio/publication-approvals.json), powiązany skrótem SHA-256 z całym rekordem projektu. Rejestr wymaga odnośnika do publicznej recenzji GitHub, której autor i treść muszą być **rzeczywiście sprawdzone przez osobę scalającą**. CI sprawdza jedynie składnię, kompletność i zgodność skrótu, nie weryfikuje autentyczności ani uprawnień recenzenta.
+
+Domyślnie generator akceptuje wyłącznie witrynę GitHub Pages odpowiadającą wskazanemu publicznemu repozytorium (`https://OWNER.github.io/REPOSITORY/`). Niestandardowe domeny wymagają osobnego, zatwierdzonego rozszerzenia polityki. Do skutecznej bramki właścicielskiej zalecane jest wymuszenie recenzji w regułach ochrony gałęzi `main`. Bez sprawdzenia dowodu zgody nie wolno scalać PR z nowym wpisem w rejestrze. Rejestry pozostają puste do momentu odrębnej decyzji publikacyjnej.
