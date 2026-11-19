@@ -39,3 +39,5 @@ Powiązane zadanie: [#1](https://github.com/MatPomGit/arc-neuro/issues/1).
 Autorski kod i związana z nim dokumentacja tego repozytorium są udostępniane na licencji [MIT](LICENSE) (© 2026 Mateusz Pomianek). Przy ponownym wykorzystaniu zachowaj informację o prawach autorskich i treść licencji.
 
 Licencja nie obejmuje automatycznie zasobów zewnętrznych, połączonych repozytoriów, artykułów naukowych, danych uczestników ani materiałów osób trzecich. Takie zasoby podlegają odrębnym warunkom i zgodom. Publiczna dostępność informacji nie jest równoznaczna z prawem do ich dalszego wykorzystania.
+
+Plik `PROJECT_STATE.yaml` jest automatycznie sprawdzany pod względem zgodności właściciela, wersji, liczb projektów i artykułów oraz konfiguracji publikacji z rejestrami JSON. Dopuszczony format to prosty, jawny podzbiór YAML: pola skalarne i lista `known_blockers`, bez zagnieżdżonych obiektów.

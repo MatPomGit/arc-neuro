@@ -13,6 +13,7 @@ sys.path.insert(0,str(ROOT/"scripts"))
 from validate_repository import validate, github_repo_url, safe_public_page_url, load_json
 from build_public_catalog import render
 from check_freshness import inspect_project
+from project_state import load_project_state, check_project_state
 
 
 def candidate():
@@ -27,6 +28,51 @@ def candidate():
 class ARCContractTests(unittest.TestCase):
     def test_scaffold_passes(self):
         self.assertEqual(validate(ROOT,"scaffold"),[])
+
+
+    def test_project_state_matches_public_registries(self):
+        issues = []
+        state = load_project_state(ROOT, issues)
+        meta = load_json(ROOT, "program.json", issues)
+        projects = load_json(ROOT, "portfolio/projects.json", issues)
+        papers = load_json(ROOT, "portfolio/papers.json", issues)
+        check_project_state(state, meta, projects, papers, issues)
+        self.assertEqual(issues, [])
+
+    def test_project_state_rejects_duplicate_keys_and_nested_yaml(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "PROJECT_STATE.yaml"
+            path.write_text(
+                (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
+                + "\nprogramme: arc-ai\n  unexpected: nested\n",
+                encoding="utf-8",
+            )
+            issues = []
+            load_project_state(Path(d), issues)
+            self.assertTrue(any("Duplicate PROJECT_STATE.yaml key" in x for x in issues))
+            self.assertTrue(any("Unsupported PROJECT_STATE.yaml syntax" in x for x in issues))
+
+    def test_project_state_detects_drift_without_modifying_sources(self):
+        issues = []
+        state = load_project_state(ROOT, issues)
+        meta = load_json(ROOT, "program.json", issues)
+        projects = load_json(ROOT, "portfolio/projects.json", issues)
+        papers = load_json(ROOT, "portfolio/papers.json", issues)
+        changed = {**state, "projects_registered": 8, "scientific_owner": "Incorrect"}
+        check_project_state(changed, meta, projects, papers, issues)
+        self.assertTrue(any("projects_registered disagrees" in x for x in issues))
+        self.assertTrue(any("scientific_owner disagrees" in x for x in issues))
+
+    def test_project_state_detects_invalid_date_and_public_catalog(self):
+        issues = []
+        state = load_project_state(ROOT, issues)
+        meta = load_json(ROOT, "program.json", issues)
+        projects = load_json(ROOT, "portfolio/projects.json", issues)
+        papers = load_json(ROOT, "portfolio/papers.json", issues)
+        changed = {**state, "updated": "2026-02-30", "public_catalog_status": "approved"}
+        check_project_state(changed, meta, projects, papers, issues)
+        self.assertTrue(any("updated must be an ISO date" in x for x in issues))
+        self.assertTrue(any("public_catalog_status contradicts" in x for x in issues))
 
     def test_license_metadata_is_consistent(self):
         meta = json.loads((ROOT / "program.json").read_text(encoding="utf-8"))
