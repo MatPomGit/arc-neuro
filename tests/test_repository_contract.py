@@ -33,7 +33,7 @@ class ARCContractTests(unittest.TestCase):
         license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
         citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
         self.assertEqual(meta["license_spdx"], "MIT")
-        self.assertTrue(license_text.startswith("MIT License\\n\\nCopyright (c) 2026 Mateusz Pomianek"))
+        self.assertTrue(license_text.startswith("MIT License\n\nCopyright (c) 2026 Mateusz Pomianek"))
         self.assertIn("Permission is hereby granted, free of charge", license_text)
         self.assertIn("THE SOFTWARE IS PROVIDED", license_text)
         self.assertIn("license: MIT", citation)
