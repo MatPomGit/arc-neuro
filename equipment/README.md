@@ -1,3 +1,3 @@
 # Kontrakty aparatury
 
-Źródło prawdy: prywatny Research Autopilot `catalog/equipment/`, `docs/equipment/`, `scripts/equipment_probes/`. Przechowuj jedynie `equipment_id`, źródłowy kontrakt, konfigurację badania i informację o zweryfikowanej metodzie. Nie przenoś numerów seryjnych ani całych kart do ARC. Osobny rejestr komputerów i sieci: `homeserver-infra/docs/infrastructure/network/`.
+ARC Neuro nie przechowuje pełnych kart urządzeń ani szczegółów infrastruktury pomiarowej. Dozwolone są wyłącznie zatwierdzone publicznie odniesienia do `equipment_id`, statusu walidacji i wersji kontraktu, jeśli nie ujawniają danych niepublicznych. Pełna dokumentacja aparatury pozostaje przy badaniach kanonicznych.
