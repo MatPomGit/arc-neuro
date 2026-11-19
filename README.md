@@ -41,3 +41,5 @@ Autorski kod i związana z nim dokumentacja tego repozytorium są udostępniane 
 Licencja nie obejmuje automatycznie zasobów zewnętrznych, połączonych repozytoriów, artykułów naukowych, danych uczestników ani materiałów osób trzecich. Takie zasoby podlegają odrębnym warunkom i zgodom. Publiczna dostępność informacji nie jest równoznaczna z prawem do ich dalszego wykorzystania.
 
 Plik `PROJECT_STATE.yaml` jest automatycznie sprawdzany pod względem zgodności właściciela, wersji, liczb projektów i artykułów oraz konfiguracji publikacji z rejestrami JSON. Dopuszczony format to prosty, jawny podzbiór YAML: pola skalarne i lista `known_blockers`, bez zagnieżdżonych obiektów.
+
+Publiczny katalog wymaga osobnej decyzji publikacyjnej w `portfolio/publication-approvals.json` z SHA-256 dokładnych metadanych i odnośnikiem do recenzji właściciela. Sama flaga `public_listing=true` nie wystarcza do publikacji. CI weryfikuje zgodność techniczną, ale nie zastępuje rzeczywistej recenzji GitHub.
