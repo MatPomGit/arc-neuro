@@ -15,20 +15,29 @@ jobs:
     if: ${{ github.repository == 'MatPomGit/arc-neuro' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      matrix:
+        revision: [head, merge]
     steps:
-      - name: Checkout isolated pull request
+      - name: Checkout isolated PR revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ matrix.revision == 'head' && github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
           fetch-depth: 1
           submodules: false
           lfs: false
-      - name: Verify repository and revision
+      - name: Verify exact checkout SHA
         shell: bash
+        env:
+          EXPECTED_SHA: ${{ matrix.revision == 'head' && github.event.pull_request.head.sha || github.sha }}
         run: |
           set -euo pipefail
           test "$GITHUB_REPOSITORY" = "MatPomGit/arc-neuro"
-          git rev-parse HEAD
+          actual="$(git rev-parse HEAD)"
+          printf 'Expected SHA: %s\nActual SHA: %s\n' "$EXPECTED_SHA" "$actual"
+          test "$actual" = "$EXPECTED_SHA"
           python3 --version
       - name: Validate ARC contract
         shell: bash

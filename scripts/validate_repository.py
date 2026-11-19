@@ -95,6 +95,11 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
     if meta.get("template_version") != "1.0.0":
         issues.append("Unexpected program template version")
     programme = meta.get("programme")
+    # This deployed arc-neuro repository is public; metadata cannot disable privacy checks.
+    if programme != "arc-neuro":
+        issues.append("ARC Neuro repository identity mismatch")
+    if meta.get("repository_visibility") != "public":
+        issues.append("ARC Neuro repository must remain public in metadata")
     if phase == "publish" and programme not in ALLOWED_PROGRAMMES:
         issues.append("Programme must be one of four approved ARC names")
     if meta.get("owner_of_raw_data") is not False or meta.get("public_catalog_policy") != "explicit_opt_in":
@@ -145,7 +150,7 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
             issues.append(f"Invalid visibility/public_listing: {ident}")
         # In a public programme repository, even non-listed private metadata
         # becomes visible to anonymous GitHub users.
-        if meta.get("repository_visibility") == "public" and p.get("visibility") != "public":
+        if p.get("visibility") != "public":
             issues.append(f"Private repository recorded in public ARC source: {ident}")
         if p.get("public_listing"):
             if p.get("visibility") != "public":

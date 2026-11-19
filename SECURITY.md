@@ -1,3 +1,5 @@
 # Bezpieczeństwo i uprawnienia
 
-Rejestry mogą zawierać odnośniki do prywatnych repozytoriów. Nie ujawniaj ich w GitHub Pages bez jawnego `public_listing=true` i osobnego przeglądu. Nie zapisuj tokenów, kluczy i surowych danych uczestników w Git, logach, plikach `.gitmodules` ani GitHub Pages. Dostęp do prywatnych submodułów zapewnia zatwierdzona integracja z kontrolą uprawnień; brak dostępu blokuje pełny audit-live. Nie uruchamiaj kodu obcego PR na stałych runnerach.
+Repozytorium ARC Neuro jest publiczne. Żaden plik źródłowy ani rejestr nie może zawierać nazw, adresów, identyfikatorów i SHA niepublicznych projektów, także gdy `public_listing=false`. W katalogu mogą znaleźć się tylko jawnie zatwierdzone metadane publicznych projektów.
+
+Nie zapisuj tokenów, kluczy, danych uczestników ani niepublicznych ścieżek w Git, plikach `.gitmodules`, logach i GitHub Pages. Publiczne CI korzysta z minimalnych uprawnień i nie uruchamia kodu ani nie pobiera danych niepublicznych źródeł. Zgoda na opublikowanie każdego wpisu wymaga udokumentowanego przeglądu.

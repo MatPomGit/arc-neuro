@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
-from validate_repository import validate, github_repo_url, safe_public_page_url
+from validate_repository import validate, github_repo_url, safe_public_page_url, load_json
 from build_public_catalog import render
 from check_freshness import inspect_project
 
@@ -84,6 +84,36 @@ class ARCContractTests(unittest.TestCase):
             )
             issues = validate(dst, "scaffold")
             self.assertTrue(any("Private repository recorded in public ARC" in x for x in issues))
+
+    def test_public_source_cannot_disable_privacy_gate(self):
+        for declared in ("private", None):
+            with self.subTest(declared_visibility=declared):
+                def tampered_load(root, relative, issues):
+                    data = load_json(root, relative, issues)
+                    if relative == "program.json":
+                        if declared is None:
+                            data.pop("repository_visibility", None)
+                        else:
+                            data["repository_visibility"] = declared
+                    if relative == "portfolio/projects.json":
+                        data["projects"] = [candidate()]
+                    return data
+
+                with patch("validate_repository.load_json", side_effect=tampered_load):
+                    issues = validate(ROOT, "scaffold")
+                self.assertTrue(any("ARC Neuro repository must remain public" in x for x in issues))
+                self.assertTrue(any("Private repository recorded in public ARC" in x for x in issues))
+
+    def test_public_programme_identity_is_fixed(self):
+        def tampered_load(root, relative, issues):
+            data = load_json(root, relative, issues)
+            if relative == "program.json":
+                data["programme"] = "arc-ai"
+            return data
+
+        with patch("validate_repository.load_json", side_effect=tampered_load):
+            issues = validate(ROOT, "scaffold")
+        self.assertIn("ARC Neuro repository identity mismatch", issues)
 
     def test_public_pages_urls_reject_markup_injection(self):
         self.assertTrue(safe_public_page_url("https://matpomgit.github.io/msc-example/"))

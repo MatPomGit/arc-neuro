@@ -15,4 +15,4 @@ known_blockers:
   - no_public_project_listings_approved
   - pages_publication_not_configured
   - licences_and_manuscript_ownership_require_review
-next_action: audit_primary_project_ownership_in_private_portfolio
+next_action: review_public_project_candidates_after_explicit_approval
