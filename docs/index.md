@@ -1,5 +1,7 @@
-# REPLACE_PROGRAM_NAME — otwarty katalog badań
+# ARC Neuro: katalog naukowy
 
-Ten portal przedstawia jawnie zatwierdzone projekty i publikacje programu ARC. Nie stanowi repozytorium danych uczestników, systemu rekrutacji ani potwierdzenia wyników. Pełna metodologia i stan dowodowy należą do kanonicznych repozytoriów projektów.
+Publiczny indeks programu badań nad poznaniem, emocjami, regulacją zachowania, neurorozwojem, relacjami społecznymi i psychometrią.
 
-[Publiczny katalog projektów](projects.md) · [Zakres programu](scientific-scope.md) · [Zasady publikacji](publication-policy.md) · [Otwarte dane i ochrona uczestników](data-policy.md)
+W [katalogu projektów](projects.md) znajdą się wyłącznie informacje jawnie zatwierdzone do publikacji. Aktualnie lista jest pusta. Sama strona GitHub Pages nie została jeszcze aktywowana.
+
+[Zakres](scientific-scope.md) · [Publikacje](publication-policy.md) · [Ochrona danych](data-policy.md) · [Zarządzanie](governance.md)

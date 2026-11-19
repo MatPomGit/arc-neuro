@@ -1,4 +1,25 @@
 {
   "schema_version": 1,
-  "lines": []
+  "lines": [
+    {
+      "id": "ndd",
+      "title": "Neurorozwój i neuroróżnorodność"
+    },
+    {
+      "id": "affect",
+      "title": "Afekt, regulacja emocji i stres"
+    },
+    {
+      "id": "cognition",
+      "title": "Poznanie, pamięć, uwaga i relacje człowiek-AI"
+    },
+    {
+      "id": "social",
+      "title": "Relacje, przywiązanie i zachowania społeczne"
+    },
+    {
+      "id": "psychometrics",
+      "title": "Psychometria i metody pomiarowe"
+    }
+  ]
 }

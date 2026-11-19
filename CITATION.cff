@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "Cytuj konkretną wersję programu; współautorów dodawaj po potwierdzeniu ich wkładu."
-title: "ARC REPLACE PROGRAM — TEMPLATE"
+message: "Cytuj konkretny projekt i wersję programu; publikacje naukowe mają własne metadane."
+title: "ARC Neuro: research programme index"
 type: software
 authors:
   - family-names: "Pomianek"
