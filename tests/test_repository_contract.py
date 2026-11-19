@@ -40,8 +40,8 @@ class ARCContractTests(unittest.TestCase):
 
     def test_unconfigured_publish_is_blocked(self):
         issues=validate(ROOT,"publish")
-        self.assertTrue(issues)
-        self.assertTrue(any("Programme" in x or "program" in x for x in issues))
+        self.assertIn("Program publishing requires at least one project and research line", issues)
+        self.assertIn("No reviewed public Pages configuration", issues)
 
     def test_github_url_forbids_token_and_untrusted_host(self):
         self.assertTrue(github_repo_url("MatPomGit/example","https://github.com/MatPomGit/example"))
