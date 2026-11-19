@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 from project_state import load_project_state, check_project_state
+from public_approvals import check_publication_approvals, strict_json_loads
 
 ALLOWED_PROGRAMMES = frozenset(("arc-neuro", "arc-ai", "arc-xr", "arc-robo"))
 ALLOWED_ROLES = frozenset(("primary", "related"))
@@ -24,13 +25,14 @@ REQUIRED = (
     "LICENSE", "CITATION.cff", "VERSION", "mkdocs.yml",
     "program.json", "areas/index.json", "areas/README.md",
     "portfolio/projects.json", "portfolio/papers.json",
-    "portfolio/dependencies.json", "portfolio/README.md",
+    "portfolio/dependencies.json", "portfolio/publication-approvals.json", "portfolio/README.md",
     "equipment/README.md", "software/README.md",
     "docs/index.md", "docs/projects.md", "docs/scientific-scope.md",
     "docs/publication-policy.md", "docs/data-policy.md", "docs/governance.md",
     "docs/submodules.md", "docs/pages.md", "docs/decisions.md",
-    "scripts/validate_repository.py", "scripts/project_state.py", "scripts/bootstrap.py",
-    "scripts/build_public_catalog.py", "tests/test_repository_contract.py",
+    "scripts/validate_repository.py", "scripts/project_state.py", "scripts/public_approvals.py", "scripts/bootstrap.py",
+    "scripts/build_public_catalog.py", "scripts/verify_public_reviews.py",
+    "tests/test_repository_contract.py",
 )
 IDENTIFIER = re.compile(r"^[a-z][a-z0-9-]{2,63}$")
 SHA40 = re.compile(r"^[0-9a-f]{40}$")
@@ -64,7 +66,7 @@ def safe_public_page_url(url: object) -> bool:
 def load_json(root: Path, relative: str, issues: list[str]):
     p = root / relative
     try:
-        data = json.loads(p.read_text(encoding="utf-8"))
+        data = strict_json_loads(p.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         issues.append(f"Invalid JSON in {relative}: {type(exc).__name__}")
         return {}
@@ -133,6 +135,7 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
             issues.append(f"Missing line title: {line['id']}")
 
     registered_projects = projects.get("projects", []) if isinstance(projects.get("projects"), list) else []
+    check_publication_approvals(root, registered_projects, issues)
     for p in registered_projects:
         if not isinstance(p, dict):
             issues.append("Invalid project record type"); continue

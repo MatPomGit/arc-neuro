@@ -1,0 +1,7 @@
+# Review routing for public research metadata and associated controls.
+# CODEOWNERS requests review; enforcement additionally requires an active GitHub ruleset.
+* @MatPomGit
+/portfolio/ @MatPomGit
+/docs/ @MatPomGit
+/scripts/ @MatPomGit
+/.github/ @MatPomGit

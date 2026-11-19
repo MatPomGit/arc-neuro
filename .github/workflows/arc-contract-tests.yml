@@ -45,6 +45,9 @@ jobs:
       - name: Run offline unit tests
         shell: bash
         run: python3 -B -m unittest discover -s tests -v
+      - name: Verify public GitHub review evidence
+        shell: bash
+        run: python3 -B scripts/verify_public_reviews.py
       - name: Check public catalog is deterministic
         shell: bash
         run: |

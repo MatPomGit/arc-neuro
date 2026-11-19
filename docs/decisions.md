@@ -10,4 +10,6 @@ Poniższe decyzje opisują aktualną konfigurację repozytorium. Nie stanowią a
 | 2026-11-19 | GitHub Pages pozostaje nieaktywne | Wdrożenie wymaga osobnej zgody i przeglądu zawartości | Właściciel naukowy |
 | 2026-11-19 | Liczniki i metadane stanu muszą być zgodne z rejestrami | Odrębne pliki JSON i YAML mogą się rozjechać podczas dalszych zmian | Utrzymujący repozytorium |
 
+| 2026-11-19 | Publiczny wpis wymaga odrębnego zatwierdzenia i zgodnego SHA-256 metadanych | Flaga `public_listing` nie jest dowodem decyzji właściciela | Właściciel naukowy |
+
 Aktualny stan wdrożenia znajduje się w `PROJECT_STATE.yaml`; dowodem wykonania testów są wyniki CI na konkretnym SHA.

@@ -5,6 +5,7 @@ import re
 import sys
 from pathlib import Path
 from validate_repository import safe_public_page_url
+from public_approvals import load_publication_approvals, is_approved_project, strict_json_loads
 
 
 def safe_text(text:str)->str:
@@ -12,10 +13,11 @@ def safe_text(text:str)->str:
 
 
 def render(root:Path)->str:
-    source=json.loads((root/"portfolio/projects.json").read_text(encoding="utf-8"))
+    source=strict_json_loads((root/"portfolio/projects.json").read_text(encoding="utf-8"))
     if not isinstance(source, dict) or not isinstance(source.get("projects"), list):
         raise ValueError("portfolio/projects.json requires an object with projects array")
     projects=source["projects"]
+    approvals=load_publication_approvals(root)
     public=[]
     for p in projects:
         if not isinstance(p, dict):
@@ -23,7 +25,7 @@ def render(root:Path)->str:
         if p.get("visibility")!="public" or p.get("public_listing") is not True:
             continue
         url=p.get("pages_url")
-        if not safe_public_page_url(url):
+        if not safe_public_page_url(url) or not is_approved_project(p, approvals):
             continue
         public.append((safe_text(str(p.get("title","Projekt"))),url))
     lines=["# Publiczne projekty", "", "Ten katalog obejmuje wyłącznie projekty zatwierdzone do publikacji przez właściciela.",""]
@@ -46,7 +48,7 @@ def main(argv:list[str]|None=None)->int:
         print(f"FAIL: invalid project catalog source ({type(exc).__name__})", file=sys.stderr)
         return 1
     path.write_text(rendered,encoding="utf-8")
-    print("Public project catalog generated; private projects excluded")
+    print("Public project catalog generated; unapproved entries excluded")
     return 0
 
 if __name__=="__main__": sys.exit(main())
