@@ -31,7 +31,8 @@ REQUIRED = (
     "docs/publication-policy.md", "docs/data-policy.md", "docs/governance.md",
     "docs/submodules.md", "docs/pages.md", "docs/decisions.md",
     "scripts/validate_repository.py", "scripts/project_state.py", "scripts/public_approvals.py", "scripts/bootstrap.py",
-    "scripts/build_public_catalog.py", "tests/test_repository_contract.py",
+    "scripts/build_public_catalog.py", "scripts/verify_public_reviews.py",
+    "tests/test_repository_contract.py",
 )
 IDENTIFIER = re.compile(r"^[a-z][a-z0-9-]{2,63}$")
 SHA40 = re.compile(r"^[0-9a-f]{40}$")

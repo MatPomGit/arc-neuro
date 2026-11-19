@@ -14,6 +14,7 @@ from validate_repository import validate, github_repo_url, safe_public_page_url,
 from build_public_catalog import render
 from check_freshness import inspect_project
 from project_state import load_project_state, check_project_state
+from verify_public_reviews import verify_public_reviews
 from public_approvals import project_digest, load_publication_approvals, is_approved_project, same_repo_github_pages, check_publication_approvals, strict_json_loads
 
 
@@ -236,6 +237,53 @@ class ARCContractTests(unittest.TestCase):
         project = {**self.synthetic_public_project(),
                    "pages_url": "https://matpomgit.github.io/msc-example/other/"}
         self.assertFalse(same_repo_github_pages(project))
+
+    def test_no_review_lookup_for_empty_approval_registry(self):
+        def forbidden_fetch(*args):
+            self.fail("Empty approvals must not trigger network activity")
+        self.assertEqual(verify_public_reviews(ROOT, fetcher=forbidden_fetch), [])
+
+    def test_real_review_evidence_structure_can_be_verified_offline(self):
+        project = self.synthetic_public_project()
+        approval = self.synthetic_approval(project)
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "portfolio").mkdir()
+            (root / "portfolio/projects.json").write_text(
+                json.dumps({"projects": [project]}), encoding="utf-8",
+            )
+            (root / "portfolio/publication-approvals.json").write_text(
+                json.dumps({"schema_version": 1, "approvals": [approval]}),
+                encoding="utf-8",
+            )
+            evidence = {
+                "id": 456,
+                "html_url": approval["review_url"],
+                "user": {"login": "MatPomGit"},
+                "state": "COMMENTED",
+                "body": (
+                    "APPROVE_PUBLIC_LISTING msc-example "
+                    f"sha256:{approval['project_sha256']}"
+                ),
+                "submitted_at": "2026-11-19T21:00:00Z",
+            }
+            self.assertEqual(
+                verify_public_reviews(root, fetcher=lambda pr, rid: evidence), [],
+            )
+            for name, bad in (
+                ("wrong_reviewer", {**evidence, "user": {"login": "another-user"}}),
+                ("wrong_digest", {**evidence, "body": "APPROVE_PUBLIC_LISTING msc-example sha256:bad"}),
+                ("wrong_review_id", {**evidence, "id": 42}),
+                ("dismissed", {**evidence, "state": "DISMISSED"}),
+                ("wrong_date", {**evidence, "submitted_at": "2026-11-18T21:00:00Z"}),
+            ):
+                with self.subTest(case=name):
+                    self.assertTrue(
+                        verify_public_reviews(root, fetcher=lambda pr, rid: bad),
+                    )
+            self.assertTrue(
+                verify_public_reviews(root, fetcher=lambda pr, rid: (_ for _ in ()).throw(OSError("offline"))),
+            )
 
     def test_duplicate_project_ids_blocked(self):
         with tempfile.TemporaryDirectory() as d:
