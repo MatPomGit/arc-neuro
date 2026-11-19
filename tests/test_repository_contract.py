@@ -66,6 +66,25 @@ class ARCContractTests(unittest.TestCase):
             (dst/"portfolio/projects.json").write_text(json.dumps({"projects":[candidate(),candidate()]}),encoding="utf-8")
             self.assertTrue(any("duplicate project" in x.lower() for x in validate(dst,"scaffold")))
 
+    def test_public_source_rejects_unlisted_private_repo(self):
+        with tempfile.TemporaryDirectory() as d:
+            import shutil
+            dst = Path(d)
+            for file in ROOT.rglob("*"):
+                if file.is_file() and "__pycache__" not in file.parts:
+                    copy_to = dst / file.relative_to(ROOT)
+                    copy_to.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(file, copy_to)
+            (dst / "areas/index.json").write_text(
+                json.dumps({"lines": [{"id": "ndd", "title": "Neurodiversity"}]}),
+                encoding="utf-8",
+            )
+            (dst / "portfolio/projects.json").write_text(
+                json.dumps({"projects": [candidate()]}), encoding="utf-8",
+            )
+            issues = validate(dst, "scaffold")
+            self.assertTrue(any("Private repository recorded in public ARC" in x for x in issues))
+
     def test_public_pages_urls_reject_markup_injection(self):
         self.assertTrue(safe_public_page_url("https://matpomgit.github.io/msc-example/"))
         self.assertFalse(safe_public_page_url("https://host.example/)[malicious](x"))

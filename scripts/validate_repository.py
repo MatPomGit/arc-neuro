@@ -143,6 +143,10 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
             issues.append(f"Project references unknown research line: {ident}")
         if p.get("visibility") not in ALLOWED_VISIBILITY or not isinstance(p.get("public_listing"), bool):
             issues.append(f"Invalid visibility/public_listing: {ident}")
+        # In a public programme repository, even non-listed private metadata
+        # becomes visible to anonymous GitHub users.
+        if meta.get("repository_visibility") == "public" and p.get("visibility") != "public":
+            issues.append(f"Private repository recorded in public ARC source: {ident}")
         if p.get("public_listing"):
             if p.get("visibility") != "public":
                 issues.append(f"Private project marked for public listing: {ident}")
