@@ -1,0 +1,44 @@
+name: ARC offline contract tests
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: arc-contract-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  contract:
+    if: ${{ github.repository == 'MatPomGit/arc-neuro' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - name: Checkout isolated pull request
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+      - name: Verify repository and revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = "MatPomGit/arc-neuro"
+          git rev-parse HEAD
+          python3 --version
+      - name: Validate ARC contract
+        shell: bash
+        run: python3 -B scripts/validate_repository.py --phase scaffold
+      - name: Run offline unit tests
+        shell: bash
+        run: python3 -B -m unittest discover -s tests -v
+      - name: Check public catalog is deterministic
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B scripts/build_public_catalog.py
+          git diff --exit-code -- docs/projects.md
