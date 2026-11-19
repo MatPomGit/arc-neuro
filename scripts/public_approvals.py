@@ -99,7 +99,10 @@ def is_approved_project(project: dict, approvals: dict[str, dict]) -> bool:
         return False
     if not same_repo_github_pages(project):
         return False
-    record = approvals.get(project.get("id"))
+    ident = project.get("id")
+    if not isinstance(ident, str):
+        return False
+    record = approvals.get(ident)
     return (
         isinstance(record, dict)
         and record.get("project_sha256") == project_digest(project)
