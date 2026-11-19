@@ -5,7 +5,7 @@ import re
 import sys
 from pathlib import Path
 from validate_repository import safe_public_page_url
-from public_approvals import load_publication_approvals, is_approved_project
+from public_approvals import load_publication_approvals, is_approved_project, strict_json_loads
 
 
 def safe_text(text:str)->str:
@@ -13,7 +13,7 @@ def safe_text(text:str)->str:
 
 
 def render(root:Path)->str:
-    source=json.loads((root/"portfolio/projects.json").read_text(encoding="utf-8"))
+    source=strict_json_loads((root/"portfolio/projects.json").read_text(encoding="utf-8"))
     if not isinstance(source, dict) or not isinstance(source.get("projects"), list):
         raise ValueError("portfolio/projects.json requires an object with projects array")
     projects=source["projects"]

@@ -22,6 +22,27 @@ FIELDS = {"project_id", "project_sha256", "review_url", "reviewed_by", "approved
 OWNER = "MatPomGit"
 
 
+def _unique_object(pairs: list[tuple[str, object]]) -> dict:
+    obj = {}
+    for key, value in pairs:
+        if key in obj:
+            raise ValueError("Duplicate JSON key")
+        obj[key] = value
+    return obj
+
+
+def _reject_nonfinite(value: str):
+    raise ValueError("Non-finite JSON value")
+
+
+def strict_json_loads(source: str):
+    """Reject ambiguous duplicate keys and non-standard NaN/Infinity values."""
+    return json.loads(
+        source, object_pairs_hook=_unique_object,
+        parse_constant=_reject_nonfinite,
+    )
+
+
 def project_digest(project: dict) -> str:
     serialized = json.dumps(
         project, ensure_ascii=False, sort_keys=True, allow_nan=False,
@@ -34,7 +55,7 @@ def load_publication_approvals(root: Path) -> dict[str, dict]:
     """Invalid/missing manifests fail closed, including duplicate entries."""
     path = root / "portfolio/publication-approvals.json"
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
+        data = strict_json_loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, ValueError) as exc:
         raise ValueError("Cannot read public approval registry") from exc
     if not isinstance(data, dict) or set(data) != {"schema_version", "approvals"}:
@@ -87,7 +108,7 @@ def same_repo_github_pages(project: dict) -> bool:
             and page.hostname == f"{owner.lower()}.github.io"
             and page.username is None and page.password is None
             and page.port is None and not page.query and not page.fragment
-            and page.path.startswith(f"/{name}/")
+            and page.path == f"/{name}/"
             and not any(c.isspace() or c in "<>[]()\\" for c in url)
         )
     except ValueError:
@@ -103,9 +124,14 @@ def is_approved_project(project: dict, approvals: dict[str, dict]) -> bool:
     if not isinstance(ident, str):
         return False
     record = approvals.get(ident)
+    if not isinstance(record, dict):
+        return False
+    try:
+        digest = project_digest(project)
+    except (TypeError, ValueError, OverflowError):
+        return False
     return (
-        isinstance(record, dict)
-        and record.get("project_sha256") == project_digest(project)
+        record.get("project_sha256") == digest
         and record.get("reviewed_by") == OWNER
         and isinstance(record.get("review_url"), str)
         and bool(REVIEW_URL.fullmatch(record["review_url"]))

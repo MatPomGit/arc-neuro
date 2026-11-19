@@ -14,7 +14,7 @@ from validate_repository import validate, github_repo_url, safe_public_page_url,
 from build_public_catalog import render
 from check_freshness import inspect_project
 from project_state import load_project_state, check_project_state
-from public_approvals import project_digest, load_publication_approvals, is_approved_project, same_repo_github_pages, check_publication_approvals
+from public_approvals import project_digest, load_publication_approvals, is_approved_project, same_repo_github_pages, check_publication_approvals, strict_json_loads
 
 
 def candidate():
@@ -201,6 +201,41 @@ class ARCContractTests(unittest.TestCase):
 
     def test_public_approvals_registry_is_initially_empty(self):
         self.assertEqual(load_publication_approvals(ROOT), {})
+
+    def test_ambiguous_json_keys_and_nonfinite_numbers_fail_closed(self):
+        for text in ('{"id":1,"id":2}', '{"value":NaN}', '{"value":Infinity}'):
+            with self.subTest(text=text):
+                with self.assertRaises(ValueError):
+                    strict_json_loads(text)
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "bad.json").write_text('{"projects":[],"projects":[]}', encoding="utf-8")
+            issues = []
+            self.assertEqual(load_json(root, "bad.json", issues), {})
+            self.assertTrue(any("Invalid JSON" in issue for issue in issues))
+
+    def test_manifest_duplicate_keys_are_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "portfolio").mkdir()
+            target = root / "portfolio/publication-approvals.json"
+            target.write_text(
+                '{"schema_version":1,"approvals":[],"approvals":[]}', encoding="utf-8",
+            )
+            with self.assertRaises(ValueError):
+                load_publication_approvals(root)
+
+    def test_nonfinite_metadata_does_not_throw_from_approval_predicate(self):
+        record = {**self.synthetic_public_project(), "title": float("nan")}
+        approval = {"project_sha256": "a" * 64, "review_url": (
+            "https://github.com/MatPomGit/arc-neuro/pull/123#pullrequestreview-456"
+        ), "reviewed_by": "MatPomGit"}
+        self.assertFalse(is_approved_project(record, {record["id"]: approval}))
+
+    def test_project_pages_link_must_be_canonical_root(self):
+        project = {**self.synthetic_public_project(),
+                   "pages_url": "https://matpomgit.github.io/msc-example/other/"}
+        self.assertFalse(same_repo_github_pages(project))
 
     def test_duplicate_project_ids_blocked(self):
         with tempfile.TemporaryDirectory() as d:

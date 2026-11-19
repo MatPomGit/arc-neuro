@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 from project_state import load_project_state, check_project_state
-from public_approvals import check_publication_approvals
+from public_approvals import check_publication_approvals, strict_json_loads
 
 ALLOWED_PROGRAMMES = frozenset(("arc-neuro", "arc-ai", "arc-xr", "arc-robo"))
 ALLOWED_ROLES = frozenset(("primary", "related"))
@@ -65,7 +65,7 @@ def safe_public_page_url(url: object) -> bool:
 def load_json(root: Path, relative: str, issues: list[str]):
     p = root / relative
     try:
-        data = json.loads(p.read_text(encoding="utf-8"))
+        data = strict_json_loads(p.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         issues.append(f"Invalid JSON in {relative}: {type(exc).__name__}")
         return {}
