@@ -7,6 +7,6 @@
 
 Przypisanie wersji: `program commit -> project snapshot SHA -> manuscript source -> app/lib version@SHA -> equipment_id/contract_version -> dataset manifest/checksum -> wynik/DOI`.
 
-`STALE` oznacza tylko nowszy zdalny commit; to nie dowodzi błędu ani nieważności historycznego eksperymentu. `UNAVAILABLE` oznacza brak podstaw do pełnego aktualnego audytu. Automatyzacja może zgłosić PR aktualizacyjny po testach, ale nie przepina samodzielnie danych z trwającego eksperymentu.
+`STALE` oznacza tylko nowszy zdalny commit; to nie dowodzi błędu ani nieważności historycznego eksperymentu. `UNAVAILABLE` oznacza brak podstaw do pełnego aktualnego audytu. Aktualizacja przypiętych SHA wymaga osobnego, przetestowanego i zatwierdzonego PR; migawki trwającego eksperymentu pozostają niezmienione.
 
 Dla programów otwartych publikuj wyłącznie przefiltrowany katalog i publiczne informacje. GitHub Pages nie służy do gromadzenia danych od uczestników.
