@@ -28,6 +28,16 @@ class ARCContractTests(unittest.TestCase):
     def test_scaffold_passes(self):
         self.assertEqual(validate(ROOT,"scaffold"),[])
 
+    def test_license_metadata_is_consistent(self):
+        meta = json.loads((ROOT / "program.json").read_text(encoding="utf-8"))
+        license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+        citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+        self.assertEqual(meta["license_spdx"], "MIT")
+        self.assertTrue(license_text.startswith("MIT License\\n\\nCopyright (c) 2026 Mateusz Pomianek"))
+        self.assertIn("Permission is hereby granted, free of charge", license_text)
+        self.assertIn("THE SOFTWARE IS PROVIDED", license_text)
+        self.assertIn("license: MIT", citation)
+
     def test_unconfigured_publish_is_blocked(self):
         issues=validate(ROOT,"publish")
         self.assertTrue(issues)

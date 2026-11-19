@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "Cytuj konkretny projekt i wersję programu; publikacje naukowe mają własne metadane."
 title: "ARC Neuro: research programme index"
 type: software
+license: MIT
 authors:
   - family-names: "Pomianek"
     given-names: "Mateusz"
