@@ -8,6 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
+from project_state import load_project_state, check_project_state
 
 ALLOWED_PROGRAMMES = frozenset(("arc-neuro", "arc-ai", "arc-xr", "arc-robo"))
 ALLOWED_ROLES = frozenset(("primary", "related"))
@@ -28,7 +29,7 @@ REQUIRED = (
     "docs/index.md", "docs/projects.md", "docs/scientific-scope.md",
     "docs/publication-policy.md", "docs/data-policy.md", "docs/governance.md",
     "docs/submodules.md", "docs/pages.md", "docs/decisions.md",
-    "scripts/validate_repository.py", "scripts/bootstrap.py",
+    "scripts/validate_repository.py", "scripts/project_state.py", "scripts/bootstrap.py",
     "scripts/build_public_catalog.py", "tests/test_repository_contract.py",
 )
 IDENTIFIER = re.compile(r"^[a-z][a-z0-9-]{2,63}$")
@@ -94,6 +95,8 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
     projects = load_json(root, "portfolio/projects.json", issues)
     papers = load_json(root, "portfolio/papers.json", issues)
     dependencies = load_json(root, "portfolio/dependencies.json", issues)
+    state = load_project_state(root, issues)
+    check_project_state(state, meta, projects, papers, issues)
     if meta.get("schema_version") != 1 or meta.get("type") != "arc-program":
         issues.append("Invalid program.json schema_version/type")
     if meta.get("template_version") != "1.0.0":
