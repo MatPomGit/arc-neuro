@@ -41,7 +41,7 @@ def render(root:Path)->str:
 
 def main(argv:list[str]|None=None)->int:
     root=Path(__file__).resolve().parents[1]
-    path=root/"docs/projects.md"
+    path=root/"pages/projects.md"
     try:
         rendered=render(root)
     except (OSError, ValueError) as exc:

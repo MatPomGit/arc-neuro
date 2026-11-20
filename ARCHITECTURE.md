@@ -21,3 +21,12 @@ ARC (strategia, rejestry, publiczny katalog)
 **Dwa widoki SHA:** `snapshot_sha` służy do odtwarzania i wersjonowania indeksu; `remote_head_sha` jest odczytywany na żywo przez narzędzie audytu i nie zastępuje automatycznie snapshotu. Nie porównywać daty `README.md` z rzeczywistym stanem zdalnego repo.
 
 **Sprzęt:** indeks zawiera wyłącznie zatwierdzone `equipment_id`, `contract_path` i `validation_status`. Pełne kontrakty aparatury pozostają przy badaniach kanonicznych. Nie utożsamiać standardowego Quest 3 z urządzeniem do śledzenia wzroku.
+
+
+## Warstwy wykonawcze i decyzje
+
+Własność programowa nie upoważnia do dostępu do danych badań ani wykonywania skryptów z repozytoriów podrzędnych. Publiczne metadane podlegają [przepływowi zatwierdzeń](docs/architecture/data-flow.md), a rozdział na `msc`, `app` i `lib` opisują [granice komponentów](docs/architecture/portfolio-boundaries.md).
+
+Szczegóły techniczne: [reprodukowalność](docs/architecture/reproducibility.md), [model zagrożeń](docs/security/threat-model.md), [rejestr ADR](docs/adr/README.md). Niezależny standard [Issues](docs/issues.md) wspiera planowanie pracy, lecz nie tworzy nowego kontrolera.
+
+**Rozdział prezentacji:** `docs/` to materiał roboczy, `pages/` to jawnie wybrana publiczna projekcja. Generowany indeks zapisuje się wyłącznie w `pages/projects.md`, nigdy przez automatyczny eksport `docs/`. Konfiguracja publikacji nadal wymaga zatwierdzenia właściciela.

@@ -10,6 +10,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 from project_state import load_project_state, check_project_state
 from public_approvals import check_publication_approvals, strict_json_loads
+from validate_documentation import check_documentation
+from validate_pages import check_pages
+from validate_issues import check_issues
 
 ALLOWED_PROGRAMMES = frozenset(("arc-neuro", "arc-ai", "arc-xr", "arc-robo"))
 ALLOWED_ROLES = frozenset(("primary", "related"))
@@ -18,21 +21,37 @@ ALLOWED_STAGES = frozenset(("concept", "protocol", "preregistered", "collection"
 ALLOWED_STATUSES = frozenset(("planned", "active", "paused", "archived"))
 REQUIRED = (
     ".gitignore", ".gitattributes", ".github/ACTIONS_POLICY.md",
-    ".github/PULL_REQUEST_TEMPLATE.md", ".github/ISSUE_TEMPLATE/portfolio-task.md",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/ISSUE_TEMPLATE/01-task.yml", ".github/ISSUE_TEMPLATE/02-bug.yml",
+    ".github/ISSUE_TEMPLATE/03-experiment.yml", ".github/ISSUE_TEMPLATE/04-manuscript.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
     "README.md", "TEMPLATE_SETUP.md", "AGENTS.md", "ARCHITECTURE.md",
     "RESEARCH.md", "REPRODUCIBILITY.md", "PROJECT_STATE.yaml",
-    "ROADMAP.md", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md",
+    "ROADMAP.md", "CHANGELOG.md", "SECURITY.md",
+    "CODE_OF_CONDUCT.md", "GOVERNANCE.md", "SUPPORT.md",
+    ".github/AGENT_WORKFLOW.md",
     "LICENSE", "CITATION.cff", "VERSION", "mkdocs.yml",
     "program.json", "areas/index.json", "areas/README.md",
     "portfolio/projects.json", "portfolio/papers.json",
     "portfolio/dependencies.json", "portfolio/publication-approvals.json", "portfolio/README.md",
     "equipment/README.md", "software/README.md",
-    "docs/index.md", "docs/projects.md", "docs/scientific-scope.md",
+    "docs/index.md", "pages/index.md", "pages/projects.md", "docs/scientific-scope.md",
     "docs/publication-policy.md", "docs/data-policy.md", "docs/governance.md",
     "docs/submodules.md", "docs/pages.md", "docs/decisions.md",
+    "docs/issues.md", "docs/documentation.md", "docs/releases.md",
+    "docs/architecture/README.md", "docs/architecture/portfolio-boundaries.md",
+    "docs/architecture/data-flow.md", "docs/architecture/reproducibility.md",
+    "docs/security/threat-model.md", "docs/security/incident-response.md",
+    "docs/operations/runbook.md", "docs/adr/README.md",
+    "docs/adr/0001-ownership-boundaries.md", "docs/adr/0002-publication-boundaries.md",
+    "docs/adr/0003-issue-autonomy-boundaries.md", "config/documentation-policy.json",
+    "config/pages-policy.json", "config/issues-policy.json",
     "scripts/validate_repository.py", "scripts/project_state.py", "scripts/public_approvals.py", "scripts/bootstrap.py",
     "scripts/build_public_catalog.py", "scripts/verify_public_reviews.py",
+    "scripts/validate_documentation.py", "scripts/validate_pages.py", "scripts/validate_issues.py",
     "tests/test_repository_contract.py",
+    "tests/test_issues_policy.py", "tests/test_pages_policy.py",
+    "tests/test_documentation_policy.py",
 )
 IDENTIFIER = re.compile(r"^[a-z][a-z0-9-]{2,63}$")
 SHA40 = re.compile(r"^[0-9a-f]{40}$")
@@ -87,6 +106,10 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
     issues: list[str] = []
     if not root.is_dir():
         return ["Missing repository root"]
+    if (root / "CONTRIBUTING.md").exists():
+        issues.append("Forbidden contribution guide: CONTRIBUTING.md")
+    if (root / ".github/ISSUE_TEMPLATE/portfolio-task.md").exists():
+        issues.append("Deprecated Issues template: portfolio-task.md")
     for rel in REQUIRED:
         f = root / rel
         if not f.is_file() or f.is_symlink() or not f.read_bytes().strip():
@@ -252,6 +275,9 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
             if file.is_file() and ("REPLACE" in file.read_text(encoding="utf-8") or "NOT CONFIGURED" in file.read_text(encoding="utf-8")):
                 issues.append(f"Unresolved template text: {f}")
 
+    issues.extend(check_documentation(root))
+    issues.extend(check_pages(root))
+    issues.extend(check_issues(root))
     return sorted(set(issues))
 
 
