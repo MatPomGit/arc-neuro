@@ -16,7 +16,7 @@ Identyfikatory i pełne nazwy określa [`areas/index.json`](areas/index.json). N
 
 ## Propozycje nowych badań
 
-Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł ARC-NEURO-AAL-P03: pamięć prospektywna w zadaniach domowych](docs/research-proposals-2026.md). To hipoteza do oceny i przygotowania eksperymentu, **nie wpis w publicznym katalogu zatwierdzonych artykułów**.
+Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł MSC-AAL-P08: pamięć prospektywna w zadaniach domowych](docs/research-proposals-2026.md). To hipoteza do oceny i przygotowania eksperymentu, **nie wpis w publicznym katalogu zatwierdzonych artykułów**.
 
 ## Rejestr badań i otwarta nauka
 
