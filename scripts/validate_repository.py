@@ -50,6 +50,8 @@ REQUIRED = (
     "scripts/build_public_catalog.py", "scripts/verify_public_reviews.py",
     "scripts/validate_documentation.py", "scripts/validate_pages.py", "scripts/validate_issues.py",
     "tests/test_repository_contract.py",
+    "tests/test_issues_policy.py", "tests/test_pages_policy.py",
+    "tests/test_documentation_policy.py",
 )
 IDENTIFIER = re.compile(r"^[a-z][a-z0-9-]{2,63}$")
 SHA40 = re.compile(r"^[0-9a-f]{40}$")
