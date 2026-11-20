@@ -18,6 +18,10 @@ Identyfikatory i pełne nazwy określa [`areas/index.json`](areas/index.json). N
 
 Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł MSC-AAL-P08: pamięć prospektywna w zadaniach domowych](docs/research-proposals-2026.md). To hipoteza do oceny i przygotowania eksperymentu, **nie wpis w publicznym katalogu zatwierdzonych artykułów**.
 
+## Katalogi robocze artykułów
+
+W folderze [`papers/`](papers/README.md) znajduje się **63 neutralnych katalogów organizacyjnych**, przypisanych do pięciu linii ARC Neuro. Ich powiązanie z identyfikatorami manuskryptów MSC jest przechowywane wyłącznie w prywatnym Research Autopilot. Foldery nie stanowią zgody na publiczne ujawnienie planów, wyników lub metadanych projektów.
+
 ## Rejestr badań i otwarta nauka
 
 Rejestry [projektów](portfolio/projects.json), [artykułów](portfolio/papers.json) i [zależności](portfolio/dependencies.json) zawierają wyłącznie informacje indywidualnie zatwierdzone do publicznego indeksowania. Aktualnie pozostają puste; nie oznacza to braku prowadzonych badań.
