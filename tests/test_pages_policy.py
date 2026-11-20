@@ -104,6 +104,15 @@ class PagesPolicyTests(unittest.TestCase):
         self.assertNotIn("pages:write", text)
 
 
+    def test_pages_deployment_is_manual_only(self):
+        workflow = (ROOT / ".github/workflows/pages-publish.yml").read_text(encoding="utf-8")
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertNotIn("\\n  push:", workflow)
+        self.assertNotIn("\\n  pull_request:", workflow)
+        self.assertIn("inputs.publication_authorized == true", workflow)
+        self.assertIn("github.ref == 'refs/heads/main'", workflow)
+        self.assertIn("scripts/verify_site_output.py site", workflow)
+
     def test_public_project_catalog_is_separate(self):
         self.assertTrue((ROOT / "pages/projects.md").is_file())
         self.assertFalse((ROOT / "docs/projects.md").exists())
