@@ -53,4 +53,4 @@ jobs:
         run: |
           set -euo pipefail
           python3 -B scripts/build_public_catalog.py
-          git diff --exit-code -- docs/projects.md
+          git diff --exit-code -- pages/projects.md

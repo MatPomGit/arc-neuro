@@ -21,3 +21,6 @@ W przypadku GitHub Pages akceptowany jest kanoniczny **adres główny** projektu
 Przy każdym zatwierdzeniu projektu recenzja GitHub właściciela musi mieć treść dokładnie `APPROVE_PUBLIC_LISTING <project_id> sha256:<64_znaki_szestnastkowe>` (bez dodatkowych słów; identyfikator i skrót odpowiadają metadanym). Powinna wskazywać stan `COMMENTED` lub `APPROVED`, być dostępna publicznie i mieć datę zgodną z rejestrem. Pole `review_url` ma wskazywać samą recenzję PR, nie ogólny adres repozytorium.
 
 Skrypt `scripts/verify_public_reviews.py` odpytuje publiczne API GitHub bez tokenów, weryfikuje identyfikator, adres, autora, treść, stan i datę recenzji. Jeśli recenzja nie istnieje albo API jest niedostępne, kontrola blokuje walidację. Gdy rejestr jest pusty, nie wykonuje żądań sieciowych. Nadal trzeba zweryfikować, czy projekt źródłowy jest rzeczywiście publiczny, czy właściciel ma prawo do ujawnienia treści i czy reguły gałęzi nie pozwalają omijać wymaganych kontroli.
+
+
+**Źródła publicznej strony:** wyłącznie `pages/` z `config/pages-policy.json`; generator indeksu zapisuje `pages/projects.md`. `docs/`, `papers/` i `portfolio/` nie są bezpośrednimi źródłami stron. Publikację plików i metadanych autoryzuje się oddzielnie od zaakceptowania kodu. Szczegóły: [Pages](pages.md) i [ADR-0002](adr/0002-publication-boundaries.md).

@@ -51,3 +51,10 @@ Licencja nie obejmuje automatycznie zasobów zewnętrznych, połączonych repozy
 Plik `PROJECT_STATE.yaml` jest automatycznie sprawdzany pod względem zgodności właściciela, wersji, liczb projektów i artykułów oraz konfiguracji publikacji z rejestrami JSON. Dopuszczony format to prosty, jawny podzbiór YAML: pola skalarne i lista `known_blockers`, bez zagnieżdżonych obiektów.
 
 Publiczny katalog wymaga osobnej decyzji publikacyjnej w `portfolio/publication-approvals.json` z SHA-256 dokładnych metadanych i odnośnikiem do recenzji właściciela. Sama flaga `public_listing=true` nie wystarcza do publikacji. CI weryfikuje zgodność techniczną, ale nie zastępuje rzeczywistej recenzji GitHub.
+
+
+## Architektura i proces badawczy
+
+Program zarządza metadanymi przez [ARCHITECTURE.md](ARCHITECTURE.md), [GOVERNANCE.md](GOVERNANCE.md), [SECURITY.md](SECURITY.md) i [ADR](docs/adr/README.md). Zasady przyjmowania prac określa [standard Issues](docs/issues.md): jedno sprawdzalne zadanie, typ intencji, klasyfikacja `agent-work-classification:v1`, zależności i dowody exact SHA. Formularze obejmują zadania, usterki, programy badań i przygotowanie manuskryptu.
+
+Publiczna projekcja programu jest przygotowywana w [`pages/`](pages/index.md), a zatwierdzony katalog projektów w [`pages/projects.md`](pages/projects.md). `docs/` pozostaje dokumentacją techniczną; wydania i GitHub Pages mają odrębne bramki [publikacyjne](docs/pages.md).

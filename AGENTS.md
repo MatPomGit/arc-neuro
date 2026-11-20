@@ -15,3 +15,12 @@ Czytaj po kolei: `program.json`, `PROJECT_STATE.yaml`, `RESEARCH.md`, `ARCHITECT
 
 11. Mateusz Pomianek musi pozostać co najmniej jednym z autorów w `CITATION.cff` i metadanych repozytorium programu; dodatkowych współautorów wolno dodawać po potwierdzeniu wkładu. Nie nadpisuj automatycznie autorstwa niezależnych prac w `msc-*`.
 12. Dla repozytoriów publicznych bezpieczne, izolowane kontrole CI **mogą** korzystać z GitHub-hosted runners. Sekrety, prywatny `audit-live` i kod niezaufanych PR muszą pozostawać poza uprzywilejowanymi środowiskami. Nie traktuj konfiguracji CI jako dowodu wykonania testów; wymagaj wyniku na dokładnym SHA.
+
+
+## Granice publicznej witryny i Issues
+
+Dla GitHub Pages używaj tylko `pages/` z jawną listą `config/pages-policy.json`. `docs/`, `.github/`, `papers/`, `portfolio/` i `equipment/` nie mogą stać się źródłem witryny. Nie publikuj instrukcji dla agentów, notatek edytorskich, opisów współtworzenia repo ani poufnych mapowań. Nie dodawaj `CONTRIBUTING.md`.
+
+Przyjmowanie zadań i ich triage wykonuj zgodnie z [docs/issues.md](docs/issues.md). Nie twórz duplikatów Issues i PR, nie twórz alternatywnej kolejki. Jeden poprawny typ intencji z kanonicznego katalogu, pojedynczy `agent-work-classification:v1`, obowiązkowy wynik, zakres, testy i bramki. Natywne Parent/Depends on/Blocks potwierdzaj odczytem GitHub. Nie oznaczaj tekstowego linku jako relacji natywnej.
+
+**DoR:** potwierdzone repo, base SHA, istniejące zależności, oczekiwany wynik, właściciel, ryzyko R0–R3, kontrola autoryzacji i plan testów. **DoD:** testy dokładnego SHA, właściwa recenzja, dokumentacja, weryfikacja rzeczywistego merge/deploy i pozostawione blokady. R2/R3 wymagają niezależnego review, a udostępnienie danych i publikacja dodatkowo decyzji właściciela. Etykiety, komentarze i klasyfikacja nie nadają prawa wykonania. Procedura: [.github/AGENT_WORKFLOW.md](.github/AGENT_WORKFLOW.md).
