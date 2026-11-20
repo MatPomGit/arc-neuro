@@ -6,4 +6,10 @@ theme:
   highlightjs: false
 nav:
   - O programie: index.md
+  - Artykuły: articles.md
+  - Neurorozwój: ndd.md
+  - Afekt: affect.md
+  - Poznanie: cognition.md
+  - Relacje społeczne: social.md
+  - Psychometria: psychometrics.md
   - Projekty badawcze: projects.md

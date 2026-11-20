@@ -10,6 +10,9 @@ def validate(site: Path) -> list[str]:
     html = sorted(site.rglob("*.html"))
     if not html or not (site / "index.html").is_file() or not (site / "projects" / "index.html").is_file():
         return ["required output HTML missing"]
+    required = ["articles", "ndd", "affect", "cognition", "social", "psychometrics"]
+    if any(not (site / name / "index.html").is_file() for name in required):
+        return ["curated article HTML missing"]
     forbidden = re.compile(
         r"AGENT_WORKFLOW|CONTRIBUTING\.md|agents\.md|MatPomGit/devices|"
         r"neuro_paper_slots|research-autopilot|instructions to agent|"

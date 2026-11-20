@@ -23,7 +23,7 @@ class PagesPolicyTests(unittest.TestCase):
 
     def test_curated_site_passes(self):
         self.assertEqual([], validator.check_pages(ROOT))
-        self.assertEqual(["index.md", "projects.md"], json.loads(
+        self.assertEqual(["index.md", "projects.md", "articles.md", "ndd.md", "affect.md", "cognition.md", "social.md", "psychometrics.md"], json.loads(
             (ROOT / "config/pages-policy.json").read_text(encoding="utf-8"))["public_files"])
 
     def test_internal_docs_source_rejected(self):

@@ -5,7 +5,13 @@
   "mkdocs_config": "mkdocs.yml",
   "public_files": [
     "index.md",
-    "projects.md"
+    "projects.md",
+    "articles.md",
+    "ndd.md",
+    "affect.md",
+    "cognition.md",
+    "social.md",
+    "psychometrics.md"
   ],
   "note": "Curated ARC Neuro only; docs, research slots and portfolio registries never deploy to Pages. Public Pages requires separate owner review and deployment authorization.",
   "approved_theme_assets": {
