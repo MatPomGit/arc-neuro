@@ -65,12 +65,13 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends texlive-latex-base texlive-lang-polish lmodern
+          sudo apt-get install -y -qq --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-lang-polish lmodern
           python3 -B scripts/compile_manuscripts.py
       - name: Build curated MkDocs HTML and inspect emitted pages
         shell: bash
         run: |
           set -euo pipefail
-          python3 -m pip install --disable-pip-version-check mkdocs==1.6.1
-          python3 -m mkdocs build --strict --clean
+          python3 -m venv "${RUNNER_TEMP}/arc-neuro-mkdocs"
+          "${RUNNER_TEMP}/arc-neuro-mkdocs/bin/python" -m pip install --disable-pip-version-check mkdocs==1.6.1
+          "${RUNNER_TEMP}/arc-neuro-mkdocs/bin/python" -m mkdocs build --strict --clean
           python3 -B scripts/verify_site_output.py site
