@@ -1,9 +1,9 @@
 # ARC Neuro — propozycje badań nad pamięcią prospektywną
 
-**Wersja:** 1.1.0 | **Data:** 2026-11-20 | **Status:** propozycja naukowa do weryfikacji, nie zatwierdzony manuskrypt ani eksperyment.  
-**Program:** ARC Neuro → Cognition. **Identyfikator:** `ARC-NEURO-AAL-P03`. **Właściciel naukowy:** zgodnie z polityką programu.
+**Wersja:** 1.2.0 | **Data:** 2026-11-20 | **Status:** propozycja naukowa do weryfikacji, nie zatwierdzony manuskrypt ani eksperyment.  
+**Program:** ARC Neuro → Cognition. **Identyfikator:** `MSC-AAL-P08`. **Właściciel naukowy:** zgodnie z polityką programu.
 
-## ARC-NEURO-AAL-P03 — Pamięć prospektywna w zadaniach domowych: przypomnienia kontekstowe i czasowe
+## MSC-AAL-P08 — Pamięć prospektywna w zadaniach domowych: przypomnienia kontekstowe i czasowe
 
 **Tytuł roboczy (EN):** *Prospective Memory Under Interruptions: Contextual Versus Scheduled Reminders in a Simulated Home*.
 
@@ -23,4 +23,4 @@
 
 ## Status portfolio
 
-`ARC-NEURO-AAL-P03` pozostaje **IDEA_HOLD**. Nie utworzono nowego folderu manuskryptu i nie zarejestrowano danych uczestników. Nie dodawać pozycji do publicznego `portfolio/papers.json` bez osobnej procedury jawnego indeksowania i zgody na konkretny rekord.
+`MSC-AAL-P08` pozostaje **IDEA_HOLD**. Nie utworzono nowego folderu manuskryptu i nie zarejestrowano danych uczestników. Nie dodawać pozycji do publicznego `portfolio/papers.json` bez osobnej procedury jawnego indeksowania i zgody na konkretny rekord.
