@@ -20,7 +20,7 @@ Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł MSC-AAL-P08: pami�
 
 ## Katalogi robocze artykułów
 
-W katalogu [`papers/`](papers/README.md) znajduje się **63 roboczych manuskryptów LaTeX** w pięciu liniach badawczych. Każda praca ma własny plik `main.tex` (wersja 0.1.0) z odrębnym tytułem i roboczym zarysem naukowym. **Repozytorium jest publiczne, zatem widoczne są również źródła tych szkiców**, niezależnie od przyszłej strony Pages. Pliki nie są ukończonymi publikacjami: wymagają jeszcze weryfikacji literatury, procedur oraz wyników.
+W katalogu [`papers/`](papers/README.md) znajduje się **63 roboczych manuskryptów LaTeX** w pięciu liniach badawczych. Każda praca ma własny plik `main.tex` (wersja 0.1.1) z odrębnym tytułem i roboczym zarysem naukowym. **Repozytorium jest publiczne, zatem widoczne są również źródła tych szkiców**, niezależnie od przyszłej strony Pages. Pliki nie są ukończonymi publikacjami: wymagają jeszcze weryfikacji literatury, procedur oraz wyników.
 
 ## Rejestr badań i otwarta nauka
 

@@ -1,6 +1,6 @@
 # Katalogi artykułów ARC Neuro
 
-Struktura obejmuje **63 źródła manuskryptów LaTeX** w pięciu obszarach badawczych. Każdy katalog `slot-NNN` zawiera samodzielny plik `main.tex`, będący pierwszym szkicem naukowym (v0.1.0). Teksty nie przedstawiają niezweryfikowanych wyników ani bibliografii.
+Struktura obejmuje **63 źródła manuskryptów LaTeX** w pięciu obszarach badawczych. Każdy katalog `slot-NNN` zawiera samodzielny plik `main.tex`, będący pierwszym szkicem naukowym (v0.1.1). Teksty nie przedstawiają niezweryfikowanych wyników ani bibliografii.
 
 | Obszar | Katalog | Liczba |
 | --- | --- | ---: |

@@ -18,6 +18,9 @@ class ManuscriptTexTests(unittest.TestCase):
                     self.assertFalse(path.is_symlink())
                     content = path.read_text(encoding="utf-8")
                     self.assertGreater(len(content), 2200)
+                    self.assertIn("Pierwszorzędowy wskaźnik:", content)
+                    self.assertIn("Zamrożenie estymandu", content)
+                    self.assertIn("Szkic naukowy, wersja 0.1.1", content)
                     for keyword in ("\\documentclass", "\\begin{document}", "\\begin{abstract}",
                                     "\\section{Wprowadzenie}", "\\section{Materiał i metody}",
                                     "\\section{Wyniki}", "\\section{Dyskusja i ograniczenia}",
