@@ -9,3 +9,7 @@ Generator `scripts/build_public_catalog.py` zapisuje publiczną listę do **`pag
 Przed oddzielnym wdrożeniem sprawdź wynikowe HTML, źródła, linki, prawa do zdjęć, metadane i rzeczywiste ustawienia widoczności. Nie wybieraj w ustawieniach GitHub Pages źródła `main:/docs`, `main:/` ani całego repo. W tym repo nie dodano workflow automatycznego publikowania z merge.
 
 Na publicznej stronie nie umieszczaj instrukcji dla agentów, poleceń edytorskich, procedur współtworzenia repozytorium, danych uczestników, identyfikatorów prywatnej aparatury ani mapowań neutralnych slotów 63 publikacji.
+
+## Repozytorium źródłowe a publikacja strony
+
+Repozytorium `MatPomGit/arc-neuro` jest **publiczne**: pliki `papers/`, ich tytuły i treść oraz historia commitów są dostępne bez uruchamiania Pages. Ograniczenie `docs_dir: pages` chroni jedynie wejście generatora strony, **nie ogranicza dostępu do kodu ani wcześniejszych commitów**. W PR #8 znajdują się szkice 63 prac; przed scaleniem właściciel musi odrębnie ocenić ich publiczną treść. Brak wpisów w `portfolio/publication-approvals.json` oznacza brak akceptacji publicznego katalogu, a nie techniczną poufność źródeł. Usunięcie pliku z kolejnego commitu nie usuwa go automatycznie z historii. W razie ujawnienia danych wrażliwych stosować procedurę incydentową.

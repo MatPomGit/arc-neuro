@@ -1,5 +1,5 @@
 name: "Błąd / regresja"
-description: "Bezpieczne i odtwarzalne zgłoszenie błędu w ARC-XR."
+description: "Bezpieczne i odtwarzalne zgłoszenie błędu w ARC Neuro."
 title: "[fix] "
 body:
   - type: markdown

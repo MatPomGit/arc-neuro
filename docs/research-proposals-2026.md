@@ -23,4 +23,4 @@
 
 ## Status portfolio
 
-`MSC-AAL-P08` pozostaje **IDEA_HOLD**. Nie utworzono nowego folderu manuskryptu i nie zarejestrowano danych uczestników. Nie dodawać pozycji do publicznego `portfolio/papers.json` bez osobnej procedury jawnego indeksowania i zgody na konkretny rekord.
+`MSC-AAL-P08` pozostaje **IDEA_HOLD**. W `papers/cognition/slot-022/main.tex` istnieje szkic koncepcyjny o analogicznym zakresie tematycznym. Nie jest on formalnie zatwierdzonym manuskryptem `MSC-AAL-P08`, nie stanowi rekordu w publicznym rejestrze i nie potwierdza uruchomienia badania. Nie zarejestrowano danych uczestników. Nie dodawać pozycji do publicznego `portfolio/papers.json` bez osobnej procedury jawnego indeksowania i zgody na konkretny rekord.

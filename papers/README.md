@@ -10,9 +10,9 @@ Struktura obejmuje **63 źródła manuskryptów LaTeX** w pięciu obszarach bada
 | Relacje i zachowania społeczne | [social](social/README.md) | 22 |
 | Psychometria i metody pomiarowe | [psychometrics](psychometrics/README.md) | 8 |
 
-Oznaczenia `slot-NNN` są numerami porządkowymi miejsc w strukturze, a nie identyfikatorami publikacji. Publiczne informacje o pracach są udostępniane po weryfikacji ich statusu i praw do rozpowszechniania.
+**Uwaga o jawności:** repozytorium ARC Neuro jest publiczne. Tytuły i treści wszystkich 63 plików `main.tex` są widoczne w kodzie i historii Git, niezależnie od ograniczeń GitHub Pages. Są to szkice koncepcyjne, a nie zatwierdzone protokoły, artykuły ani rekordy katalogu. Zatwierdzenie ich jawności jako materiałów źródłowych i zatwierdzenie wpisów publikacyjnych są odrębnymi decyzjami. Nie umieszczaj w nich danych uczestników ani mapowań na niepubliczne projekty.\n\nOznaczenia `slot-NNN` są numerami porządkowymi miejsc w strukturze, a nie identyfikatorami publikacji. Publiczne informacje o pracach są udostępniane po weryfikacji ich statusu i praw do rozpowszechniania.
 
-[Wykaz zatwierdzonych projektów](../docs/projects.md).
+[Wykaz zatwierdzonych projektów](../pages/projects.md).
 
 ## Kompilacja
 

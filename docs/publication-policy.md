@@ -24,3 +24,7 @@ Skrypt `scripts/verify_public_reviews.py` odpytuje publiczne API GitHub bez toke
 
 
 **Źródła publicznej strony:** wyłącznie `pages/` z `config/pages-policy.json`; generator indeksu zapisuje `pages/projects.md`. `docs/`, `papers/` i `portfolio/` nie są bezpośrednimi źródłami stron. Publikację plików i metadanych autoryzuje się oddzielnie od zaakceptowania kodu. Szczegóły: [Pages](pages.md) i [ADR-0002](adr/0002-publication-boundaries.md).
+
+## Odrębna bramka dla źródeł publicznego Git
+
+Publikacja tytułu, hipotez lub szkicu w publicznym drzewie Git stanowi ujawnienie niezależne od Pages, rejestrów i wydań. Dla każdego nowego szkicu należy ustalić uprawnienia do ujawnienia dokładnego tekstu oraz skontrolować obecność danych uczestników, identyfikatorów aparatury i mapowań prywatnych projektów **przed dodaniem commitu**. PR #8 ma 63 szkice w `papers/`; samo przejście testów struktury ani żądanie utworzenia folderów nie dokumentuje takiej decyzji. Do czasu rozstrzygnięcia bramka pozostaje otwarta, bez promowania szkiców na publikacje. Usunięcie lub przeniesienie wymaga odrębnej oceny historii publicznego repozytorium.
