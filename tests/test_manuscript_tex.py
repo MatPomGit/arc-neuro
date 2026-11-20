@@ -1,0 +1,37 @@
+"""Weryfikacja 63 indywidualnych źródeł manuskryptów LaTeX."""
+from pathlib import Path
+import re
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+AREAS = {"ndd":16,"affect":4,"cognition":13,"social":22,"psychometrics":8}
+
+class ManuscriptTexTests(unittest.TestCase):
+    def test_complete_manuscript_sources(self):
+        titles = set()
+        total = 0
+        for area, expected in AREAS.items():
+            files = sorted((ROOT/"papers"/area).glob("slot-*/main.tex"))
+            self.assertEqual(len(files), expected, area)
+            for path in files:
+                with self.subTest(filename=str(path)):
+                    self.assertFalse(path.is_symlink())
+                    content = path.read_text(encoding="utf-8")
+                    self.assertGreater(len(content), 2200)
+                    for keyword in ("\\documentclass", "\\begin{document}", "\\begin{abstract}",
+                                    "\\section{Wprowadzenie}", "\\section{Materiał i metody}",
+                                    "\\section{Wyniki}", "\\section{Dyskusja i ograniczenia}",
+                                    "\\end{document}"):
+                        self.assertIn(keyword, content)
+                    matched = re.search(r"\\title\{([^{}]+)\}", content)
+                    self.assertIsNotNone(matched)
+                    self.assertNotIn(matched.group(1), titles)
+                    titles.add(matched.group(1))
+                    self.assertEqual(content.count(r"\begin{document}"), 1)
+                    self.assertEqual(content.count(r"\end{document}"), 1)
+                    self.assertNotIn("MatPomGit/", content)
+                    total += 1
+        self.assertEqual(total, 63)
+
+if __name__ == "__main__":
+    unittest.main()

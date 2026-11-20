@@ -1,6 +1,6 @@
 # Katalogi artykułów ARC Neuro
 
-Struktura programu obejmuje **63 katalogi organizacyjne** w pięciu obszarach badawczych. Katalogi nie stanowią opublikowanych ani zatwierdzonych manuskryptów.
+Struktura obejmuje **63 źródła manuskryptów LaTeX** w pięciu obszarach badawczych. Każdy katalog `slot-NNN` zawiera samodzielny plik `main.tex`, będący pierwszym szkicem naukowym (v0.1.0). Teksty nie przedstawiają niezweryfikowanych wyników ani bibliografii.
 
 | Obszar | Katalog | Liczba |
 | --- | --- | ---: |
@@ -13,3 +13,7 @@ Struktura programu obejmuje **63 katalogi organizacyjne** w pięciu obszarach ba
 Oznaczenia `slot-NNN` są numerami porządkowymi miejsc w strukturze, a nie identyfikatorami publikacji. Publiczne informacje o pracach są udostępniane po weryfikacji ich statusu i praw do rozpowszechniania.
 
 [Wykaz zatwierdzonych projektów](../docs/projects.md).
+
+## Kompilacja
+
+W wybranym katalogu wykonać `pdflatex -halt-on-error -interaction=nonstopmode main.tex`. Wymagany jest TeX z obsługą języka polskiego. Pliki PDF i pomocnicze powstające podczas składu nie są źródłem manuskryptu.

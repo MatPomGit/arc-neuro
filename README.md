@@ -20,7 +20,7 @@ Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł MSC-AAL-P08: pami�
 
 ## Katalogi robocze artykułów
 
-W folderze [`papers/`](papers/README.md) znajduje się **63 neutralnych katalogów organizacyjnych**, przypisanych do pięciu linii ARC Neuro. Każdy katalog jest wyłącznie miejscem organizacyjnym, a nie zatwierdzonym wpisem o publikacji. Udostępnienie informacji o artykułach wymaga indywidualnej weryfikacji.
+W katalogu [`papers/`](papers/README.md) znajduje się **63 roboczych manuskryptów LaTeX** w pięciu liniach badawczych. Każda praca ma własny plik `main.tex` (wersja 0.1.0) z odrębnym tytułem i planem naukowym. Pliki nie są ukończonymi publikacjami: wymagają jeszcze weryfikacji literatury, procedur oraz wyników.
 
 ## Rejestr badań i otwarta nauka
 

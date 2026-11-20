@@ -20,7 +20,7 @@ class PaperSlotStructureTests(unittest.TestCase):
             self.assertEqual(len(slots), expected, area)
             for p in slots:
                 self.assertRegex(p.name, r"^slot-\d{3}$")
-                self.assertEqual({x.name for x in p.iterdir()}, {"README.md"})
+                self.assertEqual({x.name for x in p.iterdir()}, {"README.md", "main.tex"})
                 all_slots.append(p.name)
         self.assertEqual(len(all_slots), 63)
         self.assertEqual(len(set(all_slots)), 63)

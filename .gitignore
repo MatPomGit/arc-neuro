@@ -19,3 +19,10 @@ results/private/
 *.pem
 *.p12
 *.key
+
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
