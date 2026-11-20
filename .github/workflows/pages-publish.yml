@@ -43,7 +43,7 @@ jobs:
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           python3 -B scripts/validate_pages.py
           python3 -B scripts/validate_documentation.py
-          python3 -B -m unittest tests.test_article_catalog
+          python3 -B -m unittest discover -s tests -p 'test_article_catalog.py' -v
       - name: Build only the curated MkDocs site
         shell: bash
         run: |
