@@ -20,7 +20,7 @@ Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł MSC-AAL-P08: pami�
 
 ## Katalogi robocze artykułów
 
-W folderze [`papers/`](papers/README.md) znajduje się **63 neutralnych katalogów organizacyjnych**, przypisanych do pięciu linii ARC Neuro. Ich powiązanie z identyfikatorami manuskryptów MSC jest przechowywane wyłącznie w prywatnym Research Autopilot. Foldery nie stanowią zgody na publiczne ujawnienie planów, wyników lub metadanych projektów.
+W folderze [`papers/`](papers/README.md) znajduje się **63 neutralnych katalogów organizacyjnych**, przypisanych do pięciu linii ARC Neuro. Każdy katalog jest wyłącznie miejscem organizacyjnym, a nie zatwierdzonym wpisem o publikacji. Udostępnienie informacji o artykułach wymaga indywidualnej weryfikacji.
 
 ## Rejestr badań i otwarta nauka
 

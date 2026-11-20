@@ -1,5 +1,5 @@
-# Miejsce robocze artykułu ARC Neuro
+# Katalog organizacyjny artykułu
 
-To neutralny katalog organizacyjny. Nie zawiera tekstu manuskryptu, tytułu, danych badawczych, statusu publikacji ani identyfikatora projektu prywatnego.
+Miejsce w strukturze programu ARC Neuro. Katalog nie zawiera udostępnionego manuskryptu ani wyników badań.
 
-Powiązanie tego katalogu z `MSC-*` znajduje się w prywatnym rejestrze Research Autopilot. Kanoniczny manuskrypt, protokół, dane i wyniki pozostają przy właścicielskim projekcie. Upublicznienie metadanych wymaga oddzielnego zatwierdzenia.
+Informacje o publikacji są prezentowane odrębnie, po weryfikacji jej statusu i praw do rozpowszechniania.
