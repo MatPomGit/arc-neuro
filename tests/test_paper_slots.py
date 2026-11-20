@@ -26,16 +26,21 @@ class PaperSlotStructureTests(unittest.TestCase):
         self.assertEqual(len(set(all_slots)), 63)
 
     def test_public_documents_do_not_expose_internal_mapping(self):
+        # Public README may cite a separately approved proposal (e.g. P08).
+        # Only neutral placeholder files are prohibited from naming MSC IDs.
         docs = [ROOT / "README.md", *(ROOT / "papers").rglob("README.md")]
-        forbidden = re.compile(
-            r"research[-_ ]autopilot|neuro_paper_slots|MatPomGit/devices"
-            r"|MSC-[A-Z0-9]+-[PRS]\d+",
+        internal = re.compile(
+            r"research[-_ ]autopilot|neuro_paper_slots|MatPomGit/devices",
             flags=re.IGNORECASE
         )
+        msc_id = re.compile(r"MSC-[A-Z0-9]+-[PRS]\d+")
         for p in docs:
             with self.subTest(file=str(p)):
                 self.assertFalse(p.is_symlink())
-                self.assertIsNone(forbidden.search(p.read_text(encoding="utf-8")))
+                text = p.read_text(encoding="utf-8")
+                self.assertIsNone(internal.search(text))
+                if p.is_relative_to(ROOT / "papers"):
+                    self.assertIsNone(msc_id.search(text))
 
 if __name__ == "__main__":
     unittest.main()
