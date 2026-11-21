@@ -5,7 +5,7 @@ import json
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-AREAS = {"ndd":16,"affect":4,"cognition":13,"social":22,"psychometrics":8}
+AREAS = {"ndd":16,"affect":4,"cognition":13,"social":25,"psychometrics":8}
 
 class ManuscriptTexTests(unittest.TestCase):
     def test_complete_manuscript_sources(self):
@@ -39,7 +39,7 @@ class ManuscriptTexTests(unittest.TestCase):
                     self.assertEqual(content.count(r"\end{document}"), 1)
                     self.assertNotIn("MatPomGit/", content)
                     total += 1
-        self.assertEqual(total, 63)
+        self.assertEqual(total, 66)
 
 if __name__ == "__main__":
     unittest.main()

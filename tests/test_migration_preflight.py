@@ -16,9 +16,9 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertEqual(report["inventory_status"], "PASS", report["findings"])
         self.assertEqual(report["migration_status"], "BLOCKED")
         self.assertFalse(report["migration_ready"])
-        self.assertEqual(report["record_count"], 63)
-        self.assertEqual(report["record_kinds"], {"IDEA": 31, "MANUSCRIPT": 32})
-        self.assertEqual(sum(report["research_lines"].values()), 63)
+        self.assertEqual(report["record_count"], 66)
+        self.assertEqual(report["record_kinds"], {"IDEA": 34, "MANUSCRIPT": 32})
+        self.assertEqual(sum(report["research_lines"].values()), 66)
         self.assertGreater(len(report["historical_stage_values"]), 5)
 
     def test_duplicate_msc_fails(self):

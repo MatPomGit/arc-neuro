@@ -59,10 +59,17 @@ def audit(root: Path = ROOT) -> dict:
         if not (root / folder / "README.md").is_file():
             findings.append("missing_readme:" + ident)
 
-    if len(records) != 63 or len(identifiers) != 63:
-        findings.append("expected_63_unique_msc")
-    if kinds != Counter({"MANUSCRIPT": 32, "IDEA": 31}):
-        findings.append("unexpected_manuscript_idea_split")
+    # Historical 63-item migration evidence remains pinned; later concept
+    # articles are validated as local folders without promoting the migration.
+    historical = [row for row in records if not str(row.get("id", "")).startswith("MSC-SUV-")]
+    historical_ids = {row.get("id") for row in historical}
+    historical_kinds = Counter(row.get("record_kind") for row in historical)
+    if len(historical) != 63 or len(historical_ids) != 63:
+        findings.append("expected_63_historical_unique_msc")
+    if historical_kinds != Counter({"MANUSCRIPT": 32, "IDEA": 31}):
+        findings.append("unexpected_historical_manuscript_idea_split")
+    if len(records) != len(identifiers):
+        findings.append("non_unique_new_msc")
     if program.get("schema_version") != 1 or registry.get("schema_version") != 1:
         findings.append("unexpected_legacy_schema")
     if registry.get("papers") != []:

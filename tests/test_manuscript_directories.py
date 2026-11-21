@@ -4,13 +4,13 @@ import json
 import re
 import unittest
 ROOT=Path(__file__).resolve().parents[1]
-AREAS={"ndd":16,"affect":4,"cognition":13,"social":22,"psychometrics":8}
+AREAS={"ndd":16,"affect":4,"cognition":13,"social":25,"psychometrics":8}
 CATALOG=json.loads((ROOT/"papers/catalog.json").read_text(encoding="utf-8"))
 class ManuscriptDirectoryTests(unittest.TestCase):
     def test_real_msc_paths_and_titles(self):
         records=CATALOG["papers"]
-        self.assertEqual(len(records),63)
-        self.assertEqual(len({p["id"] for p in records}),63)
+        self.assertEqual(len(records),66)
+        self.assertEqual(len({p["id"] for p in records}),66)
         self.assertEqual(set(AREAS),{p["area"] for p in records})
         for area,expected in AREAS.items():
             root=ROOT/"papers"/area
@@ -33,7 +33,7 @@ class ManuscriptDirectoryTests(unittest.TestCase):
                 self.assertFalse((folder/"main.tex").is_symlink())
     def test_names_not_obscured_and_pages_separate(self):
         self.assertFalse(list((ROOT/"papers").glob("*/slot-*")))
-        self.assertEqual(len(list((ROOT/"papers").glob("*/MSC-*/main.tex"))),63)
+        self.assertEqual(len(list((ROOT/"papers").glob("*/MSC-*/main.tex"))),66)
         self.assertTrue((ROOT/"pages/projects.md").exists())
     def test_no_private_sources_in_public_catalog(self):
         data=(ROOT/"papers/catalog.json").read_text(encoding="utf-8")

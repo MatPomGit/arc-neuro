@@ -6,6 +6,33 @@
   "description": "Index of publicly visible research-draft manuscript folders. Not the approved portfolio/projects registry or a Pages publication approval.",
   "papers": [
     {
+      "id": "MSC-AAL-P02",
+      "area": "cognition",
+      "title": "Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home",
+      "record_kind": "IDEA",
+      "stage": "SOURCE_PLANNED_ARTICLE",
+      "manuscript_path": "papers/cognition/MSC-AAL-P02/main.tex",
+      "readme_path": "papers/cognition/MSC-AAL-P02/README.md"
+    },
+    {
+      "id": "MSC-AAL-P06",
+      "area": "social",
+      "title": "Autonomia użytkownika, zaufanie i obciążenie opiekuna przy eskalacji alarmów AAL",
+      "record_kind": "IDEA",
+      "stage": "NEW_UNVERIFIED_IDEA",
+      "manuscript_path": "papers/social/MSC-AAL-P06/main.tex",
+      "readme_path": "papers/social/MSC-AAL-P06/README.md"
+    },
+    {
+      "id": "MSC-AAL-P08",
+      "area": "cognition",
+      "title": "Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych",
+      "record_kind": "IDEA",
+      "stage": "NEW_CROSS_PROGRAM_IDEA_HOLD",
+      "manuscript_path": "papers/cognition/MSC-AAL-P08/main.tex",
+      "readme_path": "papers/cognition/MSC-AAL-P08/README.md"
+    },
+    {
       "id": "MSC-ADHD-P01",
       "area": "ndd",
       "title": "Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD",
@@ -114,42 +141,6 @@
       "readme_path": "papers/ndd/MSC-ADHD-S02/README.md"
     },
     {
-      "id": "MSC-NDD-P01",
-      "area": "ndd",
-      "title": "Architektura kontekstowej fuzji multimodalnej dla NDD",
-      "record_kind": "MANUSCRIPT",
-      "stage": "REVISION",
-      "manuscript_path": "papers/ndd/MSC-NDD-P01/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P01/README.md"
-    },
-    {
-      "id": "MSC-NDD-P02",
-      "area": "ndd",
-      "title": "Kontekstowe modelowanie zachowania dzieci w środowisku Montessori",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PREANALYSIS",
-      "manuscript_path": "papers/ndd/MSC-NDD-P02/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P02/README.md"
-    },
-    {
-      "id": "MSC-NDD-P03",
-      "area": "ndd",
-      "title": "Niezgodności między obserwatorami jako informacja zależna od kontekstu",
-      "record_kind": "IDEA",
-      "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/ndd/MSC-NDD-P03/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P03/README.md"
-    },
-    {
-      "id": "MSC-NDD-P04",
-      "area": "ndd",
-      "title": "Triangulacja ocen rodziców i nauczycieli",
-      "record_kind": "IDEA",
-      "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/ndd/MSC-NDD-P04/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P04/README.md"
-    },
-    {
       "id": "MSC-AFFECT-P05",
       "area": "affect",
       "title": "Kinematyka dłoni jako wskaźnik wymagań poznawczych ponad intensywność ruchu",
@@ -175,141 +166,6 @@
       "stage": "IDEA_UNREVIEWED",
       "manuscript_path": "papers/affect/MSC-AR-P24/main.tex",
       "readme_path": "papers/affect/MSC-AR-P24/README.md"
-    },
-    {
-      "id": "MSC-MGR-P01",
-      "area": "affect",
-      "title": "Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe",
-      "record_kind": "IDEA",
-      "stage": "CANDIDATE_THESIS_DATA_REQUIRED",
-      "manuscript_path": "papers/affect/MSC-MGR-P01/main.tex",
-      "readme_path": "papers/affect/MSC-MGR-P01/README.md"
-    },
-    {
-      "id": "MSC-AAL-P02",
-      "area": "cognition",
-      "title": "Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home",
-      "record_kind": "IDEA",
-      "stage": "SOURCE_PLANNED_ARTICLE",
-      "manuscript_path": "papers/cognition/MSC-AAL-P02/main.tex",
-      "readme_path": "papers/cognition/MSC-AAL-P02/README.md"
-    },
-    {
-      "id": "MSC-AAL-P08",
-      "area": "cognition",
-      "title": "Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych",
-      "record_kind": "IDEA",
-      "stage": "NEW_CROSS_PROGRAM_IDEA_HOLD",
-      "manuscript_path": "papers/cognition/MSC-AAL-P08/main.tex",
-      "readme_path": "papers/cognition/MSC-AAL-P08/README.md"
-    },
-    {
-      "id": "MSC-CR-P01",
-      "area": "cognition",
-      "title": "Jakość dowodów i retoryczna perswazja LLM: niezależny wpływ na trafność osądu",
-      "record_kind": "MANUSCRIPT",
-      "stage": "ACTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P01/README.md"
-    },
-    {
-      "id": "MSC-CR-P02",
-      "area": "cognition",
-      "title": "Podłużny transfer samodzielnego osądu u dorosłych po korzystaniu z AI",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P02/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P02/README.md"
-    },
-    {
-      "id": "MSC-CR-P04",
-      "area": "cognition",
-      "title": "Ramowanie porad LLM i brakujący kontekst a rozpoznanie nieuprawnionych założeń",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P04/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P04/README.md"
-    },
-    {
-      "id": "MSC-CR-P05",
-      "area": "cognition",
-      "title": "Rozwojowa mapa zaufania i samodzielnego myślenia wobec AI",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P05/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P05/README.md"
-    },
-    {
-      "id": "MSC-CR-P06",
-      "area": "cognition",
-      "title": "Krótka edukacja o AI a niezależność poznawcza",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P06/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P06/README.md"
-    },
-    {
-      "id": "MSC-CR-P07",
-      "area": "cognition",
-      "title": "Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P07/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P07/README.md"
-    },
-    {
-      "id": "MSC-CR-P08",
-      "area": "cognition",
-      "title": "Naturalne prompty uczniów a ujawnianie założeń i jakość własnego uzasadnienia",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P08/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P08/README.md"
-    },
-    {
-      "id": "MSC-CR-P10",
-      "area": "cognition",
-      "title": "Etap edukacji a odroczony transfer samodzielnego osądu u uczniów korzystających z AI",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P10/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P10/README.md"
-    },
-    {
-      "id": "MSC-CR-P11",
-      "area": "cognition",
-      "title": "Komputacyjny benchmark jakości argumentów i retoryki LLM",
-      "record_kind": "IDEA",
-      "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/cognition/MSC-CR-P11/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P11/README.md"
-    },
-    {
-      "id": "MSC-CR-P12",
-      "area": "cognition",
-      "title": "Transfer odporności poznawczej między dziedzinami",
-      "record_kind": "IDEA",
-      "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/cognition/MSC-CR-P12/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P12/README.md"
-    },
-    {
-      "id": "MSC-TRUST-P01",
-      "area": "cognition",
-      "title": "Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie",
-      "record_kind": "IDEA",
-      "stage": "NEW_CROSS_DOMAIN_IDEA_HOLD",
-      "manuscript_path": "papers/cognition/MSC-TRUST-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-TRUST-P01/README.md"
-    },
-    {
-      "id": "MSC-AAL-P06",
-      "area": "social",
-      "title": "Autonomia użytkownika, zaufanie i obciążenie opiekuna przy eskalacji alarmów AAL",
-      "record_kind": "IDEA",
-      "stage": "NEW_UNVERIFIED_IDEA",
-      "manuscript_path": "papers/social/MSC-AAL-P06/main.tex",
-      "readme_path": "papers/social/MSC-AAL-P06/README.md"
     },
     {
       "id": "MSC-ATTACH-P01",
@@ -366,6 +222,24 @@
       "readme_path": "papers/social/MSC-ATTACH-P06/README.md"
     },
     {
+      "id": "MSC-CR-P01",
+      "area": "cognition",
+      "title": "Jakość dowodów i retoryczna perswazja LLM: niezależny wpływ na trafność osądu",
+      "record_kind": "MANUSCRIPT",
+      "stage": "ACTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P01/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P01/README.md"
+    },
+    {
+      "id": "MSC-CR-P02",
+      "area": "cognition",
+      "title": "Podłużny transfer samodzielnego osądu u dorosłych po korzystaniu z AI",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P02/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P02/README.md"
+    },
+    {
       "id": "MSC-CR-P03",
       "area": "social",
       "title": "Językowa dyfuzja norm w sieciach społecznych z AI",
@@ -375,6 +249,51 @@
       "readme_path": "papers/social/MSC-CR-P03/README.md"
     },
     {
+      "id": "MSC-CR-P04",
+      "area": "cognition",
+      "title": "Ramowanie porad LLM i brakujący kontekst a rozpoznanie nieuprawnionych założeń",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P04/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P04/README.md"
+    },
+    {
+      "id": "MSC-CR-P05",
+      "area": "cognition",
+      "title": "Rozwojowa mapa zaufania i samodzielnego myślenia wobec AI",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P05/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P05/README.md"
+    },
+    {
+      "id": "MSC-CR-P06",
+      "area": "cognition",
+      "title": "Krótka edukacja o AI a niezależność poznawcza",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P06/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P06/README.md"
+    },
+    {
+      "id": "MSC-CR-P07",
+      "area": "cognition",
+      "title": "Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P07/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P07/README.md"
+    },
+    {
+      "id": "MSC-CR-P08",
+      "area": "cognition",
+      "title": "Naturalne prompty uczniów a ujawnianie założeń i jakość własnego uzasadnienia",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P08/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P08/README.md"
+    },
+    {
       "id": "MSC-CR-P09",
       "area": "social",
       "title": "Porady AI, odpowiedzialność i relacje rówieśnicze",
@@ -382,6 +301,141 @@
       "stage": "PROSPECTIVE",
       "manuscript_path": "papers/social/MSC-CR-P09/main.tex",
       "readme_path": "papers/social/MSC-CR-P09/README.md"
+    },
+    {
+      "id": "MSC-CR-P10",
+      "area": "cognition",
+      "title": "Etap edukacji a odroczony transfer samodzielnego osądu u uczniów korzystających z AI",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PROSPECTIVE",
+      "manuscript_path": "papers/cognition/MSC-CR-P10/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P10/README.md"
+    },
+    {
+      "id": "MSC-CR-P11",
+      "area": "cognition",
+      "title": "Komputacyjny benchmark jakości argumentów i retoryki LLM",
+      "record_kind": "IDEA",
+      "stage": "IDEA_REVIEW",
+      "manuscript_path": "papers/cognition/MSC-CR-P11/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P11/README.md"
+    },
+    {
+      "id": "MSC-CR-P12",
+      "area": "cognition",
+      "title": "Transfer odporności poznawczej między dziedzinami",
+      "record_kind": "IDEA",
+      "stage": "IDEA_REVIEW",
+      "manuscript_path": "papers/cognition/MSC-CR-P12/main.tex",
+      "readme_path": "papers/cognition/MSC-CR-P12/README.md"
+    },
+    {
+      "id": "MSC-DERA-P01",
+      "area": "psychometrics",
+      "title": "Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem",
+      "record_kind": "IDEA",
+      "stage": "CANDIDATE_VALIDATION_DATA_REQUIRED",
+      "manuscript_path": "papers/psychometrics/MSC-DERA-P01/main.tex",
+      "readme_path": "papers/psychometrics/MSC-DERA-P01/README.md"
+    },
+    {
+      "id": "MSC-EEG-P01",
+      "area": "psychometrics",
+      "title": "Kandydat: publikacja metod oprogramowania EEG Neurolyze",
+      "record_kind": "IDEA",
+      "stage": "PROPOSED",
+      "manuscript_path": "papers/psychometrics/MSC-EEG-P01/main.tex",
+      "readme_path": "papers/psychometrics/MSC-EEG-P01/README.md"
+    },
+    {
+      "id": "MSC-EEG-P02",
+      "area": "psychometrics",
+      "title": "Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze",
+      "record_kind": "IDEA",
+      "stage": "PROPOSED",
+      "manuscript_path": "papers/psychometrics/MSC-EEG-P02/main.tex",
+      "readme_path": "papers/psychometrics/MSC-EEG-P02/README.md"
+    },
+    {
+      "id": "MSC-EYE-P01",
+      "area": "psychometrics",
+      "title": "Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PLANNED",
+      "manuscript_path": "papers/psychometrics/MSC-EYE-P01/main.tex",
+      "readme_path": "papers/psychometrics/MSC-EYE-P01/README.md"
+    },
+    {
+      "id": "MSC-EYE-P02",
+      "area": "psychometrics",
+      "title": "Selektor jakości gaze przy zmianie telefonu i warunków",
+      "record_kind": "IDEA",
+      "stage": "IDEA_HOLD",
+      "manuscript_path": "papers/psychometrics/MSC-EYE-P02/main.tex",
+      "readme_path": "papers/psychometrics/MSC-EYE-P02/README.md"
+    },
+    {
+      "id": "MSC-EYE-P03",
+      "area": "psychometrics",
+      "title": "Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków",
+      "record_kind": "IDEA",
+      "stage": "IDEA_DEFINED",
+      "manuscript_path": "papers/psychometrics/MSC-EYE-P03/main.tex",
+      "readme_path": "papers/psychometrics/MSC-EYE-P03/README.md"
+    },
+    {
+      "id": "MSC-EYE-P04",
+      "area": "psychometrics",
+      "title": "Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia",
+      "record_kind": "IDEA",
+      "stage": "IDEA_DEFINED",
+      "manuscript_path": "papers/psychometrics/MSC-EYE-P04/main.tex",
+      "readme_path": "papers/psychometrics/MSC-EYE-P04/README.md"
+    },
+    {
+      "id": "MSC-MGR-P01",
+      "area": "affect",
+      "title": "Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe",
+      "record_kind": "IDEA",
+      "stage": "CANDIDATE_THESIS_DATA_REQUIRED",
+      "manuscript_path": "papers/affect/MSC-MGR-P01/main.tex",
+      "readme_path": "papers/affect/MSC-MGR-P01/README.md"
+    },
+    {
+      "id": "MSC-NDD-P01",
+      "area": "ndd",
+      "title": "Architektura kontekstowej fuzji multimodalnej dla NDD",
+      "record_kind": "MANUSCRIPT",
+      "stage": "REVISION",
+      "manuscript_path": "papers/ndd/MSC-NDD-P01/main.tex",
+      "readme_path": "papers/ndd/MSC-NDD-P01/README.md"
+    },
+    {
+      "id": "MSC-NDD-P02",
+      "area": "ndd",
+      "title": "Kontekstowe modelowanie zachowania dzieci w środowisku Montessori",
+      "record_kind": "MANUSCRIPT",
+      "stage": "PREANALYSIS",
+      "manuscript_path": "papers/ndd/MSC-NDD-P02/main.tex",
+      "readme_path": "papers/ndd/MSC-NDD-P02/README.md"
+    },
+    {
+      "id": "MSC-NDD-P03",
+      "area": "ndd",
+      "title": "Niezgodności między obserwatorami jako informacja zależna od kontekstu",
+      "record_kind": "IDEA",
+      "stage": "IDEA_HOLD",
+      "manuscript_path": "papers/ndd/MSC-NDD-P03/main.tex",
+      "readme_path": "papers/ndd/MSC-NDD-P03/README.md"
+    },
+    {
+      "id": "MSC-NDD-P04",
+      "area": "ndd",
+      "title": "Triangulacja ocen rodziców i nauczycieli",
+      "record_kind": "IDEA",
+      "stage": "IDEA_HOLD",
+      "manuscript_path": "papers/ndd/MSC-NDD-P04/main.tex",
+      "readme_path": "papers/ndd/MSC-NDD-P04/README.md"
     },
     {
       "id": "MSC-PAIN-P01",
@@ -501,67 +555,31 @@
       "readme_path": "papers/social/MSC-SAPIENS-P03/README.md"
     },
     {
-      "id": "MSC-DERA-P01",
-      "area": "psychometrics",
-      "title": "Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem",
-      "record_kind": "IDEA",
-      "stage": "CANDIDATE_VALIDATION_DATA_REQUIRED",
-      "manuscript_path": "papers/psychometrics/MSC-DERA-P01/main.tex",
-      "readme_path": "papers/psychometrics/MSC-DERA-P01/README.md"
-    },
-    {
-      "id": "MSC-EEG-P01",
-      "area": "psychometrics",
-      "title": "Kandydat: publikacja metod oprogramowania EEG Neurolyze",
-      "record_kind": "IDEA",
-      "stage": "PROPOSED",
-      "manuscript_path": "papers/psychometrics/MSC-EEG-P01/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EEG-P01/README.md"
-    },
-    {
-      "id": "MSC-EEG-P02",
-      "area": "psychometrics",
-      "title": "Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze",
-      "record_kind": "IDEA",
-      "stage": "PROPOSED",
-      "manuscript_path": "papers/psychometrics/MSC-EEG-P02/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EEG-P02/README.md"
-    },
-    {
-      "id": "MSC-EYE-P01",
-      "area": "psychometrics",
-      "title": "Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność",
-      "record_kind": "MANUSCRIPT",
-      "stage": "PLANNED",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P01/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P01/README.md"
-    },
-    {
-      "id": "MSC-EYE-P02",
-      "area": "psychometrics",
-      "title": "Selektor jakości gaze przy zmianie telefonu i warunków",
+      "id": "MSC-SUV-P02",
+      "area": "social",
+      "title": "Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P02/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P02/README.md"
+      "manuscript_path": "papers/social/MSC-SUV-P02/main.tex",
+      "readme_path": "papers/social/MSC-SUV-P02/README.md"
     },
     {
-      "id": "MSC-EYE-P03",
-      "area": "psychometrics",
-      "title": "Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków",
+      "id": "MSC-SUV-P03",
+      "area": "social",
+      "title": "Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania",
       "record_kind": "IDEA",
-      "stage": "IDEA_DEFINED",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P03/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P03/README.md"
+      "stage": "IDEA_HOLD",
+      "manuscript_path": "papers/social/MSC-SUV-P03/main.tex",
+      "readme_path": "papers/social/MSC-SUV-P03/README.md"
     },
     {
-      "id": "MSC-EYE-P04",
-      "area": "psychometrics",
-      "title": "Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia",
+      "id": "MSC-SUV-P04",
+      "area": "social",
+      "title": "Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary",
       "record_kind": "IDEA",
-      "stage": "IDEA_DEFINED",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P04/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P04/README.md"
+      "stage": "IDEA_HOLD",
+      "manuscript_path": "papers/social/MSC-SUV-P04/main.tex",
+      "readme_path": "papers/social/MSC-SUV-P04/README.md"
     },
     {
       "id": "MSC-SYNC-P04",
@@ -571,6 +589,15 @@
       "stage": "STOP_STANDALONE",
       "manuscript_path": "papers/psychometrics/MSC-SYNC-P04/main.tex",
       "readme_path": "papers/psychometrics/MSC-SYNC-P04/README.md"
+    },
+    {
+      "id": "MSC-TRUST-P01",
+      "area": "cognition",
+      "title": "Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie",
+      "record_kind": "IDEA",
+      "stage": "NEW_CROSS_DOMAIN_IDEA_HOLD",
+      "manuscript_path": "papers/cognition/MSC-TRUST-P01/main.tex",
+      "readme_path": "papers/cognition/MSC-TRUST-P01/README.md"
     }
   ]
 }

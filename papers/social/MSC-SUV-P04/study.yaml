@@ -1,0 +1,11 @@
+schema_version: 1
+paper_id: MSC-SUV-P04
+status: IDEA_HOLD
+platform: ST-08
+question: "Czy rzeczywiste wzorce komunikacji osób o różnych profilach, odtwarzane na identycznych awatarach, wywołują odmienne pierwsze wrażenie zależnie od wyglądu postaci?"
+hypotheses:
+  - "Czasowe i przestrzenne właściwości naturalnie zarejestrowanej ekspresji komunikacyjnej są związane z ocenami pierwszego wrażenia przy kontrolowanej tożsamości awatara."
+  - "Realizm wizualny moderuje związek między indywidualnym wzorcem zachowania a oceną niechęci i niesamowitości."
+primary_outcome: "Zależność ocen niechęci i niesamowitości od indywidualnych parametrów zachowania oraz realizmu postaci z uwzględnieniem kontekstu."
+protocol_frozen: false
+empirical_results: not_available

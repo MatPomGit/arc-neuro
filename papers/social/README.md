@@ -1,6 +1,6 @@
 # Relacje, przywiązanie i zachowania społeczne
 
-**22 artykułów i kandydatur** z przypisanymi identyfikatorami MSC. Katalogi zawierają robocze teksty LaTeX; status naukowy każdej pozycji podano przy tytule.
+**25 artykułów i kandydatur** z przypisanymi identyfikatorami MSC. Katalogi zawierają robocze teksty LaTeX; status naukowy każdej pozycji podano przy tytule.
 
 | ID i tytuł artykułu | Stan prac |
 | --- | --- |
@@ -26,5 +26,9 @@
 | [MSC-SAPIENS-P01 — Reakcje psychologiczne na ucieleśnioną autonomię humanoida](MSC-SAPIENS-P01/README.md) | `ARCHIVED_REPOSITORY` |
 | [MSC-SAPIENS-P02 — Walidacja miary postrzeganej sprawczości humanoida](MSC-SAPIENS-P02/README.md) | `IDEA_HOLD` |
 | [MSC-SAPIENS-P03 — Odbiór zachowania humanoida na nagraniu wideo](MSC-SAPIENS-P03/README.md) | `IDEA_HOLD` |
+
+| [MSC-SUV-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania](MSC-SUV-P02/README.md) | `IDEA_HOLD` |
+| [MSC-SUV-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania](MSC-SUV-P03/README.md) | `IDEA_HOLD` |
+| [MSC-SUV-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary](MSC-SUV-P04/README.md) | `IDEA_HOLD` |
 
 [Wszystkie obszary](../README.md).
