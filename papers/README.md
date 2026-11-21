@@ -1,6 +1,6 @@
 # Manuskrypty ARC Neuro
 
-Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz własny szkic `main.tex`. Tytuły i etapy prac pochodzą z centralnej macierzy portfolio. Katalog obejmuje **63 pozycje** w pięciu obszarach naukowych.
+Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz własny szkic `main.tex`. Tytuły i etapy prac pochodzą z centralnej macierzy portfolio. Katalog obejmuje **66 pozycji** w pięciu obszarach naukowych.
 
 ## [Neurorozwój i neuroróżnorodność](ndd/README.md) (16)
 
@@ -44,7 +44,7 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-CR-P12 — Transfer odporności poznawczej między dziedzinami](cognition/MSC-CR-P12/README.md)
 - [MSC-TRUST-P01 — Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie](cognition/MSC-TRUST-P01/README.md)
 
-## [Relacje, przywiązanie i zachowania społeczne](social/README.md) (22)
+## [Relacje, przywiązanie i zachowania społeczne](social/README.md) (25)
 
 - [MSC-AAL-P06 — Autonomia użytkownika, zaufanie i obciążenie opiekuna przy eskalacji alarmów AAL](social/MSC-AAL-P06/README.md)
 - [MSC-ATTACH-P01 — Teoria dynamicznej regulacji przywiązania u dorosłych](social/MSC-ATTACH-P01/README.md)
@@ -68,6 +68,10 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-SAPIENS-P01 — Reakcje psychologiczne na ucieleśnioną autonomię humanoida](social/MSC-SAPIENS-P01/README.md)
 - [MSC-SAPIENS-P02 — Walidacja miary postrzeganej sprawczości humanoida](social/MSC-SAPIENS-P02/README.md)
 - [MSC-SAPIENS-P03 — Odbiór zachowania humanoida na nagraniu wideo](social/MSC-SAPIENS-P03/README.md)
+
+- [MSC-SUV-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania](social/MSC-SUV-P02/README.md)
+- [MSC-SUV-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania](social/MSC-SUV-P03/README.md)
+- [MSC-SUV-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary](social/MSC-SUV-P04/README.md)
 
 ## [Psychometria i metody pomiarowe](psychometrics/README.md) (8)
 

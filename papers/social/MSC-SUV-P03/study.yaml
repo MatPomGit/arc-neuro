@@ -1,0 +1,11 @@
+schema_version: 1
+paper_id: MSC-SUV-P03
+status: IDEA_HOLD
+platform: ST-08
+question: "Czy ten sam klip docelowy wywołuje różne oceny po różnym kontekście oczekiwań i czy efekt zależy od kierunku niezgodności wyglądu z ruchem?"
+hypotheses:
+  - "Manipulacja oczekiwaniem społecznym zmieni ocenę niesamowitości dla identycznego docelowego zachowania."
+  - "Niedopasowanie robotyczny wygląd z ludzkim ruchem nie będzie równoważne ludzkiemu wyglądowi z ruchem mechanicznym."
+primary_outcome: "Interakcja kontekstu oczekiwań oraz kierunku niedopasowania w ocenie niesamowitości klipu docelowego."
+protocol_frozen: false
+empirical_results: not_available
