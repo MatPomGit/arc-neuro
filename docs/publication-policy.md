@@ -25,6 +25,8 @@ Skrypt `scripts/verify_public_reviews.py` odpytuje publiczne API GitHub bez toke
 
 **Źródła publicznej strony:** wyłącznie `pages/` z `config/pages-policy.json`; generator indeksu zapisuje `pages/projects.md`. `docs/`, `papers/` i `portfolio/` nie są bezpośrednimi źródłami stron. Publikację plików i metadanych autoryzuje się oddzielnie od zaakceptowania kodu. Szczegóły: [Pages](pages.md) i [ADR-0002](adr/0002-publication-boundaries.md).
 
-## Odrębna bramka dla źródeł publicznego Git
+## Nazewnictwo artykułów i odrębność publikacji Pages
 
-Publikacja tytułu, hipotez lub szkicu w publicznym drzewie Git stanowi ujawnienie niezależne od Pages, rejestrów i wydań. Dla każdego nowego szkicu należy ustalić uprawnienia do ujawnienia dokładnego tekstu oraz skontrolować obecność danych uczestników, identyfikatorów aparatury i mapowań prywatnych projektów **przed dodaniem commitu**. PR #8 ma 63 szkice w `papers/`; samo przejście testów struktury ani żądanie utworzenia folderów nie dokumentuje takiej decyzji. Do czasu rozstrzygnięcia bramka pozostaje otwarta, bez promowania szkiców na publikacje. Usunięcie lub przeniesienie wymaga odrębnej oceny historii publicznego repozytorium.
+Właściciel programu zatwierdził jawne nazwy, identyfikatory MSC i tytuły własnych 63 roboczych artykułów w publicznym repozytorium ARC Neuro. Każdy szkic ma jednoznaczny katalog `papers/<obszar>/MSC-<SERIA>-<NUMER>/`, zawiera `main.tex` i ma własny status naukowy. Wymóg anonimowego `slot-NNN` jest zniesiony. Do zmiany nazwy nie jest potrzebna odrębna decyzja o wpisie w `portfolio/papers.json` ani o publikacji GitHub Pages.
+
+Repozytorium Git, publiczna witryna Pages oraz rejestr formalnie zatwierdzonych publikacji mają różne cele. Publikacja Pages i metadanych cudzych projektów nadal podlega osobnym kontrolom. Publiczne źródła nie mogą zawierać danych uczestników, prywatnych identyfikatorów sprzętowych, sekretów, poufnych ścieżek repozytoriów i niezweryfikowanych wyników. Nazwanie artykułu nie stanowi zatwierdzenia etyki, prerejestracji, zgłoszenia ani publikacji recenzowanej.

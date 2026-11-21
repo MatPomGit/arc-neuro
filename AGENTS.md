@@ -24,3 +24,6 @@ Dla GitHub Pages używaj tylko `pages/` z jawną listą `config/pages-policy.jso
 Przyjmowanie zadań i ich triage wykonuj zgodnie z [docs/issues.md](docs/issues.md). Nie twórz duplikatów Issues i PR, nie twórz alternatywnej kolejki. Jeden poprawny typ intencji z kanonicznego katalogu, pojedynczy `agent-work-classification:v1`, obowiązkowy wynik, zakres, testy i bramki. Natywne Parent/Depends on/Blocks potwierdzaj odczytem GitHub. Nie oznaczaj tekstowego linku jako relacji natywnej.
 
 **DoR:** potwierdzone repo, base SHA, istniejące zależności, oczekiwany wynik, właściciel, ryzyko R0–R3, kontrola autoryzacji i plan testów. **DoD:** testy dokładnego SHA, właściwa recenzja, dokumentacja, weryfikacja rzeczywistego merge/deploy i pozostawione blokady. R2/R3 wymagają niezależnego review, a udostępnienie danych i publikacja dodatkowo decyzji właściciela. Etykiety, komentarze i klasyfikacja nie nadają prawa wykonania. Procedura: [.github/AGENT_WORKFLOW.md](.github/AGENT_WORKFLOW.md).
+
+
+13. Publiczne katalogi roboczych artykułów w `papers/` mają rzeczywiste nazwy `MSC-...`, tytuły i przypisania naukowe. Zakaz tworzenia anonimowych `slot-NNN` i ukrywania tytułów wyłącznie z powodu publiczności repozytorium. Ograniczenia jawności dotyczą poufnych danych, kodu i odnośników do prywatnych źródeł; zatwierdzenia Pages pozostają odrębne.

@@ -1,6 +1,7 @@
 """Weryfikacja 63 indywidualnych źródeł manuskryptów LaTeX."""
 from pathlib import Path
 import re
+import json
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,9 +10,11 @@ AREAS = {"ndd":16,"affect":4,"cognition":13,"social":22,"psychometrics":8}
 class ManuscriptTexTests(unittest.TestCase):
     def test_complete_manuscript_sources(self):
         titles = set()
+        catalog = json.loads((ROOT/"papers/catalog.json").read_text(encoding="utf-8"))
+        by_id = {record["id"]: record for record in catalog["papers"]}
         total = 0
         for area, expected in AREAS.items():
-            files = sorted((ROOT/"papers"/area).glob("slot-*/main.tex"))
+            files = sorted((ROOT/"papers"/area).glob("MSC-*/main.tex"))
             self.assertEqual(len(files), expected, area)
             for path in files:
                 with self.subTest(filename=str(path)):
@@ -28,6 +31,8 @@ class ManuscriptTexTests(unittest.TestCase):
                         self.assertIn(keyword, content)
                     matched = re.search(r"\\title\{([^{}]+)\}", content)
                     self.assertIsNotNone(matched)
+                    self.assertIn(path.parent.name,by_id)
+                    self.assertEqual(matched.group(1).replace("--","–"),by_id[path.parent.name]["title"])
                     self.assertNotIn(matched.group(1), titles)
                     titles.add(matched.group(1))
                     self.assertEqual(content.count(r"\begin{document}"), 1)

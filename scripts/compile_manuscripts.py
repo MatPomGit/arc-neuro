@@ -20,7 +20,7 @@ def compile_all(root: Path = ROOT, timeout: int = 40) -> list[str]:
         return ["pdflatex is unavailable; compilation NOT_RUN"]
     with tempfile.TemporaryDirectory(prefix="arc-neuro-pdf-") as tmp:
         for area, count in AREAS.items():
-            files = sorted((root / "papers" / area).glob("slot-*/main.tex"))
+            files = sorted((root / "papers" / area).glob("MSC-*/main.tex"))
             if len(files) != count:
                 errors.append(f"{area}: expected {count} sources; found {len(files)}")
             for src in files:
