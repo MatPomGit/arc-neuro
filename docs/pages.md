@@ -6,7 +6,7 @@
 
 Generator `scripts/build_public_catalog.py` zapisuje publiczną listę do **`pages/projects.md`**, wyłącznie z zatwierdzonych publicznie projektów. Nie zapisuje do `docs/projects.md`. Źródłem praw do publikacji są rzeczywiste recenzje właściciela i `portfolio/publication-approvals.json`; sama flaga `public_listing` nie jest zgodą.
 
-Przed oddzielnym wdrożeniem sprawdź wynikowe HTML, źródła, linki, prawa do zdjęć, metadane i rzeczywiste ustawienia widoczności. Nie wybieraj w ustawieniach GitHub Pages źródła `main:/docs`, `main:/` ani całego repo. W tym repo nie dodano workflow automatycznego publikowania z merge.
+Przed oddzielnym wdrożeniem sprawdź wynikowe HTML, źródła, linki, prawa do zdjęć, metadane i rzeczywiste ustawienia widoczności. Nie wybieraj w ustawieniach GitHub Pages źródła `main:/docs`, `main:/` ani całego repo. Publikację przeprowadza wyłącznie ręcznie wywołany `.github/workflows/pages-publish.yml`, po sprawdzeniu gałęzi `main` i ustawieniu `publication_authorized=true`. Każde uruchomienie waliduje źródło i wynikowy HTML, po czym przekazuje do GitHub Pages wyłącznie `site/`. Nie ma automatycznego publikowania po scaleniu PR. Jeśli źródło Pages w ustawieniach repozytorium nie jest ustawione na **GitHub Actions**, wdrożenie musi zostać uprzednio skonfigurowane przez administratora.
 
 Na publicznej stronie nie umieszczaj instrukcji dla agentów, poleceń edytorskich, procedur współtworzenia repozytorium, danych uczestników, identyfikatorów prywatnej aparatury ani mapowań neutralnych slotów 63 publikacji.
 

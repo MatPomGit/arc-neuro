@@ -16,6 +16,10 @@ ARC Neuro integruje interdyscyplinarne badania nad funkcjonowaniem człowieka, m
 
 Badania wykorzystują m.in. modelowanie statystyczne i uczenie maszynowe, eksperymenty behawioralne, pomiary psychofizjologiczne i narzędzia komputerowe. O przynależności pracy do programu decyduje **pytanie badawcze**, a nie tylko wykorzystywana technologia.
 
+## Artykuły i kierunki badań
+
+[Przegląd 63 artykułów z krótkimi omówieniami](articles.md) prezentuje tematykę pięciu obszarów badań.
+
 ## Projekty
 
 [Przegląd publicznie udostępnionych projektów](projects.md) obejmuje wyłącznie wpisy zatwierdzone do publikacji. Brak pozycji na liście nie oznacza braku aktywnych prac badawczych.
