@@ -34,6 +34,17 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertEqual(report["inventory_status"], "FAIL")
         self.assertTrue(any(s.startswith("duplicate_msc:") for s in report["findings"]))
 
+    def test_symlinked_manuscript_is_rejected(self):
+        original = Path.is_symlink
+        def synthetic_symlink(path):
+            return (path.as_posix().endswith(
+                "papers/ndd/MSC-ADHD-P01/main.tex") or original(path))
+        with patch.object(Path, "is_symlink", autospec=True,
+                          side_effect=synthetic_symlink):
+            report = audit(ROOT)
+        self.assertEqual(report["inventory_status"], "FAIL")
+        self.assertIn("symlink_tex:MSC-ADHD-P01", report["findings"])
+
 
 if __name__ == "__main__":
     unittest.main()
