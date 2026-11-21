@@ -20,7 +20,7 @@ Przed zatwierdzeniem manuskryptów rozpatrywany jest [pomysł MSC-AAL-P08: pami�
 
 ## Katalogi robocze artykułów
 
-W katalogu [`papers/`](papers/README.md) znajduje się **63 roboczych manuskryptów LaTeX** w pięciu liniach badawczych, w katalogach nazwanych kanonicznymi identyfikatorami MSC i rzeczywistymi tytułami. Każda praca ma własny plik `main.tex` (wersja 0.1.1) z odrębnym tytułem i roboczym zarysem naukowym. **Repozytorium jest publiczne, zatem widoczne są również źródła tych szkiców**, niezależnie od przyszłej strony Pages. Pliki nie są ukończonymi publikacjami: wymagają jeszcze weryfikacji literatury, procedur oraz wyników.
+W katalogu [`papers/`](papers/README.md) znajdują się **63 szkice LaTeX** w pięciu liniach badawczych: **32 pozycje `MANUSCRIPT` oraz 31 pozycji `IDEA`**, zgodnie z [`papers/catalog.json`](papers/catalog.json). Katalogi mają identyfikatory MSC i odrębne tytuły. Każda praca ma własny plik `main.tex` (wersja 0.1.1) z odrębnym tytułem i roboczym zarysem naukowym. **Repozytorium jest publiczne, zatem widoczne są również źródła tych szkiców**, niezależnie od przyszłej strony Pages. Pliki nie są ukończonymi publikacjami: wymagają jeszcze weryfikacji literatury, procedur oraz wyników.
 
 ## Rejestr badań i otwarta nauka
 
@@ -51,7 +51,7 @@ Licencja nie obejmuje automatycznie zasobów zewnętrznych, połączonych repozy
 
 Plik `PROJECT_STATE.yaml` jest automatycznie sprawdzany pod względem zgodności właściciela, wersji, liczb projektów i artykułów oraz konfiguracji publikacji z rejestrami JSON. Dopuszczony format to prosty, jawny podzbiór YAML: pola skalarne i lista `known_blockers`, bez zagnieżdżonych obiektów.
 
-Publiczny katalog wymaga osobnej decyzji publikacyjnej w `portfolio/publication-approvals.json` z SHA-256 dokładnych metadanych i odnośnikiem do recenzji właściciela. Sama flaga `public_listing=true` nie wystarcza do publikacji. CI weryfikuje zgodność techniczną, ale nie zastępuje rzeczywistej recenzji GitHub.
+Publiczny katalog wymaga osobnej decyzji publikacyjnej w `portfolio/publication-approvals.json` z SHA-256 dokładnych metadanych i odnośnikiem do recenzji właściciela. Sama flaga `public_listing=true` nie wystarcza do publikacji. CI weryfikuje zgodność techniczną, ale nie zastępuje decyzji właściciela o udostępnieniu danych ani publikacji. Niezależna recenzja PR jest opcjonalna.
 
 
 ## Architektura i proces badawczy
