@@ -32,7 +32,7 @@ class ManuscriptTexTests(unittest.TestCase):
                     matched = re.search(r"\\title\{([^{}]+)\}", content)
                     self.assertIsNotNone(matched)
                     self.assertIn(path.parent.name,by_id)
-                    self.assertEqual(matched.group(1),by_id[path.parent.name]["title"])
+                    self.assertEqual(matched.group(1).replace("--","–"),by_id[path.parent.name]["title"])
                     self.assertNotIn(matched.group(1), titles)
                     titles.add(matched.group(1))
                     self.assertEqual(content.count(r"\begin{document}"), 1)
