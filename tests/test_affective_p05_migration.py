@@ -14,6 +14,7 @@ class AffectiveP05MigrationTest(unittest.TestCase):
         self.assertEqual(info["source_blob_sha"],"92791dd60a5c9d2f3e6f702a7bb54453668fc5b4")
         self.assertEqual(info["source_commit_sha"],"0ff5f1531f03270c4f9fdcc7f3af6d2e9aca85dd")
         self.assertEqual(info["status"],"PLANNED")
+        self.assertEqual(info["migration_phase"],"copy_verified_integrated")
         self.assertEqual(info["source_license_spdx"],"Apache-2.0")
         self.assertIn("Apache License",(folder/"ORIGINAL_LICENSE").read_text(encoding="utf-8"))
         self.assertIn("Motion-Confound-Controlled Hand-Kinematic",plan)
