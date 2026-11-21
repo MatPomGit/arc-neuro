@@ -6,7 +6,7 @@
   "source_path": "manuscripts/P05/plan.md",
   "source_blob_sha": "92791dd60a5c9d2f3e6f702a7bb54453668fc5b4",
   "target_repository": "MatPomGit/arc-neuro",
-  "target_path": "research/affective/MSC-AFFECT-P05/plan.md",
+  "target_path": "papers/affect/MSC-AFFECT-P05/plan.md",
   "status": "PLANNED",
   "migration_phase": "copy_verified_pending_pr_merge",
   "transformation": "Relative docs links redirected to pinned original repo; scientific plan unmodified otherwise",
@@ -16,5 +16,5 @@
   "transfer_of_results": false,
   "source_license_spdx": "Apache-2.0",
   "source_license_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
-  "local_license_path": "research/affective/MSC-AFFECT-P05/ORIGINAL_LICENSE"
+  "local_license_path": "papers/affect/MSC-AFFECT-P05/ORIGINAL_LICENSE"
 }
