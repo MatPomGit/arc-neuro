@@ -2,12 +2,14 @@ name: ARC offline contract tests
 
 on:
   pull_request:
+  push:
+    branches: [main]
 
 permissions:
   contents: read
 
 concurrency:
-  group: arc-contract-pr-${{ github.event.pull_request.number }}
+  group: arc-contract-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -18,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [head, merge]
+        revision: ${{ fromJSON(github.event_name == 'pull_request' && '["head","merge"]' || '["head"]') }}
     steps:
       - name: Checkout isolated PR revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
