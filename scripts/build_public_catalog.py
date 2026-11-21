@@ -20,7 +20,9 @@ def render(root:Path)->str:
         raise ValueError("portfolio/projects.json requires an object with projects array")
     projects=source["projects"]
     approvals=load_publication_approvals(root)
-    policy=json.loads((root/"config/pages-policy.json").read_text(encoding="utf-8"))
+    policy_file=root/"config/pages-policy.json"
+    policy=(json.loads(policy_file.read_text(encoding="utf-8")) if policy_file.is_file()
+            else {"public_files": [], "approved_image_sha256": {}})
     public=[]
     for p in projects:
         if not isinstance(p, dict):
