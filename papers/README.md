@@ -69,9 +69,9 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-SAPIENS-P02 — Walidacja miary postrzeganej sprawczości humanoida](social/MSC-SAPIENS-P02/README.md)
 - [MSC-SAPIENS-P03 — Odbiór zachowania humanoida na nagraniu wideo](social/MSC-SAPIENS-P03/README.md)
 
-- [MSC-SUV-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania](social/MSC-SUV-P02/README.md)
-- [MSC-SUV-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania](social/MSC-SUV-P03/README.md)
-- [MSC-SUV-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary](social/MSC-SUV-P04/README.md)
+- [MSC-ZAH-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania](social/MSC-ZAH-P02/README.md)
+- [MSC-ZAH-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania](social/MSC-ZAH-P03/README.md)
+- [MSC-ZAH-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary](social/MSC-ZAH-P04/README.md)
 
 ## [Psychometria i metody pomiarowe](psychometrics/README.md) (8)
 
