@@ -48,6 +48,12 @@ def audit(root: Path = ROOT) -> dict:
             findings.append("inconsistent_tex_path:" + ident)
         if row.get("readme_path") != (folder / "README.md").as_posix():
             findings.append("inconsistent_readme_path:" + ident)
+        if (root / folder).is_symlink():
+            findings.append("symlink_manuscript_folder:" + ident)
+        if (root / folder / "main.tex").is_symlink():
+            findings.append("symlink_tex:" + ident)
+        if (root / folder / "README.md").is_symlink():
+            findings.append("symlink_readme:" + ident)
         if not (root / folder / "main.tex").is_file():
             findings.append("missing_tex:" + ident)
         if not (root / folder / "README.md").is_file():
