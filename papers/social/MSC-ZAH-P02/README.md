@@ -1,4 +1,4 @@
-# MSC-SUV-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania
+# MSC-ZAH-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania
 
 **Status:** `IDEA_HOLD`; prospektywna koncepcja. **Working title:** *The Two-Dimensional Social Uncanny Valley: Appearance Realism by Behavioral Naturalness*.
 

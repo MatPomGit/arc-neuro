@@ -1,4 +1,4 @@
-# MSC-SUV-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania
+# MSC-ZAH-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania
 
 **Status:** `IDEA_HOLD`; prospektywna koncepcja. **Working title:** *Social Expectation Violations and Asymmetric Appearance-Behavior Mismatch*.
 

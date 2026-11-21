@@ -1,4 +1,4 @@
-# MSC-SUV-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary
+# MSC-ZAH-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary
 
 **Status:** `IDEA_HOLD`; prospektywna koncepcja. **Working title:** *Naturalistic Neurodivergent Social Behavior on Identical Avatars: Appearance-Dependent First Impressions*.
 

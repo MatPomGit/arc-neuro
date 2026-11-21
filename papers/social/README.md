@@ -27,8 +27,8 @@
 | [MSC-SAPIENS-P02 — Walidacja miary postrzeganej sprawczości humanoida](MSC-SAPIENS-P02/README.md) | `IDEA_HOLD` |
 | [MSC-SAPIENS-P03 — Odbiór zachowania humanoida na nagraniu wideo](MSC-SAPIENS-P03/README.md) | `IDEA_HOLD` |
 
-| [MSC-SUV-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania](MSC-SUV-P02/README.md) | `IDEA_HOLD` |
-| [MSC-SUV-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania](MSC-SUV-P03/README.md) | `IDEA_HOLD` |
-| [MSC-SUV-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary](MSC-SUV-P04/README.md) | `IDEA_HOLD` |
+| [MSC-ZAH-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania](MSC-ZAH-P02/README.md) | `IDEA_HOLD` |
+| [MSC-ZAH-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania](MSC-ZAH-P03/README.md) | `IDEA_HOLD` |
+| [MSC-ZAH-P04 — Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary](MSC-ZAH-P04/README.md) | `IDEA_HOLD` |
 
 [Wszystkie obszary](../README.md).

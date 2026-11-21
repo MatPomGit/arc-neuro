@@ -13,7 +13,7 @@ class ArticleCatalogTests(unittest.TestCase):
             page=(ROOT/"pages"/(area+".md")).read_text(encoding="utf-8")
             titles=re.findall(r"^### (MSC-[A-Z0-9]+-[PRS][0-9]+) — (.+)$",page,flags=re.MULTILINE)
             self.assertEqual(len(titles),expected,area)
-            listed=[(p["id"],p["title"]) for p in CATALOG["papers"] if p["area"]==area and not p["id"].startswith("MSC-SUV-")]
+            listed=[(p["id"],p["title"]) for p in CATALOG["papers"] if p["area"]==area and not p["id"].startswith("MSC-ZAH-")]
             self.assertEqual(titles,listed)
             for ident,_ in titles:
                 self.assertNotIn(ident,seen)

@@ -61,7 +61,7 @@ def audit(root: Path = ROOT) -> dict:
 
     # Historical 63-item migration evidence remains pinned; later concept
     # articles are validated as local folders without promoting the migration.
-    historical = [row for row in records if not str(row.get("id", "")).startswith("MSC-SUV-")]
+    historical = [row for row in records if not str(row.get("id", "")).startswith("MSC-ZAH-")]
     historical_ids = {row.get("id") for row in historical}
     historical_kinds = Counter(row.get("record_kind") for row in historical)
     if len(historical) != 63 or len(historical_ids) != 63:
