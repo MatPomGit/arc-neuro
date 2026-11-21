@@ -5,7 +5,7 @@
 
 ## Kontekst
 
-W repo znajdują się polityki, stan programu, notatki i neutralne sloty; pełny eksport `docs/` mógłby ujawnić treści przeznaczone do pracy wewnętrznej. Metadane źródłowe i flagi publiczności nie są równoznaczne ze zgodą właściciela.
+W repo znajdują się polityki, stan programu, notatki i katalogi manuskryptów nazwane identyfikatorami MSC; pełny eksport `docs/` mógłby ujawnić treści przeznaczone do pracy wewnętrznej. Metadane źródłowe i flagi publiczności nie są równoznaczne ze zgodą właściciela.
 
 ## Decyzja proponowana
 

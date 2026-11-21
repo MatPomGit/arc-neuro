@@ -48,9 +48,9 @@ class DocumentationPolicyTests(unittest.TestCase):
             self.assertTrue(any("DOC LENGTH EXCEEDED: docs/adr/0004-new.md" in e
                                 for e in validator.check_documentation(root)))
 
-    def test_neutral_research_slots_preserved(self):
-        self.assertTrue((ROOT / "papers/ndd/slot-001/README.md").is_file())
-        self.assertTrue((ROOT / "papers/social/slot-055/README.md").is_file())
+    def test_named_research_manuscripts_preserved(self):
+        self.assertTrue((ROOT / "papers/ndd/MSC-ADHD-P01/README.md").is_file())
+        self.assertTrue((ROOT / "papers/social/MSC-SAPIENS-P03/README.md").is_file())
         self.assertEqual([], validator.check_documentation(ROOT))
 
     def test_manuscripts_are_not_capped(self):
@@ -110,13 +110,13 @@ class DocumentationPolicyTests(unittest.TestCase):
         self.assertFalse((ROOT / "CONTRIBUTING.md").exists())
         self.assertEqual([], validator.check_documentation(ROOT))
 
-    def test_limit_on_neutral_slot_is_finite(self):
+    def test_limit_on_named_manuscript_overview_is_finite(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = self.fixture(tmp)
-            (root / "papers/ndd/slot-001/README.md").write_text(
+            (root / "papers/ndd/MSC-ADHD-P01/README.md").write_text(
                 "x" * 10001, encoding="utf-8")
             self.assertTrue(any(
-                "DOC LENGTH EXCEEDED: papers/ndd/slot-001/README.md" in error
+                "DOC LENGTH EXCEEDED: papers/ndd/MSC-ADHD-P01/README.md" in error
                 for error in validator.check_documentation(root)))
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ class ManuscriptTexTests(unittest.TestCase):
         titles = set()
         total = 0
         for area, expected in AREAS.items():
-            files = sorted((ROOT/"papers"/area).glob("slot-*/main.tex"))
+            files = sorted((ROOT/"papers"/area).glob("MSC-*/main.tex"))
             self.assertEqual(len(files), expected, area)
             for path in files:
                 with self.subTest(filename=str(path)):
