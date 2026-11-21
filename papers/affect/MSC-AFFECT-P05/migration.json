@@ -8,7 +8,7 @@
   "target_repository": "MatPomGit/arc-neuro",
   "target_path": "papers/affect/MSC-AFFECT-P05/plan.md",
   "status": "PLANNED",
-  "migration_phase": "copy_verified_pending_pr_merge",
+  "migration_phase": "copy_verified_integrated",
   "transformation": "Relative docs links redirected to pinned original repo; scientific plan unmodified otherwise",
   "source_issues": [
     "https://github.com/MatPomGit/arc-affective/issues/9"
