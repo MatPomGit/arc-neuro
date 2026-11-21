@@ -15,3 +15,7 @@ Plan P05 przeniesiono do ARC Neuro jako materiał organizacyjny, **nie** jako dr
 ## Kryterium pełnego przełączenia właścicielstwa
 
 Po scaleniu odpowiednich PR w ARC Neuro i repozytorium źródłowym można wskazać niniejszą ścieżkę jako miejsce rozwijania planu. Stary plik pozostaje niemutowalnym historycznym źródłem (link przez commit); nie usuwać go przed kontrolą referencji i dowodów. 
+
+## Licencja przejętej treści
+
+Oryginalny plan został udostępniony przez autora w `arc-affective` na zasadach **Apache-2.0**. W tym katalogu zachowano [pełny tekst oryginalnej licencji](ORIGINAL_LICENSE). Licencja MIT programu ARC Neuro nie jest automatyczną zmianą licencji dla przejętego planu. Źródło i dokładny blob wskazuje manifest migracji.
