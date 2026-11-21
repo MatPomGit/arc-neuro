@@ -11,7 +11,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-AREAS = {"ndd": 16, "affect": 4, "cognition": 13, "social": 22, "psychometrics": 8}
+AREAS = {"ndd": 16, "affect": 4, "cognition": 13, "social": 25, "psychometrics": 8}
 
 def compile_all(root: Path = ROOT, timeout: int = 40) -> list[str]:
     errors: list[str] = []
