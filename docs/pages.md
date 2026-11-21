@@ -13,3 +13,12 @@ Na publicznej stronie nie umieszczaj instrukcji dla agentów, poleceń edytorski
 ## Repozytorium źródłowe a publikacja strony
 
 Repozytorium `MatPomGit/arc-neuro` jest **publiczne**: pliki `papers/`, ich tytuły i treść oraz historia commitów są dostępne bez uruchamiania Pages. Ograniczenie `docs_dir: pages` chroni jedynie wejście generatora strony, **nie ogranicza dostępu do kodu ani wcześniejszych commitów**. W PR #8 znajdują się szkice 63 prac; przed scaleniem właściciel musi odrębnie ocenić ich publiczną treść. Brak wpisów w `portfolio/publication-approvals.json` oznacza brak akceptacji publicznego katalogu, a nie techniczną poufność źródeł. Usunięcie pliku z kolejnego commitu nie usuwa go automatycznie z historii. W razie ujawnienia danych wrażliwych stosować procedurę incydentową.
+
+
+## Identyfikacja wizualna
+
+Wspólny znak ARC Neuro może być widoczny w nagłówku wszystkich stron dzięki opcji `theme.logo` w MkDocs. Grafika jest opcjonalna. Jej zatwierdzona kopia znajduje się pod `pages/assets/brand/logo.png` (również WebP lub JPEG). Bez niej witryna zachowuje nagłówek tekstowy.
+
+Wpis indywidualnego projektu może mieć własne logo w `pages/assets/projects/<project_id>.png` (lub WebP/JPEG). Odpowiedni znak jest prezentowany wyłącznie przy zatwierdzonym publicznym wpisie. W ARC Neuro pozostaje wymagane oddzielne potwierdzenie publikacyjne w `portfolio/publication-approvals.json`.
+
+Każdy lokalny obraz musi być dodany do listy `config/pages-policy.json:public_files` oraz do `approved_image_sha256` ze zweryfikowanym SHA-256. `python scripts/site_branding.py --apply` synchronizuje opcjonalne logo programu z `mkdocs.yml`; CI weryfikuje zgodność w trybie bez zapisu. Grafiki nie są automatycznie pobierane z innych repozytoriów. Dokumentacja operacyjna pozostaje w `docs/`, nie w publicznym README.
