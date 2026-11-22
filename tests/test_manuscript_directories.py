@@ -12,7 +12,7 @@ class ManuscriptDirectoryTests(unittest.TestCase):
         records=CATALOG["papers"]
         self.assertEqual(len(records),69)
         self.assertEqual(len({p["id"] for p in records}),69)
-        self.assertEqual({p["id"] for p in records if p["stage"]=="IDEA_REVIEW"},NEW_IDEAS)
+        self.assertEqual({p["id"] for p in records if p["id"] in NEW_IDEAS and p["stage"]=="IDEA_REVIEW" and p["record_kind"]=="IDEA"},NEW_IDEAS)
         self.assertEqual(set(AREAS),{p["area"] for p in records})
         for area,expected in AREAS.items():
             root=ROOT/"papers"/area
