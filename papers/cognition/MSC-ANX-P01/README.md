@@ -17,3 +17,11 @@ Badanie przekrojowe osób dorosłych, obejmujące nasilenie objawów lękowych m
 Nie przeprowadzono pilotażu, rekrutacji, analiz empirycznych ani oceny etycznej. Przed rozpoczęciem badania należy zatwierdzić protokół, wyznaczyć liczebność próby, zweryfikować narzędzia oraz warunki ochrony danych i przygotować prerejestrację.
 
 **Uwaga:** skryptów eksperymentalnych i danych nie dodano; manuskrypt nie przedstawia wyników.
+
+## Czasopisma docelowe (stan: 2026-11-22)
+
+1. **Cognition and Emotion**, ISSN 0269-9931, eISSN 1464-0600, **100 pkt**. Cel główny; najwyższe dopasowanie do relacji emocje–funkcje wykonawcze. Publikacja na ścieżce tradycyjnej preferowana przy braku budżetu APC.
+2. **Current Psychology**, ISSN 1046-1310, eISSN 1936-4733, **70 pkt**. Alternatywa o szerokim profilu psychologicznym.
+3. **Cognitive Therapy and Research**, ISSN 0147-5916, eISSN 1573-2819, **100 pkt**. Alternatywa pod warunkiem wyraźniejszego związku z klinicznymi modelami poznawczymi.
+4. **Journal of Anxiety Disorders**, ISSN 0887-6185, eISSN 1873-7897, **140 pkt**. Cel ambitny; wymaga mocniejszego uzasadnienia klinicznego i odpowiedniego projektu badania.
+
