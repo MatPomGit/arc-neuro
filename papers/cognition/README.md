@@ -1,6 +1,6 @@
 # Poznanie, pamięć, uwaga i relacje człowiek–AI
 
-**13 artykułów i kandydatur** z przypisanymi identyfikatorami MSC. Katalogi zawierają robocze teksty LaTeX; status naukowy każdej pozycji podano przy tytule.
+**15 artykułów i kandydatur** z przypisanymi identyfikatorami MSC. Katalogi zawierają robocze teksty LaTeX; status naukowy każdej pozycji podano przy tytule.
 
 | ID i tytuł artykułu | Stan prac |
 | --- | --- |
@@ -17,5 +17,7 @@
 | [MSC-CR-P11 — Komputacyjny benchmark jakości argumentów i retoryki LLM](MSC-CR-P11/README.md) | `IDEA_REVIEW` |
 | [MSC-CR-P12 — Transfer odporności poznawczej między dziedzinami](MSC-CR-P12/README.md) | `IDEA_REVIEW` |
 | [MSC-TRUST-P01 — Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie](MSC-TRUST-P01/README.md) | `NEW_CROSS_DOMAIN_IDEA_HOLD` |
+| [MSC-ANX-P01 — Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności](MSC-ANX-P01/README.md) | `IDEA_REVIEW` |
+| [MSC-FAT-P01 — Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych](MSC-FAT-P01/README.md) | `IDEA_REVIEW` |
 
 [Wszystkie obszary](../README.md).

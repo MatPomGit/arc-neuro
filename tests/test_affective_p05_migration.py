@@ -24,7 +24,7 @@ class AffectiveP05MigrationTest(unittest.TestCase):
     def test_no_duplicate_intake_and_complete_affect_area(self):
         self.assertFalse((ROOT/"research/affective/MSC-AFFECT-P05").exists())
         dirs=[p.name for p in (ROOT/"papers/affect").iterdir() if p.is_dir()]
-        self.assertEqual(set(dirs),{"MSC-AFFECT-P05","MSC-AR-P16","MSC-AR-P24","MSC-MGR-P01"})
+        self.assertEqual(set(dirs),{"MSC-AFFECT-P05","MSC-AR-P16","MSC-AR-P24","MSC-MGR-P01","MSC-INTERO-P01"})
         self.assertIn("MSC-AFFECT-P05",(ROOT/"papers/affect/README.md").read_text(encoding="utf-8"))
 if __name__=="__main__":
     unittest.main()

@@ -1,6 +1,6 @@
 # Manuskrypty ARC Neuro
 
-Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz własny szkic `main.tex`. Tytuły i etapy prac pochodzą z centralnej macierzy portfolio. Katalog obejmuje **66 pozycji** w pięciu obszarach naukowych.
+Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz własny szkic `main.tex`. Tytuły i etapy prac pochodzą z centralnej macierzy portfolio. Katalog obejmuje **69 pozycji** w pięciu obszarach naukowych.
 
 ## [Neurorozwój i neuroróżnorodność](ndd/README.md) (16)
 
@@ -21,14 +21,16 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-NDD-P03 — Niezgodności między obserwatorami jako informacja zależna od kontekstu](ndd/MSC-NDD-P03/README.md)
 - [MSC-NDD-P04 — Triangulacja ocen rodziców i nauczycieli](ndd/MSC-NDD-P04/README.md)
 
-## [Afekt, regulacja emocji i stres](affect/README.md) (4)
+## [Afekt, regulacja emocji i stres](affect/README.md) (5)
 
 - [MSC-AFFECT-P05 — Kinematyka dłoni jako wskaźnik wymagań poznawczych ponad intensywność ruchu](affect/MSC-AFFECT-P05/README.md)
 - [MSC-AR-P16 — Paradoks emocjonalnej adaptacji: ochrona przed dyskomfortem a tolerancja frustracji](affect/MSC-AR-P16/README.md)
 - [MSC-AR-P24 — Długotrwałe używanie agenta jako regulatora emocji a własne strategie samoregulacji](affect/MSC-AR-P24/README.md)
 - [MSC-MGR-P01 — Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe](affect/MSC-MGR-P01/README.md)
+- [MSC-INTERO-P01 — Świadomość interoceptywna i aleksytymia jako korelaty trudności w regulacji emocji u osób dorosłych](affect/MSC-INTERO-P01/README.md)
 
-## [Poznanie, pamięć, uwaga i relacje człowiek–AI](cognition/README.md) (13)
+
+## [Poznanie, pamięć, uwaga i relacje człowiek–AI](cognition/README.md) (15)
 
 - [MSC-AAL-P02 — Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home](cognition/MSC-AAL-P02/README.md)
 - [MSC-AAL-P08 — Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych](cognition/MSC-AAL-P08/README.md)
@@ -43,6 +45,10 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-CR-P11 — Komputacyjny benchmark jakości argumentów i retoryki LLM](cognition/MSC-CR-P11/README.md)
 - [MSC-CR-P12 — Transfer odporności poznawczej między dziedzinami](cognition/MSC-CR-P12/README.md)
 - [MSC-TRUST-P01 — Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie](cognition/MSC-TRUST-P01/README.md)
+- [MSC-ANX-P01 — Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności](cognition/MSC-ANX-P01/README.md)
+
+- [MSC-FAT-P01 — Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych](cognition/MSC-FAT-P01/README.md)
+
 
 ## [Relacje, przywiązanie i zachowania społeczne](social/README.md) (25)
 
@@ -83,5 +89,7 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-EYE-P03 — Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków](psychometrics/MSC-EYE-P03/README.md)
 - [MSC-EYE-P04 — Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia](psychometrics/MSC-EYE-P04/README.md)
 - [MSC-SYNC-P04 — Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów](psychometrics/MSC-SYNC-P04/README.md)
+
+Historyczny zbiór 63 artykułów, indeksowanych w `pages/`, jest przypięty w [`config/historical-manuscripts-63.txt`](../config/historical-manuscripts-63.txt) do katalogu z commitu `3c831449dd2f88dc1ec0280b61ae5910ad84e836`. Wpisy `MSC-ANX-P01`, `MSC-FAT-P01` i `MSC-INTERO-P01` pozostają prospektywnymi szkicami poza 63-elementową projekcją Pages; nie zmieniają historycznej migracji. Nie oznacza to przyznania praw do publikacji ani potwierdzenia kanonicznego właściciela naukowego. Przydział projektowy i ewentualną migrację trzeba zatwierdzić oddzielnie.
 
 Plik [`catalog.json`](catalog.json) zawiera maszynowy indeks folderów, ich tytułów i etapów. Status `DRAFT` lub `PLANNED` nie oznacza przeprowadzenia badania ani publikacji recenzowanej. Repozytorium jest publiczne; teksty manuskryptów są widoczne w historii Git. Publikacja na GitHub Pages jest osobnym procesem.

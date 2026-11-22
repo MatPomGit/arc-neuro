@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\geometry{margin=26mm}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\title{Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych}
+\author{Mateusz Pomianek}
+\date{Projekt badania, wersja 0.2.0 \\ 22 listopada 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\textit{Cognitive Fatigue Dynamics, Sustained Attention Performance, and Executive Control in Young Adults}
+\end{center}
+\begin{abstract}
+Projekt zakłada analizę zmian subiektywnego zmęczenia poznawczego i behawioralnych wskaźników uwagi podtrzymywanej podczas powtarzanego zadania u osób w wieku 18--30 lat. Badanie online z pomiarem powtarzanym ma umożliwić rozdzielenie efektu czasu wykonywania zadania od indywidualnych różnic w zmęczeniu. Głównym estymandem będzie zmiana prawdopodobieństwa błędu hamowania odpowiedzi pomiędzy kolejnymi blokami przy wykorzystaniu z góry wybranego zadania SART. Dodatkowo analizowane będą zmienność czasu reakcji i deklarowane zmęczenie.
+
+\textbf{Status:} prospektywny szkic naukowy (\texttt{IDEA\_REVIEW}); nie przeprowadzono badania, nie uzyskano wyników ani zatwierdzenia etycznego.
+\end{abstract}
+\tableofcontents
+\section{Wprowadzenie i uzasadnienie}
+Uwaga podtrzymywana obejmuje utrzymywanie gotowości do detekcji i adekwatnej reakcji w czasie. Zmęczenie poznawcze ma wymiar subiektywny, podczas gdy spadek sprawności jest obserwacją behawioralną; te dwa wymiary nie muszą zmieniać się równolegle. Powtarzalne zadania mogą generować efekt czasu wykonywania zadania (time-on-task), ale podobne zmiany mogą wynikać także z nudy, spadku motywacji, uczenia lub strategii szybkość--trafność. W zadaniu SART częsta reakcja na bodźce go i rzadka konieczność jej zahamowania przy no-go pozwalają badać podtrzymywanie uwagi oraz komponent kontroli hamowania. Nie należy mieszać metryk SART z metrykami PVT bez osobnego protokołu.
+\section{Cel i pytania badawcze}
+\paragraph{PB1.} Czy prawdopodobieństwo błędu hamowania w próbach no-go zmienia się wraz z kolejnymi blokami?
+
+\paragraph{PB2.} Czy w trakcie zadania wzrasta deklarowane zmęczenie poznawcze?
+
+\paragraph{PB3.} Czy zmiana subiektywnego zmęczenia wiąże się ze zmianą błędów i zmienności czasu reakcji po uwzględnieniu snu oraz pory dnia?
+
+\section{Hipotezy i status potwierdzenia}
+\paragraph{H1 (główna).} w kolejnych blokach wzrośnie prawdopodobieństwo błędu komisji w próbach no-go.
+
+\paragraph{H2 (drugorzędowa).} subiektywne zmęczenie wzrośnie pomiędzy początkiem a końcem zadania.
+
+\paragraph{H3 (eksploracyjna).} większy wzrost zmęczenia będzie związany z większym pogorszeniem wydajności, z uwzględnieniem odmiennego kierunku możliwego dla czasu reakcji.
+
+Hipotezy są propozycjami do zatwierdzenia przed zbieraniem danych. Ich zapis nie stanowi potwierdzenia empirycznego.
+\section{Projekt badania i uczestnicy}
+Badanie z pomiarami powtarzanymi w jednej sesji online, planowany wiek 18--30 lat. Po zgodzie i pytaniach o sen, kofeinę, przyjmowane leki wpływające na czujność i porę dnia uczestnicy wykonają trening oraz kilka równoważnych bloków SART, oddzielonych krótką oceną aktualnego zmęczenia. Długość, liczba prób, częstość no-go i przerwy wymagają pilotażu; kryteria zakończenia i przerwania sesji należy ustalić a priori. Urządzenie i przeglądarka zostaną zapisane w postaci nieidentyfikującej.
+\subsection{Liczebność próby i precyzja}
+Liczebność próby musi zostać wyznaczona przed rekrutacją na podstawie realistycznego minimalnego efektu istotnego naukowo, założonego modelu i symulacji mocy lub oczekiwanej szerokości przedziałów ufności. Żadna liczba uczestników nie jest obecnie zatwierdzona. Należy przewidzieć rezerwę na odpowiedzi niekompletne i próby wykluczone według kryteriów jakości.
+\section{Narzędzia i operacjonalizacja}
+Główna miara: liczba błędów komisji / liczba prób no-go w danym bloku. Dodatkowo: pominięcia go, mediana i współczynnik zmienności czasu poprawnych reakcji go, wyprzedzające i skrajne reakcje według uprzednio określonych progów. Zmęczenie: krótka skala stanu od 0 do 10 z jednoznaczną kotwicą słowną, odczytywana przed zadaniem i po każdym bloku; nie zastępuje to zwalidowanej skali wielowymiarowej. Sen: deklarowana długość poprzedniej nocy, godzina przebudzenia i subiektywna jakość snu.
+\subsection{Kontrola jakości}
+Przed zbieraniem danych zdefiniować próg ukończenia, obsługę prób treningowych, wskaźniki nieuwagi i duplikatów, zasady odrzucania obserwacji oraz test wykonalności technicznej. Wykluczeń nie należy optymalizować pod pożądany wynik. Prowadzić raport liczby osób na każdym etapie, bez ujawniania danych identyfikujących.
+\section{Plan analizy statystycznej}
+Analiza główna: dwumianowy model mieszany na liczbie błędów komisji i liczbie prób no-go, z numerem bloku jako predyktorem, interceptem uczestnika i rozważonym nachyleniem losowym, jeśli model będzie identyfikowalny. Efekt bloku raportować jako iloraz szans z 95\% przedziałem ufności oraz marginalne prognozowane prawdopodobieństwa. Przeanalizować możliwą nieliniowość czasu-on-task. Zmęczenie modelować osobno jako zmienną porządkową lub z ostrożnym przybliżeniem ciągłym; zależność między zmianami opisać jako eksploracyjną. Uwzględnić sen, kofeinę, godzinę sesji i jakość techniczną. Dla miar drugorzędowych zastosować kontrolę wielokrotności.
+\subsection{Raportowanie i odtwarzalność}
+Raportować wielkości efektów, przedziały ufności, dokładne definicje zmiennych i liczebność analizowalną. Przewidzieć udostępnienie kodu analitycznego, słownika zmiennych i materiałów syntetycznych zamiast danych wrażliwych. Przed analizą zamrozić wersję protokołu i zależności obliczeniowe.
+\section{Aspekty etyczne i ochrona danych}
+Ocenić, czy projekt wymaga opinii właściwej komisji etycznej. Rekrutację rozpocząć dopiero po ustaleniu zgodności prawnej, zakresu zgody, celu i czasu retencji danych oraz procedury wycofania. Nie zapisywać danych indywidualnych w repozytorium publicznym. Nie obiecywać uczestnikom korzyści diagnostycznych.
+\section{Ograniczenia i alternatywne wyjaśnienia}
+Systemy operacyjne, rodzaje klawiatur i odświeżanie ekranu wpływają na pomiary czasu reakcji. Wynik SART łączy uwagę podtrzymywaną z hamowaniem odpowiedzi, a nie stanowi czystej miary jednej funkcji. Zmęczenie może współwystępować z nudą i znużeniem. Próba ochotnicza młodych dorosłych nie reprezentuje ogólnej populacji. Należy raportować przerwania sesji i błędy transmisji.
+\section{Przewidywana interpretacja i dyskusja}
+Wzrost odsetka błędów wraz z blokiem będzie świadczyć o pogorszeniu wykonania zadania w czasie, ale nie przesądzi o mechanizmie zmęczenia. Zgodność zmian subiektywnych i behawioralnych wzmocni interpretację wspólnej dynamiki; brak zgodności stanowi informację o odrębności konstruktów. Wnioskowanie o funkcji neuronalnej wymagałoby dodatkowych pomiarów, których nie przewidziano.
+\section{Wyniki}
+Na dzień 22 listopada 2026 r. nie przedstawiono danych empirycznych. Po przeprowadzeniu badania należy zamieścić pełne wyniki, w tym wyniki niezgodne z hipotezami, dane o odrzuceniach, niepewność oszacowań oraz analizy wrażliwości.
+\section{Warunki przejścia do badania}
+\begin{enumerate}
+\item Zweryfikować istniejącą literaturę i przyporządkować cytowania do twierdzeń.
+\item Ustalić finalne narzędzia, wersje językowe, licencje i procedurę pilotażową.
+\item Zatwierdzić estymand, hipotezy, liczebność próby oraz plan kontroli błędów wielokrotności.
+\item Rozstrzygnąć wymogi etyczne i ochronę danych, a następnie przygotować prerejestrację.
+\item Dopiero wtedy rozpocząć rekrutację i gromadzenie materiału badawczego.
+\end{enumerate}
+\section*{Bibliografia}
+Bibliografia wymaga niezależnej weryfikacji pełnych danych publikacji i identyfikatorów DOI; na tym etapie nie wprowadzono fikcyjnych cytowań.
+\end{document}

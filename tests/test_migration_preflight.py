@@ -16,10 +16,59 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertEqual(report["inventory_status"], "PASS", report["findings"])
         self.assertEqual(report["migration_status"], "BLOCKED")
         self.assertFalse(report["migration_ready"])
-        self.assertEqual(report["record_count"], 66)
-        self.assertEqual(report["record_kinds"], {"IDEA": 34, "MANUSCRIPT": 32})
-        self.assertEqual(sum(report["research_lines"].values()), 66)
+        self.assertEqual(report["record_count"], 69)
+        self.assertEqual(report["record_kinds"], {"IDEA": 37, "MANUSCRIPT": 32})
+        self.assertEqual(report["historical_record_count"], 63)
+        self.assertEqual(report["historical_record_kinds"], {"IDEA": 31, "MANUSCRIPT": 32})
+        self.assertEqual(report["later_record_ids"], sorted({
+            "MSC-ZAH-P02", "MSC-ZAH-P03", "MSC-ZAH-P04",
+            "MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01",
+        }))
+        self.assertEqual(sum(report["research_lines"].values()), 69)
         self.assertGreater(len(report["historical_stage_values"]), 5)
+
+    def test_frozen_historical_manifest_rejects_silent_replacement(self):
+        original_read_bytes = Path.read_bytes
+
+        def fake_read_bytes(path):
+            content = original_read_bytes(path)
+            if path.name == "historical-manuscripts-63.txt":
+                return content.replace(b"MSC-AAL-P02", b"MSC-AAL-P99")
+            return content
+
+        with patch.object(Path, "read_bytes", autospec=True,
+                          side_effect=fake_read_bytes):
+            report = audit(ROOT)
+        self.assertEqual(report["inventory_status"], "FAIL")
+        self.assertIn("historical_63_snapshot_modified", report["findings"])
+        self.assertIn("expected_63_historical_unique_msc", report["findings"])
+        self.assertEqual(report["migration_status"], "BLOCKED")
+        self.assertFalse(report["migration_ready"])
+
+    def test_replacing_a_legacy_id_does_not_rewrite_historical_evidence(self):
+        catalog = json.loads((ROOT / "papers/catalog.json").read_text(encoding="utf-8"))
+        historical = next(row for row in catalog["papers"] if row["id"] == "MSC-ADHD-P01")
+        historical["id"] = "MSC-ADHD-P99"
+        metadata = [
+            json.loads((ROOT / "areas/index.json").read_text(encoding="utf-8")),
+            json.loads((ROOT / "program.json").read_text(encoding="utf-8")),
+            json.loads((ROOT / "portfolio/papers.json").read_text(encoding="utf-8")),
+        ]
+        with patch("migration_preflight.json.loads", side_effect=[catalog, *metadata]):
+            report = audit(ROOT)
+        self.assertEqual(report["inventory_status"], "FAIL")
+        self.assertIn("expected_63_historical_unique_msc", report["findings"])
+
+    def test_three_later_ideas_are_excluded_from_migration_evidence(self):
+        report = audit(ROOT)
+        self.assertEqual(report["historical_record_count"], 63)
+        self.assertEqual(report["migration_status"], "BLOCKED")
+        self.assertFalse(report["migration_ready"])
+        self.assertEqual(
+            set(report["later_record_ids"]) -
+            {"MSC-ZAH-P02", "MSC-ZAH-P03", "MSC-ZAH-P04"},
+            {"MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01"},
+        )
 
     def test_duplicate_msc_fails(self):
         catalog = json.loads((ROOT / "papers/catalog.json").read_text(encoding="utf-8"))

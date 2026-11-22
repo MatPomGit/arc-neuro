@@ -11,7 +11,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-AREAS = {"ndd": 16, "affect": 4, "cognition": 13, "social": 25, "psychometrics": 8}
+AREAS = {"ndd": 16, "affect": 5, "cognition": 15, "social": 25, "psychometrics": 8}
 
 def compile_all(root: Path = ROOT, timeout: int = 40) -> list[str]:
     errors: list[str] = []
@@ -55,7 +55,7 @@ def main() -> int:
     errors = compile_all(args.root)
     for err in errors:
         print("FAIL:", err)
-    print("arc-neuro-latex:", "FAIL" if errors else "PASS (63 PDFs)")
+    print("arc-neuro-latex:", "FAIL" if errors else "PASS (69 PDFs)")
     return 1 if errors else 0
 
 if __name__ == "__main__":

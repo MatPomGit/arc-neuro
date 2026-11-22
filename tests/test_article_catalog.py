@@ -6,14 +6,18 @@ import unittest
 ROOT=Path(__file__).resolve().parents[1]
 CATALOG=json.loads((ROOT/"papers/catalog.json").read_text(encoding="utf-8"))
 AREAS={"ndd":16,"affect":4,"cognition":13,"social":22,"psychometrics":8}
+HISTORICAL_IDS={line.strip() for line in (ROOT/"config/historical-manuscripts-63.txt").read_text(encoding="utf-8").splitlines() if line.strip() and not line.startswith("#")}
+NEW_IDEAS={"MSC-ANX-P01","MSC-FAT-P01","MSC-INTERO-P01"}
 class ArticleCatalogTests(unittest.TestCase):
     def test_all_63_article_headings_match_canonical_catalog(self):
+        self.assertEqual(len(HISTORICAL_IDS),63)
+        self.assertTrue(HISTORICAL_IDS <= {p["id"] for p in CATALOG["papers"]})
         seen=set()
         for area,expected in AREAS.items():
             page=(ROOT/"pages"/(area+".md")).read_text(encoding="utf-8")
             titles=re.findall(r"^### (MSC-[A-Z0-9]+-[PRS][0-9]+) — (.+)$",page,flags=re.MULTILINE)
             self.assertEqual(len(titles),expected,area)
-            listed=[(p["id"],p["title"]) for p in CATALOG["papers"] if p["area"]==area and not p["id"].startswith("MSC-ZAH-")]
+            listed=[(p["id"],p["title"]) for p in CATALOG["papers"] if p["area"]==area and p["id"] in HISTORICAL_IDS]
             self.assertEqual(titles,listed)
             for ident,_ in titles:
                 self.assertNotIn(ident,seen)
@@ -21,7 +25,11 @@ class ArticleCatalogTests(unittest.TestCase):
             chunks=re.split(r"^### .+$",page,flags=re.MULTILINE)[1:]
             self.assertTrue(all(len(x.strip())>=55 for x in chunks))
             self.assertNotRegex(page,r"slot-[0-9]+")
-        self.assertEqual(len(seen),63)
+        self.assertEqual(seen,HISTORICAL_IDS)
+        self.assertTrue(NEW_IDEAS <= {p["id"] for p in CATALOG["papers"]})
+        for area in AREAS:
+            page=(ROOT/"pages"/(area+".md")).read_text(encoding="utf-8")
+            self.assertTrue(all(f"### {ident} —" not in page for ident in NEW_IDEAS))
     def test_main_index_and_papers_index(self):
         page=(ROOT/"pages/articles.md").read_text(encoding="utf-8")
         self.assertIn("63",page)
