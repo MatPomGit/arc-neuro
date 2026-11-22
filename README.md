@@ -17,7 +17,7 @@ ARC Neuro integruje badania nad poznaniem, afektem, neurorozwojem, zachowaniem s
 
 ## Manuskrypty i projekty
 
-W katalogu [`papers/`](papers/README.md) znajduje się 63 prospektywnych szkiców i koncepcji manuskryptów LaTeX, opisanych w pięciu liniach badawczych. Stanowią one planowane badania, a nie potwierdzone wyniki eksperymentalne. Kanoniczne identyfikatory i źródła są ujęte w [katalogu manuskryptów](papers/catalog.json).
+W katalogu [`papers/`](papers/README.md) znajduje się 69 prospektywnych szkiców i koncepcji manuskryptów LaTeX, opisanych w pięciu liniach badawczych. Stanowią one planowane badania, a nie potwierdzone wyniki eksperymentalne. Kanoniczne identyfikatory i źródła są ujęte w [katalogu manuskryptów](papers/catalog.json).
 
 [Rejestr projektów](portfolio/projects.json), [rejestr artykułów](portfolio/papers.json) i [rejestr zależności](portfolio/dependencies.json) opisują powiązania między pracami. Dane i protokoły projektów zewnętrznych pozostają w ich repozytoriach kanonicznych.
 
