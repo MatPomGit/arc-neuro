@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MSC = re.compile(r"^MSC-[A-Z0-9]+-[PRS][0-9]{2,}$")
 KINDS = {"MANUSCRIPT", "IDEA"}
+HISTORICAL_IDS_PATH = "config/historical-manuscripts-63.txt"
 
 
 def audit(root: Path = ROOT) -> dict:
@@ -59,12 +60,21 @@ def audit(root: Path = ROOT) -> dict:
         if not (root / folder / "README.md").is_file():
             findings.append("missing_readme:" + ident)
 
-    # Historical 63-item migration evidence remains pinned; later concept
-    # articles are validated as local folders without promoting the migration.
-    historical = [row for row in records if not str(row.get("id", "")).startswith("MSC-ZAH-")]
-    historical_ids = {row.get("id") for row in historical}
+    # Historical 63-item cohort is pinned independently of newer IDEA entries.
+    # Neither the migration status nor public approvals are changed here.
+    historical_lines = [
+        line.strip() for line in (root / HISTORICAL_IDS_PATH)
+        .read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    ]
+    historical_ids = set(historical_lines)
+    if (len(historical_lines) != 63 or len(historical_ids) != 63
+            or any(not MSC.fullmatch(ident) for ident in historical_ids)):
+        findings.append("invalid_historical_63_snapshot")
+    historical = [row for row in records if row.get("id") in historical_ids]
+    present_ids = {row.get("id") for row in historical}
     historical_kinds = Counter(row.get("record_kind") for row in historical)
-    if len(historical) != 63 or len(historical_ids) != 63:
+    if len(historical) != 63 or len(present_ids) != 63 or present_ids != historical_ids:
         findings.append("expected_63_historical_unique_msc")
     if historical_kinds != Counter({"MANUSCRIPT": 32, "IDEA": 31}):
         findings.append("unexpected_historical_manuscript_idea_split")
@@ -81,6 +91,9 @@ def audit(root: Path = ROOT) -> dict:
         "migration_ready": False,
         "schema_version": program.get("schema_version"),
         "record_count": len(records),
+        "historical_record_count": len(historical),
+        "historical_record_kinds": dict(sorted(historical_kinds.items())),
+        "later_record_ids": sorted(identifiers - historical_ids),
         "record_kinds": dict(sorted(kinds.items())),
         "research_lines": dict(sorted(lines.items())),
         "historical_stage_values": sorted({x.get("stage") for x in records
