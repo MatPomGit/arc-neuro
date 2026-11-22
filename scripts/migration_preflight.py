@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from hashlib import sha1
 from collections import Counter
 from pathlib import Path
 
@@ -11,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MSC = re.compile(r"^MSC-[A-Z0-9]+-[PRS][0-9]{2,}$")
 KINDS = {"MANUSCRIPT", "IDEA"}
 HISTORICAL_IDS_PATH = "config/historical-manuscripts-63.txt"
+HISTORICAL_MANIFEST_GIT_BLOB_SHA = "ff5e5eb7ecf46049300944e168b1dff06abcb68d"
 
 
 def audit(root: Path = ROOT) -> dict:
@@ -62,9 +64,15 @@ def audit(root: Path = ROOT) -> dict:
 
     # Historical 63-item cohort is pinned independently of newer IDEA entries.
     # Neither the migration status nor public approvals are changed here.
+    # Freeze the ID list to the original Git blob, not only a 63-ID count.
+    # Any edited list requires an explicit new migration decision.
+    historical_bytes = (root / HISTORICAL_IDS_PATH).read_bytes()
+    blob_header = f"blob {len(historical_bytes)}\0".encode("ascii")
+    manifest_git_blob = sha1(blob_header + historical_bytes).hexdigest()
+    if manifest_git_blob != HISTORICAL_MANIFEST_GIT_BLOB_SHA:
+        findings.append("historical_63_snapshot_modified")
     historical_lines = [
-        line.strip() for line in (root / HISTORICAL_IDS_PATH)
-        .read_text(encoding="utf-8").splitlines()
+        line.strip() for line in historical_bytes.decode("utf-8").splitlines()
         if line.strip() and not line.lstrip().startswith("#")
     ]
     historical_ids = set(historical_lines)
