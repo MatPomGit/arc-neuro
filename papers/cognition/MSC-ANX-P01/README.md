@@ -18,6 +18,8 @@ Nie przeprowadzono pilotażu, rekrutacji, analiz empirycznych ani oceny etycznej
 
 **Uwaga:** skryptów eksperymentalnych i danych nie dodano; manuskrypt nie przedstawia wyników.
 
+[Szczegółowa strategia publikacyjna](journal-targets.md), z priorytetami, punktacją i wymaganiami przed zgłoszeniem.
+
 ## Czasopisma docelowe (stan: 2026-11-22)
 
 1. **Cognition and Emotion**, ISSN 0269-9931, eISSN 1464-0600, **100 pkt**. Cel główny; najwyższe dopasowanie do relacji emocje–funkcje wykonawcze. Publikacja na ścieżce tradycyjnej preferowana przy braku budżetu APC.
