@@ -1,4 +1,4 @@
-# MSC-ANX-P01 — Objawy lękowe a elastyczność poznawcza i podejmowanie decyzji
+# MSC-ANX-P01 — Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności
 
 **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Program:** ARC Neuro. **Obszar:** cognition.
 
