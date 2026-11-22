@@ -21,6 +21,10 @@
 | MSC-CR-P02 | alternatywny | International Journal of Human-Computer Studies | 1071-5819 | — | 140 | Projekt interakcji z AI oraz transfer bez AI |
 | MSC-CR-P02 | ambitny, warunkowy | Learning and Instruction | 0959-4752 | — | 200 | Uczenie i odroczony transfer, wymagany kontekst dydaktyczny |
 
+| MSC-CR-P03 | główny | Computers in Human Behavior | 0747-5632 | 1873-7692 | 140 | Normy społeczne i wpływ komunikacji AI |
+| MSC-CR-P03 | ambitny, warunkowy | New Media & Society | 1461-4448 | — | 200 | Dyfuzja norm i teoria mediów, wymaga walidacji |
+| MSC-CR-P03 | alternatywny, warunkowy | Journal of Computer-Mediated Communication | 1083-6101 | — | 200 | Silny wkład w badania komunikacji |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -49,3 +53,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-CR-P01 – strategia publikacyjna](cognition/MSC-CR-P01/journal-targets.md)
 
 - [MSC-CR-P02 – strategia publikacyjna](cognition/MSC-CR-P02/journal-targets.md)
+
+- [MSC-CR-P03 – strategia publikacyjna](social/MSC-CR-P03/journal-targets.md)
