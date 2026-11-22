@@ -1,8 +1,7 @@
 {
   "schema_version": 1,
   "program": "arc-neuro",
-  "updated": "2026-11-21",
-  "registry_commit_sha": "84fd9acb0a9ec36d1585da0471f1516eb61339f9",
+  "updated": "2026-11-22",
   "description": "Index of publicly visible research-draft manuscript folders. Not the approved portfolio/projects registry or a Pages publication approval.",
   "papers": [
     {
@@ -148,6 +147,15 @@
       "stage": "PLANNED",
       "manuscript_path": "papers/affect/MSC-AFFECT-P05/main.tex",
       "readme_path": "papers/affect/MSC-AFFECT-P05/README.md"
+    },
+    {
+      "id": "MSC-ANX-P01",
+      "area": "cognition",
+      "title": "Objawy lękowe a elastyczność poznawcza i podejmowanie decyzji",
+      "record_kind": "IDEA",
+      "stage": "IDEA_REVIEW",
+      "manuscript_path": "papers/cognition/MSC-ANX-P01/main.tex",
+      "readme_path": "papers/cognition/MSC-ANX-P01/README.md"
     },
     {
       "id": "MSC-AR-P16",
@@ -393,6 +401,24 @@
       "readme_path": "papers/psychometrics/MSC-EYE-P04/README.md"
     },
     {
+      "id": "MSC-FAT-P01",
+      "area": "cognition",
+      "title": "Zmęczenie poznawcze i sprawność uwagi u młodych dorosłych",
+      "record_kind": "IDEA",
+      "stage": "IDEA_REVIEW",
+      "manuscript_path": "papers/cognition/MSC-FAT-P01/main.tex",
+      "readme_path": "papers/cognition/MSC-FAT-P01/README.md"
+    },
+    {
+      "id": "MSC-INTERO-P01",
+      "area": "affect",
+      "title": "Interocepcja, aleksytymia i regulacja emocji",
+      "record_kind": "IDEA",
+      "stage": "IDEA_REVIEW",
+      "manuscript_path": "papers/affect/MSC-INTERO-P01/main.tex",
+      "readme_path": "papers/affect/MSC-INTERO-P01/README.md"
+    },
+    {
       "id": "MSC-MGR-P01",
       "area": "affect",
       "title": "Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe",
@@ -555,6 +581,24 @@
       "readme_path": "papers/social/MSC-SAPIENS-P03/README.md"
     },
     {
+      "id": "MSC-SYNC-P04",
+      "area": "psychometrics",
+      "title": "Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów",
+      "record_kind": "IDEA",
+      "stage": "STOP_STANDALONE",
+      "manuscript_path": "papers/psychometrics/MSC-SYNC-P04/main.tex",
+      "readme_path": "papers/psychometrics/MSC-SYNC-P04/README.md"
+    },
+    {
+      "id": "MSC-TRUST-P01",
+      "area": "cognition",
+      "title": "Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie",
+      "record_kind": "IDEA",
+      "stage": "NEW_CROSS_DOMAIN_IDEA_HOLD",
+      "manuscript_path": "papers/cognition/MSC-TRUST-P01/main.tex",
+      "readme_path": "papers/cognition/MSC-TRUST-P01/README.md"
+    },
+    {
       "id": "MSC-ZAH-P02",
       "area": "social",
       "title": "Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania",
@@ -580,24 +624,6 @@
       "stage": "IDEA_HOLD",
       "manuscript_path": "papers/social/MSC-ZAH-P04/main.tex",
       "readme_path": "papers/social/MSC-ZAH-P04/README.md"
-    },
-    {
-      "id": "MSC-SYNC-P04",
-      "area": "psychometrics",
-      "title": "Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów",
-      "record_kind": "IDEA",
-      "stage": "STOP_STANDALONE",
-      "manuscript_path": "papers/psychometrics/MSC-SYNC-P04/main.tex",
-      "readme_path": "papers/psychometrics/MSC-SYNC-P04/README.md"
-    },
-    {
-      "id": "MSC-TRUST-P01",
-      "area": "cognition",
-      "title": "Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie",
-      "record_kind": "IDEA",
-      "stage": "NEW_CROSS_DOMAIN_IDEA_HOLD",
-      "manuscript_path": "papers/cognition/MSC-TRUST-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-TRUST-P01/README.md"
     }
   ]
 }
