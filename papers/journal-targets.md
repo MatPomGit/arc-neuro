@@ -53,6 +53,10 @@
 | MSC-AAL-P02 | alternatywny | Applied Ergonomics | 0003-6870 | 1872-9126 | 140 | Obciążenie zadaniowe, błędy i ergonomia interakcji |
 | MSC-AAL-P02 | rezerwowy | Behaviour & Information Technology | 0144-929X | 1362-3001 | 70 | Zachowanie użytkownika w adaptacyjnym interfejsie |
 
+| MSC-AAL-P06 | główny | International Journal of Human-Computer Studies | 1071-5819 | 1095-9300 | 140 | Uzasadnienie alertów, zaufanie, decyzje opiekuna |
+| MSC-AAL-P06 | alternatywny | Applied Ergonomics | 0003-6870 | 1872-9126 | 140 | Obciążenie, przerwania, fałszywe alarmy i ergonomia |
+| MSC-AAL-P06 | medyczny, warunkowy | International Journal of Medical Informatics | 1386-5056 | 1872-8243 | 140 | Wymagana walidacja kliniczna ścieżki eskalacji |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -103,3 +107,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-CR-P12 – strategia publikacyjna](cognition/MSC-CR-P12/journal-targets.md)
 
 - [MSC-AAL-P02 – strategia publikacyjna](cognition/MSC-AAL-P02/journal-targets.md)
+
+- [MSC-AAL-P06 – strategia publikacyjna](social/MSC-AAL-P06/journal-targets.md)
