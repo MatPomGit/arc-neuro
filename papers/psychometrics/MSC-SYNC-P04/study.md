@@ -1,0 +1,34 @@
+# MSC-SYNC-P04 — Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów
+
+**Program:** `arc-neuro` · **obszar:** `eeg-event-time-qualification` · **rodzaj:** `IDEA` · **etap źródłowy:** `STOP_STANDALONE`.
+
+## Projekt badania
+
+**Przedmiot:** Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów.
+
+- **Proponowany wynik główny:** Pokrycie nominalnych 95-proc. przedziałów niepewności czasu i ich szerokość względem niezależnej referencji zegarowej
+- **Zakres i odrębność:** Metrologiczna kalibracja interwału czasu przy utracie pakietów, nie wpływ opóźnienia na wynik recovery w MSC-SYNC-P01. Źródłowe STOP_STANDALONE nadal obowiązuje do nowej oceny nowości.
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** `MSC-ADHD-P05`.
+
+## Stanowisko badawcze
+
+**`ST-00`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
+
+## Aplikacje
+
+- **`app-regulation-mobile`** (`APP-ARC-02`): rola `SIGNAL_SOURCE`, decyzja `RESEARCH_GO`; status repozytorium `PLANNED_NOT_CREATED`.
+- **`app-eeg-neurolyze`** (`APP-ARC-03`): rola `SIGNAL_SOURCE`, decyzja `DEVICE_RIGHTS`; status repozytorium `ALTERNATE_EXISTING_APP`, istniejący odpowiednik `eeg-neurolyze`.
+
+## Biblioteki
+
+- **`lib-adapt`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-regulation-mobile`. Brak potwierdzonej integracji.
+- **`lib-events`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-regulation-mobile`, `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+- **`lib-sig`**: status `RENAMED_PARTIAL_CORE`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+- **`lib-sim`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+
+## Proweniencja i warunki realizacji
+
+Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
+
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.
