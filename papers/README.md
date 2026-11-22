@@ -90,4 +90,6 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-EYE-P04 — Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia](psychometrics/MSC-EYE-P04/README.md)
 - [MSC-SYNC-P04 — Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów](psychometrics/MSC-SYNC-P04/README.md)
 
+Historyczny zbiór 63 artykułów, indeksowanych w `pages/`, jest przypięty w [`config/historical-manuscripts-63.txt`](../config/historical-manuscripts-63.txt) do katalogu z commitu `3c831449dd2f88dc1ec0280b61ae5910ad84e836`. Wpisy `MSC-ANX-P01`, `MSC-FAT-P01` i `MSC-INTERO-P01` pozostają prospektywnymi szkicami poza 63-elementową projekcją Pages; nie zmieniają historycznej migracji. Nie oznacza to przyznania praw do publikacji ani potwierdzenia kanonicznego właściciela naukowego. Przydział projektowy i ewentualną migrację trzeba zatwierdzić oddzielnie.
+
 Plik [`catalog.json`](catalog.json) zawiera maszynowy indeks folderów, ich tytułów i etapów. Status `DRAFT` lub `PLANNED` nie oznacza przeprowadzenia badania ani publikacji recenzowanej. Repozytorium jest publiczne; teksty manuskryptów są widoczne w historii Git. Publikacja na GitHub Pages jest osobnym procesem.
