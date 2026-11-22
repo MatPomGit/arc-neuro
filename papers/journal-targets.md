@@ -1,4 +1,4 @@
-# Czasopisma docelowe dla trzech projektów ARC Neuro
+# Czasopisma docelowe projektów ARC Neuro
 
 **Data weryfikacji:** 2026-11-22. **Podstawa punktacji:** komunikat Ministra Nauki z 5 stycznia 2024 r. (ostatni opublikowany wykaz sprawdzony na ten dzień). **Status:** lista robocza, nie oznacza zgłoszenia ani akceptacji redakcji.
 
@@ -17,6 +17,9 @@
 | MSC-CR-P01 | główny | Computers in Human Behavior | 0747-5632 | 1873-7692 | 140 | Psychologia korzystania z AI, trafność osądu i retoryka LLM |
 | MSC-CR-P01 | alternatywny | International Journal of Human-Computer Studies | 1071-5819 | — | 140 | HCI oraz projektowanie form prezentacji dowodów |
 | MSC-CR-P01 | rezerwowy | Current Psychology | 1046-1310 | 1936-4733 | 70 | Ogólnopsychologiczna interpretacja eksperymentu |
+| MSC-CR-P02 | główny | Computers in Human Behavior | 0747-5632 | 1873-7692 | 140 | Podłużne skutki korzystania z AI i samodzielność osądu |
+| MSC-CR-P02 | alternatywny | International Journal of Human-Computer Studies | 1071-5819 | — | 140 | Projekt interakcji z AI oraz transfer bez AI |
+| MSC-CR-P02 | ambitny, warunkowy | Learning and Instruction | 0959-4752 | — | 200 | Uczenie i odroczony transfer, wymagany kontekst dydaktyczny |
 
 ## Interpretacja punktacji
 
@@ -44,3 +47,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-INTERO-P01 – strategia publikacyjna i analiza nowości](affect/MSC-INTERO-P01/journal-targets.md)
 
 - [MSC-CR-P01 – strategia publikacyjna](cognition/MSC-CR-P01/journal-targets.md)
+
+- [MSC-CR-P02 – strategia publikacyjna](cognition/MSC-CR-P02/journal-targets.md)
