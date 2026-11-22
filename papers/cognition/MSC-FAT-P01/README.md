@@ -6,6 +6,8 @@
 
 **Status dowodowy:** badanie nie zostało przeprowadzone; brak danych, wyników, prerejestracji i deklaracji akceptacji etycznej. Wybór narzędzi i plan mocy statystycznej wymagają weryfikacji przed rekrutacją.
 
+[Szczegółowa strategia publikacyjna](journal-targets.md), z priorytetami, punktacją i wymaganiami przed zgłoszeniem.
+
 ## Czasopisma docelowe (stan: 2026-11-22)
 
 1. **Psychological Research – Psychologische Forschung**, ISSN 0340-0727, eISSN 1430-2772, **70 pkt**. Cel główny przy rzetelnym zadaniu SART, analizie czasu wykonywania zadania i pomiarze powtarzanym.
