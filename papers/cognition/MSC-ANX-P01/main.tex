@@ -12,7 +12,7 @@
 \setlength{\parindent}{0pt}
 \title{Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności}
 \author{Mateusz Pomianek}
-\date{Projekt badania, wersja 0.2.0 \\ 22 listopada 2026}
+\date{Projekt badania, wersja 0.3.0 \\ 22 listopada 2026}
 \begin{document}
 \maketitle
 \begin{center}
@@ -59,6 +59,68 @@ Ocenić, czy projekt wymaga opinii właściwej komisji etycznej. Rekrutację roz
 Badanie przekrojowe nie uzasadnia wnioskowania przyczynowego. Kwestionariusz przesiewowy może mierzyć konstrukty częściowo wspólne z depresją i stresem. Koszt przełączania zależy od architektury zadania, treningu oraz kompromisu szybkość--trafność. Czasy reakcji online zależą od sprzętu i przeglądarki; konieczne są minimalne kryteria techniczne, raport wykluczeń i analiza wrażliwości. Zdarzenia o silnym obciążeniu emocjonalnym nie powinny być używane bez odrębnego uzasadnienia etycznego.
 \section{Przewidywana interpretacja i dyskusja}
 Potwierdzenie H1 sugerowałoby współwystępowanie nasilenia objawów lękowych z behawioralnym wskaźnikiem kontroli przełączania, a nie dowód zaburzenia określonego mechanizmu neuronalnego. Brak związku mógłby wskazywać na słabą swoistość zastosowanej miary, niewielki efekt lub ograniczoną precyzję próby. Wyniki z zadania decyzyjnego należy interpretować osobno dla ryzyka i niejednoznaczności.
+
+\section{Ramy teoretyczne i model zależności}
+\subsection{Teoria kontroli uwagi}
+Teoria kontroli uwagi zakłada, że nasilony lęk może zmniejszać efektywność kontroli wykonawczej, choć poprawność reakcji może pozostać zachowana dzięki dodatkowej mobilizacji zasobów \cite{Eysenck2007}. Zatem spowolnienie reakcji i wzrost odsetka błędów należy traktować jako odrębne wyniki. Konieczne jest także rozróżnienie zmiany reguły zadaniowej, szybkości bazowej oraz zachowania ostrożnego.
+
+\subsection{Elastyczność poznawcza}
+Zdolność przełączania jest powiązana z innymi funkcjami wykonawczymi, ale nie jest z nimi tożsama \cite{Miyake2000}. Koszt przełączania zależy od wskazówek, przygotowania do zadania, kolejności prób i powtarzania bodźców \cite{Monsell2003}. Pojedyncze zadanie jest wskaźnikiem behawioralnym, a nie bezpośrednią miarą neuronalnej elastyczności.
+
+\subsection{Ryzyko a niejednoznaczność}
+Ryzyko zakłada znajomość prawdopodobieństw, niejednoznaczność zaś ich niepełną znajomość. Nietolerancja niepewności, rozważana w badaniach nad lękiem, nie jest tym samym co niechęć do wariancji wypłat \cite{Carleton2016}. Z tego powodu należy konstruować odrębne kontrasty decyzyjne.
+
+\section{Pytania i planowane hipotezy szczegółowe}
+\begin{description}
+\item[H1, główna:] Większy wynik GAD-7 wiąże się z większym kosztem przełączania po kontroli szybkości bazowej i uprzednio wybranych współzmiennych.
+\item[H2, drugorzędowa:] Przy wyrównanej wartości oczekiwanej wyższy GAD-7 wiąże się z rzadszym wyborem opcji o większej wariancji.
+\item[H3, drugorzędowa:] Wyższy GAD-7 wiąże się z rzadszym wyborem opcji o nieznanych prawdopodobieństwach.
+\item[H4, eksploracyjna:] Związki z decyzjami pozostają po uwzględnieniu indywidualnego kosztu przełączania.
+\end{description}
+Hipotezy nie stanowią stwierdzenia o wynikach. Kierunek, definicje i analiza wielokrotności muszą zostać zamrożone przed rekrutacją.
+
+\section{Szczegółowa procedura eksperymentalna}
+\subsection{Próba i warunki techniczne}
+Planowane jest badanie online osób pełnoletnich. Zadanie szybkościowe powinno być wykonywane na komputerze z klawiaturą. Uczestnik otrzyma instrukcję dobrowolności i możliwości rezygnacji. Zostaną zebrane wyłącznie minimalne dane o wieku, śnie, porze wykonania zadania i konfiguracji urządzenia. Kryteria wykluczeń technicznych i liczebność próby wymagają osobnego uzasadnienia.
+
+\subsection{Sekwencja}
+Kolejność obejmie zgodę, krótkie pytania kontrolne, GAD-7, trening i właściwe próby przełączania, zadanie decyzji oraz debriefing. Kolejność dwóch zadań może zostać losowo zrównoważona. Liczba bloków, prób, czas ekspozycji i czas przygotowania będą ustalone w pilotażu, bez analizowania hipotez na próbie konfirmacyjnej.
+
+\subsection{Paradygmat przełączania}
+Uczestnik będzie klasyfikować bodźce według dwóch reguł, np. parzystości i wielkości liczby. Wskazówka zadaniowa określi aktualną regułę. Należy zrównoważyć typy prób switch i repeat, rodzaje bodźców oraz zgodność odpowiedzi. Miarą podstawową będzie różnica median czasu poprawnych reakcji:
+\begin{equation}
+SC_i=\operatorname{median}(RT^{\mathrm{correct}}_{i,\mathrm{switch}})
+-\operatorname{median}(RT^{\mathrm{correct}}_{i,\mathrm{repeat}}).
+\end{equation}
+Uzupełniająco należy raportować różnice w błędach, względny koszt RT i jakość danych na poziomie prób. Selekcja wyłącznie reakcji poprawnych wymaga osobnej analizy wrażliwości.
+
+\subsection{Zadanie decyzyjne}
+W wariancie ryzyka obie opcje mają jawne prawdopodobieństwa oraz wypłaty. Wartość oczekiwana wynosi:
+\begin{equation}
+EV_j=\sum_{k=1}^{K_j}p_{jk}x_{jk}.
+\end{equation}
+Dla H2 należy kontrolować wartość oczekiwaną, zmieniając wariancję. W wariancie niejednoznaczności wybrane prawdopodobieństwa pozostają nieznane; uczestnik musi to rozumieć. Pilotaż ustali, czy preferencję niejednoznaczności da się oddzielić od atrakcyjności wypłaty.
+
+\section{Główny estymand i modele statystyczne}
+Główny estymand to średnia różnica kosztu przełączania w milisekundach związana z pięciopunktową różnicą GAD-7, warunkowo względem ustalonych współzmiennych. Jednostka pięciu punktów ma charakter opisowy, a nie diagnostyczny.
+\begin{equation}
+SC_i=\beta_0+\beta_1\frac{GAD7_i}{5}
++\boldsymbol{\gamma}^{\mathsf T}\mathbf Z_i+\varepsilon_i.
+\end{equation}
+Współzmienne będą ograniczone do uzasadnionych czynników, np. wieku, snu, nasilenia objawów depresyjnych, typu urządzenia i bazowego RT. Raportowane będą oszacowania, przedziały ufności oraz diagnostyka reszt. Regresja odporna na obserwacje odstające będzie analizą wrażliwości.
+
+Dodatkowo model mieszany na poziomie prób uwzględni interakcję przełączenia z GAD-7 i intercept uczestnika. Odrębny model logistyczny oceni poprawność reakcji, aby wykryć kompromis szybkość--trafność. Wybory decyzyjne można analizować modelem logistycznym z efektem uczestnika, różnicą wartości oczekiwanej, wariancją i wskaźnikiem niejednoznaczności. Parametry nieidentyfikowalne nie będą interpretowane.
+
+H1 stanowi pojedynczy test główny. Dla H2 i H3 przewidziano korektę Holma, a H4 pozostanie eksploracyjna. Reguły obsługi braków danych i odrzucania prób zostaną ustalone przed analizą.
+
+\section{Pilotaż, wielkość próby i kontrola jakości}
+Liczebność próby zostanie uzasadniona przy użyciu minimalnego efektu istotnego naukowo oraz symulacji mocy lub precyzji estymacji. Pilotaż posłuży do oszacowania wariancji kosztu przełączania, odsetka prób nieważnych, rozkładu GAD-7, zrozumiałości instrukcji i identyfikowalności wyborów. Dane używane do dostrajania paradygmatu nie będą automatycznie łączone z próbą konfirmacyjną.
+
+System badawczy powinien zapisywać identyfikator wersji bodźca, regułę, wskazówkę, blok, poprawność, czas reakcji i parametry wyboru. Analizy wrażliwości obejmą przeglądarkę, urządzenie, kolejność zadań, trafność, przekształcenia RT i ewentualne odstępstwa od planu. Publicznie udostępniane będą co najwyżej kod, słownik zmiennych i dane syntetyczne.
+
+\section{Scenariusze interpretacji}
+Jeżeli koszt przełączania będzie większy przy nasilonych objawach, wynik będzie zgodny z hipotezą o obniżonej efektywności wykonywania zadania, ale nie zidentyfikuje mechanizmu neuronalnego ani zależności przyczynowej. Brak związku może odzwierciedlać rzeczywiście mały efekt, zbyt małą precyzję albo niewystarczającą trafność paradygmatu. Wzorce wyborów należy interpretować osobno dla ryzyka i niejednoznaczności; nie stanowią one samodzielnej diagnozy klinicznej.
+
 \section{Wyniki}
 Na dzień 22 listopada 2026 r. nie przedstawiono danych empirycznych. Po przeprowadzeniu badania należy zamieścić pełne wyniki, w tym wyniki niezgodne z hipotezami, dane o odrzuceniach, niepewność oszacowań oraz analizy wrażliwości.
 \section{Warunki przejścia do badania}
@@ -71,4 +133,12 @@ Na dzień 22 listopada 2026 r. nie przedstawiono danych empirycznych. Po przepro
 \end{enumerate}
 \section*{Bibliografia}
 Bibliografia wymaga niezależnej weryfikacji pełnych danych publikacji i identyfikatorów DOI; na tym etapie nie wprowadzono fikcyjnych cytowań.
+
+\begin{thebibliography}{9}
+\bibitem{Eysenck2007} Eysenck, M. W., Derakshan, N., Santos, R., Calvo, M. G. (2007). Anxiety and cognitive performance: Attentional control theory. \textit{Emotion}, 7(2), 336--353. \href{https://doi.org/10.1037/1528-3542.7.2.336}{doi:10.1037/1528-3542.7.2.336}.
+\bibitem{Miyake2000} Miyake, A., Friedman, N. P., Emerson, M. J., Witzki, A. H., Howerter, A., Wager, T. D. (2000). The unity and diversity of executive functions and their contributions to complex frontal lobe tasks. \textit{Cognitive Psychology}, 41(1), 49--100. \href{https://doi.org/10.1006/cogp.1999.0734}{doi:10.1006/cogp.1999.0734}.
+\bibitem{Monsell2003} Monsell, S. (2003). Task switching. \textit{Trends in Cognitive Sciences}, 7(3), 134--140. \href{https://doi.org/10.1016/S1364-6613(03)00028-7}{doi:10.1016/S1364-6613(03)00028-7}.
+\bibitem{Spitzer2006} Spitzer, R. L., Kroenke, K., Williams, J. B. W., Löwe, B. (2006). A brief measure for assessing generalized anxiety disorder: The GAD-7. \textit{Archives of Internal Medicine}, 166(10), 1092--1097. \href{https://doi.org/10.1001/archinte.166.10.1092}{doi:10.1001/archinte.166.10.1092}.
+\bibitem{Carleton2016} Carleton, R. N. (2016). Fear of the unknown: One fear to rule them all? \textit{Journal of Anxiety Disorders}, 41, 5--21. \href{https://doi.org/10.1016/j.janxdis.2016.03.011}{doi:10.1016/j.janxdis.2016.03.011}.
+\end{thebibliography}
 \end{document}
