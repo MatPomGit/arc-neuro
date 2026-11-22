@@ -27,7 +27,7 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-AR-P16 — Paradoks emocjonalnej adaptacji: ochrona przed dyskomfortem a tolerancja frustracji](affect/MSC-AR-P16/README.md)
 - [MSC-AR-P24 — Długotrwałe używanie agenta jako regulatora emocji a własne strategie samoregulacji](affect/MSC-AR-P24/README.md)
 - [MSC-MGR-P01 — Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe](affect/MSC-MGR-P01/README.md)
-- [MSC-INTERO-P01 — Interocepcja, aleksytymia i regulacja emocji](affect/MSC-INTERO-P01/README.md)
+- [MSC-INTERO-P01 — Świadomość interoceptywna i aleksytymia jako korelaty trudności w regulacji emocji u osób dorosłych](affect/MSC-INTERO-P01/README.md)
 
 
 ## [Poznanie, pamięć, uwaga i relacje człowiek–AI](cognition/README.md) (15)
@@ -45,9 +45,9 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-CR-P11 — Komputacyjny benchmark jakości argumentów i retoryki LLM](cognition/MSC-CR-P11/README.md)
 - [MSC-CR-P12 — Transfer odporności poznawczej między dziedzinami](cognition/MSC-CR-P12/README.md)
 - [MSC-TRUST-P01 — Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie](cognition/MSC-TRUST-P01/README.md)
-- [MSC-ANX-P01 — Objawy lękowe a elastyczność poznawcza i podejmowanie decyzji](cognition/MSC-ANX-P01/README.md)
+- [MSC-ANX-P01 — Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności](cognition/MSC-ANX-P01/README.md)
 
-- [MSC-FAT-P01 — Zmęczenie poznawcze i sprawność uwagi u młodych dorosłych](cognition/MSC-FAT-P01/README.md)
+- [MSC-FAT-P01 — Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych](cognition/MSC-FAT-P01/README.md)
 
 
 ## [Relacje, przywiązanie i zachowania społeczne](social/README.md) (25)
