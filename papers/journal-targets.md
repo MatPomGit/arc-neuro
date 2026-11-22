@@ -11,6 +11,7 @@
 | MSC-FAT-P01 | główny | Psychological Research – Psychologische Forschung | 0340-0727 | 1430-2772 | 70 | Eksperyment o czasie wykonywania zadania i kontroli uwagi |
 | MSC-FAT-P01 | rezerwowy | Current Psychology | 1046-1310 | 1936-4733 | 70 | Zmęczenie i różnice indywidualne |
 | MSC-INTERO-P01 | główny | Cognition and Emotion | 0269-9931 | 1464-0600 | 100 | Interocepcja i regulacja emocji |
+| MSC-INTERO-P01 | rezerwowy ankietowy | Current Psychology | 1046-1310 | 1936-4733 | 70 | Metodologicznie bliskie, wymaga nowego wkładu ponad istniejące badania |
 | MSC-INTERO-P01 | rezerwowy, warunkowy | Biological Psychology | 0301-0511 | 1873-6246 | 100 | Preferowany komponent pomiaru fizjologicznego |
 
 ## Interpretacja punktacji
@@ -35,3 +36,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 
 - [MSC-ANX-P01 – strategia publikacyjna](cognition/MSC-ANX-P01/journal-targets.md)
 - [MSC-FAT-P01 – analiza rynku czasopism](cognition/MSC-FAT-P01/journal-targets.md)
+
+- [MSC-INTERO-P01 – strategia publikacyjna i analiza nowości](affect/MSC-INTERO-P01/journal-targets.md)
