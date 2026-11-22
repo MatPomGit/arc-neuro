@@ -1,6 +1,6 @@
 # Manuskrypty ARC Neuro
 
-Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz własny szkic `main.tex`. Tytuły i etapy prac pochodzą z centralnej macierzy portfolio. Katalog obejmuje **66 pozycji** w pięciu obszarach naukowych.
+Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz własny szkic `main.tex`. Tytuły i etapy prac pochodzą z centralnej macierzy portfolio. Katalog obejmuje **69 pozycji** w pięciu obszarach naukowych.
 
 ## [Neurorozwój i neuroróżnorodność](ndd/README.md) (16)
 
@@ -21,14 +21,16 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-NDD-P03 — Niezgodności między obserwatorami jako informacja zależna od kontekstu](ndd/MSC-NDD-P03/README.md)
 - [MSC-NDD-P04 — Triangulacja ocen rodziców i nauczycieli](ndd/MSC-NDD-P04/README.md)
 
-## [Afekt, regulacja emocji i stres](affect/README.md) (4)
+## [Afekt, regulacja emocji i stres](affect/README.md) (5)
 
 - [MSC-AFFECT-P05 — Kinematyka dłoni jako wskaźnik wymagań poznawczych ponad intensywność ruchu](affect/MSC-AFFECT-P05/README.md)
 - [MSC-AR-P16 — Paradoks emocjonalnej adaptacji: ochrona przed dyskomfortem a tolerancja frustracji](affect/MSC-AR-P16/README.md)
 - [MSC-AR-P24 — Długotrwałe używanie agenta jako regulatora emocji a własne strategie samoregulacji](affect/MSC-AR-P24/README.md)
 - [MSC-MGR-P01 — Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe](affect/MSC-MGR-P01/README.md)
+- [MSC-INTERO-P01 — Interocepcja, aleksytymia i regulacja emocji](affect/MSC-INTERO-P01/README.md)
 
-## [Poznanie, pamięć, uwaga i relacje człowiek–AI](cognition/README.md) (13)
+
+## [Poznanie, pamięć, uwaga i relacje człowiek–AI](cognition/README.md) (15)
 
 - [MSC-AAL-P02 — Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home](cognition/MSC-AAL-P02/README.md)
 - [MSC-AAL-P08 — Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych](cognition/MSC-AAL-P08/README.md)
@@ -43,6 +45,10 @@ Każdy artykuł i kandydatura ma osobny katalog pod identyfikatorem **MSC** oraz
 - [MSC-CR-P11 — Komputacyjny benchmark jakości argumentów i retoryki LLM](cognition/MSC-CR-P11/README.md)
 - [MSC-CR-P12 — Transfer odporności poznawczej między dziedzinami](cognition/MSC-CR-P12/README.md)
 - [MSC-TRUST-P01 — Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie](cognition/MSC-TRUST-P01/README.md)
+- [MSC-ANX-P01 — Objawy lękowe a elastyczność poznawcza i podejmowanie decyzji](cognition/MSC-ANX-P01/README.md)
+
+- [MSC-FAT-P01 — Zmęczenie poznawcze i sprawność uwagi u młodych dorosłych](cognition/MSC-FAT-P01/README.md)
+
 
 ## [Relacje, przywiązanie i zachowania społeczne](social/README.md) (25)
 
