@@ -1,4 +1,4 @@
-# MSC-INTERO-P01 — Interocepcja, aleksytymia i regulacja emocji
+# MSC-INTERO-P01 — Świadomość interoceptywna i aleksytymia jako korelaty trudności w regulacji emocji u osób dorosłych
 
 **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Program:** ARC Neuro. **Obszar:** affect.
 
