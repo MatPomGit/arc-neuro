@@ -1,41 +1,32 @@
-# MSC-ATTACH-P03 — plan badania i powiązania
+# MSC-ATTACH-P03 — Opracowanie i walidacja skali regulacji relacyjnej
 
-**Temat:** Opracowanie i walidacja skali regulacji relacyjnej
+**Program:** `arc-neuro` · **obszar:** `psychometrics` · **rodzaj:** `MANUSCRIPT` · **etap źródłowy:** `PLANNED`.
 
-**Program:** `arc-neuro`. **Obszar:** `psychometrics`. **Typ:** `MANUSCRIPT` (MANUSCRIPT). **Stan źródła:** `PLANNED`. **Tryb integracji:** `LINK_ONLY`.
+## Projekt badania
 
-## Cel, wynik główny i granice badania
+**Przedmiot:** Opracowanie i walidacja skali regulacji relacyjnej.
 
-Przedmiot badania: Opracowanie i walidacja skali regulacji relacyjnej. Istnieje ślad źródłowego manuskryptu; stan dowodów wymaga weryfikacji.
-
-- **Główny wynik proponowany:** Nieokreślony w rejestrze. Wymaga zdefiniowania metryki, estymandu i jednostki analizy przed rozpoczęciem badania.
-- **Odrębność naukowa:** Należy porównać źródłowy protokół z pokrewnymi manuskryptami przed formalizacją hipotezy.
-- **Uzasadnienie klasyfikacji:** Klasyfikacja wg pytania badawczego: Wkład psychometryczny: konstrukcja i walidacja miary zachowań relacyjnych. Status źródła: PLANNED. Nie oznacza zatwierdzonych danych ani gotowości publikacji.
-- **Powiązane rekordy:** Nie zarejestrowano.
+- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 
 ## Stanowisko badawcze
 
-**Wstępne powiązanie:** `ST-07`. To propozycja na podstawie domeny, a nie potwierdzenie uruchomienia aparatury.
+**`ST-07`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
 
-[Stanowiska ARC](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md); [inwentarz prywatny `devices`](https://github.com/MatPomGit/devices).
+## Aplikacje
 
-## Powiązane aplikacje APP
+- **`app-study-web`** (`APP-ARC-06`): rola `OPTIONAL`, decyzja `RESEARCH_GO`; status repozytorium `PLANNED_NOT_CREATED`.
 
-- `app-study-web` (`APP-ARC-06`), `OPTIONAL`, profil `web-study`, bramka `RESEARCH_GO`.
+## Biblioteki
 
-## Powiązane biblioteki LIB
+- **`lib-events`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-study-web`. Brak potwierdzonej integracji.
+- **`lib-study`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-study-web`. Brak potwierdzonej integracji.
+- **`lib-vlm`**: status `SCAFFOLD_EXISTS`, proponowana zależność przez `app-study-web`. Brak potwierdzonej integracji.
 
-- `lib-events`: planowana zależność pośrednia przez `app-study-web`; brak dowodu integracji.
-- `lib-llm` (historyczna nazwa; wymaga uzgodnienia z `lib-vlm`): planowana zależność pośrednia przez `app-study-web`; brak dowodu integracji.
-- `lib-study`: planowana zależność pośrednia przez `app-study-web`; brak dowodu integracji.
+## Proweniencja i warunki realizacji
 
-Relacje APP i LIB pochodzą odpowiednio z `app_publication_links.csv` i `component_dependencies.csv`. Są kandydaturami, nie dowodami wykonania prac. Aktualność nazw `lib-signals`, `lib-image` i `lib-llm` wymaga osobnego uzgodnienia z nowymi repozytoriami.
+Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
 
-## Proweniencja, metodologia i bramki
-
-- **UID źródłowy:** `arc-attachment-dynamics:M03`; repozytorium `MatPomGit/arc-attachment-dynamics`, identyfikator `M03`.
-- **Ścieżka źródłowa:** `manuscripts/03_relational_control_psychometrics/README.md`.
-- **Materiał:** [źródło projektu](https://github.com/MatPomGit/arc-attachment-dynamics/blob/main/manuscripts/03_relational_control_psychometrics/README.md).
-- **Rejestr MSC:** [kanoniczna macierz](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/publication_matrix.csv).
-
-Przed badaniem wymagane są niezależny wynik i plan analizy, źródła literaturowe, ocena nowości, kontrola praw do danych/oprogramowania, ocena bezpieczeństwa i kwalifikacja etyczna, jeżeli dotyczy. Szkic nie zawiera danych empirycznych ani nie potwierdza dostępności stanowiska.
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.

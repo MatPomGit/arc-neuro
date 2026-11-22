@@ -1,41 +1,32 @@
-# MSC-EYE-P01 — plan badania i powiązania
+# MSC-EYE-P01 — Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność
 
-**Temat:** Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność
+**Program:** `arc-neuro` · **obszar:** `gaze-measurement-validity` · **rodzaj:** `MANUSCRIPT` · **etap źródłowy:** `PLANNED`.
 
-**Program:** `arc-neuro`. **Obszar:** `gaze-measurement-validity`. **Typ:** `MANUSCRIPT` (MANUSCRIPT). **Stan źródła:** `PLANNED`. **Tryb integracji:** `LINK_ONLY`.
+## Projekt badania
 
-## Cel, wynik główny i granice badania
+**Przedmiot:** Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność.
 
-Przedmiot badania: Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność. Istnieje ślad źródłowego manuskryptu; stan dowodów wymaga weryfikacji.
-
-- **Główny wynik proponowany:** Błąd punktowy w pikselach/kącie oraz powtarzalność na sesjach testowych
-- **Odrębność naukowa:** Metrologiczna dokładność/precision estymacji punktu; nie klasyfikacja regionów w grze.
-- **Uzasadnienie klasyfikacji:** [Klasyfikacja portfolio 2026-11-20] Wkład główny: trafność, precyzja, powtarzalność i granice mobilnego pomiaru zachowań wzrokowych u człowieka. Algorytm estymacji jest narzędziem, nie udokumentowaną nową metodą ML. AUDYT DUPLIKACJI: wysokie podobieństwo artykułu metodycznego z arc-xr:GAZE-METHOD; należy wyznaczyć jeden kanoniczny tor walidacji Android gaze. | Proponowane doprecyzowanie zakresu portfolio 2026-11-20, wymaga zatwierdzenia naukowego: Metrologiczna dokładność/precision estymacji punktu; nie klasyfikacja regionów w grze. Główny wynik do prerejestracji: Błąd punktowy w pikselach/kącie oraz powtarzalność na sesjach testowych. Tytuł 
-- **Powiązane rekordy:** `MSC-EYE-P03` (arc-xr:GAZE-METHOD)
+- **Proponowany wynik główny:** Błąd punktowy w pikselach/kącie oraz powtarzalność na sesjach testowych
+- **Zakres i odrębność:** Metrologiczna dokładność/precision estymacji punktu; nie klasyfikacja regionów w grze.
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** `MSC-EYE-P03`.
 
 ## Stanowisko badawcze
 
-**Wstępne powiązanie:** `ST-02`. To propozycja na podstawie domeny, a nie potwierdzenie uruchomienia aparatury.
+**`ST-02`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
 
-[Stanowiska ARC](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md); [inwentarz prywatny `devices`](https://github.com/MatPomGit/devices).
+## Aplikacje
 
-## Powiązane aplikacje APP
+- **`app-eye-mobile`** (`APP-ARC-04`): rola `PRIMARY`, decyzja `MVP`; status repozytorium `PLANNED_NOT_CREATED`.
 
-- `app-eye-mobile` (`APP-ARC-04`), `PRIMARY`, profil `android-native`, bramka `MVP`.
+## Biblioteki
 
-## Powiązane biblioteki LIB
+- **`lib-events`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-eye-mobile`. Brak potwierdzonej integracji.
+- **`lib-eye`**: status `SCAFFOLD_EXISTS`, proponowana zależność przez `app-eye-mobile`. Brak potwierdzonej integracji.
+- **`lib-vis`**: status `RENAMED_ARCHITECTURE_ONLY`, proponowana zależność przez `app-eye-mobile`. Brak potwierdzonej integracji.
 
-- `lib-events`: planowana zależność pośrednia przez `app-eye-mobile`; brak dowodu integracji.
-- `lib-eye`: planowana zależność pośrednia przez `app-eye-mobile`; brak dowodu integracji.
-- `lib-image` (historyczna nazwa; wymaga uzgodnienia z `lib-vis`): planowana zależność pośrednia przez `app-eye-mobile`; brak dowodu integracji.
+## Proweniencja i warunki realizacji
 
-Relacje APP i LIB pochodzą odpowiednio z `app_publication_links.csv` i `component_dependencies.csv`. Są kandydaturami, nie dowodami wykonania prac. Aktualność nazw `lib-signals`, `lib-image` i `lib-llm` wymaga osobnego uzgodnienia z nowymi repozytoriami.
+Źródłowe materiały rozwija publiczny projekt [`arc-mobile-eyetracking`](https://github.com/MatPomGit/arc-mobile-eyetracking); oryginalny identyfikator `P01`.
 
-## Proweniencja, metodologia i bramki
-
-- **UID źródłowy:** `arc-mobile-eyetracking:P01`; repozytorium `MatPomGit/arc-mobile-eyetracking`, identyfikator `P01`.
-- **Ścieżka źródłowa:** `manuscript/README.md`.
-- **Materiał:** [źródło projektu](https://github.com/MatPomGit/arc-mobile-eyetracking/blob/main/manuscript/README.md).
-- **Rejestr MSC:** [kanoniczna macierz](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/publication_matrix.csv).
-
-Przed badaniem wymagane są niezależny wynik i plan analizy, źródła literaturowe, ocena nowości, kontrola praw do danych/oprogramowania, ocena bezpieczeństwa i kwalifikacja etyczna, jeżeli dotyczy. Szkic nie zawiera danych empirycznych ani nie potwierdza dostępności stanowiska.
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.

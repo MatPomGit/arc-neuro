@@ -1,41 +1,32 @@
-# MSC-EEG-P01 — plan badania i powiązania
+# MSC-EEG-P01 — Kandydat: publikacja metod oprogramowania EEG Neurolyze
 
-**Temat:** Kandydat: publikacja metod oprogramowania EEG Neurolyze
+**Program:** `arc-neuro` · **obszar:** `eeg-measurement-workflow-reproducibility` · **rodzaj:** `IDEA` · **etap źródłowy:** `PROPOSED`.
 
-**Program:** `arc-neuro`. **Obszar:** `eeg-measurement-workflow-reproducibility`. **Typ:** `IDEA` (CANDIDATE). **Stan źródła:** `PROPOSED`. **Tryb integracji:** `INDEX_ONLY_NO_NEW_FOLDER`.
+## Projekt badania
 
-## Cel, wynik główny i granice badania
+**Przedmiot:** Kandydat: publikacja metod oprogramowania EEG Neurolyze.
 
-Przedmiot badania: Kandydat: publikacja metod oprogramowania EEG Neurolyze. Kandydatura, bez zatwierdzonego odrębnego protokołu.
-
-- **Główny wynik proponowany:** Nieokreślony w rejestrze. Wymaga zdefiniowania metryki, estymandu i jednostki analizy przed rozpoczęciem badania.
-- **Odrębność naukowa:** Należy porównać źródłowy protokół z pokrewnymi manuskryptami przed formalizacją hipotezy.
-- **Uzasadnienie klasyfikacji:** Proposal w PROJECT_STATE.yaml (issue #35); manuscript_path=null, approved_title=null, brak samodzielnego tekstu.  nie utożsamiać walidacji oprogramowania z wynikami badań. [Klasyfikacja portfolio 2026-11-20] Planowany artykuł metodyczno-narzędziowy o reprodukowalnym przetwarzaniu EEG; w źródle nie wykazano nowego modelu AI. Brak manuskryptu i wyników; kategoria naukowa nie stanowi zatwierdzenia publikacji.
-- **Powiązane rekordy:** Nie zarejestrowano.
+- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 
 ## Stanowisko badawcze
 
-**Wstępne powiązanie:** `ST-01`. To propozycja na podstawie domeny, a nie potwierdzenie uruchomienia aparatury.
+**`ST-01`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
 
-[Stanowiska ARC](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md); [inwentarz prywatny `devices`](https://github.com/MatPomGit/devices).
+## Aplikacje
 
-## Powiązane aplikacje APP
+- **`app-eeg-neurolyze`** (`APP-ARC-03`): rola `PRIMARY`, decyzja `SOURCE_VALIDATION`; status repozytorium `ALTERNATE_EXISTING_APP`, istniejący odpowiednik `eeg-neurolyze`.
 
-- `app-eeg-neurolyze` (`APP-ARC-03`), `PRIMARY`, profil `python-eeg`, bramka `SOURCE_VALIDATION`.
+## Biblioteki
 
-## Powiązane biblioteki LIB
+- **`lib-events`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+- **`lib-sig`**: status `RENAMED_PARTIAL_CORE`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+- **`lib-sim`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
 
-- `lib-events`: planowana zależność pośrednia przez `app-eeg-neurolyze`; brak dowodu integracji.
-- `lib-signals` (historyczna nazwa; wymaga uzgodnienia z `lib-sig`): planowana zależność pośrednia przez `app-eeg-neurolyze`; brak dowodu integracji.
-- `lib-sim`: planowana zależność pośrednia przez `app-eeg-neurolyze`; brak dowodu integracji.
+## Proweniencja i warunki realizacji
 
-Relacje APP i LIB pochodzą odpowiednio z `app_publication_links.csv` i `component_dependencies.csv`. Są kandydaturami, nie dowodami wykonania prac. Aktualność nazw `lib-signals`, `lib-image` i `lib-llm` wymaga osobnego uzgodnienia z nowymi repozytoriami.
+Źródłowe materiały rozwija publiczny projekt [`eeg-neurolyze`](https://github.com/MatPomGit/eeg-neurolyze); oryginalny identyfikator `software-methods`.
 
-## Proweniencja, metodologia i bramki
-
-- **UID źródłowy:** `eeg-neurolyze:software-methods`; repozytorium `MatPomGit/eeg-neurolyze`, identyfikator `software-methods`.
-- **Ścieżka źródłowa:** `PROJECT_STATE.yaml`.
-- **Materiał:** [źródło projektu](https://github.com/MatPomGit/eeg-neurolyze/blob/main/PROJECT_STATE.yaml).
-- **Rejestr MSC:** [kanoniczna macierz](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/publication_matrix.csv).
-
-Przed badaniem wymagane są niezależny wynik i plan analizy, źródła literaturowe, ocena nowości, kontrola praw do danych/oprogramowania, ocena bezpieczeństwa i kwalifikacja etyczna, jeżeli dotyczy. Szkic nie zawiera danych empirycznych ani nie potwierdza dostępności stanowiska.
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.

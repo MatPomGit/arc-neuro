@@ -1,39 +1,30 @@
-# MSC-ZAH-P03 — plan badania i powiązania
+# MSC-ZAH-P03 — Asymetryczne niedopasowanie wyglądu i zachowania jako błąd przewidywania społecznego
 
-**Temat:** Asymetryczne niedopasowanie wyglądu i zachowania jako błąd przewidywania społecznego
+**Program:** `arc-neuro` · **obszar:** `social-expectancy-violation` · **rodzaj:** `IDEA` · **etap źródłowy:** `NEW_RESEARCH_PROGRAM_IDEA_HOLD`.
 
-**Program:** `arc-neuro`. **Obszar:** `social-expectancy-violation`. **Typ:** `IDEA` (CANDIDATE). **Stan źródła:** `NEW_RESEARCH_PROGRAM_IDEA_HOLD`. **Tryb integracji:** `LOCAL_TEX_CONCEPT_SOURCE_CREATED`.
+## Projekt badania
 
-## Cel, wynik główny i granice badania
+**Przedmiot:** Asymetryczne niedopasowanie wyglądu i zachowania jako błąd przewidywania społecznego.
 
-Przedmiot badania: Asymetryczne niedopasowanie wyglądu i zachowania jako błąd przewidywania społecznego. Kandydatura, bez zatwierdzonego odrębnego protokołu.
-
-- **Główny wynik proponowany:** Zmiana niesamowitości wskutek manipulacji oczekiwaniem oraz kierunku niedopasowania
-- **Odrębność naukowa:** Mechanizm predykcyjny; nie ponowna estymacja mapy P02
-- **Uzasadnienie klasyfikacji:** Utworzono w programowym repozytorium prospektywny manuskrypt LaTeX i dokumentację stanowiska ST-08. Status naukowy pozostaje IDEA_HOLD / CANDIDATE; brak wyników empirycznych, zamrożonego protokołu, potwierdzonych licencji na wszystkie dane oraz automatycznej publikacji w Pages. Początkowy zakres i hipotezy zachowano w origin_source_url oraz manuscript_plan_url.
-- **Powiązane rekordy:** Nie zarejestrowano.
+- **Proponowany wynik główny:** Zmiana niesamowitości wskutek manipulacji oczekiwaniem oraz kierunku niedopasowania
+- **Zakres i odrębność:** Mechanizm predykcyjny; nie ponowna estymacja mapy P02
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 
 ## Stanowisko badawcze
 
-**Wstępne powiązanie:** `ST-08`. To propozycja na podstawie domeny, a nie potwierdzenie uruchomienia aparatury.
+**`ST-08`**. Klasyfikacja `DIRECT_PLAN`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
 
-[Stanowiska ARC](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md); [inwentarz prywatny `devices`](https://github.com/MatPomGit/devices).
+## Aplikacje
 
-## Powiązane aplikacje APP
+Nie wskazano konkretnej aplikacji w zatwierdzonej do audytu mapie APP–MSC. Implementacja wymaga odrębnej decyzji.
 
-Brak jawnej relacji APP w planistycznej tabeli.
+## Biblioteki
 
-## Powiązane biblioteki LIB
+Nie ma udokumentowanej krawędzi APP→LIB dla tej pracy. Potrzebny przegląd potrzeb technicznych przed dodaniem zależności.
 
-Brak wyprowadzalnych relacji z tabeli APP→LIB.
+## Proweniencja i warunki realizacji
 
-Relacje APP i LIB pochodzą odpowiednio z `app_publication_links.csv` i `component_dependencies.csv`. Są kandydaturami, nie dowodami wykonania prac. Aktualność nazw `lib-signals`, `lib-image` i `lib-llm` wymaga osobnego uzgodnienia z nowymi repozytoriami.
+Źródłowe materiały rozwija publiczny projekt [`arc-neuro`](https://github.com/MatPomGit/arc-neuro); oryginalny identyfikator `MSC-ZAH-P03`.
 
-## Proweniencja, metodologia i bramki
-
-- **UID źródłowy:** `portfolio:MSC-ZAH-P03`; repozytorium `MatPomGit/arc-neuro`, identyfikator `MSC-ZAH-P03`.
-- **Ścieżka źródłowa:** `papers/social/MSC-ZAH-P03/main.tex`.
-- **Materiał:** [źródło projektu](https://github.com/MatPomGit/arc-neuro/blob/main/papers/social/MSC-ZAH-P03/main.tex).
-- **Rejestr MSC:** [kanoniczna macierz](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/publication_matrix.csv).
-
-Przed badaniem wymagane są niezależny wynik i plan analizy, źródła literaturowe, ocena nowości, kontrola praw do danych/oprogramowania, ocena bezpieczeństwa i kwalifikacja etyczna, jeżeli dotyczy. Szkic nie zawiera danych empirycznych ani nie potwierdza dostępności stanowiska.
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.

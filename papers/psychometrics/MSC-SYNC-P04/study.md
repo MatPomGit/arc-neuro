@@ -1,43 +1,34 @@
-# MSC-SYNC-P04 — plan badania i powiązania
+# MSC-SYNC-P04 — Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów
 
-**Temat:** Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów
+**Program:** `arc-neuro` · **obszar:** `eeg-event-time-qualification` · **rodzaj:** `IDEA` · **etap źródłowy:** `STOP_STANDALONE`.
 
-**Program:** `arc-neuro`. **Obszar:** `eeg-event-time-qualification`. **Typ:** `IDEA` (CANDIDATE). **Stan źródła:** `STOP_STANDALONE`. **Tryb integracji:** `INDEX_ONLY_NO_NEW_FOLDER`.
+## Projekt badania
 
-## Cel, wynik główny i granice badania
+**Przedmiot:** Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów.
 
-Przedmiot badania: Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów. Kandydatura, bez zatwierdzonego odrębnego protokołu.
-
-- **Główny wynik proponowany:** Pokrycie nominalnych 95-proc. przedziałów niepewności czasu i ich szerokość względem niezależnej referencji zegarowej
-- **Odrębność naukowa:** Metrologiczna kalibracja interwału czasu przy utracie pakietów, nie wpływ opóźnienia na wynik recovery w MSC-SYNC-P01. Źródłowe STOP_STANDALONE nadal obowiązuje do nowej oceny nowości.
-- **Uzasadnienie klasyfikacji:** STOP jako samodzielny artykuł w obecnym wariancie; utrzymać pomysł jako metodę P05. [Klasyfikacja portfolio 2026-11-20] Przypisanie merytoryczne: walidacja synchronizacji smartfon–EEG jako infrastruktury pomiaru w P05. Zachować STOP_STANDALONE; nie planować niezależnego artykułu bez nowego estymatora i benchmarku. | Proponowane doprecyzowanie zakresu portfolio 2026-11-20, wymaga zatwierdzenia naukowego: Zachować źródłowy STOP_STANDALONE, nie wliczać do niezależnych kandydatur. Główny wynik do prerejestracji: Nie dotyczy samodzielnego artykułu: komponent metodyczny ADHD P05. Tytuł źródłowy zachowano w original_title_pl. | AUTORSKA PROPOZYCJA N
-- **Powiązane rekordy:** `MSC-ADHD-P05` (arc-adhd-game:P05)
+- **Proponowany wynik główny:** Pokrycie nominalnych 95-proc. przedziałów niepewności czasu i ich szerokość względem niezależnej referencji zegarowej
+- **Zakres i odrębność:** Metrologiczna kalibracja interwału czasu przy utracie pakietów, nie wpływ opóźnienia na wynik recovery w MSC-SYNC-P01. Źródłowe STOP_STANDALONE nadal obowiązuje do nowej oceny nowości.
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** `MSC-ADHD-P05`.
 
 ## Stanowisko badawcze
 
-**Wstępne powiązanie:** `ST-00`. To propozycja na podstawie domeny, a nie potwierdzenie uruchomienia aparatury.
+**`ST-00`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
 
-[Stanowiska ARC](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md); [inwentarz prywatny `devices`](https://github.com/MatPomGit/devices).
+## Aplikacje
 
-## Powiązane aplikacje APP
+- **`app-regulation-mobile`** (`APP-ARC-02`): rola `SIGNAL_SOURCE`, decyzja `RESEARCH_GO`; status repozytorium `PLANNED_NOT_CREATED`.
+- **`app-eeg-neurolyze`** (`APP-ARC-03`): rola `SIGNAL_SOURCE`, decyzja `DEVICE_RIGHTS`; status repozytorium `ALTERNATE_EXISTING_APP`, istniejący odpowiednik `eeg-neurolyze`.
 
-- `app-regulation-mobile` (`APP-ARC-02`), `SIGNAL_SOURCE`, profil `android-native`, bramka `RESEARCH_GO`.
-- `app-eeg-neurolyze` (`APP-ARC-03`), `SIGNAL_SOURCE`, profil `python-eeg`, bramka `DEVICE_RIGHTS`.
+## Biblioteki
 
-## Powiązane biblioteki LIB
+- **`lib-adapt`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-regulation-mobile`. Brak potwierdzonej integracji.
+- **`lib-events`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-regulation-mobile`, `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+- **`lib-sig`**: status `RENAMED_PARTIAL_CORE`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
+- **`lib-sim`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-eeg-neurolyze`. Brak potwierdzonej integracji.
 
-- `lib-adapt`: planowana zależność pośrednia przez `app-regulation-mobile`; brak dowodu integracji.
-- `lib-events`: planowana zależność pośrednia przez `app-regulation-mobile`, `app-eeg-neurolyze`; brak dowodu integracji.
-- `lib-signals` (historyczna nazwa; wymaga uzgodnienia z `lib-sig`): planowana zależność pośrednia przez `app-eeg-neurolyze`; brak dowodu integracji.
-- `lib-sim`: planowana zależność pośrednia przez `app-eeg-neurolyze`; brak dowodu integracji.
+## Proweniencja i warunki realizacji
 
-Relacje APP i LIB pochodzą odpowiednio z `app_publication_links.csv` i `component_dependencies.csv`. Są kandydaturami, nie dowodami wykonania prac. Aktualność nazw `lib-signals`, `lib-image` i `lib-llm` wymaga osobnego uzgodnienia z nowymi repozytoriami.
+Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
 
-## Proweniencja, metodologia i bramki
-
-- **UID źródłowy:** `arc-adhd-game:S01`; repozytorium `MatPomGit/arc-adhd-game`, identyfikator `S01`.
-- **Ścieżka źródłowa:** `manuscripts/candidate_papers_gate_2026-11-11.md`.
-- **Materiał:** [źródło projektu](https://github.com/MatPomGit/arc-adhd-game/blob/main/manuscripts/candidate_papers_gate_2026-11-11.md).
-- **Rejestr MSC:** [kanoniczna macierz](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/publication_matrix.csv).
-
-Przed badaniem wymagane są niezależny wynik i plan analizy, źródła literaturowe, ocena nowości, kontrola praw do danych/oprogramowania, ocena bezpieczeństwa i kwalifikacja etyczna, jeżeli dotyczy. Szkic nie zawiera danych empirycznych ani nie potwierdza dostępności stanowiska.
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.

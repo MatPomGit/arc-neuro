@@ -1,39 +1,30 @@
-# MSC-NDD-P01 — plan badania i powiązania
+# MSC-NDD-P01 — Architektura kontekstowej fuzji multimodalnej dla NDD
 
-**Temat:** Architektura kontekstowej fuzji multimodalnej dla NDD
+**Program:** `arc-neuro` · **obszar:** `ndd-contextual-inferential-framework` · **rodzaj:** `MANUSCRIPT` · **etap źródłowy:** `REVISION`.
 
-**Program:** `arc-neuro`. **Obszar:** `ndd-contextual-inferential-framework`. **Typ:** `MANUSCRIPT` (MANUSCRIPT). **Stan źródła:** `REVISION`. **Tryb integracji:** `LINK_ONLY`.
+## Projekt badania
 
-## Cel, wynik główny i granice badania
+**Przedmiot:** Architektura kontekstowej fuzji multimodalnej dla NDD.
 
-Przedmiot badania: Architektura kontekstowej fuzji multimodalnej dla NDD. Istnieje ślad źródłowego manuskryptu; stan dowodów wymaga weryfikacji.
-
-- **Główny wynik proponowany:** Nieokreślony w rejestrze. Wymaga zdefiniowania metryki, estymandu i jednostki analizy przed rozpoczęciem badania.
-- **Odrębność naukowa:** Należy porównać źródłowy protokół z pokrewnymi manuskryptami przed formalizacją hipotezy.
-- **Uzasadnienie klasyfikacji:** KOREKTA WŁAŚCICIELA NAUKOWEGO 2026-11-20: manuskrypt A01 jest ramami inferencyjnymi/reference architecture kontekstowej interpretacji dowodów multimodalnych w ocenie neurorozwojowej, nie zweryfikowanym nowym algorytmem AI. Artykuł opisuje wymagania, niezawodność pomiaru, proweniencję, niepewność i interfejs wsparcia decyzji; źródłowy manuscript/article1-information-fusion/main.tex wyraźnie odróżnia znane reguły fuzji od algorytmicznej nowości, której jeszcze nie udowodniono. Główny program ARC Neuro / seria NDD, przy zachowaniu technicznego kontekstu Information Fusion, publicznego arXiv v1 i historii zgłoszeń wyłącznie w repozytorium źródłow
-- **Powiązane rekordy:** Nie zarejestrowano.
+- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
+- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 
 ## Stanowisko badawcze
 
-**Brak potwierdzonego przypisania.** Nie wskazano jednoznacznego stanowiska ST-00–ST-08; wymaga kwalifikacji wymagań eksperymentu.
+Nie przypisano wiarygodnie konkretnego stanowiska. Status `NEEDS_STATION_REVIEW`; nie wolno wnioskować o dostępności aparatury.
 
-[Stanowiska ARC](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md); [inwentarz prywatny `devices`](https://github.com/MatPomGit/devices).
+## Aplikacje
 
-## Powiązane aplikacje APP
+Nie wskazano konkretnej aplikacji w zatwierdzonej do audytu mapie APP–MSC. Implementacja wymaga odrębnej decyzji.
 
-Brak jawnej relacji APP w planistycznej tabeli.
+## Biblioteki
 
-## Powiązane biblioteki LIB
+Nie ma udokumentowanej krawędzi APP→LIB dla tej pracy. Potrzebny przegląd potrzeb technicznych przed dodaniem zależności.
 
-Brak wyprowadzalnych relacji z tabeli APP→LIB.
+## Proweniencja i warunki realizacji
 
-Relacje APP i LIB pochodzą odpowiednio z `app_publication_links.csv` i `component_dependencies.csv`. Są kandydaturami, nie dowodami wykonania prac. Aktualność nazw `lib-signals`, `lib-image` i `lib-llm` wymaga osobnego uzgodnienia z nowymi repozytoriami.
+Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
 
-## Proweniencja, metodologia i bramki
-
-- **UID źródłowy:** `arc-context-ndd:A01`; repozytorium `MatPomGit/arc-context-ndd`, identyfikator `A01`.
-- **Ścieżka źródłowa:** `manuscript/article1-information-fusion/main.tex`.
-- **Materiał:** [źródło projektu](https://github.com/MatPomGit/arc-context-ndd/blob/main/manuscript/article1-information-fusion/main.tex).
-- **Rejestr MSC:** [kanoniczna macierz](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/publication_matrix.csv).
-
-Przed badaniem wymagane są niezależny wynik i plan analizy, źródła literaturowe, ocena nowości, kontrola praw do danych/oprogramowania, ocena bezpieczeństwa i kwalifikacja etyczna, jeżeli dotyczy. Szkic nie zawiera danych empirycznych ani nie potwierdza dostępności stanowiska.
+Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.
