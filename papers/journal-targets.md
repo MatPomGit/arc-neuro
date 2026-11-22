@@ -33,6 +33,10 @@
 | MSC-CR-P05 | ambitny, warunkowy | Computers & Education | 0360-1315 | 1873-782X | 200 | Kontekst edukacji, transfer umiejętności krytycznego myślenia |
 | MSC-CR-P05 | rozwojowy, warunkowy | Applied Developmental Science | 1088-8691 | — | 70 | Silny wkład do badań rozwoju i porównywalność grup |
 
+| MSC-CR-P06 | główny | British Journal of Educational Technology | 0007-1013 | 1467-8535 | 140 | AI literacy, edukacja i transfer samodzielnego osądu |
+| MSC-CR-P06 | ambitny, warunkowy | Computers & Education | 0360-1315 | 1873-782X | 200 | Rygorystyczna ewaluacja interwencji edukacyjnej |
+| MSC-CR-P06 | alternatywny | Computers in Human Behavior | 0747-5632 | 1873-7692 | 140 | Behawioralne skutki szkolenia o ograniczeniach AI |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -67,3 +71,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-CR-P04 – strategia publikacyjna](cognition/MSC-CR-P04/journal-targets.md)
 
 - [MSC-CR-P05 – strategia publikacyjna](cognition/MSC-CR-P05/journal-targets.md)
+
+- [MSC-CR-P06 – strategia publikacyjna](cognition/MSC-CR-P06/journal-targets.md)
