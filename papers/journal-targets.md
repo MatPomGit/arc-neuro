@@ -49,6 +49,10 @@
 | MSC-CR-P09 | ambitny, warunkowy | Journal of Computer-Mediated Communication | 1083-6101 | — | 200 | Źródło komunikatu i odpowiedzialność w komunikacji cyfrowej |
 | MSC-CR-P09 | alternatywny, warunkowy | Journal of Social and Personal Relationships | 0265-4075 | — | 100 | Wymagany pomiar faktycznych konsekwencji dla relacji |
 
+| MSC-CR-P10 | główny | British Journal of Educational Technology | 0007-1013 | 1467-8535 | 140 | Odroczony transfer kompetencji w różnych etapach edukacji |
+| MSC-CR-P10 | ambitny, warunkowy | Learning and Instruction | 0959-4752 | — | 200 | Rozwojowy model mechanizmów uczenia się i transferu |
+| MSC-CR-P10 | alternatywny | Journal of Computer Assisted Learning | 0266-4909 | 1365-2729 | 140 | Efekty nauki wspomaganej technologią AI |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -91,3 +95,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-CR-P08 – strategia publikacyjna](cognition/MSC-CR-P08/journal-targets.md)
 
 - [MSC-CR-P09 – strategia publikacyjna](social/MSC-CR-P09/journal-targets.md)
+
+- [MSC-CR-P10 – strategia publikacyjna](cognition/MSC-CR-P10/journal-targets.md)
