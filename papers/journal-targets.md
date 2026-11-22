@@ -53,6 +53,10 @@
 | MSC-CR-P10 | ambitny, warunkowy | Learning and Instruction | 0959-4752 | — | 200 | Rozwojowy model mechanizmów uczenia się i transferu |
 | MSC-CR-P10 | alternatywny | Journal of Computer Assisted Learning | 0266-4909 | 1365-2729 | 140 | Efekty nauki wspomaganej technologią AI |
 
+| MSC-CR-P11 | główny | Information Processing & Management | 0306-4573 | — | 140 | Benchmark rzetelności argumentacji i oceny informacji |
+| MSC-CR-P11 | ambitny, warunkowy | Expert Systems with Applications | 0957-4174 | 1873-6793 | 200 | Nowa metoda oceny, odporność i walidacja między modelami |
+| MSC-CR-P11 | metodologiczny, warunkowy | Transactions of the Association for Computational Linguistics | — | 2307-387X | do potwierdzenia | Fundamenty ewaluacji NLP i zasoby badawcze |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -97,3 +101,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-CR-P09 – strategia publikacyjna](social/MSC-CR-P09/journal-targets.md)
 
 - [MSC-CR-P10 – strategia publikacyjna](cognition/MSC-CR-P10/journal-targets.md)
+
+- [MSC-CR-P11 – strategia publikacyjna](cognition/MSC-CR-P11/journal-targets.md)
