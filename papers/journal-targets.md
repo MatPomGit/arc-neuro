@@ -41,6 +41,10 @@
 | MSC-CR-P07 | alternatywny | International Journal of Human-Computer Studies | 1071-5819 | 1095-9300 | 140 | Komunikowanie pewności i projekt interfejsu HCI |
 | MSC-CR-P07 | rezerwowy | Current Psychology | 1046-1310 | 1936-4733 | 70 | Psychologia osądu i przyjmowania rekomendacji |
 
+| MSC-CR-P08 | główny | British Journal of Educational Technology | 0007-1013 | 1467-8535 | 140 | Naturalne prompty uczniów, wnioskowanie i technologia edukacyjna |
+| MSC-CR-P08 | ambitny, warunkowy | Computers & Education | 0360-1315 | 1873-782X | 200 | Wymagany wkład w teorię uczenia oraz transfer bez AI |
+| MSC-CR-P08 | alternatywny | Computers in Human Behavior | 0747-5632 | 1873-7692 | 140 | Poznawcze mechanizmy interakcji ucznia z LLM |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -79,3 +83,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-CR-P06 – strategia publikacyjna](cognition/MSC-CR-P06/journal-targets.md)
 
 - [MSC-CR-P07 – strategia publikacyjna](cognition/MSC-CR-P07/journal-targets.md)
+
+- [MSC-CR-P08 – strategia publikacyjna](cognition/MSC-CR-P08/journal-targets.md)
