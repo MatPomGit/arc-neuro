@@ -30,3 +30,8 @@ Nie przypisywano kwartylów JCR ani bieżących APC, ponieważ wymagają odrębn
 ## Następny przegląd
 
 Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkretnej daty zgłoszenia. Publikacja na GitHub Pages nie wynika z zapisania tej listy.
+
+## Strategie manuskryptów
+
+- [MSC-ANX-P01 – strategia publikacyjna](cognition/MSC-ANX-P01/journal-targets.md)
+- [MSC-FAT-P01 – analiza rynku czasopism](cognition/MSC-FAT-P01/journal-targets.md)
