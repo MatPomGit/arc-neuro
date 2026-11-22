@@ -1,4 +1,4 @@
-# MSC-FAT-P01 — Zmęczenie poznawcze i sprawność uwagi u młodych dorosłych
+# MSC-FAT-P01 — Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych
 
 **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Program:** ARC Neuro. **Obszar:** cognition.
 
