@@ -14,6 +14,10 @@
 | MSC-INTERO-P01 | rezerwowy ankietowy | Current Psychology | 1046-1310 | 1936-4733 | 70 | Metodologicznie bliskie, wymaga nowego wkładu ponad istniejące badania |
 | MSC-INTERO-P01 | rezerwowy, warunkowy | Biological Psychology | 0301-0511 | 1873-6246 | 100 | Preferowany komponent pomiaru fizjologicznego |
 
+| MSC-CR-P01 | główny | Computers in Human Behavior | 0747-5632 | 1873-7692 | 140 | Psychologia korzystania z AI, trafność osądu i retoryka LLM |
+| MSC-CR-P01 | alternatywny | International Journal of Human-Computer Studies | 1071-5819 | — | 140 | HCI oraz projektowanie form prezentacji dowodów |
+| MSC-CR-P01 | rezerwowy | Current Psychology | 1046-1310 | 1936-4733 | 70 | Ogólnopsychologiczna interpretacja eksperymentu |
+
 ## Interpretacja punktacji
 
 Punktacja to wartość przypisana czasopismu w wykazie z 2024 r., **nie** prognoza punktacji publikacji w roku 2027 i później. Ministerstwo Nauki i Szkolnictwa Wyższego ogłosiło 27 maja 2026 r., że nowy wykaz będzie opracowywany do końca 2026 r., a podpisany na początku 2027 r. Przed wysłaniem każdego tekstu należy ponownie sprawdzić aktualny wykaz.
@@ -38,3 +42,5 @@ Ponownie zweryfikować punktację, profil i politykę opłat przed wyborem konkr
 - [MSC-FAT-P01 – analiza rynku czasopism](cognition/MSC-FAT-P01/journal-targets.md)
 
 - [MSC-INTERO-P01 – strategia publikacyjna i analiza nowości](affect/MSC-INTERO-P01/journal-targets.md)
+
+- [MSC-CR-P01 – strategia publikacyjna](cognition/MSC-CR-P01/journal-targets.md)
