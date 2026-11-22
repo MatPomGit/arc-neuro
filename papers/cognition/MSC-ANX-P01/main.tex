@@ -1,37 +1,74 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage[polish]{babel}
 \usepackage{lmodern}
 \usepackage{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
-\geometry{margin=27mm}
-\title{Objawy lękowe a elastyczność poznawcza i podejmowanie decyzji}
-\author{}
-\date{Prospekt badawczy, wersja 0.1.0, 22 listopada 2026}
+\geometry{margin=26mm}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\title{Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności}
+\author{Mateusz Pomianek}
+\date{Projekt badania, wersja 0.2.0 \\ 22 listopada 2026}
 \begin{document}
 \maketitle
+\begin{center}
+\textit{Anxiety Symptom Severity, Cognitive Flexibility, and Decision-Making Strategies Under Uncertainty}
+\end{center}
 \begin{abstract}
-Projekt MSC-ANX-P01 ma status \texttt{IDEA\_REVIEW}. Ocenić, czy nasilenie objawów lękowych wiąże się z kosztami przełączania reguł i zmianą strategii decyzyjnych przy niepewności. Dokument zawiera planowane hipotezy i metody, a nie wyniki empiryczne.
+Celem projektowanego badania jest ocena związku między nasileniem objawów lękowych, kosztem przełączania reguł zadaniowych i strategiami wyboru w warunkach niepewności. W badaniu przekrojowym z komponentem behawioralnym proponuje się połączenie zwalidowanego kwestionariusza nasilenia objawów lękowych, zadania task-switching i niezależnego zadania decyzji probabilistycznych. Głównym estymandem jest zmiana kosztu przełączania przypadająca na jednostkę nasilenia objawów przy zadanym zestawie współzmiennych. Oddzielnie zostanie oszacowany związek z preferencją ryzyka lub niejednoznaczności, o ile parametry zadania umożliwią ich identyfikację.
+
+\textbf{Status:} prospektywny szkic naukowy (\texttt{IDEA\_REVIEW}); nie przeprowadzono badania, nie uzyskano wyników ani zatwierdzenia etycznego.
 \end{abstract}
-\section{Problem i cel badania}
-Ocenić, czy nasilenie objawów lękowych wiąże się z kosztami przełączania reguł i zmianą strategii decyzyjnych przy niepewności.
-\section{Hipotezy robocze}
-Wyższe nasilenie objawów lękowych będzie związane z większym kosztem przełączania oraz silniejszą awersją do niepewności; hipotezy nie przesądzają o kierunku zależności przyczynowej.
-\section{Projekt badania}
-Przekrojowe badanie online osób pełnoletnich. Pomiar objawów lękowych za pomocą zwalidowanej wersji GAD-7; komputerowe zadanie przełączania reguł i zadanie wyboru probabilistycznego, z próbami kontrolnymi. Warunki uczestnictwa, kryteria wykluczenia, uzasadnienie liczebności próby i procedura świadomej zgody zostaną ustalone przed prerejestracją.
-\section{Operacjonalizacja}
-Pierwszorzędowy: koszt przełączania (różnica mediany czasu poprawnych reakcji w próbach switch versus repeat). Drugorzędowe: trafność wyboru, odsetek decyzji ryzykownych i modelowany parametr wrażliwości na niepewność.
-\section{Plan analiz}
-Regresja kosztu przełączania na wynik GAD-7 z korektą wieku, snu i objawów depresyjnych; osobno hierarchiczny model wyborów probabilistycznych. Korekta wielokrotnych porównań dla miar drugorzędowych. Przed analizą danych należy zamrozić estymand, reguły czyszczenia danych, plan braków danych i kryteria analiz wrażliwości.
-\section{Etyka, bezpieczeństwo i dane}
-Nie rozpoczęto rekrutacji. Konieczne jest rozstrzygnięcie wymogów opinii komisji etycznej, minimalizacji danych, retencji i informowania o dobrowolności udziału. Nie zbierać danych pozwalających na identyfikację w publicznym repozytorium.
+\tableofcontents
+\section{Wprowadzenie i uzasadnienie}
+Lęk może wiązać się z preferencyjnym przetwarzaniem informacji o zagrożeniu, większą potrzebą przewidywalności oraz zmianą alokacji zasobów kontroli poznawczej. Elastyczność poznawcza oznacza zdolność do modyfikacji reguły działania w reakcji na zmianę celu lub kontekstu, a nie wyłącznie szybkość reakcji. Koszt przełączania stanowi przybliżoną, zależną od procedury miarę tej zdolności. Podejmowanie decyzji w warunkach ryzyka, gdy rozkład wyników jest znany, należy odróżnić od decyzji przy niejednoznaczności, gdy nie jest znany. Zaprojektowanie dwóch niezależnych zadań umożliwia sprawdzenie, czy badane związki są swoiste dla kontroli wykonawczej, czy dotyczą szerszych preferencji decyzyjnych.
+\section{Cel i pytania badawcze}
+\paragraph{PB1.} Czy wynik nasilenia objawów lękowych jest związany z kosztem przełączania po uwzględnieniu szybkości bazowej i dokładności?
+
+\paragraph{PB2.} Czy objawy lękowe wiążą się z wyborem opcji ryzykownych lub niejednoznacznych?
+
+\paragraph{PB3.} Czy obie zależności utrzymują się po kontroli jakości snu, objawów depresyjnych i cech urządzenia?
+
+\section{Hipotezy i status potwierdzenia}
+\paragraph{H1 (główna).} większe nasilenie objawów lękowych jest związane z większym kosztem przełączania reguł, oszacowanym na poprawnych próbach.
+
+\paragraph{H2 (drugorzędowa).} większe nasilenie objawów lękowych wiąże się z częstszym wyborem opcji o mniejszej niepewności przy porównywalnej wartości oczekiwanej.
+
+\paragraph{H3 (eksploracyjna).} związek objawów lękowych z wyborami jest częściowo niezależny od kosztu przełączania.
+
+Hipotezy są propozycjami do zatwierdzenia przed zbieraniem danych. Ich zapis nie stanowi potwierdzenia empirycznego.
+\section{Projekt badania i uczestnicy}
+Planowane jest jednorazowe badanie online dorosłych (18+), bez manipulowania nasileniem lęku. Sekwencja: świadoma zgoda, dane demograficzne, krótka ocena snu i obciążenia sytuacyjnego, kwestionariusze, instrukcja i próby treningowe, zadanie przełączania, zadanie decyzji, debriefing. Kolejność dwóch zadań może zostać zrównoważona losowo. Przed rekrutacją trzeba udokumentować kryteria włączenia i wyłączenia, dopuszczalne urządzenia oraz plan liczebności próby oparty na analizie mocy lub symulacji precyzji estymacji.
+\subsection{Liczebność próby i precyzja}
+Liczebność próby musi zostać wyznaczona przed rekrutacją na podstawie realistycznego minimalnego efektu istotnego naukowo, założonego modelu i symulacji mocy lub oczekiwanej szerokości przedziałów ufności. Żadna liczba uczestników nie jest obecnie zatwierdzona. Należy przewidzieć rezerwę na odpowiedzi niekompletne i próby wykluczone według kryteriów jakości.
+\section{Narzędzia i operacjonalizacja}
+Objawy lękowe: wynik ciągły GAD-7 w zatwierdzonej wersji językowej, bez utożsamiania wyniku przesiewowego z rozpoznaniem klinicznym. Task-switching: dwie proste reguły klasyfikacji sygnałów, próby powtórzenia i przełączenia, liczba bloków oraz proporcje prób ustalone pilotażem. Pierwszorzędowa zmienna zależna: koszt przełączania równy różnicy median poprawnych czasów reakcji pomiędzy próbami switch i repeat przy zgodnych warunkach bodźcowych. Analizy wspierające obejmą trafność i koszty proporcjonalne. Zadanie decyzji: jawnie zdefiniowane wypłaty i prawdopodobieństwa, odrębne próby niejednoznaczności oraz kontrola wartości oczekiwanej. Decyzje będą kodowane na poziomie próby.
+\subsection{Kontrola jakości}
+Przed zbieraniem danych zdefiniować próg ukończenia, obsługę prób treningowych, wskaźniki nieuwagi i duplikatów, zasady odrzucania obserwacji oraz test wykonalności technicznej. Wykluczeń nie należy optymalizować pod pożądany wynik. Prowadzić raport liczby osób na każdym etapie, bez ujawniania danych identyfikujących.
+\section{Plan analizy statystycznej}
+Pierwszorzędowy model liniowy: koszt przełączania jako wynik, wynik GAD-7 jako predyktor; współzmienne określone uprzednio, w tym wiek, jakość snu, objawy depresyjne, urządzenie oraz medianę szybkości bazowej. Raportować współczynnik, 95\\% przedział ufności, diagnostykę reszt i analizę odporną na obserwacje odstające. W modelu wyborów rozważyć regresję logistyczną mieszanych efektów lub model użyteczności, z losowym interceptem uczestnika i kontrolą wartości oczekiwanej; nie estymować nieidentyfikowalnych parametrów. Zdefiniować jeden test główny i kontrolować wielokrotność pozostałych testów metodą Holma. Braki danych i odrzucanie prób ustalić przed odślepieniem wyników; porównać analizę kompletnych przypadków i uzasadnione analizy wrażliwości.
+\subsection{Raportowanie i odtwarzalność}
+Raportować wielkości efektów, przedziały ufności, dokładne definicje zmiennych i liczebność analizowalną. Przewidzieć udostępnienie kodu analitycznego, słownika zmiennych i materiałów syntetycznych zamiast danych wrażliwych. Przed analizą zamrozić wersję protokołu i zależności obliczeniowe.
+\section{Aspekty etyczne i ochrona danych}
+Ocenić, czy projekt wymaga opinii właściwej komisji etycznej. Rekrutację rozpocząć dopiero po ustaleniu zgodności prawnej, zakresu zgody, celu i czasu retencji danych oraz procedury wycofania. Nie zapisywać danych indywidualnych w repozytorium publicznym. Nie obiecywać uczestnikom korzyści diagnostycznych.
+\section{Ograniczenia i alternatywne wyjaśnienia}
+Badanie przekrojowe nie uzasadnia wnioskowania przyczynowego. Kwestionariusz przesiewowy może mierzyć konstrukty częściowo wspólne z depresją i stresem. Koszt przełączania zależy od architektury zadania, treningu oraz kompromisu szybkość--trafność. Czasy reakcji online zależą od sprzętu i przeglądarki; konieczne są minimalne kryteria techniczne, raport wykluczeń i analiza wrażliwości. Zdarzenia o silnym obciążeniu emocjonalnym nie powinny być używane bez odrębnego uzasadnienia etycznego.
+\section{Przewidywana interpretacja i dyskusja}
+Potwierdzenie H1 sugerowałoby współwystępowanie nasilenia objawów lękowych z behawioralnym wskaźnikiem kontroli przełączania, a nie dowód zaburzenia określonego mechanizmu neuronalnego. Brak związku mógłby wskazywać na słabą swoistość zastosowanej miary, niewielki efekt lub ograniczoną precyzję próby. Wyniki z zadania decyzyjnego należy interpretować osobno dla ryzyka i niejednoznaczności.
 \section{Wyniki}
-Brak danych i wyników. Sekcja zostanie uzupełniona dopiero po zrealizowaniu zatwierdzonego protokołu.
-\section{Ograniczenia}
-Samoopis nie jest diagnozą; nakładanie się lęku i depresji, efekt szybkość--trafność, wpływ urządzeń i rekrutacja ochotnicza ograniczają uogólnianie.
-\section{Dyskusja}
-Interpretacja będzie zależała od trafności narzędzi, jakości danych i alternatywnych wyjaśnień. Projekt nie zakłada z góry potwierdzenia hipotez.
-\section*{Literatura}
-Weryfikacja prac źródłowych i przygotowanie bibliografii z kontrolą DOI należą do kolejnego etapu. Nie umieszczono niezweryfikowanych cytowań.
+Na dzień 22 listopada 2026 r. nie przedstawiono danych empirycznych. Po przeprowadzeniu badania należy zamieścić pełne wyniki, w tym wyniki niezgodne z hipotezami, dane o odrzuceniach, niepewność oszacowań oraz analizy wrażliwości.
+\section{Warunki przejścia do badania}
+\begin{enumerate}
+\item Zweryfikować istniejącą literaturę i przyporządkować cytowania do twierdzeń.
+\item Ustalić finalne narzędzia, wersje językowe, licencje i procedurę pilotażową.
+\item Zatwierdzić estymand, hipotezy, liczebność próby oraz plan kontroli błędów wielokrotności.
+\item Rozstrzygnąć wymogi etyczne i ochronę danych, a następnie przygotować prerejestrację.
+\item Dopiero wtedy rozpocząć rekrutację i gromadzenie materiału badawczego.
+\end{enumerate}
+\section*{Bibliografia}
+Bibliografia wymaga niezależnej weryfikacji pełnych danych publikacji i identyfikatorów DOI; na tym etapie nie wprowadzono fikcyjnych cytowań.
 \end{document}
