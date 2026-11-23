@@ -17,7 +17,7 @@
 % należy zweryfikować i uzupełnić zgodnie z wymaganiami docelowego czasopisma.
 \title{Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych}
 \author{Mateusz Pomianek}
-\date{Szkic koncepcyjny, wersja 0.4.0}
+\date{Szkic koncepcyjny, wersja 0.5.0}
 
 \begin{document}
 \maketitle
@@ -70,20 +70,51 @@ Eksploracyjnie można badać pominięcia, powtórzenia czynności, czas wznowien
 Ewentualny efekt może wynikać z czasu prezentacji albo informacyjności komunikatu, niekoniecznie z samego rodzaju wyzwalacza. Bez niezależnej kontroli tych cech dopuszczalny będzie wniosek o różnicy między całymi wariantami interfejsu. Brak wykrytej różnicy nie dowodzi równoważności warunków.
 
 \section{Projekt przyszłego badania}
-\subsection{Schemat porównania i scenariusz}
-Rozważany jest eksperyment behawioralny ze scenariuszem codziennych czynności wykonywanych w interfejsie 2D. Warunki obejmowałyby przypomnienia kontekstowe oraz czasowe przy zrównanej liczbie komunikatów. Decyzji wymaga przydział do warunków, kolejność prób, sposób losowania i minimalizacja efektów uczenia się. Nie zakłada się, że oprogramowanie lub stanowisko zostały już zweryfikowane.
+\subsection{Charakter badania i status protokołu}
+Rozważany jest kontrolowany eksperyment behawioralny w dwuwymiarowym środowisku symulującym wykonywanie czynności domowych. Zadanie główne polegałoby na realizowaniu sekwencji działań w interfejsie, a zadanie prospektywne na wykonaniu wcześniej zakomunikowanej, odroczonej czynności w odpowiednim oknie. Pojawiające się przerwanie powinno wprowadzać odrębną aktywność wymagającą czasowego zawieszenia zadania głównego. Proponowaną jednostką obserwacji jest okazja do realizacji zamiaru w określonej próbie, z uwzględnieniem zależności między próbami tego samego uczestnika i zadania.
 
-\subsection{Uczestnicy i dobór próby}
-Populację docelową, kryteria kwalifikacji i wyłączenia, sposób rekrutacji oraz plan liczebności próby należy ustalić przed rozpoczęciem badania. Założenia do obliczenia liczebności powinny wynikać z wybranego estymandu, schematu powtórzeń i uzasadnionego zakresu efektów, a nie z arbitralnie przyjętej wartości.
+Warianty eksperymentalne różniłyby się regułą wyzwolenia przypomnienia. W wariancie kontekstowym komunikat pojawiałby się po spełnieniu uprzednio zdefiniowanego warunku odnoszącego się do stanu zadania. W wariancie czasowym jego pojawienie się zależałoby od zegara lub ustalonego odstępu, bez wykorzystania bieżącego stanu zadania. Liczbę, treść, wygląd oraz widoczność komunikatów należy zrównoważyć. Jeżeli reguła czasowa i kontekstowa wywołują powiadomienia w odmiennych momentach, różnica ta stanowi część porównywanej interwencji. Dla rozdzielenia mechanizmów potrzebny byłby dodatkowy warunek kontrolny albo niezależna manipulacja momentem prezentacji.
 
-\subsection{Przebieg prób i kontrola przerwań}
-Każda próba powinna rozdzielać ustanowienie zamiaru, rozpoczęcie zadania głównego, jego przerwanie, prezentację przypomnienia i możliwość wykonania działania odroczonego. Trzeba ustalić reguły wystąpienia przerwania, dopuszczalny czas wykonania zamiaru i sposób rejestrowania zdarzeń. Należy sprawdzić, czy różnice między przypomnieniami nie wynikają jedynie z ich wcześniejszego pojawiania się lub odmiennej informacyjności.
+Jako wariant roboczy można rozważyć schemat wewnątrzosobniczy, w którym każdy uczestnik otrzymuje oba rodzaje przypomnień w odmiennych, porównywalnych próbach. Warunki powinny być równoważone pod względem kolejności, rodzaju zadania, trudności i odstępów czasowych. Ostateczna decyzja między układem wewnątrz- a międzyosobniczym wymaga oceny przenoszenia strategii, uczenia się oraz liczby dostępnych scenariuszy. Nie ustalono jeszcze liczby prób ani długości sesji.
 
-\subsection{Zmienne i jakość pomiaru}
-Proponowanym, lecz niezatwierdzonym wskaźnikiem głównym jest proporcja poprawnie wykonanych odroczonych intencji w określonym oknie. Przed akwizycją należy wskazać mianownik, jednostkę analizy, definicję poprawnego wykonania, obsługę braków danych oraz sposób traktowania prób bez możliwości realizacji zamiaru. Potencjalne wskaźniki dodatkowe obejmują pominięcia, powtórzenia czynności i czas wznowienia zadania. Wymagane są niezależna kontrola poprawności znaczników zdarzeń oraz pilotaż zrozumiałości instrukcji i wykonalności scenariusza.
+\subsection{Populacja, rekrutacja i kryteria kwalifikacji}
+Populacją roboczą mogliby być dorośli zdolni do świadomego udzielenia zgody i obsługi standardowego interfejsu 2D po instruktażu. Planowane kryteria włączenia obejmowałyby pełnoletność, świadomą zgodę, wystarczające rozumienie instrukcji w języku badania oraz możliwość wykonania czynności w zastosowanym interfejsie przy dopuszczonych udogodnieniach dostępności. Należy określić sposób rekrutacji i dokumentowania kryteriów, unikając arbitralnego wykluczania osób wyłącznie na podstawie diagnozy lub niepełnosprawności.
 
-\subsection{Aspekty etyczne i ochrona danych}
-Przed rekrutacją uczestników trzeba określić właściwe wymagania formalne i etyczne, zakres świadomej zgody, zasadę minimalizacji danych i procedurę ich przechowywania. Szkic nie poświadcza uzyskania zgody komisji, gotowości infrastruktury ani przeprowadzenia pilotażu.
+Wykluczenie z analizy mogłoby dotyczyć braku ważnej zgody, niemożności zrozumienia procedury pomimo standaryzowanego instruktażu, niedostarczenia przypisanej interwencji albo awarii uniemożliwiającej wiarygodne zarejestrowanie wyniku. Reguły powinny rozróżniać wyłączenie osoby przed rozpoczęciem badania od nieważności pojedynczej próby i zostać ustalone przed akwizycją. Potrzebne są także procedury dobrowolnego wycofania się oraz sposób postępowania z już zapisanymi danymi zgodny z informacją przekazaną uczestnikom.
+
+Plan liczebności próby będzie zależał od ostatecznego estymandu, projektu powtarzanych pomiarów, przewidywanej częstości poprawnych wykonań, korelacji wewnątrzosobniczej i dopuszczalnej niepewności oszacowania. Nie ustala się arbitralnej liczby uczestników. Przed rekrutacją należy przygotować udokumentowane obliczenie lub symulację wymaganego rozmiaru próby, z realistycznymi założeniami i uzasadnieniem ich źródeł.
+
+\subsection{Konstrukty, manipulacja i operacjonalizacja}
+Głównym konstruktem jest skuteczność realizacji odroczonego zamiaru po przerwaniu zadania. Zmienna niezależna to reguła wyzwolenia przypomnienia: kontekstowa albo czasowa. Potencjalny wynik główny stanowi binarny wskaźnik poprawnej realizacji intencji podczas zdefiniowanej okazji. Poprawne wykonanie oznaczałoby wykonanie właściwego działania w odpowiednim kontekście i oknie czasowym, bez zastępowania tego wyniku samym kliknięciem potwierdzającym odbiór komunikatu.
+
+Przed realizacją trzeba ustalić początek i koniec okna, sposób identyfikacji prawidłowego działania, dopuszczalność działań przedwczesnych i spóźnionych oraz regułę wielokrotnego wykonania tej samej czynności. Każda okazja powinna otrzymać jeden pierwotny kod wyniku, a dodatkowe zdarzenia należy zachować w dzienniku do analizy wtórnej. Próbę, w której okazja do działania nie wystąpiła z powodu błędu scenariusza, należy oznaczyć jako technicznie nieważną, a nie jako niepowodzenie pamięci. Brak reakcji mimo ważnej okazji jest potencjalnym pominięciem, nie automatycznie brakiem danych.
+
+Drugorzędowe konstrukty obejmują częstość pominięć, powtórzeń i działań w nieprawidłowym momencie, opóźnienie wykonania intencji względem otwarcia okna oraz czas i poprawność wznowienia zadania głównego. Wskaźniki te nie są zamienne z wynikiem głównym. Jako potencjalne czynniki zakłócające należy uwzględnić doświadczenie w obsłudze interfejsów, trudność zadania, kolejność warunków, czas przerwania, obciążenie zadania zakłócającego, diagnostyczność wskazówki i faktyczny czas pojawienia się przypomnienia.
+
+\subsection{Instrumenty i środowisko pomiarowe}
+Podstawowym instrumentem byłby interaktywny scenariusz 2D z rejestracją zdarzeń i znaczników czasu. Przed zbieraniem danych należy przygotować specyfikację interfejsu, listę scenariuszy, instrukcję uczestnika, zestaw prób treningowych, definicję zdarzeń i wersjonowany słownik danych. Planowany \texttt{app-2d-desktop} ma w dokumentacji status \texttt{PLANNED\_NOT\_CREATED}; nie należy traktować go jako gotowego narzędzia ani przypisywać mu zweryfikowanych funkcji. Przywoływane w dokumentacji stanowisko \texttt{ST-07} ma status \texttt{NOT\_VERIFIED}.
+
+Projekt nie zakłada obowiązkowych pomiarów EEG, okulograficznych ani użycia urządzeń XR. Takie pomiary mogłyby stanowić odrębne rozszerzenie po uzasadnieniu konstruktu i osobnym protokole. W podstawowej wersji konieczne są tylko zachowania rejestrowane przez interfejs, bez domniemanego dostępu do aparatury lub bibliotek.
+
+\subsection{Plan przebiegu sesji i pojedynczej próby}
+Po przekazaniu informacji o badaniu i uzyskaniu właściwej zgody uczestnik otrzymałby instrukcję oraz próbę treningową pozwalającą sprawdzić rozumienie zadania. Dopiero potem następowałby przydział do sekwencji warunków i rozpoczęcie prób badawczych. Na początku próby uczestnik zapoznawałby się z odroczonym zamiarem, rozpoczynał zadanie główne i wykonywał je do momentu wystąpienia z góry określonego przerwania. Następnie realizowałby zadanie zakłócające, wracał do scenariusza i mógł wykonać odroczoną czynność po pojawieniu się odpowiedniej okazji. Odpowiedni komunikat byłby prezentowany według przypisanej reguły wyzwolenia.
+
+Należy ustalić procedurę zakończenia próby po wykonaniu intencji, przekroczeniu okna lub wystąpieniu błędu technicznego. Uczestnik nie powinien otrzymywać informacji o poprawności w sposób zmieniający strategię między warunkami, chyba że taka informacja jest jednakowo przewidziana w protokole. Plan przerw wypoczynkowych, kryteria przerwania sesji i sposób obsługi nieukończonych prób wymagają zatwierdzenia. Warto sprawdzić podczas przyszłego pilotażu, czy przerwanie rzeczywiście wymusza zawieszenie celu oraz czy oba warianty powiadomień są zrozumiałe.
+
+\subsection{Rejestracja zdarzeń i integralność danych}
+Dziennik powinien zawierać pseudonimowy identyfikator uczestnika, identyfikator sesji i próby, wersję scenariusza, warunek, kolejność prezentacji oraz znaczniki ustanowienia zamiaru, rozpoczęcia i zakończenia przerwania, otwarcia okna, wyzwolenia i wyświetlenia przypomnienia, działania uczestnika i wznowienia zadania. Należy osobno zapisać zaplanowaną i rzeczywistą chwilę prezentacji komunikatu, aby wykrywać opóźnienia systemowe.
+
+Zdarzenia wymagają wspólnej monotonicznej podstawy czasu w obrębie sesji i kontroli poprawności kolejności. Dane powinny pozwalać na niezależne odtworzenie wskaźników z pierwotnego dziennika, z zachowaniem wersji reguł klasyfikacji. Nie należy rejestrować niepotrzebnych danych identyfikujących, nagrań ekranu ani danych biometrycznych. Plan bezpiecznego przechowywania, retencji, dostępu i usuwania informacji musi zostać przyjęty przed badaniem.
+
+\subsection{Kontrola jakości, pilotaż i zasady wyłączeń}
+Przed rekrutacją należy przeprowadzić izolowane testy scenariuszy obejmujące granice okien czasowych, duplikaty komunikatów, brak okazji do działania, spóźnione zdarzenia i awarie rejestracji. Test techniczny nie jest dowodem skuteczności interwencji. W przyszłym pilotażu z udziałem ludzi należy ocenić zrozumiałość instrukcji, wykonalność próby, czytelność powiadomień, dopasowanie trudności oraz kompletność logów. Przeprowadzenia pilotażu jeszcze nie potwierdzono.
+
+Reguły odrzucania prób powinny być ustalone przed dostępem do wyników i rozdzielać awarie techniczne od błędów wykonania uczestnika. Należy raportować liczbę prób planowanych, wykonanych, nieważnych technicznie i nieuwzględnionych w analizie wraz z przyczynami. Kontrole jakości nie mogą usuwać rzeczywistych pominięć wyłącznie dlatego, że pogarszają wynik warunku.
+
+\subsection{Aspekty etyczne i warunki uruchomienia}
+Przed pozyskaniem danych od ludzi konieczne jest ustalenie wymagań komisji etycznej albo innej właściwej procedury oceny, zasad świadomej zgody, prawa do wycofania oraz sposobu minimalizacji ryzyka i ochrony danych osobowych. Dokumentacja powinna obejmować cele, przebieg, czas obciążenia, dobrowolność udziału i możliwe niedogodności. Nie zakłada się, że zgodę już uzyskano lub że jej uzyskanie nie jest wymagane.
+
+Status \texttt{NEW\_CROSS\_PROGRAM\_IDEA\_HOLD} pozostaje bez zmian. Przed wykonaniem choćby pilotażu konieczne są potwierdzenie kanonicznego projektu, odrębności pytania badawczego, gotowości instrumentu, szczegółowego protokołu, planu analizy, zgód i środków ochrony danych. Żadna z opisanych procedur nie jest deklaracją przeprowadzonego badania.
 
 \section{Plan analizy statystycznej}
 Analiza główna powinna odpowiadać wcześniej ustalonemu estymandowi, np. różnicy prawdopodobieństwa poprawnego wykonania zamiaru między warunkami. Regresja logistyczna z efektami uwzględniającymi zagnieżdżenie prób w uczestnikach i zadaniach jest jedną z rozważanych metod, nie zaś zatwierdzoną specyfikacją modelu. Strukturę efektów losowych trzeba dopasować do ostatecznego projektu. Należy z góry określić kontrast główny, sposób raportowania niepewności oszacowań, kryteria wykluczeń oraz analizę danych niekompletnych.
