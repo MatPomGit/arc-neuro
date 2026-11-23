@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 0.1.2}
 
 \begin{document}
 
@@ -46,6 +46,30 @@ Potencjalny oryginalny wkład pracy polegałby nie na wykazaniu ogólnej przewag
 
 Projekt pozostaje na etapie koncepcyjnym. Nie przeprowadzono w jego ramach udokumentowanego eksperymentu ani nie uzyskano wyników pozwalających ocenić kierunek lub wielkość efektu. Uogólnienie przyszłych ustaleń na osoby starsze, użytkowników o szczególnych potrzebach lub rzeczywiste środowiska wspomaganego zamieszkiwania będzie wymagało odpowiednio dobranych prób i dodatkowej walidacji. Przywołane mechanizmy mają obecnie charakter uzasadnienia teoretycznego; twierdzenia o stanie literatury wymagają odrębnej weryfikacji źródeł i uzupełnienia cytowań przed przygotowaniem artykułu do zgłoszenia.
 
+\section{Podstawy teoretyczne i model pojęciowy}
+
+\subsection{Obciążenie poznawcze a wymagania interakcji}
+
+Obciążenie poznawcze odnosi się do wymagań stawianych zasobom przetwarzania informacji podczas wykonywania czynności. W klasycznej analizie rozwiązywania problemów Sweller (1988) wykazał znaczenie ograniczeń poznawczych dla uczenia się i projektowania zadań. Przeniesienie tej perspektywy na obsługę inteligentnego domu stanowi w niniejszej pracy interpretację teoretyczną, a nie bezpośredni wynik badań Swellera nad systemami Smart Home. W takim zastosowaniu należy odróżnić wymagania wynikające z samego celu działania, na przykład ustawienia parametrów urządzenia, od wymagań wprowadzanych przez sposób prezentacji opcji, strukturę nawigacji i zmienność rozmieszczenia elementów.
+
+Obciążenie odczuwane podczas zadania jest konstruktem wielowymiarowym. Hart i Staveland (1988) opracowali NASA-TLX jako metodę subiektywnej oceny obciążenia zadaniem, obejmującą kilka wymiarów doświadczenia użytkownika. W konsekwencji nie należy utożsamiać ogólnego wyniku NASA-TLX, jego składowej wysiłku umysłowego, czasu realizacji ani liczby błędów. Każda z tych miar odpowiada innemu pytaniu empirycznemu. Ostateczny wybór miary pierwszorzędowej oraz zasad agregacji pomiarów pozostaje decyzją przyszłego protokołu.
+
+\subsection{Adaptacja interfejsu i przewidywalność działania}
+
+W projekcie interfejs statyczny zachowuje stałe reguły prezentacji i położenia funkcji niezależnie od rozpoznanego kontekstu. Interfejs adaptacyjny może natomiast eksponować funkcje powiązane z aktualnym zadaniem, zmieniać ich kolejność lub ograniczać liczbę elementów wymagających uwagi. Adaptacyjność należy przy tym odróżnić od dostosowywalności sterowanej bezpośrednio przez użytkownika. Findlater i McGrenere (2004) porównali menu statyczne, adaptacyjne i dostosowywalne w eksperymencie z zakresu interakcji człowiek-komputer. Praca ta uzasadnia traktowanie sposobu dostosowania jako odrębnego czynnika projektowego, ale nie stanowi dowodu przewagi określonego rozwiązania w inteligentnym domu.
+
+Teoretycznie mniejsza liczba elementów do przeszukania może ułatwiać wybór działania, podczas gdy przemieszczenie znanych kontrolek może osłabiać przewidywalność ich położenia. Oba procesy mogą występować równocześnie. Dlatego skuteczność adaptacji nie wynika automatycznie z ograniczenia liczby opcji ani z trafnego wykrycia kontekstu: wymaga uwzględnienia kosztów uczenia się i ponownej orientacji po zmianie interfejsu.
+
+\subsection{Relacje między zjawiskami i warunki brzegowe}
+
+Proponowany model pojęciowy zakłada, że typ interfejsu wpływa na obciążenie zadaniem przez dwa potencjalne, przeciwstawne mechanizmy. Pierwszy polega na ograniczeniu wysiłku wyszukiwania informacji i selekcji poleceń. Drugi polega na zwiększeniu kosztów aktualizacji modelu mentalnego interfejsu, gdy zmienia się rozmieszczenie kontrolek lub system błędnie rozpoznaje kontekst. Są to postulowane ścieżki wyjaśniające, które wymagają przyszłego sprawdzenia empirycznego; w niniejszym szkicu nie traktuje się ich jako ustalonych efektów przyczynowych.
+
+Przewidywany bilans obu mechanizmów zależy od złożoności zadania, stabilności układu, trafności informacji kontekstowych i doświadczenia użytkownika. Przy zadaniach prostych koszt zmiany organizacji ekranu może przewyższać korzyść z wyróżnienia funkcji. W zadaniach złożonych ograniczenie konieczności przeszukiwania interfejsu może okazać się korzystniejsze, pod warunkiem że adaptacja nie zakłóca wyuczonych działań. Zależności te mają postać przewidywań teoretycznych, a nie potwierdzonych prawidłowości.
+
+Model rozróżnia zatem zmienną eksperymentalną, czyli sposób organizacji interfejsu, postulowane mechanizmy pośredniczące, czyli koszt wyszukiwania i koszt ponownej orientacji, oraz mierzone następstwa, takie jak subiektywne obciążenie zadaniem, błędy i czas wykonania. Złożoność zadania, poprawność adaptacji i wcześniejsza znajomość interfejsu mogą moderować te relacje. W przyszłym protokole trzeba oddzielnie wskazać, które mechanizmy będzie można rzeczywiście zmierzyć, a które pozostaną interpretacją zachowania użytkownika. Samo stwierdzenie różnicy między warunkami nie pozwoli przypisać jej konkretnemu mediatorowi.
+
+Zakres modelu ogranicza się obecnie do projektowanej symulacji Smart Home 2D. Nie wyprowadzono z niego wniosków o poprawie samodzielności życiowej, bezpieczeństwa domowego ani skuteczności klinicznej. Przed badaniem należy doprecyzować populację, reguły adaptacji, procedurę pomiaru i analizę interakcji, a następnie zestawić model z rozszerzonym, krytycznym przeglądem literatury.
+
 \section{Cel i pytania badawcze}
 
 Celem pracy jest rozstrzygnięcie zagadnienia: Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
@@ -72,7 +96,11 @@ Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających p
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems}, 89--96. \url{https://doi.org/10.1145/985692.985704}
+
+Hart, S. G., \& Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. W P. A. Hancock \& N. Meshkati (red.), \textit{Human mental workload} (s. 139--183). North-Holland. \url{https://doi.org/10.1016/S0166-4115(08)62386-9}
+
+Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. \textit{Cognitive Science, 12}(2), 257--285. \url{https://doi.org/10.1207/s15516709cog1202_4}
 
 \end{document}
 
