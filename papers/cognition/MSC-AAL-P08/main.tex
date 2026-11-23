@@ -17,7 +17,7 @@
 % należy zweryfikować i uzupełnić zgodnie z wymaganiami docelowego czasopisma.
 \title{Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych}
 \author{Mateusz Pomianek}
-\date{Szkic koncepcyjny, wersja 0.5.0}
+\date{Szkic koncepcyjny, wersja 0.6.0}
 
 \begin{document}
 \maketitle
@@ -116,10 +116,63 @@ Przed pozyskaniem danych od ludzi konieczne jest ustalenie wymagań komisji etyc
 
 Status \texttt{NEW\_CROSS\_PROGRAM\_IDEA\_HOLD} pozostaje bez zmian. Przed wykonaniem choćby pilotażu konieczne są potwierdzenie kanonicznego projektu, odrębności pytania badawczego, gotowości instrumentu, szczegółowego protokołu, planu analizy, zgód i środków ochrony danych. Żadna z opisanych procedur nie jest deklaracją przeprowadzonego badania.
 
-\section{Plan analizy statystycznej}
-Analiza główna powinna odpowiadać wcześniej ustalonemu estymandowi, np. różnicy prawdopodobieństwa poprawnego wykonania zamiaru między warunkami. Regresja logistyczna z efektami uwzględniającymi zagnieżdżenie prób w uczestnikach i zadaniach jest jedną z rozważanych metod, nie zaś zatwierdzoną specyfikacją modelu. Strukturę efektów losowych trzeba dopasować do ostatecznego projektu. Należy z góry określić kontrast główny, sposób raportowania niepewności oszacowań, kryteria wykluczeń oraz analizę danych niekompletnych.
+\section{Plan analizy statystycznej i reprodukowalności}
+\subsection{Status planu i populacja analityczna}
+Poniższa specyfikacja jest propozycją przyszłego planu analizy statystycznej, a nie prerejestracją ani dokumentacją przeprowadzonych obliczeń. Przed rekrutacją należy ustalić, czy analizowany jest efekt przypisania do reguły przypomnienia, czy efekt rzeczywiście otrzymanego powiadomienia. Jako wariant podstawowy rozważany jest efekt przypisania warunku przy zachowaniu wszystkich prawidłowo zainicjowanych i możliwych do oceny okazji do wykonania zamiaru. Nie należy uzależniać włączenia okazji do mianownika od tego, czy uczestnik zauważył przypomnienie lub zrealizował zamiar.
 
-Analizy pomocnicze mogą dotyczyć pominięć, powtórzeń i czasu wznowienia, lecz wymagają odpowiednich modeli i kontroli wielokrotnego wnioskowania. Analizy wrażliwości powinny sprawdzać wpływ długości przerwania, odstępu między wskazówką a okazją do działania oraz alternatywnych definicji poprawności. Żadna analiza nie została wykonana.
+Populację analityczną określi protokół wraz z momentem randomizacji, zasadami kwalifikacji prób i postępowania w przypadku wycofania zgody. Przed rozpoczęciem akwizycji trzeba zatwierdzić sposób traktowania niedostarczonych komunikatów, zdarzeń bez prawidłowej okazji do działania oraz prób przerwanych z przyczyn technicznych. W przypadku losowania wewnątrzosobniczego analiza musi uwzględniać korelację prób tej samej osoby i powtarzalność scenariuszy.
+
+\subsection{Pierwszorzędowy wynik i estymand}
+Kandydatem na zmienną wynikową jest wskaźnik binarny \(Y_{ijt}\), przyjmujący wartość 1, gdy uczestnik \(i\) wykonał poprawnie odroczoną intencję w dopuszczonym oknie próby \(t\) ze scenariuszem \(j\), oraz 0 dla ważnej okazji bez poprawnego wykonania. Definicje poprawności, granic okna, prób z wielokrotnymi działaniami i mianownika wymagają zamrożenia przed badaniem. Pominięcie w ważnej próbie nie jest brakiem danych.
+
+Proponowany pierwszorzędowy estymand to różnica marginalnych prawdopodobieństw poprawnego wykonania przy przypisaniu przypomnienia kontekstowego (\(C\)) względem czasowego (\(T\)), uśredniona po zdefiniowanej populacji uczestników i rozkładzie scenariuszy:
+\[
+\Delta = \Pr(Y=1\mid \operatorname{do}(C))-\Pr(Y=1\mid \operatorname{do}(T)).
+\]
+Zapis przyczynowy jest celem planowanego eksperymentu, nie dowodem identyfikowalności. Interpretacja \(\Delta\) jako efektu przyczynowego wymaga poprawnej randomizacji, spójności interwencji, pozytywności i przejrzystego postępowania z brakami danych. Jeśli randomizacja nie zostanie wdrożona, należy zmienić estymand oraz ograniczyć język przyczynowy.
+
+Wartością podstawową byłaby różnica ryzyk w punktach procentowych, wraz z przedziałem ufności. Iloraz szans lub współczynnik na skali logitowej mogą służyć diagnostyce modelu, ale ze względu na niekolapsowalność ilorazu szans nie powinny zastępować marginalnej różnicy prawdopodobieństw bez uzasadnienia.
+
+\subsection{Model główny i sposób oszacowania}
+Jako model roboczy rozważana jest regresja logistyczna dla prawdopodobieństwa poprawnej odpowiedzi, z efektem warunku, uczestnika i scenariusza:
+\[
+\operatorname{logit}\{\Pr(Y_{ijt}=1)\}
+ = \beta_0+\beta_1 C_{ijt}+b_i+u_j+\boldsymbol{\gamma}^{\mathsf T}\mathbf X_{ijt}.
+\]
+W tym zapisie \(b_i\) i \(u_j\) są efektami losowymi uczestnika i scenariusza, a \(\mathbf X\) obejmuje tylko zmienne uwzględnione w zatwierdzonym planie, np. kolejność prób i z góry określony poziom trudności. Ostateczna struktura efektów, ewentualne nachylenie losowe dla warunku, zasady standaryzacji do marginalnych prawdopodobieństw i metoda wyznaczania niepewności wymagają decyzji po ustaleniu schematu doświadczenia, lecz przed ujawnieniem wyników.
+
+Estymacja różnicy ryzyk powinna być wykonana przez marginalną standaryzację przewidywań modelu, a nie bezpośrednie odczytanie \(\beta_1\). Procedura przedziałów ufności musi uwzględniać zagnieżdżenie i niezależne jednostki losowania, np. przez odpowiedni bootstrap klastrowy lub przybliżenie parametryczne po sprawdzeniu jego zasadności. Przed analizą należy określić postępowanie przy separacji, braku zbieżności i bardzo rzadkich zdarzeniach. Każda zmiana modelu po obejrzeniu wyników musi być ujawniona jako odstępstwo lub analiza eksploracyjna.
+
+\subsection{Hipoteza i wielokrotne testowanie}
+Kandydatka H1 dotyczy dwustronnego kontrastu \(\Delta=0\), bez uprzednio przyjętego kierunku różnicy. Przed prerejestracją należy zatwierdzić poziom błędu pierwszego rodzaju, jednostkę randomizacji i jedyny pierwszorzędowy kontrast. Przy jednym potwierdzonym teście głównym nie jest potrzebna korekta za wielokrotność w obrębie tego testu, o ile nie wybiera się po fakcie najkorzystniejszego wskaźnika, modelu ani podgrupy.
+
+Porównania pominięć, powtórzeń, opóźnienia wykonania i wznowienia zadania są na razie wtórne lub eksploracyjne. Jeśli przed badaniem powstanie rodzina dodatkowych hipotez konfirmacyjnych, należy zdefiniować jej zakres i metodę kontroli rodzinnego prawdopodobieństwa błędu, np. procedurę Holma. W przeciwnym razie należy raportować estymaty i przedziały niepewności oraz jawnie opisać eksploracyjność; nominalnych wartości \(p\) nie należy przedstawiać jako niezależnych potwierdzeń.
+
+\subsection{Braki danych, awarie i zdarzenia po przypisaniu}
+Brak poprawnego działania przy zarejestrowanej, ważnej okazji do wykonania intencji należy kodować jako niepowodzenie. Brak śladu zdarzenia z powodu utraty logu, awarii aplikacji lub nieotwarcia okna wykonania oznacza inny problem i wymaga osobnego kodu przyczyny. Nie należy dopisywać wyniku 0 ani 1 bez podstawy w logu. W raporcie trzeba podać liczby i odsetki braków osobno dla warunków, uczestników i typów przyczyn.
+
+Niedostarczenie przypomnienia po przypisaniu warunku jest potencjalnym odstępstwem od interwencji. Jeśli wyniki pozostają mierzalne, zasadą podstawową może być zachowanie przypisanej grupy. Analiza ograniczona do poprawnie dostarczonych komunikatów nie jest automatycznie wolna od błędu selekcji i może mieć charakter uzupełniający. Dla nieobserwowanych wyników należy zaplanować scenariusze wrażliwości, w tym realistyczne skrajne założenia oraz metody imputacji tylko wtedy, gdy są zgodne z mechanizmem braków i strukturą danych. Mechanizmu brakowania nie wolno uznawać za losowy bez uzasadnienia.
+
+\subsection{Analizy wrażliwości i modele wtórne}
+Przed badaniem należy określić ograniczoną listę analiz sprawdzających stabilność \(\Delta\) względem definicji okna czasowego, klasyfikacji prób technicznie nieważnych, trudności scenariusza, kolejności warunków i długości przerwania. Warto rozważyć model bez wybranych kowariatów oraz alternatywną strukturę efektów, pod warunkiem że wybór nie będzie oparty na korzystnym wyniku.
+
+Zmienne związane z rzeczywistym czasem pojawienia się przypomnienia mogą leżeć na ścieżce mechanizmu interwencji. Ich automatyczne uwzględnienie jako zwykłych zmiennych kontrolnych może zmienić estymand i prowadzić do błędnej interpretacji. Analiza z takim dostosowaniem powinna być jawnie oznaczona jako mechanistyczna albo eksploracyjna, a nie jako zamiennik całkowitego efektu przypisania.
+
+Wskaźniki czasu wznowienia zadania mogą mieć rozkład asymetryczny i być nieobserwowane dla części prób. Dobór modelu czasu lub analizy zdarzeń powinien zależeć od wcześniej zdefiniowanego sposobu cenzurowania, a nie od poszukiwania istotności. Pominięcia i powtórzenia należy analizować zgodnie z ich typem danych, możliwością wielokrotnego zajścia i ekspozycją.
+
+\subsection{Liczebność i precyzja oszacowania}
+Plan liczebności próby musi uwzględniać oczekiwane prawdopodobieństwa poprawnego wykonania, minimalną istotną naukowo różnicę, liczbę okazji na uczestnika, korelację wewnątrzosobniczą, zróżnicowanie scenariuszy, plan randomizacji i przewidywane straty danych. Preferowane jest udokumentowane badanie symulacyjne właściwości planowanego modelu lub analiza precyzji, poprzedzone uzasadnieniem założeń. Wartości parametrów i kryteria akceptacji nie są jeszcze ustalone; nie deklaruje się mocy ani wymaganej liczebności.
+
+\subsection{Oddzielenie prerejestracji od eksploracji}
+Przed dostępem do danych wynikowych należy zdeponować datowaną i jednoznacznie wersjonowaną specyfikację hipotezy, zmiennej głównej, estymandu, populacji, wykluczeń, modelu, niepewności i zakresu analiz wrażliwości. Eksploracja pilotażowa służąca dopracowaniu instrumentu nie może być bez ujawnienia łączona z badaniem konfirmacyjnym. Jeśli po prerejestracji nastąpi zmiana protokołu, należy podać datę, przyczynę, zakres oraz to, czy zmiana poprzedzała wgląd w dane. Analizy spoza planu powinny zachować odrębną etykietę.
+
+\subsection{Ślad reprodukowalności i środowisko narzędziowe}
+Dla przyszłego badania trzeba zachować wersję i dokładny SHA zatwierdzonego protokołu, instrumentu, definicji scenariuszy, słownika zdarzeń, skryptu klasyfikacji prób i skryptów analitycznych. Raport odtwarzalności powinien identyfikować system operacyjny, wersję języka programowania, pakietów statystycznych, zależności i ich plik blokady, a także sposób uruchomienia analizy i użyte ziarna generatora liczb pseudolosowych. Nazw konkretnych wersji nie podaje się przed wyborem i zweryfikowaniem oprogramowania.
+
+Po zatwierdzeniu kanonicznego projektu jego repozytorium będzie przechowywać kod, protokół i uprawnione materiały źródłowe. Niniejszy szkic w \texttt{arc-neuro} nie jest ich drugim źródłem prawdy. Do niezależnego odtworzenia należy zapewnić maszynowo sprawdzalną ścieżkę od dziennika zdarzeń przez walidację, wyznaczenie zmiennych i model do tabel wynikowych. Tam, gdzie danych indywidualnych nie wolno upublicznić, możliwe jest udostępnienie zgodnych z uprawnieniami skryptów, słownika danych i sztucznych danych testowych, wyraźnie oddzielonych od dowodów empirycznych.
+
+\subsection{Bramki gotowości analitycznej}
+Warunkami przejścia z \texttt{HOLD} do realizacji są potwierdzony właściciel kanonicznego projektu, rozstrzygnięty zakres badania, formalnie uzgodniony protokół i estymand, kompletna specyfikacja zdarzeń, zatwierdzony plan liczebności oraz odpowiednie wymogi etyczne i techniczne. Nie uruchomiono analiz, nie oceniano zbieżności modelu i nie potwierdzono reprodukcji żadnych wyników.
 
 \section{Plan przedstawienia wyników po przeprowadzeniu badania}
 Dopiero po pozyskaniu i sprawdzeniu danych możliwe będzie podanie liczby uczestników i prób, przepływu obserwacji, rozkładów wskaźników, wielkości efektów oraz przedziałów niepewności. Przyszły raport powinien rozdzielać wyniki analizy głównej, pomocniczej i eksploracyjnej, a także dokumentować odstępstwa od zatwierdzonego planu. W obecnym szkicu nie ma wyników, tabel empirycznych ani statystyk.
