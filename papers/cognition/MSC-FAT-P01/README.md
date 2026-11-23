@@ -1,5 +1,7 @@
 # MSC-FAT-P01 — Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Program:** ARC Neuro. **Obszar:** cognition.
 
 [Prospekt LaTeX](main.tex) zawiera cel, hipotezy, metodę, operacjonalizację, plan analiz, ograniczenia i warunki etyczne.
