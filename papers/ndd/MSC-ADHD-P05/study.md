@@ -1,15 +1,21 @@
 # MSC-ADHD-P05 — EEG Muse S Athena zsynchronizowane ze zdarzeniami regulacji
 
-**Program:** `arc-neuro` · **obszar:** `ndd` · **rodzaj:** `MANUSCRIPT` · **etap źródłowy:** `ACTIVE`.
+**Program:** `arc-neuro` · **obszar:** `ndd` · **rodzaj:** `MANUSCRIPT` · **etap rejestrowy szkicu:** `ACTIVE`.
+
+Właścicielem naukowym i autorem obecnego szkicu jest Mateusz Pomianek (`MatPomGit`). Projekt i repozytorium kanoniczne pozostają niepotwierdzone. Publiczny katalog ARC dokumentuje koncepcję, lecz nie zastępuje protokołu ani rejestru dowodów projektu źródłowego.
 
 ## Projekt badania
 
 **Przedmiot:** EEG Muse S Athena zsynchronizowane ze zdarzeniami regulacji.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Proponowany wynik główny:** Nie został zatwierdzony. Rozkład błędu czasowego znaczników i odsetek utraconych okien EEG są jedynie kandydatami na techniczne miary jakości. Estymand, jednostkę analizy oraz kryteria akceptacji należy zatwierdzić przed akwizycją.
 - **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
 - **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
+
+## Stan dowodów i weryfikacji
+
+W repozytorium dostępny jest szkic LaTeX, plan metod i opis postulowanych zależności. Nie ma w publicznych rejestrach `portfolio/projects.json` i `portfolio/papers.json` wpisu wskazującego projekt źródłowy tego manuskryptu. Brak wskazanego źródła uniemożliwia potwierdzenie stanu `CURRENT` lub `STALE` względem kanonicznej rewizji. Nie zweryfikowano zapisu EEG, synchronizacji, integracji aplikacji, danych uczestników ani wyników. Rejestr `ACTIVE` opisuje organizacyjny stan szkicu, a nie wykonanie badania.
 
 ## Stanowisko badawcze
 
