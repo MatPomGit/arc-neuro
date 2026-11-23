@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.3}
+\date{Szkic naukowy, wersja 0.1.4}
 
 \begin{document}
 
@@ -100,11 +100,35 @@ Proponowany wkład MSC-AAL-P02 polegałby na kontrolowanym porównaniu interfejs
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Celem planowanego badania jest określenie, czy kontekstowa adaptacja sposobu prezentacji funkcji w symulacji inteligentnego domu 2D wiąże się z odmiennym subiektywnym obciążeniem zadaniem niż stabilny interfejs statyczny oraz czy kierunek tej różnicy zależy od właściwości zadania i jakości adaptacji. Zakłada się porównywalność celów i dostępnych funkcji w obu warunkach. Jest to projekt prospektywny, a nie raport z przeprowadzonego eksperymentu.
+
+\subsection{Pytania badawcze}
+
+Pierwsze pytanie dotyczy różnicy w subiektywnym wysiłku umysłowym podczas wykonywania tych samych zadań z użyciem interfejsu adaptacyjnego i statycznego. Drugie dotyczy tego, czy złożoność zadania modyfikuje tę różnicę. Trzecie odnosi się do skutków błędnego rozpoznania kontekstu oraz zmian położenia kontrolek dla obciążenia i sprawności działania. Czwarte pytanie dotyczy zgodności subiektywnych ocen obciążenia z obiektywnymi wskaźnikami wykonania zadania, w szczególności błędami, ukończeniem zadania i czasem działania. Pytania te rozdzielają skuteczność działania od doświadczenia poznawczego użytkownika.
+
+\subsection{Hipotezy i przewidywania konkurencyjne}
+
+Wstępna hipoteza H1 zakłada, że przy poprawnym rozpoznaniu kontekstu i zachowaniu przewidywalności kluczowych elementów interfejs adaptacyjny może prowadzić do mniejszego odczuwanego wysiłku umysłowego niż warunek statyczny. Hipoteza H2 przewiduje, że potencjalna korzyść adaptacji będzie większa w zadaniach złożonych niż prostych, ponieważ w tych pierwszych możliwe ograniczenie wyszukiwania i selekcji informacji ma większe znaczenie. Hipoteza H3 przewiduje, że nietrafna adaptacja lub istotne przemieszczenie znanych kontrolek może zwiększać obciążenie i liczbę błędów względem adaptacji poprawnej i stabilnej.
+
+Konkurencyjne wyjaśnienie wobec H1 zakłada brak korzystnego efektu adaptacji albo efekt przeciwny, jeżeli koszty ponownej orientacji przekroczą oszczędność wyszukiwania informacji. Wobec H2 możliwe jest, że złożone zadania nasilą negatywne skutki zmian układu. Wobec H3 możliwe jest, że użytkownik będzie kompensował błędną adaptację bez istotnej zmiany subiektywnego obciążenia, ponosząc koszt jedynie w czasie wykonania. Przewidywania te pozostają hipotezami przedrejestracyjnymi do dalszego dopracowania i nie są twierdzeniami o uzyskanych wynikach. W szczególności projekt nie przyjmuje z góry, że ogólny efekt adaptacji zawsze będzie korzystny.
+
+\subsection{Konstrukty i proponowana operacjonalizacja}
+
+Zmienną manipulowaną byłby sposób organizacji interfejsu, z co najmniej dwoma poziomami: statycznym i adaptacyjnym. Adaptację należy opisać za pomocą jawnych reguł wyboru oraz prezentacji funkcji. Złożoność zadania może być manipulowana przez liczbę decyzji, zależności między czynnościami i zakres informacji potrzebnych do zakończenia scenariusza. Jakość adaptacji oznacza zgodność dostosowania z uprzednio ustalonym poprawnym kontekstem; stabilność układu oznacza zachowanie położenia podstawowych kontrolek pomiędzy kolejnymi ekranami. Jeśli te cechy nie zostaną poddane odrębnej manipulacji, ich związek z wynikiem można będzie analizować wyłącznie jako opisowy lub eksploracyjny.
+
+Konstruktem teoretycznym pozostaje obciążenie poznawcze podczas interakcji. Proponowanym, lecz jeszcze niezatwierdzonym pierwszorzędowym wskaźnikiem jest subiektywnie oceniany wysiłek umysłowy po wykonaniu scenariusza, na przykład składowa \textit{mental demand} kwestionariusza NASA-TLX. Wybór tej składowej nie jest równoważny pomiarowi całego obciążenia poznawczego i nie może być zastępowany bez uzasadnienia pełnym wynikiem NASA-TLX. Przed rozpoczęciem zbierania danych należy wskazać wersję narzędzia, skalę odpowiedzi, jednostkę analizy, sposób agregowania ocen i podstawowy kontrast między warunkami.
+
+Proponowane wskaźniki drugorzędowe obejmują liczbę błędów krytycznych zdefiniowanych przed badaniem, odsetek poprawnie ukończonych zadań, czas do ukończenia oraz ocenę użyteczności interfejsu. Liczba kliknięć i długość ścieżki nawigacyjnej mogą służyć analizie przebiegu interakcji, lecz same w sobie nie stanowią miar obciążenia poznawczego. Koszty wyszukiwania informacji i ponownej orientacji stanowią postulowane mechanizmy pośredniczące; do formalnej analizy mediacji konieczne będą osobno uzasadnione pomiary tych procesów.
+
+\subsection{Kryteria oceny i granice wnioskowania}
+
+Podstawowa ocena powinna odnosić się do oszacowanej różnicy między warunkami wraz z przedziałem ufności i jej znaczeniem praktycznym, a nie wyłącznie do przekroczenia progu istotności statystycznej. Efekty złożoności, jakości adaptacji i kolejności wykonywania zadań wymagają zaplanowanych kontrastów oraz odpowiednich modeli dla pomiarów powtarzanych. Dla wskaźników drugorzędowych należy z góry określić hierarchię interpretacji i sposób kontroli wielokrotnego testowania, jeśli miałyby uzasadniać wnioski potwierdzające.
+
+Przed rekrutacją należy ustalić pierwotny punkt końcowy, estymand, wielkość efektu uznaną za praktycznie istotną, kryteria wykluczania obserwacji, strategię radzenia sobie z brakami danych oraz wielkość próby. Nie określono obecnie liczbowego progu sukcesu ani wymaganej liczebności próby, ponieważ nie ma jeszcze uzasadnionych danych pilotażowych lub innych podstaw do ich wyznaczenia. Brak istotnej statystycznie różnicy nie będzie automatycznie dowodem równoważności warunków. Wszystkie planowane zależności wymagają przyszłej weryfikacji, a wyników symulacji nie będzie można bez dodatkowych badań przenosić na rzeczywiste środowiska zamieszkiwania albo populacje kliniczne.
 
 \section{Materiał i metody}
 
-W symulacji Smart Home 2D porównać adaptację interfejsu i warunek statyczny przy jednakowych zadaniach. Pierwszorzędowy wskaźnik: Obciążenie zadaniem i liczba błędów wykonania przy zdefiniowanej hierarchii endpointów. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+W symulacji Smart Home 2D porównać adaptację interfejsu i warunek statyczny przy jednakowych zadaniach. Wstępnie proponuje się pojedynczy pierwszorzędowy wskaźnik subiektywnego wysiłku umysłowego, natomiast liczbę błędów wykonania traktuje się jako wskaźnik drugorzędowy; ostateczna hierarchia punktów końcowych wymaga zatwierdzenia przed zbieraniem danych. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
 
 \section{Plan analizy}
 
