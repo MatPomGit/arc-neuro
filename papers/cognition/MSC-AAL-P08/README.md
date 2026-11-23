@@ -1,5 +1,7 @@
 # MSC-AAL-P08 — Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorstwo wymaga potwierdzonego wkładu. Kanoniczne repozytorium przyszłego badania nie zostało jeszcze potwierdzone w portfolio.
+
 **Rodzaj pracy:** `IDEA`. **Etap badań:** `NEW_CROSS_PROGRAM_IDEA_HOLD`.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
