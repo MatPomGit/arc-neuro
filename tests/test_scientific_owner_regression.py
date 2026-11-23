@@ -10,7 +10,7 @@ OWNER_FIELD = re.compile(
     r"(?im)^(?:\*\*Właściciel naukowy(?: i autor szkicu)?:\*\*|scientific_owner:)"
     r"[ \t]*(?P<value>[^\r\n]+)"
 )
-EXPECTED_NAME = re.compile(r"^Mateusz Pomianek(?:\b|$)")
+EXPECTED_NAME = re.compile(r"^Mateusz Pomianek(?=$|[ \t]*[.(])")
 
 
 def owner_fields(readme):
