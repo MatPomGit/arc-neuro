@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.5}
+\date{Szkic naukowy, wersja 0.1.6}
 
 \begin{document}
 
@@ -176,11 +176,39 @@ Ograniczenia projektu obejmują dobór niereprezentatywnej próby, możliwość 
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: model mieszany z kontrbalansowaniem kolejności i analizą efektu uczenia. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+\subsection{Jednostka analizy i przygotowanie danych}
+
+Jednostką obserwacji będzie wykonanie określonego scenariusza przez uczestnika w przypisanym wariancie interfejsu. Dane uzyskane od tej samej osoby oraz z tego samego scenariusza nie mogą być traktowane jako niezależne powtórzenia. Przed analizą należy połączyć dzienniki interakcji z ocenami subiektywnymi za pomocą pseudonimowych identyfikatorów uczestnika, scenariusza, warunku i kolejności wykonania. Kontrola jakości powinna obejmować kompletność znaczników czasu, jednoznaczność przypisania warunku, poprawność zapisu ocen i zgodność logów ze specyfikacją symulatora.
+
+Plan czyszczenia danych należy opracować przed poznaniem efektów porównania. Powinien rozróżniać nieukończenie zadania, brak odpowiedzi kwestionariuszowej, awarię techniczną i przerwanie udziału. Przekroczenia czasu i błędy wykonania nie mogą być automatycznie usuwane tylko dlatego, że stanowią niekorzystne wyniki. Liczebności obserwacji i przyczyny wyłączeń będą raportowane oddzielnie dla uczestników, zadań i warunków.
+
+\subsection{Pierwszorzędowy punkt końcowy i estymand}
+
+Wstępnie proponuje się, aby pierwszorzędowym wynikiem była ocena wymagań umysłowych po wykonaniu scenariusza, przykładowo wymiar \textit{mental demand} NASA-TLX. Ostateczna wersja narzędzia, zakres skali i sposób obsługi braków odpowiedzi nie zostały jeszcze zatwierdzone. Proponowany estymand stanowi średnia różnica tej oceny między interfejsem adaptacyjnym a statycznym, dla porównywalnych scenariuszy w warunkach prawidłowego rozpoznania kontekstu oraz utrzymania ustalonej stabilności elementów sterujących. Ujemny kontrast, zdefiniowany jako ocena w warunku adaptacyjnym pomniejszona o ocenę w warunku statycznym, wskazywałby niższe deklarowane wymagania umysłowe podczas adaptacji. Nie byłby jednak automatycznie dowodem zmniejszenia całego obciążenia poznawczego.
+
+Przed zbieraniem danych trzeba określić populację objętą estymandem, zakres scenariuszy, sposób ważenia obserwacji pochodzących od różnych osób i zadań, postępowanie z próbami przerwanymi oraz minimalną różnicę o znaczeniu praktycznym. Bez tych decyzji interpretacja oszacowanego efektu będzie niejednoznaczna. Plan nie zakłada obecnie liczbowego progu potwierdzenia hipotezy.
+
+\subsection{Model statystyczny i kontrasty}
+
+Dla wyniku pierwszorzędowego rozważa się model mieszany z efektem stałym wariantu interfejsu, złożoności zadania oraz ich interakcji, a także z uwzględnieniem kolejności, numeru próby i wyjściowego doświadczenia użytkownika. W strukturze zależności przewiduje się co najmniej losowe wyrazy wolne dla uczestnika i scenariusza, jeżeli pozwolą na to projekt i liczba obserwacji. Ewentualne losowe nachylenia efektu interfejsu wymagają oceny identyfikowalności i stabilności estymacji. Właściwości skali odpowiedzi oraz rozkład reszt zdecydują, czy odpowiedni będzie model liniowy, czy model porządkowy; wybór należy uzasadnić przed analizą główną.
+
+Podstawowym kontrastem będzie adaptacja wobec interfejsu statycznego w uprzednio wyznaczonych warunkach poprawnej adaptacji. Hipoteza H2 odpowiada interakcji wariantu interfejsu ze złożonością zadania. Hipotezę H3 można analizować potwierdzająco tylko pod warunkiem zaplanowanej manipulacji poprawnością kontekstu albo stabilnością układu i zachowania niezależności tych czynników od innych różnic między warunkami. Jeżeli takie manipulacje nie zostaną wdrożone, analiza H3 pozostanie eksploracyjna. Przy niedostatecznej liczbie obserwacji należy ograniczyć złożoność modelu zgodnie z wcześniej ustaloną regułą, a nie wybierać wariantu na podstawie uzyskanego poziomu istotności.
+
+\subsection{Wyniki drugorzędowe i analizy wrażliwości}
+
+Dla liczby błędów przewiduje się odpowiedni model zliczeń, z kontrolą nadmiernej zmienności i ekspozycji na zadanie, jeśli będzie to konieczne. Prawdopodobieństwo ukończenia scenariusza można modelować z użyciem modelu dwumianowego, a czas wykonania wśród ukończonych prób analizować z uwzględnieniem asymetrii rozkładu. Ponieważ wykluczenie prób nieukończonych może prowadzić do selekcji, plan należy uzupełnić o strategię traktowania takich przypadków, na przykład analizę czasu do zakończenia z właściwym uwzględnieniem cenzurowania, jeżeli będzie odpowiadać procedurze. Oceny użyteczności i logi nawigacji pozostaną wskaźnikami drugorzędowymi.
+
+Analizy wrażliwości powinny sprawdzać wpływ kolejności warunków, doświadczenia z systemami Smart Home, różnic między scenariuszami, przyjętej struktury efektów losowych i sposobu postępowania z brakami danych. W razie zmiany skali pomiaru lub modelu należy rozdzielić wyniki analizy uprzednio zaplanowanej od analiz dodatkowych. Postulowanych mediatorów, takich jak wyszukiwanie informacji i ponowna orientacja, nie będzie można ocenić przyczynowo bez osobnego planu pomiaru, wystarczających założeń identyfikacyjnych i właściwej kolejności czasowej zdarzeń.
+
+\subsection{Wnioskowanie i sprawozdawczość}
+
+Dla pierwszorzędowego kontrastu przewiduje się przedstawienie oszacowania, przedziału ufności i oceny jego znaczenia praktycznego. Poziom błędu pierwszego rodzaju, ewentualną procedurę korekty wielokrotności oraz zasady interpretacji hipotez drugorzędowych należy określić przed rozpoczęciem badań. Brak statystycznej istotności nie będzie stanowił potwierdzenia równoważności. Analizy eksploracyjne powinny być jednoznacznie oznaczone, a wszystkie odstępstwa od planu udokumentowane.
+
+Wyniki przyszłego badania powinny obejmować liczby uczestników i prób, braki danych, rozkłady zmiennych, oszacowania efektów, miary niepewności, diagnostykę modeli i ograniczenia interpretacyjne. Należy zachować wersję kodu analitycznego i schemat danych umożliwiający odtworzenie obliczeń z prawnie i etycznie dopuszczonego materiału. Na obecnym etapie nie istnieje zatwierdzony plan analizy ani materiał empiryczny pozwalający wykonać te obliczenia.
 
 \section{Wyniki}
 
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Artykuł pozostaje szkicem koncepcyjnym oznaczonym jako IDEA / SOURCE\_PLANNED\_ARTICLE. W udostępnionych i odczytanych materiałach artykułu nie udokumentowano zebranych obserwacji, przeprowadzonych pomiarów ani obliczeń statystycznych. Nie ma zatem podstaw do przedstawiania liczebności próby, średnich, wielkości efektów, wartości prawdopodobieństwa, przedziałów ufności ani rozstrzygnięć hipotez. Sekcja zostanie opracowana wyłącznie na podstawie przyszłych danych o zweryfikowanym pochodzeniu i wykonanych analiz, po spełnieniu odpowiednich wymogów etycznych i organizacyjnych.
 
 \section{Dyskusja i ograniczenia}
 
