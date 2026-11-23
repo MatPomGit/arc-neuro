@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.4}
+\date{Szkic naukowy, wersja 0.1.5}
 
 \begin{document}
 
@@ -128,7 +128,51 @@ Przed rekrutacją należy ustalić pierwotny punkt końcowy, estymand, wielkoś�
 
 \section{Materiał i metody}
 
-W symulacji Smart Home 2D porównać adaptację interfejsu i warunek statyczny przy jednakowych zadaniach. Wstępnie proponuje się pojedynczy pierwszorzędowy wskaźnik subiektywnego wysiłku umysłowego, natomiast liczbę błędów wykonania traktuje się jako wskaźnik drugorzędowy; ostateczna hierarchia punktów końcowych wymaga zatwierdzenia przed zbieraniem danych. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+\subsection{Schemat badania}
+
+Planowane jest kontrolowane badanie eksperymentalne w symulacji inteligentnego domu 2D, wykorzystujące pomiary powtarzane. Każdy uczestnik miałby wykonywać porównywalne scenariusze w interfejsie statycznym oraz kontekstowo adaptacyjnym. Podstawowym kontrastem byłaby różnica subiektywnego wysiłku umysłowego pomiędzy tymi dwoma warunkami przy poprawnym kontekście i zbliżonej stabilności podstawowych kontrolek. Projekt zakłada kontrbalansowanie kolejności warunków i wariantów zadań; przed rozpoczęciem badania trzeba zdecydować o liczbie sesji, odstępach między nimi i schemacie przyporządkowania scenariuszy. Celem tych działań będzie ograniczenie efektów wprawy, zmęczenia i kolejności.
+
+Rozważa się dodatkową manipulację złożonością zadania oraz poprawnością adaptacji lub stabilnością układu. Czynniki te powinny być wprowadzane wyłącznie wtedy, gdy pilotaż potwierdzi porównywalność scenariuszy i wykonalność planu. Nie należy zakładać pełnego schematu czynnikowego bez uprzedniego oszacowania jego wymagań organizacyjnych i statystycznych. W przypadku braku manipulacji jakością adaptacji H3 będzie traktowana jako przewidywanie eksploracyjne, którego nie można testować przyczynowo.
+
+\subsection{Populacja i dobór próby}
+
+Planowana populacja obejmuje osoby dorosłe zdolne do samodzielnego korzystania z podstawowego interfejsu ekranowego i rozumienia instrukcji zadania. Rekrutacja może mieć charakter dogodnościowy, co wymaga jawnego wskazania ograniczonej reprezentatywności próby. Przed jej rozpoczęciem należy określić przedział wieku, kryteria włączenia i wyłączenia, potrzeby związane z dostępnością, doświadczenie w korzystaniu z systemów Smart Home oraz sposób dokumentowania ewentualnej rezygnacji. Nie zakłada się automatycznie, że wyniki dla młodych dorosłych będą dotyczyć osób starszych albo osób z trudnościami poznawczymi.
+
+Liczebność próby pozostaje nieustalona. Powinna wynikać z analizy precyzji estymacji lub mocy dla uprzednio wskazanego kontrastu i minimalnego efektu o znaczeniu praktycznym, z uwzględnieniem zależności pomiarów wewnątrz uczestników, liczby zadań oraz oczekiwanych braków danych. Przed oszacowaniem liczebności potrzebne są założenia o zmienności i korelacji wyników, oparte na adekwatnych źródłach lub pilotażu. Nie przedstawia się fikcyjnej liczby uczestników ani przebiegu rekrutacji.
+
+\subsection{Zmienne i kontrola warunków}
+
+Główną zmienną niezależną będzie wariant organizacji interfejsu: statyczny lub adaptacyjny. W warunku statycznym rozmieszczenie i sposób prezentowania funkcji pozostaną niezależne od aktualnego scenariusza. W warunku adaptacyjnym wybrane funkcje mogą być wyróżniane lub porządkowane według jawnych, wcześniej przygotowanych reguł zależnych od stanu zadania i urządzeń. W obu warunkach należy zapewnić tę samą dostępność działań, równoważną treść informacji, rozmiary istotnych kontrolek i porównywalną drogę do osiągnięcia celu. Jeśli skrócenie ścieżki nawigacyjnej jest zamierzonym składnikiem adaptacji, trzeba opisać je jako element manipulacji, a nie niekontrolowaną różnicę.
+
+Złożoność scenariuszy może być określona na podstawie liczby decyzji, zależności pomiędzy czynnościami i konieczności integrowania informacji o stanie urządzeń. Poprawność kontekstu będzie oznaczać zgodność wybranego wariantu prezentacji z wcześniej ustaloną regułą referencyjną dla danego scenariusza. Stabilność układu można opisać udziałem podstawowych kontrolek, których położenie pozostaje niezmienne. Należy rejestrować wersję interfejsu i reguł adaptacji, kolejność zadań, znajomość systemów Smart Home, typ urządzenia wejściowego oraz wszelkie odstępstwa od protokołu.
+
+\subsection{Aparatura i środowisko badawcze}
+
+Zakłada się wykorzystanie symulatora Smart Home 2D działającego na komputerze z ekranem i standardowym urządzeniem wskazującym. Nie wybrano jeszcze implementacji, konfiguracji sprzętowej ani oprogramowania do rejestracji zdarzeń. Dokumentacja przyszłej aparatury powinna obejmować parametry ekranu, rozdzielczość, sposób obsługi, wersję symulatora, opis scenariuszy i zestaw jawnych reguł adaptacji. Przed użyciem konieczne będą testy zgodności rejestrowanych zdarzeń z faktycznymi działaniami użytkownika oraz ocena dostępności i równoważności obu interfejsów.
+
+Przewidywany eksperyment nie wymaga z definicji EEG, okulografii, kamer ani czujników biometrycznych. Ewentualne użycie takich urządzeń stanowiłoby osobną decyzję metodologiczną, wymagającą wskazania uzasadnienia, walidacji technicznej i dodatkowej oceny prywatności. Nie deklaruje się dostępności ani zweryfikowanego działania żadnego urządzenia pomiarowego.
+
+\subsection{Pomiary i jakość danych}
+
+Jako kandydat na pierwszorzędowy punkt końcowy pozostaje subiektywna ocena wymagań umysłowych po każdym scenariuszu, na przykład składowa \textit{mental demand} narzędzia NASA-TLX (Hart i Staveland, 1988). Przed badaniem należy wybrać wersję narzędzia, język instrukcji, zakres skali, sposób zadawania pytań i jednostkę analizy; nie wolno utożsamiać tej składowej z całościową oceną obciążenia poznawczego. Zbieranie ocen po kolejnych zadaniach wymaga sprawdzenia, czy częstotliwość pytań nie zakłóca wykonania następnych scenariuszy.
+
+Proponowane wyniki drugorzędowe obejmują odsetek ukończonych scenariuszy, liczbę błędów krytycznych na zadanie, czas wykonania i ocenę użyteczności. Definicja błędu krytycznego powinna zależeć od scenariusza i odnosić się do działania uniemożliwiającego osiągnięcie celu lub prowadzącego do nieprawidłowego stanu symulowanego urządzenia. Log zdarzeń może dokumentować kliknięcia, przejścia między ekranami, powroty oraz momenty zmian układu. Dane te mogą wspierać interpretację kosztu wyszukiwania i ponownej orientacji, lecz bez odpowiedniego projektu pomiaru nie wystarczą do potwierdzenia mediacji.
+
+Należy z góry ustalić reguły obsługi przerwanych prób, przekroczeń czasu, awarii symulatora i brakujących kwestionariuszy. Rejestr zdarzeń powinien mieć spójne znaczniki czasu oraz identyfikatory warunku i scenariusza, niewymagające zapisu danych identyfikacyjnych w zbiorze analitycznym. Przed właściwym badaniem planuje się pilotaż zrozumiałości zadań, powtarzalności logowania i rozkładów wyników, bez traktowania go jako potwierdzenia hipotez.
+
+\subsection{Proponowana procedura}
+
+Po uzyskaniu odpowiednich rozstrzygnięć etycznych i organizacyjnych uczestnik otrzyma informację o badaniu, warunkach udziału i zasadach przetwarzania danych. Po udokumentowaniu świadomej zgody zostaną zebrane wyłącznie niezbędne informacje dotyczące doświadczenia z interfejsami oraz potrzeb dostępnościowych. Następnie przewiduje się jednakowe przeszkolenie w korzystaniu z obu wariantów i krótki zestaw zadań treningowych, które nie wejdą do analizy głównej.
+
+Uczestnik wykona zestawy scenariuszy w kolejności przypisanej według wcześniej przygotowanego schematu kontrbalansowania. Po każdym scenariuszu przekaże zaplanowaną ocenę subiektywną, a symulator zapisze zdarzenia i wyniki wykonania. Między blokami można przewidzieć przerwę ograniczającą zmęczenie. Po zakończeniu sesji uczestnik zostanie poinformowany o celu porównania, możliwości wycofania zgody w zakresie przewidzianym przepisami oraz sposobie zgłaszania pytań. Konkretna długość sesji, liczba prób i harmonogram przerw wymagają doprecyzowania po pilotażu; procedura nie została jeszcze przeprowadzona.
+
+\subsection{Ochrona uczestników i ograniczenia etyczne}
+
+Przed rekrutacją należy ustalić, czy projekt wymaga opinii właściwej komisji etycznej oraz jakie zgody i obowiązki prawne są niezbędne w danej jednostce. Brak potwierdzonego rozstrzygnięcia nie może być przedstawiany jako uzyskana zgoda. Uczestnictwo powinno być dobrowolne, z możliwością przerwania zadania bez negatywnych konsekwencji. Instrukcje muszą ograniczać presję osiągnięć i uwzględniać ryzyko zmęczenia, frustracji oraz niedostępności interfejsu.
+
+Projekt ochrony danych powinien opierać się na minimalizacji zakresu informacji, rozdzieleniu danych kontaktowych od pseudonimizowanych zapisów sesji, ograniczeniu dostępu i określeniu retencji. Należy ustalić podstawę prawną przetwarzania oraz procedurę realizowania praw uczestników. Jeżeli zbierane byłyby dane dotyczące zdrowia lub inne szczególne kategorie danych osobowych, wymagałoby to odrębnego uzasadnienia i zabezpieczeń. Nie ma obecnie udokumentowanego zbioru danych uczestników ani potwierdzonej zgody etycznej.
+
+Ograniczenia projektu obejmują dobór niereprezentatywnej próby, możliwość przenoszenia wyuczonych strategii między warunkami, różnice w doświadczeniu technologicznym oraz ograniczoną trafność ekologiczną symulacji 2D. Badanie nie może samoistnie dowieść skuteczności w rzeczywistym domu, poprawy samodzielności ani korzyści klinicznych. Plan należy zamrozić przed dostępem do danych i dostosować do rozstrzygnięć pilotażu, nie zmieniając retrospektywnie hipotez po poznaniu wyników.
 
 \section{Plan analizy}
 
