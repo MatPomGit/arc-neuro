@@ -11,7 +11,7 @@
 \title{Wpływ obustronnej stymulacji słuchowej na regulację\\
 \large Projekt pilotażu dotyczącego czasu wznowienia zadania po zakłóceniu}
 \author{Mateusz Pomianek}
-\date{Prospektywny szkic badania empirycznego, wersja 0.5.0}
+\date{Prospektywny szkic badania empirycznego, wersja 0.6.0}
 
 \begin{document}
 \maketitle
@@ -117,15 +117,52 @@ Ochrona danych wymaga minimalizacji identyfikatorów, oddzielnego przechowywania
 \subsection{Decyzje wymagające zamknięcia protokołu}
 Przed rozpoczęciem rekrutacji pozostają do zatwierdzenia: definicja populacji i kryteriów udziału, uzasadnienie liczebności, postać i parametry warunku kontrolnego, sposób kalibracji bodźców, liczba i sekwencja prób, okno obserwacji, definicja wznowienia, instrument rejestracji, procedura kontroli bezpieczeństwa oraz plan ochrony i analizy danych. Ustalenia te należy utrwalić w kanonicznym repozytorium badania po potwierdzeniu jego tożsamości i uprawnień. Obecny szkic nie zastępuje zatwierdzonego protokołu badawczego.
 
-\section{Plan analizy}
-\subsection{Estymand i porównanie warunków}
-Proponowanym przedmiotem estymacji jest różnica czasu wznowienia między warunkami w obrębie uczestnika, w populacji, która zostanie uprzednio określona. Definicja podsumowania różnic, traktowanie prób niewznowionych i docelowa precyzja oszacowania wymagają decyzji przed analizą.
+\section{Plan analizy statystycznej i reprodukowalność}
+\subsection{Status planu i rozdzielenie etapów}
+Niniejszy rozdział przedstawia proponowaną strategię analityczną dla przyszłego pilotażu behawioralnego. Nie stanowi dowodu prerejestracji, przeprowadzenia analiz ani zamrożenia planu statystycznego. Przed otwarciem bazy z obserwacjami należy udokumentować definicje zmiennych, estymandy, wybór modelu, kryteria jakości i hierarchię analiz. Każda późniejsza zmiana musi być oznaczona datą, uzasadnieniem i informacją, czy nastąpiła przed czy po ujawnieniu wyników.
 
-\subsection{Model statystyczny}
-Można rozważyć model mieszany z efektem warunku, kolejności i uzasadnionych współzmiennych oraz efektem losowym uczestnika. Dobór rodziny rozkładu i funkcji łączącej powinien wynikać z charakteru czasów reakcji i sposobu cenzorowania. Jeśli wystąpią liczne próby bez wznowienia, analizę czasu do zdarzenia należy rozważyć zamiast arbitralnego przypisywania im maksymalnego czasu.
+\subsection{Populacja analityczna i jednostka pomiaru}
+Podstawową jednostką obserwacji ma być pojedyncza próba zagnieżdżona w uczestniku, a jednostką przydziału do warunku uczestnik lub próba, zależnie od ostatecznego schematu losowania. Przed badaniem należy rozstrzygnąć, czy wszystkie próby uczestnika występują w obu warunkach, jak traktować niepełne sesje oraz czy analiza obejmie wszystkie przydzielone próby czy wyłącznie próby spełniające kryteria jakości. Nie wolno traktować powtórzeń jednej osoby jako niezależnych uczestników. Należy raportować liczby uczestników, sesji i prób na każdym etapie.
 
-\subsection{Dane brakujące i analizy wrażliwości}
-Należy odróżnić brak rejestracji od niewystąpienia zdarzenia w oknie obserwacji. Przed dostępem do wyników trzeba określić kryteria wyłączenia prób, plan kontroli odstających obserwacji, wpływu kolejności i tolerancji sensorycznej oraz raportowania niepewności oszacowań. Pilotaż nie powinien być interpretowany jako potwierdzający skuteczność kliniczną wyłącznie na podstawie istotności statystycznej.
+\subsection{Estymand i punkt końcowy}
+Podstawowym kandydatem na punkt końcowy jest czas od zdefiniowanego końca zakłócenia do pierwszego spełnienia kryterium wznowienia zadania. Jednostką czasu będą sekundy; rozdzielczość i dopuszczalny błąd znacznika muszą być zweryfikowane technicznie. Warunki porównania obejmują naprzemienną ekspozycję słuchową i kontrolę akustyczną, przy ustalonej populacji, czasie obserwacji i protokole zadania.
+
+Ponieważ próby mogą kończyć się bez zarejestrowanego wznowienia, preferowanym kandydatem na estymand jest różnica między warunkami w ograniczonym średnim czasie do wznowienia w ustalonym oknie obserwacji. Takie podsumowanie należy wyprowadzić z funkcji przeżycia czasu do wznowienia, a nie z arbitralnego przypisania maksymalnego czasu próbom bez zdarzenia. Wymaga to ustalenia wspólnego horyzontu obserwacji i założeń dotyczących cenzorowania przed dostępem do danych. Znaczenie znaku kontrastu, poziom agregacji oraz sposób uwzględnienia zależności między próbami trzeba zapisać w końcowym planie. Alternatywą, jeśli zasadność takiego estymandu nie zostanie potwierdzona, jest wcześniej określona miara prawdopodobieństwa wznowienia do wspólnego horyzontu.
+
+\subsection{Wielkości efektu i prezentacja niepewności}
+Należy raportować bezwzględną różnicę ograniczonego średniego czasu między warunkami wraz z jednostką i przedziałem ufności oraz oszacowania dla każdego warunku. W analizach dodatkowych można przedstawiać różnicę prawdopodobieństwa wznowienia do określonego horyzontu. Miary ilorazowe, takie jak hazard względny, nie mogą zastępować głównego efektu bez sprawdzenia ich interpretowalności i założeń. Nie należy deklarować spodziewanej wielkości efektu bez uzasadnionych danych źródłowych.
+
+W raporcie trzeba przedstawić liczbę zdarzeń, prób cenzorowanych i niekompletnych oraz niepewność oszacowań. Metodę wyznaczania przedziałów ufności, ich nominalny poziom i ewentualne wykorzystanie przedziałów opartych na ponownym próbkowaniu całych uczestników należy ustalić przed analizą. Przy małej próbie pilotażowej należy wyraźnie opisać ograniczoną precyzję i unikać utożsamiania nieistotności statystycznej z brakiem efektu.
+
+\subsection{Modele i zależność pomiarów}
+Kandydatem na analizę podstawową jest model czasu do zdarzenia respektujący prawostronne cenzorowanie i powtarzane próby tego samego uczestnika. Konkretna implementacja może uwzględniać efekt uczestnika lub odpowiednią korektę wariancji dla klastrów. Wybór między modelowaniem parametrycznym, półparametrycznym a estymacją bezparametryczną z uwzględnieniem zależności ma nastąpić przed analizą i odpowiadać głównemu estymandowi. Modele mieszane dla przekształconych czasów można rozważyć wyłącznie jako analizy uzupełniające, gdy sposób obsługi prób bez zdarzenia jest jawny i uzasadniony.
+
+Potencjalne współzmienne obejmują kolejność warunków, numer próby, ustalony poziom hałasu i wcześniej zmierzoną tolerancję dźwięku. Kryteria ich uwzględniania muszą opierać się na projekcie i uzasadnieniu, a nie na wyborze najbardziej korzystnego wyniku. Przy małej liczebności należy ograniczyć złożoność modelu. Diagnostyka powinna obejmować ocenę stabilności oszacowań, rozkładów i adekwatności założeń, z udokumentowaniem wszelkich odstępstw.
+
+\subsection{Brakujące dane i cenzorowanie}
+Należy rozdzielić co najmniej trzy stany: prawidłowo zarejestrowane wznowienie, brak wznowienia do końca ustalonego okna oraz brak wiarygodnych danych z przyczyn technicznych lub proceduralnych. Drugi przypadek może odpowiadać prawostronnemu cenzorowaniu, natomiast trzeci wymaga osobnego oznaczenia jako brak danych i nie może być automatycznie utożsamiany z cenzorowaniem. Czas wycofania uczestnika, przerwania ekspozycji lub awarii powinien zostać zachowany jako odrębne zdarzenie proceduralne.
+
+Przed badaniem należy ustalić reguły wyłączania błędnych znaczników, prób treningowych i naruszeń procedury, a także sposób opisu mechanizmów braków danych. Analizę kompletnych przypadków wolno interpretować tylko przy odpowiednio rozpoznanych założeniach o brakach. Ewentualna imputacja wymaga osobnego uzasadnienia, modelu i analiz wrażliwości; nie wolno imputować czasu wznowienia próbom prawidłowo cenzorowanym jak zwykłego brakującego pomiaru.
+
+\subsection{Wielokrotne porównania i reguły decyzyjne}
+Pilotaż służy przede wszystkim ocenie wykonalności i precyzji oszacowań, a nie konfirmacyjnemu wykazaniu skuteczności. Przed analizą należy zdefiniować najwyżej jedno porównanie główne, jego punkt końcowy i sposób interpretacji. Jeżeli późniejszy protokół zakłada więcej niż jeden test konfirmacyjny, konieczne będzie określenie rodziny hipotez i odpowiedniej procedury kontroli błędu wielokrotnego testowania. Nie należy wybierać korekty po obejrzeniu wartości istotności.
+
+Dodatkowe porównania, interakcje, podgrupy, alternatywne horyzonty i miary skutku należy oznaczać jako eksploracyjne, przedstawiając ich pełną liczbę oraz niepewność. Wnioski z nich nie mają statusu potwierdzenia wcześniej przyjętych hipotez. Dla samych miar wykonalności właściwe może być raportowanie estymat i przedziałów niepewności bez testów istotności.
+
+\subsection{Analizy wrażliwości}
+Po ustaleniu protokołu należy zaplanować sprawdzenie odporności wniosków na uzasadnione warianty definicji wznowienia, horyzontu obserwacji, uwzględnienia kolejności i efektu uczenia oraz alternatywne sposoby modelowania zależnych prób. Oddzielnie trzeba ocenić wpływ braków technicznych i rezygnacji, zwłaszcza gdy są związane z tolerancją bodźca. Możliwa analiza per-protocol powinna stanowić uzupełnienie wcześniej określonego zbioru analitycznego, a nie narzędzie selekcji korzystnego rezultatu.
+
+Wyniki analiz wrażliwości należy prezentować równolegle z analizą podstawową, niezależnie od zgodności kierunku i istotności. Ewentualne dodatkowe analizy odkryte po zapoznaniu się z danymi trzeba datować i opisać jako post hoc.
+
+\subsection{Reprodukowalność danych i kodu}
+Przed uruchomieniem analiz wymagane są zatwierdzone definicje zdarzeń, słownik danych z jednostkami i dozwolonymi wartościami, schemat pseudonimowych identyfikatorów oraz rejestr odstępstw. Należy przechowywać niezmodyfikowane surowe znaczniki czasu i oddzielnie wersjonowane dane po przetworzeniu, a każde przekształcenie dokumentować w możliwym do powtórzenia skrypcie. Wersja protokołu powinna być powiązana z dokładnym identyfikatorem commitu, wersją narzędzia zbierającego dane oraz manifestem eksperymentu.
+
+Środowisko analityczne musi zawierać nazwy i dokładne wersje języka, bibliotek, zależności i systemu wykonawczego, wraz z plikiem blokującym wersje tam, gdzie jest to możliwe. Należy zapisać ziarna generatorów liczb pseudolosowych, algorytm losowania, konfigurację modeli, dane wejściowe i sumy kontrolne dopuszczonych artefaktów oraz polecenia odtwarzające tabele i ryciny. Nie wskazuje się obecnie konkretnych wersji narzędzi, ponieważ żadnego środowiska analitycznego nie wybrano ani nie przetestowano.
+
+Przed udostępnieniem wyników wymagane jest uruchomienie procedury odtwarzania na wskazanym, przypiętym SHA i zapisanie rezultatu testu. Kod pochodzący z niezaufanych zmian nie powinien być wykonywany na uprzywilejowanym stałym runnerze. Dane uczestników oraz niepubliczne manifesty pozostaną w odpowiednio chronionym repozytorium kanonicznym, którego tożsamości nie potwierdzono. Publiczne ARC Neuro może zawierać jedynie zatwierdzone metadane i odnośniki.
+
+\subsection{Odróżnienie eksploracji od analizy zaplanowanej}
+Przed dostępem do danych należy zamrozić wersję planu wraz z datą, identyfikatorem commitu, hierarchią pytań, kontrastami, regułami kontroli jakości i sposobem raportowania. Dziennik analityczny powinien umożliwiać rozróżnienie czynności planowanych, diagnostycznych, eksploracyjnych i wykonanych po ustaleniu wyników. Wszystkie odstępstwa trzeba ujawnić w publikacji. W niniejszym szkicu nie wykonano analiz statystycznych ani nie potwierdzono działania pipeline'u reprodukowalności.
 
 \section{Przewidywany sposób prezentacji wyników}
 Po uzyskaniu zweryfikowanych danych raport empiryczny powinien przedstawiać liczebność i przepływ uczestników, wykonalność procedury, kompletność pomiarów, rozkłady czasu wznowienia, różnice między warunkami i przedziały niepewności. Obecny tekst stanowi wyłącznie plan raportowania, a nie sekcję z wynikami przeprowadzonego badania.
