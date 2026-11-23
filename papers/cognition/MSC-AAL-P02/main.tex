@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.7}
+\date{Szkic naukowy, wersja 0.1.8}
 
 \begin{document}
 
@@ -26,7 +26,7 @@
 
 \begin{abstract}
 
-Tematem pracy jest Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Projekt dotyczy warunków, w których kontekstowa adaptacja interfejsu inteligentnego domu może zmieniać subiektywny wysiłek umysłowy użytkownika. Rozpatrzono dwa konkurencyjne mechanizmy: ograniczenie wyszukiwania informacji oraz zwiększenie kosztów ponownej orientacji po zmianach układu. Na podstawie wybranych badań nad adaptacyjnymi menu, ergonomią interfejsów Smart Home i obciążeniem zadaniem przedstawiono prospektywny projekt eksperymentu w symulacji 2D. Proponowane porównanie interfejsu statycznego i adaptacyjnego uwzględnia złożoność zadania, poprawność kontekstu i stabilność kontrolek. Przedstawiono hipotezy, możliwe wskaźniki, plan analiz oraz ograniczenia trafności wnioskowania. Praca ma charakter koncepcyjny: nie przeprowadzono własnych pomiarów ani analiz empirycznych, a protokół i pierwszorzędowy punkt końcowy wymagają zatwierdzenia.
 
 \end{abstract}
 
@@ -80,7 +80,7 @@ W projekcie MSC-AAL-P02 istotne jest rozróżnienie kontroli nad sposobem person
 
 \subsection{Inteligencja interfejsu, wiek i charakter zadania}
 
-Zhang, Rau i Salvendy (2009) analizowali projekt interfejsu inteligentnego domu z uwzględnieniem wieku użytkownika, rodzaju zadania i poziomu inteligencji interfejsu. W ich badaniu wyższy poziom inteligencji interfejsu wiązał się ze wzrostem odczuwanego obciążenia podczas niektórych zadań wykonywanych przez starszych użytkowników. Wynik ten wskazuje, że stopień automatyzacji należy interpretować łącznie z charakterem czynności i właściwościami użytkowników. Sama etykieta interfejsu jako inteligentnego nie pozwala przewidzieć wielkości ani kierunku obciążenia.
+Zhang i współautorzy (2009) analizowali projekt interfejsu inteligentnego domu z uwzględnieniem wieku użytkownika, rodzaju zadania i poziomu inteligencji interfejsu. W ich badaniu wyższy poziom inteligencji interfejsu wiązał się ze wzrostem odczuwanego obciążenia podczas niektórych zadań wykonywanych przez starszych użytkowników. Wynik ten wskazuje, że stopień automatyzacji należy interpretować łącznie z charakterem czynności i właściwościami użytkowników. Sama etykieta interfejsu jako inteligentnego nie pozwala przewidzieć wielkości ani kierunku obciążenia.
 
 W odróżnieniu od ogólnego porównania poziomów inteligencji, planowany projekt zakłada analizę ściśle określonej zmiany prezentacji funkcji zależnej od kontekstu zadania. Nie rozstrzygnięto jednak jeszcze, czy i w jaki sposób manipulowana będzie trafność rozpoznania kontekstu. Bez tej decyzji nie będzie możliwe odróżnienie wpływu mechanizmu adaptacji od wpływu jej jakości technicznej.
 
@@ -216,7 +216,7 @@ Artykuł pozostaje szkicem koncepcyjnym oznaczonym jako IDEA / SOURCE\_PLANNED\_
 
 Przedstawiony projekt nie dostarcza jeszcze własnych wyników empirycznych, dlatego dyskusja dotyczy znaczenia istniejących badań i dopuszczalnych interpretacji przyszłych obserwacji. Sweller (1988) uzasadnia rozpatrywanie wymagań stawianych zasobom poznawczym, ale jego analiza nie dowodzi skuteczności kontekstowej adaptacji inteligentnego domu. Hart i Staveland (1988) dostarczają podstaw pomiaru subiektywnego obciążenia zadaniem, nie zaś przesłanek do utożsamiania pojedynczej składowej NASA-TLX z całym konstruktem obciążenia poznawczego.
 
-W badaniu Findlater i McGrenere (2004) automatycznie adaptacyjne menu nie wykazało uniwersalnej przewagi nad porównywanymi rozwiązaniami. Wynik ten wspiera ostrożność wobec założenia, że reorganizacja interfejsu zawsze usprawnia działanie. Zhang, Rau i Salvendy (2009) wskazują znaczenie interakcji poziomu inteligencji interfejsu, rodzaju zadania i wieku użytkownika w środowisku Smart Home. Z kolei Zhou i współautorzy (2022) badali znaczenie właściwości nawigacji i przycisków dla interakcji starszych użytkowników z interfejsem inteligentnego domu. Prace te dotyczą odmiennych manipulacji i populacji. Nie można z nich obliczyć wspólnego efektu kontekstowej adaptacji ani uznać ich wyników za potwierdzenie hipotez H1, H2 lub H3 w niniejszym projekcie.
+W badaniu Findlater i McGrenere (2004) automatycznie adaptacyjne menu nie wykazało uniwersalnej przewagi nad porównywanymi rozwiązaniami. Wynik ten wspiera ostrożność wobec założenia, że reorganizacja interfejsu zawsze usprawnia działanie. Zhang i współautorzy (2009) wskazują znaczenie interakcji poziomu inteligencji interfejsu, rodzaju zadania i wieku użytkownika w środowisku Smart Home. Z kolei Zhou i współautorzy (2022) badali znaczenie właściwości nawigacji i przycisków dla interakcji starszych użytkowników z interfejsem inteligentnego domu. Prace te dotyczą odmiennych manipulacji i populacji. Nie można z nich obliczyć wspólnego efektu kontekstowej adaptacji ani uznać ich wyników za potwierdzenie hipotez H1, H2 lub H3 w niniejszym projekcie.
 
 \subsection{Możliwe wyniki i konkurencyjne wyjaśnienia}
 
@@ -246,11 +246,13 @@ Dotychczasowe opracowanie stanowi syntezę wybranych źródeł i plan przyszłej
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Zestawienie wybranych badań nad personalizacją menu i ergonomią inteligentnego domu uzasadnia rozpatrywanie zarówno potencjalnej oszczędności wyszukiwania informacji, jak i kosztu ponownej orientacji podczas adaptacji interfejsu. Dostępna literatura nie pozwala jednak rozstrzygnąć kierunku ani wielkości tych efektów w proponowanej symulacji Smart Home 2D. W opracowaniu określono zatem pytania i przewidywania konkurencyjne, zaproponowano schemat porównawczy oraz wskazano warunki konieczne do poprawnej interpretacji przyszłych wyników.
+
+Dalsze prace wymagają wyboru pierwszorzędowej miary, określenia i przetestowania reguł adaptacji, oszacowania liczebności próby, przygotowania planu analitycznego oraz rozstrzygnięcia wymagań etycznych. Wnioski o skuteczności adaptacji, jej mechanizmach i możliwości uogólnienia na rzeczywiste środowiska zamieszkiwania pozostają nieuprawnione do czasu pozyskania i weryfikacji odpowiednich danych.
 
 \section*{Bibliografia}
 
-Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems}, 89--96. \url{https://doi.org/10.1145/985692.985704}
+Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. W \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems} (s. 89--96). Association for Computing Machinery. \url{https://doi.org/10.1145/985692.985704}
 
 Hart, S. G., \& Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. W P. A. Hancock \& N. Meshkati (red.), \textit{Human mental workload} (s. 139--183). North-Holland. \url{https://doi.org/10.1016/S0166-4115(08)62386-9}
 
