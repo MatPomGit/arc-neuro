@@ -21,7 +21,7 @@
 % i identyfikatory ORCID wymagają potwierdzenia w projekcie kanonicznym.
 \author{}
 
-\date{Szkic naukowy, wersja 0.3.0}
+\date{Szkic naukowy, wersja 0.4.0}
 
 \begin{document}
 \maketitle
@@ -36,30 +36,43 @@ Planowany artykuł empiryczny dotyczy związku między kontekstową adaptacją i
 \noindent\textbf{Rodzaj opracowania:} konspekt planowanego artykułu empirycznego; etap \texttt{IDEA} / \texttt{SOURCE\_PLANNED\_ARTICLE}.
 
 \section{Wprowadzenie}
-Interfejsy Smart Home mogą wspierać realizację czynności przez selekcję informacji i funkcji odpowiednich do bieżącego kontekstu. Adaptacja może zmniejszać konieczność wyszukiwania opcji, ale też zwiększać koszt ponownej orientacji, jeżeli układ lub dostępność elementów zmieniają się w sposób trudny do przewidzenia. Samo skrócenie czasu interakcji nie przesądza zatem o zmniejszeniu obciążenia poznawczego.
+Systemy inteligentnego domu oferują wiele funkcji sterowania urządzeniami, scenami i powiadomieniami. Ich użytkownik musi rozpoznać bieżący cel, odnaleźć odpowiednią funkcję, zweryfikować stan urządzenia i ocenić skutki działania. Interfejs kontekstowy może ograniczać liczbę informacji wymagających przeszukiwania, ponieważ eksponuje funkcje związane z aktualnym zadaniem. Ta sama adaptacja może jednak zmienić położenie elementów, ukryć potrzebną opcję lub zaproponować działanie niedopasowane do intencji. Wtedy potencjalna oszczędność wysiłku może zostać zniwelowana przez konieczność ponownego zorientowania się w interfejsie.
 
-Przedmiotem proponowanego badania jest porównanie konsekwencji poznawczych adaptacji interfejsu z konsekwencjami stosowania stałego układu. Zakres koncepcji ogranicza się do zadań wykonywanych w symulacji Smart Home 2D. Wnioski o rzeczywistych mieszkaniach, osobach starszych lub skuteczności rozwiązań wspierających samodzielność wymagałyby odrębnego materiału empirycznego.
+Problem naukowy dotyczy zatem nie tylko różnicy między układem adaptacyjnym a statycznym, lecz także warunków, w których dopasowanie do kontekstu rzeczywiście pomaga użytkownikowi. Rozróżnić należy subiektywne obciążenie zadaniem, poprawność wykonania i szybkość obsługi. Zmiana któregokolwiek z tych wskaźników nie dowodzi automatycznie zmiany pozostałych. Proponowane badanie ma dotyczyć interakcji w symulacji Smart Home 2D, bez domniemania skuteczności w rzeczywistym gospodarstwie domowym.
 
 \section{Podstawy teoretyczne i stan badań}
-\subsection{Obciążenie poznawcze i wykonywanie zadań}
-Punktem wyjścia jest rozróżnienie subiektywnego wysiłku umysłowego, obiektywnej poprawności wykonania i efektywności nawigacji. Są to powiązane, lecz nietożsame wymiary zachowania. Konieczne jest także oddzielenie obciążenia wywołanego złożonością samego zadania od obciążenia związanego z obsługą interfejsu.
+\subsection{Wymagania zadania a wysiłek związany z interfejsem}
+Na potrzeby modelu pojęciowego odróżnia się wymagania wynikające z celu i liczby decyzji w zadaniu od dodatkowego wysiłku wywołanego sposobem prezentacji informacji. Przy podobnych zadaniach ograniczenie zbędnego przeszukiwania ekranu może zmniejszać wymagania obsługi, ale nie musi zmieniać złożoności samej czynności. Subiektywna ocena obciążenia zależy ponadto od oczekiwań, doświadczenia i przyjętej strategii działania. Błędy, czas wykonania i liczba operacji należy analizować jako odrębne miary, a nie zamienniki wysiłku umysłowego.
 
-\subsection{Adaptacja kontekstowa i przewidywalność interfejsu}
-Przyszły przegląd literatury powinien zestawić prace dotyczące personalizacji, stabilności nawigacji, dostępności systemów inteligentnego domu i skutków błędnego rozpoznania kontekstu. Szczególnie istotne jest rozróżnienie adaptacji, która ujawnia właściwe opcje bez zmiany ich położenia, od adaptacji przebudowującej strukturę widoku. Bibliografia zostanie włączona dopiero po sprawdzeniu odpowiednich źródeł i zgodności ich ustaleń z twierdzeniami w tekście.
+\subsection{Mechanizm selekcji informacji i mechanizm przeorientowania}
+Rozważany mechanizm korzystny polega na wyeksponowaniu opcji przydatnych w danym kontekście i ograniczeniu konkurujących bodźców. Jego przewidywaną konsekwencją jest mniejsza potrzeba wyszukiwania i porównywania możliwości. Mechanizm przeciwny wiąże się z niestabilnością rozmieszczenia funkcji. Jeśli po zmianie kontekstu użytkownik musi ponownie szukać wcześniej poznanych elementów, adaptacja może zwiększać koszt przeorientowania i obniżać przewidywalność działania. Obydwa mechanizmy mogą działać równocześnie; ich względne znaczenie zależy prawdopodobnie od właściwości zadania i projektu interfejsu.
 
-\subsection{Luka badawcza i zakres nowości}
-Samo porównanie interfejsu adaptacyjnego ze statycznym nie wystarcza do wykazania nowości. Proponowany kierunek polega na identyfikacji warunków, w których dostosowanie do kontekstu może ułatwiać interakcję, oraz takich, w których adaptacja błędna albo nieprzewidywalna może ją utrudniać. Ostateczne uzasadnienie luki wymaga przeglądu aktualnych badań.
+\subsection{Alternatywne wyjaśnienia potencjalnej różnicy między warunkami}
+Nawet jeśli w przyszłym eksperymencie wystąpi różnica między warunkami, nie będzie ona sama w sobie dowodem zmniejszenia obciążenia poznawczego przez trafną selekcję informacji. Wynik może zależeć od różnej liczby koniecznych działań, wielkości i kontrastu przycisków, dodatkowych wskazówek wizualnych, znajomości wcześniejszego układu, kolejności prezentacji lub uczenia się obsługi. Dodatkowo błędne rozpoznanie kontekstu może obniżać skuteczność działania niezależnie od samego mechanizmu adaptacji. Projekt porównawczy musi zatem oddzielać jakość rozpoznania kontekstu od stabilności prezentacji i w miarę możliwości utrzymywać równoważność zadań oraz dostępnych funkcji.
 
-\section{Cel i pytania badawcze}
-Celem proponowanego badania jest ustalenie, czy oraz w jakich warunkach kontekstowa adaptacja interfejsu wiąże się ze zmianą obciążenia poznawczego podczas realizacji porównywalnych zadań Smart Home.
+\subsection{Luka badawcza i warunki nowości}
+Samo przeciwstawienie interfejsu adaptacyjnego statycznemu nie stanowi wystarczającej przesłanki nowości. Właściwe pytanie dotyczy warunków brzegowych: kiedy trafne dostosowanie skraca wyszukiwanie informacji, a kiedy jego koszt, zwłaszcza przeorientowanie lub błąd kontekstu, może przewyższać korzyść. Proponowany wkład polegałby na rozdzieleniu skutków adaptacji od zmienności struktury i poprawności rozpoznania kontekstu, pod warunkiem że manipulacje te zostaną rzeczywiście rozdzielone w protokole. Zakres rzeczywistej luki i pierwszeństwo podobnych rozwiązań wymagają systematycznej weryfikacji literatury przed sformułowaniem twierdzeń o nowości.
+
+\paragraph{Literatura wymagająca weryfikacji.}
+Przed finalizacją podstaw teoretycznych należy sprawdzić publikacje dotyczące obciążenia poznawczego i obciążenia zadaniem w HCI, interfejsów adaptacyjnych Smart Home, stałości rozmieszczenia elementów, błędów adaptacji oraz zróżnicowania potrzeb użytkowników. Należy zweryfikować pełne teksty, miary, warunki eksperymentalne i granice uogólniania; dopiero wtedy przypisać konkretne cytowania do twierdzeń. W tej wersji nie przypisuje się niezweryfikowanych cytowań.
+
+\section{Cel, pytania badawcze i hipotezy}
+Celem proponowanego badania jest oszacowanie różnicy w uprzednio wybranej mierze obciążenia poznawczego między adaptacyjnym i statycznym interfejsem Smart Home przy porównywalnych zadaniach, a następnie zbadanie, w jakim stopniu różnica ta zależy od złożoności zadania, poprawności kontekstu i stabilności układu.
 
 \begin{enumerate}
-\item Czy warunek adaptacyjny różni się od statycznego pod względem uprzednio wybranej miary obciążenia poznawczego?
-\item Czy złożoność zadania modyfikuje kierunek lub wielkość różnicy między warunkami?
-\item Czy błędne dopasowanie interfejsu do kontekstu oraz zmienność układu wiążą się z dodatkowymi kosztami wykonania?
+\item \textbf{PB1:} Czy podczas wykonywania porównywalnych zadań interfejs adaptacyjny różni się od statycznego pod względem wybranego wskaźnika obciążenia poznawczego?
+\item \textbf{PB2:} Czy złożoność zadania zmienia różnicę między warunkami?
+\item \textbf{PB3:} Czy nieadekwatna adaptacja lub przebudowa układu wiąże się z dodatkowymi kosztami przeorientowania i wykonania zadania?
 \end{enumerate}
 
-Kierunkowe hipotezy, główny estymand i pierwszorzędowy punkt końcowy zostaną określone na podstawie przeglądu literatury i pilotażu, przed rozpoczęciem analizy danych. Powyższe pytania nie są deklaracją prerejestracji.
+\subsection{Kandydacka hipoteza konfirmacyjna}
+Jeżeli w protokole zostanie zapewnione poprawne rozpoznanie kontekstu, porównywalny zakres funkcji i stabilne rozmieszczenie istotnych elementów, można rozważyć hipotezę \textbf{H1}, zgodnie z którą adaptacja selekcji informacji obniża wcześniej określony wskaźnik subiektywnego obciążenia w stosunku do interfejsu statycznego. Jest to \emph{hipoteza projektowa}, a nie zatwierdzona hipoteza konfirmacyjna: wymaga niezależnego uzasadnienia w zweryfikowanej literaturze, wyboru jednej miary pierwszorzędowej, jednoznacznego kontrastu i zamknięcia protokołu przed analizą danych. Jeśli te warunki nie zostaną spełnione, porównanie należy traktować jako eksploracyjne, bez kierunkowej deklaracji.
+
+\subsection{Pytania i przewidywania eksploracyjne}
+Dla \textbf{PB2} planuje się eksploracyjne sprawdzenie interakcji między rodzajem interfejsu a złożonością zadania. Dla \textbf{PB3} można ocenić, czy błędne rozpoznanie kontekstu lub zmiana lokalizacji funkcji zwiększa liczbę pomyłek, czas ponownego odnalezienia opcji albo subiektywne obciążenie. Kierunek i wielkość tych zależności nie są z góry przesądzone. Jeżeli protokół nie będzie manipulował osobno trafnością kontekstu i stabilnością układu, ich efekty nie powinny być interpretowane przyczynowo.
+
+\subsection{Warunki rozstrzygnięcia i zakres wnioskowania}
+Przed rekrutacją należy określić pierwszorzędowy punkt końcowy, estymand, znaczenie praktyczne różnicy, jednostkę analizy, reguły wykluczeń i plan kontroli wielokrotności. Dopasowanie scenariuszy powinno zapobiegać myleniu adaptacji z redukcją liczby kroków lub inną zmianą ergonomii. Przewidywania nie stanowią prerejestracji, a wyniki w symulacji 2D nie uzasadnią automatycznie wniosków dotyczących osób starszych, ograniczeń poznawczych ani funkcjonowania w rzeczywistym domu.
 
 \section{Projekt badania i metody}
 \subsection{Schemat porównania}
