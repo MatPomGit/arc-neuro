@@ -1,5 +1,7 @@
 # MSC-ZAH-P03 — Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Status:** `IDEA_HOLD`; prospektywna koncepcja. **Working title:** *Social Expectation Violations and Asymmetric Appearance-Behavior Mismatch*.
 
 Czy ten sam klip docelowy wywołuje różne oceny po różnym kontekście oczekiwań i czy efekt zależy od kierunku niezgodności wyglądu z ruchem?
