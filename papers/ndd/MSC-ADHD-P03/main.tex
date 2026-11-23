@@ -11,7 +11,7 @@
 \title{Wpływ obustronnej stymulacji słuchowej na regulację\\
 \large Projekt pilotażu dotyczącego czasu wznowienia zadania po zakłóceniu}
 \author{Mateusz Pomianek}
-\date{Prospektywny szkic badania empirycznego, wersja 0.6.0}
+\date{Prospektywny szkic badania empirycznego, wersja 0.7.0}
 
 \begin{document}
 \maketitle
@@ -164,8 +164,79 @@ Przed udostępnieniem wyników wymagane jest uruchomienie procedury odtwarzania 
 \subsection{Odróżnienie eksploracji od analizy zaplanowanej}
 Przed dostępem do danych należy zamrozić wersję planu wraz z datą, identyfikatorem commitu, hierarchią pytań, kontrastami, regułami kontroli jakości i sposobem raportowania. Dziennik analityczny powinien umożliwiać rozróżnienie czynności planowanych, diagnostycznych, eksploracyjnych i wykonanych po ustaleniu wyników. Wszystkie odstępstwa trzeba ujawnić w publikacji. W niniejszym szkicu nie wykonano analiz statystycznych ani nie potwierdzono działania pipeline'u reprodukowalności.
 
-\section{Przewidywany sposób prezentacji wyników}
-Po uzyskaniu zweryfikowanych danych raport empiryczny powinien przedstawiać liczebność i przepływ uczestników, wykonalność procedury, kompletność pomiarów, rozkłady czasu wznowienia, różnice między warunkami i przedziały niepewności. Obecny tekst stanowi wyłącznie plan raportowania, a nie sekcję z wynikami przeprowadzonego badania.
+\section{Plan raportowania wyników i szablony prezentacji}
+\subsection{Status materiału empirycznego}
+Na etapie przygotowania szkicu nie udostępniono zweryfikowanego zbioru obserwacji, nie wykonano analiz i nie obliczono statystyk. Poniższe tabele oraz rycina są wyłącznie szablonami przyszłego raportu. Nie zawierają pomiarów, wartości demonstracyjnych ani wyników sugerujących przeprowadzenie badania. Przed zgłoszeniem artykułu szablony należy zastąpić tabelami i wykresami wygenerowanymi z zatwierdzonych danych, a nie uzupełniać ich wartościami przykładowymi.
+
+\subsection{Przepływ uczestników i kompletność danych}
+Docelowy raport powinien oddzielnie podawać liczbę osób ocenionych pod kątem kwalifikacji, zakwalifikowanych, przydzielonych, rozpoczynających i kończących procedurę. Na poziomie prób należy odróżnić zarejestrowane wznowienia, prawostronnie cenzorowane obserwacje i braki spowodowane błędami technicznymi. Strukturę takiego zestawienia przedstawia tabela~\ref{tab:flow-placeholder}.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Szablon raportowania przepływu uczestników oraz kompletności prób. Wszystkie pola wynikowe oczekują na zweryfikowane dane.}
+\label{tab:flow-placeholder}
+\begin{tabular}{p{0.59\linewidth}p{0.28\linewidth}}
+\hline
+Wskaźnik & Wartość [liczba lub \%] \\
+\hline
+Osoby ocenione pod kątem kwalifikacji & \textit{brak danych} \\
+Uczestnicy zakwalifikowani & \textit{brak danych} \\
+Uczestnicy, którzy rozpoczęli sesję & \textit{brak danych} \\
+Uczestnicy, którzy zakończyli sesję & \textit{brak danych} \\
+Próby z zarejestrowanym wznowieniem & \textit{brak danych} \\
+Próby bez wznowienia w oknie obserwacji & \textit{brak danych} \\
+Próby bez wiarygodnego zapisu technicznego & \textit{brak danych} \\
+\hline
+\end{tabular}
+\end{table}
+
+Wartości procentowe należy podawać z jawnym mianownikiem i rozbiciem na warunki, jeżeli dotyczy. Prawidłowego braku wznowienia w ustalonym oknie nie wolno utożsamiać z brakiem danych.
+
+\subsection{Raportowanie punktu końcowego i wielkości efektu}
+Pierwszorzędowym kandydatem na miarę porównawczą pozostaje różnica ograniczonego średniego czasu do wznowienia pomiędzy warunkami. Po ustaleniu horyzontu obserwacji i modelu należy raportować estymaty w sekundach oraz przedziały ufności, bez zastępowania efektu samą wartością istotności statystycznej. Tabela~\ref{tab:effect-placeholder} przedstawia strukturę raportu, a nie obliczone wyniki.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Szablon raportowania ograniczonego średniego czasu do wznowienia i kontrastu między warunkami. Brak wyników empirycznych.}
+\label{tab:effect-placeholder}
+\begin{tabular}{p{0.47\linewidth}p{0.39\linewidth}}
+\hline
+Miara & Oszacowanie i niepewność \\
+\hline
+Horyzont obserwacji [s] & \textit{do ustalenia w protokole} \\
+Stymulacja naprzemienna, czas [s] & \textit{brak danych} \\
+Kontrola akustyczna, czas [s] & \textit{brak danych} \\
+Różnica między warunkami [s] & \textit{brak danych} \\
+Przedział ufności różnicy [s] & \textit{brak danych} \\
+Liczba uczestników i prób [liczba] & \textit{brak danych} \\
+\hline
+\end{tabular}
+\end{table}
+
+Kierunek kontrastu musi być zdefiniowany przed analizą. Jeżeli ostateczny plan wybierze inny estymand, podpisy i kolumny należy dostosować do rzeczywiście zastosowanego modelu, zachowując jednostki i warunki porównania.
+
+\subsection{Ryciny i oznaczenia osi}
+Głównym planowanym wykresem jest przedstawienie oszacowanych funkcji czasu do wznowienia dla obu warunków, z uwzględnieniem cenzorowania i niepewności. Na osi poziomej należy umieścić czas od zakończenia zakłócenia w sekundach, a na pionowej odsetek prób bez wznowienia w procentach lub odpowiadające mu prawdopodobieństwo w skali od zera do jedności. Wybrana skala musi być konsekwentnie stosowana. Kolory i rodzaje linii mają rozróżniać warunki również w druku monochromatycznym, a podpis powinien opisywać sposób obliczania przedziałów niepewności.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox[c][35mm][c]{0.85\linewidth}{\centering
+\textit{Miejsce na wykres po zweryfikowaniu danych.}\\
+Oś X: czas od zakończenia zakłócenia [s].\\
+Oś Y: odsetek prób bez wznowienia [\%].\\
+Brak krzywych, punktów i wartości empirycznych.}}
+\caption{Szablon ryciny porównującej czas do wznowienia zadania pomiędzy warunkami. Rycina nie przedstawia wyników badania.}
+\label{fig:time-placeholder}
+\end{figure}
+
+Po uzyskaniu danych rycina~\ref{fig:time-placeholder} powinna zostać zastąpiona wykresem wygenerowanym przez wersjonowany skrypt z danych analitycznych. Nie należy ręcznie rekonstruować przebiegu krzywych ani rysować demonstracyjnych przedziałów ufności w sekcji wyników.
+
+\subsection{Spójność tabel, wykresów i tekstu}
+Raport powinien stosować jednakowe nazwy warunków i jednostki we wszystkich tabelach, rycinach i narracji. W tekście należy powoływać się na numerowane obiekty za pomocą odsyłaczy \verb|\ref|, a podpisy muszą pozwalać odczytać charakter miary, populację analityczną, horyzont i sposób przedstawienia niepewności. Każda tabela i rycina powinna być powiązana z wersją skryptu oraz zbiorem danych wejściowych, przy zachowaniu ograniczeń poufności.
+
+Wykresów nie wolno interpretować jako klinicznej poprawy regulacji emocjonalnej bez niezależnej walidacji tego konstruktu. Po uzyskaniu dowodów należy opisać wszystkie wyniki zgodnie z zamrożonym planem, w tym niezgodne z oczekiwaniami, bez selekcjonowania korzystnych porównań.
 
 \section{Dyskusja i ograniczenia planu}
 Przyszła interpretacja powinna rozważyć, czy zaobserwowana zmiana odzwierciedla specyficzny wpływ naprzemienności, niespecyficzne pobudzenie, orientowanie uwagi, efekt oczekiwań lub różnice w tolerancji bodźców. Istotne są także efekty kolejności, uczenie się zadania i ograniczona reprezentatywność próby pilotażowej.
