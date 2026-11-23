@@ -2,7 +2,7 @@
 
 **Rodzaj pracy:** `IDEA`. **Etap badań:** `SOURCE_PLANNED_ARTICLE`.
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Repozytorium `arc-neuro` indeksuje projekt; miejsce kanonicznego przechowywania protokołu, danych i docelowego manuskryptu wymaga odrębnego potwierdzenia. Brak wpisu w publicznym rejestrze portfolio nie oznacza braku właściciela naukowego.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
 

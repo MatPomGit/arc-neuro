@@ -1,5 +1,7 @@
 # MSC-AR-P24 — Długotrwałe używanie agenta jako regulatora emocji a własne strategie samoregulacji
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj pracy:** `IDEA`. **Etap badań:** `IDEA_UNREVIEWED`.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.

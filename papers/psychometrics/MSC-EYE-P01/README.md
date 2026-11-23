@@ -1,5 +1,7 @@
 # MSC-EYE-P01 — Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `PLANNED`.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.

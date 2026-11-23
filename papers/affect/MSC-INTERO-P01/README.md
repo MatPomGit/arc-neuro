@@ -1,5 +1,7 @@
 # MSC-INTERO-P01 — Świadomość interoceptywna i aleksytymia jako korelaty trudności w regulacji emocji u osób dorosłych
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Program:** ARC Neuro. **Obszar:** affect.
 
 [Prospekt LaTeX](main.tex) zawiera cel, hipotezy, metodę, operacjonalizację, plan analiz, ograniczenia i warunki etyczne.

@@ -1,5 +1,7 @@
 # MSC-EYE-P03 — Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj pracy:** `IDEA`. **Etap badań:** `IDEA_DEFINED`.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.

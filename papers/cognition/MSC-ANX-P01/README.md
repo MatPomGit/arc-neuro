@@ -1,5 +1,7 @@
 # MSC-ANX-P01 — Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Program:** ARC Neuro. **Obszar:** poznanie. **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Wersja prospektu:** 0.3.0 (2026-11-22).
 
 [Manuskrypt LaTeX](main.tex) jest rozwiniętym projektem naukowym z wprowadzeniem teoretycznym i pięcioma zweryfikowanymi źródłami (Eysenck i in., Miyake i in., Monsell, Spitzer i in., Carleton).
