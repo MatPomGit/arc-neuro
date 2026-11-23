@@ -1,5 +1,7 @@
 # MSC-CR-P10 — Etap edukacji a odroczony transfer samodzielnego osądu u uczniów korzystających z AI
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `PROSPECTIVE`.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.

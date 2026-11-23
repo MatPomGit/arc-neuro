@@ -33,6 +33,22 @@ class ManuscriptDirectoryTests(unittest.TestCase):
                 self.assertIn(p["stage"],readme)
                 self.assertFalse(folder.is_symlink())
                 self.assertFalse((folder/"main.tex").is_symlink())
+    def test_confirmed_authorship_in_every_catalog_manuscript(self):
+        """Owner-confirmed 69 drafts: README metadata and LaTeX authorship agree."""
+        records = CATALOG["papers"]
+        self.assertEqual(len(records), 69)
+        for paper in records:
+            with self.subTest(manuscript_id=paper["id"]):
+                readme = (ROOT / paper["readme_path"]).read_text(encoding="utf-8")
+                tex = (ROOT / paper["manuscript_path"]).read_text(encoding="utf-8")
+                self.assertRegex(
+                    readme,
+                    r"(?m)^\*\*Właściciel naukowy i autor szkicu:\*\* Mateusz Pomianek\b",
+                )
+                author_fields = re.findall(r"\\author(?:\[[^\]]*\])?\{([^}]*)\}", tex)
+                self.assertEqual(len(author_fields), 1, "Expected one LaTeX author declaration")
+                self.assertIn("Mateusz Pomianek", author_fields[0])
+
     def test_names_not_obscured_and_pages_separate(self):
         self.assertFalse(list((ROOT/"papers").glob("*/slot-*")))
         self.assertEqual(len(list((ROOT/"papers").glob("*/MSC-*/main.tex"))),69)

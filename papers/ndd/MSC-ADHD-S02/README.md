@@ -1,5 +1,7 @@
 # MSC-ADHD-S02 — Reprodukowany schemat zdarzeń recovery i deterministyczny replay
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `METHODS_DRAFT`.
 
 [Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.

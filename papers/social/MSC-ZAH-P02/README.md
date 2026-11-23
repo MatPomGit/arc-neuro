@@ -1,5 +1,7 @@
 # MSC-ZAH-P02 — Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania
 
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+
 **Status:** `IDEA_HOLD`; prospektywna koncepcja. **Working title:** *The Two-Dimensional Social Uncanny Valley: Appearance Realism by Behavioral Naturalness*.
 
 Czy realizm wyglądu postaci oraz naturalność jej ruchu niezależnie i interakcyjnie determinują oceny niesamowitości?

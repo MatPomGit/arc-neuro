@@ -1,4 +1,4 @@
-"""Stage-05 evidence: audit all catalog README files without assigning authorship."""
+"""Regression contract for scientific ownership of all 69 confirmed author drafts."""
 import json
 from pathlib import Path
 import re
@@ -6,8 +6,6 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "papers/catalog.json"
-# Confirmed by issue #27. Add identifiers only after an ownership determination.
-CONFIRMED_OWNED = frozenset({"MSC-NDD-P01"})
 OWNER_FIELD = re.compile(
     r"(?im)^(?:\*\*Właściciel naukowy(?: i autor szkicu)?:\*\*|scientific_owner:)"
     r"[ \t]*(?P<value>[^\r\n]+)"
@@ -49,23 +47,26 @@ class ScientificOwnerRegression(unittest.TestCase):
         self.assertEqual(owner_fields("Praca pozostaje w kanonicznym repozytorium"), [])
         self.assertFalse(EXPECTED_NAME.match("Inna osoba"))
 
+    def test_owner_metadata_examples_reject_wrong_people(self):
+        self.assertFalse(EXPECTED_NAME.match("Inna osoba"))
+        self.assertFalse(EXPECTED_NAME.match("Mateusz Pomianek-Kowalski"))
+
     def test_complete_catalog_inventory(self):
-        """Every indexed README is inspected, but unknown ownership is not invented."""
+        """Every currently catalogued manuscript has one unambiguous owner."""
         found = inventory()
-        self.assertTrue(CONFIRMED_OWNED.issubset(found), "Confirmed ID missing in catalog")
+        self.assertEqual(len(found), 69)
         for manuscript_id, fields in found.items():
             with self.subTest(manuscript_id=manuscript_id):
-                self.assertLessEqual(len(fields), 1, "Ambiguous duplicate owner declarations")
-                self.assertTrue(all(field.strip() for field in fields), "Empty owner declaration")
+                self.assertEqual(len(fields), 1, "Expected exactly one scientific owner")
+                self.assertRegex(fields[0], EXPECTED_NAME)
 
-    def test_confirmed_owner_is_explicit_before_fix(self):
-        """Intentional RED until the confirmed owner defect is repaired in a later stage."""
+    def test_confirmed_owner_across_all_manuscripts(self):
+        """Owner's explicit authorship confirmation applies to all catalogue IDs."""
         found = inventory()
-        offenders = {paper_id: found[paper_id] for paper_id in sorted(CONFIRMED_OWNED)
-                     if len(found[paper_id]) != 1 or not EXPECTED_NAME.match(found[paper_id][0])}
-        missing = sorted(paper_id for paper_id, fields in found.items() if not fields)
-        self.assertFalse(offenders, f"OWNER_METADATA_MISSING_OR_INVALID: {offenders}; "
-                          f"inventory_missing={len(missing)}/{len(found)}; missing_ids={missing}")
+        self.assertEqual(len(found), 69)
+        offenders = {paper_id: fields for paper_id, fields in found.items()
+                     if len(fields) != 1 or not EXPECTED_NAME.match(fields[0])}
+        self.assertFalse(offenders, f"OWNER_METADATA_MISSING_OR_INVALID: {offenders}")
 
 
 if __name__ == "__main__":
