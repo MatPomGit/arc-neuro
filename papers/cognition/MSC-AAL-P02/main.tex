@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.2}
+\date{Szkic naukowy, wersja 0.1.3}
 
 \begin{document}
 
@@ -70,6 +70,34 @@ Model rozróżnia zatem zmienną eksperymentalną, czyli sposób organizacji int
 
 Zakres modelu ogranicza się obecnie do projektowanej symulacji Smart Home 2D. Nie wyprowadzono z niego wniosków o poprawie samodzielności życiowej, bezpieczeństwa domowego ani skuteczności klinicznej. Przed badaniem należy doprecyzować populację, reguły adaptacji, procedurę pomiaru i analizę interakcji, a następnie zestawić model z rozszerzonym, krytycznym przeglądem literatury.
 
+\section{Prace powiązane i luka badawcza}
+
+\subsection{Personalizacja interfejsu a kontrola użytkownika}
+
+Badania interfejsów adaptacyjnych pokazują, że automatyczne dopasowanie nie musi poprawiać efektywności działania. Findlater i McGrenere (2004) porównali statyczne, automatycznie adaptowane i dostosowywane przez użytkowników menu w kontrolowanym badaniu laboratoryjnym z udziałem 27 osób. W zastosowanym układzie eksperymentalnym menu statyczne pozwalało wykonywać zadania szybciej niż menu adaptacyjne, natomiast menu dostosowywane przez użytkownika było w pewnych warunkach szybsze od adaptacyjnego. Większość uczestników preferowała możliwość samodzielnego dostosowania menu. Wyniki te podważają założenie, że automatyczna zmiana organizacji funkcji jest zawsze korzystna, lecz dotyczą menu programowego, a nie sterowania inteligentnym domem. Nie stanowią również bezpośredniego pomiaru obciążenia poznawczego w proponowanym eksperymencie.
+
+W projekcie MSC-AAL-P02 istotne jest rozróżnienie kontroli nad sposobem personalizacji od samej obecności personalizacji. Dynamiczne przesuwanie funkcji może ułatwiać dostęp do często używanych poleceń, lecz może też zmieniać poznaną wcześniej strukturę nawigacji. Takie konkurencyjne skutki wymagają eksperymentalnego oddzielenia, zamiast przyjęcia z góry korzystnego kierunku efektu.
+
+\subsection{Inteligencja interfejsu, wiek i charakter zadania}
+
+Zhang, Rau i Salvendy (2009) analizowali projekt interfejsu inteligentnego domu z uwzględnieniem wieku użytkownika, rodzaju zadania i poziomu inteligencji interfejsu. W ich badaniu wyższy poziom inteligencji interfejsu wiązał się ze wzrostem odczuwanego obciążenia podczas niektórych zadań wykonywanych przez starszych użytkowników. Wynik ten wskazuje, że stopień automatyzacji należy interpretować łącznie z charakterem czynności i właściwościami użytkowników. Sama etykieta interfejsu jako inteligentnego nie pozwala przewidzieć wielkości ani kierunku obciążenia.
+
+W odróżnieniu od ogólnego porównania poziomów inteligencji, planowany projekt zakłada analizę ściśle określonej zmiany prezentacji funkcji zależnej od kontekstu zadania. Nie rozstrzygnięto jednak jeszcze, czy i w jaki sposób manipulowana będzie trafność rozpoznania kontekstu. Bez tej decyzji nie będzie możliwe odróżnienie wpływu mechanizmu adaptacji od wpływu jej jakości technicznej.
+
+\subsection{Ergonomia nawigacji w interfejsach inteligentnego domu}
+
+Zhou i współautorzy (2022) przeprowadzili badania interfejsów Smart Home adresowanych do starszych użytkowników. Porównywali między innymi kierunek przewijania, styl przycisków i ich wielkość, uwzględniając wskaźniki zachowania, okulografię oraz oceny subiektywne. W badanych konfiguracjach korzystniejsze były między innymi pionowe przewijanie oraz określone proste style przycisków. Uzyskane wyniki dotyczą jednak właściwości układu i elementów sterowania, nie zaś dynamicznego przekształcania struktury interfejsu w odpowiedzi na zmienny kontekst zadania.
+
+Badania ergonomii elementów sterujących dostarczają istotnych wskazówek dotyczących projektowania warunków eksperymentalnych. Należy jednak zachować podobne rozmiary kontrolek, dostępność funkcji i czytelność obu porównywanych wersji interfejsu. W przeciwnym razie różnice w wykonaniu zadania mogłyby wynikać z jakości graficznej i motorycznej interakcji, a nie z adaptacji kontekstowej.
+
+\subsection{Synteza porównawcza i pytanie nierozstrzygnięte}
+
+Przywołane podejścia odpowiadają na pokrewne, lecz odmienne pytania. Eksperyment z menu personalizowanymi pokazuje znaczenie sposobu kontroli adaptacji i przewidywalności interfejsu (Findlater i McGrenere, 2004). Badanie poziomu inteligencji Smart Home wskazuje na zależność obciążenia od wieku i rodzaju zadania (Zhang i in., 2009). Analiza rozwiązań nawigacyjnych dla starszych użytkowników identyfikuje właściwości układu interfejsu istotne dla wykonania czynności (Zhou i in., 2022). Nie należy traktować wyników tych badań jako jednorodnej metaanalizy ani przenosić oszacowanych efektów między odmiennymi populacjami i typami interfejsów.
+
+W granicach tych trzech zweryfikowanych prac pozostaje niedostatecznie rozstrzygnięte, w jakich warunkach kontekstowe przekształcanie interfejsu Smart Home zmniejsza koszt wyszukiwania informacji, a w jakich zwiększa koszt ponownej orientacji. W szczególności potrzebne jest oddzielne ujęcie złożoności zadania, poprawności rozpoznania kontekstu oraz stabilności położenia funkcji, przy kontroli kolejności warunków i stopnia doświadczenia użytkownika. Jest to luka wyprowadzona z zakresu porównanych publikacji, a nie twierdzenie o całkowitym braku innych badań w światowej literaturze. Jej ostateczne potwierdzenie wymaga systematyczniejszego wyszukiwania i oceny prac nowszych oraz bezpośrednio dotyczących kontekstowej adaptacji.
+
+Proponowany wkład MSC-AAL-P02 polegałby na kontrolowanym porównaniu interfejsu statycznego z adaptacyjnym w symulacji Smart Home 2D i ocenie tego, czy warunki brzegowe adaptacji zmieniają obciążenie zadaniem oraz wykonanie czynności. Odrębny pomiar kosztu wyszukiwania i ponownej orientacji byłby potrzebny do testowania mechanizmów pośredniczących. Jest to propozycja programu badawczego, nie uzyskany wynik ani dowód nowości klinicznej.
+
 \section{Cel i pytania badawcze}
 
 Celem pracy jest rozstrzygnięcie zagadnienia: Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
@@ -95,6 +123,10 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
 
 \section*{Bibliografia}
+
+Zhang, B., Rau, P.-L. P., \& Salvendy, G. (2009). Design and evaluation of smart home user interface: Effects of age, tasks and intelligence level. \textit{Behaviour \& Information Technology, 28}(3), 239--249. \url{https://doi.org/10.1080/01449290701573978}
+
+Zhou, C., Dai, Y., Huang, T., Zhao, H., \& Kaner, J. (2022). An empirical study on the influence of smart home interface design on the interaction performance of the elderly. \textit{International Journal of Environmental Research and Public Health, 19}(15), 9105. \url{https://doi.org/10.3390/ijerph19159105}
 
 Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems}, 89--96. \url{https://doi.org/10.1145/985692.985704}
 
