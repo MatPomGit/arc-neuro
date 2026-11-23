@@ -6,7 +6,7 @@
 
 **Przedmiot:** Wpływ obustronnej stymulacji słuchowej na regulację.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Proponowany wynik główny:** W szkicu `main.tex` wskazano czas od zakończenia standardowego zakłócenia do wznowienia zadania (sekundy), z uwzględnieniem prób bez zdarzenia w ustalonym oknie. Kandydatem na estymand jest kontrast ograniczonego średniego czasu do wznowienia między warunkami. Populacja, horyzont, definicje zdarzeń i ostateczny estymand wymagają zatwierdzenia w repozytorium kanonicznym przed akwizycją. Nie jest to wynik uzyskany empirycznie.
 - **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
 - **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
