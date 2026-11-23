@@ -1,12 +1,18 @@
 """Read-only main-branch ruleset contract; live API audit requires opt-in."""
 import json
+from fnmatch import fnmatchcase
 import os
 import unittest
 from urllib.request import Request, urlopen
 
 URL = "https://api.github.com/repos/MatPomGit/arc-neuro/rulesets/27658007"
 REQUIRED = "contract (head)"
-MAIN_REFS = {"~DEFAULT_BRANCH", "~ALL", "refs/heads/main", "main"}
+def matches_main(ref):
+    if not isinstance(ref, str):
+        return False
+    return ref in {"~DEFAULT_BRANCH", "~ALL"} or any(
+        fnmatchcase(candidate, ref) for candidate in ("main", "refs/heads/main")
+    )
 
 
 def ci_required(ruleset):
@@ -25,15 +31,12 @@ def ci_required(ruleset):
     excluded = refs.get("exclude", [])
     if not isinstance(included, list) or not isinstance(excluded, list):
         return False
-    if not all(isinstance(ref, str) for ref in included + excluded):
+    if not any(matches_main(ref) for ref in included):
         return False
-    if not (set(included) & MAIN_REFS) or (set(excluded) & MAIN_REFS):
+    if any(matches_main(ref) for ref in excluded):
         return False
     bypass = ruleset.get("bypass_actors", [])
-    if not isinstance(bypass, list) or any(
-        not isinstance(actor, dict) or actor.get("bypass_mode") in {"always", "pull_request"}
-        for actor in bypass
-    ):
+    if not isinstance(bypass, list) or bypass:
         return False
     rules = ruleset.get("rules", [])
     if not isinstance(rules, list):
@@ -74,6 +77,7 @@ class MainRulesetRegression(unittest.TestCase):
             ("target", "tag"),
             ("conditions", {"ref_name": {"include": ["refs/heads/develop"], "exclude": []}}),
             ("conditions", {"ref_name": {"include": ["~DEFAULT_BRANCH"], "exclude": ["~DEFAULT_BRANCH"]}}),
+            ("conditions", {"ref_name": {"include": ["~ALL"], "exclude": ["refs/heads/m*"]}}),
             ("bypass_actors", [{"actor_type": "RepositoryRole", "actor_id": 5, "bypass_mode": "always"}]),
         ]:
             with self.subTest(key=key, value=value):
