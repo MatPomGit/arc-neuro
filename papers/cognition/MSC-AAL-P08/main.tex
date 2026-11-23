@@ -17,7 +17,7 @@
 % należy zweryfikować i uzupełnić zgodnie z wymaganiami docelowego czasopisma.
 \title{Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych}
 \author{Mateusz Pomianek}
-\date{Szkic koncepcyjny, wersja 0.6.0}
+\date{Szkic koncepcyjny, wersja 0.7.0}
 
 \begin{document}
 \maketitle
@@ -175,7 +175,79 @@ Po zatwierdzeniu kanonicznego projektu jego repozytorium będzie przechowywać k
 Warunkami przejścia z \texttt{HOLD} do realizacji są potwierdzony właściciel kanonicznego projektu, rozstrzygnięty zakres badania, formalnie uzgodniony protokół i estymand, kompletna specyfikacja zdarzeń, zatwierdzony plan liczebności oraz odpowiednie wymogi etyczne i techniczne. Nie uruchomiono analiz, nie oceniano zbieżności modelu i nie potwierdzono reprodukcji żadnych wyników.
 
 \section{Plan przedstawienia wyników po przeprowadzeniu badania}
-Dopiero po pozyskaniu i sprawdzeniu danych możliwe będzie podanie liczby uczestników i prób, przepływu obserwacji, rozkładów wskaźników, wielkości efektów oraz przedziałów niepewności. Przyszły raport powinien rozdzielać wyniki analizy głównej, pomocniczej i eksploracyjnej, a także dokumentować odstępstwa od zatwierdzonego planu. W obecnym szkicu nie ma wyników, tabel empirycznych ani statystyk.
+\subsection{Status szablonów i zasady prezentacji}
+Poniższe tabele i opis wykresu określają wyłącznie przyszły format raportowania. Są szablonami dla projektu \texttt{IDEA/HOLD}, a nie wynikami ani wynikami syntetycznymi. Nie zgromadzono danych i nie wykonano analiz. Wszelkie wartości liczbowe, przedziały ufności i oznaczenia istotności wolno wprowadzić dopiero na podstawie udokumentowanych analiz właściwego badania.
+
+W przyszłym raporcie należy najpierw przedstawić przepływ uczestników i prób, następnie wynik główny, a dopiero później wyniki wtórne i eksploracyjne. Podpisy muszą określać jednostkę analizy, mianownik wskaźnika, rodzaj estymaty, poziom niepewności i populację analityczną. Wszystkie miary czasu należy wyrażać w sekundach, różnicę ryzyk w punktach procentowych, a prawdopodobieństwa w procentach albo jako liczby od 0 do 1, konsekwentnie w całym tekście.
+
+\subsection{Przepływ uczestników i kompletność prób}
+Tabela~\ref{tab:flow-template} wyznacza układ przyszłego zestawienia liczebności. Należy w niej rozdzielić osoby zakwalifikowane, poddane randomizacji i analizowane, a także okazje ważne, technicznie nieważne oraz nieobserwowalne. Wyniki mają pochodzić z rejestru przyczyn wyłączenia, a nie z odtwarzania liczebności na podstawie samych poprawnych odpowiedzi.
+
+\begin{table}[htbp]
+\centering
+\caption{Szablon raportowania przepływu osób i okazji do wykonania intencji. Wszystkie pola wynikowe wymagają danych empirycznych.}
+\label{tab:flow-template}
+\small
+\begin{tabular}{p{0.48\linewidth}p{0.19\linewidth}p{0.19\linewidth}}
+\hline
+Kategoria i jednostka & Kontekstowe & Czasowe \\
+\hline
+Uczestnicy przypisani, osoby & do uzupełnienia & do uzupełnienia \\
+Okazje zaplanowane, próby & do uzupełnienia & do uzupełnienia \\
+Okazje ważne, próby & do uzupełnienia & do uzupełnienia \\
+Próby technicznie nieważne, próby & do uzupełnienia & do uzupełnienia \\
+Wynik nieobserwowalny, próby & do uzupełnienia & do uzupełnienia \\
+\hline
+\end{tabular}
+\end{table}
+
+W schemacie wewnątrzosobniczym ta sama osoba może wystąpić w obu kolumnach; liczby uczestników nie podlegają wówczas sumowaniu. Dla każdej przyczyny wyłączenia należy opisać regułę i etap jej zastosowania. Liczebności prób nie mogą być utożsamiane z liczebnościami osób.
+
+\subsection{Wynik pierwszorzędowy i niepewność}
+Tabela~\ref{tab:primary-template} określa format prezentacji poprawnych realizacji zamiaru. Odsetek surowy należy odróżniać od marginalnego prawdopodobieństwa oszacowanego modelem. Jedynym roboczym kontrastem pierwszorzędowym pozostaje różnica marginalnych prawdopodobieństw pomiędzy przypisaniem przypomnienia kontekstowego i czasowego. Przedziały ufności i metoda ich wyznaczania wymagają uprzedniego zatwierdzenia w planie analiz.
+
+\begin{table}[htbp]
+\centering
+\caption{Szablon wyniku głównego. Odsetki dotyczą poprawnych wykonań na ważną okazję; kontrast modelowy jest różnicą ryzyk w punktach procentowych. Nie przedstawiono oszacowań.}
+\label{tab:primary-template}
+\small
+\begin{tabular}{p{0.52\linewidth}p{0.35\linewidth}}
+\hline
+Miara i jednostka & Wartość po analizie \\
+\hline
+Poprawne wykonania w warunku kontekstowym, liczba/okazje & do uzupełnienia \\
+Poprawne wykonania w warunku czasowym, liczba/okazje & do uzupełnienia \\
+Surowy odsetek poprawnych wykonań, \% w obu warunkach & do uzupełnienia \\
+Marginalna różnica prawdopodobieństw, pkt proc. & do uzupełnienia \\
+Przedział ufności dla różnicy, pkt proc. & do uzupełnienia \\
+\hline
+\end{tabular}
+\end{table}
+
+Jeżeli model nie będzie identyfikowalny, nie zbiegnie się lub liczba zdarzeń okaże się niewystarczająca, należy to zgłosić zamiast zastępować wynik nieudokumentowaną estymacją. Raport powinien opisywać właściwy mianownik, zastosowaną standaryzację, strukturę efektów losowych i ewentualne odstępstwa od prerejestracji.
+
+\subsection{Wyniki wtórne, eksploracyjne i analizy wrażliwości}
+Przyszłe zestawienia wtórne powinny obejmować pominięcia, powtórzenia odroczonych czynności i opóźnienie wznowienia zadania. Dla zdarzeń należy podawać liczebnik, właściwy mianownik i procent albo częstość, a dla czasu jednostkę w sekundach, liczbę dostępnych obserwacji oraz odpowiednią miarę położenia i rozproszenia. Nie wolno łączyć braku reakcji przy ważnej okazji z utratą danych wskutek awarii.
+
+Wyniki eksploracyjne oraz analizy wrażliwości powinny być raportowane oddzielnie od testu H1. Przy analizach wielokrotnych należy jawnie wskazać rodzinę porównań i zastosowaną korektę, jeżeli została uprzednio zaplanowana. Brak wykrytej różnicy nie uzasadnia twierdzenia o równoważności przypomnień.
+
+\subsection{Projekt wykresu i reguły jego przygotowania}
+Rycina~\ref{fig:effect-plan} przedstawia jedynie specyfikację przyszłej wizualizacji, bez nanoszenia punktów, przedziałów ani danych demonstracyjnych. Oś pozioma ma obrazować różnicę marginalnych prawdopodobieństw w punktach procentowych, a planowana estymata punktowa i przedział ufności mają zostać wyznaczone z zatwierdzonej analizy. Pionowa linia odniesienia powinna odpowiadać zerowej różnicy ryzyk. Oś pionowa może oznaczać zatwierdzony kontrast główny oraz oddzielnie oznaczone kontrasty pomocnicze. Należy zamieścić czytelne etykiety, kierunek różnicy (kontekstowe minus czasowe), zakres osi uzasadniony estymandem i podpis rozróżniający wyniki konfirmacyjne od eksploracyjnych.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.83\linewidth}{\centering
+\textbf{SPECYFIKACJA RYCINY, BEZ DANYCH}\\[1ex]
+Oś X: różnica prawdopodobieństw, punkty procentowe.\\
+Oś Y: zatwierdzony kontrast (ewentualne dodatkowe kontrasty osobno).\\
+Po analizie: punkt oszacowania, przedział ufności, linia wartości zerowej.\\
+Na etapie \texttt{IDEA/HOLD} nie umieszcza się wykresu empirycznego.
+}}
+\caption{Plan przyszłego wykresu efektów przypomnień kontekstowych względem czasowych. Ramka jest opisem formatu, nie wizualizacją obserwacji.}
+\label{fig:effect-plan}
+\end{figure}
+
+Materiały wynikowe należy generować ze zweryfikowanego dziennika zdarzeń i wersjonowanych skryptów. Podpisy tabel i rycin powinny wskazywać populację analityczną, wersję analizy i dokładne źródło pochodzenia danych. Nie należy ręcznie przepisywać wyników do ilustracji bez możliwości ich odtworzenia.
 
 \section{Plan dyskusji}
 Interpretacja przyszłych obserwacji powinna zestawiać skuteczność odroczonego działania z kosztami uwagowymi i przebiegiem wznowienia zadania. Ewentualną przewagę jednego rodzaju przypomnień należy rozpatrzyć w świetle trafności wskazówki, synchronizacji komunikatu z zadaniem i odmiennych obciążeń poznawczych. Brak wykrytej różnicy nie będzie automatycznie dowodzić równoważności warunków. Związek wyników z codziennym funkcjonowaniem i projektowaniem systemów AAL będzie wymagać ostrożnego uzasadnienia.
