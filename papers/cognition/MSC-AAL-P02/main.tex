@@ -21,7 +21,7 @@
 % i identyfikatory ORCID wymagają potwierdzenia w projekcie kanonicznym.
 \author{}
 
-\date{Szkic naukowy, wersja 0.4.0}
+\date{Szkic naukowy, wersja 0.5.0}
 
 \begin{document}
 \maketitle
@@ -75,20 +75,40 @@ Dla \textbf{PB2} planuje się eksploracyjne sprawdzenie interakcji między rodza
 Przed rekrutacją należy określić pierwszorzędowy punkt końcowy, estymand, znaczenie praktyczne różnicy, jednostkę analizy, reguły wykluczeń i plan kontroli wielokrotności. Dopasowanie scenariuszy powinno zapobiegać myleniu adaptacji z redukcją liczby kroków lub inną zmianą ergonomii. Przewidywania nie stanowią prerejestracji, a wyniki w symulacji 2D nie uzasadnią automatycznie wniosków dotyczących osób starszych, ograniczeń poznawczych ani funkcjonowania w rzeczywistym domu.
 
 \section{Projekt badania i metody}
-\subsection{Schemat porównania}
-Rozważany jest eksperyment z powtarzanymi pomiarami w dwóch warunkach: statycznym i adaptacyjnym. Uczestnicy mieliby wykonywać porównywalne zadania w symulacji Smart Home 2D. Przed wdrożeniem należy zdefiniować jednakowy zakres dostępnych funkcji, stopień trudności zadań, reguły adaptacji oraz sposób kontrolowania różnic w liczbie wymaganych działań.
+\subsection{Status protokołu i charakter stanowiska}
+Poniższa procedura jest projektem badania, nie opisem wykonanych czynności. Zakłada interakcję człowieka z symulacją inteligentnego domu w dwuwymiarowym interfejsie ekranowym. Do podstawowego porównania nie są wymagane EEG, okulografia ani XR. Zastosowanie takich pomiarów wymagałoby osobnej hipotezy, procedury, walidacji aparatury oraz oceny etycznej; nie stanowią one części obecnego protokołu. Planowane stanowisko \texttt{ST-06} nie zostało zweryfikowane, a aplikacja \texttt{app-carehome} ma status projektu niewdrożonego. Nie zakłada się dostępności kompletnego oprogramowania ani aparatury.
 
-\subsection{Uczestnicy i dobór próby}
-Populacja docelowa, kryteria włączenia i wyłączenia oraz plan rekrutacji pozostają do ustalenia. Liczebność próby powinna wynikać z analizy precyzji lub mocy dla uprzednio zdefiniowanego efektu i przyjętej struktury pomiarów. Nie należy ekstrapolować wyników z próby dogodnej na populację osób starszych ani na osoby ze szczególnymi potrzebami bez odpowiedniego projektu doboru.
+\subsection{Schemat eksperymentu i warunki}
+Rozważany jest wewnątrzosobniczy eksperyment porównujący interfejs statyczny z adaptacyjnym w symulacji Smart Home 2D. W obu warunkach należy zachować jednakową pulę funkcji, cele zadań, komunikaty o rezultacie i zasady nawigacji. Warunek statyczny utrzymywałby niezmieniony sposób prezentacji opcji; warunek adaptacyjny eksponowałby funkcje wskazane przez jawne reguły kontekstowe, bez zmiany wymagań zadania. Aby przetestować H1, należy ograniczyć przeorganizowanie położenia elementów, gdyż w przeciwnym wypadku efekt selekcji informacji byłby nierozdzielny od kosztu przeorientowania.
 
-\subsection{Manipulacja i procedura}
-Interfejs statyczny zachowywałby niezmienną organizację funkcji, natomiast adaptacyjny zmieniałby ich prezentację według jawnych reguł kontekstowych. Trzeba określić sposób oceny trafności rozpoznania kontekstu oraz scenariusze adaptacji nieadekwatnej. Kolejność warunków i zestawów zadań należy zrównoważyć, a instrukcje, trening oraz zasady przerw ujednolicić. Projekt wymaga pilotażu, zanim zostanie uznany za gotowy do rekrutacji.
+Poza porównaniem podstawowym rozważa się zróżnicowanie złożoności scenariuszy oraz eksploracyjne warunki błędnego rozpoznania kontekstu i zmiennego układu. Takie czynniki można interpretować przyczynowo tylko po ich niezależnej manipulacji i przypisaniu prób do warunków; przy samym pomiarze obserwacyjnym pozostają analizami asocjacyjnymi. Liczba poziomów i kolejność manipulacji wymagają ustalenia przed pilotażem.
 
-\subsection{Zmienne i pomiar}
-Kandydatami na miarę główną są subiektywne obciążenie zadaniem oraz liczba błędów wykonania, jednak wymagany jest wybór jednej miary pierwszorzędowej lub uzasadnienie współpierwszorzędowości wraz z kontrolą wielokrotności. Jako miary uzupełniające można rozważyć czas wykonania, powodzenie zadania, liczbę działań nawigacyjnych i ocenę użyteczności. Definicje błędów, okna pomiaru, skale oraz reguły agregacji należy ustalić przed badaniem; wskaźniki behawioralne nie są automatycznie miarą obciążenia poznawczego.
+\subsection{Populacja i dobór próby}
+Populacja docelowa pozostaje do rozstrzygnięcia. Wstępnie można rozważać osoby pełnoletnie zdolne do świadomej zgody i samodzielnej obsługi badanego urządzenia wejściowego. Proponowane kryteria włączenia obejmują możliwość przeczytania instrukcji w języku badania i wykonania zadań próbnych, również z uzgodnionymi udogodnieniami dostępności. Potencjalne kryteria wyłączenia powinny dotyczyć wyłącznie ograniczeń uniemożliwiających wiarygodny pomiar mimo udogodnień, braku zgody lub niespełnienia jawnych kryteriów protokołu. Nie należy wykluczać osób ze względu na wiek albo niepełnosprawność bez uzasadnienia zgodnego z celem badania.
 
-\subsection{Etyka, dane i odtwarzalność}
-Przed udziałem ludzi należy ustalić właściwą procedurę oceny etycznej, zasady świadomej zgody, minimalizacji danych i bezpiecznego przechowywania wyników. Konfiguracja symulatora, scenariusze zadań, wersje interfejsów i reguły adaptacji powinny zostać utrwalone w kanonicznym projekcie badania. W niniejszym szkicu nie potwierdzono gotowości stanowiska, działającej aplikacji ani zgód.
+Należy udokumentować sposób rekrutacji, doświadczenie z urządzeniami Smart Home, podstawową sprawność obsługi oraz istotne czynniki mogące różnicować trudność zadań. Wielkość próby wymaga oszacowania na podstawie wybranego estymandu, minimalnego efektu istotnego praktycznie, wariancji i korelacji powtarzanych obserwacji albo założonej precyzji przedziału ufności. W tym szkicu nie deklaruje się liczby uczestników, przeprowadzonej rekrutacji ani oszacowanej mocy.
+
+\subsection{Konstrukty i operacjonalizacja}
+Głównym konstruktem jest obciążenie poznawcze związane z obsługą interfejsu przy wykonywaniu zadania. Kandydatem na jego wskaźnik jest subiektywna ocena wysiłku umysłowego po określonej jednostce pracy, na przykład odpowiedni wymiar zweryfikowanego narzędzia do pomiaru obciążenia zadaniem. Przed badaniem należy wybrać konkretny instrument, wersję językową, zasady punktowania, moment podania i uzasadnić jego trafność w tej populacji. Nie należy traktować pełnego wyniku skali wielowymiarowej automatycznie jako czystej miary obciążenia poznawczego.
+
+Zmienną niezależną w porównaniu podstawowym będzie rodzaj interfejsu (adaptacyjny lub statyczny). Złożoność zadania wymaga obiektywnej definicji opartej na wymaganych decyzjach, zależnościach czynności i liczbie informacji potrzebnych do osiągnięcia celu, a nie wyłącznie na czasie realizacji. Trafność kontekstu należy określać jako zgodność klasyfikacji sytuacji z wcześniej oznaczonym stanem referencyjnym. Stabilność układu można mierzyć liczbą i zakresem przemieszczeń tych samych funkcji między widokami.
+
+Wskaźniki pomocnicze obejmowałyby wykonanie celu (tak/nie), liczbę błędów według zamkniętego katalogu, czas od rozpoczęcia próby do potwierdzenia osiągnięcia celu oraz liczbę operacji nawigacyjnych. Błąd krytyczny powinien oznaczać wcześniej zdefiniowane niepożądane działanie w symulacji, a nie ocenę dokonaną po poznaniu warunku eksperymentalnego. Wyniki behawioralne nie zastępują pomiaru obciążenia. Przed akwizycją należy wybrać jeden pierwszorzędowy punkt końcowy albo z góry uzasadnić wyniki współpierwszorzędowe i sposób kontroli wielokrotności.
+
+\subsection{Scenariusze i procedura uczestnika}
+Przykładowe klasy zadań do przyszłego opracowania obejmują ustawienie parametrów urządzenia, uruchomienie sceny i sprawdzenie stanu systemu. Każdy scenariusz powinien mieć jednoznaczny cel, warunki początkowe, możliwe ścieżki wykonania, reguły zaliczenia i poziom trudności. Zestawy należy porównać pod względem równoważności, aby różnica wyników nie wynikała jedynie z innej długości lub dostępności ścieżki.
+
+Po uzyskaniu wymaganych zezwoleń i zgody uczestnik zapoznałby się z instrukcją oraz przeszedł neutralny trening obsługi. Następnie wykonywałby zadania w obu warunkach, z kontrbalansowaniem kolejności interfejsów i zestawów zadań oraz z ujednoliconymi przerwami. Po zdefiniowanym bloku albo zadaniu oceniałby obciążenie wybranym narzędziem. Dziennik eksperymentu rejestrowałby identyfikator pseudonimowy, wersję symulacji, warunek, scenariusz, znacznik czasu, akcje i rezultat bez zbędnych danych osobowych. Dokładne momenty pomiaru oraz zasady przerywania próby muszą zostać zapisane przed rekrutacją.
+
+\subsection{Pilotaż i kontrola jakości}
+Przed badaniem właściwym konieczny jest pilotaż zadań, czytelności instrukcji, równoważności obu interfejsów, działania reguł adaptacji i kompletności rejestrowanych zdarzeń. Testy techniczne powinny obejmować powtarzalność stanów początkowych, zgodność logów z działaniami, poprawność znaczników czasu, brak ujawniania warunku przez instrukcję oraz kontrolę awarii i przerwanych prób. Reguły odrzucania prób z powodu błędu technicznego, nieukończenia zadania, brakującej oceny i naruszenia procedury należy ustalić przed analizą, z rozróżnieniem braków technicznych i zachowania uczestnika.
+
+Scenariusze, definicje zmiennych, reguły adaptacji, konfiguracje obu interfejsów, wersje oprogramowania oraz protokół i plan analiz powinny zostać utrwalone przez kanoniczny projekt badawczy. Nie przeprowadzono tu pilotażu ani walidacji pomiaru.
+
+\subsection{Etyka, bezpieczeństwo i przetwarzanie danych}
+Przed rozpoczęciem rekrutacji należy ustalić wymagania właściwej komisji etycznej i uzyskać odpowiednie rozstrzygnięcie, jeśli jest wymagane. Uczestnicy powinni otrzymać zrozumiałą informację o badaniu, dobrowolności udziału, prawie wycofania się, danych gromadzonych w logach i zasadach ich przechowywania. Projekt powinien uwzględnić dostępność interfejsu, zmęczenie i przerwy, a działania w symulacji nie mogą sterować rzeczywistymi urządzeniami bez odrębnej procedury bezpieczeństwa.
+
+Należy stosować minimalizację danych, pseudonimizację identyfikatorów, oddzielne przechowywanie ewentualnego klucza identyfikacyjnego, kontrolę dostępu i ustalony czas retencji. Nie deklaruje się otrzymania zgody etycznej, pozyskania danych ani udostępnienia zbiorów. Rozstrzygnięcie właściciela kanonicznego manuskryptu i protokołu pozostaje warunkiem dalszych prac.
 
 \section{Plan analizy danych}
 \subsection{Estymand i porównanie podstawowe}
