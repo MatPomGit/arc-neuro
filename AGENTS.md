@@ -27,3 +27,5 @@ Przyjmowanie zadań i ich triage wykonuj zgodnie z [docs/issues.md](docs/issues.
 
 
 13. Publiczne katalogi roboczych artykułów w `papers/` mają rzeczywiste nazwy `MSC-...`, tytuły i przypisania naukowe. Zakaz tworzenia anonimowych `slot-NNN` i ukrywania tytułów wyłącznie z powodu publiczności repozytorium. Ograniczenia jawności dotyczą poufnych danych, kodu i odnośników do prywatnych źródeł; zatwierdzenia Pages pozostają odrębne.
+
+14. W każdej własnej publikacji i szkicu naukowym programu, także w `papers/`, jawnie wskazuj `Mateusz Pomianek` jako właściciela naukowego (`scientific_owner`). W polach autora manuskryptu uwzględniaj go, gdy jest autorem pracy; nie usuwaj potwierdzonych współautorów i nie przypisuj autorstwa cudzych publikacji. Nie utożsamiaj właściciela naukowego z lokalizacją kanonicznych źródeł ani z podmiotem praw autorskich. Brak wpisu w publicznym portfolio nie unieważnia tego przypisania. Podczas tworzenia i audytu manuskryptów sprawdzaj zgodność deklaracji autora, README i metadanych bez fabrykowania niepotwierdzonych informacji.
