@@ -18,53 +18,80 @@
 
 \author{}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 0.2.0}
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
-
-Przedmiotem planowanego badania jest wpływ kontekstowej adaptacji interfejsu Smart Home na obciążenie poznawcze użytkownika podczas wykonywania zadań. Szkic określa kierunek porównania interfejsu adaptacyjnego ze statycznym, ale nie stanowi zatwierdzonego protokołu ani opisu przeprowadzonego eksperymentu. Wskaźnik pierwszorzędowy i hipotezy wymagają uprzedniego ustalenia.
-
+Rozważana praca dotyczy wpływu kontekstowej adaptacji interfejsu Smart Home na obciążenie poznawcze podczas wykonywania zadań. Planowane badanie porównawcze w symulacji dwuwymiarowej ma rozróżnić korzyści wynikające z dopasowania prezentowanych informacji od kosztów nieprzewidywalnych zmian interfejsu. Projekt zakłada zestawienie warunku adaptacyjnego i statycznego oraz analizę moderującej roli złożoności zadania i trafności rozpoznania kontekstu. Wskaźnik pierwszorzędowy, hipotezy, próba i protokół wymagają zatwierdzenia przed pozyskaniem danych. Tekst stanowi konspekt koncepcji badawczej, a nie raport z przeprowadzonego eksperymentu.
 \end{abstract}
 
-\section{Status koncepcji i granice własności}
-
-Praca ma status \texttt{IDEA} i \texttt{SOURCE\_PLANNED\_ARTICLE}. Katalog programu ARC Neuro zawiera ten szkic jako pozycję planistyczną, natomiast rejestry \texttt{portfolio/projects.json} i \texttt{portfolio/papers.json} nie wskazują obecnie kanonicznego repozytorium ani właściciela projektu dla tego manuskryptu. Dlatego szkic nie potwierdza ustanowienia kanonicznego źródła, dostępu do danych, istnienia protokołu ani realizacji badania. Rozstrzygnięcie własności materiałów źródłowych wymaga odrębnej weryfikacji w projekcie źródłowym; nie należy tworzyć kopii obcego manuskryptu.
-
 \section{Wprowadzenie}
+Interfejsy Smart Home mogą wspierać realizację czynności przez selekcję informacji i funkcji odpowiednich do bieżącego kontekstu. Adaptacja może zmniejszać konieczność wyszukiwania opcji, ale też zwiększać koszt ponownej orientacji, jeżeli układ lub dostępność elementów zmieniają się w sposób trudny do przewidzenia. Samo skrócenie czasu interakcji nie przesądza zatem o zmniejszeniu obciążenia poznawczego.
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Przedmiotem proponowanego badania jest porównanie konsekwencji poznawczych adaptacji interfejsu z konsekwencjami stosowania stałego układu. Zakres koncepcji ogranicza się do zadań wykonywanych w symulacji Smart Home 2D. Wnioski o rzeczywistych mieszkaniach, osobach starszych lub skuteczności rozwiązań wspierających samodzielność wymagałyby odrębnego materiału empirycznego.
+
+\section{Podstawy teoretyczne i stan badań}
+\subsection{Obciążenie poznawcze i wykonywanie zadań}
+Punktem wyjścia jest rozróżnienie subiektywnego wysiłku umysłowego, obiektywnej poprawności wykonania i efektywności nawigacji. Są to powiązane, lecz nietożsame wymiary zachowania. Konieczne jest także oddzielenie obciążenia wywołanego złożonością samego zadania od obciążenia związanego z obsługą interfejsu.
+
+\subsection{Adaptacja kontekstowa i przewidywalność interfejsu}
+Przyszły przegląd literatury powinien zestawić prace dotyczące personalizacji, stabilności nawigacji, dostępności systemów inteligentnego domu i skutków błędnego rozpoznania kontekstu. Szczególnie istotne jest rozróżnienie adaptacji, która ujawnia właściwe opcje bez zmiany ich położenia, od adaptacji przebudowującej strukturę widoku. Bibliografia zostanie włączona dopiero po sprawdzeniu odpowiednich źródeł i zgodności ich ustaleń z twierdzeniami w tekście.
+
+\subsection{Luka badawcza i zakres nowości}
+Samo porównanie interfejsu adaptacyjnego ze statycznym nie wystarcza do wykazania nowości. Proponowany kierunek polega na identyfikacji warunków, w których dostosowanie do kontekstu może ułatwiać interakcję, oraz takich, w których adaptacja błędna albo nieprzewidywalna może ją utrudniać. Ostateczne uzasadnienie luki wymaga przeglądu aktualnych badań.
 
 \section{Cel i pytania badawcze}
+Celem proponowanego badania jest ustalenie, czy oraz w jakich warunkach kontekstowa adaptacja interfejsu wiąże się ze zmianą obciążenia poznawczego podczas realizacji porównywalnych zadań Smart Home.
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+\begin{enumerate}
+\item Czy warunek adaptacyjny różni się od statycznego pod względem uprzednio wybranej miary obciążenia poznawczego?
+\item Czy złożoność zadania modyfikuje kierunek lub wielkość różnicy między warunkami?
+\item Czy błędne dopasowanie interfejsu do kontekstu oraz zmienność układu wiążą się z dodatkowymi kosztami wykonania?
+\end{enumerate}
 
-\section{Materiał i metody}
+Kierunkowe hipotezy, główny estymand i pierwszorzędowy punkt końcowy zostaną określone na podstawie przeglądu literatury i pilotażu, przed rozpoczęciem analizy danych. Powyższe pytania nie są deklaracją prerejestracji.
 
-Rozważany projekt zakłada porównanie interfejsu adaptacyjnego ze statycznym w symulacji Smart Home 2D, przy porównywalnych zadaniach i funkcjonalnościach. Subiektywne obciążenie zadaniem oraz liczba błędów wykonania są kandydatami na wskaźniki, lecz nie należy uznawać ich obu za wyniki pierwszorzędowe bez uprzedniego określenia hierarchii i zasad kontroli wielokrotności. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+\section{Projekt badania i metody}
+\subsection{Schemat porównania}
+Rozważany jest eksperyment z powtarzanymi pomiarami w dwóch warunkach: statycznym i adaptacyjnym. Uczestnicy mieliby wykonywać porównywalne zadania w symulacji Smart Home 2D. Przed wdrożeniem należy zdefiniować jednakowy zakres dostępnych funkcji, stopień trudności zadań, reguły adaptacji oraz sposób kontrolowania różnic w liczbie wymaganych działań.
 
-\section{Plan analizy}
+\subsection{Uczestnicy i dobór próby}
+Populacja docelowa, kryteria włączenia i wyłączenia oraz plan rekrutacji pozostają do ustalenia. Liczebność próby powinna wynikać z analizy precyzji lub mocy dla uprzednio zdefiniowanego efektu i przyjętej struktury pomiarów. Nie należy ekstrapolować wyników z próby dogodnej na populację osób starszych ani na osoby ze szczególnymi potrzebami bez odpowiedniego projektu doboru.
 
-Proponowany plan analityczny: model mieszany z kontrbalansowaniem kolejności i analizą efektu uczenia. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+\subsection{Manipulacja i procedura}
+Interfejs statyczny zachowywałby niezmienną organizację funkcji, natomiast adaptacyjny zmieniałby ich prezentację według jawnych reguł kontekstowych. Trzeba określić sposób oceny trafności rozpoznania kontekstu oraz scenariusze adaptacji nieadekwatnej. Kolejność warunków i zestawów zadań należy zrównoważyć, a instrukcje, trening oraz zasady przerw ujednolicić. Projekt wymaga pilotażu, zanim zostanie uznany za gotowy do rekrutacji.
 
-\section{Wyniki}
+\subsection{Zmienne i pomiar}
+Kandydatami na miarę główną są subiektywne obciążenie zadaniem oraz liczba błędów wykonania, jednak wymagany jest wybór jednej miary pierwszorzędowej lub uzasadnienie współpierwszorzędowości wraz z kontrolą wielokrotności. Jako miary uzupełniające można rozważyć czas wykonania, powodzenie zadania, liczbę działań nawigacyjnych i ocenę użyteczności. Definicje błędów, okna pomiaru, skale oraz reguły agregacji należy ustalić przed badaniem; wskaźniki behawioralne nie są automatycznie miarą obciążenia poznawczego.
 
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+\subsection{Etyka, dane i odtwarzalność}
+Przed udziałem ludzi należy ustalić właściwą procedurę oceny etycznej, zasady świadomej zgody, minimalizacji danych i bezpiecznego przechowywania wyników. Konfiguracja symulatora, scenariusze zadań, wersje interfejsów i reguły adaptacji powinny zostać utrwalone w kanonicznym projekcie badania. W niniejszym szkicu nie potwierdzono gotowości stanowiska, działającej aplikacji ani zgód.
 
-\section{Dyskusja i ograniczenia}
+\section{Plan analizy danych}
+\subsection{Estymand i porównanie podstawowe}
+Przed akwizycją danych należy wyznaczyć kontrast adaptacja--interfejs statyczny dla wybranego wyniku pierwszorzędowego, jednostkę analizy i sposób uwzględnienia zadań powtarzanych. Kandydatem na metodę jest model mieszany obejmujący efekty uczestnika i zadania. Rodzina rozkładu i funkcja łącząca będą zależeć od własności skali wynikowej; nie należy automatycznie stosować modelu liniowego do liczby błędów.
 
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
+\subsection{Moderacja i czynniki zakłócające}
+Plan powinien obejmować co najmniej ocenę interakcji warunku z poziomem złożoności zadania, kontrolę kolejności ekspozycji oraz analizę efektu uczenia. Ocenę skutków nieadekwatnej adaptacji trzeba uprzednio powiązać z manipulacją lub jasno określić jako analizę eksploracyjną.
 
-\section{Wnioski}
+\subsection{Kontrola jakości i analizy wrażliwości}
+Należy z góry określić kryteria poprawności prób, traktowanie braków danych, reguły wykluczeń, diagnostykę dopasowania modelu i zakres analiz wrażliwości. Raportowanie powinno uwzględniać oszacowania efektów, przedziały niepewności i ograniczenia interpretacji. Nie wykonano obliczeń ani nie oszacowano parametrów empirycznych.
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+\section{Zakres przyszłego raportowania wyników}
+Po zebraniu i zweryfikowaniu danych część wynikowa powinna przedstawić charakterystykę próby, kompletność obserwacji, jakość manipulacji, porównanie pierwszorzędowe oraz ustalone analizy uzupełniające. Na obecnym etapie nie istnieją wyniki, które można byłoby w tej sekcji przedstawić. Rozdział zawierający rezultaty empiryczne zostanie dodany wyłącznie po ich uzyskaniu.
 
-\section*{Bibliografia}
+\section{Ramy przyszłej dyskusji}
+Interpretacja będzie wymagała oddzielenia redukcji subiektywnego obciążenia od poprawy szybkości i trafności działania. Należy rozważyć, czy ewentualna korzyść wynika z selekcji informacji, czy z innych różnic między wersjami interfejsu, oraz czy koszty przeorientowania równoważą korzyści adaptacji. Dyskusja nie może przedstawiać planowanych zależności jako potwierdzonych.
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+\section{Ograniczenia koncepcji}
+Najważniejsze ograniczenia planu obejmują możliwą nietrafność operacjonalizacji obciążenia, nierównoważność zadań, efekty uczenia, błędy rozpoznania kontekstu i zależność wyników od doświadczenia użytkowników. Badanie w środowisku 2D nie będzie samo w sobie dowodem skuteczności w rzeczywistym Smart Home ani poprawy codziennej samodzielności. Własność kanonicznego manuskryptu oraz kompletność dokumentacji źródłowej pozostają niepotwierdzone.
+
+\section{Wnioski na etapie planowania}
+Zaproponowano strukturę przyszłego badania porównawczego, która rozdziela obciążenie poznawcze, sprawność wykonania i potencjalne koszty adaptacji. Przed rozpoczęciem realizacji konieczne są przegląd literatury, ustalenie kanonicznego właściciela projektu, wybór głównego punktu końcowego, zamknięcie protokołu i potwierdzenie warunków etycznych. Nie formułuje się wniosków o efektywności interfejsu.
+
+\section*{Status koncepcji i źródeł}
+Praca ma status \texttt{IDEA} i \texttt{SOURCE\_PLANNED\_ARTICLE}. Katalog ARC Neuro pełni funkcję indeksu, a rejestry \texttt{portfolio/projects.json} i \texttt{portfolio/papers.json} nie wskazują obecnie kanonicznego właściciela manuskryptu. Literatura wymaga weryfikacji i przypisania cytowań przed przygotowaniem publikacji. Brak zatwierdzonego protokołu, danych i wyników nie oznacza wyniku zerowego.
 
 \end{document}
-
