@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.6}
+\date{Szkic naukowy, wersja 0.1.7}
 
 \begin{document}
 
@@ -212,7 +212,37 @@ Artykuł pozostaje szkicem koncepcyjnym oznaczonym jako IDEA / SOURCE\_PLANNED\_
 
 \section{Dyskusja i ograniczenia}
 
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
+\subsection{Interpretacja przesłanek literaturowych}
+
+Przedstawiony projekt nie dostarcza jeszcze własnych wyników empirycznych, dlatego dyskusja dotyczy znaczenia istniejących badań i dopuszczalnych interpretacji przyszłych obserwacji. Sweller (1988) uzasadnia rozpatrywanie wymagań stawianych zasobom poznawczym, ale jego analiza nie dowodzi skuteczności kontekstowej adaptacji inteligentnego domu. Hart i Staveland (1988) dostarczają podstaw pomiaru subiektywnego obciążenia zadaniem, nie zaś przesłanek do utożsamiania pojedynczej składowej NASA-TLX z całym konstruktem obciążenia poznawczego.
+
+W badaniu Findlater i McGrenere (2004) automatycznie adaptacyjne menu nie wykazało uniwersalnej przewagi nad porównywanymi rozwiązaniami. Wynik ten wspiera ostrożność wobec założenia, że reorganizacja interfejsu zawsze usprawnia działanie. Zhang, Rau i Salvendy (2009) wskazują znaczenie interakcji poziomu inteligencji interfejsu, rodzaju zadania i wieku użytkownika w środowisku Smart Home. Z kolei Zhou i współautorzy (2022) badali znaczenie właściwości nawigacji i przycisków dla interakcji starszych użytkowników z interfejsem inteligentnego domu. Prace te dotyczą odmiennych manipulacji i populacji. Nie można z nich obliczyć wspólnego efektu kontekstowej adaptacji ani uznać ich wyników za potwierdzenie hipotez H1, H2 lub H3 w niniejszym projekcie.
+
+\subsection{Możliwe wyniki i konkurencyjne wyjaśnienia}
+
+Jeżeli przyszłe badanie wykaże mniejsze subiektywne wymagania umysłowe w warunku adaptacyjnym, jedną z interpretacji będzie ograniczenie potrzeby wyszukiwania i porównywania funkcji. Alternatywnie różnica może wynikać z większej czytelności wyróżnionych kontrolek, krótszej ścieżki wykonania, odmiennego doświadczenia uczestników lub samego sposobu zadawania pytań. Odrębne pomiary procesu wyszukiwania i ponownej orientacji będą konieczne, aby odróżnić te wyjaśnienia. Korzystna różnica w pojedynczej ocenie subiektywnej nie wystarczy do stwierdzenia poprawy obiektywnej wydajności ani globalnego obciążenia poznawczego.
+
+Jeżeli adaptacja zwiększy obciążenie lub wydłuży wykonanie zadania, zgodną z modelem interpretacją będzie koszt utraty przewidywalności po zmianie układu. Taki wynik mógłby jednak odzwierciedlać niedostateczne szkolenie, błędy implementacji, zbyt częste przełączenia widoków, nietrafną adaptację lub nierównoważność scenariuszy, a nie niekorzystne działanie adaptacji jako takiej. Brak wyraźnej różnicy między warunkami może z kolei oznaczać bilansowanie korzyści i kosztów, niedostateczną czułość wybranego wskaźnika, niewystarczającą precyzję oszacowań albo rzeczywiście mały efekt. Sam wynik nieistotny statystycznie nie potwierdzi równoważności rozwiązań.
+
+Interakcja rodzaju interfejsu ze złożonością zadania może pomóc ocenić, w jakich warunkach adaptacja ma potencjalne znaczenie. Jeżeli jednak warunki różnią się liczbą czynności koniecznych do uzyskania celu albo dostępnością funkcji, interpretacja interakcji jako czysto poznawczego skutku adaptacji będzie nieuprawniona. Podobnie hipoteza o szkodliwości błędnego rozpoznania kontekstu wymaga celowej manipulacji jakością adaptacji; bez niej wyniki będą miały charakter obserwacyjny lub eksploracyjny.
+
+\subsection{Ograniczenia pomiaru i identyfikacji mechanizmów}
+
+Proponowany pomiar \textit{mental demand} NASA-TLX dotyczy subiektywnej oceny wymagań umysłowych zadania. Nie pozwala bezpośrednio rozdzielić wysiłku wyszukiwania informacji, obciążenia pamięci roboczej i kosztu ponownej orientacji. Dodatkowe miary, takie jak czas, błędy i dzienniki nawigacji, mogą służyć triangulacji, lecz nie są zamiennymi wskaźnikami jednego konstruktu. Znaczenie będą miały również trafność językowej wersji narzędzia, częstotliwość pomiaru oraz to, czy pytania zadawane po kolejnych scenariuszach same wpływają na przebieg interakcji.
+
+W schemacie z powtarzanymi pomiarami należy uwzględnić uczenie się interfejsu, zmęczenie, kolejność warunków i przenoszenie strategii między zadaniami. Kontrbalansowanie może ograniczyć systematyczne zakłócenia, ale nie usuwa wszystkich efektów historii ekspozycji. Nawet kontrolowany kontrast interfejsu statycznego z adaptacyjnym umożliwia wnioskowanie o skutku całego zastosowanego wariantu, nie zaś automatycznie o przyczynowym znaczeniu każdego domniemanego mediatora. Interpretacja mechanizmów wymaga osobnych, uzasadnionych pomiarów i założeń identyfikacyjnych.
+
+\subsection{Trafność zewnętrzna i zastosowania}
+
+Symulacja 2D pozwoliłaby precyzyjniej kontrolować zadania i zmiany interfejsu, lecz nie odtwarza pełnego kontekstu rzeczywistego mieszkania. W rzeczywistym użytkowaniu występują przerwania, współdzielenie urządzeń, różne sposoby sterowania, nieprzewidziane zdarzenia i konsekwencje błędnych poleceń. Nie należy utożsamiać sprawności w symulacji z poprawą samodzielności, bezpieczeństwa, dobrostanu ani klinicznego funkcjonowania użytkownika.
+
+Jeżeli do badania zostanie włączona wygodna próba dorosłych użytkowników komputerów, zakres wnioskowania będzie ograniczony do osób podobnych do uczestników i porównywalnych warunków interakcji. Przeniesienie wniosków na osoby starsze, osoby z niepełnosprawnościami lub użytkowników z trudnościami poznawczymi wymaga odpowiedniej rekrutacji, oceny dostępności i niezależnej walidacji. Badania Zhang i współautorów (2009) oraz Zhou i współautorów (2022) uzasadniają uwzględnienie wieku i ergonomii, lecz nie zastępują takich analiz w przyszłym badaniu MSC-AAL-P02.
+
+\subsection{Znaczenie planowanego wkładu i granice dowodów}
+
+Potencjalny wkład projektu polega na zestawieniu dwóch konkurencyjnych mechanizmów: zmniejszania kosztu selekcji informacji oraz zwiększania kosztu ponownej orientacji. Rozstrzygnięcie zależy od operacjonalizacji adaptacji, złożoności zadania, stabilności układu oraz jakości rozpoznania kontekstu. Wykazanie samej różnicy między warunkami, bez kontroli tych elementów, nie wystarczy do przypisania różnicy określonemu procesowi poznawczemu.
+
+Dotychczasowe opracowanie stanowi syntezę wybranych źródeł i plan przyszłej weryfikacji, a nie systematyczny przegląd wszystkich publikacji ani raport eksperymentalny. Nie uzyskano własnych danych, wyników statystycznych ani rozstrzygnięć etycznych. Po realizacji badania dyskusja będzie wymagała ponownego opracowania w świetle rzeczywistych oszacowań, ich niepewności, jakości pomiaru, odstępstw od protokołu i zgodności z literaturą. Obecnie nie ma podstaw do formułowania potwierdzonych wniosków o skuteczności proponowanego interfejsu.
 
 \section{Wnioski}
 
