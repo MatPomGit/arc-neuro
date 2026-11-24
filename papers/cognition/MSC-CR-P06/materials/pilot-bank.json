@@ -1,0 +1,678 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "scientific_owner": "Mateusz Pomianek",
+  "study": "MSC-CR-P06",
+  "status": "PUBLIC_DRAFT_PILOT_ONLY_NOT_VALIDATED",
+  "note": "Autorskie hipotetyczne scenariusze, nie dane badawcze. Publiczny bank z kluczami: nie używać jako zamrożonego testu głównego. Ostateczne równoległe formy należy opracować i przechowywać z kontrolą dostępu; pilotaż nie potwierdzony.",
+  "categories": {
+    "U": "Wniosek uzasadniony",
+    "S": "Wniosek sprzeczny z przesłankami",
+    "N": "Brak wystarczających informacji"
+  },
+  "forms": [
+    {
+      "form": "A",
+      "items": [
+        {
+          "id": "A01",
+          "domain": "daily_decisions",
+          "premises": "Karta biblioteczna jest ważna do końca czerwca. Dziś jest 12 czerwca.",
+          "claim": "Karta jest jeszcze ważna.",
+          "key": "U",
+          "rationale": "12 czerwca przypada przed końcem czerwca.",
+          "justify": true
+        },
+        {
+          "id": "A02",
+          "domain": "daily_decisions",
+          "premises": "Regulamin zezwala na zwrot biletu najpóźniej 48 godzin przed wydarzeniem. Do wydarzenia pozostały 24 godziny.",
+          "claim": "Regulamin pozwala teraz zwrócić bilet.",
+          "key": "S",
+          "rationale": "24 godziny to mniej niż wymagane 48.",
+          "justify": true
+        },
+        {
+          "id": "A03",
+          "domain": "daily_decisions",
+          "premises": "Pociąg odjechał punktualnie ze stacji początkowej. Nie podano informacji o dalszym przejeździe.",
+          "claim": "Pociąg dotarł punktualnie do celu.",
+          "key": "N",
+          "rationale": "Brak czasu przyjazdu.",
+          "justify": false
+        },
+        {
+          "id": "A04",
+          "domain": "daily_decisions",
+          "premises": "Szafka ma szerokość wewnętrzną 55 cm. Pudełko ma szerokość 50 cm.",
+          "claim": "Pudełko jest węższe od wnętrza szafki.",
+          "key": "U",
+          "rationale": "50 jest mniejsze niż 55.",
+          "justify": false
+        },
+        {
+          "id": "A05",
+          "domain": "daily_decisions",
+          "premises": "Wszystkie miejsca w sali są numerowane od 1 do 80.",
+          "claim": "W sali jest miejsce numer 91.",
+          "key": "S",
+          "rationale": "91 wykracza poza podany zakres.",
+          "justify": false
+        },
+        {
+          "id": "A06",
+          "domain": "daily_decisions",
+          "premises": "Dwie oferty dostawy mają taką samą cenę produktu. Nie podano opłat przewozowych.",
+          "claim": "Łączny koszt pierwszej oferty jest niższy.",
+          "key": "N",
+          "rationale": "Brak kosztów dostawy.",
+          "justify": false
+        },
+        {
+          "id": "A07",
+          "domain": "daily_decisions",
+          "premises": "Klucz do magazynu odebrano o 9:00, a zwrócono o 11:00 tego samego dnia.",
+          "claim": "Klucz pozostawał poza punktem wydawania przez dwie godziny.",
+          "key": "U",
+          "rationale": "Różnica czasów wynosi dwie godziny.",
+          "justify": false
+        },
+        {
+          "id": "A08",
+          "domain": "daily_decisions",
+          "premises": "W zamkniętym wykazie odbiorców znajdują się tylko Anna, Jan i Ewa.",
+          "claim": "Piotr figuruje w tym wykazie.",
+          "key": "S",
+          "rationale": "Piotra nie ma w kompletnym wykazie.",
+          "justify": false
+        },
+        {
+          "id": "A09",
+          "domain": "data_interpretation",
+          "premises": "W pierwszej partii było 40 sztuk, w drugiej 60. Partie nie zawierają wspólnych sztuk.",
+          "claim": "Łącznie było 100 sztuk.",
+          "key": "U",
+          "rationale": "40 + 60 = 100.",
+          "justify": false
+        },
+        {
+          "id": "A10",
+          "domain": "data_interpretation",
+          "premises": "Z 200 przesyłek 20 zwrócono.",
+          "claim": "Zwrócono 20 procent przesyłek.",
+          "key": "S",
+          "rationale": "20/200 = 10 procent.",
+          "justify": true
+        },
+        {
+          "id": "A11",
+          "domain": "data_interpretation",
+          "premises": "Średni czas wykonania zadania wynosił 12 minut. Nie podano rozkładu czasów.",
+          "claim": "Większość osób zakończyła zadanie przed 12. minutą.",
+          "key": "N",
+          "rationale": "Średnia nie określa odsetka poniżej niej.",
+          "justify": true
+        },
+        {
+          "id": "A12",
+          "domain": "data_interpretation",
+          "premises": "Liczba zgłoszeń spadła ze 100 do 80.",
+          "claim": "Liczba zgłoszeń spadła o 20 procent.",
+          "key": "U",
+          "rationale": "(100-80)/100 = 0,20.",
+          "justify": false
+        },
+        {
+          "id": "A13",
+          "domain": "data_interpretation",
+          "premises": "W grupie 30 osób 18 wybrało wariant X, a pozostałe 12 wariant Y.",
+          "claim": "Wariant Y wybrała większość.",
+          "key": "S",
+          "rationale": "12/30 to mniej niż połowa.",
+          "justify": false
+        },
+        {
+          "id": "A14",
+          "domain": "data_interpretation",
+          "premises": "Wykres pokazuje wzrost łącznych przychodów, ale nie podaje kosztów.",
+          "claim": "Zysk wzrósł.",
+          "key": "N",
+          "rationale": "Brakuje kosztów obu okresów.",
+          "justify": false
+        },
+        {
+          "id": "A15",
+          "domain": "data_interpretation",
+          "premises": "W próbie były cztery wyniki: 2, 4, 6 i 8.",
+          "claim": "Mediana wynosi 6.",
+          "key": "S",
+          "rationale": "Mediana wynosi (4+6)/2 = 5.",
+          "justify": false
+        },
+        {
+          "id": "A16",
+          "domain": "data_interpretation",
+          "premises": "W ankiecie 90 osób wybrało opcję A. Nie podano liczby respondentów.",
+          "claim": "Opcję A wybrała większość.",
+          "key": "N",
+          "rationale": "Brak mianownika.",
+          "justify": false
+        },
+        {
+          "id": "A17",
+          "domain": "relations",
+          "premises": "Każde urządzenie z serii K ma port USB-C. Egzemplarz Q należy do serii K.",
+          "claim": "Egzemplarz Q ma port USB-C.",
+          "key": "U",
+          "rationale": "Reguła ogólna obejmuje Q.",
+          "justify": true
+        },
+        {
+          "id": "A18",
+          "domain": "relations",
+          "premises": "W raporcie podano, że żaden z 15 badanych materiałów nie przepuszczał światła.",
+          "claim": "Co najmniej jeden z tych materiałów przepuszczał światło.",
+          "key": "S",
+          "rationale": "Twierdzenie przeczy wynikowi dla wszystkich 15.",
+          "justify": false
+        },
+        {
+          "id": "A19",
+          "domain": "relations",
+          "premises": "Osoby częściej ćwiczące deklarowały lepszy nastrój. Badanie było przekrojowe.",
+          "claim": "Ćwiczenia spowodowały poprawę nastroju.",
+          "key": "N",
+          "rationale": "Brak porządku czasowego i kontroli zakłóceń.",
+          "justify": true
+        },
+        {
+          "id": "A20",
+          "domain": "relations",
+          "premises": "Jeżeli czujnik wykryje ruch, zapala się lampka. Czujnik wykrył ruch; reguła działa bez wyjątków.",
+          "claim": "Lampka się zapaliła.",
+          "key": "U",
+          "rationale": "Zastosowanie podanej implikacji.",
+          "justify": false
+        },
+        {
+          "id": "A21",
+          "domain": "relations",
+          "premises": "Oba badane programy działały wyłącznie offline przez cały pomiar.",
+          "claim": "Jeden z nich pobrał w trakcie pomiaru dane z Internetu.",
+          "key": "S",
+          "rationale": "Wyłączna praca offline przeczy pobraniu.",
+          "justify": false
+        },
+        {
+          "id": "A22",
+          "domain": "relations",
+          "premises": "W mieście wzrosła liczba rowerzystów po otwarciu ścieżki. Nie badano innych zmian.",
+          "claim": "Ścieżka była jedyną przyczyną wzrostu.",
+          "key": "N",
+          "rationale": "Nie wykluczono innych przyczyn.",
+          "justify": false
+        },
+        {
+          "id": "A23",
+          "domain": "relations",
+          "premises": "Każda osoba, która ukończyła kurs, otrzymała certyfikat. Ola ukończyła kurs.",
+          "claim": "Ola otrzymała certyfikat.",
+          "key": "U",
+          "rationale": "Ola spełnia warunek reguły.",
+          "justify": false
+        },
+        {
+          "id": "A24",
+          "domain": "relations",
+          "premises": "Wszyscy laureaci konkursu złożyli formularz. Adam złożył formularz.",
+          "claim": "Adam jest laureatem.",
+          "key": "N",
+          "rationale": "Spełnienie warunku koniecznego nie wystarcza.",
+          "justify": false
+        }
+      ]
+    },
+    {
+      "form": "B",
+      "items": [
+        {
+          "id": "B01",
+          "domain": "daily_decisions",
+          "premises": "Punkt odbioru pracuje od 8:00 do 16:00 w każdy wtorek. Jest wtorek, godzina 10:00.",
+          "claim": "Zgodnie z harmonogramem punkt jest teraz czynny.",
+          "key": "U",
+          "rationale": "10:00 mieści się w godzinach pracy.",
+          "justify": true
+        },
+        {
+          "id": "B02",
+          "domain": "daily_decisions",
+          "premises": "Dopuszczalna masa paczki wynosi maksymalnie 10 kg. Paczka waży 12 kg.",
+          "claim": "Paczka spełnia limit masy.",
+          "key": "S",
+          "rationale": "12 kg przekracza 10 kg.",
+          "justify": true
+        },
+        {
+          "id": "B03",
+          "domain": "daily_decisions",
+          "premises": "Rezerwacja pokoju obejmuje nocleg. Oferta nie określa wyżywienia.",
+          "claim": "Śniadanie jest wliczone w cenę.",
+          "key": "N",
+          "rationale": "Brak informacji o wyżywieniu.",
+          "justify": false
+        },
+        {
+          "id": "B04",
+          "domain": "daily_decisions",
+          "premises": "Kupon daje 15 zł rabatu od ceny 90 zł bez dodatkowych warunków.",
+          "claim": "Cena po zastosowaniu kuponu wynosi 75 zł.",
+          "key": "U",
+          "rationale": "90 - 15 = 75.",
+          "justify": false
+        },
+        {
+          "id": "B05",
+          "domain": "daily_decisions",
+          "premises": "Wszystkie trzy klucze znajdują się w zamkniętej kasetce.",
+          "claim": "Jeden z tych trzech kluczy leży na biurku poza kasetką.",
+          "key": "S",
+          "rationale": "Kompletny stan wyklucza położenie poza kasetką.",
+          "justify": false
+        },
+        {
+          "id": "B06",
+          "domain": "daily_decisions",
+          "premises": "Dwa mieszkania mają jednakowy czynsz podstawowy. Nie podano opłat za media.",
+          "claim": "Pierwsze mieszkanie ma niższy koszt miesięczny.",
+          "key": "N",
+          "rationale": "Brak opłat za media.",
+          "justify": false
+        },
+        {
+          "id": "B07",
+          "domain": "daily_decisions",
+          "premises": "Na wykonanie pracy przewidziano 45 minut. Praca zajęła 30 minut.",
+          "claim": "Pracę ukończono przed upływem przewidzianego czasu.",
+          "key": "U",
+          "rationale": "30 minut to mniej niż 45.",
+          "justify": false
+        },
+        {
+          "id": "B08",
+          "domain": "daily_decisions",
+          "premises": "Instrukcja wymaga minimum dwóch podpisów. Dokument ma jeden podpis.",
+          "claim": "Dokument spełnia wymaganie dotyczące podpisów.",
+          "key": "S",
+          "rationale": "Jeden nie spełnia minimum dwóch.",
+          "justify": false
+        },
+        {
+          "id": "B09",
+          "domain": "data_interpretation",
+          "premises": "W sondażu uczestniczyło 80 osób, z których 20 wybrało opcję B.",
+          "claim": "Opcję B wybrała jedna czwarta respondentów.",
+          "key": "U",
+          "rationale": "20/80 = 1/4.",
+          "justify": false
+        },
+        {
+          "id": "B10",
+          "domain": "data_interpretation",
+          "premises": "Cena wzrosła z 50 zł do 60 zł.",
+          "claim": "Cena wzrosła o 10 procent.",
+          "key": "S",
+          "rationale": "Wzrost wynosi 10/50 = 20 procent.",
+          "justify": true
+        },
+        {
+          "id": "B11",
+          "domain": "data_interpretation",
+          "premises": "Dwa zespoły uzyskały średnie wyniki 70 i 75 punktów. Nie podano liczebności ani zmienności.",
+          "claim": "Różnica jest istotna statystycznie na poziomie 0,05.",
+          "key": "N",
+          "rationale": "Brak informacji do obliczenia niepewności.",
+          "justify": true
+        },
+        {
+          "id": "B12",
+          "domain": "data_interpretation",
+          "premises": "W pierwszym dniu zgłoszono 18 spraw, w drugim 12. Każda sprawa wystąpiła tylko raz.",
+          "claim": "W ciągu tych dni zgłoszono 30 spraw.",
+          "key": "U",
+          "rationale": "18 + 12 = 30.",
+          "justify": false
+        },
+        {
+          "id": "B13",
+          "domain": "data_interpretation",
+          "premises": "Pięć pomiarów wyniosło 3, 3, 3, 3 i 3.",
+          "claim": "Zakres od minimum do maksimum wynosi 3.",
+          "key": "S",
+          "rationale": "Maksimum minus minimum wynosi zero.",
+          "justify": false
+        },
+        {
+          "id": "B14",
+          "domain": "data_interpretation",
+          "premises": "Wydajność na godzinę wzrosła, ale całkowity czas pracy nie jest znany.",
+          "claim": "Całkowita produkcja wzrosła.",
+          "key": "N",
+          "rationale": "Brak czasu pracy przed zmianą i po niej.",
+          "justify": false
+        },
+        {
+          "id": "B15",
+          "domain": "data_interpretation",
+          "premises": "Spośród 50 wniosków 40 zaakceptowano, a 10 odrzucono.",
+          "claim": "Zaakceptowano mniej niż połowę wniosków.",
+          "key": "S",
+          "rationale": "40/50 = 80 procent.",
+          "justify": false
+        },
+        {
+          "id": "B16",
+          "domain": "data_interpretation",
+          "premises": "Wartość średnia w próbie wyniosła 100. Nie podano wartości indywidualnych.",
+          "claim": "Największy wynik wyniósł 120.",
+          "key": "N",
+          "rationale": "Średnia nie określa maksimum.",
+          "justify": false
+        },
+        {
+          "id": "B17",
+          "domain": "relations",
+          "premises": "Każdy zamknięty wniosek w tym systemie ma przypisany numer archiwalny. Wniosek R jest zamknięty.",
+          "claim": "Wniosek R ma numer archiwalny.",
+          "key": "U",
+          "rationale": "Reguła obejmuje zamknięty wniosek R.",
+          "justify": true
+        },
+        {
+          "id": "B18",
+          "domain": "relations",
+          "premises": "We wszystkich sześciu obserwowanych sesjach nie wystąpiła przerwa w transmisji.",
+          "claim": "Podczas jednej z tych sesji wystąpiła przerwa.",
+          "key": "S",
+          "rationale": "Twierdzenie przeczy opisowi wszystkich sesji.",
+          "justify": false
+        },
+        {
+          "id": "B19",
+          "domain": "relations",
+          "premises": "Osoby korzystające z notatek elektronicznych uzyskały wyższe oceny. Samodzielnie wybierały sposób notowania.",
+          "claim": "Notatki elektroniczne spowodowały wyższe oceny.",
+          "key": "N",
+          "rationale": "Brak randomizacji i kontroli różnic między osobami.",
+          "justify": true
+        },
+        {
+          "id": "B20",
+          "domain": "relations",
+          "premises": "Jeżeli zamówienie jest opłacone, system wysyła potwierdzenie. Zamówienie zostało opłacone; reguła działa bez wyjątków.",
+          "claim": "System wysłał potwierdzenie.",
+          "key": "U",
+          "rationale": "Spełniono warunek wystarczający.",
+          "justify": false
+        },
+        {
+          "id": "B21",
+          "domain": "relations",
+          "premises": "Zgodnie z kompletnym zapisem wszystkie trzy urządzenia wyłączono przed północą.",
+          "claim": "Jedno z tych urządzeń pozostało włączone po północy.",
+          "key": "S",
+          "rationale": "Zapis przeczy pracy po północy.",
+          "justify": false
+        },
+        {
+          "id": "B22",
+          "domain": "relations",
+          "premises": "Po zmianie układu sklepu zwiększyła się sprzedaż. Nie opisano cen ani promocji.",
+          "claim": "Nowy układ był wyłączną przyczyną zwiększonej sprzedaży.",
+          "key": "N",
+          "rationale": "Nie kontrolowano cen, promocji ani innych czynników.",
+          "justify": false
+        },
+        {
+          "id": "B23",
+          "domain": "relations",
+          "premises": "Żaden element z zestawu X nie jest metalowy. Śruba R należy do zestawu X.",
+          "claim": "Śruba R nie jest metalowa.",
+          "key": "U",
+          "rationale": "Podana reguła obejmuje każdy element X.",
+          "justify": false
+        },
+        {
+          "id": "B24",
+          "domain": "relations",
+          "premises": "Każdy pracownik działu A posiada identyfikator. Osoba R posiada identyfikator.",
+          "claim": "Osoba R pracuje w dziale A.",
+          "key": "N",
+          "rationale": "Identyfikator nie jest warunkiem wystarczającym.",
+          "justify": false
+        }
+      ]
+    },
+    {
+      "form": "C",
+      "items": [
+        {
+          "id": "C01",
+          "domain": "daily_decisions",
+          "premises": "Limit wejścia wynosi 20 osób. W pomieszczeniu przebywa 14 osób.",
+          "claim": "Do osiągnięcia limitu brakuje sześciu osób.",
+          "key": "U",
+          "rationale": "20 - 14 = 6.",
+          "justify": true
+        },
+        {
+          "id": "C02",
+          "domain": "daily_decisions",
+          "premises": "Termin odbioru dokumentu upłynął 5 maja. Dziś jest 8 maja.",
+          "claim": "Termin jeszcze nie upłynął.",
+          "key": "S",
+          "rationale": "8 maja jest po 5 maja.",
+          "justify": true
+        },
+        {
+          "id": "C03",
+          "domain": "daily_decisions",
+          "premises": "Przesyłka ma status wysłana. Nie podano potwierdzenia doręczenia.",
+          "claim": "Odbiorca już otrzymał przesyłkę.",
+          "key": "N",
+          "rationale": "Wysłanie nie potwierdza doręczenia.",
+          "justify": false
+        },
+        {
+          "id": "C04",
+          "domain": "daily_decisions",
+          "premises": "Opłata za godzinę wynosi 8 zł, bez innych opłat. Usługa trwała dokładnie trzy godziny.",
+          "claim": "Łączna opłata wynosi 24 zł.",
+          "key": "U",
+          "rationale": "3 razy 8 = 24.",
+          "justify": false
+        },
+        {
+          "id": "C05",
+          "domain": "daily_decisions",
+          "premises": "W kompletnym rozkładzie na sobotę są odjazdy wyłącznie o 9:00 i 15:00.",
+          "claim": "Rozkład na sobotę zawiera odjazd o 12:00.",
+          "key": "S",
+          "rationale": "12:00 nie występuje w kompletnym rozkładzie.",
+          "justify": false
+        },
+        {
+          "id": "C06",
+          "domain": "daily_decisions",
+          "premises": "Dwa urządzenia mają taką samą pojemność akumulatora. Nie podano poboru energii.",
+          "claim": "Pierwsze działa dłużej na jednym ładowaniu.",
+          "key": "N",
+          "rationale": "Brak danych o poborze energii.",
+          "justify": false
+        },
+        {
+          "id": "C07",
+          "domain": "daily_decisions",
+          "premises": "Wypożyczenie trwa od poniedziałku do środy włącznie.",
+          "claim": "Wypożyczenie obejmuje wtorek.",
+          "key": "U",
+          "rationale": "Wtorek mieści się w podanym przedziale.",
+          "justify": false
+        },
+        {
+          "id": "C08",
+          "domain": "daily_decisions",
+          "premises": "Bilet jest ważny wyłącznie w strefie pierwszej.",
+          "claim": "Bilet uprawnia do przejazdu w strefie trzeciej.",
+          "key": "S",
+          "rationale": "Strefa trzecia nie jest strefą pierwszą.",
+          "justify": false
+        },
+        {
+          "id": "C09",
+          "domain": "data_interpretation",
+          "premises": "Wśród 120 uczestników 30 zrezygnowało.",
+          "claim": "Zrezygnowało 25 procent uczestników.",
+          "key": "U",
+          "rationale": "30/120 = 0,25.",
+          "justify": false
+        },
+        {
+          "id": "C10",
+          "domain": "data_interpretation",
+          "premises": "Wynik wzrósł z 20 do 30 punktów.",
+          "claim": "Wynik podwoił się.",
+          "key": "S",
+          "rationale": "Podwojenie dałoby 40 punktów.",
+          "justify": true
+        },
+        {
+          "id": "C11",
+          "domain": "data_interpretation",
+          "premises": "Średnia liczba błędów w grupie wyniosła cztery.",
+          "claim": "Każdy uczestnik popełnił dokładnie cztery błędy.",
+          "key": "N",
+          "rationale": "Średnia nie określa wyników jednostkowych.",
+          "justify": true
+        },
+        {
+          "id": "C12",
+          "domain": "data_interpretation",
+          "premises": "W zbiorze jest 15 niebieskich i 25 czerwonych kart, bez innych kart.",
+          "claim": "Czerwone karty stanowią większość zbioru.",
+          "key": "U",
+          "rationale": "25 z 40 to więcej niż połowa.",
+          "justify": false
+        },
+        {
+          "id": "C13",
+          "domain": "data_interpretation",
+          "premises": "Cztery wartości to 10, 20, 30 i 40.",
+          "claim": "Ich średnia arytmetyczna wynosi 30.",
+          "key": "S",
+          "rationale": "Suma 100 podzielona przez 4 daje 25.",
+          "justify": false
+        },
+        {
+          "id": "C14",
+          "domain": "data_interpretation",
+          "premises": "Odsetek odpowiedzi poprawnych wzrósł w badanej próbie. Nie podano liczby zadań ani uczestników.",
+          "claim": "Liczba poprawnych odpowiedzi wzrosła.",
+          "key": "N",
+          "rationale": "Zmiana odsetka nie rozstrzyga zmiany liczebności.",
+          "justify": false
+        },
+        {
+          "id": "C15",
+          "domain": "data_interpretation",
+          "premises": "W próbie liczącej 60 osób 15 wskazało odpowiedź C.",
+          "claim": "Odpowiedź C wskazała jedna trzecia próby.",
+          "key": "S",
+          "rationale": "15/60 = 1/4.",
+          "justify": false
+        },
+        {
+          "id": "C16",
+          "domain": "data_interpretation",
+          "premises": "Wykres przedstawia jedynie dane z marca i kwietnia.",
+          "claim": "W maju wartość wskaźnika była niższa niż w kwietniu.",
+          "key": "N",
+          "rationale": "Brak danych z maja.",
+          "justify": false
+        },
+        {
+          "id": "C17",
+          "domain": "relations",
+          "premises": "Każdy zapis o statusie zatwierdzony zawiera datę zatwierdzenia. Zapis B ma ten status.",
+          "claim": "Zapis B zawiera datę zatwierdzenia.",
+          "key": "U",
+          "rationale": "Podana reguła obejmuje zapis B.",
+          "justify": true
+        },
+        {
+          "id": "C18",
+          "domain": "relations",
+          "premises": "Wszystkie osiem próbek przechowywano przez cały eksperyment w temperaturze 20 stopni.",
+          "claim": "Jedną z tych próbek przechowywano podczas eksperymentu w temperaturze 30 stopni.",
+          "key": "S",
+          "rationale": "Stała temperatura 20 stopni wyklucza 30.",
+          "justify": false
+        },
+        {
+          "id": "C19",
+          "domain": "relations",
+          "premises": "Osoby pijące więcej kawy deklarowały krótszy sen. Dane zebrano jednorazowo.",
+          "claim": "Kawa spowodowała krótszy sen.",
+          "key": "N",
+          "rationale": "Brak porządku czasowego i kontroli alternatywnych wyjaśnień.",
+          "justify": true
+        },
+        {
+          "id": "C20",
+          "domain": "relations",
+          "premises": "Jeśli plik jest zatwierdzony, system tworzy jego kopię. Plik Z zatwierdzono; reguła działa bez wyjątków.",
+          "claim": "System utworzył kopię pliku Z.",
+          "key": "U",
+          "rationale": "Spełniono warunek reguły.",
+          "justify": false
+        },
+        {
+          "id": "C21",
+          "domain": "relations",
+          "premises": "Żaden z badanych uczestników nie otrzymał dodatkowej instrukcji.",
+          "claim": "Co najmniej jeden badany uczestnik otrzymał dodatkową instrukcję.",
+          "key": "S",
+          "rationale": "Twierdzenie jest sprzeczne z przesłanką.",
+          "justify": false
+        },
+        {
+          "id": "C22",
+          "domain": "relations",
+          "premises": "Po remoncie placu wzrosła liczba odwiedzających. Nie podano pogody ani sezonu.",
+          "claim": "Remont był jedyną przyczyną wzrostu.",
+          "key": "N",
+          "rationale": "Nie wykluczono sezonu, pogody i innych przyczyn.",
+          "justify": false
+        },
+        {
+          "id": "C23",
+          "domain": "relations",
+          "premises": "Każdy element sklasyfikowany jako A przeszedł kontrolę jakości. Element M sklasyfikowano jako A.",
+          "claim": "Element M przeszedł kontrolę jakości.",
+          "key": "U",
+          "rationale": "M należy do kategorii objętej regułą.",
+          "justify": false
+        },
+        {
+          "id": "C24",
+          "domain": "relations",
+          "premises": "Każdy członek klubu ma kartę wejścia. Ewa ma kartę wejścia.",
+          "claim": "Ewa jest członkiem klubu.",
+          "key": "N",
+          "rationale": "Karta może przysługiwać także osobie spoza klubu.",
+          "justify": false
+        }
+      ]
+    }
+  ]
+}
