@@ -1,66 +1,141 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
 \usepackage[polish]{babel}
-
 \usepackage{lmodern}
-
 \usepackage{geometry}
-
 \geometry{margin=27mm}
-
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 
 \title{Krótka edukacja o AI a niezależność poznawcza}
-
 \author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Projekt badania, wersja 0.2.0, 24 listopada 2026}
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
-
-Tematem pracy jest Krótka edukacja o AI a niezależność poznawcza. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Skuteczne korzystanie z generatywnej sztucznej inteligencji nie musi prowadzić do poprawy zdolności samodzielnego rozumowania. Celem projektowanego badania jest oszacowanie wpływu krótkiej interwencji edukacyjnej, poświęconej ograniczeniom AI i weryfikacji informacji, na trafność niezależnego osądu. Proponuje się randomizowany eksperyment internetowy z aktywną grupą kontrolną, pomiarem bazowym, bezpośrednim posttestem oraz pomiarem odroczonym po siedmiu dniach. Głównym wynikiem będzie odsetek trafnych decyzji w nowych zadaniach wykonywanych bez pomocy AI. Dodatkowo ocenione zostaną kalibracja pewności, jakość uzasadnienia i wiedza o AI. Projekt pozwoli odróżnić przyrost wiedzy deklaratywnej od transferu kompetencji poznawczych, jednak nie umożliwi wnioskowania o globalnej zmianie inteligencji ani trwałej autonomii poza badanym kontekstem. Tekst przedstawia projekt badania, a nie wyniki empiryczne.
 \end{abstract}
 
+\noindent Słowa kluczowe: kompetencje AI, niezależność poznawcza, transfer uczenia się, automatyzacja osądu, kalibracja metapoznawcza.
+
 \section{Wprowadzenie}
+Systemy generatywnej AI umożliwiają szybkie uzyskanie odpowiedzi, ale płynność językowa nie stanowi dowodu poprawności wniosku. Użytkownik może uzyskać rozwiązanie zadania bez samodzielnej oceny przesłanek, co rodzi pytanie, czy doświadczenie korzystania z narzędzia przekłada się na późniejszą sprawność poznawczą bez jego wsparcia. W edukacji rozróżnienie to ma znaczenie zasadnicze: jakość wytworzonej odpowiedzi nie jest tożsama z kompetencją osoby, która tę odpowiedź przygotowała.
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Krótka edukacja o AI a niezależność poznawcza wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Niezależność poznawczą definiuje się tutaj wąsko jako zdolność do sformułowania trafnego osądu na podstawie dostępnych przesłanek bez bieżącej rekomendacji AI. Nie oznacza ona odrzucania narzędzi informatycznych, nieufności wobec wszystkich źródeł ani ogólnej cechy osobowości. Obejmuje rozpoznawanie brakujących informacji, rozróżnianie przesłanki od wniosku i dostosowanie pewności do jakości dowodów. Operacyjny pomiar tych umiejętności pozwala uniknąć utożsamienia deklarowanej samodzielności z rzeczywistym wykonaniem.
 
-\section{Cel i pytania badawcze}
+\section{Podstawy teoretyczne}
+\subsection{Kompetencje AI i krytyczna ocena informacji}
+Long i Magerko (2020) ujmują AI literacy jako zestaw kompetencji obejmujący rozumienie, krytyczną ocenę i skuteczne wykorzystywanie technologii. Chee i in. (2025) przedstawiają zróżnicowanie oczekiwanych kompetencji w zależności od etapu edukacyjnego oraz kontekstu zawodowego. W projekcie przyjmuje się, że znajomość ograniczeń modeli językowych jest potencjalnym warunkiem krytycznej oceny, lecz nie jest wystarczającym wskaźnikiem wykonania zadania. Badanie Le i in. (2026), dotyczące szkolenia przyszłych nauczycieli, wskazuje na znaczenie projektowania kompetencji wykraczających poza obsługę pojedynczego narzędzia. Jego wyniki dotyczą jednak m.in. poczucia własnej skuteczności i postaw; nie rozstrzygają przyjętego tutaj pytania o samodzielne wykonanie po usunięciu pomocy AI.
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Krótka edukacja o AI a niezależność poznawcza. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+\subsection{Nadmierne poleganie na automatyzacji}
+Badania nad automation bias opisują możliwość zastępowania własnej oceny rekomendacją systemu automatycznego (Skitka i in., 1999). Buçinca i in. (2021) wykazali, że wymuszenie aktywnego namysłu podczas decyzji wspomaganej przez AI może ograniczać nadmierne poleganie na błędnych wskazówkach. Nie wynika stąd jednak, że taki mechanizm utrzymuje się po zakończeniu interakcji. Interwencja edukacyjna może działać przez zmianę sposobu sprawdzania przesłanek, ale równie prawdopodobnym wyjaśnieniem krótkotrwałej poprawy jest większa ostrożność wynikająca z instrukcji eksperymentalnej.
+
+\subsection{Transfer uczenia się i mechanizm interwencji}
+Barnett i Ceci (2002) podkreślają, że transfer należy określać względem podobieństwa treści, kontekstu, czasu i wymagań zadania. W proponowanym eksperymencie transfer oznacza zastosowanie reguł oceny dowodów do zadań niewystępujących w szkoleniu, a następnie ich ponowne zastosowanie po upływie tygodnia. Badanie Bastani i in. (2025) w nauczaniu matematyki uzasadnia oddzielanie wykonania wspomaganego od późniejszego wykonania bez AI. Nie stanowi ono jednak bezpośredniego dowodu skuteczności proponowanej interwencji u dorosłych.
+
+Zakładany mechanizm polega na nabyciu procedury: sformułowanie problemu, identyfikacja przesłanek, poszukiwanie brakujących warunków i rozważenie alternatywnego wyjaśnienia przed wydaniem decyzji. Procedura ma być stosowana również wtedy, gdy rekomendacja AI nie jest dostępna. Rywalizujące wyjaśnienia obejmują efekt nowości, oczekiwania uczestnika, większy wysiłek i ogólny trening rozumowania. Randomizacja pozwoli oszacować efekt całego pakietu edukacyjnego, ale nie zidentyfikuje samodzielnie udziału każdego mechanizmu.
+
+\section{Cel i hipotezy}
+Pytanie główne brzmi: czy krótka edukacja o ograniczeniach AI i krytycznej weryfikacji poprawia trafność osądu w nowych zadaniach bez wsparcia AI w porównaniu z neutralną lekcją o porównywalnej długości?
+
+\begin{enumerate}
+\item H1 (pierwszorzędowa): uczestnicy interwencji uzyskają wyższy odsetek trafnych odpowiedzi w bezpośrednim postteście niż uczestnicy aktywnej kontroli, po uwzględnieniu wyniku bazowego.
+\item H2 (drugorzędowa): przewaga interwencji będzie obserwowalna również w nowych zadaniach po siedmiu dniach.
+\item H3 (drugorzędowa): interwencja zmniejszy błąd kalibracji subiektywnego prawdopodobieństwa poprawności własnej odpowiedzi.
+\item H4 (drugorzędowa): uczestnicy interwencji częściej będą wskazywać przesłanki istotne dla uzasadnienia decyzji.
+\end{enumerate}
+
+Przyrost wiedzy o AI stanowi kontrolę manipulacji, nie dowód poprawy samodzielnego osądu. Związek między wiedzą, pewnością i wykonaniem będzie analizowany eksploracyjnie, bez automatycznego przypisywania zależnościom statusu mediacji przyczynowej.
 
 \section{Materiał i metody}
+\subsection{Schemat i uczestnicy}
+Proponuje się dwuramienny eksperyment z alokacją 1:1 i pomiarem w trzech punktach czasowych. Populacją docelową są pełnoletnie osoby posługujące się językiem polskim, niezależnie od wcześniejszego doświadczenia z AI. Rekrutacja internetowa będzie dobrowolna. W przypadku rekrutacji studentów udział nie może mieć wpływu na ocenę z przedmiotu ani pozostawać w zależności od decyzji prowadzącego.
 
-Losowo porównać krótkie szkolenie z ograniczeń AI z neutralną lekcją przed i po teście. Pierwszorzędowy wskaźnik: Zmiana trafności niezależnego osądu bez aktywnej porady AI. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Przed randomizacją uczestnicy wykonają test bazowy i odpowiedzą na krótkie pytania o korzystanie z AI. Przydział zostanie wygenerowany komputerowo i ujawniony dopiero po ukończeniu pretestu. Proponowany jest losowy przydział warstwowy względem dwóch poziomów doświadczenia z AI, z progami zdefiniowanymi przed rekrutacją. Uczestnicy nie mogą być w pełni zaślepieni na treść lekcji; nie zostaną jednak poinformowani o oczekiwanym kierunku różnic. Osoby oceniające uzasadnienia nie będą znały grupy ani punktu pomiarowego.
+
+\subsection{Interwencja i kontrola}
+Interwencja będzie trwała około 15 minut i obejmie trzy części: wyjaśnienie różnicy między przekonującym tekstem a uzasadnionym twierdzeniem, ćwiczenia rozpoznawania brakujących przesłanek oraz zastosowanie czteroetapowej procedury weryfikacji. Uczestnik przed ujawnieniem komentarza dydaktycznego podejmie własną decyzję. Przykłady błędnych odpowiedzi AI zostaną przygotowane wcześniej, zweryfikowane merytorycznie i będą identyczne dla wszystkich osób w tym ramieniu.
+
+Kontrola aktywna obejmie lekcję o historii i podstawowych zastosowaniach narzędzi cyfrowych, bez instruktażu krytycznej oceny dowodów. Forma przekazu, czas, liczba ekranów, liczba pytań i informacja zwrotna powinny być porównywalne z interwencją. Dwa ramiona pozwalają ocenić całkowity efekt szkolenia; wyodrębnienie komponentu specyficznego dla AI względem ogólnego treningu krytycznego myślenia wymagałoby dodatkowego ramienia i osobnego planu mocy.
+
+\subsection{Bodźce i procedura pomiarowa}
+Należy opracować trzy równoległe zestawy po 24 zadania, obejmujące ocenę wnioskowania, brakującego kontekstu i niespójności dowodów. W każdym zadaniu uczestnik wskaże jedną z trzech odpowiedzi: wniosek uzasadniony, wniosek sprzeczny z przesłankami lub brak wystarczających informacji. Po decyzji poda subiektywne prawdopodobieństwo jej poprawności w zakresie od 0 do 100 procent. W wybranych sześciu zadaniach każdego zestawu poda również krótkie uzasadnienie. Wszystkie informacje konieczne do odpowiedzi muszą znajdować się w treści zadania.
+
+Zestawy będą równoważone między punktami pomiarowymi i grupami według sześciu możliwych kolejności. Ich treści nie będą powtarzać przykładów szkoleniowych. Niezależni eksperci ocenią zgodność klucza, jednoznaczność i trudność, a pilotaż z osobami spoza próby głównej umożliwi wykrycie efektów sufitowych, podłogowych i nierównoważnych pozycji. Ostateczna liczba pozycji i czas odpowiedzi zostaną zamrożone po pilotażu, przed rozpoczęciem rekrutacji głównej.
+
+Pomiar bazowy i bezpośredni posttest odbędą się w jednej sesji internetowej. Pomiar odroczony nastąpi po siedmiu dniach, z dopuszczalnym oknem od sześciu do ośmiu dni. W żadnym z trzech testów nie będzie dostępna wbudowana pomoc AI ani informacja o poprawności odpowiedzi. Uczestnik zostanie poproszony o niewykorzystywanie zewnętrznych narzędzi. Oświadczenie o przestrzeganiu instrukcji jest wskaźnikiem pomocniczym, nie gwarancją braku pomocy.
+
+\subsection{Zmienne i operacjonalizacja}
+Głównym wynikiem jest proporcja poprawnych odpowiedzi na pozycje bezpośredniego posttestu. Dla osoby \(i\) w pomiarze \(t\):
+\[
+Y_{it}=\frac{1}{J}\sum_{j=1}^{J} y_{itj},
+\qquad y_{itj}\in\{0,1\},
+\]
+gdzie \(J\) oznacza liczbę pozycji zestawu, a \(y_{itj}=1\) odpowiedź poprawną. Zestaw nieukończony nie jest automatycznie klasyfikowany jako zbiór błędnych odpowiedzi. Zasady postępowania z brakami opisano w planie analizy.
+
+Kalibracja pewności zostanie oceniona za pomocą wyniku Briera:
+\[
+B_{it}=\frac{1}{J}\sum_{j=1}^{J}(p_{itj}-y_{itj})^2,
+\]
+gdzie \(p_{itj}\) to deklarowane prawdopodobieństwo poprawności wybranej odpowiedzi w skali od 0 do 1. Niższy wynik oznacza mniejszy błąd prognozy. Ponieważ miara uwzględnia zarówno trafność, jak i pewność, dodatkowo przedstawione zostaną średnia pewność, trafność i wykres kalibracji. Nie będzie ona traktowana jako czysta miara metapoznania.
+
+Jakość argumentacji zostanie oceniona według trzystopniowej rubryki: 0 oznacza brak istotnej przesłanki, 1 wskazanie przesłanki bez poprawnego powiązania z wnioskiem, a 2 poprawne powiązanie przesłanki z oceną wniosku. Osoby oceniające zastosują ustalony wcześniej klucz i rozstrzygną niezgodności po niezależnym kodowaniu. Proponuje się raportowanie ważonej kappy dla ocen przed uzgodnieniem.
+
+\subsection{Liczebność i wykonalność}
+Wielkość próby zostanie określona na podstawie najmniejszej różnicy mającej znaczenie edukacyjne, a nie efektu zaobserwowanego w małym pilotażu. Na etapie planowania przyjmuje się roboczo efekt standaryzowany \(d=0{,}35\), moc 80 procent i dwustronny poziom istotności \(0{,}05\). Przy założeniu niezależnych grup orientacyjne przybliżenie normalne daje około 129 osób na grupę. Przy założonej utracie 15 procent uczestników orientacyjny cel rekrutacji wynosi 304 osoby. To wyłącznie scenariusz planistyczny, który nie wykorzystuje jeszcze korelacji z pretestem. Ostateczne obliczenie uwzględni rzetelność zestawów, oczekiwaną korelację pomiarów, brak danych oraz model główny. Liczebność nie będzie ustalana na podstawie obserwowanych wartości \(p\).
 
 \section{Plan analizy}
+\subsection{Estymand i analiza pierwszorzędowa}
+Populacyjny estymand stanowi różnica średniej proporcji poprawnych odpowiedzi bezpośrednio po interwencji między warunkami losowego przydziału. Interesuje nas efekt przydziału do szkolenia, niezależnie od stopnia zaangażowania w materiał. Główna analiza wykorzysta regresję liniową z korektą wyniku bazowego:
+\[
+Y_{i1}=\beta_0+\tau A_i+\beta_1Y_{i0}
++\boldsymbol{\gamma}^{\mathsf T}\mathbf{X}_i+\varepsilon_i,
+\]
+gdzie \(A_i\) oznacza przydział do interwencji, a \(\mathbf X_i\) obejmuje warstwę randomizacji i kolejność zestawów. Parametr \(\tau\) będzie raportowany jako różnica w punktach procentowych wraz z 95-procentowym przedziałem ufności opartym na odpornych błędach standardowych. H1 zostanie oceniona testem dwustronnym przy \(\alpha=0{,}05\), z oczekiwanym dodatnim kierunkiem efektu.
 
-Proponowany plan analityczny: różnica zmian z korektą wiedzy wyjściowej i opóźnionym transferem. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+W analizie wrażliwości zastosowany zostanie model logistyczny na poziomie pozycji z losowym wyrazem wolnym uczestnika i pozycji. Efekt na skali prawdopodobieństwa zostanie przedstawiony przez standaryzację predykcji. Rozbieżność między modelami będzie raportowana, a nie rozstrzygana wyborem korzystniejszego wyniku.
+
+\subsection{Analizy drugorzędowe i brakujące dane}
+H2 zostanie oceniona analogicznym modelem dla pomiaru odroczonego. H3 i H4 wykorzystają odpowiednio wynik Briera i średnią punktację uzasadnienia w postteście, z korektą odpowiedniej miary bazowej. W obrębie trzech testów drugorzędowych zastosowana zostanie korekta Holma. Interakcja z doświadczeniem w korzystaniu z AI oraz analiza wiedzy o AI pozostaną eksploracyjne. Nie należy interpretować nieistotnego statystycznie efektu jako dowodu braku różnicy.
+
+Analiza obejmie wszystkich losowo przydzielonych uczestników zgodnie z przydziałem. Nieukończone pomiary, przyczyny rezygnacji i odsetki braków zostaną opisane według grup. Przy brakach wyniku zostanie zastosowana wielokrotna imputacja na poziomie wyników zestawów, z uwzględnieniem grupy, pretestu, kolejności zestawów i dostępnych pomiarów, przy założeniu braków losowych warunkowo względem obserwowanych danych. Wrażliwość na naruszenie tego założenia zostanie oceniona przez analizę kompletnych przypadków oraz przesunięcie imputowanych wyników w kierunku gorszego wykonania w każdym ramieniu. Reguły punktowania zestawów częściowo ukończonych i model imputacji wymagają prerejestracji. Analiza osób deklarujących przestrzeganie instrukcji będzie dodatkowa, gdyż wykluczenie po randomizacji może wprowadzać obciążenie.
+
+\subsection{Kontrola jakości i przejrzystość}
+Przed akwizycją danych należy ustalić kodowanie pozycji, minimalny udział odpowiedzi potrzebny do obliczenia wyniku zestawu, procedurę postępowania z duplikatami oraz reguły oceny nadmiernie szybkiego odpowiadania. Sama szybkość nie może być podstawą arbitralnego usuwania uczestnika. Należy ocenić rzetelność zestawów i równoważność form w pilotażu oraz podać niepewność tych oszacowań. Skrypty analizy powinny zostać przetestowane na danych syntetycznych przed otwarciem zbioru głównego. Dane syntetyczne służą wyłącznie kontroli obliczeń.
+
+\section{Etyka i ochrona danych}
+Rekrutacja rozpocznie się dopiero po uzyskaniu właściwej oceny etycznej i zatwierdzeniu informacji dla uczestnika. Uczestnicy otrzymają opis dobrowolności, czasu udziału, możliwości rezygnacji i zasad przetwarzania danych. Kontakt potrzebny do pomiaru odroczonego powinien być przechowywany odrębnie od odpowiedzi, z ograniczonym dostępem i okresem retencji. Uczestnikom nie należy zlecać wprowadzania danych osobowych do zewnętrznych usług AI. Materiały dydaktyczne nie będą zawierać niebezpiecznych zaleceń ani rzeczywistych danych osób trzecich. Udostępnienie materiałów i danych będzie przedmiotem odrębnej decyzji, zależnej od zgód i ryzyka identyfikacji.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Nie rozpoczęto akwizycji danych na potrzeby opisanego eksperymentu. Nie oszacowano efektu, nie przeprowadzono testów hipotez i nie potwierdzono wykonalności procedury. Po zakończeniu badania sekcja obejmie przepływ uczestników, charakterystykę próby, statystyki opisowe, oszacowania efektów oraz wyniki analiz wrażliwości.
 
 \section{Dyskusja i ograniczenia}
+Potwierdzenie H1 wskazywałoby, że szkolenie może zwiększyć trafność decyzji bez bieżącej rekomendacji AI w obrębie zdefiniowanych zadań. Potwierdzenie H2 dostarczyłoby dodatkowej informacji o utrzymaniu efektu przez tydzień. Poprawa jedynie wiedzy deklaratywnej lub wzrost pewności bez wzrostu trafności nie uzasadniałaby wniosku o poprawie niezależności poznawczej. W przypadku braku oczekiwanej różnicy należy rozważyć zarówno nieskuteczność interwencji, jak i nieprecyzyjny pomiar lub niedostateczny transfer.
 
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
+Internetowy charakter badania ogranicza kontrolę nad korzystaniem z pomocy zewnętrznej. Równoważenie form nie eliminuje całkowicie różnic trudności, a rekrutacja ochotników może ograniczać reprezentatywność próby. Uczestnicy mogą odgadnąć cel szkolenia, co może zwiększyć staranność niezależnie od trwałej zmiany kompetencji. Zadania zamknięte redukują koszt i obciążenie oceną, lecz słabiej reprezentują złożone decyzje w realnym środowisku. Siedmiodniowy pomiar nie pozwala wnioskować o wielomiesięcznej trwałości efektu.
 
 \section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Projekt proponuje behawioralny test edukacji AI ukierunkowanej na samodzielne rozumowanie. Wkładem ma być oddzielenie kompetencji ocenianej bez pomocy AI od deklarowanej wiedzy i jakości pracy wspomaganej. Przed rozpoczęciem badań konieczne są pilotaż narzędzia, uzasadnienie docelowej liczebności, zamrożenie protokołu i spełnienie wymagań etycznych. Na obecnym etapie nie można ocenić skuteczności interwencji.
 
 \section*{Bibliografia}
+\begingroup
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\hangindent=1.5em Barnett, S. M., \& Ceci, S. J. (2002). When and where do we apply what we learn? A taxonomy for far transfer. \textit{Psychological Bulletin, 128}(4), 612--637. \url{https://doi.org/10.1037/0033-2909.128.4.612}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+\hangindent=1.5em Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakc{\i}, Ö., \& Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. \textit{Proceedings of the National Academy of Sciences, 122}(26), e2422633122. \url{https://doi.org/10.1073/pnas.2422633122}
 
+\hangindent=1.5em Buçinca, Z., Malaya, M. B., \& Gajos, K. Z. (2021). To trust or to think: Cognitive forcing functions can reduce overreliance on AI in AI-assisted decision-making. \textit{Proceedings of the ACM on Human-Computer Interaction, 5}(CSCW1), Article 188. \url{https://doi.org/10.1145/3449287}
+
+\hangindent=1.5em Chee, H., Ahn, S., \& Lee, J. (2025). A competency framework for AI literacy: Variations by different learner groups and an implied learning pathway. \textit{British Journal of Educational Technology, 56}(5), 2146--2182. \url{https://doi.org/10.1111/bjet.13556}
+
+\hangindent=1.5em Le, T. H., Huynh, L., Dang, B., Pham, H.-H., Nguyen, N. T. V., \& Nguyen, A. (2026). Development and evaluation of artificial intelligence literacy training for teacher education students. \textit{British Journal of Educational Technology}. \url{https://doi.org/10.1111/bjet.70047}
+
+\hangindent=1.5em Long, D., \& Magerko, B. (2020). What is AI literacy? Competencies and design considerations. In \textit{Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems} (pp. 1--16). Association for Computing Machinery. \url{https://doi.org/10.1145/3313831.3376727}
+
+\hangindent=1.5em Skitka, L. J., Mosier, K. L., \& Burdick, M. (1999). Does automation bias decision-making? \textit{International Journal of Human-Computer Studies, 51}(5), 991--1006. \url{https://doi.org/10.1006/ijhc.1999.0252}
+\endgroup
 \end{document}
-
