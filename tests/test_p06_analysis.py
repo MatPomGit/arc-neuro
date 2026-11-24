@@ -50,6 +50,20 @@ class P06AnalysisTests(unittest.TestCase):
         self.assertEqual(r["H1"]["n_used"],144)
         self.assertGreaterEqual(r["H3"]["p_adjusted"],r["H3"]["p"])
 
+    def test_independent_statsmodels_reference(self):
+        # statsmodels 0.14.6, numpy 2.3.5, OLS.fit(cov_type="HC3",use_t=False)
+        # Independent calculation on fixture(), uncentered baseline.
+        expected={
+            "H1":(8.056666308164788,.47562979352200596),
+            "H2":(4.05666630816479,.4756297935220059),
+            "H3":(-.03943333691835202,.004756297935220063),
+            "H4":(.2005666630816481,.004756297935220058),
+        }
+        for h,(estimate,se) in expected.items():
+            r=m.fit_endpoint(fixture(),h)
+            self.assertAlmostEqual(r["estimate"],estimate,places=9)
+            self.assertAlmostEqual(r["se"],se,places=9)
+
     def test_adjustment_invariance(self):
         rows=fixture()
         a=m.fit_endpoint(rows,"H1")
