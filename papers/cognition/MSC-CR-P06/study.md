@@ -6,9 +6,9 @@
 
 **Przedmiot:** Krótka edukacja o AI a niezależność poznawcza.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
-- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
-- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Proponowany wynik główny:** trafność osądu bez pomocy AI w bezpośrednim postteście. Estymand, operacjonalizacja i jednostka analizy zostały zaproponowane w [manuskrypcie](main.tex); wymagają zamrożenia po pilotażu.
+- **Zakres i odrębność:** efekt krótkiej interwencji edukacyjnej, a nie podłużny efekt korzystania z AI (MSC-CR-P02), perswazji LLM (MSC-CR-P01) ani różnic między etapami edukacji (MSC-CR-P10). Pełna weryfikacja nowości pozostaje wymagana.
+- **Metodologia:** dwuramienny randomizowany eksperyment internetowy z aktywną kontrolą, pretestem, posttestem i pomiarem odroczonym. Szczegółowy projekt i plan analizy znajdują się w [manuskrypcie](main.tex); nie stanowią zatwierdzonego protokołu ani potwierdzenia uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 
 ## Stanowisko badawcze
