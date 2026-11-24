@@ -19,6 +19,8 @@ class P06MatrixTests(unittest.TestCase):
         self.assertEqual(len({sid for sid,_ in m.scenarios("full")}),24)
         with self.assertRaises(ValueError):
             m.run_matrix("smoke",selected="INVALID")
+        with self.assertRaises(ValueError):
+            m.run_matrix("full")
 
     def test_smoke_matrix_and_reports(self):
         result=m.run_matrix("smoke")
@@ -34,7 +36,7 @@ class P06MatrixTests(unittest.TestCase):
             self.assertEqual(json.loads((Path(d)/"matrix.json").read_text()),result)
             with (Path(d)/"matrix.csv").open(newline="",encoding="utf-8") as f:
                 rows=list(csv.DictReader(f))
-            self.assertEqual(len(rows),30)
+            self.assertEqual(len(rows),42)
             ET.parse(Path(d)/"matrix.svg")
         # Compact actual-run evidence in CI logs, not empirical results.
         print("P06_MATRIX_SMOKE_JSON="+json.dumps([

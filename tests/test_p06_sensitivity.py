@@ -21,6 +21,18 @@ class P06SensitivityTests(unittest.TestCase):
                              {k:v for k,v in b.items() if k!="accuracy_T1"})
             self.assertIn(b["accuracy_T1"],(None,a["accuracy_T1"]))
 
+    def test_session_missingness_and_common_data(self):
+        full, masked=s.generate(24,.08,.30,"MAR",7,missing_scope="session")
+        self.assertEqual(full,s.generate(24,.08,.30,"MCAR",7)[0])
+        self.assertTrue(any(r["accuracy_T1"] is None for r in masked))
+        for row in masked:
+            self.assertEqual(row["accuracy_T1"] is None,row["brier_T1"] is None)
+            self.assertEqual(row["accuracy_T1"] is None,row["justification_T1"] is None)
+        out=s.simulate(n_per_arm=24,repetitions=2,m=2,iterations=1,seed=7,missing_scope="session")
+        self.assertEqual(out["settings"]["missing_scope"],"session")
+        self.assertIn("pmm_delta10_intervention",out["methods"])
+        self.assertIn("pmm_delta10_control",out["methods"])
+
     def test_smoke(self):
         for mechanism in s.MECHANISMS:
             out=s.simulate(n_per_arm=24,repetitions=2,m=2,iterations=1,mechanism=mechanism,seed=13)

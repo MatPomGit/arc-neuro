@@ -10,7 +10,8 @@ import math
 from pathlib import Path
 from sensitivity import simulate, MECHANISMS
 
-METHODS=("full","complete_case","pmm","pmm_delta_intervention","pmm_delta_control")
+METHODS=("full","complete_case","pmm","pmm_delta_intervention","pmm_delta_control",
+         "pmm_delta10_intervention","pmm_delta10_control")
 PROFILES={
     "smoke":dict(ns=(24,),effects=(0.,.08),dropouts=(.15,),repetitions=4,m=3,iterations=2),
     "screen":dict(ns=(72,),effects=(0.,.08),dropouts=(.15,.30),repetitions=50,m=10,iterations=5),
@@ -32,14 +33,18 @@ def scenarios(profile,seed=20261124):
     return result
 
 
-def run_matrix(profile,seed=20261124,selected=None):
+def run_matrix(profile,seed=20261124,selected=None,missing_scope="accuracy"):
+    if profile=="full" and selected is None:
+        raise ValueError("Full profile requires one explicit scenario")
+    if missing_scope not in ("accuracy","session"):
+        raise ValueError("Invalid missing scope")
     options=scenarios(profile,seed)
     if selected is not None and selected not in {sid for sid,_ in options}:
         raise ValueError("Unknown scenario")
     results=[]
     for sid,settings in options:
         if selected is None or sid==selected:
-            results.append({"scenario":sid,**simulate(**settings)})
+            results.append({"scenario":sid,**simulate(**settings,missing_scope=missing_scope)})
     return {"source":"SYNTHETIC_MONTE_CARLO_ONLY","profile":profile,
             "interpretation":"TECHNICAL_SMOKE_ONLY" if profile=="smoke" else
                              "EXPLORATORY_SCREEN_ONLY" if profile=="screen" else "MODEL_BASED_SIMULATION_ONLY",
@@ -105,6 +110,7 @@ if __name__=="__main__":
     parser.add_argument("--profile",choices=PROFILES,default="smoke")
     parser.add_argument("--seed",type=int,default=20261124)
     parser.add_argument("--scenario")
+    parser.add_argument("--missing-scope",choices=("accuracy","session"),default="accuracy")
     parser.add_argument("--list",action="store_true")
     parser.add_argument("--output",type=Path)
     args=parser.parse_args()
@@ -115,6 +121,6 @@ if __name__=="__main__":
             parser.error("--output required when executing")
         if args.profile=="full" and not args.scenario:
             parser.error("Full profile requires one explicit --scenario per invocation")
-        matrix=run_matrix(args.profile,args.seed,args.scenario)
+        matrix=run_matrix(args.profile,args.seed,args.scenario,args.missing_scope)
         write_results(matrix,args.output)
         print(json.dumps(matrix,allow_nan=False))

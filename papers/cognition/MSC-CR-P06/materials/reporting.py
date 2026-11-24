@@ -2,20 +2,40 @@
 from __future__ import annotations
 import csv
 import html
+import json
+import re
+import hashlib
 from pathlib import Path
 
 LABELS = {"H1":"Trafność po interwencji","H2":"Trafność po tygodniu",
           "H3":"Wynik Briera","H4":"Jakość uzasadnienia"}
 
 
-def write_report(results, output_dir, *, source="SYNTHETIC"):
+def write_report(results, output_dir, *, source="SYNTHETIC", provenance=None):
     """Write only aggregate estimates. SOURCE is explicit, no silent empirical claim."""
     if source not in ("SYNTHETIC","PILOT","MAIN"):
         raise ValueError("Invalid source label")
     if set(results)!=set(LABELS):
         raise ValueError("All four hypotheses required")
+    if source != "SYNTHETIC":
+        if not isinstance(provenance, dict) or set(provenance) != {"source", "dataset_sha256", "analysis_commit", "protocol_version", "results_sha256"}:
+            raise ValueError("Empirical provenance manifest required")
+        if provenance["source"] != source or not isinstance(provenance["protocol_version"], str) or not provenance["protocol_version"].strip():
+            raise ValueError("Invalid provenance metadata")
+        for key, length in (("dataset_sha256", 64), ("analysis_commit", 40), ("results_sha256", 64)):
+            if not isinstance(provenance[key], str) or not re.fullmatch("[0-9a-f]{" + str(length) + "}", provenance[key]):
+                raise ValueError("Invalid provenance digest: " + key)
+        digest = hashlib.sha256(json.dumps(results, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")).hexdigest()
+        if digest != provenance["results_sha256"]:
+            raise ValueError("Results digest mismatch")
+    elif provenance is not None:
+        raise ValueError("Empirical provenance not accepted for synthetic output")
     output=Path(output_dir)
     output.mkdir(parents=True,exist_ok=True)
+    if source != "SYNTHETIC":
+        (output/"provenance.json").write_text(json.dumps(provenance, sort_keys=True, indent=2)+"\n", encoding="utf-8")
+    elif (output/"provenance.json").exists():
+        raise ValueError("Use a separate output directory for synthetic reports")
     fields=["source","hypothesis","unit","estimate","se","ci_low","ci_high","p","p_adjusted","n_randomized","n_used","reference"]
     with (output/"effects.csv").open("w",encoding="utf-8",newline="") as file:
         writer=csv.DictWriter(file,fieldnames=fields)
