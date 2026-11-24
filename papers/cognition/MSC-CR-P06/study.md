@@ -11,6 +11,10 @@
 - **Metodologia:** dwuramienny randomizowany eksperyment internetowy z aktywną kontrolą, pretestem, posttestem i pomiarem odroczonym. Szczegółowy projekt i plan analizy znajdują się w [manuskrypcie](main.tex); nie stanowią zatwierdzonego protokołu ani potwierdzenia uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 
+## Materiały pilotażowe
+
+[Bank 72 pozycji, dwie lekcje i reguły punktowania](materials/README.md) są przygotowane w wersji roboczej. Status `DRAFT_NOT_VALIDATED`: brak pilotażu, danych i zatwierdzonego protokołu. Publiczne pozycje z kluczem nie stanowią zamrożonego testu głównego; jego formy wymagają odrębnego opracowania z kontrolą dostępu.
+
 ## Stanowisko badawcze
 
 **`ST-07`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
