@@ -1,6 +1,6 @@
 # Materiały pilotażowe MSC-CR-P06
 
-Wersja 0.2.0, 2026-11-24. Scientific owner: Mateusz Pomianek. Status: PROSPECTIVE / DRAFT_NOT_VALIDATED.
+Wersja 0.3.0, 2026-11-24. Scientific owner: Mateusz Pomianek. Status: PROSPECTIVE / DRAFT_NOT_VALIDATED.
 
 ## Pliki
 
@@ -8,6 +8,7 @@ Wersja 0.2.0, 2026-11-24. Scientific owner: Mateusz Pomianek. Status: PROSPECTIV
 - [Lekcje](lessons.json): dwie wersje interwencji, po 10 ekranów i 4 ćwiczenia z informacją zwrotną, planowany czas 15 minut.
 - [Moduł punktowania](scoring.py): referencyjne obliczenia w Pythonie, bez zależności zewnętrznych.
 - [Formularz ekspercki](expert-review.csv): 72 pozycje bez klucza autorskiego, puste pola oceny.
+- [Psychometria i planowanie](psychometrics.py): klasyczna teoria testów, porównanie form i scenariusze liczebności.
 - [Manuskrypt](../main.tex): kanoniczny opis hipotez, miar i analizy w obrębie obecnego szkicu.
 
 Bank jest jawny i zawiera klucz. Nie wolno użyć go bez zmian jako zamrożonego testu głównego. Wszystkie scenariusze są fikcyjne. Przed badaniem głównym należy stworzyć odrębne formy z ograniczonym dostępem, udokumentować ich wersję, przeprowadzić niezależną ocenę i pilotaż. Nie publikować kluczy zamrożonego testu przed zamknięciem akwizycji. Jawny bank pozwala sprawdzić procedurę i strukturę danych, ale nie potwierdza trafności psychometrycznej.
@@ -47,3 +48,13 @@ Każdy ekspert otrzymuje osobną kopię formularza CSV, bez dostępu do banku z 
 ## Referencyjne obliczenia
 
 Uruchom z katalogu głównego repozytorium: `python -B -m unittest discover -s tests -p test_p06_scoring.py -v`. Moduł `scoring.py` udostępnia `load_bank()`, `score_form(items, rows)` i `quadratic_kappa(pairs)`. Funkcja punktowania przyjmuje dane pojedynczej osoby, formy i pomiaru; agregacja i kontrola przydziału są odrębnym etapem. Dane wejściowe nie mogą mieszać uczestników ani pomiarów. Brak odpowiedzi jest reprezentowany przez None albo brak wiersza. Niepoprawne kody, powtórzone identyfikatory, pewność poza zakresem oraz oceny uzasadnień dla nieoznaczonych pozycji są odrzucane. Oceny uzasadnień muszą pochodzić od ludzi; moduł nie ocenia tekstu automatycznie. Kappa bez zmienności oczekiwanej jest niezdefiniowana (None). Testy syntetyczne sprawdzają implementację, nie trafność psychometryczną.
+
+## Psychometria i liczebność
+
+Dla każdej formy raportować trudność jako odsetek poprawnych odpowiedzi wśród dostępnych odpowiedzi, z przedziałem Wilsona, skorygowaną korelację pozycji z sumą pozostałych pozycji i KR-20 na kompletnych formularzach. Podawać liczebności osobno, brakujące wyniki, odsetki pełnych wyników minimalnych i maksymalnych oraz bootstrapowy przedział KR-20 (1000 resampli uczestników; niezdefiniowane repliki raportowane, przedział pomijany przy mniej niż 90% poprawnych replik). Ujemna rzetelność lub dyskryminacja nie są obcinane do zera. Progi trudności i dyskryminacji są flagami do przeglądu, nie automatycznym kryterium usuwania pozycji.
+
+W pilotażu porównać A/B/C u tych samych osób w sześciu zrównoważonych kolejnościach; rejestrować przerwy i obciążenie, nie stosować lekcji między formami. Raportować sparowane różnice, SD różnic, korelacje i wyniki według kolejności. Porównanie opisowe nie potwierdza równoważności; formalne kryterium równoważności wymaga uprzednio uzasadnionego marginesu i odpowiedniej mocy. Przy małej próbie szerokie przedziały są spodziewane.
+
+Plan liczebności: normalne przybliżenie ANCOVA dla dwóch równych grup, d na skali marginalnego SD posttestu, korelacja pre/post rho, wariancja reszt 1-rho², alfa 0,05 i moc 0,80. Przy d=0,35 i 15% utracie: rho=0 / 0,3 / 0,5 / 0,7 daje odpowiednio 304 / 276 / 230 / 156 rekrutowanych. To analiza wrażliwości, nie wyniki pilotażu. Symulacja Monte Carlo generuje gaussowskie pre/post i estymuje ANCOVA z normalnym progiem krytycznym; nie modeluje ograniczonej skali trafności ani informacyjnych braków. Ostateczne N wymaga uzasadnienia efektu minimalnego i symulacji adekwatnej do rozkładu oraz mechanizmu braków.
+
+Testy: `python -B -m unittest discover -s tests -p test_p06_psychometrics.py -v`. Dane syntetyczne nie są dowodem trafności narzędzia.
