@@ -15,6 +15,10 @@
 
 [Bank 72 pozycji, dwie lekcje i reguły punktowania](materials/README.md) są przygotowane w wersji roboczej. Status `DRAFT_NOT_VALIDATED`: brak pilotażu, danych i zatwierdzonego protokołu. Publiczne pozycje z kluczem nie stanowią zamrożonego testu głównego; jego formy wymagają odrębnego opracowania z kontrolą dostępu.
 
+## Prerejestracja
+
+[Projekt prerejestracji](preregistration.md) ma status `DRAFT_NOT_REGISTERED`. Ostateczna liczebność, zatwierdzenie etyczne, walidacja narzędzia i zamrożenie planu pozostają otwarte. Brak DOI i potwierdzenia rejestracji.
+
 ## Stanowisko badawcze
 
 **`ST-07`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
