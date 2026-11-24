@@ -5,6 +5,9 @@ import html
 import json
 import re
 import hashlib
+import io
+import tempfile
+import os
 from pathlib import Path
 
 LABELS = {"H1":"Trafność po interwencji","H2":"Trafność po tygodniu",
@@ -31,19 +34,16 @@ def write_report(results, output_dir, *, source="SYNTHETIC", provenance=None):
     elif provenance is not None:
         raise ValueError("Empirical provenance not accepted for synthetic output")
     output=Path(output_dir)
-    output.mkdir(parents=True,exist_ok=True)
-    if source != "SYNTHETIC":
-        (output/"provenance.json").write_text(json.dumps(provenance, sort_keys=True, indent=2)+"\n", encoding="utf-8")
-    elif (output/"provenance.json").exists():
+    if source == "SYNTHETIC" and (output/"provenance.json").exists():
         raise ValueError("Use a separate output directory for synthetic reports")
     fields=["source","hypothesis","unit","estimate","se","ci_low","ci_high","p","p_adjusted","n_randomized","n_used","reference"]
-    with (output/"effects.csv").open("w",encoding="utf-8",newline="") as file:
-        writer=csv.DictWriter(file,fieldnames=fields)
-        writer.writeheader()
-        for h in LABELS:
-            r=results[h]
-            writer.writerow({**{k:r[k] for k in fields if k not in ("source","ci_low","ci_high")},
-                             "source":source,"ci_low":r["ci"][0],"ci_high":r["ci"][1]})
+    file=io.StringIO(newline="")
+    writer=csv.DictWriter(file,fieldnames=fields)
+    writer.writeheader()
+    for h in LABELS:
+        r=results[h]
+        writer.writerow({**{k:r[k] for k in fields if k not in ("source","ci_low","ci_high")},
+                         "source":source,"ci_low":r["ci"][0],"ci_high":r["ci"][1]})
     # Separate panels/axes for distinct units; never compare raw lengths across them.
     groups=[("Punkty procentowe",("H1","H2")),("Wynik Briera",("H3",)),("Punkty rubryki 0–2",("H4",))]
     svg=['<svg xmlns="http://www.w3.org/2000/svg" width="860" height="490" viewBox="0 0 860 490">',
@@ -73,4 +73,16 @@ def write_report(results, output_dir, *, source="SYNTHETIC", provenance=None):
             svg.append(f'<line x1="{x:.2f}" y1="{axis_y}" x2="{x:.2f}" y2="{axis_y+5}" stroke="#111827"/>')
             svg.append(f'<text x="{x:.2f}" y="{axis_y+19}" text-anchor="middle">{v:.3g}</text>')
     svg.append('</g></svg>')
-    (output/"effects.svg").write_text("\n".join(svg),encoding="utf-8")
+    # Render before touching existing artifacts; publish the manifest last.
+    # A failed replacement must not retain an empirical completion marker.
+    payloads={"effects.csv":file.getvalue(), "effects.svg":"\n".join(svg)}
+    if source != "SYNTHETIC":
+        payloads["provenance.json"]=json.dumps(provenance,sort_keys=True,indent=2)+"\n"
+    output.mkdir(parents=True,exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=output) as staging:
+        stage=Path(staging)
+        for name, content in payloads.items():
+            (stage/name).write_text(content,encoding="utf-8",newline="")
+        (output/"provenance.json").unlink(missing_ok=True)
+        for name in payloads:
+            os.replace(stage/name,output/name)
