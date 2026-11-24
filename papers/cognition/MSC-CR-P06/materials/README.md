@@ -1,6 +1,6 @@
 # Materiały pilotażowe MSC-CR-P06
 
-Wersja 0.3.0, 2026-11-24. Scientific owner: Mateusz Pomianek. Status: PROSPECTIVE / DRAFT_NOT_VALIDATED.
+Wersja 0.4.0, 2026-11-24. Scientific owner: Mateusz Pomianek. Status: PROSPECTIVE / DRAFT_NOT_VALIDATED.
 
 ## Pliki
 
@@ -9,6 +9,7 @@ Wersja 0.3.0, 2026-11-24. Scientific owner: Mateusz Pomianek. Status: PROSPECTIV
 - [Moduł punktowania](scoring.py): referencyjne obliczenia w Pythonie, bez zależności zewnętrznych.
 - [Formularz ekspercki](expert-review.csv): 72 pozycje bez klucza autorskiego, puste pola oceny.
 - [Psychometria i planowanie](psychometrics.py): klasyczna teoria testów, porównanie form i scenariusze liczebności.
+- [Analiza statystyczna i raportowanie](analysis-plan.md): kontrakt danych, ANCOVA, łączenie imputacji i analiza wrażliwości.
 - [Manuskrypt](../main.tex): kanoniczny opis hipotez, miar i analizy w obrębie obecnego szkicu.
 
 Bank jest jawny i zawiera klucz. Nie wolno użyć go bez zmian jako zamrożonego testu głównego. Wszystkie scenariusze są fikcyjne. Przed badaniem głównym należy stworzyć odrębne formy z ograniczonym dostępem, udokumentować ich wersję, przeprowadzić niezależną ocenę i pilotaż. Nie publikować kluczy zamrożonego testu przed zamknięciem akwizycji. Jawny bank pozwala sprawdzić procedurę i strukturę danych, ale nie potwierdza trafności psychometrycznej.
