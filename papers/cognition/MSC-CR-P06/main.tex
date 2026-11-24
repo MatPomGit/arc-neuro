@@ -10,7 +10,7 @@
 
 \title{Krótka edukacja o AI a niezależność poznawcza}
 \author{Mateusz Pomianek}
-\date{Projekt badania, wersja 0.2.0, 24 listopada 2026}
+\date{Projekt badania, wersja 0.3.0, 24 listopada 2026}
 
 \begin{document}
 \maketitle
@@ -31,7 +31,7 @@ Niezależność poznawczą definiuje się tutaj wąsko jako zdolność do sformu
 Long i Magerko (2020) ujmują AI literacy jako zestaw kompetencji obejmujący rozumienie, krytyczną ocenę i skuteczne wykorzystywanie technologii. Chee i in. (2025) przedstawiają zróżnicowanie oczekiwanych kompetencji w zależności od etapu edukacyjnego oraz kontekstu zawodowego. W projekcie przyjmuje się, że znajomość ograniczeń modeli językowych jest potencjalnym warunkiem krytycznej oceny, lecz nie jest wystarczającym wskaźnikiem wykonania zadania. Badanie Le i in. (2026), dotyczące szkolenia przyszłych nauczycieli, wskazuje na znaczenie projektowania kompetencji wykraczających poza obsługę pojedynczego narzędzia. Jego wyniki dotyczą jednak m.in. poczucia własnej skuteczności i postaw; nie rozstrzygają przyjętego tutaj pytania o samodzielne wykonanie po usunięciu pomocy AI.
 
 \subsection{Nadmierne poleganie na automatyzacji}
-Badania nad automation bias opisują możliwość zastępowania własnej oceny rekomendacją systemu automatycznego (Skitka i in., 1999). Buçinca i in. (2021) wykazali, że wymuszenie aktywnego namysłu podczas decyzji wspomaganej przez AI może ograniczać nadmierne poleganie na błędnych wskazówkach. Nie wynika stąd jednak, że taki mechanizm utrzymuje się po zakończeniu interakcji. Interwencja edukacyjna może działać przez zmianę sposobu sprawdzania przesłanek, ale równie prawdopodobnym wyjaśnieniem krótkotrwałej poprawy jest większa ostrożność wynikająca z instrukcji eksperymentalnej.
+Badania nad automation bias opisują możliwość zastępowania własnej oceny rekomendacją systemu automatycznego (Skitka i in., 1999). Buçinca i in. (2021) wykazali, że wymuszenie aktywnego namysłu podczas decyzji wspomaganej przez AI może ograniczać nadmierne poleganie na błędnych wskazówkach. Nie wynika stąd jednak, że taki mechanizm utrzymuje się po zakończeniu interakcji. Interwencja edukacyjna może działać przez zmianę sposobu sprawdzania przesłanek, ale alternatywnym wyjaśnieniem krótkotrwałej poprawy jest większa ostrożność wynikająca z instrukcji eksperymentalnej. W preprincie Pupparta i Aru (2025) krótka interwencja nie ograniczyła istotnie przyjmowania błędnych rekomendacji ChatGPT, a zwiększyła odrzucanie trafnych porad. Badanie dotyczyło decyzji wspomaganych przez AI, nie samodzielnego posttestu. Wynik ten uzasadnia rozróżnienie trafności oceny od ogólnego sceptycyzmu: szkolenie nie powinno premiować odrzucania każdego twierdzenia, lecz poprawne rozpoznawanie, które twierdzenia wynikają z dowodów.
 
 \subsection{Transfer uczenia się i mechanizm interwencji}
 Barnett i Ceci (2002) podkreślają, że transfer należy określać względem podobieństwa treści, kontekstu, czasu i wymagań zadania. W proponowanym eksperymencie transfer oznacza zastosowanie reguł oceny dowodów do zadań niewystępujących w szkoleniu, a następnie ich ponowne zastosowanie po upływie tygodnia. Badanie Bastani i in. (2025) w nauczaniu matematyki uzasadnia oddzielanie wykonania wspomaganego od późniejszego wykonania bez AI. Nie stanowi ono jednak bezpośredniego dowodu skuteczności proponowanej interwencji u dorosłych.
@@ -44,7 +44,7 @@ Pytanie główne brzmi: czy krótka edukacja o ograniczeniach AI i krytycznej we
 \begin{enumerate}
 \item H1 (pierwszorzędowa): uczestnicy interwencji uzyskają wyższy odsetek trafnych odpowiedzi w bezpośrednim postteście niż uczestnicy aktywnej kontroli, po uwzględnieniu wyniku bazowego.
 \item H2 (drugorzędowa): przewaga interwencji będzie obserwowalna również w nowych zadaniach po siedmiu dniach.
-\item H3 (drugorzędowa): interwencja zmniejszy błąd kalibracji subiektywnego prawdopodobieństwa poprawności własnej odpowiedzi.
+\item H3 (drugorzędowa): interwencja zmniejszy średni błąd kwadratowy prognozy poprawności własnej odpowiedzi (wynik Briera). Kalibrację sensu stricto ocenimy dodatkowo na podstawie zależności między pewnością a obserwowaną trafnością.
 \item H4 (drugorzędowa): uczestnicy interwencji częściej będą wskazywać przesłanki istotne dla uzasadnienia decyzji.
 \end{enumerate}
 
@@ -62,25 +62,27 @@ Interwencja będzie trwała około 15 minut i obejmie trzy części: wyjaśnieni
 Kontrola aktywna obejmie lekcję o historii i podstawowych zastosowaniach narzędzi cyfrowych, bez instruktażu krytycznej oceny dowodów. Forma przekazu, czas, liczba ekranów, liczba pytań i informacja zwrotna powinny być porównywalne z interwencją. Dwa ramiona pozwalają ocenić całkowity efekt szkolenia; wyodrębnienie komponentu specyficznego dla AI względem ogólnego treningu krytycznego myślenia wymagałoby dodatkowego ramienia i osobnego planu mocy.
 
 \subsection{Bodźce i procedura pomiarowa}
-Należy opracować trzy równoległe zestawy po 24 zadania, obejmujące ocenę wnioskowania, brakującego kontekstu i niespójności dowodów. W każdym zadaniu uczestnik wskaże jedną z trzech odpowiedzi: wniosek uzasadniony, wniosek sprzeczny z przesłankami lub brak wystarczających informacji. Po decyzji poda subiektywne prawdopodobieństwo jej poprawności w zakresie od 0 do 100 procent. W wybranych sześciu zadaniach każdego zestawu poda również krótkie uzasadnienie. Wszystkie informacje konieczne do odpowiedzi muszą znajdować się w treści zadania.
+Należy opracować trzy równoległe zestawy po 24 zadania, obejmujące ocenę wnioskowania, brakującego kontekstu i niespójności dowodów. W każdym zadaniu uczestnik wskaże jedną z trzech odpowiedzi: wniosek uzasadniony, wniosek sprzeczny z przesłankami lub brak wystarczających informacji. Po decyzji poda subiektywne prawdopodobieństwo jej poprawności w zakresie od 0 do 100 procent. W wybranych sześciu zadaniach każdego zestawu poda również krótkie uzasadnienie. Wszystkie informacje konieczne do odpowiedzi muszą znajdować się w treści zadania. W każdej formie przewiduje się osiem pozycji z każdą z trzech poprawnych kategorii odpowiedzi. Treść zostanie rozłożona na trzy obszary: codzienne decyzje, interpretacja prostych danych oraz ocena twierdzeń o zależnościach. Zbilansowanie kategorii ograniczy możliwość uzyskania wysokiego wyniku przez systematyczne wybieranie odpowiedzi o braku informacji. Kolejność odpowiedzi będzie losowana, a znaczenie każdej kategorii zostanie wyjaśnione w identycznej instrukcji przed pretestem.
 
-Zestawy będą równoważone między punktami pomiarowymi i grupami według sześciu możliwych kolejności. Ich treści nie będą powtarzać przykładów szkoleniowych. Niezależni eksperci ocenią zgodność klucza, jednoznaczność i trudność, a pilotaż z osobami spoza próby głównej umożliwi wykrycie efektów sufitowych, podłogowych i nierównoważnych pozycji. Ostateczna liczba pozycji i czas odpowiedzi zostaną zamrożone po pilotażu, przed rozpoczęciem rekrutacji głównej.
+Przykład pozycji treningowej: w dwóch grupach odnotowano różne średnie wyniki testu, ale nie podano sposobu przydziału uczestników ani wyników bazowych. Wniosek, że różnica została spowodowana wyłącznie przez zastosowaną metodę nauczania, nie jest uzasadniony; prawidłowa kategoria to brak wystarczających informacji. Dla odróżnienia pozycji sprzecznych od nierozstrzygalnych klucz musi wskazywać konkretną przesłankę obalającą twierdzenie albo brak przesłanki koniecznej do rozstrzygnięcia. Przykład ten nie wejdzie do zestawów testowych.
+
+Zestawy będą równoważone między punktami pomiarowymi i grupami według sześciu możliwych kolejności. Ich treści nie będą powtarzać przykładów szkoleniowych. Niezależni eksperci ocenią zgodność klucza, jednoznaczność i trudność, a pilotaż z osobami spoza próby głównej umożliwi wykrycie efektów sufitowych, podłogowych i nierównoważnych pozycji. Ostateczna liczba pozycji i czas odpowiedzi zostaną zamrożone po pilotażu, przed rozpoczęciem rekrutacji głównej. Proponuje się ocenę treści przez co najmniej dwóch niezależnych ekspertów oraz pilotaż poznawczy z 8--12 osobami, a następnie pilotaż ilościowy z około 60 osobami. Progi robocze to zgodność ekspertów w zakresie klucza dla wszystkich zachowanych pozycji, trudność w przedziale 0,25--0,90 i dodatnia skorygowana korelacja pozycji z wynikiem całkowitym. Przekroczenie progu jest przesłanką do oceny treści i ponownego pilotażu, nie automatycznego usunięcia pozycji. Rzetelność i różnice trudności między formami należy raportować z przedziałami niepewności. Pilotaż nie będzie wykorzystany jako test H1.
 
 Pomiar bazowy i bezpośredni posttest odbędą się w jednej sesji internetowej. Pomiar odroczony nastąpi po siedmiu dniach, z dopuszczalnym oknem od sześciu do ośmiu dni. W żadnym z trzech testów nie będzie dostępna wbudowana pomoc AI ani informacja o poprawności odpowiedzi. Uczestnik zostanie poproszony o niewykorzystywanie zewnętrznych narzędzi. Oświadczenie o przestrzeganiu instrukcji jest wskaźnikiem pomocniczym, nie gwarancją braku pomocy.
 
 \subsection{Zmienne i operacjonalizacja}
-Głównym wynikiem jest proporcja poprawnych odpowiedzi na pozycje bezpośredniego posttestu. Dla osoby \(i\) w pomiarze \(t\):
+Pierwszorzędowy wskaźnik: proporcja poprawnych odpowiedzi na pozycje bezpośredniego posttestu. Dla osoby \(i\) w pomiarze \(t\):
 \[
 Y_{it}=\frac{1}{J}\sum_{j=1}^{J} y_{itj},
 \qquad y_{itj}\in\{0,1\},
 \]
 gdzie \(J\) oznacza liczbę pozycji zestawu, a \(y_{itj}=1\) odpowiedź poprawną. Zestaw nieukończony nie jest automatycznie klasyfikowany jako zbiór błędnych odpowiedzi. Zasady postępowania z brakami opisano w planie analizy.
 
-Kalibracja pewności zostanie oceniona za pomocą wyniku Briera:
+Trafność probabilistycznej oceny własnej odpowiedzi zostanie oceniona za pomocą binarnego wyniku Briera (Brier, 1950):
 \[
 B_{it}=\frac{1}{J}\sum_{j=1}^{J}(p_{itj}-y_{itj})^2,
 \]
-gdzie \(p_{itj}\) to deklarowane prawdopodobieństwo poprawności wybranej odpowiedzi w skali od 0 do 1. Niższy wynik oznacza mniejszy błąd prognozy. Ponieważ miara uwzględnia zarówno trafność, jak i pewność, dodatkowo przedstawione zostaną średnia pewność, trafność i wykres kalibracji. Nie będzie ona traktowana jako czysta miara metapoznania.
+gdzie \(p_{itj}\) to deklarowane prawdopodobieństwo poprawności wybranej odpowiedzi w skali od 0 do 1. Niższy wynik oznacza mniejszy błąd prognozy. Ponieważ miara uwzględnia zarówno trafność, jak i pewność, dodatkowo przedstawione zostaną średnia pewność, trafność i wykres kalibracji. Nie będzie ona traktowana jako czysta miara metapoznania. Dodatkowo obliczymy średnią różnicę między deklarowaną pewnością a trafnością, aby rozróżnić nadmierną i niedostateczną pewność. Osobno zostaną przedstawione macierze pomyłek dla trzech kategorii odpowiedzi. Wzrost częstości odpowiedzi o braku informacji kosztem poprawnego rozpoznawania uzasadnionych wniosków będzie traktowany jako możliwy efekt uboczny interwencji, a nie poprawa niezależności poznawczej.
 
 Jakość argumentacji zostanie oceniona według trzystopniowej rubryki: 0 oznacza brak istotnej przesłanki, 1 wskazanie przesłanki bez poprawnego powiązania z wnioskiem, a 2 poprawne powiązanie przesłanki z oceną wniosku. Osoby oceniające zastosują ustalony wcześniej klucz i rozstrzygną niezgodności po niezależnym kodowaniu. Proponuje się raportowanie ważonej kappy dla ocen przed uzgodnieniem.
 
@@ -89,22 +91,22 @@ Wielkość próby zostanie określona na podstawie najmniejszej różnicy mając
 
 \section{Plan analizy}
 \subsection{Estymand i analiza pierwszorzędowa}
-Populacyjny estymand stanowi różnica średniej proporcji poprawnych odpowiedzi bezpośrednio po interwencji między warunkami losowego przydziału. Interesuje nas efekt przydziału do szkolenia, niezależnie od stopnia zaangażowania w materiał. Główna analiza wykorzysta regresję liniową z korektą wyniku bazowego:
+Populacyjny estymand stanowi różnica średniej proporcji poprawnych odpowiedzi bezpośrednio po interwencji między warunkami losowego przydziału. Interesuje nas efekt przydziału do szkolenia, niezależnie od stopnia zaangażowania w materiał. Główna analiza wykorzysta regresję liniową z korektą wyniku bazowego (Vickers i Altman, 2001):
 \[
 Y_{i1}=\beta_0+\tau A_i+\beta_1Y_{i0}
 +\boldsymbol{\gamma}^{\mathsf T}\mathbf{X}_i+\varepsilon_i,
 \]
-gdzie \(A_i\) oznacza przydział do interwencji, a \(\mathbf X_i\) obejmuje warstwę randomizacji i kolejność zestawów. Parametr \(\tau\) będzie raportowany jako różnica w punktach procentowych wraz z 95-procentowym przedziałem ufności opartym na odpornych błędach standardowych. H1 zostanie oceniona testem dwustronnym przy \(\alpha=0{,}05\), z oczekiwanym dodatnim kierunkiem efektu.
+gdzie \(A_i\) oznacza przydział do interwencji, a \(\mathbf X_i\) obejmuje warstwę randomizacji i kolejność zestawów. Parametr \(100\tau\) będzie raportowany jako różnica w punktach procentowych wraz z 95-procentowym przedziałem ufności opartym na odpornych błędach standardowych. H1 zostanie oceniona testem dwustronnym przy \(\alpha=0{,}05\), z oczekiwanym dodatnim kierunkiem efektu.
 
 W analizie wrażliwości zastosowany zostanie model logistyczny na poziomie pozycji z losowym wyrazem wolnym uczestnika i pozycji. Efekt na skali prawdopodobieństwa zostanie przedstawiony przez standaryzację predykcji. Rozbieżność między modelami będzie raportowana, a nie rozstrzygana wyborem korzystniejszego wyniku.
 
 \subsection{Analizy drugorzędowe i brakujące dane}
 H2 zostanie oceniona analogicznym modelem dla pomiaru odroczonego. H3 i H4 wykorzystają odpowiednio wynik Briera i średnią punktację uzasadnienia w postteście, z korektą odpowiedniej miary bazowej. W obrębie trzech testów drugorzędowych zastosowana zostanie korekta Holma. Interakcja z doświadczeniem w korzystaniu z AI oraz analiza wiedzy o AI pozostaną eksploracyjne. Nie należy interpretować nieistotnego statystycznie efektu jako dowodu braku różnicy.
 
-Analiza obejmie wszystkich losowo przydzielonych uczestników zgodnie z przydziałem. Nieukończone pomiary, przyczyny rezygnacji i odsetki braków zostaną opisane według grup. Przy brakach wyniku zostanie zastosowana wielokrotna imputacja na poziomie wyników zestawów, z uwzględnieniem grupy, pretestu, kolejności zestawów i dostępnych pomiarów, przy założeniu braków losowych warunkowo względem obserwowanych danych. Wrażliwość na naruszenie tego założenia zostanie oceniona przez analizę kompletnych przypadków oraz przesunięcie imputowanych wyników w kierunku gorszego wykonania w każdym ramieniu. Reguły punktowania zestawów częściowo ukończonych i model imputacji wymagają prerejestracji. Analiza osób deklarujących przestrzeganie instrukcji będzie dodatkowa, gdyż wykluczenie po randomizacji może wprowadzać obciążenie.
+Analiza obejmie wszystkich losowo przydzielonych uczestników zgodnie z przydziałem. Nieukończone pomiary, przyczyny rezygnacji i odsetki braków zostaną opisane według grup. Przy brakach wyniku zostanie zastosowana wielokrotna imputacja na poziomie wyników zestawów, z uwzględnieniem grupy, pretestu, kolejności zestawów i dostępnych pomiarów, przy założeniu braków losowych warunkowo względem obserwowanych danych. Proponuje się 50 imputacji z dopasowaniem średniej predykcyjnej (predictive mean matching), łączeniem estymat według reguł Rubina i kontrolą stabilności estymat. Wynik zostanie obliczony przy co najmniej 20 odpowiedziach z 24; przy mniejszej liczbie cały wynik pomiaru będzie brakujący. W analizie wrażliwości sprawdzimy wyłącznie kompletne zestawy oraz skrajne kodowania brakujących pozycji. Wrażliwość na naruszenie tego założenia zostanie oceniona przez analizę kompletnych przypadków oraz przesunięcie imputowanych wyników w kierunku gorszego wykonania w każdym ramieniu. Reguły punktowania zestawów częściowo ukończonych i model imputacji wymagają prerejestracji. Analiza osób deklarujących przestrzeganie instrukcji będzie dodatkowa, gdyż wykluczenie po randomizacji może wprowadzać obciążenie.
 
 \subsection{Kontrola jakości i przejrzystość}
-Przed akwizycją danych należy ustalić kodowanie pozycji, minimalny udział odpowiedzi potrzebny do obliczenia wyniku zestawu, procedurę postępowania z duplikatami oraz reguły oceny nadmiernie szybkiego odpowiadania. Sama szybkość nie może być podstawą arbitralnego usuwania uczestnika. Należy ocenić rzetelność zestawów i równoważność form w pilotażu oraz podać niepewność tych oszacowań. Skrypty analizy powinny zostać przetestowane na danych syntetycznych przed otwarciem zbioru głównego. Dane syntetyczne służą wyłącznie kontroli obliczeń.
+Zamrożenie estymandu, reguł punktowania i kryteriów jakości nastąpi przed akwizycją główną. Należy ustalić procedurę postępowania z duplikatami oraz reguły oceny nadmiernie szybkiego odpowiadania. Sama szybkość nie może być podstawą arbitralnego usuwania uczestnika. Należy ocenić rzetelność zestawów i równoważność form w pilotażu oraz podać niepewność tych oszacowań. Skrypty analizy powinny zostać przetestowane na danych syntetycznych przed otwarciem zbioru głównego. Dane syntetyczne służą wyłącznie kontroli obliczeń.
 
 \section{Etyka i ochrona danych}
 Rekrutacja rozpocznie się dopiero po uzyskaniu właściwej oceny etycznej i zatwierdzeniu informacji dla uczestnika. Uczestnicy otrzymają opis dobrowolności, czasu udziału, możliwości rezygnacji i zasad przetwarzania danych. Kontakt potrzebny do pomiaru odroczonego powinien być przechowywany odrębnie od odpowiedzi, z ograniczonym dostępem i okresem retencji. Uczestnikom nie należy zlecać wprowadzania danych osobowych do zewnętrznych usług AI. Materiały dydaktyczne nie będą zawierać niebezpiecznych zaleceń ani rzeczywistych danych osób trzecich. Udostępnienie materiałów i danych będzie przedmiotem odrębnej decyzji, zależnej od zgód i ryzyka identyfikacji.
@@ -128,6 +130,8 @@ Projekt proponuje behawioralny test edukacji AI ukierunkowanej na samodzielne ro
 
 \hangindent=1.5em Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakc{\i}, Ö., \& Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. \textit{Proceedings of the National Academy of Sciences, 122}(26), e2422633122. \url{https://doi.org/10.1073/pnas.2422633122}
 
+\hangindent=1.5em Brier, G. W. (1950). Verification of forecasts expressed in terms of probability. \textit{Monthly Weather Review, 78}(1), 1--3. \url{https://doi.org/10.1175/1520-0493%281950%29078%3C0001%3AVOFEIT%3E2.0.CO%3B2}
+
 \hangindent=1.5em Buçinca, Z., Malaya, M. B., \& Gajos, K. Z. (2021). To trust or to think: Cognitive forcing functions can reduce overreliance on AI in AI-assisted decision-making. \textit{Proceedings of the ACM on Human-Computer Interaction, 5}(CSCW1), Article 188. \url{https://doi.org/10.1145/3449287}
 
 \hangindent=1.5em Chee, H., Ahn, S., \& Lee, J. (2025). A competency framework for AI literacy: Variations by different learner groups and an implied learning pathway. \textit{British Journal of Educational Technology, 56}(5), 2146--2182. \url{https://doi.org/10.1111/bjet.13556}
@@ -136,6 +140,9 @@ Projekt proponuje behawioralny test edukacji AI ukierunkowanej na samodzielne ro
 
 \hangindent=1.5em Long, D., \& Magerko, B. (2020). What is AI literacy? Competencies and design considerations. In \textit{Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems} (pp. 1--16). Association for Computing Machinery. \url{https://doi.org/10.1145/3313831.3376727}
 
+\hangindent=1.5em Puppart, B., \& Aru, J. (2025). \textit{Short-term AI literacy intervention does not reduce over-reliance on incorrect ChatGPT recommendations} [Preprint]. arXiv. \url{https://arxiv.org/abs/2503.10556}
+
 \hangindent=1.5em Skitka, L. J., Mosier, K. L., \& Burdick, M. (1999). Does automation bias decision-making? \textit{International Journal of Human-Computer Studies, 51}(5), 991--1006. \url{https://doi.org/10.1006/ijhc.1999.0252}
+\hangindent=1.5em Vickers, A. J., \& Altman, D. G. (2001). Analysing controlled trials with baseline and follow up measurements. \textit{BMJ, 323}(7321), 1123--1124. \url{https://doi.org/10.1136/bmj.323.7321.1123}
 \endgroup
 \end{document}
