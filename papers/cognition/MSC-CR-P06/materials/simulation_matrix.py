@@ -26,8 +26,9 @@ def scenarios(profile,seed=20261124):
     result=[]
     for mechanism,n,effect,dropout in itertools.product(MECHANISMS,settings["ns"],settings["effects"],settings["dropouts"]):
         sid=f"{mechanism}-n{n}-e{round(effect*100):02d}-r{round(dropout*100):02d}"
-        # Same scenario receives the same seed in different profiles.
-        derived=int.from_bytes(hashlib.sha256(f"{seed}:{sid}".encode()).digest()[:8],"big")
+        # Matched mechanisms and profiles share the complete-data random stream.
+        data_key=f"n{n}:e{effect!r}:r{dropout!r}"
+        derived=int.from_bytes(hashlib.sha256(f"{seed}:{data_key}".encode()).digest()[:8],"big")
         result.append((sid,dict(mechanism=mechanism,n_per_arm=n,effect=effect,dropout=dropout,
                                 repetitions=settings["repetitions"],m=settings["m"],iterations=settings["iterations"],seed=derived)))
     return result
