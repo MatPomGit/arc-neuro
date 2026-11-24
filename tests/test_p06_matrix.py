@@ -22,11 +22,21 @@ class P06MatrixTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.run_matrix("full")
 
+    def test_matched_seeds(self):
+        groups={}
+        for sid, settings in m.scenarios("full"):
+            key=sid.split("-",1)[1]
+            self.assertEqual(settings["seed"],groups.setdefault(key,settings["seed"]))
+        self.assertEqual(len(set(groups.values())),len(groups))
+
     def test_smoke_matrix_and_reports(self):
         result=m.run_matrix("smoke")
         self.assertEqual(len(result["scenarios"]),6)
         self.assertEqual(result["interpretation"],"TECHNICAL_SMOKE_ONLY")
+        oracle={}
         for s in result["scenarios"]:
+            key=s["scenario"].split("-",1)[1]
+            self.assertEqual(s["methods"]["full"],oracle.setdefault(key,s["methods"]["full"]))
             for fit in s["methods"].values():
                 self.assertEqual(fit["successful"]+fit["failed"],4)
             self.assertEqual(s["methods"]["full"]["successful"],4)
