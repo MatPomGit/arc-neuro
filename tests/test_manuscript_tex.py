@@ -45,7 +45,28 @@ class ManuscriptTexTests(unittest.TestCase):
                     self.assertEqual(content.count(r"\begin{document}"), 1)
                     self.assertEqual(content.count(r"\end{document}"), 1)
                     self.assertNotIn("MatPomGit/", content)
-                    if ident in LEGACY_IDS:
+                    if ident == "MSC-AAL-P02":
+                        self.assertEqual(by_id[ident]["record_kind"], "IDEA")
+                        self.assertEqual(by_id[ident]["stage"], "SOURCE_PLANNED_ARTICLE")
+                        self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+\}")
+                        for heading in ("Wprowadzenie", "Materiał i metody",
+                                        "Plan analizy", "Dyskusja i ograniczenia"):
+                            self.assertIn(r"\section{" + heading + "}", content)
+                        endpoint = re.search(
+                            r"\\subsection\{Pierwszorzędowy punkt końcowy i estymand\}"
+                            r"\s*(.+?)(?=\\(?:sub)?section\{)",
+                            content, re.DOTALL)
+                        self.assertIsNotNone(endpoint)
+                        self.assertGreater(len(endpoint.group(1).strip()), 200)
+                        self.assertRegex(endpoint.group(1), r"(?i)estymand")
+                        self.assertRegex(endpoint.group(1), r"(?i)nie zostały jeszcze zatwierdzone")
+                        self.assertRegex(content, r"(?i)plan należy zamrozić przed dostępem do danych")
+                        results = re.search(r"\\section\{Wyniki\}\s*(.+?)(?=\\section\{)",
+                                            content, re.DOTALL)
+                        self.assertIsNotNone(results)
+                        self.assertIn(r"IDEA / SOURCE\_PLANNED\_ARTICLE", results.group(1))
+                        self.assertIn("nie udokumentowano zebranych obserwacji", results.group(1))
+                    elif ident in LEGACY_IDS:
                         for required in ("Pierwszorzędowy wskaźnik:",
                                          "Zamrożenie estymandu",
                                          "Szkic naukowy, wersja 0.1.1",
