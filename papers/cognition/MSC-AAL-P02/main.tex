@@ -96,6 +96,12 @@ Badania interfejsów adaptacyjnych pokazują, że automatyczne dopasowanie nie m
 
 W projekcie MSC-AAL-P02 istotne jest rozróżnienie kontroli nad sposobem personalizacji od samej obecności personalizacji. Dynamiczne przesuwanie funkcji może ułatwiać dostęp do często używanych poleceń, lecz może też zmieniać poznaną wcześniej strukturę nawigacji. Takie konkurencyjne skutki wymagają eksperymentalnego oddzielenia, zamiast przyjęcia z góry korzystnego kierunku efektu.
 
+\subsection{Trafność predykcji a stabilność przestrzenna}
+
+Gajos i in. (2008) rozdzielili trafność przewidywań algorytmu i przewidywalność jego zachowania w eksperymencie dotyczącym adaptacyjnego interfejsu. W badanej konfiguracji wzrost obu właściwości poprawiał satysfakcję, natomiast większa trafność predykcji poprawiała również wykonanie zadania i wykorzystanie adaptacji. Wynik uzasadnia osobne uwzględnienie jakości predykcji oraz przewidywalności, ale nie rozstrzyga ich wpływu na subiektywne wymagania umysłowe podczas obsługi urządzeń domowych.
+
+Findlater i in. (2009) badali adaptację polegającą na różnicowaniu momentu pojawiania się elementów menu bez zmiany ich położenia. W dwóch eksperymentach, obejmujących łącznie 48 użytkowników, rozwiązanie skracało czas wyboru względem menu statycznego przy dużej trafności predykcji; przy małej trafności nie wykazano istotnego wydłużenia czasu. Brak istotnej różnicy nie jest dowodem równoważności. Badanie pokazuje jednak, że adaptacja nie musi polegać na reorganizacji przestrzennej, a jej skutki zależą od konkretnej techniki prezentacji. W planowanym badaniu wyróżnienie właściwej funkcji przy stałym położeniu kontrolek i reorganizacja układu powinny być traktowane jako różne warianty interwencji.
+
 \subsection{Inteligencja interfejsu, wiek i charakter zadania}
 
 Zhang i współautorzy (2009) analizowali projekt interfejsu inteligentnego domu z uwzględnieniem wieku użytkownika, rodzaju zadania i poziomu inteligencji interfejsu. W ich badaniu wyższy poziom inteligencji interfejsu wiązał się ze wzrostem odczuwanego obciążenia podczas niektórych zadań wykonywanych przez starszych użytkowników. Wynik ten wskazuje, że stopień automatyzacji należy interpretować łącznie z charakterem czynności i właściwościami użytkowników. Sama etykieta interfejsu jako inteligentnego nie pozwala przewidzieć wielkości ani kierunku obciążenia.
@@ -108,13 +114,17 @@ Zhou i współautorzy (2022) przeprowadzili badania interfejsów Smart Home adre
 
 Badania ergonomii elementów sterujących dostarczają istotnych wskazówek dotyczących projektowania warunków eksperymentalnych. Należy jednak zachować podobne rozmiary kontrolek, dostępność funkcji i czytelność obu porównywanych wersji interfejsu. W przeciwnym razie różnice w wykonaniu zadania mogłyby wynikać z jakości graficznej i motorycznej interakcji, a nie z adaptacji kontekstowej.
 
+\subsection{Adaptacyjne dostarczanie informacji w środowisku domowym}
+
+Tran i in. (2026) przeprowadzili przegląd zakresowy systemów multimodalnych wspierających osoby starsze w domu. Spośród 681 zidentyfikowanych rekordów do syntezy włączono pięć badań. Na ich podstawie zaproponowano warstwową organizację informacji zależną od kontekstu, potrzeb użytkownika i znaczenia zadania. Autorzy wskazali potrzebę dalszej oceny tej koncepcji w rzeczywistych środowiskach oraz uwzględnienia różnic indywidualnych. Przegląd dostarcza aktualnego uzasadnienia dla adaptacyjnej prezentacji informacji, lecz nie potwierdza skuteczności proponowanej architektury ani nie dostarcza oszacowania efektu samej reorganizacji graficznego interfejsu Smart Home. Jego zakres obejmował systemy multimodalne i osoby starsze, dlatego nie jest wyczerpującym przeglądem eksperymentów nad adaptacyjnymi interfejsami graficznymi.
+
 \subsection{Synteza porównawcza i pytanie nierozstrzygnięte}
 
-Przywołane podejścia odpowiadają na pokrewne, lecz odmienne pytania. Eksperyment z menu personalizowanymi pokazuje znaczenie sposobu kontroli adaptacji i przewidywalności interfejsu (Findlater i McGrenere, 2004). Badanie poziomu inteligencji Smart Home wskazuje na zależność obciążenia od wieku i rodzaju zadania (Zhang i in., 2009). Analiza rozwiązań nawigacyjnych dla starszych użytkowników identyfikuje właściwości układu interfejsu istotne dla wykonania czynności (Zhou i in., 2022). Nie należy traktować wyników tych badań jako jednorodnej metaanalizy ani przenosić oszacowanych efektów między odmiennymi populacjami i typami interfejsów.
+Porównane badania reprezentują odmienne poziomy interwencji. Findlater i McGrenere (2004) badali źródło kontroli nad personalizacją, Gajos i in. (2008) właściwości predykcji, a Findlater i in. (2009) sposób kierowania uwagą przy zachowaniu położenia elementów. Zhang i in. (2009) analizowali inteligencję interfejsu w powiązaniu z wiekiem i zadaniem, natomiast Zhou i in. (2022) oceniali ergonomię statycznych właściwości graficznych. Tran i in. (2026) rozszerzyli perspektywę na dobór informacji i modalności w środowisku domowym. Wyniki tych prac nie są bezpośrednio porównywalnymi oszacowaniami jednego efektu: różnią się zakresem manipulacji, populacjami, zadaniami oraz sposobem pomiaru następstw interakcji.
 
-W granicach tych trzech zweryfikowanych prac pozostaje niedostatecznie rozstrzygnięte, w jakich warunkach kontekstowe przekształcanie interfejsu Smart Home zmniejsza koszt wyszukiwania informacji, a w jakich zwiększa koszt ponownej orientacji. W szczególności potrzebne jest oddzielne ujęcie złożoności zadania, poprawności rozpoznania kontekstu oraz stabilności położenia funkcji, przy kontroli kolejności warunków i stopnia doświadczenia użytkownika. Jest to luka wyprowadzona z zakresu porównanych publikacji, a nie twierdzenie o całkowitym braku innych badań w światowej literaturze. Jej ostateczne potwierdzenie wymaga systematyczniejszego wyszukiwania i oceny prac nowszych oraz bezpośrednio dotyczących kontekstowej adaptacji.
+Luka badawcza dotyczy zatem przeniesienia wiedzy o trafności predykcji i stabilności układu na kontrolowane zadania obsługi inteligentnego domu, z jednoczesnym rozróżnieniem subiektywnych wymagań umysłowych, wykonania czynności i postulowanych kosztów wyszukiwania oraz ponownej orientacji. W zestawionych publikacjach nie uzyskano wspólnego oszacowania tych zależności dla tak zdefiniowanej konfiguracji. Nie jest to luka polegająca na braku badań nad adaptacją, trafnością predykcji czy obciążeniem w Smart Home, ponieważ każde z tych zagadnień było już przedmiotem badań. Odrębność proponowanego projektu wymaga wykazania wartości ich połączenia w jednym kontrolowanym schemacie, a nie przypisania nowości poszczególnym czynnikom.
 
-Proponowany wkład MSC-AAL-P02 polegałby na kontrolowanym porównaniu interfejsu statycznego z adaptacyjnym w symulacji Smart Home 2D i ocenie tego, czy warunki brzegowe adaptacji zmieniają obciążenie zadaniem oraz wykonanie czynności. Odrębny pomiar kosztu wyszukiwania i ponownej orientacji byłby potrzebny do testowania mechanizmów pośredniczących. Jest to propozycja programu badawczego, nie uzyskany wynik ani dowód nowości klinicznej.
+Proponowany wkład MSC-AAL-P02 polegałby na porównaniu statycznego i kontekstowo adaptacyjnego interfejsu w symulacji 2D przy równoważnych zadaniach i dostępnych funkcjach, z uwzględnieniem złożoności zadania. Rozdzielenie wpływu trafności i stabilności wymaga dodatkowych, odpowiednio zaprojektowanych kontrastów; bez nich nie będzie można przypisać efektu określonemu mechanizmowi. Przed zatwierdzeniem protokołu należy sprawdzić zakres nowości w szerszym wyszukiwaniu bibliograficznym. Niniejsza synteza ma charakter narracyjny i nie stanowi przeglądu systematycznego ani dowodu nieistnienia podobnych eksperymentów.
 
 \section{Cel i pytania badawcze}
 
@@ -274,13 +284,19 @@ Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration o
 
 Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. W \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems} (s. 89--96). Association for Computing Machinery. \url{https://doi.org/10.1145/985692.985704}
 
+Findlater, L., Moffatt, K., McGrenere, J., \& Dawson, J. (2009). Ephemeral adaptation: The use of gradual onset to improve menu selection performance. W \textit{Proceedings of the 27th International Conference on Human Factors in Computing Systems} (s. 1655--1664). Association for Computing Machinery. \url{https://doi.org/10.1145/1518701.1518956}
+
 Gajos, K. Z., Czerwinski, M., Tan, D. S., \& Weld, D. S. (2006). Exploring the design space for adaptive graphical user interfaces. W \textit{Proceedings of the Working Conference on Advanced Visual Interfaces} (s. 201--208). Association for Computing Machinery. \url{https://doi.org/10.1145/1133265.1133306}
+
+Gajos, K. Z., Everitt, K., Tan, D. S., Czerwinski, M., \& Weld, D. S. (2008). Predictability and accuracy in adaptive user interfaces. W \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems} (s. 1271--1274). Association for Computing Machinery. \url{https://doi.org/10.1145/1357054.1357252}
 
 Hart, S. G., \& Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. W P. A. Hancock \& N. Meshkati (red.), \textit{Human mental workload} (s. 139--183). North-Holland. \url{https://doi.org/10.1016/S0166-4115(08)62386-9}
 
 Risko, E. F., \& Gilbert, S. J. (2016). Cognitive offloading. \textit{Trends in Cognitive Sciences, 20}(9), 676--688. \url{https://doi.org/10.1016/j.tics.2016.07.002}
 
 Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. \textit{Cognitive Science, 12}(2), 257--285. \url{https://doi.org/10.1207/s15516709cog1202_4}
+
+Tran, S., Zhou, Z., \& Xie, J. (2026). Balancing information richness and cognitive load: A scoping review of multimodal AI systems for older adults in home environments. \textit{Proceedings of the Human Factors and Ergonomics Society Annual Meeting}. Publikacja online przed przypisaniem do numeru. \url{https://doi.org/10.1177/10711813261485167}
 
 Wickens, C. D. (2008). Multiple resources and mental workload. \textit{Human Factors, 50}(3), 449--455. \url{https://doi.org/10.1518/001872008X288394}
 
