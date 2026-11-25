@@ -54,11 +54,21 @@ Obciążenie poznawcze odnosi się do wymagań stawianych zasobom przetwarzania 
 
 Obciążenie odczuwane podczas zadania jest konstruktem wielowymiarowym. Hart i Staveland (1988) opracowali NASA-TLX jako metodę subiektywnej oceny obciążenia zadaniem, obejmującą kilka wymiarów doświadczenia użytkownika. W konsekwencji nie należy utożsamiać ogólnego wyniku NASA-TLX, jego składowej wysiłku umysłowego, czasu realizacji ani liczby błędów. Każda z tych miar odpowiada innemu pytaniu empirycznemu. Ostateczny wybór miary pierwszorzędowej oraz zasad agregacji pomiarów pozostaje decyzją przyszłego protokołu.
 
+\subsection{Zasoby poznawcze i odciążenie przez środowisko}
+
+Ograniczona pojemność krótkotrwałego przechowywania informacji, analizowana przez Cowana (2001), uzasadnia rozważenie kosztów utrzymywania celu, stanu urządzeń i kolejnych decyzji podczas interakcji. Nie oznacza to jednak, że istnieje uniwersalna dopuszczalna liczba kontrolek na ekranie. Grupowanie informacji, wcześniejsza wiedza i możliwość ponownego odczytania stanu systemu mogą zmieniać wymagania zadania. W modelu inteligentnego domu przewiduje się zatem, że dostępność informacji potrzebnych w danym momencie może ograniczać potrzebę ich samodzielnego utrzymywania, co wymaga sprawdzenia empirycznego.
+
+Teoria zasobów wielorakich Wickensa (2008) pozwala rozpatrywać konkurencję między czynnościami angażującymi podobne zasoby przetwarzania. W proponowanym zastosowaniu wyszukiwanie wzrokowe, interpretacja stanu urządzenia i wybór polecenia mogą konkurować o zasoby uwagowe. Zmniejszenie liczby widocznych elementów nie musi jednak zmniejszać tej konkurencji, jeżeli wymaga dodatkowego przeszukiwania kolejnych ekranów. Jest to przewidywanie wynikające z zastosowania teorii do projektowanego zadania, a nie wynik pomiaru zasobów uwagowych w Smart Home.
+
+Risko i Gilbert (2016) opisują odciążenie poznawcze jako wykorzystanie działań i zasobów zewnętrznych do zmiany wymagań poznawczych czynności. Kontekstowe eksponowanie istotnych funkcji może umożliwiać użytkownikowi korzystanie z informacji dostępnej w środowisku zamiast samodzielnego pamiętania sekwencji operacji. Automatyczne dostosowanie interfejsu nie jest jednak samo w sobie dowodem zachowania polegającego na odciążeniu poznawczym. Weryfikacja tego mechanizmu wymagałaby obserwacji strategii użytkownika oraz porównania wymagań poznawczych przy równoważnych celach zadania.
+
 \subsection{Adaptacja interfejsu i przewidywalność działania}
 
 W projekcie interfejs statyczny zachowuje stałe reguły prezentacji i położenia funkcji niezależnie od rozpoznanego kontekstu. Interfejs adaptacyjny może natomiast eksponować funkcje powiązane z aktualnym zadaniem, zmieniać ich kolejność lub ograniczać liczbę elementów wymagających uwagi. Adaptacyjność należy przy tym odróżnić od dostosowywalności sterowanej bezpośrednio przez użytkownika. Findlater i McGrenere (2004) porównali menu statyczne, adaptacyjne i dostosowywalne w eksperymencie z zakresu interakcji człowiek-komputer. Praca ta uzasadnia traktowanie sposobu dostosowania jako odrębnego czynnika projektowego, ale nie stanowi dowodu przewagi określonego rozwiązania w inteligentnym domu.
 
 Teoretycznie mniejsza liczba elementów do przeszukania może ułatwiać wybór działania, podczas gdy przemieszczenie znanych kontrolek może osłabiać przewidywalność ich położenia. Oba procesy mogą występować równocześnie. Dlatego skuteczność adaptacji nie wynika automatycznie z ograniczenia liczby opcji ani z trafnego wykrycia kontekstu: wymaga uwzględnienia kosztów uczenia się i ponownej orientacji po zmianie interfejsu.
+
+Badania Gajosa i in. (2006), obejmujące porównanie różnych rozwiązań adaptacyjnych z interfejsem nieadaptacyjnym, uzasadniają analizowanie poszczególnych decyzji projektowych zamiast traktowania adaptacji jako jednorodnej interwencji. W modelu MSC-AAL-P02 trafność kontekstowa oznacza zgodność wyróżnienia funkcji z aktualnym celem zadania, natomiast stabilność przestrzenna dotyczy zachowania położenia elementów sterujących. Te dwie właściwości należy rozróżnić: poprawnie wyróżniona funkcja może zmienić położenie, a stabilny układ może eksponować funkcję nieistotną. Oddzielna manipulacja tymi właściwościami byłaby potrzebna do identyfikacji ich swoistych skutków.
 
 \subsection{Relacje między zjawiskami i warunki brzegowe}
 
@@ -69,6 +79,14 @@ Przewidywany bilans obu mechanizmów zależy od złożoności zadania, stabilno�
 Model rozróżnia zatem zmienną eksperymentalną, czyli sposób organizacji interfejsu, postulowane mechanizmy pośredniczące, czyli koszt wyszukiwania i koszt ponownej orientacji, oraz mierzone następstwa, takie jak subiektywne obciążenie zadaniem, błędy i czas wykonania. Złożoność zadania, poprawność adaptacji i wcześniejsza znajomość interfejsu mogą moderować te relacje. W przyszłym protokole trzeba oddzielnie wskazać, które mechanizmy będzie można rzeczywiście zmierzyć, a które pozostaną interpretacją zachowania użytkownika. Samo stwierdzenie różnicy między warunkami nie pozwoli przypisać jej konkretnemu mediatorowi.
 
 Zakres modelu ogranicza się obecnie do projektowanej symulacji Smart Home 2D. Nie wyprowadzono z niego wniosków o poprawie samodzielności życiowej, bezpieczeństwa domowego ani skuteczności klinicznej. Przed badaniem należy doprecyzować populację, reguły adaptacji, procedurę pomiaru i analizę interakcji, a następnie zestawić model z rozszerzonym, krytycznym przeglądem literatury.
+
+\subsection{Struktura zależności i granice identyfikacji}
+
+W proponowanym modelu zmiana organizacji interfejsu stanowi ekspozycję eksperymentalną, natomiast wymagania wyszukiwania i ponownej orientacji są postulowanymi mechanizmami pośredniczącymi. Złożoność zadania i doświadczenie użytkownika mogą modyfikować zależność między ekspozycją a tymi mechanizmami. Trafność kontekstu i stabilność kontrolek są właściwościami wariantu adaptacji, a nie automatycznie niezależnymi moderatorami dostępnymi we wszystkich warunkach. Ich efekty wymagają zdefiniowania porównywalnych wariantów adaptacyjnych.
+
+Kierunek oczekiwanej różnicy w wymaganiach umysłowych zależy od bilansu potencjalnej oszczędności wyszukiwania i dodatkowego kosztu orientacji. Nie zakłada się addytywności tych procesów ani wspólnej jednostki ich pomiaru. Przy podobnym poziomie deklarowanych wymagań umysłowych możliwe są różne wzorce czasu wykonania i błędów. Wskaźniki behawioralne należy zatem interpretować jako odrębne następstwa interakcji, a nie zamienne miary ukrytego konstruktu.
+
+Rozróżnienie mechanizmów wymaga także ustalenia ich kolejności czasowej. Przykładowo można rozważyć rejestrację czasu od prezentacji ekranu do pierwszego prawidłowego wyboru oraz powrotów na wcześniej odwiedzane ekrany po zmianie układu. Takie wskaźniki mogą odzwierciedlać również trudności motoryczne, nieznajomość funkcji lub złożoność scenariusza. Nie stanowią samodzielnego dowodu mediacji. Bez odrębnych manipulacji i uzasadnionych pomiarów interpretacja mechanizmu pozostanie teoretyczna, nawet przy stwierdzeniu różnicy między wariantami interfejsu.
 
 \section{Prace powiązane i luka badawcza}
 
@@ -252,11 +270,19 @@ Dalsze prace wymagają wyboru pierwszorzędowej miary, określenia i przetestowa
 
 \section*{Bibliografia}
 
+Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. \textit{Behavioral and Brain Sciences, 24}(1), 87--114. \url{https://doi.org/10.1017/S0140525X01003922}
+
 Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. W \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems} (s. 89--96). Association for Computing Machinery. \url{https://doi.org/10.1145/985692.985704}
+
+Gajos, K. Z., Czerwinski, M., Tan, D. S., \& Weld, D. S. (2006). Exploring the design space for adaptive graphical user interfaces. W \textit{Proceedings of the Working Conference on Advanced Visual Interfaces} (s. 201--208). Association for Computing Machinery. \url{https://doi.org/10.1145/1133265.1133306}
 
 Hart, S. G., \& Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. W P. A. Hancock \& N. Meshkati (red.), \textit{Human mental workload} (s. 139--183). North-Holland. \url{https://doi.org/10.1016/S0166-4115(08)62386-9}
 
+Risko, E. F., \& Gilbert, S. J. (2016). Cognitive offloading. \textit{Trends in Cognitive Sciences, 20}(9), 676--688. \url{https://doi.org/10.1016/j.tics.2016.07.002}
+
 Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. \textit{Cognitive Science, 12}(2), 257--285. \url{https://doi.org/10.1207/s15516709cog1202_4}
+
+Wickens, C. D. (2008). Multiple resources and mental workload. \textit{Human Factors, 50}(3), 449--455. \url{https://doi.org/10.1518/001872008X288394}
 
 Zhang, B., Rau, P.-L. P., \& Salvendy, G. (2009). Design and evaluation of smart home user interface: Effects of age, tasks and intelligence level. \textit{Behaviour \& Information Technology, 28}(3), 239--249. \url{https://doi.org/10.1080/01449290701573978}
 
