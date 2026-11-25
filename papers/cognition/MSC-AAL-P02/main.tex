@@ -179,9 +179,11 @@ Przed rekrutacją należy zatwierdzić punkt końcowy, estymand, wagi scenariusz
 
 \subsection{Schemat badania}
 
-Planowane jest kontrolowane badanie eksperymentalne w symulacji inteligentnego domu 2D, wykorzystujące pomiary powtarzane. Każdy uczestnik miałby wykonywać porównywalne scenariusze w interfejsie statycznym oraz kontekstowo adaptacyjnym. Podstawowym kontrastem byłaby różnica deklarowanych wymagań umysłowych pomiędzy tymi dwoma warunkami przy poprawnym kontekście i zbliżonej stabilności podstawowych kontrolek. Projekt zakłada kontrbalansowanie kolejności warunków i wariantów zadań; przed rozpoczęciem badania trzeba zdecydować o liczbie sesji, odstępach między nimi i schemacie przyporządkowania scenariuszy. Celem tych działań będzie ograniczenie efektów wprawy, zmęczenia i kolejności.
+Planowane jest kontrolowane badanie eksperymentalne w symulacji inteligentnego domu 2D, wykorzystujące pomiary powtarzane. Każdy uczestnik miałby wykonywać porównywalne scenariusze w interfejsie statycznym oraz kontekstowo adaptacyjnym. Podstawowym kontrastem byłaby różnica deklarowanych wymagań umysłowych pomiędzy tymi dwoma warunkami przy poprawnym kontekście w wariancie adaptacyjnym i stabilnym położeniu podstawowych kontrolek w obu wariantach. Projekt zakłada kontrbalansowanie kolejności warunków i wariantów zadań; przed rozpoczęciem badania trzeba zdecydować o liczbie sesji, odstępach między nimi i schemacie przyporządkowania scenariuszy. Celem tych działań będzie ograniczenie efektów wprawy, zmęczenia i kolejności.
 
 Rozważa się dodatkową manipulację złożonością zadania oraz poprawnością adaptacji lub stabilnością układu. Czynniki te powinny być wprowadzane wyłącznie wtedy, gdy pilotaż potwierdzi porównywalność scenariuszy i wykonalność planu. Nie należy zakładać pełnego schematu czynnikowego bez uprzedniego oszacowania jego wymagań organizacyjnych i statystycznych. H3a wymaga manipulacji trafnością adaptacji przy stabilnym układzie, a H3b manipulacji stabilnością układu przy jednakowej trafności. Bez odpowiedniego kontrastu dana hipoteza nie będzie testowalna potwierdzająco; ewentualne analizy obserwacyjne pozostaną eksploracyjne.
+
+Proponuje się podstawowy schemat $2\times2$ z pomiarami powtarzanymi: interfejs statyczny (S) i trafna adaptacja przy stabilnym układzie (A), każdy przy dwóch poziomach złożoności. Opcjonalne warianty to nietrafna adaptacja przy stabilnym układzie (B) oraz trafna adaptacja przy zmiennym układzie (C). Kontrasty A względem S, B względem A i C względem A odpowiadają H1, H3a i H3b; H2 dotyczy interakcji wariantu S lub A ze złożonością. Bez dodatkowego wariantu nietrafnej adaptacji ze zmiennym układem nie można oszacować interakcji trafności i stabilności.
 
 \subsection{Populacja i dobór próby}
 
@@ -189,17 +191,23 @@ Planowana populacja obejmuje osoby dorosłe zdolne do samodzielnego korzystania 
 
 Liczebność próby pozostaje nieustalona. Powinna wynikać z analizy precyzji estymacji lub mocy dla uprzednio wskazanego kontrastu i minimalnego efektu o znaczeniu praktycznym, z uwzględnieniem zależności pomiarów wewnątrz uczestników, liczby zadań oraz oczekiwanych braków danych. Przed oszacowaniem liczebności potrzebne są założenia o zmienności i korelacji wyników, oparte na adekwatnych źródłach lub pilotażu. Nie przedstawia się fikcyjnej liczby uczestników ani przebiegu rekrutacji.
 
+Proponuje się rekrutację osób pełnoletnich zdolnych do świadomego wyrażenia zgody i wykonania zadania z przewidzianymi dostosowaniami. Kryteria powinny dotyczyć możliwości funkcjonalnych, nie automatycznego wykluczania na podstawie diagnozy. Uczestnicy pilotażu nie powinni wchodzić do próby głównej.
+
 \subsection{Zmienne i kontrola warunków}
 
 Główną zmienną niezależną będzie wariant organizacji interfejsu: statyczny lub adaptacyjny. W warunku statycznym rozmieszczenie i sposób prezentowania funkcji pozostaną niezależne od aktualnego scenariusza. W warunku adaptacyjnym wybrane funkcje mogą być wyróżniane lub porządkowane według jawnych, wcześniej przygotowanych reguł zależnych od stanu zadania i urządzeń. W obu warunkach należy zapewnić tę samą dostępność działań, równoważną treść informacji, rozmiary istotnych kontrolek i porównywalną drogę do osiągnięcia celu. Jeśli skrócenie ścieżki nawigacyjnej jest zamierzonym składnikiem adaptacji, trzeba opisać je jako element manipulacji, a nie niekontrolowaną różnicę.
 
 Złożoność scenariuszy może być określona na podstawie liczby decyzji, zależności pomiędzy czynnościami i konieczności integrowania informacji o stanie urządzeń. Poprawność kontekstu będzie oznaczać zgodność wybranego wariantu prezentacji z wcześniej ustaloną regułą referencyjną dla danego scenariusza. Stabilność układu można opisać udziałem podstawowych kontrolek, których położenie pozostaje niezmienne. Należy rejestrować wersję interfejsu i reguł adaptacji, kolejność zadań, znajomość systemów Smart Home, typ urządzenia wejściowego oraz wszelkie odstępstwa od protokołu.
 
+Każdy scenariusz powinien definiować stan początkowy, cel, zbiór dostępnych działań, warunek zakończenia i referencyjną regułę wyróżniania funkcji. Przykładowe zadanie proste dotyczyłoby oświetlenia jednego pomieszczenia, a złożone kilku urządzeń z zależnościami między czynnościami. Są to przykłady projektowe. W wariancie B funkcja potrzebna do wykonania zadania musi pozostać dostępna. Trafność należy określić przed próbą, niezależnie od powodzenia uczestnika.
+
 \subsection{Aparatura i środowisko badawcze}
 
 Zakłada się wykorzystanie symulatora Smart Home 2D działającego na komputerze z ekranem i standardowym urządzeniem wskazującym. Nie wybrano jeszcze implementacji, konfiguracji sprzętowej ani oprogramowania do rejestracji zdarzeń. Dokumentacja przyszłej aparatury powinna obejmować parametry ekranu, rozdzielczość, sposób obsługi, wersję symulatora, opis scenariuszy i zestaw jawnych reguł adaptacji. Przed użyciem konieczne będą testy zgodności rejestrowanych zdarzeń z faktycznymi działaniami użytkownika oraz ocena dostępności i równoważności obu interfejsów.
 
 Przewidywany eksperyment nie wymaga z definicji EEG, okulografii, kamer ani czujników biometrycznych. Ewentualne użycie takich urządzeń stanowiłoby osobną decyzję metodologiczną, wymagającą wskazania uzasadnienia, walidacji technicznej i dodatkowej oceny prywatności. Nie deklaruje się dostępności ani zweryfikowanego działania żadnego urządzenia pomiarowego.
+
+Przed badaniem należy sprawdzić osiągalność celu w każdym wariancie, zgodność prezentacji z regułami, stabilność kontrolek w S, A i B, reset symulacji oraz poprawność pomiaru czasu. Symulator powinien rozdzielać model urządzeń, reguły kontekstowe, prezentację i rejestr zdarzeń. Nie potwierdzono wykonania tych testów.
 
 \subsection{Pomiary i jakość danych}
 
@@ -209,17 +217,23 @@ Proponowane wyniki drugorzędowe obejmują odsetek ukończonych scenariuszy, lic
 
 Należy z góry ustalić reguły obsługi przerwanych prób, przekroczeń czasu, awarii symulatora i brakujących kwestionariuszy. Rejestr zdarzeń powinien mieć spójne znaczniki czasu oraz identyfikatory warunku i scenariusza, niewymagające zapisu danych identyfikacyjnych w zbiorze analitycznym. Przed właściwym badaniem planuje się pilotaż zrozumiałości zadań, powtarzalności logowania i rozkładów wyników, bez traktowania go jako potwierdzenia hipotez.
 
+Minimalny zapis próby obejmowałby pseudonim uczestnika, scenariusz, wariant, złożoność, kolejność, wersję reguł, stan początkowy i końcowy, status ukończenia oraz ocenę wymagań umysłowych, jeżeli została udzielona. Log zdarzeń powinien zawierać względny czas, typ zdarzenia, identyfikator kontrolki i zmianę stanu. Czas wykonania proponuje się liczyć od udostępnienia interaktywnego ekranu do osiągnięcia celu. Rezygnacja, limit czasu i awaria wymagają odrębnych kodów. Brak oceny nie oznacza zera.
+
 \subsection{Proponowana procedura}
 
 Po uzyskaniu odpowiednich rozstrzygnięć etycznych i organizacyjnych uczestnik otrzyma informację o badaniu, warunkach udziału i zasadach przetwarzania danych. Po udokumentowaniu świadomej zgody zostaną zebrane wyłącznie niezbędne informacje dotyczące doświadczenia z interfejsami oraz potrzeb dostępnościowych. Następnie przewiduje się jednakowe przeszkolenie w korzystaniu z obu wariantów i krótki zestaw zadań treningowych, które nie wejdą do analizy głównej.
 
 Uczestnik wykona zestawy scenariuszy w kolejności przypisanej według wcześniej przygotowanego schematu kontrbalansowania. Po każdym scenariuszu przekaże zaplanowaną ocenę subiektywną, a symulator zapisze zdarzenia i wyniki wykonania. Między blokami można przewidzieć przerwę ograniczającą zmęczenie. Po zakończeniu sesji uczestnik zostanie poinformowany o celu porównania, możliwości wycofania zgody w zakresie przewidzianym przepisami oraz sposobie zgłaszania pytań. Konkretna długość sesji, liczba prób i harmonogram przerw wymagają doprecyzowania po pilotażu; procedura nie została jeszcze przeprowadzona.
 
+Proponuje się losowe przypisanie do zrównoważonych sekwencji wariantów i rotację równoważnych zestawów scenariuszy. Pojedyncza próba obejmowałaby reset, instrukcję, potwierdzenie gotowości, udostępnienie interfejsu, rejestrację czynności i ocenę subiektywną. Instrukcje nie powinny sugerować przewagi adaptacji, ponieważ uczestników nie można zaślepić na wygląd interfejsu.
+
 \subsection{Ochrona uczestników i ograniczenia etyczne}
 
 Przed rekrutacją należy ustalić, czy projekt wymaga opinii właściwej komisji etycznej oraz jakie zgody i obowiązki prawne są niezbędne w danej jednostce. Brak potwierdzonego rozstrzygnięcia nie może być przedstawiany jako uzyskana zgoda. Uczestnictwo powinno być dobrowolne, z możliwością przerwania zadania bez negatywnych konsekwencji. Instrukcje muszą ograniczać presję osiągnięć i uwzględniać ryzyko zmęczenia, frustracji oraz niedostępności interfejsu.
 
 Projekt ochrony danych powinien opierać się na minimalizacji zakresu informacji, rozdzieleniu danych kontaktowych od pseudonimizowanych zapisów sesji, ograniczeniu dostępu i określeniu retencji. Należy ustalić podstawę prawną przetwarzania oraz procedurę realizowania praw uczestników. Jeżeli zbierane byłyby dane dotyczące zdrowia lub inne szczególne kategorie danych osobowych, wymagałoby to odrębnego uzasadnienia i zabezpieczeń. Nie ma obecnie udokumentowanego zbioru danych uczestników ani potwierdzonej zgody etycznej.
+
+Uczestników należy poinformować o możliwości wystąpienia nieoptymalnych wariantów interfejsu. Symulator nie powinien sterować rzeczywistymi urządzeniami ani gromadzić danych o prywatnym mieszkaniu. Kryteria przerwania próby z powodu dyskomfortu i zasady pomocy należy ustalić przed rekrutacją.
 
 Ograniczenia projektu obejmują dobór niereprezentatywnej próby, możliwość przenoszenia wyuczonych strategii między warunkami, różnice w doświadczeniu technologicznym oraz ograniczoną trafność ekologiczną symulacji 2D. Badanie nie może samoistnie dowieść skuteczności w rzeczywistym domu, poprawy samodzielności ani korzyści klinicznych. Plan należy zamrozić przed dostępem do danych i dostosować do rozstrzygnięć pilotażu, nie zmieniając retrospektywnie hipotez po poznaniu wyników.
 
