@@ -8,6 +8,8 @@
 
 \usepackage{lmodern}
 
+\usepackage{amsmath}
+
 \usepackage{geometry}
 
 \geometry{margin=27mm}
@@ -18,7 +20,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 0.1.8}
 
 \begin{document}
 
@@ -26,41 +28,349 @@
 
 \begin{abstract}
 
-Tematem pracy jest Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Projekt dotyczy warunków, w których kontekstowa adaptacja interfejsu inteligentnego domu może zmieniać subiektywny wysiłek umysłowy użytkownika. Rozpatrzono dwa konkurencyjne mechanizmy: ograniczenie wyszukiwania informacji oraz zwiększenie kosztów ponownej orientacji po zmianach układu. Na podstawie wybranych badań nad adaptacyjnymi menu, ergonomią interfejsów Smart Home i obciążeniem zadaniem przedstawiono prospektywny projekt eksperymentu w symulacji 2D. Proponowane porównanie interfejsu statycznego i adaptacyjnego uwzględnia złożoność zadania, poprawność kontekstu i stabilność kontrolek. Przedstawiono hipotezy, możliwe wskaźniki, plan analiz oraz ograniczenia trafności wnioskowania. Praca ma charakter koncepcyjny: nie przeprowadzono własnych pomiarów ani analiz empirycznych, a protokół i pierwszorzędowy punkt końcowy wymagają zatwierdzenia.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Interfejsy inteligentnego domu umożliwiają użytkownikowi nadzorowanie urządzeń, odczytywanie stanów otoczenia i wykonywanie czynności związanych z codziennym funkcjonowaniem. Wraz ze wzrostem liczby dostępnych funkcji rosnąć może jednak wysiłek potrzebny do rozpoznania aktualnego stanu systemu, znalezienia odpowiedniego polecenia i oceny skutków działania. Z perspektywy projektowania interakcji problem nie sprowadza się zatem do liczby wyświetlanych elementów. Znaczenie mają również organizacja informacji, przewidywalność zachowania interfejsu oraz zgodność prezentowanych opcji z bieżącym zadaniem użytkownika. Badania ergonomii interfejsów inteligentnego domu uwzględniały już wpływ nawigacji i właściwości kontrolek na wykonanie czynności przez osoby starsze (Zhou i in., 2022).
+
+Adaptacja kontekstowa oznacza w niniejszym szkicu planowaną zmianę sposobu prezentowania i porządkowania funkcji interfejsu w zależności od uprzednio określonych informacji o sytuacji zadaniowej. Przykładowymi sygnałami kontekstowymi mogłyby być aktywny scenariusz obsługi domu, stan urządzeń oraz sekwencja wcześniej wykonanych działań. Tak rozumiana adaptacja nie wymaga przypisywania systemowi zdolności do rozpoznawania intencji ani stanu psychicznego użytkownika. Zakres wykorzystywanych sygnałów i reguł dostosowania powinien zostać określony przed badaniem, a ich trafność poddana osobnej kontroli.
+
+Uzasadnienie potencjalnych korzyści adaptacji opiera się na założeniu, że odpowiednio uporządkowany interfejs może ograniczać wyszukiwanie informacji, konieczność porównywania wielu opcji oraz utrzymywanie w pamięci roboczej kolejnych kroków zadania. Takie uzasadnienie nawiązuje do analizy ograniczeń zasobów poznawczych podczas rozwiązywania problemów (Sweller, 1988), lecz jej zastosowanie do sterowania domem pozostaje hipotezą. Możliwa poprawa sprawności działania nie stanowi jednak sama w sobie dowodu zmniejszenia obciążenia poznawczego. Czas wykonania, liczba kliknięć, błędy i subiektywnie odczuwany wysiłek opisują częściowo odmienne aspekty interakcji, dlatego ich interpretacja wymaga rozróżnienia konstruktu teoretycznego od wskaźników operacyjnych.
+
+Korzyści adaptacji mogą współwystępować z kosztami poznawczymi. Przenoszenie elementów sterujących, zmiana kolejności poleceń lub nietrafne rozpoznanie kontekstu mogą utrudniać wykorzystywanie wyuczonych schematów działania. Użytkownik musi wówczas ponownie ustalić, gdzie znajduje się potrzebna funkcja i czy interfejs nadal zachowuje się zgodnie z oczekiwaniami. W rezultacie rozwiązanie, które zmniejsza liczbę widocznych opcji, może jednocześnie zwiększać niepewność i wysiłek ponownej orientacji. Przewidywany efekt adaptacji powinien być zatem traktowany jako zależny od złożoności zadania, poprawności rozpoznania kontekstu i stabilności organizacji interfejsu, a nie jako uniwersalna własność systemów adaptacyjnych. Przesłanek do takiego podejścia dostarczają porównania menu statycznych i adaptacyjnych (Findlater i McGrenere, 2004) oraz obserwacje wzrostu odczuwanego obciążenia w niektórych zadaniach starszych użytkowników inteligentnego domu wraz ze wzrostem poziomu inteligencji interfejsu (Zhang i in., 2009).
+
+Motywacją projektu jest potrzeba oddzielenia tych konkurencyjnych wyjaśnień w kontrolowanych warunkach. Rozważane badanie zakłada porównanie interfejsu statycznego i kontekstowo adaptacyjnego w symulacji inteligentnego domu 2D, przy porównywalnych zadaniach i dostępnych funkcjach. Taki zakres umożliwiałby systematyczną manipulację właściwościami prezentacji informacji bez utożsamiania działania symulacji z zachowaniem rzeczywistej instalacji domowej. Przed rozpoczęciem eksperymentu konieczne będzie doprecyzowanie scenariuszy, reguł adaptacji, populacji docelowej, miary pierwszorzędowej i sposobu kontroli efektu uczenia się interfejsu.
+
+Potencjalny oryginalny wkład pracy polegałby nie na wykazaniu ogólnej przewagi interfejsów adaptacyjnych, lecz na empirycznym sprawdzeniu warunków, w których korzyść z ograniczenia wyszukiwania informacji może przeważać nad kosztem zmian układu i błędnego dostosowania. Odróżnienie mechanizmu korzystnego od niekorzystnego mogłoby stanowić podstawę do formułowania bardziej precyzyjnych zasad projektowania interfejsów inteligentnego domu. Jest to proponowany kierunek badań, a nie stwierdzenie osiągniętej nowości lub potwierdzonej skuteczności.
+
+Projekt pozostaje na etapie koncepcyjnym. Nie przeprowadzono w jego ramach udokumentowanego eksperymentu ani nie uzyskano wyników pozwalających ocenić kierunek lub wielkość efektu. Uogólnienie przyszłych ustaleń na osoby starsze, użytkowników o szczególnych potrzebach lub rzeczywiste środowiska wspomaganego zamieszkiwania będzie wymagało odpowiednio dobranych prób i dodatkowej walidacji. Przywołane mechanizmy stanowią uzasadnienie teoretyczne planowanego eksperymentu, a ich znaczenie dla badanej konfiguracji pozostaje pytaniem empirycznym.
+
+\section{Podstawy teoretyczne i model pojęciowy}
+
+\subsection{Obciążenie poznawcze a wymagania interakcji}
+
+Obciążenie poznawcze odnosi się do wymagań stawianych zasobom przetwarzania informacji podczas wykonywania czynności. W klasycznej analizie rozwiązywania problemów Sweller (1988) wykazał znaczenie ograniczeń poznawczych dla uczenia się i projektowania zadań. Przeniesienie tej perspektywy na obsługę inteligentnego domu stanowi w niniejszej pracy interpretację teoretyczną, a nie bezpośredni wynik badań Swellera nad systemami Smart Home. W takim zastosowaniu należy odróżnić wymagania wynikające z samego celu działania, na przykład ustawienia parametrów urządzenia, od wymagań wprowadzanych przez sposób prezentacji opcji, strukturę nawigacji i zmienność rozmieszczenia elementów.
+
+Obciążenie odczuwane podczas zadania jest konstruktem wielowymiarowym. Hart i Staveland (1988) opracowali NASA-TLX jako metodę subiektywnej oceny obciążenia zadaniem, obejmującą kilka wymiarów doświadczenia użytkownika. W konsekwencji nie należy utożsamiać ogólnego wyniku NASA-TLX, jego wymiarów wymagań umysłowych i wysiłku, czasu realizacji ani liczby błędów. Każda z tych miar odpowiada innemu pytaniu empirycznemu. Ostateczny wybór miary pierwszorzędowej oraz zasad agregacji pomiarów pozostaje decyzją przyszłego protokołu.
+
+\subsection{Zasoby poznawcze i odciążenie przez środowisko}
+
+Ograniczona pojemność krótkotrwałego przechowywania informacji, analizowana przez Cowana (2001), uzasadnia rozważenie kosztów utrzymywania celu, stanu urządzeń i kolejnych decyzji podczas interakcji. Nie oznacza to jednak, że istnieje uniwersalna dopuszczalna liczba kontrolek na ekranie. Grupowanie informacji, wcześniejsza wiedza i możliwość ponownego odczytania stanu systemu mogą zmieniać wymagania zadania. W modelu inteligentnego domu przewiduje się zatem, że dostępność informacji potrzebnych w danym momencie może ograniczać potrzebę ich samodzielnego utrzymywania, co wymaga sprawdzenia empirycznego.
+
+Teoria zasobów wielorakich Wickensa (2008) pozwala rozpatrywać konkurencję między czynnościami angażującymi podobne zasoby przetwarzania. W proponowanym zastosowaniu wyszukiwanie wzrokowe, interpretacja stanu urządzenia i wybór polecenia mogą konkurować o zasoby uwagowe. Zmniejszenie liczby widocznych elementów nie musi jednak zmniejszać tej konkurencji, jeżeli wymaga dodatkowego przeszukiwania kolejnych ekranów. Jest to przewidywanie wynikające z zastosowania teorii do projektowanego zadania, a nie wynik pomiaru zasobów uwagowych w Smart Home.
+
+Risko i Gilbert (2016) opisują odciążenie poznawcze jako wykorzystanie działań i zasobów zewnętrznych do zmiany wymagań poznawczych czynności. Kontekstowe eksponowanie istotnych funkcji może umożliwiać użytkownikowi korzystanie z informacji dostępnej w środowisku zamiast samodzielnego pamiętania sekwencji operacji. Automatyczne dostosowanie interfejsu nie jest jednak samo w sobie dowodem zachowania polegającego na odciążeniu poznawczym. Weryfikacja tego mechanizmu wymagałaby obserwacji strategii użytkownika oraz porównania wymagań poznawczych przy równoważnych celach zadania.
+
+\subsection{Adaptacja interfejsu i przewidywalność działania}
+
+W projekcie interfejs statyczny zachowuje stałe reguły prezentacji i położenia funkcji niezależnie od rozpoznanego kontekstu. Interfejs adaptacyjny może natomiast eksponować funkcje powiązane z aktualnym zadaniem, zmieniać ich kolejność lub ograniczać liczbę elementów wymagających uwagi. Adaptacyjność należy przy tym odróżnić od dostosowywalności sterowanej bezpośrednio przez użytkownika. Findlater i McGrenere (2004) porównali menu statyczne, adaptacyjne i dostosowywalne w eksperymencie z zakresu interakcji człowiek-komputer. Praca ta uzasadnia traktowanie sposobu dostosowania jako odrębnego czynnika projektowego, ale nie stanowi dowodu przewagi określonego rozwiązania w inteligentnym domu.
+
+Teoretycznie mniejsza liczba elementów do przeszukania może ułatwiać wybór działania, podczas gdy przemieszczenie znanych kontrolek może osłabiać przewidywalność ich położenia. Oba procesy mogą występować równocześnie. Dlatego skuteczność adaptacji nie wynika automatycznie z ograniczenia liczby opcji ani z trafnego wykrycia kontekstu: wymaga uwzględnienia kosztów uczenia się i ponownej orientacji po zmianie interfejsu.
+
+Badania Gajosa i in. (2006), obejmujące porównanie różnych rozwiązań adaptacyjnych z interfejsem nieadaptacyjnym, uzasadniają analizowanie poszczególnych decyzji projektowych zamiast traktowania adaptacji jako jednorodnej interwencji. W modelu MSC-AAL-P02 trafność kontekstowa oznacza zgodność wyróżnienia funkcji z aktualnym celem zadania, natomiast stabilność przestrzenna dotyczy zachowania położenia elementów sterujących. Te dwie właściwości należy rozróżnić: poprawnie wyróżniona funkcja może zmienić położenie, a stabilny układ może eksponować funkcję nieistotną. Oddzielna manipulacja tymi właściwościami byłaby potrzebna do identyfikacji ich swoistych skutków.
+
+\subsection{Relacje między zjawiskami i warunki brzegowe}
+
+Proponowany model pojęciowy zakłada, że typ interfejsu wpływa na obciążenie zadaniem przez dwa potencjalne, przeciwstawne mechanizmy. Pierwszy polega na ograniczeniu wysiłku wyszukiwania informacji i selekcji poleceń. Drugi polega na zwiększeniu kosztów aktualizacji modelu mentalnego interfejsu, gdy zmienia się rozmieszczenie kontrolek lub system błędnie rozpoznaje kontekst. Są to postulowane ścieżki wyjaśniające, które wymagają przyszłego sprawdzenia empirycznego; w niniejszym szkicu nie traktuje się ich jako ustalonych efektów przyczynowych.
+
+Przewidywany bilans obu mechanizmów zależy od złożoności zadania, stabilności układu, trafności informacji kontekstowych i doświadczenia użytkownika. Przy zadaniach prostych koszt zmiany organizacji ekranu może przewyższać korzyść z wyróżnienia funkcji. W zadaniach złożonych ograniczenie konieczności przeszukiwania interfejsu może okazać się korzystniejsze, pod warunkiem że adaptacja nie zakłóca wyuczonych działań. Zależności te mają postać przewidywań teoretycznych, a nie potwierdzonych prawidłowości.
+
+Model rozróżnia zatem zmienną eksperymentalną, czyli sposób organizacji interfejsu, postulowane mechanizmy pośredniczące, czyli koszt wyszukiwania i koszt ponownej orientacji, oraz mierzone następstwa, takie jak subiektywne obciążenie zadaniem, błędy i czas wykonania. Złożoność zadania, poprawność adaptacji i wcześniejsza znajomość interfejsu mogą moderować te relacje. W przyszłym protokole trzeba oddzielnie wskazać, które mechanizmy będzie można rzeczywiście zmierzyć, a które pozostaną interpretacją zachowania użytkownika. Samo stwierdzenie różnicy między warunkami nie pozwoli przypisać jej konkretnemu mediatorowi.
+
+Zakres modelu ogranicza się obecnie do projektowanej symulacji Smart Home 2D. Nie wyprowadzono z niego wniosków o poprawie samodzielności życiowej, bezpieczeństwa domowego ani skuteczności klinicznej. Przed badaniem należy doprecyzować populację, reguły adaptacji, procedurę pomiaru i analizę interakcji, a następnie zestawić model z rozszerzonym, krytycznym przeglądem literatury.
+
+\subsection{Struktura zależności i granice identyfikacji}
+
+W proponowanym modelu zmiana organizacji interfejsu stanowi ekspozycję eksperymentalną, natomiast wymagania wyszukiwania i ponownej orientacji są postulowanymi mechanizmami pośredniczącymi. Złożoność zadania i doświadczenie użytkownika mogą modyfikować zależność między ekspozycją a tymi mechanizmami. Trafność kontekstu i stabilność kontrolek są właściwościami wariantu adaptacji, a nie automatycznie niezależnymi moderatorami dostępnymi we wszystkich warunkach. Ich efekty wymagają zdefiniowania porównywalnych wariantów adaptacyjnych.
+
+Kierunek oczekiwanej różnicy w wymaganiach umysłowych zależy od bilansu potencjalnej oszczędności wyszukiwania i dodatkowego kosztu orientacji. Nie zakłada się addytywności tych procesów ani wspólnej jednostki ich pomiaru. Przy podobnym poziomie deklarowanych wymagań umysłowych możliwe są różne wzorce czasu wykonania i błędów. Wskaźniki behawioralne należy zatem interpretować jako odrębne następstwa interakcji, a nie zamienne miary ukrytego konstruktu.
+
+Rozróżnienie mechanizmów wymaga także ustalenia ich kolejności czasowej. Przykładowo można rozważyć rejestrację czasu od prezentacji ekranu do pierwszego prawidłowego wyboru oraz powrotów na wcześniej odwiedzane ekrany po zmianie układu. Takie wskaźniki mogą odzwierciedlać również trudności motoryczne, nieznajomość funkcji lub złożoność scenariusza. Nie stanowią samodzielnego dowodu mediacji. Bez odrębnych manipulacji i uzasadnionych pomiarów interpretacja mechanizmu pozostanie teoretyczna, nawet przy stwierdzeniu różnicy między wariantami interfejsu.
+
+\section{Prace powiązane i luka badawcza}
+
+\subsection{Personalizacja interfejsu a kontrola użytkownika}
+
+Badania interfejsów adaptacyjnych pokazują, że automatyczne dopasowanie nie musi poprawiać efektywności działania. Findlater i McGrenere (2004) porównali statyczne, automatycznie adaptowane i dostosowywane przez użytkowników menu w kontrolowanym badaniu laboratoryjnym z udziałem 27 osób. W zastosowanym układzie eksperymentalnym menu statyczne pozwalało wykonywać zadania szybciej niż menu adaptacyjne, natomiast menu dostosowywane przez użytkownika było w pewnych warunkach szybsze od adaptacyjnego. Większość uczestników preferowała możliwość samodzielnego dostosowania menu. Wyniki te podważają założenie, że automatyczna zmiana organizacji funkcji jest zawsze korzystna, lecz dotyczą menu programowego, a nie sterowania inteligentnym domem. Nie stanowią również bezpośredniego pomiaru obciążenia poznawczego w proponowanym eksperymencie.
+
+W projekcie MSC-AAL-P02 istotne jest rozróżnienie kontroli nad sposobem personalizacji od samej obecności personalizacji. Dynamiczne przesuwanie funkcji może ułatwiać dostęp do często używanych poleceń, lecz może też zmieniać poznaną wcześniej strukturę nawigacji. Takie konkurencyjne skutki wymagają eksperymentalnego oddzielenia, zamiast przyjęcia z góry korzystnego kierunku efektu.
+
+\subsection{Trafność predykcji a stabilność przestrzenna}
+
+Gajos i in. (2008) rozdzielili trafność przewidywań algorytmu i przewidywalność jego zachowania w eksperymencie dotyczącym adaptacyjnego interfejsu. W badanej konfiguracji wzrost obu właściwości poprawiał satysfakcję, natomiast większa trafność predykcji poprawiała również wykonanie zadania i wykorzystanie adaptacji. Wynik uzasadnia osobne uwzględnienie jakości predykcji oraz przewidywalności, ale nie rozstrzyga ich wpływu na subiektywne wymagania umysłowe podczas obsługi urządzeń domowych.
+
+Findlater i in. (2009) badali adaptację polegającą na różnicowaniu momentu pojawiania się elementów menu bez zmiany ich położenia. W dwóch eksperymentach, obejmujących łącznie 48 użytkowników, rozwiązanie skracało czas wyboru względem menu statycznego przy dużej trafności predykcji; przy małej trafności nie wykazano istotnego wydłużenia czasu. Brak istotnej różnicy nie jest dowodem równoważności. Badanie pokazuje jednak, że adaptacja nie musi polegać na reorganizacji przestrzennej, a jej skutki zależą od konkretnej techniki prezentacji. W planowanym badaniu wyróżnienie właściwej funkcji przy stałym położeniu kontrolek i reorganizacja układu powinny być traktowane jako różne warianty interwencji.
+
+\subsection{Inteligencja interfejsu, wiek i charakter zadania}
+
+Zhang i współautorzy (2009) analizowali projekt interfejsu inteligentnego domu z uwzględnieniem wieku użytkownika, rodzaju zadania i poziomu inteligencji interfejsu. W ich badaniu wyższy poziom inteligencji interfejsu wiązał się ze wzrostem odczuwanego obciążenia podczas niektórych zadań wykonywanych przez starszych użytkowników. Wynik ten wskazuje, że stopień automatyzacji należy interpretować łącznie z charakterem czynności i właściwościami użytkowników. Sama etykieta interfejsu jako inteligentnego nie pozwala przewidzieć wielkości ani kierunku obciążenia.
+
+W odróżnieniu od ogólnego porównania poziomów inteligencji, planowany projekt zakłada analizę ściśle określonej zmiany prezentacji funkcji zależnej od kontekstu zadania. Nie rozstrzygnięto jednak jeszcze, czy i w jaki sposób manipulowana będzie trafność rozpoznania kontekstu. Bez tej decyzji nie będzie możliwe odróżnienie wpływu mechanizmu adaptacji od wpływu jej jakości technicznej.
+
+\subsection{Ergonomia nawigacji w interfejsach inteligentnego domu}
+
+Zhou i współautorzy (2022) przeprowadzili badania interfejsów Smart Home adresowanych do starszych użytkowników. Porównywali między innymi kierunek przewijania, styl przycisków i ich wielkość, uwzględniając wskaźniki zachowania, okulografię oraz oceny subiektywne. W badanych konfiguracjach korzystniejsze były między innymi pionowe przewijanie oraz określone proste style przycisków. Uzyskane wyniki dotyczą jednak właściwości układu i elementów sterowania, nie zaś dynamicznego przekształcania struktury interfejsu w odpowiedzi na zmienny kontekst zadania.
+
+Badania ergonomii elementów sterujących dostarczają istotnych wskazówek dotyczących projektowania warunków eksperymentalnych. Należy jednak zachować podobne rozmiary kontrolek, dostępność funkcji i czytelność obu porównywanych wersji interfejsu. W przeciwnym razie różnice w wykonaniu zadania mogłyby wynikać z jakości graficznej i motorycznej interakcji, a nie z adaptacji kontekstowej.
+
+\subsection{Adaptacyjne dostarczanie informacji w środowisku domowym}
+
+Tran i in. (2026) przeprowadzili przegląd zakresowy systemów multimodalnych wspierających osoby starsze w domu. Spośród 681 zidentyfikowanych rekordów do syntezy włączono pięć badań. Na ich podstawie zaproponowano warstwową organizację informacji zależną od kontekstu, potrzeb użytkownika i znaczenia zadania. Autorzy wskazali potrzebę dalszej oceny tej koncepcji w rzeczywistych środowiskach oraz uwzględnienia różnic indywidualnych. Przegląd dostarcza aktualnego uzasadnienia dla adaptacyjnej prezentacji informacji, lecz nie potwierdza skuteczności proponowanej architektury ani nie dostarcza oszacowania efektu samej reorganizacji graficznego interfejsu Smart Home. Jego zakres obejmował systemy multimodalne i osoby starsze, dlatego nie jest wyczerpującym przeglądem eksperymentów nad adaptacyjnymi interfejsami graficznymi.
+
+\subsection{Synteza porównawcza i pytanie nierozstrzygnięte}
+
+Porównane badania reprezentują odmienne poziomy interwencji. Findlater i McGrenere (2004) badali źródło kontroli nad personalizacją, Gajos i in. (2008) właściwości predykcji, a Findlater i in. (2009) sposób kierowania uwagą przy zachowaniu położenia elementów. Zhang i in. (2009) analizowali inteligencję interfejsu w powiązaniu z wiekiem i zadaniem, natomiast Zhou i in. (2022) oceniali ergonomię statycznych właściwości graficznych. Tran i in. (2026) rozszerzyli perspektywę na dobór informacji i modalności w środowisku domowym. Wyniki tych prac nie są bezpośrednio porównywalnymi oszacowaniami jednego efektu: różnią się zakresem manipulacji, populacjami, zadaniami oraz sposobem pomiaru następstw interakcji.
+
+Luka badawcza dotyczy zatem przeniesienia wiedzy o trafności predykcji i stabilności układu na kontrolowane zadania obsługi inteligentnego domu, z jednoczesnym rozróżnieniem subiektywnych wymagań umysłowych, wykonania czynności i postulowanych kosztów wyszukiwania oraz ponownej orientacji. W zestawionych publikacjach nie uzyskano wspólnego oszacowania tych zależności dla tak zdefiniowanej konfiguracji. Nie jest to luka polegająca na braku badań nad adaptacją, trafnością predykcji czy obciążeniem w Smart Home, ponieważ każde z tych zagadnień było już przedmiotem badań. Odrębność proponowanego projektu wymaga wykazania wartości ich połączenia w jednym kontrolowanym schemacie, a nie przypisania nowości poszczególnym czynnikom.
+
+Proponowany wkład MSC-AAL-P02 polegałby na porównaniu statycznego i kontekstowo adaptacyjnego interfejsu w symulacji 2D przy równoważnych zadaniach i dostępnych funkcjach, z uwzględnieniem złożoności zadania. Rozdzielenie wpływu trafności i stabilności wymaga dodatkowych, odpowiednio zaprojektowanych kontrastów; bez nich nie będzie można przypisać efektu określonemu mechanizmowi. Przed zatwierdzeniem protokołu należy sprawdzić zakres nowości w szerszym wyszukiwaniu bibliograficznym. Niniejsza synteza ma charakter narracyjny i nie stanowi przeglądu systematycznego ani dowodu nieistnienia podobnych eksperymentów.
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Celem planowanego badania jest oszacowanie wpływu kontekstowej adaptacji sposobu prezentacji funkcji w symulacji inteligentnego domu 2D na subiektywne wymagania umysłowe podczas wykonywania porównywalnych zadań. Celem dodatkowym jest ustalenie, czy efekt zależy od złożoności zadania, trafności adaptacji oraz stabilności przestrzennej kontrolek. Projekt rozróżnia wymagania umysłowe, wykonanie czynności i postulowane mechanizmy poznawcze. Poniższe pytania oraz hipotezy stanowią propozycję prospektywną, wymagającą zatwierdzenia przed akwizycją danych.
+
+\subsection{Pytania badawcze}
+
+\begin{description}
+\item[PB1.] Czy poprawna kontekstowo adaptacja przy zachowaniu stabilności kluczowych kontrolek zmniejsza deklarowane wymagania umysłowe względem interfejsu statycznego?
+\item[PB2.] Czy różnica między tymi wariantami zależy od złożoności scenariusza?
+\item[PB3a.] Czy nietrafne wyróżnianie funkcji zwiększa deklarowane wymagania umysłowe względem trafnego wyróżniania przy niezmienionym układzie?
+\item[PB3b.] Czy zmiana położenia kontrolek zwiększa deklarowane wymagania umysłowe względem stabilnego układu przy jednakowej trafności kontekstowej?
+\item[PB4.] Czy kierunek różnicy w deklarowanych wymaganiach umysłowych jest zgodny z kierunkiem różnic w czasie wykonania, błędach krytycznych i prawdopodobieństwie ukończenia zadania?
+\end{description}
+
+PB1 odpowiada proponowanemu kontrastowi pierwszorzędowemu. PB2 i PB3 dotyczą warunków brzegowych adaptacji, przy czym PB3a i PB3b wymagają odrębnych porównań eksperymentalnych. PB4 ma charakter eksploracyjny i dotyczy zgodności następstw interakcji, a nie zamienności miar.
+
+\subsection{Hipotezy i przewidywania konkurencyjne}
+
+Niech $\mu_{S,c}$ oznacza oczekiwaną ocenę wymagań umysłowych w warunku statycznym, a $\mu_{A,c}$ ocenę w warunku poprawnej adaptacji ze stabilnym układem, dla poziomu złożoności $c$. Wyższa ocena oznacza większe wymagania umysłowe. Kontrast $\Delta_c=\mu_{A,c}-\mu_{S,c}$ definiuje kierunek efektu adaptacji. Kontrast główny $\Delta$ jest średnią kontrastów dla wcześniej określonego zbioru scenariuszy, z wagami ustalonymi przed analizą. Symbole oznaczają parametry populacyjne, a nie uzyskane wyniki.
+
+\begin{description}
+\item[H1.] $\Delta<0$. Poprawna adaptacja przy stabilnym układzie wiąże się z niższymi deklarowanymi wymaganiami umysłowymi niż interfejs statyczny. Jest to hipoteza pierwszorzędowa.
+\item[H2.] $\Delta_{\mathrm{zloz}}-\Delta_{\mathrm{proste}}<0$. Korzyść adaptacji jest większa w scenariuszach złożonych niż prostych. Hipoteza dotyczy interakcji, nie odrębnego testowania istotności w każdym poziomie złożoności.
+\item[H3a.] $\mu_{\mathrm{nietrafna,stabilna}}-\mu_{\mathrm{trafna,stabilna}}>0$. Nietrafna adaptacja zwiększa wymagania umysłowe przy zachowaniu stabilności układu.
+\item[H3b.] $\mu_{\mathrm{trafna,zmienna}}-\mu_{\mathrm{trafna,stabilna}}>0$. Zmiana położenia kontrolek zwiększa wymagania umysłowe przy zachowaniu trafności adaptacji.
+\end{description}
+
+Kontrasty H3a i H3b, łącznie odpowiadające hipotezie H3, wymagają porównywalnych scenariuszy i zachowania pozostałych właściwości prezentacji. Bez odpowiedniej manipulacji dany kontrast nie będzie testowalny potwierdzająco. H2, H3a i H3b proponuje się jako hipotezy drugorzędowe; ich status zależy od ostatecznego projektu i planu kontroli wielokrotności.
+
+Przewidywania H1 i H2 wynikają z postulowanej oszczędności wyszukiwania oraz ograniczeń zasobów poznawczych (Cowan, 2001; Wickens, 2008). Przewidywania H3a i H3b nawiązują do badań nad trafnością i przewidywalnością adaptacji oraz zachowaniem położenia elementów menu (Gajos i in., 2008; Findlater i in., 2009). Kierunek efektu w inteligentnym domu pozostaje jednak hipotezą. Konkurencyjne wyjaśnienie H1 zakłada, że koszt orientacji przewyższy oszczędność wyszukiwania. W przypadku H2 większa złożoność może nasilać niekorzystny wpływ adaptacji. W przypadku H3 użytkownik może kompensować utrudnienia kosztem czasu bez zwiększenia deklarowanych wymagań umysłowych. Dla PB4 nie zakłada się obligatoryjnej zgodności wszystkich miar ani dodatkowej hipotezy potwierdzającej.
+
+\subsection{Konstrukty i proponowana operacjonalizacja}
+
+Wariant interfejsu jest zmienną eksperymentalną określoną przez jawne reguły prezentowania funkcji. Warunek statyczny nie zmienia prezentacji zależnie od kontekstu; wariant referencyjny adaptacji wyróżnia funkcje trafnie i zachowuje położenie kluczowych kontrolek. Trafność odnosi się do zgodności wyróżnienia z uprzednio określoną regułą referencyjną, a stabilność do niezmienności położenia podstawowych elementów sterujących. Są to właściwości manipulacji, nie cechy uczestnika. Nie należy klasyfikować warunków na podstawie późniejszego powodzenia zadania. Złożoność zadania proponuje się określić przez liczbę wymaganych decyzji, zależności między czynnościami oraz zakres informacji potrzebnych do osiągnięcia celu. Kryteria klasyfikacji scenariuszy i równoważność wariantów należy zweryfikować w pilotażu.
+
+Obciążenie poznawcze jest konstruktem teoretycznym. Kandydatem na pierwszorzędowy wskaźnik jest ocena wymagań umysłowych po scenariuszu, przykładowo wymiar \textit{mental demand} NASA-TLX (Hart i Staveland, 1988). Wymagania umysłowe nie są tożsame z odrębnym wymiarem wysiłku (\textit{effort}) ani pełnym wynikiem NASA-TLX. Jednostką obserwacji będzie wykonanie scenariusza przez uczestnika w przypisanym warunku. Wersja językowa, skala odpowiedzi, moment pomiaru i zasady agregacji wymagają zatwierdzenia przed badaniem.
+
+Wskaźniki drugorzędowe obejmują liczbę błędów krytycznych na scenariusz, poprawne ukończenie zadania, czas do ukończenia i ocenę użyteczności. Kryteria błędu i powodzenia muszą wynikać ze specyfikacji scenariusza, nie z ocen po poznaniu efektów. Dla czasu należy uwzględnić próby nieukończone zgodnie z uprzednio ustaloną strategią. Niższe wartości czasu i błędów oraz wyższe prawdopodobieństwo ukończenia oznaczają korzystny kierunek wykonania, ale nie są bezpośrednim pomiarem obciążenia poznawczego.
+
+Koszt wyszukiwania i koszt ponownej orientacji są postulowanymi mechanizmami pośredniczącymi. Rejestrowane zdarzenia, takie jak czas do pierwszego prawidłowego wyboru i powroty do poprzednich ekranów, można rozważyć jako eksploracyjne wskaźniki procesowe. Bez odrębnej walidacji i założeń identyfikacyjnych nie będą stanowić potwierdzenia mediacji. Doświadczenie użytkownika jest potencjalnym moderatorem i zmienną kontrolną, a kolejność i numer próby są potencjalnymi źródłami efektów uczenia i zmęczenia.
+
+\subsection{Kryteria oceny i granice wnioskowania}
+
+Dla każdego testowalnego kontrastu należy przedstawić oszacowanie i przedział ufności. Proponowanym kryterium zgodności z hipotezą kierunkową jest położenie całego odpowiednio skonstruowanego przedziału ufności po przewidywanej stronie zera; przedział obejmujący zero oznacza nierozstrzygnięcie, natomiast przedział po stronie przeciwnej przemawia przeciw przewidywanemu kierunkowi. Poziom ufności, rodzaj testu i procedura kontroli wielokrotności wymagają ustalenia przed analizą. Wnioskowanie o H2 musi opierać się na kontrastach interakcyjnych, a wnioskowanie o H3a i H3b na odrębnych porównaniach. Bez odpowiednich warunków eksperymentalnych nie należy raportować tych hipotez jako potwierdzonych ani odrzuconych.
+
+Znaczenie praktyczne należy oceniać oddzielnie od zgodności statystycznej. Dla H1 proponuje się ustalenie minimalnej korzystnej różnicy $\delta>0$ w jednostkach wybranej skali. Przedział ufności leżący w całości poniżej $-\delta$ przemawiałby za efektem przekraczającym tę granicę. Wartość $\delta$ wymaga uzasadnienia przed badaniem, podobnie jak ewentualne granice akceptowalnego pogorszenia wykonania. Brak istotności nie będzie dowodem równoważności ani bezpieczeństwa. Jeżeli niższym wymaganiom umysłowym towarzyszyć będzie pogorszenie wykonania, należy rozpatrywać ten kompromis oddzielnie, bez automatycznego wniosku o ogólnej korzyści.
+
+Przed rekrutacją należy zatwierdzić punkt końcowy, estymand, wagi scenariuszy, hipotezy potwierdzające, zasady obsługi brakujących danych i liczebność próby. Nie ustalono jeszcze liczbowych progów ani liczebności. Proponowane kryteria nie zastępują protokołu, a przyszłe wyniki symulacji nie będą samodzielnym dowodem skuteczności w rzeczywistym mieszkaniu ani w populacji klinicznej.
 
 \section{Materiał i metody}
 
-W symulacji Smart Home 2D porównać adaptację interfejsu i warunek statyczny przy jednakowych zadaniach. Pierwszorzędowy wskaźnik: Obciążenie zadaniem i liczba błędów wykonania przy zdefiniowanej hierarchii endpointów. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+\subsection{Schemat badania}
+
+Planowane jest kontrolowane badanie eksperymentalne w symulacji inteligentnego domu 2D, wykorzystujące pomiary powtarzane. Każdy uczestnik miałby wykonywać porównywalne scenariusze w interfejsie statycznym oraz kontekstowo adaptacyjnym. Podstawowym kontrastem byłaby różnica deklarowanych wymagań umysłowych pomiędzy tymi dwoma warunkami przy poprawnym kontekście w wariancie adaptacyjnym i stabilnym położeniu podstawowych kontrolek w obu wariantach. Projekt zakłada kontrbalansowanie kolejności warunków i wariantów zadań; przed rozpoczęciem badania trzeba zdecydować o liczbie sesji, odstępach między nimi i schemacie przyporządkowania scenariuszy. Celem tych działań będzie ograniczenie efektów wprawy, zmęczenia i kolejności.
+
+Rozważa się dodatkową manipulację złożonością zadania oraz poprawnością adaptacji lub stabilnością układu. Czynniki te powinny być wprowadzane wyłącznie wtedy, gdy pilotaż potwierdzi porównywalność scenariuszy i wykonalność planu. Nie należy zakładać pełnego schematu czynnikowego bez uprzedniego oszacowania jego wymagań organizacyjnych i statystycznych. H3a wymaga manipulacji trafnością adaptacji przy stabilnym układzie, a H3b manipulacji stabilnością układu przy jednakowej trafności. Bez odpowiedniego kontrastu dana hipoteza nie będzie testowalna potwierdzająco; ewentualne analizy obserwacyjne pozostaną eksploracyjne.
+
+Proponuje się podstawowy schemat $2\times2$ z pomiarami powtarzanymi: interfejs statyczny (S) i trafna adaptacja przy stabilnym układzie (A), każdy przy dwóch poziomach złożoności. Opcjonalne warianty to nietrafna adaptacja przy stabilnym układzie (B) oraz trafna adaptacja przy zmiennym układzie (C). Kontrasty A względem S, B względem A i C względem A odpowiadają H1, H3a i H3b; H2 dotyczy interakcji wariantu S lub A ze złożonością. Bez dodatkowego wariantu nietrafnej adaptacji ze zmiennym układem nie można oszacować interakcji trafności i stabilności.
+
+\subsection{Populacja i dobór próby}
+
+Planowana populacja obejmuje osoby dorosłe zdolne do samodzielnego korzystania z podstawowego interfejsu ekranowego i rozumienia instrukcji zadania. Rekrutacja może mieć charakter dogodnościowy, co wymaga jawnego wskazania ograniczonej reprezentatywności próby. Przed jej rozpoczęciem należy określić przedział wieku, kryteria włączenia i wyłączenia, potrzeby związane z dostępnością, doświadczenie w korzystaniu z systemów Smart Home oraz sposób dokumentowania ewentualnej rezygnacji. Nie zakłada się automatycznie, że wyniki dla młodych dorosłych będą dotyczyć osób starszych albo osób z trudnościami poznawczymi.
+
+Liczebność próby pozostaje nieustalona. Powinna wynikać z analizy precyzji estymacji lub mocy dla uprzednio wskazanego kontrastu i minimalnego efektu o znaczeniu praktycznym, z uwzględnieniem zależności pomiarów wewnątrz uczestników, liczby zadań oraz oczekiwanych braków danych. Przed oszacowaniem liczebności potrzebne są założenia o zmienności i korelacji wyników, oparte na adekwatnych źródłach lub pilotażu. Nie przedstawia się fikcyjnej liczby uczestników ani przebiegu rekrutacji.
+
+Proponuje się rekrutację osób pełnoletnich zdolnych do świadomego wyrażenia zgody i wykonania zadania z przewidzianymi dostosowaniami. Kryteria powinny dotyczyć możliwości funkcjonalnych, nie automatycznego wykluczania na podstawie diagnozy. Uczestnicy pilotażu nie powinni wchodzić do próby głównej.
+
+\subsection{Zmienne i kontrola warunków}
+
+Główną zmienną niezależną będzie wariant organizacji interfejsu: statyczny lub adaptacyjny. W warunku statycznym rozmieszczenie i sposób prezentowania funkcji pozostaną niezależne od aktualnego scenariusza. W warunku adaptacyjnym wybrane funkcje mogą być wyróżniane lub porządkowane według jawnych, wcześniej przygotowanych reguł zależnych od stanu zadania i urządzeń. W obu warunkach należy zapewnić tę samą dostępność działań, równoważną treść informacji, rozmiary istotnych kontrolek i porównywalną drogę do osiągnięcia celu. Jeśli skrócenie ścieżki nawigacyjnej jest zamierzonym składnikiem adaptacji, trzeba opisać je jako element manipulacji, a nie niekontrolowaną różnicę.
+
+Złożoność scenariuszy może być określona na podstawie liczby decyzji, zależności pomiędzy czynnościami i konieczności integrowania informacji o stanie urządzeń. Poprawność kontekstu będzie oznaczać zgodność wybranego wariantu prezentacji z wcześniej ustaloną regułą referencyjną dla danego scenariusza. Stabilność układu można opisać udziałem podstawowych kontrolek, których położenie pozostaje niezmienne. Należy rejestrować wersję interfejsu i reguł adaptacji, kolejność zadań, znajomość systemów Smart Home, typ urządzenia wejściowego oraz wszelkie odstępstwa od protokołu.
+
+Każdy scenariusz powinien definiować stan początkowy, cel, zbiór dostępnych działań, warunek zakończenia i referencyjną regułę wyróżniania funkcji. Przykładowe zadanie proste dotyczyłoby oświetlenia jednego pomieszczenia, a złożone kilku urządzeń z zależnościami między czynnościami. Są to przykłady projektowe. W wariancie B funkcja potrzebna do wykonania zadania musi pozostać dostępna. Trafność należy określić przed próbą, niezależnie od powodzenia uczestnika.
+
+\subsection{Aparatura i środowisko badawcze}
+
+Zakłada się wykorzystanie symulatora Smart Home 2D działającego na komputerze z ekranem i standardowym urządzeniem wskazującym. Nie wybrano jeszcze implementacji, konfiguracji sprzętowej ani oprogramowania do rejestracji zdarzeń. Dokumentacja przyszłej aparatury powinna obejmować parametry ekranu, rozdzielczość, sposób obsługi, wersję symulatora, opis scenariuszy i zestaw jawnych reguł adaptacji. Przed użyciem konieczne będą testy zgodności rejestrowanych zdarzeń z faktycznymi działaniami użytkownika oraz ocena dostępności i równoważności obu interfejsów.
+
+Przewidywany eksperyment nie wymaga z definicji EEG, okulografii, kamer ani czujników biometrycznych. Ewentualne użycie takich urządzeń stanowiłoby osobną decyzję metodologiczną, wymagającą wskazania uzasadnienia, walidacji technicznej i dodatkowej oceny prywatności. Nie deklaruje się dostępności ani zweryfikowanego działania żadnego urządzenia pomiarowego.
+
+Przed badaniem należy sprawdzić osiągalność celu w każdym wariancie, zgodność prezentacji z regułami, stabilność kontrolek w S, A i B, reset symulacji oraz poprawność pomiaru czasu. Symulator powinien rozdzielać model urządzeń, reguły kontekstowe, prezentację i rejestr zdarzeń. Nie potwierdzono wykonania tych testów.
+
+\subsection{Pomiary i jakość danych}
+
+Jako kandydat na pierwszorzędowy punkt końcowy pozostaje subiektywna ocena wymagań umysłowych po każdym scenariuszu, na przykład składowa \textit{mental demand} narzędzia NASA-TLX (Hart i Staveland, 1988). Przed badaniem należy wybrać wersję narzędzia, język instrukcji, zakres skali, sposób zadawania pytań i jednostkę analizy; nie wolno utożsamiać tej składowej z całościową oceną obciążenia poznawczego. Zbieranie ocen po kolejnych zadaniach wymaga sprawdzenia, czy częstotliwość pytań nie zakłóca wykonania następnych scenariuszy.
+
+Proponowane wyniki drugorzędowe obejmują odsetek ukończonych scenariuszy, liczbę błędów krytycznych na zadanie, czas wykonania i ocenę użyteczności. Definicja błędu krytycznego powinna zależeć od scenariusza i odnosić się do działania uniemożliwiającego osiągnięcie celu lub prowadzącego do nieprawidłowego stanu symulowanego urządzenia. Log zdarzeń może dokumentować kliknięcia, przejścia między ekranami, powroty oraz momenty zmian układu. Dane te mogą wspierać interpretację kosztu wyszukiwania i ponownej orientacji, lecz bez odpowiedniego projektu pomiaru nie wystarczą do potwierdzenia mediacji.
+
+Należy z góry ustalić reguły obsługi przerwanych prób, przekroczeń czasu, awarii symulatora i brakujących kwestionariuszy. Rejestr zdarzeń powinien mieć spójne znaczniki czasu oraz identyfikatory warunku i scenariusza, niewymagające zapisu danych identyfikacyjnych w zbiorze analitycznym. Przed właściwym badaniem planuje się pilotaż zrozumiałości zadań, powtarzalności logowania i rozkładów wyników, bez traktowania go jako potwierdzenia hipotez.
+
+Minimalny zapis próby obejmowałby pseudonim uczestnika, scenariusz, wariant, złożoność, kolejność, wersję reguł, stan początkowy i końcowy, status ukończenia oraz ocenę wymagań umysłowych, jeżeli została udzielona. Log zdarzeń powinien zawierać względny czas, typ zdarzenia, identyfikator kontrolki i zmianę stanu. Czas wykonania proponuje się liczyć od udostępnienia interaktywnego ekranu do osiągnięcia celu. Rezygnacja, limit czasu i awaria wymagają odrębnych kodów. Brak oceny nie oznacza zera.
+
+\subsection{Proponowana procedura}
+
+Po uzyskaniu odpowiednich rozstrzygnięć etycznych i organizacyjnych uczestnik otrzyma informację o badaniu, warunkach udziału i zasadach przetwarzania danych. Po udokumentowaniu świadomej zgody zostaną zebrane wyłącznie niezbędne informacje dotyczące doświadczenia z interfejsami oraz potrzeb dostępnościowych. Następnie przewiduje się jednakowe przeszkolenie w korzystaniu z obu wariantów i krótki zestaw zadań treningowych, które nie wejdą do analizy głównej.
+
+Uczestnik wykona zestawy scenariuszy w kolejności przypisanej według wcześniej przygotowanego schematu kontrbalansowania. Po każdym scenariuszu przekaże zaplanowaną ocenę subiektywną, a symulator zapisze zdarzenia i wyniki wykonania. Między blokami można przewidzieć przerwę ograniczającą zmęczenie. Po zakończeniu sesji uczestnik zostanie poinformowany o celu porównania, możliwości wycofania zgody w zakresie przewidzianym przepisami oraz sposobie zgłaszania pytań. Konkretna długość sesji, liczba prób i harmonogram przerw wymagają doprecyzowania po pilotażu; procedura nie została jeszcze przeprowadzona.
+
+Proponuje się losowe przypisanie do zrównoważonych sekwencji wariantów i rotację równoważnych zestawów scenariuszy. Pojedyncza próba obejmowałaby reset, instrukcję, potwierdzenie gotowości, udostępnienie interfejsu, rejestrację czynności i ocenę subiektywną. Instrukcje nie powinny sugerować przewagi adaptacji, ponieważ uczestników nie można zaślepić na wygląd interfejsu.
+
+\subsection{Ochrona uczestników i ograniczenia etyczne}
+
+Przed rekrutacją należy ustalić, czy projekt wymaga opinii właściwej komisji etycznej oraz jakie zgody i obowiązki prawne są niezbędne w danej jednostce. Brak potwierdzonego rozstrzygnięcia nie może być przedstawiany jako uzyskana zgoda. Uczestnictwo powinno być dobrowolne, z możliwością przerwania zadania bez negatywnych konsekwencji. Instrukcje muszą ograniczać presję osiągnięć i uwzględniać ryzyko zmęczenia, frustracji oraz niedostępności interfejsu.
+
+Projekt ochrony danych powinien opierać się na minimalizacji zakresu informacji, rozdzieleniu danych kontaktowych od pseudonimizowanych zapisów sesji, ograniczeniu dostępu i określeniu retencji. Należy ustalić podstawę prawną przetwarzania oraz procedurę realizowania praw uczestników. Jeżeli zbierane byłyby dane dotyczące zdrowia lub inne szczególne kategorie danych osobowych, wymagałoby to odrębnego uzasadnienia i zabezpieczeń. Nie ma obecnie udokumentowanego zbioru danych uczestników ani potwierdzonej zgody etycznej.
+
+Uczestników należy poinformować o możliwości wystąpienia nieoptymalnych wariantów interfejsu. Symulator nie powinien sterować rzeczywistymi urządzeniami ani gromadzić danych o prywatnym mieszkaniu. Kryteria przerwania próby z powodu dyskomfortu i zasady pomocy należy ustalić przed rekrutacją.
+
+Ograniczenia projektu obejmują dobór niereprezentatywnej próby, możliwość przenoszenia wyuczonych strategii między warunkami, różnice w doświadczeniu technologicznym oraz ograniczoną trafność ekologiczną symulacji 2D. Badanie nie może samoistnie dowieść skuteczności w rzeczywistym domu, poprawy samodzielności ani korzyści klinicznych. Plan należy zamrozić przed dostępem do danych i dostosować do rozstrzygnięć pilotażu, nie zmieniając retrospektywnie hipotez po poznaniu wyników.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: model mieszany z kontrbalansowaniem kolejności i analizą efektu uczenia. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+\subsection{Jednostka analizy i przygotowanie danych}
+
+Jednostką obserwacji będzie wykonanie określonego scenariusza przez uczestnika w przypisanym wariancie interfejsu. Dane uzyskane od tej samej osoby oraz z tego samego scenariusza nie mogą być traktowane jako niezależne powtórzenia. Przed analizą należy połączyć dzienniki interakcji z ocenami subiektywnymi za pomocą pseudonimowych identyfikatorów uczestnika, scenariusza, warunku i kolejności wykonania. Kontrola jakości powinna obejmować kompletność znaczników czasu, jednoznaczność przypisania warunku, poprawność zapisu ocen i zgodność logów ze specyfikacją symulatora.
+
+Plan czyszczenia danych należy opracować przed poznaniem efektów porównania. Powinien rozróżniać nieukończenie zadania, brak odpowiedzi kwestionariuszowej, awarię techniczną i przerwanie udziału. Przekroczenia czasu i błędy wykonania nie mogą być automatycznie usuwane tylko dlatego, że stanowią niekorzystne wyniki. Liczebności obserwacji i przyczyny wyłączeń będą raportowane oddzielnie dla uczestników, zadań i warunków.
+
+Kontrola jakości będzie obejmować sprawdzenie unikalności identyfikatorów prób, zakresu ocen, zgodności znaczników czasu, przypisania wariantu oraz wersji reguł z planem randomizacji. Proponuje się zachowanie wszystkich przypisanych prób w rejestrze i oddzielne oznaczenie braków wyniku, błędów implementacji, nieukończenia i odstępstw od protokołu. Analiza zgodna z przypisanym warunkiem będzie podstawowa, natomiast analiza prób o potwierdzonej zgodności implementacji będzie analizą wrażliwości. Nie należy wykluczać prób na podstawie wielkości zaobserwowanego efektu.
+
+\subsection{Pierwszorzędowy punkt końcowy i estymand}
+
+Wstępnie proponuje się, aby pierwszorzędowym wynikiem była ocena wymagań umysłowych po wykonaniu scenariusza, przykładowo wymiar \textit{mental demand} NASA-TLX. Ostateczna wersja narzędzia, zakres skali i sposób obsługi braków odpowiedzi nie zostały jeszcze zatwierdzone. Proponowany estymand stanowi średnia różnica tej oceny między interfejsem adaptacyjnym a statycznym, dla porównywalnych scenariuszy w warunkach prawidłowego rozpoznania kontekstu oraz utrzymania ustalonej stabilności elementów sterujących. Ujemny kontrast, zdefiniowany jako ocena w warunku adaptacyjnym pomniejszona o ocenę w warunku statycznym, wskazywałby niższe deklarowane wymagania umysłowe podczas adaptacji. Nie byłby jednak automatycznie dowodem zmniejszenia całego obciążenia poznawczego.
+
+Przed zbieraniem danych trzeba określić populację objętą estymandem, zakres scenariuszy, sposób ważenia obserwacji pochodzących od różnych osób i zadań, postępowanie z próbami przerwanymi oraz minimalną różnicę o znaczeniu praktycznym. Bez tych decyzji interpretacja oszacowanego efektu będzie niejednoznaczna. Plan nie zakłada obecnie liczbowego progu potwierdzenia hipotezy.
+
+W schemacie podstawowym oznaczmy przez $\mu_{v,c}$ średnią oczekiwaną ocenę dla wariantu $v\in\{S,A\}$ i poziomu złożoności $c\in\{0,1\}$, standaryzowaną względem uprzednio określonego rozkładu scenariuszy i uczestników. Proponuje się równą wagę obu poziomów złożoności, o ile przed badaniem nie zostanie uzasadniony inny rozkład docelowy:
+\[
+\Delta=\tfrac12[(\mu_{A,0}-\mu_{S,0})+
+(\mu_{A,1}-\mu_{S,1})].
+\]
+Kontrast dotyczy przypisania do wariantu A wobec S, a nie wyłącznie prób ukończonych lub prób zakończonych sukcesem. W przypadku braku oceny wymagań umysłowych estymand odnosi się do wyniku, który byłby dostępny przy przyjętej procedurze pomiaru; jego identyfikacja wymaga jawnych założeń dotyczących mechanizmu braków. Jeżeli ocena po przerwaniu zadania nie ma porównywalnego znaczenia, należy przed badaniem zmienić definicję estymandu lub strategię pomiaru, zamiast imputować wynik o nieokreślonym znaczeniu.
+
+\subsection{Model statystyczny i kontrasty}
+
+Dla wyniku pierwszorzędowego rozważa się model mieszany z efektem stałym wariantu interfejsu, złożoności zadania oraz ich interakcji, a także z uwzględnieniem kolejności, numeru próby i wyjściowego doświadczenia użytkownika. W strukturze zależności przewiduje się co najmniej losowe wyrazy wolne dla uczestnika i scenariusza, jeżeli pozwolą na to projekt i liczba obserwacji. Ewentualne losowe nachylenia efektu interfejsu wymagają oceny identyfikowalności i stabilności estymacji. Właściwości skali odpowiedzi oraz rozkład reszt zdecydują, czy odpowiedni będzie model liniowy, czy model porządkowy; wybór należy uzasadnić przed analizą główną.
+
+Podstawowym kontrastem będzie adaptacja wobec interfejsu statycznego w uprzednio wyznaczonych warunkach poprawnej adaptacji. Hipoteza H2 odpowiada interakcji wariantu interfejsu ze złożonością zadania. H3a odpowiada kontrastowi nietrafnej i trafnej adaptacji przy stabilnym układzie, natomiast H3b kontrastowi zmiennego i stabilnego układu przy trafnej adaptacji. Każdy kontrast wymaga odrębnie zaplanowanej manipulacji i kontroli pozostałych różnic między warunkami. Jeżeli odpowiedniego kontrastu nie będzie, danej hipotezy nie można testować potwierdzająco. PB4 obejmuje eksploracyjne zestawienie kierunków oszacowań dla wymagań umysłowych i wskaźników wykonania, bez traktowania ich jako zamiennych miar. Przy niedostatecznej liczbie obserwacji należy ograniczyć złożoność modelu zgodnie z wcześniej ustaloną regułą, a nie wybierać wariantu na podstawie uzyskanego poziomu istotności.
+
+Jeżeli wybrana skala uzasadni model liniowy, proponowany model dla próby $k$ uczestnika $i$ i scenariusza $j$ ma postać:
+\[
+Y_{ijk}=\beta_0+\beta_A a+\beta_C c+\beta_{AC}ac
++\boldsymbol{x}_{ijk}^{\mathsf T}\boldsymbol{\gamma}
++u_i+v_j+\varepsilon_{ijk}.
+\]
+Zmienna $a$ przyjmuje wartość 1 w A i 0 w S, a $c$ wartość 1 dla scenariusza złożonego i 0 dla prostego. Wektor $\boldsymbol{x}$ obejmuje uprzednio wskazane czynniki związane z kolejnością, numerem próby i doświadczeniem. W podstawowej strukturze $u_i$ i $v_j$ są losowymi wyrazami wolnymi uczestnika i scenariusza, a $\varepsilon_{ijk}$ błędem warunkowym. Przy kodowaniu 0/1 i równych wagach poziomów złożoności kontrast H1 wynosi $\beta_A+\beta_{AC}/2$, a kontrast H2 wynosi $\beta_{AC}$. Przy nieliniowym modelu porządkowym kontrasty należy wyznaczyć na skali przewidywanych wyników po standaryzacji, a nie utożsamiać ich ze współczynnikami na skali łącza.
+
+W przypadku włączenia B i C proponuje się model z czteropoziomowym czynnikiem wariantu oraz, jeżeli projekt na to pozwoli, jego interakcją ze złożonością. H3a odpowiada różnicy B względem A, a H3b różnicy C względem A, przy tej samej z góry ustalonej standaryzacji. Nie należy kodować trafności i stabilności jako niezależnych czynników pełnego schematu, gdy brakuje odpowiedniej kombinacji warunków. Struktura efektów losowych powinna uwzględniać zmienność efektu interfejsu między uczestnikami, o ile pozwoli na to projekt. Procedura uproszczenia modelu w razie braku zbieżności lub osobliwości musi być ustalona przed analizą; nie należy usuwać efektów stałych definiujących hipotezy wyłącznie z powodu ich nieistotności.
+
+\subsection{Wyniki drugorzędowe i analizy wrażliwości}
+
+Dla liczby błędów przewiduje się odpowiedni model zliczeń, z kontrolą nadmiernej zmienności i ekspozycji na zadanie, jeśli będzie to konieczne. Prawdopodobieństwo ukończenia scenariusza można modelować z użyciem modelu dwumianowego, a czas wykonania wśród ukończonych prób analizować z uwzględnieniem asymetrii rozkładu. Ponieważ wykluczenie prób nieukończonych może prowadzić do selekcji, plan należy uzupełnić o strategię traktowania takich przypadków, na przykład analizę czasu do zakończenia z właściwym uwzględnieniem cenzurowania, jeżeli będzie odpowiadać procedurze. Oceny użyteczności i logi nawigacji pozostaną wskaźnikami drugorzędowymi.
+
+Analizy wrażliwości powinny sprawdzać wpływ kolejności warunków, doświadczenia z systemami Smart Home, różnic między scenariuszami, przyjętej struktury efektów losowych i sposobu postępowania z brakami danych. W razie zmiany skali pomiaru lub modelu należy rozdzielić wyniki analizy uprzednio zaplanowanej od analiz dodatkowych. Postulowanych mediatorów, takich jak wyszukiwanie informacji i ponowna orientacja, nie będzie można ocenić przyczynowo bez osobnego planu pomiaru, wystarczających założeń identyfikacyjnych i właściwej kolejności czasowej zdarzeń.
+
+Dla ukończenia zadania proponuje się logistyczny model mieszany oraz raportowanie standaryzowanej różnicy prawdopodobieństw. Dla liczby błędów należy rozważyć model Poissona lub ujemny dwumianowy w zależności od dyspersji, z jasno określoną jednostką ekspozycji. Czas do osiągnięcia celu powinien uwzględniać administracyjny limit czasu jako cenzurowanie prawostronne, jeśli założenia analizy czasu do zdarzenia są spełnione. Rezygnację, awarię i trwałe niepowodzenie należy odróżnić od takiego cenzurowania. Analiza czasu wyłącznie w ukończonych próbach będzie opisem warunkowym, a nie efektem dla wszystkich przypisanych prób.
+
+Proponuje się ocenę wrażliwości na braki danych z wykorzystaniem modelu mieszanego przy założeniu braków losowych warunkowo względem uwzględnionych zmiennych oraz scenariuszy odchyleń od tego założenia. Należy raportować przyczyny i częstość braków według warunków. Konkretna strategia imputacji lub modelowania oraz zakres odchyleń wymagają uzasadnienia przed akwizycją. Nie należy przypisywać brakującym ocenom wartości zerowej ani traktować nieukończenia jako automatycznego braku wyniku.
+
+\subsection{Wnioskowanie i sprawozdawczość}
+
+Dla pierwszorzędowego kontrastu przewiduje się przedstawienie oszacowania, przedziału ufności i oceny jego znaczenia praktycznego. Poziom błędu pierwszego rodzaju, ewentualną procedurę korekty wielokrotności oraz zasady interpretacji hipotez drugorzędowych należy określić przed rozpoczęciem badań. Brak statystycznej istotności nie będzie stanowił potwierdzenia równoważności. Analizy eksploracyjne powinny być jednoznacznie oznaczone, a wszystkie odstępstwa od planu udokumentowane.
+
+Dla H1 proponuje się dwustronny poziom błędu pierwszego rodzaju 0,05 i 95-procentowy przedział ufności, bez utożsamiania istotności statystycznej ze znaczeniem praktycznym. W przypadku zatwierdzenia H2, H3a i H3b jako hipotez potwierdzających proponuje się procedurę Holma w uprzednio określonej rodzinie testów drugorzędowych; wnioski oparte na przedziałach ufności muszą uwzględniać przyjętą kontrolę wielokrotności. PB4 i wskaźniki procesowe pozostają eksploracyjne. Dla H1 należy przed badaniem uzasadnić minimalną korzystną różnicę $\delta$; przedział w całości poniżej $-\delta$ wskazywałby efekt większy od tej granicy.
+
+\subsection{Planowanie liczebności i odtwarzalność analizy}
+
+Proponuje się symulacyjne planowanie liczebności dla docelowego schematu pomiarów powtarzanych. Scenariusze symulacji powinny uwzględniać minimalny efekt praktyczny, wariancję między uczestnikami i scenariuszami, korelację pomiarów, liczbę prób na warunek, rozkład braków danych oraz docelową precyzję lub moc. Parametry muszą pochodzić z uzasadnionych założeń lub niezależnego pilotażu; nie określono jeszcze ich wartości. Należy ocenić wrażliwość planowanej liczebności na niepewność parametrów oraz wykonalność dodatkowych wariantów B i C. Symulacje służyłyby projektowaniu badania, nie ocenie rzeczywistej skuteczności adaptacji.
+
+Przed badaniem głównym należy zamrozić definicje zmiennych, kontrasty, plan obsługi braków, kryteria diagnostyczne, hierarchię testów i procedurę odtwarzania obliczeń. Kod analityczny powinien wykorzystywać wersjonowane zależności, jawne ziarna dla operacji losowych oraz testy na danych syntetycznych jednoznacznie oznaczonych jako syntetyczne. Nie przeprowadzono jeszcze takich symulacji ani analiz.
+
+Wyniki przyszłego badania powinny obejmować liczby uczestników i prób, braki danych, rozkłady zmiennych, oszacowania efektów, miary niepewności, diagnostykę modeli i ograniczenia interpretacyjne. Należy zachować wersję kodu analitycznego i schemat danych umożliwiający odtworzenie obliczeń z prawnie i etycznie dopuszczonego materiału. Na obecnym etapie nie istnieje zatwierdzony plan analizy ani materiał empiryczny pozwalający wykonać te obliczenia.
 
 \section{Wyniki}
 
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Artykuł pozostaje szkicem koncepcyjnym oznaczonym jako IDEA / SOURCE\_PLANNED\_ARTICLE. W udostępnionych i odczytanych materiałach artykułu nie udokumentowano zebranych obserwacji, przeprowadzonych pomiarów ani obliczeń statystycznych. Nie ma zatem podstaw do przedstawiania liczebności próby, średnich, wielkości efektów, wartości prawdopodobieństwa, przedziałów ufności ani rozstrzygnięć hipotez. Sekcja zostanie opracowana wyłącznie na podstawie przyszłych danych o zweryfikowanym pochodzeniu i wykonanych analiz, po spełnieniu odpowiednich wymogów etycznych i organizacyjnych.
 
 \section{Dyskusja i ograniczenia}
 
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
+\subsection{Interpretacja przesłanek literaturowych}
+
+Przedstawiony projekt nie dostarcza jeszcze własnych wyników empirycznych, dlatego dyskusja dotyczy znaczenia istniejących badań i dopuszczalnych interpretacji przyszłych obserwacji. Sweller (1988) uzasadnia rozpatrywanie wymagań stawianych zasobom poznawczym, ale jego analiza nie dowodzi skuteczności kontekstowej adaptacji inteligentnego domu. Hart i Staveland (1988) dostarczają podstaw pomiaru subiektywnego obciążenia zadaniem, nie zaś przesłanek do utożsamiania pojedynczej składowej NASA-TLX z całym konstruktem obciążenia poznawczego.
+
+W badaniu Findlater i McGrenere (2004) automatycznie adaptacyjne menu nie wykazało uniwersalnej przewagi nad porównywanymi rozwiązaniami. Wynik ten wspiera ostrożność wobec założenia, że reorganizacja interfejsu zawsze usprawnia działanie. Zhang i współautorzy (2009) wskazują znaczenie interakcji poziomu inteligencji interfejsu, rodzaju zadania i wieku użytkownika w środowisku Smart Home. Z kolei Zhou i współautorzy (2022) badali znaczenie właściwości nawigacji i przycisków dla interakcji starszych użytkowników z interfejsem inteligentnego domu. Prace te dotyczą odmiennych manipulacji i populacji. Nie można z nich obliczyć wspólnego efektu kontekstowej adaptacji ani uznać ich wyników za potwierdzenie hipotez H1, H2, H3a lub H3b w niniejszym projekcie.
+
+\subsection{Możliwe wyniki i konkurencyjne wyjaśnienia}
+
+Jeżeli przyszłe badanie wykaże mniejsze subiektywne wymagania umysłowe w warunku adaptacyjnym, jedną z interpretacji będzie ograniczenie potrzeby wyszukiwania i porównywania funkcji. Alternatywnie różnica może wynikać z większej czytelności wyróżnionych kontrolek, krótszej ścieżki wykonania, odmiennego doświadczenia uczestników lub samego sposobu zadawania pytań. Odrębne pomiary procesu wyszukiwania i ponownej orientacji będą konieczne, aby odróżnić te wyjaśnienia. Korzystna różnica w pojedynczej ocenie subiektywnej nie wystarczy do stwierdzenia poprawy obiektywnej wydajności ani globalnego obciążenia poznawczego.
+
+Jeżeli adaptacja zwiększy obciążenie lub wydłuży wykonanie zadania, zgodną z modelem interpretacją będzie koszt utraty przewidywalności po zmianie układu. Taki wynik mógłby jednak odzwierciedlać niedostateczne szkolenie, błędy implementacji, zbyt częste przełączenia widoków, nietrafną adaptację lub nierównoważność scenariuszy, a nie niekorzystne działanie adaptacji jako takiej. Brak wyraźnej różnicy między warunkami może z kolei oznaczać bilansowanie korzyści i kosztów, niedostateczną czułość wybranego wskaźnika, niewystarczającą precyzję oszacowań albo rzeczywiście mały efekt. Sam wynik nieistotny statystycznie nie potwierdzi równoważności rozwiązań.
+
+Interakcja rodzaju interfejsu ze złożonością zadania może pomóc ocenić, w jakich warunkach adaptacja ma potencjalne znaczenie. Jeżeli jednak warunki różnią się liczbą czynności koniecznych do uzyskania celu albo dostępnością funkcji, interpretacja interakcji jako czysto poznawczego skutku adaptacji będzie nieuprawniona. Podobnie hipoteza o szkodliwości błędnego rozpoznania kontekstu wymaga celowej manipulacji jakością adaptacji; bez niej wyniki będą miały charakter obserwacyjny lub eksploracyjny.
+
+\subsection{Ograniczenia pomiaru i identyfikacji mechanizmów}
+
+Proponowany pomiar \textit{mental demand} NASA-TLX dotyczy subiektywnej oceny wymagań umysłowych zadania. Nie pozwala bezpośrednio rozdzielić wysiłku wyszukiwania informacji, obciążenia pamięci roboczej i kosztu ponownej orientacji. Dodatkowe miary, takie jak czas, błędy i dzienniki nawigacji, mogą służyć triangulacji, lecz nie są zamiennymi wskaźnikami jednego konstruktu. Znaczenie będą miały również trafność językowej wersji narzędzia, częstotliwość pomiaru oraz to, czy pytania zadawane po kolejnych scenariuszach same wpływają na przebieg interakcji.
+
+W schemacie z powtarzanymi pomiarami należy uwzględnić uczenie się interfejsu, zmęczenie, kolejność warunków i przenoszenie strategii między zadaniami. Kontrbalansowanie może ograniczyć systematyczne zakłócenia, ale nie usuwa wszystkich efektów historii ekspozycji. Nawet kontrolowany kontrast interfejsu statycznego z adaptacyjnym umożliwia wnioskowanie o skutku całego zastosowanego wariantu, nie zaś automatycznie o przyczynowym znaczeniu każdego domniemanego mediatora. Interpretacja mechanizmów wymaga osobnych, uzasadnionych pomiarów i założeń identyfikacyjnych.
+
+\subsection{Trafność zewnętrzna i zastosowania}
+
+Symulacja 2D pozwoliłaby precyzyjniej kontrolować zadania i zmiany interfejsu, lecz nie odtwarza pełnego kontekstu rzeczywistego mieszkania. W rzeczywistym użytkowaniu występują przerwania, współdzielenie urządzeń, różne sposoby sterowania, nieprzewidziane zdarzenia i konsekwencje błędnych poleceń. Nie należy utożsamiać sprawności w symulacji z poprawą samodzielności, bezpieczeństwa, dobrostanu ani klinicznego funkcjonowania użytkownika.
+
+Jeżeli do badania zostanie włączona wygodna próba dorosłych użytkowników komputerów, zakres wnioskowania będzie ograniczony do osób podobnych do uczestników i porównywalnych warunków interakcji. Przeniesienie wniosków na osoby starsze, osoby z niepełnosprawnościami lub użytkowników z trudnościami poznawczymi wymaga odpowiedniej rekrutacji, oceny dostępności i niezależnej walidacji. Badania Zhang i współautorów (2009) oraz Zhou i współautorów (2022) uzasadniają uwzględnienie wieku i ergonomii, lecz nie zastępują takich analiz w przyszłym badaniu MSC-AAL-P02.
+
+\subsection{Znaczenie planowanego wkładu i granice dowodów}
+
+Potencjalny wkład projektu polega na zestawieniu dwóch konkurencyjnych mechanizmów: zmniejszania kosztu selekcji informacji oraz zwiększania kosztu ponownej orientacji. Rozstrzygnięcie zależy od operacjonalizacji adaptacji, złożoności zadania, stabilności układu oraz jakości rozpoznania kontekstu. Wykazanie samej różnicy między warunkami, bez kontroli tych elementów, nie wystarczy do przypisania różnicy określonemu procesowi poznawczemu.
+
+Dotychczasowe opracowanie stanowi syntezę wybranych źródeł i plan przyszłej weryfikacji, a nie systematyczny przegląd wszystkich publikacji ani raport eksperymentalny. Nie uzyskano własnych danych, wyników statystycznych ani rozstrzygnięć etycznych. Po realizacji badania dyskusja będzie wymagała ponownego opracowania w świetle rzeczywistych oszacowań, ich niepewności, jakości pomiaru, odstępstw od protokołu i zgodności z literaturą. Obecnie nie ma podstaw do formułowania potwierdzonych wniosków o skuteczności proponowanego interfejsu.
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Zestawienie wybranych badań nad personalizacją menu i ergonomią inteligentnego domu uzasadnia rozpatrywanie zarówno potencjalnej oszczędności wyszukiwania informacji, jak i kosztu ponownej orientacji podczas adaptacji interfejsu. Dostępna literatura nie pozwala jednak rozstrzygnąć kierunku ani wielkości tych efektów w proponowanej symulacji Smart Home 2D. W opracowaniu określono zatem pytania i przewidywania konkurencyjne, zaproponowano schemat porównawczy oraz wskazano warunki konieczne do poprawnej interpretacji przyszłych wyników.
+
+Dalsze prace wymagają wyboru pierwszorzędowej miary, określenia i przetestowania reguł adaptacji, oszacowania liczebności próby, przygotowania planu analitycznego oraz rozstrzygnięcia wymagań etycznych. Wnioski o skuteczności adaptacji, jej mechanizmach i możliwości uogólnienia na rzeczywiste środowiska zamieszkiwania pozostają nieuprawnione do czasu pozyskania i weryfikacji odpowiednich danych.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. \textit{Behavioral and Brain Sciences, 24}(1), 87--114. \url{https://doi.org/10.1017/S0140525X01003922}
+
+Findlater, L., \& McGrenere, J. (2004). A comparison of static, adaptive, and adaptable menus. W \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems} (s. 89--96). Association for Computing Machinery. \url{https://doi.org/10.1145/985692.985704}
+
+Findlater, L., Moffatt, K., McGrenere, J., \& Dawson, J. (2009). Ephemeral adaptation: The use of gradual onset to improve menu selection performance. W \textit{Proceedings of the 27th International Conference on Human Factors in Computing Systems} (s. 1655--1664). Association for Computing Machinery. \url{https://doi.org/10.1145/1518701.1518956}
+
+Gajos, K. Z., Czerwinski, M., Tan, D. S., \& Weld, D. S. (2006). Exploring the design space for adaptive graphical user interfaces. W \textit{Proceedings of the Working Conference on Advanced Visual Interfaces} (s. 201--208). Association for Computing Machinery. \url{https://doi.org/10.1145/1133265.1133306}
+
+Gajos, K. Z., Everitt, K., Tan, D. S., Czerwinski, M., \& Weld, D. S. (2008). Predictability and accuracy in adaptive user interfaces. W \textit{Proceedings of the SIGCHI Conference on Human Factors in Computing Systems} (s. 1271--1274). Association for Computing Machinery. \url{https://doi.org/10.1145/1357054.1357252}
+
+Hart, S. G., \& Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. W P. A. Hancock \& N. Meshkati (red.), \textit{Human mental workload} (s. 139--183). North-Holland. \url{https://doi.org/10.1016/S0166-4115(08)62386-9}
+
+Risko, E. F., \& Gilbert, S. J. (2016). Cognitive offloading. \textit{Trends in Cognitive Sciences, 20}(9), 676--688. \url{https://doi.org/10.1016/j.tics.2016.07.002}
+
+Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. \textit{Cognitive Science, 12}(2), 257--285. \url{https://doi.org/10.1207/s15516709cog1202_4}
+
+Tran, S., Zhou, Z., \& Xie, J. (2026). Balancing information richness and cognitive load: A scoping review of multimodal AI systems for older adults in home environments. \textit{Proceedings of the Human Factors and Ergonomics Society Annual Meeting}. Publikacja online przed przypisaniem do numeru. \url{https://doi.org/10.1177/10711813261485167}
+
+Wickens, C. D. (2008). Multiple resources and mental workload. \textit{Human Factors, 50}(3), 449--455. \url{https://doi.org/10.1518/001872008X288394}
+
+Zhang, B., Rau, P.-L. P., \& Salvendy, G. (2009). Design and evaluation of smart home user interface: Effects of age, tasks and intelligence level. \textit{Behaviour \& Information Technology, 28}(3), 239--249. \url{https://doi.org/10.1080/01449290701573978}
+
+Zhou, C., Dai, Y., Huang, T., Zhao, H., \& Kaner, J. (2022). An empirical study on the influence of smart home interface design on the interaction performance of the elderly. \textit{International Journal of Environmental Research and Public Health, 19}(15), 9105. \url{https://doi.org/10.3390/ijerph19159105}
 
 \end{document}
 
