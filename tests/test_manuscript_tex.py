@@ -69,11 +69,16 @@ class ManuscriptTexTests(unittest.TestCase):
                     elif ident in LEGACY_IDS:
                         for required in ("Pierwszorzędowy wskaźnik:",
                                          "Zamrożenie estymandu",
-                                         "Szkic naukowy, wersja 0.1.1",
                                          r"\section{Wprowadzenie}",
                                          r"\section{Materiał i metody}",
                                          r"\section{Dyskusja i ograniczenia}"):
                             self.assertIn(required, content)
+                        if ident == "MSC-CR-P06":
+                            self.assertRegex(content, r"\\date\{Projekt badania, wersja 0\.[1-9]\d*\.\d+,")
+                            self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
+                            self.assertIn("Nie rozpoczęto akwizycji danych", content)
+                        else:
+                            self.assertIn("Szkic naukowy, wersja 0.1.1", content)
                     else:
                         self.assertIn(ident, NEW_IDEAS)
                         self.assertEqual(by_id[ident]["record_kind"], "IDEA")

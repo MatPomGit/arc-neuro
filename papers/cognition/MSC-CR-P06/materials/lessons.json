@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "scientific_owner": "Mateusz Pomianek",
+  "status": "DRAFT_NOT_PILOTED",
+  "study": "MSC-CR-P06",
+  "delivery": {
+    "target_seconds": 900,
+    "feedback": "Po odpowiedzi; jedna próba na pytanie; identyczny interfejs obu ramion.",
+    "note": "Czasy są budżetem planistycznym, nie zaobserwowanym czasem. Nie wymuszać bezczynnego oczekiwania; w pilotażu sprawdzić różnice w czasie, obciążeniu i zainteresowaniu. Przykłady są fikcyjne, nie rzeczywiste cytaty AI."
+  },
+  "arms": [
+    {
+      "arm": "intervention",
+      "screens": [
+        {
+          "id": "intervention-1",
+          "title": "Czym jest generatywna AI?",
+          "body": "Model językowy generuje odpowiedź na podstawie wzorców wyuczonych z danych i bieżącego kontekstu. Potrafi podać użyteczne wyjaśnienie, ale może też stworzyć wiarygodnie brzmiące twierdzenie, którego nie potwierdzają dostępne informacje. Sam sposób sformułowania odpowiedzi nie wystarcza do oceny jej poprawności.",
+          "target_seconds": 90
+        },
+        {
+          "id": "intervention-2",
+          "title": "Pewny ton a dowody",
+          "body": "Zdanie „Nie ma żadnych wątpliwości, że ten sposób jest najlepszy” może brzmieć przekonująco. O jego wartości decyduje jednak uzasadnienie, a nie kategoryczny ton. Nie należy automatycznie ani przyjmować, ani odrzucać odpowiedzi dlatego, że wygenerowała ją AI.",
+          "target_seconds": 90
+        },
+        {
+          "id": "intervention-3",
+          "title": "Ćwiczenie 1",
+          "body": "W opisie fikcyjnej usługi podano, że działa w dni robocze. Odpowiedź AI: „Usługa z pewnością działa również w niedzielę”. Co należy zrobić?",
+          "target_seconds": 90,
+          "options": [
+            "Przyjąć odpowiedź ze względu na stanowczy ton.",
+            "Odrzucić każdą odpowiedź AI niezależnie od treści.",
+            "Sprawdzić, czy opis rzeczywiście rozstrzyga dostępność w niedzielę."
+          ],
+          "key": 2,
+          "feedback": "Poprawnie: opis dni roboczych nie rozstrzyga w sposób wystarczający dostępności w niedzielę, jeśli nie użyto słowa „wyłącznie”. Należy poszukać pełnego harmonogramu."
+        },
+        {
+          "id": "intervention-4",
+          "title": "Przesłanka i wniosek",
+          "body": "Przesłanka to informacja, na której opiera się rozumowanie. Wniosek jest tym, co z niej wyprowadzamy. Można poprawnie zacytować przesłankę, a mimo to wyciągnąć nieuzasadniony wniosek. Sprawdź, czy wszystkie informacje potrzebne do przejścia od przesłanek do wniosku rzeczywiście są dostępne.",
+          "target_seconds": 90
+        },
+        {
+          "id": "intervention-5",
+          "title": "Ćwiczenie 2",
+          "body": "Fikcyjny system oznacza wszystkie zatwierdzone raporty zielonym symbolem. AI twierdzi, że każdy raport oznaczony tym symbolem musi być zatwierdzony. Jak ocenić twierdzenie?",
+          "target_seconds": 90,
+          "options": [
+            "Jest rozstrzygnięte przez samą regułę.",
+            "Nie wiadomo, czy symbol jest zarezerwowany wyłącznie dla zatwierdzonych raportów.",
+            "Jest fałszywe w każdym możliwym przypadku."
+          ],
+          "key": 1,
+          "feedback": "Poprawnie: podano regułę w jednym kierunku. Nie określono, czy istnieją inne przyczyny pojawienia się zielonego symbolu."
+        },
+        {
+          "id": "intervention-6",
+          "title": "Dane a przyczynowość",
+          "body": "Jeżeli dwie rzeczy występują razem, nie oznacza to automatycznie, że jedna wywołała drugą. Może działać wspólny czynnik lub zależność może mieć odwrotny kierunek. Wniosek przyczynowy wymaga odpowiedniego projektu badania i uwzględnienia alternatywnych wyjaśnień.",
+          "target_seconds": 90
+        },
+        {
+          "id": "intervention-7",
+          "title": "Ćwiczenie 3",
+          "body": "W fikcyjnej organizacji osoby korzystające z kalendarza cyfrowego rzadziej zapominają o spotkaniach. AI twierdzi, że kalendarz jest wyłączną przyczyną różnicy. Jakie pytanie ma największe znaczenie?",
+          "target_seconds": 90,
+          "options": [
+            "Czy odpowiedź jest napisana płynnie?",
+            "Czy nazwa aplikacji jest popularna?",
+            "Czy grupy różniły się wcześniej organizacją pracy i sposobem doboru?"
+          ],
+          "key": 2,
+          "feedback": "Poprawnie: sam związek nie pozwala wykluczyć innych przyczyn, np. wcześniejszych nawyków organizacyjnych."
+        },
+        {
+          "id": "intervention-8",
+          "title": "Cztery kroki samodzielnej oceny",
+          "body": "1. Sformułuj własnymi słowami oceniane twierdzenie. 2. Wskaż dostępne przesłanki. 3. Sprawdź, czy nie brakuje warunku lub czy nie istnieje alternatywne wyjaśnienie. 4. Podejmij decyzję i dopasuj pewność do jakości informacji. Tę procedurę można stosować także bez AI.",
+          "target_seconds": 120
+        },
+        {
+          "id": "intervention-9",
+          "title": "Ćwiczenie 4",
+          "body": "Fikcyjny automat zapisuje godzinę każdej udanej operacji. W dzienniku jest zapis udanej operacji R o 14:00. AI stwierdza: „Operacja R została zarejestrowana o 14:00”. Jak postąpić?",
+          "target_seconds": 90,
+          "options": [
+            "Przyjąć twierdzenie, ponieważ wynika z dziennika.",
+            "Odrzucić je, ponieważ pochodzi od AI.",
+            "Uznać je za nierozstrzygalne tylko dlatego, że nie znamy modelu AI."
+          ],
+          "key": 0,
+          "feedback": "Poprawnie: twierdzenie jest bezpośrednio poparte przesłanką. Krytyczna ocena nie polega na odrzucaniu trafnych informacji."
+        },
+        {
+          "id": "intervention-10",
+          "title": "Podsumowanie",
+          "body": "Oceniaj twierdzenie na podstawie informacji, nie tonu wypowiedzi ani źródła automatyzacji. Gdy dowody wystarczają, zaakceptuj wniosek; gdy mu przeczą, odrzuć go; gdy są niepełne, wstrzymaj rozstrzygnięcie. Własna pewność powinna uwzględniać ograniczenia dostępnych przesłanek.",
+          "target_seconds": 60
+        }
+      ]
+    },
+    {
+      "arm": "control",
+      "screens": [
+        {
+          "id": "control-1",
+          "title": "Czym są technologie cyfrowe?",
+          "body": "Technologie cyfrowe zapisują i przetwarzają informacje w postaci dyskretnej, zwykle binarnej. Obejmują komputery, telefony, systemy plików i sieci komunikacyjne. Wiele codziennych urządzeń łączy funkcje zapisu, wyświetlania i przesyłania danych.",
+          "target_seconds": 90
+        },
+        {
+          "id": "control-2",
+          "title": "Krótka historia komputerów",
+          "body": "Wczesne komputery elektroniczne zajmowały całe pomieszczenia. Rozwój tranzystorów i układów scalonych umożliwił budowę mniejszych maszyn. Komputery osobiste, a później urządzenia mobilne, rozszerzyły zakres powszechnego dostępu do narzędzi cyfrowych.",
+          "target_seconds": 90
+        },
+        {
+          "id": "control-3",
+          "title": "Ćwiczenie 1",
+          "body": "Która technologia pozwoliła umieszczać wiele elementów elektronicznych w jednym niewielkim układzie?",
+          "target_seconds": 90,
+          "options": [
+            "Papier perforowany.",
+            "Układ scalony.",
+            "Ekran projekcyjny."
+          ],
+          "key": 1,
+          "feedback": "Poprawnie: układy scalone zawierają wiele elementów elektronicznych zintegrowanych w jednym układzie."
+        },
+        {
+          "id": "control-4",
+          "title": "Pliki i katalogi",
+          "body": "Plik jest jednostką przechowywania informacji. Może zawierać tekst, obraz, dźwięk lub kod. Katalog służy do organizacji plików i innych katalogów. Rozszerzenie nazwy często wskazuje format pliku.",
+          "target_seconds": 90
+        },
+        {
+          "id": "control-5",
+          "title": "Ćwiczenie 2",
+          "body": "Który obiekt służy przede wszystkim do grupowania plików?",
+          "target_seconds": 90,
+          "options": [
+            "Katalog.",
+            "Głośnik.",
+            "Procesor."
+          ],
+          "key": 0,
+          "feedback": "Poprawnie: katalog porządkuje pliki i może zawierać inne katalogi."
+        },
+        {
+          "id": "control-6",
+          "title": "Sieci komunikacyjne",
+          "body": "Sieć komputerowa umożliwia przesyłanie danych między urządzeniami. Sieć lokalna łączy urządzenia na ograniczonym obszarze. Internet to rozległa sieć połączonych sieci wykorzystujących wspólne protokoły.",
+          "target_seconds": 90
+        },
+        {
+          "id": "control-7",
+          "title": "Ćwiczenie 3",
+          "body": "Jak nazywa się sieć łączącą urządzenia na ograniczonym obszarze, na przykład w jednym budynku?",
+          "target_seconds": 90,
+          "options": [
+            "Monitor.",
+            "Archiwum.",
+            "Sieć lokalna."
+          ],
+          "key": 2,
+          "feedback": "Poprawnie: sieć lokalna łączy urządzenia na ograniczonym obszarze."
+        },
+        {
+          "id": "control-8",
+          "title": "Urządzenia wejścia i wyjścia",
+          "body": "Klawiatura, mikrofon i mysz umożliwiają wprowadzanie danych do komputera. Monitor i głośnik przekazują informacje użytkownikowi. Ekran dotykowy może łączyć funkcje wejścia i wyjścia. Pamięć masowa przechowuje dane również po wyłączeniu urządzenia.",
+          "target_seconds": 120
+        },
+        {
+          "id": "control-9",
+          "title": "Ćwiczenie 4",
+          "body": "Które urządzenie łączy funkcję wyświetlania informacji z wprowadzaniem poleceń przez dotyk?",
+          "target_seconds": 90,
+          "options": [
+            "Ekran dotykowy.",
+            "Głośnik.",
+            "Zasilacz."
+          ],
+          "key": 0,
+          "feedback": "Poprawnie: ekran dotykowy jednocześnie prezentuje obraz i rejestruje dotyk."
+        },
+        {
+          "id": "control-10",
+          "title": "Podsumowanie",
+          "body": "Technologie cyfrowe obejmują urządzenia obliczeniowe, sposoby przechowywania danych oraz sieci komunikacyjne. Ich rozwój pozwolił zmniejszyć rozmiary komputerów, rozszerzyć dostęp do informacji i tworzyć urządzenia łączące wiele funkcji.",
+          "target_seconds": 60
+        }
+      ]
+    }
+  ]
+}
