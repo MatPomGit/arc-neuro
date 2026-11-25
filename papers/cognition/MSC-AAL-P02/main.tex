@@ -245,11 +245,20 @@ Jednostką obserwacji będzie wykonanie określonego scenariusza przez uczestnik
 
 Plan czyszczenia danych należy opracować przed poznaniem efektów porównania. Powinien rozróżniać nieukończenie zadania, brak odpowiedzi kwestionariuszowej, awarię techniczną i przerwanie udziału. Przekroczenia czasu i błędy wykonania nie mogą być automatycznie usuwane tylko dlatego, że stanowią niekorzystne wyniki. Liczebności obserwacji i przyczyny wyłączeń będą raportowane oddzielnie dla uczestników, zadań i warunków.
 
+Kontrola jakości będzie obejmować sprawdzenie unikalności identyfikatorów prób, zakresu ocen, zgodności znaczników czasu, przypisania wariantu oraz wersji reguł z planem randomizacji. Proponuje się zachowanie wszystkich przypisanych prób w rejestrze i oddzielne oznaczenie braków wyniku, błędów implementacji, nieukończenia i odstępstw od protokołu. Analiza zgodna z przypisanym warunkiem będzie podstawowa, natomiast analiza prób o potwierdzonej zgodności implementacji będzie analizą wrażliwości. Nie należy wykluczać prób na podstawie wielkości zaobserwowanego efektu.
+
 \subsection{Pierwszorzędowy punkt końcowy i estymand}
 
 Wstępnie proponuje się, aby pierwszorzędowym wynikiem była ocena wymagań umysłowych po wykonaniu scenariusza, przykładowo wymiar \textit{mental demand} NASA-TLX. Ostateczna wersja narzędzia, zakres skali i sposób obsługi braków odpowiedzi nie zostały jeszcze zatwierdzone. Proponowany estymand stanowi średnia różnica tej oceny między interfejsem adaptacyjnym a statycznym, dla porównywalnych scenariuszy w warunkach prawidłowego rozpoznania kontekstu oraz utrzymania ustalonej stabilności elementów sterujących. Ujemny kontrast, zdefiniowany jako ocena w warunku adaptacyjnym pomniejszona o ocenę w warunku statycznym, wskazywałby niższe deklarowane wymagania umysłowe podczas adaptacji. Nie byłby jednak automatycznie dowodem zmniejszenia całego obciążenia poznawczego.
 
 Przed zbieraniem danych trzeba określić populację objętą estymandem, zakres scenariuszy, sposób ważenia obserwacji pochodzących od różnych osób i zadań, postępowanie z próbami przerwanymi oraz minimalną różnicę o znaczeniu praktycznym. Bez tych decyzji interpretacja oszacowanego efektu będzie niejednoznaczna. Plan nie zakłada obecnie liczbowego progu potwierdzenia hipotezy.
+
+W schemacie podstawowym oznaczmy przez $\mu_{v,c}$ średnią oczekiwaną ocenę dla wariantu $v\in\{S,A\}$ i poziomu złożoności $c\in\{0,1\}$, standaryzowaną względem uprzednio określonego rozkładu scenariuszy i uczestników. Proponuje się równą wagę obu poziomów złożoności, o ile przed badaniem nie zostanie uzasadniony inny rozkład docelowy:
+\[
+\Delta=\tfrac12[(\mu_{A,0}-\mu_{S,0})+
+(\mu_{A,1}-\mu_{S,1})].
+\]
+Kontrast dotyczy przypisania do wariantu A wobec S, a nie wyłącznie prób ukończonych lub prób zakończonych sukcesem. W przypadku braku oceny wymagań umysłowych estymand odnosi się do wyniku, który byłby dostępny przy przyjętej procedurze pomiaru; jego identyfikacja wymaga jawnych założeń dotyczących mechanizmu braków. Jeżeli ocena po przerwaniu zadania nie ma porównywalnego znaczenia, należy przed badaniem zmienić definicję estymandu lub strategię pomiaru, zamiast imputować wynik o nieokreślonym znaczeniu.
 
 \subsection{Model statystyczny i kontrasty}
 
@@ -257,15 +266,37 @@ Dla wyniku pierwszorzędowego rozważa się model mieszany z efektem stałym war
 
 Podstawowym kontrastem będzie adaptacja wobec interfejsu statycznego w uprzednio wyznaczonych warunkach poprawnej adaptacji. Hipoteza H2 odpowiada interakcji wariantu interfejsu ze złożonością zadania. H3a odpowiada kontrastowi nietrafnej i trafnej adaptacji przy stabilnym układzie, natomiast H3b kontrastowi zmiennego i stabilnego układu przy trafnej adaptacji. Każdy kontrast wymaga odrębnie zaplanowanej manipulacji i kontroli pozostałych różnic między warunkami. Jeżeli odpowiedniego kontrastu nie będzie, danej hipotezy nie można testować potwierdzająco. PB4 obejmuje eksploracyjne zestawienie kierunków oszacowań dla wymagań umysłowych i wskaźników wykonania, bez traktowania ich jako zamiennych miar. Przy niedostatecznej liczbie obserwacji należy ograniczyć złożoność modelu zgodnie z wcześniej ustaloną regułą, a nie wybierać wariantu na podstawie uzyskanego poziomu istotności.
 
+Jeżeli wybrana skala uzasadni model liniowy, proponowany model dla próby $k$ uczestnika $i$ i scenariusza $j$ ma postać:
+\[
+Y_{ijk}=\beta_0+\beta_A a+\beta_C c+\beta_{AC}ac
++\boldsymbol{x}_{ijk}^{\mathsf T}\boldsymbol{\gamma}
++u_i+v_j+\varepsilon_{ijk}.
+\]
+Zmienna $a$ przyjmuje wartość 1 w A i 0 w S, a $c$ wartość 1 dla scenariusza złożonego i 0 dla prostego. Wektor $\boldsymbol{x}$ obejmuje uprzednio wskazane czynniki związane z kolejnością, numerem próby i doświadczeniem. W podstawowej strukturze $u_i$ i $v_j$ są losowymi wyrazami wolnymi uczestnika i scenariusza, a $\varepsilon_{ijk}$ błędem warunkowym. Przy kodowaniu 0/1 i równych wagach poziomów złożoności kontrast H1 wynosi $\beta_A+\beta_{AC}/2$, a kontrast H2 wynosi $\beta_{AC}$. Przy nieliniowym modelu porządkowym kontrasty należy wyznaczyć na skali przewidywanych wyników po standaryzacji, a nie utożsamiać ich ze współczynnikami na skali łącza.
+
+W przypadku włączenia B i C proponuje się model z czteropoziomowym czynnikiem wariantu oraz, jeżeli projekt na to pozwoli, jego interakcją ze złożonością. H3a odpowiada różnicy B względem A, a H3b różnicy C względem A, przy tej samej z góry ustalonej standaryzacji. Nie należy kodować trafności i stabilności jako niezależnych czynników pełnego schematu, gdy brakuje odpowiedniej kombinacji warunków. Struktura efektów losowych powinna uwzględniać zmienność efektu interfejsu między uczestnikami, o ile pozwoli na to projekt. Procedura uproszczenia modelu w razie braku zbieżności lub osobliwości musi być ustalona przed analizą; nie należy usuwać efektów stałych definiujących hipotezy wyłącznie z powodu ich nieistotności.
+
 \subsection{Wyniki drugorzędowe i analizy wrażliwości}
 
 Dla liczby błędów przewiduje się odpowiedni model zliczeń, z kontrolą nadmiernej zmienności i ekspozycji na zadanie, jeśli będzie to konieczne. Prawdopodobieństwo ukończenia scenariusza można modelować z użyciem modelu dwumianowego, a czas wykonania wśród ukończonych prób analizować z uwzględnieniem asymetrii rozkładu. Ponieważ wykluczenie prób nieukończonych może prowadzić do selekcji, plan należy uzupełnić o strategię traktowania takich przypadków, na przykład analizę czasu do zakończenia z właściwym uwzględnieniem cenzurowania, jeżeli będzie odpowiadać procedurze. Oceny użyteczności i logi nawigacji pozostaną wskaźnikami drugorzędowymi.
 
 Analizy wrażliwości powinny sprawdzać wpływ kolejności warunków, doświadczenia z systemami Smart Home, różnic między scenariuszami, przyjętej struktury efektów losowych i sposobu postępowania z brakami danych. W razie zmiany skali pomiaru lub modelu należy rozdzielić wyniki analizy uprzednio zaplanowanej od analiz dodatkowych. Postulowanych mediatorów, takich jak wyszukiwanie informacji i ponowna orientacja, nie będzie można ocenić przyczynowo bez osobnego planu pomiaru, wystarczających założeń identyfikacyjnych i właściwej kolejności czasowej zdarzeń.
 
+Dla ukończenia zadania proponuje się logistyczny model mieszany oraz raportowanie standaryzowanej różnicy prawdopodobieństw. Dla liczby błędów należy rozważyć model Poissona lub ujemny dwumianowy w zależności od dyspersji, z jasno określoną jednostką ekspozycji. Czas do osiągnięcia celu powinien uwzględniać administracyjny limit czasu jako cenzurowanie prawostronne, jeśli założenia analizy czasu do zdarzenia są spełnione. Rezygnację, awarię i trwałe niepowodzenie należy odróżnić od takiego cenzurowania. Analiza czasu wyłącznie w ukończonych próbach będzie opisem warunkowym, a nie efektem dla wszystkich przypisanych prób.
+
+Proponuje się ocenę wrażliwości na braki danych z wykorzystaniem modelu mieszanego przy założeniu braków losowych warunkowo względem uwzględnionych zmiennych oraz scenariuszy odchyleń od tego założenia. Należy raportować przyczyny i częstość braków według warunków. Konkretna strategia imputacji lub modelowania oraz zakres odchyleń wymagają uzasadnienia przed akwizycją. Nie należy przypisywać brakującym ocenom wartości zerowej ani traktować nieukończenia jako automatycznego braku wyniku.
+
 \subsection{Wnioskowanie i sprawozdawczość}
 
 Dla pierwszorzędowego kontrastu przewiduje się przedstawienie oszacowania, przedziału ufności i oceny jego znaczenia praktycznego. Poziom błędu pierwszego rodzaju, ewentualną procedurę korekty wielokrotności oraz zasady interpretacji hipotez drugorzędowych należy określić przed rozpoczęciem badań. Brak statystycznej istotności nie będzie stanowił potwierdzenia równoważności. Analizy eksploracyjne powinny być jednoznacznie oznaczone, a wszystkie odstępstwa od planu udokumentowane.
+
+Dla H1 proponuje się dwustronny poziom błędu pierwszego rodzaju 0,05 i 95-procentowy przedział ufności, bez utożsamiania istotności statystycznej ze znaczeniem praktycznym. W przypadku zatwierdzenia H2, H3a i H3b jako hipotez potwierdzających proponuje się procedurę Holma w uprzednio określonej rodzinie testów drugorzędowych; wnioski oparte na przedziałach ufności muszą uwzględniać przyjętą kontrolę wielokrotności. PB4 i wskaźniki procesowe pozostają eksploracyjne. Dla H1 należy przed badaniem uzasadnić minimalną korzystną różnicę $\delta$; przedział w całości poniżej $-\delta$ wskazywałby efekt większy od tej granicy.
+
+\subsection{Planowanie liczebności i odtwarzalność analizy}
+
+Proponuje się symulacyjne planowanie liczebności dla docelowego schematu pomiarów powtarzanych. Scenariusze symulacji powinny uwzględniać minimalny efekt praktyczny, wariancję między uczestnikami i scenariuszami, korelację pomiarów, liczbę prób na warunek, rozkład braków danych oraz docelową precyzję lub moc. Parametry muszą pochodzić z uzasadnionych założeń lub niezależnego pilotażu; nie określono jeszcze ich wartości. Należy ocenić wrażliwość planowanej liczebności na niepewność parametrów oraz wykonalność dodatkowych wariantów B i C. Symulacje służyłyby projektowaniu badania, nie ocenie rzeczywistej skuteczności adaptacji.
+
+Przed badaniem głównym należy zamrozić definicje zmiennych, kontrasty, plan obsługi braków, kryteria diagnostyczne, hierarchię testów i procedurę odtwarzania obliczeń. Kod analityczny powinien wykorzystywać wersjonowane zależności, jawne ziarna dla operacji losowych oraz testy na danych syntetycznych jednoznacznie oznaczonych jako syntetyczne. Nie przeprowadzono jeszcze takich symulacji ani analiz.
 
 Wyniki przyszłego badania powinny obejmować liczby uczestników i prób, braki danych, rozkłady zmiennych, oszacowania efektów, miary niepewności, diagnostykę modeli i ograniczenia interpretacyjne. Należy zachować wersję kodu analitycznego i schemat danych umożliwiający odtworzenie obliczeń z prawnie i etycznie dopuszczonego materiału. Na obecnym etapie nie istnieje zatwierdzony plan analizy ani materiał empiryczny pozwalający wykonać te obliczenia.
 
