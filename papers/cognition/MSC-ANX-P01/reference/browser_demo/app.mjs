@@ -1,7 +1,7 @@
 import {schedule,Trial,TIMING,practiceOutcome,checkComprehension,EVENT_GRACE_MS,eventTimeStatus,skipTask} from "./core.mjs";
 const $=id=>document.getElementById(id);
 let manifest=null, rows=[], results=[], active=null, index=0, generation=0, running=false;
-let paused=false, timer=null, stopped=false, waitingRelease=false;
+let paused=false, timer=null, stopped=false, heldKeys=new Set();
 let practiceAttempt=0, practiceResults=[], practiceHistory=[], trainingPassed=false, practicing=false;
 let quizPassed=false, quizAttempts=0, endReason=null, timingDiagnostics=[], skippedTrials=[];
 const keys={KeyF:"left",KeyJ:"right"};
@@ -29,7 +29,7 @@ function next(){
   stateProgress();
   if(index>=rows.length){finish(false);return;}
   if(!focusOK()){pause("Przywróć fokus okna i kontynuuj.");return;}
-  if(waitingRelease){pause("Zwolnij klawisze odpowiedzi i kontynuuj.");return;}
+  if(heldKeys.size){pause("Zwolnij klawisze odpowiedzi i kontynuuj.");return;}
   const row=practicing?manifest.practice[practiceAttempt-1][practiceResults.length]:rows[index];
   active=new Trial(row);
   const token=++generation;
@@ -39,6 +39,7 @@ function next(){
     const mapping=row.mapping[row.rule];
     const cue=(row.rule===0?["PARZYSTOŚĆ","PARZYSTA / NIEPARZYSTA"]:["WIELKOŚĆ","MNIEJSZA / WIĘKSZA"])[row.cue%2];
     frame(token,()=>{
+      if(!focusOK()){lostFocus();return;}
       setScreen("",cue,"","F: "+labels[mapping],"J: "+labels[1-mapping]);
       const cueAt=performance.now();
       timer=setTimeout(()=>frame(token,()=>{
@@ -52,9 +53,14 @@ function next(){
         }
         // Grace period lets a queued pre-deadline key event arrive; RT still uses event time.
         timer=setTimeout(()=>{if(guard(token)){
-          const lag=performance.now()-active.onset-TIMING.response_ms-EVENT_GRACE_MS;
-          record(lag>EVENT_GRACE_MS?active.technicalFailure():active.expire(),lag>EVENT_GRACE_MS);
-        }},TIMING.response_ms+EVENT_GRACE_MS);
+          const lag=performance.now()-active.onset-TIMING.response_ms;
+          if(lag>EVENT_GRACE_MS){record(active.technicalFailure(),true);return;}
+          $("stimulus").textContent="";
+          timer=setTimeout(()=>{if(guard(token)){
+            const extra=performance.now()-active.onset-TIMING.response_ms-EVENT_GRACE_MS;
+            record(extra>EVENT_GRACE_MS?active.technicalFailure():active.expire(),extra>EVENT_GRACE_MS);
+          }},Math.max(0,TIMING.response_ms+EVENT_GRACE_MS-(performance.now()-active.onset)));
+        }},TIMING.response_ms);
       }),TIMING.cue_ms);
     });
   }else{
@@ -108,7 +114,7 @@ function record(result,interrupted=false){
   timer=setTimeout(()=>{if(guard(token))next();},TIMING.iti_ms);
 }
 function lostFocus(){
-  waitingRelease=false;
+  heldKeys.clear();
   if(!running||paused)return;
   if(active){record(active.invalidate(),true);}
   else pause("Przywróć fokus okna i kontynuuj.");
@@ -140,7 +146,7 @@ $("start").addEventListener("click",()=>{
   stateProgress();pause("Demonstracja. "+blockLabel(rows[0]));
 });
 $("resume").addEventListener("click",()=>{
-  if(!running||!paused||!focusOK()||waitingRelease)return;
+  if(!running||!paused||!focusOK()||heldKeys.size)return;
   const row=rows[index];
   if(!practicing&&row.task==="switching"&&!trainingPassed){
     practiceAttempt++;practiceResults=[];practicing=true;
@@ -168,8 +174,9 @@ $("stop").addEventListener("click",()=>finish(true));
 window.addEventListener("keydown",e=>{
   if(!running||!keys[e.code])return;
   e.preventDefault();
-  if(e.repeat||waitingRelease)return;
-  waitingRelease=true;
+  const blocked=e.repeat||heldKeys.size>0;
+  heldKeys.add(e.code);
+  if(blocked)return;
   if(!paused&&active&&focusOK()){
     const now=performance.now();
     // Event time may be relative to a different clock on older browsers.
@@ -182,7 +189,7 @@ window.addEventListener("keydown",e=>{
     record(active.answer(keys[e.code],stamp));
   }
 });
-window.addEventListener("keyup",e=>{if(keys[e.code])waitingRelease=false;});
+window.addEventListener("keyup",e=>{if(keys[e.code])heldKeys.delete(e.code);});
 window.addEventListener("blur",lostFocus);
 document.addEventListener("visibilitychange",()=>{if(document.hidden)lostFocus();});
 $("export").addEventListener("click",()=>{

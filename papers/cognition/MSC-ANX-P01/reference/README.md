@@ -22,12 +22,12 @@ Kolejne prace: niezależna weryfikacja generatora, symulacja niezależnych param
 
 ```sh
 python3 -m venv .venv-anx
-.venv-anx/bin/python -m pip install -r papers/cognition/MSC-ANX-P01/reference/requirements-analysis.txt
+.venv-anx/bin/python -m pip install -r papers/cognition/MSC-ANX-P01/reference/requirements-ci.txt
 .venv-anx/bin/python -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p test_statistical.py -v
 .venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/statistical.py --n 80 --seed 42
 ```
 
-Bez utrwalania danych, tylko raport syntetyczny. Przypięto bezpośrednie zależności, nie pełne zależności przechodnie. Modele GLMM oraz analiza prób RT: mixed_models.py. Weryfikacja poprawności implementacji nie zastępuje walidacji modelu na zatwierdzonym protokole.
+Bez utrwalania danych, tylko raport syntetyczny. requirements-ci.txt przypina wersje zależności bezpośrednich i przechodnich odczytane z CI #45837988941 (Ubuntu x86_64, Python 3.12.3). Jest to lock wersji, nie hash-lock artefaktów; pozostałe platformy wymagają weryfikacji. requirements-analysis.txt zachowuje minimalną listę bibliotek do analizy. Modele GLMM oraz analiza prób RT: mixed_models.py. Weryfikacja poprawności implementacji nie zastępuje walidacji modelu na zatwierdzonym protokole.
 
 ## Modele mieszane (P3.3b)
 

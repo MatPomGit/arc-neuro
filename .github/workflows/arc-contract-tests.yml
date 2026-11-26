@@ -60,7 +60,8 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m venv "${RUNNER_TEMP}/arc-neuro-anx-analysis"
-          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r papers/cognition/MSC-ANX-P01/reference/requirements-analysis.txt
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r papers/cognition/MSC-ANX-P01/reference/requirements-ci.txt
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip check
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_*.py' -v
       - name: Test local ANX browser demo contract
         shell: bash
@@ -75,7 +76,6 @@ jobs:
         run: |
           set -euo pipefail
           venv="${RUNNER_TEMP}/arc-neuro-anx-analysis"
-          "$venv/bin/python" -m pip install --disable-pip-version-check playwright==1.56.0
           ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B papers/cognition/MSC-ANX-P01/reference/browser_demo/e2e.py -v
       - name: Record ANX environment provenance
         shell: bash

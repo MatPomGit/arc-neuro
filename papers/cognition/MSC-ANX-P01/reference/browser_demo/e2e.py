@@ -94,6 +94,63 @@ class BrowserTests(unittest.TestCase):
         self.assertFalse(result["comprehension_passed"])
         self.assertEqual(result["completed_trials"],0)
 
+    def test_two_failed_practices_preserve_decisions(self):
+        data=self.start(0)
+        for attempt in (1,2):
+            for i,row in enumerate(data["practice"][attempt-1]):
+                expect(self.page.locator("#progress")).to_contain_text(f"Trening {attempt}: {i+1} / 24")
+                expect(self.page.locator("#stimulus")).to_have_text(str(row["stimulus"]))
+                self.page.keyboard.press("f" if row["correct_key"] else "j")
+            expect(self.page.locator("#resume")).to_be_visible()
+            if attempt==1:
+                self.page.locator("#resume").click()
+        expect(self.page.locator("#instruction")).to_contain_text("Pominięto")
+        self.page.locator("#resume").click()
+        expect(self.page.locator("#quiz")).to_be_visible()
+        report=self.export()
+        self.assertEqual(len(report["skipped_trials"]),240)
+        self.assertEqual(len(report["practice_history"]),2)
+        self.assertFalse(report["training_passed"])
+        self.assertEqual(report["completed_trials"],0)
+
+    def test_held_keys_do_not_leak_into_next_trial(self):
+        self.start(42)
+        for field,value in (("q1","known"),("q2","unknown"),("q3","higher")):
+            self.page.locator("#"+field).select_option(value)
+        self.page.locator("#quiz-submit").click()
+        self.page.locator("#resume").click()
+        expect(self.page.locator("#left")).to_contain_text("pkt")
+        self.page.keyboard.down("f")
+        self.page.keyboard.down("j")
+        self.page.keyboard.up("f")
+        expect(self.page.locator("#resume")).to_be_visible()
+        self.page.locator("#resume").click()
+        expect(self.page.locator("#resume")).to_be_visible()
+        self.page.keyboard.up("j")
+        self.page.locator("#resume").click()
+        expect(self.page.locator("#left")).to_contain_text("pkt")
+        self.page.keyboard.press("j")
+        expect(self.page.locator("#bar")).to_have_attribute("value","2")
+        report=self.export()
+        self.assertEqual([x["response"] for x in report["trials"]],["left","right"])
+
+    def test_focus_during_cue_and_iti(self):
+        self.start(0)
+        expect(self.page.locator("#cue")).not_to_have_text("")
+        self.page.evaluate("window.dispatchEvent(new Event('blur'))")
+        expect(self.page.locator("#resume")).to_be_visible()
+        self.page.locator("#resume").click()
+        expect(self.page.locator("#progress")).to_contain_text("2 / 24")
+        expect(self.page.locator("#stimulus")).not_to_have_text("")
+        self.page.keyboard.press("f")
+        self.page.evaluate("window.dispatchEvent(new Event('blur'))")
+        expect(self.page.locator("#resume")).to_be_visible()
+        self.page.wait_for_timeout(650)
+        expect(self.page.locator("#progress")).to_contain_text("3 / 24")
+        report=self.export()
+        self.assertEqual(report["incomplete_practice_trials"],2)
+        self.assertEqual(report["completed_trials"],0)
+
     def test_training_then_main_and_timing(self):
         data=self.start(0)
         expect(self.page.locator("#progress")).to_contain_text("Trening 1")

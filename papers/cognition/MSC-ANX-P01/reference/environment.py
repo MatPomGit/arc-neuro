@@ -19,9 +19,10 @@ def cmd(*args):
 def collect(report=None):
     root=Path(__file__).resolve().parent
     files=sorted(p for p in root.rglob("*") if p.is_file() and p.suffix in (".py",".mjs",".html",".css",".txt"))
+    dirty=cmd("git","-C",str(root),"status","--porcelain","--untracked-files=no")
     return dict(protocol_version=VERSION,stimulus_version=STIMULUS_VERSION,
                 git_sha=cmd("git","-C",str(root),"rev-parse","HEAD"),
-                git_tracked_dirty=bool(cmd("git","-C",str(root),"status","--porcelain","--untracked-files=no")),
+                git_tracked_dirty=None if dirty is None else bool(dirty),
                 python=platform.python_version(),os=platform.system(),machine=platform.machine(),
                 node=cmd("node","--version"),chrome=cmd("google-chrome","--version"),
                 packages={d.metadata["Name"]:d.version for d in sorted(importlib.metadata.distributions(),
