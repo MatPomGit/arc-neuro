@@ -48,4 +48,4 @@ Zachować rozróżnienie między brakami i zerami; nie zapisywać IP, nazwisk an
 | P5 | Symulacja mocy w Pythonie, rzeczywiste stopnie swobody kategorii, precyzja H1–H3, plan braków, zamrożenie protokołu i prerejestracja. |
 | P6 | Rekrutacja, zamknięcie próby według z góry ustalonej reguły, analiza dokładnej wersji, niezależny przegląd. |
 
-Wstępne liczebności wynikają z przybliżenia Fishera, nie z obserwacji. Nie ma decyzji etycznej, danych ani implementacji eksperymentu. Nie zmieniać rejestru kanonicznego i Pages bez oddzielnej zgody.
+Wstępne liczebności wynikają z przybliżenia Fishera, nie z obserwacji. Nie ma decyzji etycznej, danych ani kanonicznej implementacji akwizycji; dostępny jest lokalny demonstrator i referencyjny model syntetyczny. Nie zmieniać rejestru kanonicznego i Pages bez oddzielnej zgody.
