@@ -9,11 +9,15 @@ import pandas as pd
 import statsmodels.api as sm
 from statsmodels.stats.multitest import multipletests
 
-from design import VERSION, STIMULUS_VERSION
+from design import VERSION, STIMULUS_VERSION, decision_trials
 from synthetic import summarize, synthetic
 
 NUMERIC = ("age_years", "sleep_hours", "depression_total")
 CATEGORICAL = ("os_family", "browser_family", "task_order")
+
+
+class ModelUnavailable(ValueError):
+    """Valid data but an unidentified or numerically unavailable model."""
 
 
 def finite(x):
@@ -116,38 +120,75 @@ def fit_h1(records, *, baseline=True, depression=True):
                 baseline=baseline, depression=depression)
 
 
+def eligible_choices(rec, task):
+    """Validate schedule identities/fields, then apply task-specific QA."""
+    if task not in ("risk", "ambiguity"):
+        raise ValueError("invalid task")
+    pid=rec["participant_id"]
+    expected={t["trial_index"]:t for t in decision_trials(rec["seed"]) if t["task"]==task}
+    seen=set()
+    valid=[]
+    for trial in rec["decisions"]:
+        if trial.get("task") not in ("risk","ambiguity"):
+            raise ValueError("invalid decision domain")
+        if trial["task"]!=task:
+            continue
+        key=trial.get("trial_index")
+        if type(key) is not int or key not in expected or key in seen or trial.get("participant_id")!=pid:
+            raise ValueError("invalid decision identity")
+        seen.add(key)
+        if any(trial.get(k)!=v for k,v in expected[key].items()):
+            raise ValueError("decision manifest mismatch")
+        if any(type(trial.get(k)) is not bool for k in ("focus_lost","technical_error")):
+            raise ValueError("invalid decision QA flags")
+        chosen=trial.get("target_chosen")
+        if chosen is not None and type(chosen) is not bool:
+            raise ValueError("invalid choice")
+        if trial["focus_lost"] or trial["technical_error"] or chosen is None:
+            continue
+        valid.append(trial)
+    comprehension=rec.get("comprehension_passed")
+    if type(comprehension) is not bool:
+        raise ValueError("invalid comprehension status")
+    if not comprehension:
+        return [],"comprehension_failed"
+    if len(valid)<36:
+        return [],"insufficient_valid_choices"
+    if len({(t["contrast"],t["level"]) for t in valid})!=12:
+        return [],"incomplete_factorial_cells"
+    return valid,None
+
+
 def choice_frame(records, task):
     """Validate decision identities and build a task-specific complete-case frame."""
     contrasts = {"risk": ("ev_difference", "variance_difference"),
                  "ambiguity": ("nominal_payoff_contrast", "ambiguity_width")}
     if task not in contrasts:
         raise ValueError("invalid task")
+    records=list(records)
     covariates, excluded = participant_rows(records, require_switch=False)
     participants = covariates.set_index("participant_id").to_dict("index")
     rows = []
     for rec in records:
         pid = rec["participant_id"]
+        trials,reason=eligible_choices(rec,task)
         if pid not in participants:
             continue
-        trials = [t for t in rec["decisions"] if t["task"] == task]
-        keys = set()
+        if reason:
+            excluded[pid]=reason
+            continue
         for trial in trials:
-            key = trial["trial_index"]
-            if key in keys or trial.get("participant_id") != pid:
-                raise ValueError("invalid decision identity")
-            keys.add(key)
-            if type(trial.get("target_chosen")) is not bool or not all(finite(trial.get(k)) for k in contrasts[task]):
-                raise ValueError("invalid synthetic decision trial")
             rows.append(dict(participant_id=pid, **participants[pid],
                              chosen=int(trial["target_chosen"]), **{k: trial[k] for k in contrasts[task]}))
-        if not trials:
-            excluded[pid] = "no_decision_trials"
     frame = pd.DataFrame(rows)
     if frame.empty or frame["participant_id"].nunique() < 30:
-        raise ValueError("at least 30 clusters required for reference GEE")
+        raise ModelUnavailable("at least 30 eligible clusters required")
     if frame["chosen"].nunique() != 2:
-        raise ValueError("constant choice outcome")
-    x, omitted, refs = matrix(frame, ["gad5", *contrasts[task], *NUMERIC], CATEGORICAL)
+        raise ModelUnavailable("constant choice outcome")
+    try:
+        x, omitted, refs = matrix(frame, ["gad5", *contrasts[task], *NUMERIC], CATEGORICAL)
+    except ValueError as exc:
+        raise ModelUnavailable(str(exc)) from exc
     return frame, x, omitted, refs, excluded
 
 

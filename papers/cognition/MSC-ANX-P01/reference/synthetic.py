@@ -51,10 +51,11 @@ def synthetic(seed, n):
         for r in m["decisions"]:
             x = (-.03*gad+.15*r["ev_difference"]-.02*r["variance_difference"] if r["task"] == "risk"
                  else -.03*gad+.15*r["nominal_payoff_contrast"]-.5*r["ambiguity_width"])
-            decisions.append(dict(r, participant_id=pid, target_chosen=rng.random() < logistic(x)))
+            decisions.append(dict(r, participant_id=pid, target_chosen=rng.random() < logistic(x),
+                                  focus_lost=False, technical_error=False))
         yield dict(data_origin="synthetic", participant_id=pid, protocol_version=m["protocol_version"],
                    stimulus_version=m["stimulus_version"], seed=m["seed"], task_order=m["task_order"],
-                   gad7_total=gad, depression_total=depression, age_years=rng.randint(18, 70),
+                   comprehension_passed=True, gad7_total=gad, depression_total=depression, age_years=rng.randint(18, 70),
                    sleep_hours=round(max(2, min(12, rng.gauss(7, 1))), 1),
                    os_family="synthetic", browser_family="synthetic",
                    switching=trials, decisions=decisions, summary=summarize(trials))

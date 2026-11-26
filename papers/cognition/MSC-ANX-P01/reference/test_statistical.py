@@ -7,7 +7,7 @@ import pandas as pd
 import statsmodels.api as sm
 from design import manifest
 from synthetic import synthetic
-from statistical import analyze, fit_h1, fit_choice_gee, matrix, participant_rows
+from statistical import analyze, fit_h1, fit_choice_gee, matrix, participant_rows, eligible_choices
 
 
 class StatisticalTests(unittest.TestCase):
@@ -63,6 +63,35 @@ class StatisticalTests(unittest.TestCase):
         frame["gad5"] = 1.
         with self.assertRaisesRegex(ValueError, "constant estimand"):
             matrix(frame, ["gad5"], [])
+
+    def test_choice_eligibility_boundaries(self):
+        base=copy.deepcopy(self.records[0])
+        risk=[t for t in base["decisions"] if t["task"]=="risk"]
+        cells={}
+        for t in risk:
+            cells.setdefault((t["contrast"],t["level"]),[]).append(t)
+        for group in cells.values():
+            group[0]["target_chosen"]=None
+        valid,reason=eligible_choices(base,"risk")
+        self.assertEqual(len(valid),36)
+        self.assertIsNone(reason)
+        valid[0]["focus_lost"]=True
+        self.assertEqual(eligible_choices(base,"risk")[1],"insufficient_valid_choices")
+        self.assertEqual(len(eligible_choices(base,"ambiguity")[0]),48)
+        base=copy.deepcopy(self.records[0])
+        for t in base["decisions"]:
+            if t["task"]=="risk" and t["contrast"]==-2 and t["level"]==0:
+                t["technical_error"]=True
+        self.assertEqual(eligible_choices(base,"risk")[1],"incomplete_factorial_cells")
+        base["comprehension_passed"]=False
+        self.assertEqual(eligible_choices(base,"ambiguity")[1],"comprehension_failed")
+
+    def test_choice_manifest_mutation(self):
+        base=copy.deepcopy(self.records[0])
+        trial=next(t for t in base["decisions"] if t["task"]=="risk")
+        trial["ev_difference"]+=1
+        with self.assertRaisesRegex(ValueError,"manifest"):
+            eligible_choices(base,"risk")
 
     def test_choice_duplicate(self):
         records = copy.deepcopy(self.records)

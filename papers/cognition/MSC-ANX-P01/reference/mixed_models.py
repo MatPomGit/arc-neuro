@@ -13,7 +13,7 @@ from scipy.stats import norm
 from statsmodels.stats.multitest import multipletests
 
 from statistical import (NUMERIC, CATEGORICAL, matrix, participant_rows,
-                         choice_frame, effect, finite)
+                         choice_frame, effect, finite, ModelUnavailable)
 from synthetic import synthetic
 
 
@@ -67,11 +67,11 @@ def logistic_ri(y, x, groups, term):
             or set(np.unique(y)) != {0.,1.} or not np.isfinite(raw).all()
             or np.linalg.matrix_rank(raw) != raw.shape[1] or term not in x
             or x.columns[0] != "intercept" or not np.all(raw[:,0]==1)):
-        raise ValueError("invalid or unidentified random-intercept model")
+        raise ModelUnavailable("invalid or unidentified random-intercept model")
     means = raw[:,1:].mean(axis=0)
     scales = raw[:,1:].std(axis=0)
     if np.any(scales <= 0):
-        raise ValueError("constant predictor")
+        raise ModelUnavailable("constant predictor")
     a = raw.copy()
     a[:,1:] = (raw[:,1:]-means)/scales
     start = np.r_[np.zeros(a.shape[1]), -.3]
@@ -82,22 +82,22 @@ def logistic_ri(y, x, groups, term):
         result = minimize(obj, initial, jac=True, method="L-BFGS-B", bounds=bounds,
                           options={"ftol":1e-12,"gtol":1e-6,"maxiter":500})
         if not result.success or not np.isfinite(result.fun):
-            raise ValueError("random-intercept optimizer failed")
+            raise ModelUnavailable("random-intercept optimizer failed")
         return result
     initial = fit(coarse,start)
     result = fit(fine,initial.x)
     theta = result.x
     if not -4.95 < theta[-1] < 1.95:
-        raise ValueError("random-effect variance on numerical boundary")
+        raise ModelUnavailable("random-effect variance on numerical boundary")
     if np.max(np.abs(fine(theta)[1])) > .02:
-        raise ValueError("score not near zero")
+        raise ModelUnavailable("score not near zero")
     # Compare integration resolutions before using the observed information.
     check = _quadrature(a,y,groups,96)
     if abs(check(theta)[0]-result.fun) > .01 or np.max(np.abs(check(theta)[1])) > .05:
-        raise ValueError("quadrature resolution inadequate")
+        raise ModelUnavailable("quadrature resolution inadequate")
     info = _hessian(lambda t: fine(t)[1], theta)
     if np.min(np.linalg.eigvalsh(info)) <= 1e-6:
-        raise ValueError("nonpositive or singular observed information")
+        raise ModelUnavailable("nonpositive or singular observed information")
     cov = np.linalg.inv(info)
     transform = np.eye(len(theta))
     transform[0,1:-1] = -means/scales
@@ -155,7 +155,7 @@ def switching_frame(records, accuracy=False):
                              interaction=sw*person["gad5"], outcome=int(correct) if accuracy else np.log(rt)))
     frame = pd.DataFrame(rows)
     if frame.empty or frame["participant_id"].nunique()<30:
-        raise ValueError("insufficient switching clusters")
+        raise ModelUnavailable("insufficient switching clusters")
     x,omitted,refs = matrix(frame,["gad5","switch","interaction",*NUMERIC],CATEGORICAL)
     if "switch" not in x or "interaction" not in x:
         raise ValueError("unidentified switch interaction")
@@ -175,7 +175,7 @@ def rt_mixed(frame,x,*,random_slope):
         model = sm.MixedLM(frame["outcome"],x,groups=frame["participant_id"],exog_re=re)
         fit = model.fit(reml=False,method="lbfgs",maxiter=300,disp=False)
     if not fit.converged or np.min(np.linalg.eigvalsh(fit.cov_re))<=1e-8:
-        raise ValueError("RT mixed model failed convergence or singular covariance")
+        raise ModelUnavailable("RT mixed model failed convergence or singular covariance")
     return dict(model="ML Gaussian mixed model; log RT", random_slope=random_slope,
                 n_trials=len(frame),n_participants=int(frame["participant_id"].nunique()),
                 interaction=effect(fit,"interaction"),
@@ -191,12 +191,27 @@ def fit_accuracy_glmm(records):
 
 def analyze_mixed(records,random_slope=True):
     records=list(records)
-    h2,h3=(fit_choice_glmm(records,t) for t in ("risk","ambiguity"))
-    adjusted=multipletests([h2["gad_effect"]["p"],h3["gad_effect"]["p"]],method="holm")[1]
-    for model,p in zip((h2,h3),adjusted):
-        model["gad_effect"]["p_holm"]=float(p)
+    h2,h3=choice_family(records)
     return dict(data_origin="synthetic", H2=h2,H3=h3,
-                RT=fit_rt_mixed(records,random_slope=random_slope),accuracy=fit_accuracy_glmm(records))
+                RT=optional_fit(lambda:fit_rt_mixed(records,random_slope=random_slope)),
+                accuracy=optional_fit(lambda:fit_accuracy_glmm(records)))
+
+
+def optional_fit(call):
+    try:
+        return dict(call(),status="estimated")
+    except (ModelUnavailable,np.linalg.LinAlgError,FloatingPointError) as exc:
+        return dict(status="not_estimated",reason=str(exc))
+
+
+def choice_family(records, *, fitter=fit_choice_glmm):
+    models=[optional_fit(lambda t=t:fitter(records,t)) for t in ("risk","ambiguity")]
+    pvalues=[m["gad_effect"]["p"] if m["status"]=="estimated" else 1. for m in models]
+    adjusted=multipletests(pvalues,method="holm")[1]
+    for model,p in zip(models,adjusted):
+        if model["status"]=="estimated":
+            model["gad_effect"]["p_holm"]=float(p)
+    return models
 
 
 if __name__=="__main__":

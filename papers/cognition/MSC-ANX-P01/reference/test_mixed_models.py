@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 import pandas as pd
 from scipy.special import expit
-from mixed_models import _quadrature, logistic_ri, rt_mixed, switching_frame
+from mixed_models import _quadrature, logistic_ri, rt_mixed, switching_frame, choice_family, ModelUnavailable
 from synthetic import synthetic
 
 
@@ -41,6 +41,23 @@ class MixedTests(unittest.TestCase):
         y=6.4+.12*sw+.04*gad*sw+np.repeat(rng.normal(0,.15,n),t)+sw*np.repeat(rng.normal(0,.08,n),t)+rng.normal(0,.1,n*t)
         fit=rt_mixed(pd.DataFrame(dict(participant_id=groups,outcome=y)),x,random_slope=True)
         self.assertAlmostEqual(fit["interaction"]["estimate"],.04,delta=.035)
+
+    def test_family_partial_and_total_failure(self):
+        def partial(records,task):
+            if task=="ambiguity":
+                raise ModelUnavailable("fixture")
+            return dict(gad_effect=dict(p=.03))
+        a,b=choice_family([],fitter=partial)
+        self.assertAlmostEqual(a["gad_effect"]["p_holm"],.06)
+        self.assertEqual(b["status"],"not_estimated")
+        self.assertNotIn("gad_effect",b)
+        def all_fail(records,task):
+            raise ModelUnavailable("fixture")
+        self.assertTrue(all(x["status"]=="not_estimated" for x in choice_family([],fitter=all_fail)))
+        def malformed(records,task):
+            raise ValueError("bad input")
+        with self.assertRaisesRegex(ValueError,"bad input"):
+            choice_family([],fitter=malformed)
 
     def test_constant_outcome_rejected(self):
         x=pd.DataFrame(dict(intercept=np.ones(60),gad5=np.arange(60)))
