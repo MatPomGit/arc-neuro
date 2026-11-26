@@ -48,7 +48,7 @@ def fit_trial(d):
             d, vcp_p=0.5, fe_p=5)
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always")
-            fit = model.fit_vb(method="BFGS", minim_opts={"maxiter": 500})
+            fit = model.fit_vb(fit_method="BFGS", minim_opts={"maxiter": 500})
         if caught or not fit.optim_retvals.success:
             return None
         b, se = fit.fe_mean[1], fit.fe_sd[1]
