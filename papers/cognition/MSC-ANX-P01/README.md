@@ -2,9 +2,9 @@
 
 **Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
 
-**Program:** ARC Neuro. **Obszar:** poznanie. **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Wersja prospektu:** 0.3.0 (2026-11-22).
+**Program:** ARC Neuro. **Obszar:** poznanie. **Rodzaj:** `IDEA`. **Etap:** `IDEA_REVIEW`. **Wersja prospektu:** 0.4.0 (2026-11-26).
 
-[Manuskrypt LaTeX](main.tex) jest rozwiniętym projektem naukowym z wprowadzeniem teoretycznym i pięcioma zweryfikowanymi źródłami (Eysenck i in., Miyake i in., Monsell, Spitzer i in., Carleton).
+[Manuskrypt LaTeX](main.tex) jest rozwiniętym projektem naukowym z rozwiniętym wprowadzeniem, 14 pozycjami bibliograficznymi oraz prospektywnym projektem operacyjnym.
 
 ## Zakres
 Badanie przekrojowe osób dorosłych, obejmujące nasilenie objawów lękowych mierzone GAD-7, koszt przełączania reguł w zadaniu poznawczym, wybory przy znanym ryzyku i osobno przy niejednoznaczności prawdopodobieństw.
@@ -16,9 +16,11 @@ Badanie przekrojowe osób dorosłych, obejmujące nasilenie objawów lękowych m
 - **Statystyka:** regresja wieloraka, modele na poziomie prób, analiza logitowa wyborów, analiza wrażliwości oraz korekta Holma.
 
 ## Status i bramki
+Proponowany pilotaż: 30–50 osób; wstępny cel: 355 kompletnych obserwacji (444 rekrutowane przy 20% utracie), przy założeniu częściowego r=0,15 i ośmiu stopniach swobody współzmiennych. Finalna liczebność wymaga symulacji oraz zamrożenia protokołu.
+
 Nie przeprowadzono pilotażu, rekrutacji, analiz empirycznych ani oceny etycznej. Przed rozpoczęciem badania należy zatwierdzić protokół, wyznaczyć liczebność próby, zweryfikować narzędzia oraz warunki ochrony danych i przygotować prerejestrację.
 
-**Uwaga:** skryptów eksperymentalnych i danych nie dodano; manuskrypt nie przedstawia wyników.
+[Mapa podstaw naukowych i bramek](foundations.md) zawiera kontrakt zmiennych, zasady walidacji i plan realizacji. [Referencyjny model syntetyczny](reference/README.md) zawiera generator prób, kontrolę jakości i symulację mocy H1. [Projekt prerejestracji](preregistration.md), [plan analiz](analysis-plan.md), [protokół pilotażu](pilot-protocol.md) i [projekt dokumentacji etycznej](ethics-data.md) są gotowe do uzgodnień. Kod akwizycji eksperymentalnej, dane oraz zamrożona prerejestracja pozostają poza tym publicznym prospektem.
 
 [Szczegółowa strategia publikacyjna](journal-targets.md), z priorytetami, punktacją i wymaganiami przed zgłoszeniem.
 

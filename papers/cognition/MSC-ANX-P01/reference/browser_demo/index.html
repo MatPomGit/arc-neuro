@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>MSC-ANX-P01 | Demonstrator</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.mjs"></script>
+</head>
+<body>
+<main>
+<header><p class="eyebrow">ARC NEURO / MSC-ANX-P01</p><h1>Elastyczność poznawcza i decyzje</h1><p>Prototyp lokalny. Wyłącznie demonstracja techniczna, bez rekrutacji, kwestionariuszy i transmisji danych.</p></header>
+<section id="setup">
+<label for="manifest">Wybierz manifest JSON wygenerowany w Pythonie</label>
+<input id="manifest" type="file" accept=".json,application/json">
+<p id="status" role="status">Oczekiwanie na manifest.</p>
+<button id="start" disabled>Rozpocznij demonstrację</button>
+</section>
+<section id="session" hidden>
+<p id="progress"></p><progress id="bar" max="336" value="0"></progress>
+<div id="screen" class="screen" aria-live="off"><p id="instruction"></p><p id="cue"></p><p id="stimulus"></p><div id="options"><div id="left"></div><div id="right"></div></div></div>
+<p id="keys">Odpowiedź: klawisze F (lewa) i J (prawa).</p>
+<section id="quiz" hidden><h2>Sprawdzenie rozumienia</h2><p>Wybierz odpowiedzi przed zadaniem decyzji.</p><label for="q1">W loterii 50% / 50% prawdopodobieństwo wyższej wypłaty jest:</label><select id="q1"><option value="">Wybierz</option><option value="known">Znane</option><option value="unknown">Nieznane</option></select><label for="q2">Jeżeli podano tylko przedział 30–70%, dokładne prawdopodobieństwo jest:</label><select id="q2"><option value="">Wybierz</option><option value="known">Znane</option><option value="unknown">Nieznane</option></select><label for="q3">Prawdopodobieństwo podane przy loterii dotyczy:</label><select id="q3"><option value="">Wybierz</option><option value="lower">Niższej wypłaty</option><option value="higher">Wyższej wypłaty</option></select><p id="quiz-feedback" role="status"></p><button id="quiz-submit">Sprawdź</button></section>
+<button id="resume" hidden>Kontynuuj blok</button>
+<button id="stop">Zakończ demonstrację</button>
+</section>
+<section id="done" hidden><h2>Koniec demonstracji</h2><p id="summary"></p><button id="export">Zapisz lokalny raport DEMO (JSON)</button><p>Raport jest techniczny i nie jest akceptowany przez pipeline analizy danych syntetycznych.</p></section>
+</main>
+</body>
+</html>
