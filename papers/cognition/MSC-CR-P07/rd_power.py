@@ -26,7 +26,7 @@ def scenario(n, tasks, rd, sd_person, sd_task, initial_correct, missing, replica
     beta = brentq(lambda b: risk(b)-p0-rd, -40, 40)
     person = np.repeat(np.arange(n), tasks)
     task = np.tile(np.arange(tasks), n)
-    estimates, covered, rejected, failed = [], 0, 0, 0
+    estimates, covered, rejected, positive, failed = [], 0, 0, 0, 0
     for child in simulation_seed.spawn(replicates):
         rng = np.random.default_rng(child)
         # Independent 2x2 assignments AFTER each initial response.
@@ -43,13 +43,17 @@ def scenario(n, tasks, rd, sd_person, sd_task, initial_correct, missing, replica
         estimates.append(fit["rd"])
         covered += fit["lower"] <= rd <= fit["upper"]
         rejected += fit["lower"] > 0 or fit["upper"] < 0
+        positive += fit["lower"] > 0
     ci = binomtest(rejected, replicates).proportion_ci()
+    power_ci = binomtest(positive, replicates).proportion_ci()
     valid = len(estimates)
     cov_ci = binomtest(covered, valid).proportion_ci() if valid else None
     return dict(n=n, tasks=tasks, rd=rd, baseline_risk=p0, beta=beta,
                 sd_person=sd_person, sd_task=sd_task, initial_correct=initial_correct,
                 missing=missing, replicates=replicates, seed=seed, failed=failed,
                 rejected=rejected, rate=rejected/replicates, lower95=ci.low, upper95=ci.high,
+                positive=positive, directional_power=positive/replicates,
+                power_lower95=power_ci.low, power_upper95=power_ci.high,
                 covered=covered, coverage=covered/valid if valid else None,
                 coverage_lower95=cov_ci.low if cov_ci else None,
                 coverage_upper95=cov_ci.high if cov_ci else None,
