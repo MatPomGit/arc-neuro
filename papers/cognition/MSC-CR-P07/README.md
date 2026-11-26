@@ -1,12 +1,10 @@
 # MSC-CR-P07 — Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji
 
-**scientific_owner:** Mateusz Pomianek (`MatPomGit`).
-
-**Autor szkicu:** Mateusz Pomianek. Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
 
 **Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `PROSPECTIVE`.
 
-[Manuskrypt LaTeX](main.tex) w wersji 0.2.0 określa eksperyment 2 × 2, pierwszorzędowy estymand różnicy ryzyka, model mieszany oraz wymagania pilotażu i prerejestracji. Status pozostaje prospektywny.
+[Manuskrypt LaTeX](main.tex) w wersji 0.2.1 określa eksperyment 2 × 2, pierwszorzędowy estymand różnicy ryzyka, model mieszany oraz wymagania pilotażu i prerejestracji. Status pozostaje prospektywny.
 
 Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
 
