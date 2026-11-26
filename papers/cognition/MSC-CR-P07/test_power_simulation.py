@@ -23,6 +23,11 @@ class PowerSimulationTests(unittest.TestCase):
         self.assertIsNone(ps.fit_trial(pd.DataFrame(
             dict(person=[0, 1], task=[0, 1], tone=[0, 0], y=[0, 1]))))
 
+    def test_real_vb_fit(self):
+        out = ps.scenario(80, 24, 0, .5, .3, .75, 0, 1, 20261126)
+        self.assertEqual(out["failed"], 0)
+        self.assertTrue(np.isfinite(out["mean_bias"]))
+
     def test_failure_accounting(self):
         with patch.object(ps, "fit_trial", side_effect=[None, (0., 1.), (3., 1.)]):
             out = ps.scenario(8, 8, 0, .5, .3, .75, 0, 3, 42)
