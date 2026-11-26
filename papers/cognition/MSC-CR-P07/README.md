@@ -4,7 +4,7 @@
 
 **Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `PROSPECTIVE`.
 
-[Manuskrypt LaTeX](main.tex) w wersji 0.2.1 określa eksperyment 2 × 2, pierwszorzędowy estymand różnicy ryzyka, model mieszany oraz wymagania pilotażu i prerejestracji. Status pozostaje prospektywny.
+[Manuskrypt LaTeX](main.tex) w wersji 0.2.2 określa eksperyment 2 × 2, pierwszorzędowy estymand różnicy ryzyka, estymator Hájeka z klastrowaniem uczestników i dodatkowy model mieszany oraz wymagania pilotażu i prerejestracji. Status pozostaje prospektywny.
 
 Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
 
