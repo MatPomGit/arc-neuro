@@ -16,7 +16,7 @@ python3 -B papers/cognition/MSC-ANX-P01/reference/audit_design.py --count 2048
 python3 -B papers/cognition/MSC-ANX-P01/reference/power.py --recruited 444 --r .15 --repetitions 5000 --seed 42
 ```
 
-Kolejne prace: niezależna weryfikacja generatora, symulacja niezależnych parametrów poziomu prób, pełne modele HC3 i GLMM oraz analiza rzetelności. Implementacja przeglądarkowa, zatwierdzone skale i akwizycja danych wymagają osobnego kanonicznego środowiska, testów timing i decyzji etycznej. Nie wdrażać na GitHub Pages.
+Kolejne prace: niezależna weryfikacja generatora, symulacja niezależnych parametrów poziomu prób, walidacja modeli HC3 i GLMM oraz analiza rzetelności. Implementacja przeglądarkowa, zatwierdzone skale i akwizycja danych wymagają osobnego kanonicznego środowiska, testów timing i decyzji etycznej. Nie wdrażać na GitHub Pages.
 
 ## Opcjonalna warstwa statystyczna
 
@@ -27,4 +27,15 @@ python3 -m venv .venv-anx
 .venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/statistical.py --n 80 --seed 42
 ```
 
-Bez utrwalania danych, tylko raport syntetyczny. Przypięto bezpośrednie zależności, nie pełne zależności przechodnie. Modele GLMM oraz analiza prób RT pozostają następnym etapem. Weryfikacja poprawności implementacji nie zastępuje walidacji modelu na zatwierdzonym protokole.
+Bez utrwalania danych, tylko raport syntetyczny. Przypięto bezpośrednie zależności, nie pełne zależności przechodnie. Modele GLMM oraz analiza prób RT: mixed_models.py. Weryfikacja poprawności implementacji nie zastępuje walidacji modelu na zatwierdzonym protokole.
+
+## Modele mieszane (P3.3b)
+
+- H2/H3: częstotliwościowy logistyczny model z losowym interceptem uczestnika, maksymalizacja scałkowanego likelihood za pomocą kwadratury Gaussa–Hermite'a (32/64 węzły; kontrola 96), obserwowana informacja i przedziały Walda, Holm. Współczynnik warunkowy, nie marginalny GEE.
+- RT: model liniowy mieszany na log(RT), interakcja switch × GAD-7/5, losowy intercept i nachylenie switch. Wariant wyłącznie z interceptem wymaga jawnego wyboru. Nie zastępuje głównego H1 w ms.
+- Trafność: logistyczny model z losowym interceptem i interakcją. Timeout pozostaje błędem, próby technicznie nieważne wykluczane; selekcja prób na podstawie poprawności dotyczy tylko RT. Modele prób mają odrębne kryteria od głównego H1; nie zawierają bazowego RT.
+- Odrzucenie modeli na granicy wariancji, bez zbieżności lub dostatecznej dokładności kwadratury. Generator syntetyczny z P3.1 nie zawiera osobniczych efektów losowych wyboru ani trafności, więc jego pełny raport GLMM może zostać prawidłowo odrzucony. Testy odzyskiwania parametrów wykorzystują osobne dane z zadanym efektem losowym. Nie ma jeszcze pełnego badania kalibracji, pokrycia CI ani symulacji mocy.
+
+```sh
+.venv-anx/bin/python -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_mixed_models.py' -v
+```

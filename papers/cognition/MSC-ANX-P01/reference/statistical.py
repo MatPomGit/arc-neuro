@@ -116,8 +116,8 @@ def fit_h1(records, *, baseline=True, depression=True):
                 baseline=baseline, depression=depression)
 
 
-def fit_choice_gee(records, task):
-    """Population-averaged sensitivity model, not the preregistered GLMM."""
+def choice_frame(records, task):
+    """Validate decision identities and build a task-specific complete-case frame."""
     contrasts = {"risk": ("ev_difference", "variance_difference"),
                  "ambiguity": ("nominal_payoff_contrast", "ambiguity_width")}
     if task not in contrasts:
@@ -148,6 +148,12 @@ def fit_choice_gee(records, task):
     if frame["chosen"].nunique() != 2:
         raise ValueError("constant choice outcome")
     x, omitted, refs = matrix(frame, ["gad5", *contrasts[task], *NUMERIC], CATEGORICAL)
+    return frame, x, omitted, refs, excluded
+
+
+def fit_choice_gee(records, task):
+    """Population-averaged sensitivity model, not the preregistered GLMM."""
+    frame, x, omitted, refs, excluded = choice_frame(records, task)
     with warnings.catch_warnings(record=True) as caught:
         warnings.simplefilter("always")
         fit = sm.GEE(frame["chosen"], x, groups=frame["participant_id"],
