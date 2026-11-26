@@ -28,6 +28,10 @@ Celem prospektywnego eksperymentu jest ustalenie, czy językowa pewność rekome
 \end{abstract}
 \section{Wprowadzenie}
 Zaufanie deklarowane i behawioralne poleganie na poradzie stanowią odrębne konstrukty. Przyjęcie trafnej rekomendacji może poprawić decyzję, natomiast przyjęcie błędnej porady może ją pogorszyć. W badaniu rozdzielamy jakość rekomendacji od jej językowej kategoryczności. Ton nie jest miarą skalibrowanego prawdopodobieństwa poprawności modelu. Istniejące badania nad nadmiernym poleganiem na AI \cite{overreliance} stanowią punkt odniesienia; proponowany wkład dotyczy zmian decyzji względem indywidualnego osądu sprzed ekspozycji.
+\subsection{Selektywność polegania na AI}
+Schemmer i współpracownicy \cite{schemmer} rozróżniają adekwatne przyjęcie poprawnej porady i adekwatne zachowanie własnego poprawnego osądu. Sama częstość akceptacji nie pozwala ustalić jakości współpracy człowieka z AI. Wymóg podjęcia decyzji przed ekspozycją może sam wpływać na późniejsze poleganie na poradzie, ponieważ wymusza aktywną ocenę problemu \cite{bucinca}. Procedura ta jest identyczna we wszystkich warunkach.
+\subsection{Niepewność językowa}
+Kim i współpracownicy \cite{kim} badali wpływ sposobu wyrażania niepewności przez LLM na zaufanie i poleganie na odpowiedzi w zadaniach dotyczących informacji medycznych. Projekt nie zakłada pierwszeństwa w badaniu tego efektu. Rozszerzenie polega na skrzyżowaniu tonu z poprawnością rekomendacji w zadaniach binarnych oraz na zdefiniowaniu szkodliwej zmiany decyzji warunkowo względem poprawności osądu wstępnego.
 \section{Hipotezy}
 H1: wśród prób z poprawną decyzją wstępną błędna rekomendacja przedstawiona zdecydowanie częściej prowadzi do błędnej decyzji końcowej niż identyczna rekomendacja przedstawiona ostrożnie.
 
@@ -58,5 +62,8 @@ Zamrożenie estymandu, bodźców i planu analizy nastąpi przed rekrutacją. Prz
 Projekt pozwala odróżnić szkodliwe poleganie na błędnej poradzie od korzystnej korekty własnego błędu. Przed rozpoczęciem badania pozostają pilotaż, analiza mocy i prerejestracja.
 \begin{thebibliography}{9}
 \bibitem{overreliance} \emph{Trust and reliance on AI -- An experimental study on the extent and costs of overreliance on AI}. Computers in Human Behavior (2024). \url{https://doi.org/10.1016/j.chb.2024.108352}.
+\bibitem{schemmer} M. Schemmer, N. Kühl, C. Benz, A. Bartos, G. Satzger. Appropriate Reliance on AI Advice: Conceptualization and the Effect of Explanations. IUI (2023). \url{https://doi.org/10.1145/3581641.3584066}.
+\bibitem{bucinca} Z. Buçinca, M. B. Malaya, K. Z. Gajos. To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making. Proceedings of the ACM on Human-Computer Interaction (2021). \url{https://doi.org/10.1145/3449287}.
+\bibitem{kim} S. S. Kim i in. Examining the Impact of Large Language Models' Uncertainty Expression on User Reliance and Trust. FAccT (2024). \url{https://doi.org/10.1145/3630106.3658941}.
 \end{thebibliography}
 \end{document}
