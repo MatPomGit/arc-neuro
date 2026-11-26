@@ -26,6 +26,7 @@ Przegląd ukierunkowany, nie systematyczny. Następny etap: PubMed, PsycINFO, Sc
 | depression_total | int wg zatwierdzonej skali | model warunkowy |
 | age_years, sleep_hours | lata, godziny poprzedniej nocy | współzmienne |
 | os_family, browser_family, task_order | ograniczone kategorie | QA i współzmienne |
+| decision_order | risk/ambiguity jako pierwsza domena | H2–H3 |
 | task, block, trial_index | enum, int, int | identyfikacja prób |
 | rule, cue, stimulus, mapping | kategorie | równoważenie |
 | transition | switch/repeat/undefined | kontrast H1 |

@@ -77,6 +77,11 @@ jobs:
           venv="${RUNNER_TEMP}/arc-neuro-anx-analysis"
           "$venv/bin/python" -m pip install --disable-pip-version-check playwright==1.56.0
           ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B papers/cognition/MSC-ANX-P01/reference/browser_demo/e2e.py -v
+      - name: Record ANX environment provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B papers/cognition/MSC-ANX-P01/reference/environment.py
       - name: Read-only v2 migration inventory preflight
         run: python3 -B scripts/migration_preflight.py
       - name: Verify public GitHub review evidence

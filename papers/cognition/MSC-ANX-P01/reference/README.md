@@ -2,7 +2,7 @@
 
 Właściciel naukowy: Mateusz Pomianek. Status: prospektywny model syntetyczny, nie aplikacja do zbierania danych. Kod jest publiczną ilustracją kontraktu i nie zastępuje przyszłego kanonicznego repozytorium badania.
 
-- design.py: deterministyczny manifest 240 prób klasyfikacji (48 bazowych, 192 mieszane), 94 switch / 94 repeat, cztery nieokreślone pierwsze przejścia, 96 wyborów. Dokładnie 12 powtórzeń identycznego bodźca w każdym warunku. Marginesy są kontrolowane w całej sesji; generator przyjmuje wyłącznie sekwencje spełniające jawne tolerancje i przerywa po 128 nieudanych próbach. Wersja bodźców 0.4.1, wersja protokołu 0.4.0. Tolerancje są wstępnymi progami inżynieryjnymi, nie gwarantują pełnej ortogonalności ani rzetelności psychometrycznej. Ziarna 0–15 ilustrują 16 kombinacji przypisania odpowiedzi, kolejności bloków bazowych i kolejności zadań; w badaniu alokację trzeba równoważyć niezależnie od identyfikatora.
+- design.py: deterministyczny manifest 240 prób klasyfikacji (48 bazowych, 192 mieszane), 94 switch / 94 repeat, cztery nieokreślone pierwsze przejścia, 96 wyborów. Dokładnie 12 powtórzeń identycznego bodźca w każdym warunku. Marginesy są kontrolowane w całej sesji; generator przyjmuje wyłącznie sekwencje spełniające jawne tolerancje i przerywa po 128 nieudanych próbach. Wersja bodźców 0.4.2, wersja protokołu 0.4.0. Tolerancje są wstępnymi progami inżynieryjnymi, nie gwarantują pełnej ortogonalności ani rzetelności psychometrycznej. Ziarna 0–31 ilustrują 32 kombinacje przypisania odpowiedzi, kolejności bloków bazowych, zadań i domen decyzji; w badaniu alokację trzeba równoważyć niezależnie od identyfikatora.
 - audit_design.py: audyt 2048 kolejnych ziaren, zakresy marginesów i raport JSON; niezerowy kod wyjścia przy niepowodzeniu.
 - synthetic.py: generowanie wyłącznie rekordów SYN, obliczanie median kosztu i bazowego RT, trafności i kwalifikacji. Minimum 24 poprawne bazowe próby jest dodatkowym proponowanym progiem. Timeout jest niepowodzeniem w analizie trafności, nigdy ważną poprawną reakcją. Nie przechowuje danych ani nie wysyła żądań sieciowych.
 - statistical.py: H1 OLS z HC3 i dwustronnym wnioskowaniem t, kompletne przypadki, jawne kodowanie kategorii i warianty bez bazowego RT oraz depresyjności. H2/H3: uzupełniające GEE logit z odporną macierzą kowariancji klastrowaną po osobie i korektą Holma. GEE nie jest konfirmacyjnym GLMM; różne estymandy marginalne i warunkowe. Dane wejściowe wyłącznie syntetyczne. Stałe współzmienne są jawnie pomijane, stały predyktor hipotezy lub niedostateczny rząd macierzy przerywają analizę.
@@ -66,3 +66,12 @@ Analiza tłumienia efektu: r_obserwowane = r_latentne × sqrt(Rx × Ry), przy kl
 ## Demonstrator
 
 [Instrukcja uruchomienia, treningu i testów E2E](browser_demo/README.md).
+
+## E3.1: symulacja H1 i odtwarzalność
+
+h1_power.py: symulacja pełnych prób RT z heteroskedastycznością, zmiennymi kategorialnymi, błędami i QA oraz właściwym OLS HC3. Parametr beta_ms to nominalny efekt generatora przed selekcją, niekoniecznie prawdziwy estymand po QA. Przy nierzetelności GAD-7 pokrycie nominalnej wartości nie jest kalibracją CI obserwowanego efektu. Właściwa kampania i kalibracja pozostają bramką zamrożenia. Reproducibility: environment.py zapisuje SHA, wersje, zależności i hashe źródeł oraz opcjonalnego raportu. Uruchomienie lokalne, pliki wynikowe poza repozytorium:
+
+```sh
+.venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/h1_power.py --recruited 444 --repetitions 100 > /tmp/anx-h1.json
+.venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/environment.py --report /tmp/anx-h1.json > /tmp/anx-h1-env.json
+```
