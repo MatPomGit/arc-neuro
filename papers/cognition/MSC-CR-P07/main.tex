@@ -19,7 +19,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.2.0}
+\date{Szkic naukowy, wersja 0.2.1}
 
 \begin{document}
 \maketitle
@@ -40,7 +40,7 @@ Badanie internetowe osób pełnoletnich, z powtarzanymi próbami w układzie czy
 \subsection{Bodźce i procedura}
 Każde zadanie obejmuje decyzję wstępną, ocenę pewności w skali 0--100, ekspozycję na jedną zamrożoną rekomendację i decyzję końcową z oceną pewności. Warianty tonu w obrębie tej samej rekomendacji zachowują argumenty, fakty, zalecenie i możliwie podobną długość. Nie stosuje się generowania na żywo. Niezależni oceniający sprawdzają klucz poprawności oraz równoważność treści. Pilotaż oceni postrzeganą pewność, uprzejmość i autorytatywność; kryteria akceptacji bodźców zostaną ustalone przed pilotażem. Uczestnicy pilotażu nie wejdą do próby głównej.
 \subsection{Zmienne i estymandy}
-Pierwszorzędowy wynik to przejście od poprawnej decyzji wstępnej do błędnej decyzji końcowej w próbach z błędną poradą. Estymandem jest marginalna różnica ryzyka między tonem zdecydowanym i ostrożnym w tej populacji prób. Drugorzędowe wyniki obejmują korektę błędnej decyzji po poprawnej poradzie, selektywność akceptacji przy początkowej niezgodności, trafność końcową oraz kalibrację pewności. Prób zgodności wstępnej nie klasyfikuje się jako dowodu przyjęcia porady.
+Pierwszorzędowy wskaźnik: przejście od poprawnej decyzji wstępnej do błędnej decyzji końcowej w próbach z błędną poradą. Estymandem jest marginalna różnica ryzyka między tonem zdecydowanym i ostrożnym w tej populacji prób. Drugorzędowe wyniki obejmują korektę błędnej decyzji po poprawnej poradzie, selektywność akceptacji przy początkowej niezgodności, trafność końcową oraz kalibrację pewności. Prób zgodności wstępnej nie klasyfikuje się jako dowodu przyjęcia porady.
 \section{Plan analizy}
 Dla pierwszorzędowego wyniku stosujemy model
 \[
@@ -50,8 +50,10 @@ Y_{ij}\sim\operatorname{Bernoulli}(p_{ij}),\quad
 gdzie $T=1$ oznacza ton zdecydowany, a $u_i,v_j$ są efektami losowymi uczestnika i zadania. Raportujemy standaryzowaną różnicę przewidywanych ryzyk z 95-procentowym przedziałem ufności oraz iloraz szans. Dla H2, w próbach początkowej niezgodności, model przyjęcia porady obejmie ton, poprawność i ich interakcję. Kontrast marginalny różnic ryzyk, a nie sam współczynnik interakcji na skali logitowej, będzie miarą selektywności. H1 jest jedynym testem potwierdzającym na poziomie 0,05; H2 i H3 mają status drugorzędowy i eksploracyjny.
 \subsection{Liczebność i jakość danych}
 Liczebność zostanie ustalona symulacyjnie przed rekrutacją, przy uwzględnieniu minimalnego istotnego efektu, wariancji efektów losowych, liczby zadań i odsetka poprawnych decyzji wstępnych. Nie ustala się liczebności na podstawie istotności uzyskanej w trakcie badania. Prerejestracja określi reguły wykluczeń technicznych, obsługę braków odpowiedzi i procedurę analizy wrażliwości. Nie wykluczamy uczestników ze względu na zgodność z hipotezą. Raportujemy liczebność na każdym etapie i braki według warunków.
-\section{Etyka i ograniczenia}
-Przed rekrutacją wymagane są właściwa ocena etyczna, świadoma zgoda, minimalizacja danych i wyjaśnienie po badaniu, że część porad była celowo błędna. Zadania nie dotyczą decyzji medycznych, prawnych ani finansowych o realnych konsekwencjach. Manipulacja dotyczy językowej formy porady, nie rzeczywistej pewności modelu. Wnioskowanie ogranicza się do krótkotrwałych decyzji w kontrolowanych zadaniach; nie dowodzi trwałej utraty autonomii. Efekt pierwszej porady w zadaniu nie jest tożsamy z efektem pierwszego kontaktu z AI.
+\section{Wyniki}
+Badanie pozostaje na etapie projektowania; akwizycja danych nie została rozpoczęta.
+\section{Dyskusja i ograniczenia}
+Zamrożenie estymandu, bodźców i planu analizy nastąpi przed rekrutacją. Przed rekrutacją wymagane są właściwa ocena etyczna, świadoma zgoda, minimalizacja danych i wyjaśnienie po badaniu, że część porad była celowo błędna. Zadania nie dotyczą decyzji medycznych, prawnych ani finansowych o realnych konsekwencjach. Manipulacja dotyczy językowej formy porady, nie rzeczywistej pewności modelu. Wnioskowanie ogranicza się do krótkotrwałych decyzji w kontrolowanych zadaniach; nie dowodzi trwałej utraty autonomii. Efekt pierwszej porady w zadaniu nie jest tożsamy z efektem pierwszego kontaktu z AI.
 \section{Wnioski}
 Projekt pozwala odróżnić szkodliwe poleganie na błędnej poradzie od korzystnej korekty własnego błędu. Przed rozpoczęciem badania pozostają pilotaż, analiza mocy i prerejestracja.
 \begin{thebibliography}{9}
