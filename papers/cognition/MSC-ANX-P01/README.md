@@ -20,7 +20,7 @@ Proponowany pilotaż: 30–50 osób; wstępny cel: 355 kompletnych obserwacji (4
 
 Nie przeprowadzono pilotażu, rekrutacji, analiz empirycznych ani oceny etycznej. Przed rozpoczęciem badania należy zatwierdzić protokół, wyznaczyć liczebność próby, zweryfikować narzędzia oraz warunki ochrony danych i przygotować prerejestrację.
 
-[Mapa podstaw naukowych i bramek](foundations.md) zawiera kontrakt zmiennych, zasady walidacji i plan realizacji. Kod eksperymentu, dane oraz zamrożona prerejestracja pozostają poza tym publicznym prospektem.
+[Mapa podstaw naukowych i bramek](foundations.md) zawiera kontrakt zmiennych, zasady walidacji i plan realizacji. [Referencyjny model syntetyczny](reference/README.md) zawiera generator prób, kontrolę jakości i symulację mocy H1. Kod akwizycji eksperymentalnej, dane oraz zamrożona prerejestracja pozostają poza tym publicznym prospektem.
 
 [Szczegółowa strategia publikacyjna](journal-targets.md), z priorytetami, punktacją i wymaganiami przed zgłoszeniem.
 
