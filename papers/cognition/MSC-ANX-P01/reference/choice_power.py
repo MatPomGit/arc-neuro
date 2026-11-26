@@ -52,6 +52,7 @@ def generate(s, rng):
     age = rng.integers(18,71,n)
     sleep = np.clip(rng.normal(7,1,n),2,12)
     order = rng.permutation(np.arange(n)%2)
+    domain_order = rng.permutation(np.arange(n)%2)
     os = rng.binomial(1,.35,n)
     browser = rng.binomial(1,.4,n)
     u = rng.normal(size=(n,2))
@@ -65,7 +66,7 @@ def generate(s, rng):
     ids = np.repeat(retained,t)
     shared = dict(intercept=np.ones(len(ids)),gad5=gad[ids]/5,
                   age_years=age[ids],sleep_hours=sleep[ids],
-                  depression_total=dep[ids],task_order=order[ids],
+                  depression_total=dep[ids],task_order=order[ids],decision_order=domain_order[ids],
                   os_family=os[ids],browser_family=browser[ids])
     results = {}
     for j,task in enumerate(("risk","ambiguity")):
@@ -77,11 +78,11 @@ def generate(s, rng):
                +(-.02 if j==0 else -.5)*x["level"]
                +.005*(x["age_years"]-40)+.04*(x["sleep_hours"]-7)
                -.015*(x["depression_total"]-7)+.08*x["task_order"]
-               +.05*x["os_family"]-.05*x["browser_family"]+u[ids,j])
+               +.05*x["os_family"]-.05*x["browser_family"]+.06*x["decision_order"]+u[ids,j])
         y = rng.binomial(1,expit(eta))
         valid = rng.random(len(ids))>=s.trial_missing
         xx = x.loc[valid].reset_index(drop=True)
-        for k in ("age_years","sleep_hours","depression_total","task_order","os_family","browser_family"):
+        for k in ("age_years","sleep_hours","depression_total","task_order","decision_order","os_family","browser_family"):
             if xx[k].nunique()<=1:
                 xx=xx.drop(columns=k)
         results[task]=(y[valid],xx,ids[valid])

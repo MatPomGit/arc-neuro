@@ -1,9 +1,9 @@
-import {schedule,Trial,TIMING,practiceOutcome,checkComprehension} from "./core.mjs";
+import {schedule,Trial,TIMING,practiceOutcome,checkComprehension,EVENT_GRACE_MS,eventTimeStatus,skipTask} from "./core.mjs";
 const $=id=>document.getElementById(id);
 let manifest=null, rows=[], results=[], active=null, index=0, generation=0, running=false;
 let paused=false, timer=null, stopped=false, waitingRelease=false;
 let practiceAttempt=0, practiceResults=[], practiceHistory=[], trainingPassed=false, practicing=false;
-let quizPassed=false, quizAttempts=0, endReason=null, timingDiagnostics=[];
+let quizPassed=false, quizAttempts=0, endReason=null, timingDiagnostics=[], skippedTrials=[];
 const keys={KeyF:"left",KeyJ:"right"};
 const focusOK=()=>!document.hidden&&document.hasFocus();
 function clear(){generation++;clearTimeout(timer);timer=null;}
@@ -45,12 +45,16 @@ function next(){
         if(!focusOK()){lostFocus();return;}
         $("stimulus").textContent=String(row.stimulus);
         active.show(performance.now());
-        timingDiagnostics.push({practice:practicing,block:row.block,trial_index:row.trial_index,
+        timingDiagnostics.push({practice:practicing,block:row.block,trial_index:row.trial_index,practice_attempt:practicing?practiceAttempt:null,
           cue_to_dom_ms:active.onset-cueAt});
         if(active.onset-cueAt>TIMING.cue_ms+150){
           record(active.technicalFailure(),true);return;
         }
-        timer=setTimeout(()=>{if(guard(token))record(active.expire());},TIMING.response_ms);
+        // Grace period lets a queued pre-deadline key event arrive; RT still uses event time.
+        timer=setTimeout(()=>{if(guard(token)){
+          const lag=performance.now()-active.onset-TIMING.response_ms-EVENT_GRACE_MS;
+          record(lag>EVENT_GRACE_MS?active.technicalFailure():active.expire(),lag>EVENT_GRACE_MS);
+        }},TIMING.response_ms+EVENT_GRACE_MS);
       }),TIMING.cue_ms);
     });
   }else{
@@ -65,6 +69,13 @@ function next(){
     });
   }
 }
+function omitCurrentTask(reason){
+  const skipped=skipTask(rows,index);
+  skippedTrials.push(...skipped.skipped.map(t=>({...t,reason})));
+  index=skipped.end;
+  if(index>=rows.length){finish(false,"completed_with_skips");return;}
+  stateProgress();pause("Pominięto zadanie. "+blockLabel(rows[index]));
+}
 function record(result,interrupted=false){
   if(!result||!running)return;
   clear();
@@ -78,7 +89,7 @@ function record(result,interrupted=false){
         pause("Trening zaliczony: "+outcome.correct+"/24. Rozpocznij próby właściwe.");
       }else if(outcome.retry){
         pause("Trening: "+outcome.correct+"/24. Wymagane 18 poprawnych. Powtórz trening.");
-      }else{finish(false,"practice_failed");}
+      }else{omitCurrentTask("practice_failed");}
       return;
     }
     if(interrupted||!focusOK()){pause("Próba treningowa nieważna. Przywróć fokus.");return;}
@@ -103,10 +114,10 @@ function lostFocus(){
   else pause("Przywróć fokus okna i kontynuuj.");
 }
 function finish(manual,reason=null){
-  endReason=reason||(manual?"manual_stop":"completed");
+  endReason=reason||(manual?"manual_stop":skippedTrials.length?"completed_with_skips":"completed");
   stopped=manual;running=false;paused=false;clear();active=null;
   $("session").hidden=true;$("done").hidden=false;
-  $("summary").textContent="Zapisano "+results.length+" z "+rows.length+" prób demonstracyjnych. "+(endReason==="practice_failed"?"Nie zaliczono treningu.":"");
+  $("summary").textContent="Zapisano "+results.length+" z "+rows.length+" prób demonstracyjnych. "+(skippedTrials.length?" Pominięto "+skippedTrials.length+" prób.":"");
 }
 $("manifest").addEventListener("change",async e=>{
   manifest=null;rows=[];$("start").disabled=true;
@@ -125,7 +136,7 @@ $("start").addEventListener("click",()=>{
   if(!manifest||running)return;
   running=true;index=0;results=[];stopped=false;
   practiceAttempt=0;practiceHistory=[];practiceResults=[];trainingPassed=false;practicing=false;
-  quizPassed=false;quizAttempts=0;endReason=null;timingDiagnostics=[];$("setup").hidden=true;$("session").hidden=false;
+  quizPassed=false;quizAttempts=0;endReason=null;timingDiagnostics=[];skippedTrials=[];$("setup").hidden=true;$("session").hidden=false;
   stateProgress();pause("Demonstracja. "+blockLabel(rows[0]));
 });
 $("resume").addEventListener("click",()=>{
@@ -143,7 +154,11 @@ $("quiz-submit").addEventListener("click",()=>{
   if(!running||!paused||quizPassed||$("quiz").hidden)return;
   quizAttempts++;
   if(!checkComprehension(["q1","q2","q3"].map(id=>$(id).value))){
-    $("quiz-feedback").textContent="Sprawdź instrukcję: 50% to znane prawdopodobieństwo, przedział nie podaje dokładnej wartości, a podane p dotyczy wyższej wypłaty.";
+    if(quizAttempts>=2){
+      $("quiz").hidden=true;omitCurrentTask("comprehension_failed");return;
+    }
+    $("quiz-feedback").textContent="Sprawdź instrukcję: przy dokładnej wartości p prawdopodobieństwo jest określone; przedział wyznacza tylko granice. Zwróć uwagę na opis wypłaty.";
+    for(const id of ["q1","q2","q3"])$(id).value="";
     return;
   }
   quizPassed=true;$("quiz").hidden=true;
@@ -159,9 +174,10 @@ window.addEventListener("keydown",e=>{
     const now=performance.now();
     // Event time may be relative to a different clock on older browsers.
     const stamp=e.timeStamp;
-    if(active.phase==="response"&&(!Number.isFinite(stamp)||stamp>now+5||stamp<active.onset)) {
-      if(Number.isFinite(stamp)&&stamp>=0&&stamp<active.onset)return;
-      record(active.technicalFailure(),true);return;
+    if(active.phase==="response"){
+      const status=eventTimeStatus(stamp,now,active.onset);
+      if(status==="early")return;
+      if(status==="invalid"){record(active.technicalFailure(),true);return;}
     }
     record(active.answer(keys[e.code],stamp));
   }
@@ -171,11 +187,11 @@ window.addEventListener("blur",lostFocus);
 document.addEventListener("visibilitychange",()=>{if(document.hidden)lostFocus();});
 $("export").addEventListener("click",()=>{
   const report={data_origin:"demonstration",mode:"local-demo",protocol_version:manifest.protocol_version,
-    stimulus_version:manifest.stimulus_version,seed:manifest.seed,task_order:manifest.task_order,
+    stimulus_version:manifest.stimulus_version,seed:manifest.seed,task_order:manifest.task_order,decision_order:manifest.decision_order,
     demo_version:manifest.demo_version,practice_history:practiceHistory,training_passed:trainingPassed,
     incomplete_practice_trials:practicing?practiceResults.length:0,
     comprehension_passed:quizPassed,comprehension_attempts:quizAttempts,end_reason:endReason,
-    timing_diagnostics:timingDiagnostics,
+    timing_diagnostics:timingDiagnostics,skipped_trials:skippedTrials,
     timing:TIMING,planned_trials:rows.length,completed_trials:results.length,stopped,
     trials:results,timing_note:"RAF/DOM update proxy, not measured physical display onset"};
   const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:"application/json"}));

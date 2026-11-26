@@ -1,7 +1,7 @@
 import {test} from "node:test";
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
-import {schedule,Trial,practiceOutcome,checkComprehension} from "./core.mjs";
+import {schedule,Trial,practiceOutcome,checkComprehension,eventTimeStatus,skipTask} from "./core.mjs";
 const m=JSON.parse(readFileSync(process.env.ANX_DEMO_MANIFEST,"utf8"));
 test("Python manifest and mutation rejection",()=>{
  const rows=schedule(m);assert.equal(rows.length,336);
@@ -42,4 +42,19 @@ test("practice gate and comprehension",()=>{
  assert.equal(checkComprehension(["known","unknown","higher"]),true);
  assert.equal(checkComprehension(["known","known","higher"]),false);
  const bad=structuredClone(m);bad.practice[1][0].mapping[0]^=1;assert.throws(()=>schedule(bad));
+});
+
+test("deadline and clock validation",()=>{
+ const a=new Trial(m.switching[0]);a.show(100);assert.equal(a.answer("left",2100).timeout,false);
+ const b=new Trial(m.switching[0]);b.show(100);assert.equal(b.answer("left",2100.01).timeout,true);
+ assert.equal(eventTimeStatus(99,101,100),"early");
+ assert.equal(eventTimeStatus(120,130,100),"valid");
+ assert.equal(eventTimeStatus(120,180,100),"invalid");
+ assert.equal(eventTimeStatus(Date.now(),130,100),"invalid");
+});
+test("task skips and decision order",()=>{
+ const rows=schedule(m), first=skipTask(rows,0);
+ assert.equal(first.skipped.length,m.task_order[0]==="switching"?240:96);
+ assert.equal(skipTask(rows,first.end).end,336);
+ const wrong=structuredClone(m);wrong.decision_order.reverse();assert.throws(()=>schedule(wrong));
 });

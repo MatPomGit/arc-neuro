@@ -125,6 +125,10 @@ def eligible_choices(rec, task):
     if task not in ("risk", "ambiguity"):
         raise ValueError("invalid task")
     pid=rec["participant_id"]
+    domains=rec.get("decision_order")
+    expected_order=["risk","ambiguity"] if (rec["seed"]//16)%2==0 else ["ambiguity","risk"]
+    if domains!=expected_order:
+        raise ValueError("invalid decision order")
     expected={t["trial_index"]:t for t in decision_trials(rec["seed"]) if t["task"]==task}
     seen=set()
     valid=[]
@@ -179,14 +183,15 @@ def choice_frame(records, task):
             continue
         for trial in trials:
             rows.append(dict(participant_id=pid, **participants[pid],
-                             chosen=int(trial["target_chosen"]), **{k: trial[k] for k in contrasts[task]}))
+                             chosen=int(trial["target_chosen"]), decision_order=rec["decision_order"][0],
+                             **{k: trial[k] for k in contrasts[task]}))
     frame = pd.DataFrame(rows)
     if frame.empty or frame["participant_id"].nunique() < 30:
         raise ModelUnavailable("at least 30 eligible clusters required")
     if frame["chosen"].nunique() != 2:
         raise ModelUnavailable("constant choice outcome")
     try:
-        x, omitted, refs = matrix(frame, ["gad5", *contrasts[task], *NUMERIC], CATEGORICAL)
+        x, omitted, refs = matrix(frame, ["gad5", *contrasts[task], *NUMERIC], (*CATEGORICAL,"decision_order"))
     except ValueError as exc:
         raise ModelUnavailable(str(exc)) from exc
     return frame, x, omitted, refs, excluded

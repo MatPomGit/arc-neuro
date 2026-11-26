@@ -54,7 +54,7 @@ def synthetic(seed, n):
             decisions.append(dict(r, participant_id=pid, target_chosen=rng.random() < logistic(x),
                                   focus_lost=False, technical_error=False))
         yield dict(data_origin="synthetic", participant_id=pid, protocol_version=m["protocol_version"],
-                   stimulus_version=m["stimulus_version"], seed=m["seed"], task_order=m["task_order"],
+                   stimulus_version=m["stimulus_version"], seed=m["seed"], task_order=m["task_order"], decision_order=m["decision_order"],
                    comprehension_passed=True, gad7_total=gad, depression_total=depression, age_years=rng.randint(18, 70),
                    sleep_hours=round(max(2, min(12, rng.gauss(7, 1))), 1),
                    os_family="synthetic", browser_family="synthetic",

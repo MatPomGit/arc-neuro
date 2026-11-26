@@ -4,7 +4,7 @@ from itertools import product
 from random import Random
 
 VERSION = "0.4.0"
-STIMULUS_VERSION = "0.4.1"
+STIMULUS_VERSION = "0.4.2"
 NUMBERS = (1, 2, 3, 4, 6, 7, 8, 9)
 
 
@@ -156,5 +156,6 @@ def manifest(seed):
     if type(seed) is not int or seed < 0:
         raise ValueError("seed must be a nonnegative integer")
     tasks = ["switching", "decision"] if (seed // 8) % 2 == 0 else ["decision", "switching"]
+    domains = ["risk","ambiguity"] if (seed // 16) % 2 == 0 else ["ambiguity","risk"]
     return dict(protocol_version=VERSION, stimulus_version=STIMULUS_VERSION, seed=seed,
-                task_order=tasks, switching=switching(seed), decisions=decision_trials(seed))
+                task_order=tasks, decision_order=domains, switching=switching(seed), decisions=decision_trials(seed))

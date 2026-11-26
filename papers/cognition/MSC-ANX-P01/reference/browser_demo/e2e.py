@@ -81,6 +81,19 @@ class BrowserTests(unittest.TestCase):
         self.assertEqual(result["comprehension_attempts"],2)
         self.assertEqual(result["trials"][0]["response"],"left")
 
+    def test_failed_comprehension_skips_decisions(self):
+        self.start(42)
+        self.page.locator("#quiz-submit").click()
+        self.page.locator("#quiz-submit").click()
+        expect(self.page.locator("#instruction")).to_contain_text("Pominięto")
+        self.page.locator("#resume").click()
+        expect(self.page.locator("#progress")).to_contain_text("Trening 1")
+        result=self.export()
+        self.assertEqual(len(result["skipped_trials"]),96)
+        self.assertEqual(result["comprehension_attempts"],2)
+        self.assertFalse(result["comprehension_passed"])
+        self.assertEqual(result["completed_trials"],0)
+
     def test_training_then_main_and_timing(self):
         data=self.start(0)
         expect(self.page.locator("#progress")).to_contain_text("Trening 1")

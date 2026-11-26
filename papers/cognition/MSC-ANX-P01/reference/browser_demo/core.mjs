@@ -8,10 +8,11 @@ const integer=(n)=>Number.isSafeInteger(n);
 const finite=(n)=>typeof n==="number"&&Number.isFinite(n);
 
 export function schedule(m) {
-  if(!m || m.mode!=="local-demo" || m.demo_version!=="0.2.0" || m.protocol_version!=="0.4.0" ||
-      m.stimulus_version!=="0.4.1" || !integer(m.seed) || m.seed<0 ||
+  if(!m || m.mode!=="local-demo" || m.demo_version!=="0.3.0" || m.protocol_version!=="0.4.0" ||
+      m.stimulus_version!=="0.4.2" || !integer(m.seed) || m.seed<0 ||
       !m.timing || Object.keys(TIMING).some(k=>m.timing[k]!==TIMING[k]) ||
       ![["switching","decision"],["decision","switching"]].some(x=>same(x,m.task_order)) ||
+      !same(m.decision_order,Math.floor(m.seed/16)%2===0?["risk","ambiguity"]:["ambiguity","risk"]) ||
       !Array.isArray(m.switching)||m.switching.length!==240 ||
       !Array.isArray(m.decisions)||m.decisions.length!==96) fail();
   let i=0, mapping=null, counts={switch:0,repeat:0}, repeats={switch:0,repeat:0};
@@ -70,7 +71,7 @@ export function schedule(m) {
     }
     if(cells.size!==24||[...cells.values()].some(n=>n!==2))fail();
   }
-  return m.task_order.flatMap(task=>task==="switching"?m.switching:m.decisions);
+  return m.task_order.flatMap(task=>task==="switching"?m.switching:m.decision_order.flatMap(d=>m.decisions.filter(t=>t.task===d)));
 }
 
 export class Trial {
@@ -118,4 +119,17 @@ export function practiceOutcome(results,attempt){
 export function checkComprehension(answers){
   return Array.isArray(answers)&&answers.length===3&&
     answers[0]==="known"&&answers[1]==="unknown"&&answers[2]==="higher";
+}
+
+export const EVENT_GRACE_MS=50;
+export function eventTimeStatus(stamp,now,onset){
+  if(!finite(stamp)||!finite(now)||!finite(onset)||stamp<0||stamp>now+5||now-stamp>EVENT_GRACE_MS)return "invalid";
+  return stamp<onset?"early":"valid";
+}
+export function skipTask(rows,index){
+  if(index<0||index>=rows.length)throw new Error("invalid index");
+  const isSwitch=rows[index].task==="switching";
+  let end=index;
+  while(end<rows.length&&(rows[end].task==="switching")===isSwitch)end++;
+  return {end,skipped:rows.slice(index,end).map(t=>({task:t.task,block:t.block,trial_index:t.trial_index}))};
 }
