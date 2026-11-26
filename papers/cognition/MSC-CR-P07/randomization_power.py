@@ -1,6 +1,6 @@
 """Conditional randomization test for the sharp null of no tone effect.
-Requires independently randomized balanced tone within person and wrong-advice
-trials, and eligibility/missingness unaffected by tone. Not a weak-null RD CI.
+Requires exchangeable randomized tone conditional on participant-specific counts
+among eligible wrong-advice trials, and eligibility/missingness unaffected by tone. Not a weak-null RD CI.
 """
 import argparse
 import json
@@ -32,27 +32,28 @@ def conditional_test(person, tone, y):
     return float(np.clip(pmf[extreme].sum()/pmf.sum(), 0, 1))
 
 
-def simulate(rng, n, tasks, beta):
+def simulate(rng, n, tasks, beta, sd_person=.5, sd_task=.3, initial_correct=.75, missing=0, balanced=False):
     person = np.repeat(np.arange(n), tasks)
     task = np.tile(np.arange(tasks), n)
-    condition = np.concatenate([rng.permutation(np.repeat(np.arange(4), tasks//4)) for _ in range(n)])
+    condition = (np.concatenate([rng.permutation(np.repeat(np.arange(4), tasks//4)) for _ in range(n)])
+                 if balanced else rng.integers(0, 4, n*tasks))
     tone = condition % 2
-    initial = rng.binomial(1, .75, n*tasks)
-    u = rng.normal(0,.5,n); v = rng.normal(0,.3,tasks)
+    initial = rng.binomial(1, initial_correct, n*tasks)
+    u = rng.normal(0,sd_person,n); v = rng.normal(0,sd_task,tasks)
     y = rng.binomial(1, expit(logit(.2)+beta*tone+u[person]+v[task]))
-    keep = (condition//2 == 1) & (initial == 1)
+    keep = (condition//2 == 1) & (initial == 1) & (rng.random(n*tasks) >= missing)
     return person[keep], tone[keep], y[keep]
 
 
-def scenario(n, tasks, beta, replicates, seed):
-    if n < 2 or tasks < 4 or tasks % 4 or replicates < 1:
+def scenario(n, tasks, beta, replicates, seed, sd_person=.5, sd_task=.3, initial_correct=.75, missing=0):
+    if n < 2 or tasks < 4 or tasks % 4 or replicates < 1 or not (0 < initial_correct <= 1 and 0 <= missing < 1 and sd_person >= 0 and sd_task >= 0):
         raise ValueError('Invalid design')
     rng = np.random.default_rng(seed)
-    values = [conditional_test(*simulate(rng,n,tasks,beta)) for _ in range(replicates)]
+    values = [conditional_test(*simulate(rng,n,tasks,beta,sd_person,sd_task,initial_correct,missing)) for _ in range(replicates)]
     rejects = sum(p is not None and p <= .05 for p in values)
     failures = sum(p is None for p in values)
     ci = binomtest(rejects,replicates).proportion_ci()
-    return dict(n=n,tasks=tasks,beta=beta,replicates=replicates,seed=seed,rejects=rejects,failures=failures,rate=rejects/replicates,lower95=ci.low,upper95=ci.high)
+    return dict(n=n,tasks=tasks,beta=beta,sd_person=sd_person,sd_task=sd_task,initial_correct=initial_correct,missing=missing,replicates=replicates,seed=seed,rejects=rejects,failures=failures,rate=rejects/replicates,lower95=ci.low,upper95=ci.high)
 
 
 if __name__ == '__main__':
