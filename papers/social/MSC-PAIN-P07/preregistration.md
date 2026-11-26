@@ -1,0 +1,37 @@
+# Projekt prerejestracji OSF | MSC-PAIN-P07
+
+Mateusz Pomianek, właściciel naukowy i autor. Wersja 1.0.0 z 26.11.2026. Status PROSPECTIVE. Szablon docelowy [OSF Preregistration](https://help.osf.io/article/330-welcome-to-registrations). Przed rejestracją należy zatwierdzić warunki realizacji, liczebność i materiały. Niniejsza wersja pozostaje szkicem.
+
+## Pytania i hipotezy
+
+H1: dodatnia interakcja kosztu i widoczności po równym uśrednieniu po korzyści. H2: dodatni efekt korzyści w warunku prywatnym po równym uśrednieniu po koszcie. H3: ujemny efekt kosztu po równym uśrednieniu po widoczności i korzyści. Definicje współczynników i skalę estymandów podaje manuskrypt. H1 jest hipotezą główną.
+
+## Próba i reguła zatrzymania
+
+Polskojęzyczni dorośli (18+) pozyskani przez ogłoszenia otwarte. Udział dobrowolny, jedna sesja na osobę. Zaproszenia w kilku kanałach, bez zależności służbowej i bez powiązania z oceną akademicką. Zgoda, wiek i sprawdzian rozumienia przed randomizacją. Trzy pytania o własny koszt, korzyść i ujawnienie. Uczestnik może raz przeczytać instrukcję ponownie i poprawić odpowiedzi. Przy dwóch nieudanych próbach nie wchodzi do randomizacji. Dwie neutralne próby demonstracyjne pozostają poza analizą.
+
+Pilotaż użyteczności N=20 jest osobny. Kryteria projektowe to co najmniej 16/20 poprawnych odpowiedzi na wszystkie pytania po pierwszej instrukcji oraz co najmniej 16/20 ukończonych sesji. Wyniki służą zmianie interfejsu, instrukcji i weryfikacji wiarygodności. Wersja finansowa wymaga dodatkowo technicznego pilotażu rzeczywistego ujawnienia i rozliczeń. Dane pilotażowe nie zasilą testów hipotez. Wybór scenariusza liczebności opiera się na najmniejszym efekcie wartym wykrycia i wykonalności. Roboczy plan dla efektu 0,40 przy 20% rezygnacji wynosi N=320. Przy efekcie 0,25 siatka wskazuje N=640. Po zatwierdzeniu przyjmujemy stałe N randomizowanych, bez podglądania efektów. Niedobór próby po zadeklarowanym terminie raportuje się ze wskazaniem daty i rzeczywistego N. Termin zostanie wpisany przed rejestracją po potwierdzeniu kanałów rekrutacji.
+
+## Projekt i materiały
+
+24 próby, osiem kombinacji trzech czynników, trzy powtórzenia na kombinację. Platforma instytucjonalna ma przydzielać losowy identyfikator i przechowywać pełną sekwencję planowanych prób. Losowanie permutacji 24 wierszy i położenia opcji odbywa się po kwalifikacji, przed pierwszą próbą. Powrót do sesji wczytuje tę samą sekwencję i pozycję opcji. Parametry próby i wersja instrukcji są zapisane przed prezentacją.
+
+Wzór decyzji: „Opcja A. Ty otrzymasz 6 zł bonusu. Druga osoba otrzyma 0 zł dodatkowego bonusu. Opcja B. Ty otrzymasz [5/2] zł bonusu. Druga osoba otrzyma [2/5] zł dodatkowego bonusu.” Prywatnie: „Jeżeli ta próba zostanie wylosowana, osoba oceniająca nie zobaczy Twojej decyzji.” Widocznie: „Jeżeli ta próba zostanie wylosowana, osoba oceniająca zobaczy obie opcje i Twój wybór, oznaczony jednorazowym kodem.” Pozostałe ekrany, czas i sposób obsługi są wspólne. Beneficjent i obserwator pełnią odrębne role, z odrębną zgodą. Losowanie wypłaty obejmuje jedną próbę z 24. W razie wcześniejszego wycofania uczestnik zachowuje uzgodnione wynagrodzenie podstawowe. Zasady bonusu przy wycofaniu i wycofania danych po ujawnieniu wymagają zatwierdzenia i wpisania do informacji dla uczestnika przed wdrożeniem.
+
+Kontrole po zadaniu, skala 1–7: spodziewane prawdopodobieństwo ujawnienia w każdym warunku, oczekiwana aprobata dla A i B w dwóch dopasowanych parach kosztu oraz ocena stosowności dla ośmiu kombinacji. Kotwice „zdecydowanie nie” i „zdecydowanie tak” odpowiadają stwierdzeniom o ujawnieniu, aprobacie i stosowności. Koszt oraz korzyść sprawdzamy przez pytania o kwoty, bez selekcji po randomizacji. Opcjonalna troska o odbiorcę ma charakter eksploracyjny i służy opisowi, bez interpretacji jako zwalidowany pomiar cechy lub mediator przyczynowy. Nie zbieramy pomiarów neuronalnych.
+
+## Model i kontrola jakości
+
+Główna analiza obejmuje dostępne wybory według przydzielonego warunku. Pełny logitowy GLMM z losowym wyrazem wolnym uczestnika i ośmioma średnimi komórkowymi jest równoważny modelowi z trzema czynnikami, trzema interakcjami drugiego rzędu i interakcją trzeciego rzędu. Model estymujemy w Pythonie metodą największej wiarygodności po kwadraturze Gaussa–Hermite'a. Przeliczenie z 25 na 45 węzłów służy kontroli numerycznej. Raportujemy status optymalizacji i dodatnią określoność hesjanu. Wynik główny jest niedostępny po potwierdzonej niestabilności i nie zostanie zastąpiony wynikiem analizy wrażliwości. Testy Walda są dwustronne z wymaganym kierunkiem. Holm obejmuje H2 i H3. W publikacji podamy również bezwarunkowe prawdopodobieństwa ośmiu kombinacji oraz różnicę różnic prawdopodobieństw z bootstrapem uczestników (2000 losowań).
+
+Powtórne zgłoszenia identyfikuje jednorazowy losowy token, bez fingerprintingu. Przy powrocie zachowujemy pierwszą zatwierdzoną odpowiedź w danej próbie. Sprzeczne rekordy audytujemy przed ujawnieniem wyników zbiorczych. Braki wynikające z uszkodzenia danych, wycofania lub przerwania sesji raportujemy osobno. Do danych analitycznych należy utworzyć 24 zaplanowane wiersze na każdą zrandomizowaną osobę z brakami w wyniku. Kontrole maszynowe sprawdzają 24 pozycje, trzy przydziały każdej kombinacji, brak duplikatów, poprawne kwoty i zgodność logu z wyświetlonym wariantem. Szybkie odpowiedzi, wynik kontroli manipulacji i wybór jednej opcji we wszystkich próbach nie są automatyczną podstawą wykluczenia.
+
+## Analizy wrażliwości
+
+1. Zestawiamy prawdopodobieństwo braku wyboru według warunków i pozycji oraz odsetek osób bez obserwacji. Analiza pełnych sesji ocenia wpływ częściowych zapisów. Przy brakach informacyjnych stosujemy dwa skrajne scenariusze. Przypisujemy brakom w komórkach z dodatnią wagą H1 decyzję B i pozostałym A, a następnie odwracamy przypisanie. To testy odporności estymatora, bez interpretacji jako ścisłe granice identyfikacji GLMM.
+2. Analiza heterogeniczności dopuszcza niezależne losowe nachylenia kosztu i widoczności. Dodatkowy model uwzględnia pozycję próby, poprzednią widoczność i interakcję kosztu z widocznością w poszczególnych tercylach sekwencji. Pierwszy tercyl służy ocenie porównywania warunków i zmęczenia. Stabilność znaku i przedziału H1 oceniamy opisowo.
+3. Model GEE z logitem i odporną wariancją w klastrze osoby estymuje osobny kontrast marginalny. Porównujemy z marginalnymi predykcjami GLMM na tej samej skali. Nie interpretujemy różnic między skalą marginalną i warunkową jako błędu replikacji. Analizy według wiarygodności ujawnienia mają charakter eksploracyjny, ponieważ pomiar następuje po zadaniu.
+
+## Etyka i udostępnienie
+
+Przed rekrutacją wymagana jest decyzja właściwej komisji oraz zatwierdzenie informacji o przetwarzaniu danych przez instytucję. Bez fizycznego bólu, kary i strat z własnego majątku. W wariancie finansowym jawnie opisujemy wypłaty, losowanie i rolę obserwatora. W wariancie hipotetycznym od początku jawnie opisujemy symulowany charakter konsekwencji. Obserwator otrzyma dane jednej decyzji bez nazwiska, kontaktu lub trwałego identyfikatora. Dane wypłat i tokeny przechowuje się osobno od danych analitycznych, na infrastrukturze instytucjonalnej z ograniczoną kontrolą dostępu. Okresy retencji oraz datę usunięcia klucza należy ustalić z administratorem przed publikacją zgody. Udostępnienie danych pochodzi z odrębnej oceny ryzyka i podstaw etycznych. Publiczny pakiet obejmuje kod, słownik oraz dane syntetyczne. Nie złożono prerejestracji i nie rozpoczęto naboru.
