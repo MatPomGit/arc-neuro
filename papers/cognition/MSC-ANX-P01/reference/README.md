@@ -51,3 +51,14 @@ Przykład uruchomienia pojedynczego scenariusza (koszt CPU zależy od liczby pow
 ```
 
 Plan właściwej kalibracji przed zamrożeniem: n=250/350/444/550, beta=0/-0,10/-0,15/-0,20 (w tym częściowe H0), SD=0,35/0,65/1,0, rho=0/0,4/0,8; nie wykonywać pełnego iloczynu bez budżetu CPU. Najpierw scenariusze bazowe i skrajne, następnie zawężenie. Minimum 2000 replikacji na finalny scenariusz, ocena MC CI i stopy nieudanych dopasowań; dla FWER użyć także obu H0. Domyślne 100 replikacji jest próbą rozpoznawczą, nie podstawą decyzji o liczebności. Testy CI obejmują kontrakt symulatora, nie wykonują pełnej kampanii obliczeniowej. Nie uruchamiać kampanii na płatnej infrastrukturze bez zgody.
+
+## Rzetelność i tłumienie efektu (P3.5)
+
+reliability.py: losowy, odtwarzalny podział zaplanowanych prób w stratach blok × typ przejścia, przed filtracją poprawności i RT. Każda połowa ma 47 przejść switch i 47 repeat; minimum 25 poprawnych prób każdego rodzaju na połowę, dodatkowo kwalifikacja H1. Koszt w każdej połowie jest różnicą median. Korelacja Pearsona między kosztami i korekta Spearmana–Browna; bootstrap percentylowy po uczestnikach (pary zachowane, podział ustalony). Raportuje się liczbę wykluczeń, ważnych replikacji, różnicę średnich i SD kosztów połówek. Ujemny wynik nie jest zerowany; przy r=-1 korekta nieokreślona. SB zakłada równoległość połówek; nie jest testem trafności ani stabilności czasowej. Przed pilotażem ustalić próg rzetelności i procedurę modyfikacji zadania; powtórzyć analizę z różnymi podziałami oraz test-retest w osobnej sesji. 
+
+Analiza tłumienia efektu: r_obserwowane = r_latentne × sqrt(Rx × Ry), przy klasycznym niezależnym błędzie pomiarowym zmiennych po residualizacji. Nie stosować automatycznie do korelacji częściowych z błędem współzmiennych; r=0,15 z H1 oznacza dotychczas efekt obserwowany, scenariusz latentny jest odrębną analizą wrażliwości. Nie zastępuje symulacji na poziomie prób.
+
+```sh
+.venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/reliability.py --n 80 --bootstrap 2000
+.venv-anx/bin/python -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_reliability.py' -v
+```
