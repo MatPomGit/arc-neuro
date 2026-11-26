@@ -12,55 +12,59 @@
 
 \geometry{margin=27mm}
 
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 
 \title{Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji}
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 0.2.2}
 
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
-Tematem pracy jest Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Proponowany wskaźnik: Odsetek zaakceptowanych rekomendacji przy stałych faktach i różnym tonie pewności. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Celem prospektywnego eksperymentu jest ustalenie, czy językowa pewność rekomendacji AI zwiększa podatność na błędną poradę oraz zmniejsza selektywność korzystania z poprawnych i błędnych rekomendacji. Projekt zakłada randomizację tonu i poprawności porady, pomiar decyzji przed poradą i po niej oraz estymację marginalnej różnicy ryzyka z uwzględnieniem klastrowania uczestników.
 \end{abstract}
-
 \section{Wprowadzenie}
+Zaufanie deklarowane i behawioralne poleganie na poradzie stanowią odrębne konstrukty. Przyjęcie trafnej rekomendacji może poprawić decyzję, natomiast przyjęcie błędnej porady może ją pogorszyć. W badaniu rozdzielamy jakość rekomendacji od jej językowej kategoryczności. Ton nie jest miarą skalibrowanego prawdopodobieństwa poprawności modelu. Istniejące badania nad nadmiernym poleganiem na AI \cite{overreliance} stanowią punkt odniesienia; proponowany wkład dotyczy zmian decyzji względem indywidualnego osądu sprzed ekspozycji.
+\subsection{Selektywność polegania na AI}
+Schemmer i współpracownicy \cite{schemmer} rozróżniają adekwatne przyjęcie poprawnej porady i adekwatne zachowanie własnego poprawnego osądu. Sama częstość akceptacji nie pozwala ustalić jakości współpracy człowieka z AI. Wymóg podjęcia decyzji przed ekspozycją może sam wpływać na późniejsze poleganie na poradzie, ponieważ wymusza aktywną ocenę problemu \cite{bucinca}. Procedura ta jest identyczna we wszystkich warunkach.
+\subsection{Niepewność językowa}
+Kim i współpracownicy \cite{kim} badali wpływ sposobu wyrażania niepewności przez LLM na zaufanie i poleganie na odpowiedzi w zadaniach dotyczących informacji medycznych. Projekt nie zakłada pierwszeństwa w badaniu tego efektu. Rozszerzenie polega na skrzyżowaniu tonu z poprawnością rekomendacji w zadaniach binarnych oraz na zdefiniowaniu szkodliwej zmiany decyzji warunkowo względem poprawności osądu wstępnego.
+\section{Hipotezy}
+H1: wśród prób z poprawną decyzją wstępną błędna rekomendacja przedstawiona zdecydowanie częściej prowadzi do błędnej decyzji końcowej niż identyczna rekomendacja przedstawiona ostrożnie.
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+H2: w próbach początkowej niezgodności z rekomendacją zdecydowany ton zmniejsza różnicę prawdopodobieństw przyjęcia poprawnej i błędnej porady.
 
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji. Proponowany wskaźnik: Odsetek zaakceptowanych rekomendacji przy stałych faktach i różnym tonie pewności. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
-
+H3 (eksploracyjna): pewność własnego osądu przed ekspozycją moderuje wpływ tonu. Nie utożsamiamy deklarowanej pewności z kompetencją metapoznawczą.
 \section{Materiał i metody}
-
-Przy identycznych dowodach losowo zmieniać stopień pewności pierwszej odpowiedzi modelu. Pierwszorzędowy wskaźnik: Odsetek przyjętych błędnych rekomendacji i korekt decyzji. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
-
+\subsection{Schemat i uczestnicy}
+Badanie internetowe osób pełnoletnich, z powtarzanymi próbami w układzie czynnikowym $2\times2$. Ton (ostrożny lub zdecydowany) i poprawność rekomendacji (poprawna lub błędna) będą randomizowane po zapisaniu decyzji wstępnej. Każdy uczestnik otrzyma zadania z jednoznacznym kluczem binarnym, bez powtórzeń treści. Na każdej próbie oba czynniki są losowane niezależnie z prawdopodobieństwem 0,5 po zapisaniu decyzji wstępnej. Równowaga zachodzi w oczekiwaniu, nie przez wymuszanie liczebności komórek. Kolejność zadań będzie losowa.
+\subsection{Bodźce i procedura}
+Każde zadanie obejmuje decyzję wstępną, ocenę pewności w skali 0--100, ekspozycję na jedną zamrożoną rekomendację i decyzję końcową z oceną pewności. Warianty tonu w obrębie tej samej rekomendacji zachowują argumenty, fakty, zalecenie i możliwie podobną długość. Nie stosuje się generowania na żywo. Niezależni oceniający sprawdzają klucz poprawności oraz równoważność treści. Pilotaż oceni postrzeganą pewność, uprzejmość i autorytatywność; kryteria akceptacji bodźców zostaną ustalone przed pilotażem. Uczestnicy pilotażu nie wejdą do próby głównej.
+\subsection{Zmienne i estymandy}
+Pierwszorzędowy wskaźnik: przejście od poprawnej decyzji wstępnej do błędnej decyzji końcowej w próbach z błędną poradą. Estymandem jest marginalna różnica ryzyka między tonem zdecydowanym i ostrożnym w tej populacji prób. Drugorzędowe wyniki obejmują korektę błędnej decyzji po poprawnej poradzie, selektywność akceptacji przy początkowej niezgodności, trafność końcową oraz kalibrację pewności. Prób zgodności wstępnej nie klasyfikuje się jako dowodu przyjęcia porady.
 \section{Plan analizy}
-
-Proponowany plan analityczny: model mieszany z efektem osoby i zadania, analiza zakotwiczenia. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
-
+Pierwszorzędowy estymand jest średnią różnicą potencjalnych ryzyk w populacji kwalifikujących się prób, z równą wagą prób, warunkowo względem ustalonego banku zadań. Zakładamy niezależność uczestników, brak wpływu wcześniejszych ekspozycji na bieżącą kwalifikację i wynik oraz niezależne losowanie tonu. Estymator Hájeka ma postać
+\[
+\widehat{\Delta}=
+\frac{\sum_{ij}T_{ij}Y_{ij}}{\sum_{ij}T_{ij}}-
+\frac{\sum_{ij}(1-T_{ij})Y_{ij}}{\sum_{ij}(1-T_{ij})},
+\]
+gdzie sumy obejmują obserwowane kwalifikujące się próby. Przedział ufności 95\% wykorzystuje klastrową wariancję funkcji wpływu na poziomie uczestnika i kwantyl rozkładu t z liczbą stopni swobody równą liczbie obserwowanych klastrów minus jeden. H1 uzyskuje wsparcie, gdy dolna granica przekracza zero. Dwustronne wykluczenie zera w przeciwnym kierunku nie potwierdza H1. Analiza pełnych obserwacji zakłada braki całkowicie losowe; wrażliwość ocenimy także przez skrajne przypisania brakujących wyników według tonu. Model logistyczny z efektami losowymi uczestnika i zadania ma charakter dodatkowy. Test randomizacyjny dotyczy ostrej hipotezy zerowej, nie zastępuje przedziału dla różnicy ryzyka. Dla H2, w próbach początkowej niezgodności, model przyjęcia porady obejmie ton, poprawność i ich interakcję. Kontrast marginalny różnic ryzyk, a nie sam współczynnik interakcji na skali logitowej, będzie miarą selektywności. H1 jest jedynym testem potwierdzającym; dwustronny poziom ufności wynosi 95\%, a kierunkowy próg błędu I rodzaju wynosi 0,025; H2 i H3 mają status drugorzędowy i eksploracyjny.
+\subsection{Liczebność i jakość danych}
+Symulacja wykorzysta dokładnie estymator pierwszorzędowy, oceni dwustronny błąd I rodzaju, pokrycie i moc kierunkową. Minimalna istotna różnica ryzyka wymaga uzasadnienia przed wyborem liczebności. Liczebność zostanie ustalona symulacyjnie przed rekrutacją, przy uwzględnieniu minimalnego istotnego efektu, wariancji efektów losowych, liczby zadań i odsetka poprawnych decyzji wstępnych. Nie ustala się liczebności na podstawie istotności uzyskanej w trakcie badania. Prerejestracja określi reguły wykluczeń technicznych, obsługę braków odpowiedzi i procedurę analizy wrażliwości. Nie wykluczamy uczestników ze względu na zgodność z hipotezą. Raportujemy liczebność na każdym etapie i braki według warunków.
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
-
+Badanie pozostaje na etapie projektowania; akwizycja danych nie została rozpoczęta.
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
+Zamrożenie estymandu, bodźców i planu analizy nastąpi przed rekrutacją. Przed rekrutacją wymagane są właściwa ocena etyczna, świadoma zgoda, minimalizacja danych i wyjaśnienie po badaniu, że część porad była celowo błędna. Zadania nie dotyczą decyzji medycznych, prawnych ani finansowych o realnych konsekwencjach. Manipulacja dotyczy językowej formy porady, nie rzeczywistej pewności modelu. Wnioskowanie ogranicza się do krótkotrwałych decyzji w kontrolowanych zadaniach; nie dowodzi trwałej utraty autonomii. Efekt pierwszej porady w zadaniu nie jest tożsamy z efektem pierwszego kontaktu z AI.
 \section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+Projekt pozwala odróżnić szkodliwe poleganie na błędnej poradzie od korzystnej korekty własnego błędu. Przed rozpoczęciem badania pozostają pilotaż, analiza mocy i prerejestracja.
+\begin{thebibliography}{9}
+\bibitem{overreliance} A. Klingbeil, C. Grützner, P. Schreck. \emph{Trust and reliance on AI -- An experimental study on the extent and costs of overreliance on AI}. Computers in Human Behavior (2024). \url{https://doi.org/10.1016/j.chb.2024.108352}.
+\bibitem{schemmer} M. Schemmer, N. Kühl, C. Benz, A. Bartos, G. Satzger. Appropriate Reliance on AI Advice: Conceptualization and the Effect of Explanations. IUI (2023). \url{https://doi.org/10.1145/3581641.3584066}.
+\bibitem{bucinca} Z. Buçinca, M. B. Malaya, K. Z. Gajos. To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making. Proceedings of the ACM on Human-Computer Interaction (2021). \url{https://doi.org/10.1145/3449287}.
+\bibitem{kim} S. Kim i in. ``I'm Not Sure, But...~'': Examining the Impact of Large Language Models' Uncertainty Expression on User Reliance and Trust. FAccT (2024). \url{https://doi.org/10.1145/3630106.3658941}.
+\end{thebibliography}
 \end{document}
-
