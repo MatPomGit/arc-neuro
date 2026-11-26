@@ -77,6 +77,13 @@ class ManuscriptTexTests(unittest.TestCase):
                             self.assertRegex(content, r"\\date\{Projekt badania, wersja 0\.[1-9]\d*\.\d+,")
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
                             self.assertIn("Nie rozpoczęto akwizycji danych", content)
+                        elif ident == "MSC-CR-P07":
+                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.[2-9]\d*\.\d+\}")
+                            self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
+                            for required in ("marginalna różnica ryzyka", "efektami losowymi uczestnika i zadania",
+                                             "H1 jest jedynym testem potwierdzającym",
+                                             "akwizycja danych nie została rozpoczęta"):
+                                self.assertIn(required, content)
                         else:
                             self.assertIn("Szkic naukowy, wersja 0.1.1", content)
                     else:
