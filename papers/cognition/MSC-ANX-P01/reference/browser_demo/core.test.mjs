@@ -1,7 +1,7 @@
 import {test} from "node:test";
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
-import {schedule,Trial} from "./core.mjs";
+import {schedule,Trial,practiceOutcome,checkComprehension} from "./core.mjs";
 const m=JSON.parse(readFileSync(process.env.ANX_DEMO_MANIFEST,"utf8"));
 test("Python manifest and mutation rejection",()=>{
  const rows=schedule(m);assert.equal(rows.length,336);
@@ -31,4 +31,15 @@ test("choice outcome independent of displayed side",()=>{
  assert.equal(t.expire(),null);
  const r=t.answer(row.target_side,5000);
  assert.equal(r.target_chosen,true);assert.equal(r.correct,null);
+});
+
+test("practice gate and comprehension",()=>{
+ const rows=Array.from({length:24},(_,i)=>({correct:i<18,rt_ms:250}));
+ assert.equal(practiceOutcome(rows,1).passed,true);
+ rows[0].rt_ms=100;assert.equal(practiceOutcome(rows,1).retry,true);
+ assert.equal(practiceOutcome(rows,2).retry,false);
+ assert.throws(()=>practiceOutcome(rows.slice(1),1));
+ assert.equal(checkComprehension(["known","unknown","higher"]),true);
+ assert.equal(checkComprehension(["known","known","higher"]),false);
+ const bad=structuredClone(m);bad.practice[1][0].mapping[0]^=1;assert.throws(()=>schedule(bad));
 });

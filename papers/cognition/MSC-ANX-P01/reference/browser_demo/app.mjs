@@ -1,7 +1,9 @@
-import {schedule,Trial,TIMING} from "./core.mjs";
+import {schedule,Trial,TIMING,practiceOutcome,checkComprehension} from "./core.mjs";
 const $=id=>document.getElementById(id);
 let manifest=null, rows=[], results=[], active=null, index=0, generation=0, running=false;
 let paused=false, timer=null, stopped=false, waitingRelease=false;
+let practiceAttempt=0, practiceResults=[], practiceHistory=[], trainingPassed=false, practicing=false;
+let quizPassed=false, quizAttempts=0, endReason=null, timingDiagnostics=[];
 const keys={KeyF:"left",KeyJ:"right"};
 const focusOK=()=>!document.hidden&&document.hasFocus();
 function clear(){generation++;clearTimeout(timer);timer=null;}
@@ -9,7 +11,7 @@ function setScreen(instruction="",cue="",stimulus="",left="",right=""){
   for(const [id,value] of Object.entries({instruction,cue,stimulus,left,right}))$(id).textContent=value;
 }
 function stateProgress(){
-  $("progress").textContent="Próba "+Math.min(index+1,rows.length)+" / "+rows.length;
+  $("progress").textContent=practicing?"Trening "+practiceAttempt+": "+Math.min(practiceResults.length+1,24)+" / 24":"Próba "+Math.min(index+1,rows.length)+" / "+rows.length;
   $("bar").value=index;
 }
 function guard(token){return running&&!paused&&generation===token;}
@@ -28,7 +30,7 @@ function next(){
   if(index>=rows.length){finish(false);return;}
   if(!focusOK()){pause("Przywróć fokus okna i kontynuuj.");return;}
   if(waitingRelease){pause("Zwolnij klawisze odpowiedzi i kontynuuj.");return;}
-  const row=rows[index];
+  const row=practicing?manifest.practice[practiceAttempt-1][practiceResults.length]:rows[index];
   active=new Trial(row);
   const token=++generation;
   if(row.task==="switching"){
@@ -43,6 +45,8 @@ function next(){
         if(!focusOK()){lostFocus();return;}
         $("stimulus").textContent=String(row.stimulus);
         active.show(performance.now());
+        timingDiagnostics.push({practice:practicing,block:row.block,trial_index:row.trial_index,
+          cue_to_dom_ms:active.onset-cueAt});
         if(active.onset-cueAt>TIMING.cue_ms+150){
           record(active.technicalFailure(),true);return;
         }
@@ -63,7 +67,27 @@ function next(){
 }
 function record(result,interrupted=false){
   if(!result||!running)return;
-  clear(); results.push(result); index++; active=null;stateProgress();
+  clear();
+  if(practicing){
+    practiceResults.push(result);active=null;stateProgress();
+    if(practiceResults.length===24){
+      const outcome=practiceOutcome(practiceResults,practiceAttempt);
+      practiceHistory.push(outcome);practicing=false;practiceResults=[];
+      if(outcome.passed){
+        trainingPassed=true;
+        pause("Trening zaliczony: "+outcome.correct+"/24. Rozpocznij próby właściwe.");
+      }else if(outcome.retry){
+        pause("Trening: "+outcome.correct+"/24. Wymagane 18 poprawnych. Powtórz trening.");
+      }else{finish(false,"practice_failed");}
+      return;
+    }
+    if(interrupted||!focusOK()){pause("Próba treningowa nieważna. Przywróć fokus.");return;}
+    setScreen(result.correct&&result.rt_ms>=150?"Poprawnie":"Niepoprawnie lub odpowiedź zbyt szybka");
+    const token=generation;
+    timer=setTimeout(()=>{if(guard(token))next();},TIMING.iti_ms);
+    return;
+  }
+  results.push(result); index++; active=null;stateProgress();
   if(index>=rows.length){finish(false);return;}
   const previous=rows[index-1], upcoming=rows[index];
   if(interrupted||!focusOK()){pause("Próba nieważna. Przywróć fokus i kontynuuj.");return;}
@@ -78,10 +102,11 @@ function lostFocus(){
   if(active){record(active.invalidate(),true);}
   else pause("Przywróć fokus okna i kontynuuj.");
 }
-function finish(manual){
+function finish(manual,reason=null){
+  endReason=reason||(manual?"manual_stop":"completed");
   stopped=manual;running=false;paused=false;clear();active=null;
   $("session").hidden=true;$("done").hidden=false;
-  $("summary").textContent="Zapisano "+results.length+" z "+rows.length+" prób demonstracyjnych.";
+  $("summary").textContent="Zapisano "+results.length+" z "+rows.length+" prób demonstracyjnych. "+(endReason==="practice_failed"?"Nie zaliczono treningu.":"");
 }
 $("manifest").addEventListener("change",async e=>{
   manifest=null;rows=[];$("start").disabled=true;
@@ -98,12 +123,31 @@ $("manifest").addEventListener("change",async e=>{
 });
 $("start").addEventListener("click",()=>{
   if(!manifest||running)return;
-  running=true;index=0;results=[];stopped=false;$("setup").hidden=true;$("session").hidden=false;
+  running=true;index=0;results=[];stopped=false;
+  practiceAttempt=0;practiceHistory=[];practiceResults=[];trainingPassed=false;practicing=false;
+  quizPassed=false;quizAttempts=0;endReason=null;timingDiagnostics=[];$("setup").hidden=true;$("session").hidden=false;
   stateProgress();pause("Demonstracja. "+blockLabel(rows[0]));
 });
 $("resume").addEventListener("click",()=>{
   if(!running||!paused||!focusOK()||waitingRelease)return;
+  const row=rows[index];
+  if(!practicing&&row.task==="switching"&&!trainingPassed){
+    practiceAttempt++;practiceResults=[];practicing=true;
+  }
+  if(!practicing&&row.task!=="switching"&&!quizPassed){
+    $("quiz").hidden=false;$("resume").hidden=true;return;
+  }
   paused=false;$("resume").hidden=true;next();
+});
+$("quiz-submit").addEventListener("click",()=>{
+  if(!running||!paused||quizPassed||$("quiz").hidden)return;
+  quizAttempts++;
+  if(!checkComprehension(["q1","q2","q3"].map(id=>$(id).value))){
+    $("quiz-feedback").textContent="Sprawdź instrukcję: 50% to znane prawdopodobieństwo, przedział nie podaje dokładnej wartości, a podane p dotyczy wyższej wypłaty.";
+    return;
+  }
+  quizPassed=true;$("quiz").hidden=true;
+  pause("Sprawdzenie rozumienia zaliczone. "+blockLabel(rows[index]));
 });
 $("stop").addEventListener("click",()=>finish(true));
 window.addEventListener("keydown",e=>{
@@ -128,6 +172,10 @@ document.addEventListener("visibilitychange",()=>{if(document.hidden)lostFocus()
 $("export").addEventListener("click",()=>{
   const report={data_origin:"demonstration",mode:"local-demo",protocol_version:manifest.protocol_version,
     stimulus_version:manifest.stimulus_version,seed:manifest.seed,task_order:manifest.task_order,
+    demo_version:manifest.demo_version,practice_history:practiceHistory,training_passed:trainingPassed,
+    incomplete_practice_trials:practicing?practiceResults.length:0,
+    comprehension_passed:quizPassed,comprehension_attempts:quizAttempts,end_reason:endReason,
+    timing_diagnostics:timingDiagnostics,
     timing:TIMING,planned_trials:rows.length,completed_trials:results.length,stopped,
     trials:results,timing_note:"RAF/DOM update proxy, not measured physical display onset"};
   const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:"application/json"}));
