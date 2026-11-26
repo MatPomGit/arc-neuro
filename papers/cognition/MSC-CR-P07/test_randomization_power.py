@@ -9,6 +9,15 @@ class RandomizationTests(unittest.TestCase):
         scores=[sum(y[list(a)])+sum(y[list(b)]) for a,b in product(combinations(range(4),2), combinations(range(4,8),1))]
         expected=np.mean(scores); observed=np.dot(tone,y)
         self.assertAlmostEqual(rp.conditional_test(person,tone,y),np.mean(np.abs(scores-expected)>=abs(observed-expected)-1e-10))
+    def test_boolean_score(self):
+        p = [0,0,0,0]
+        a = np.array([1,1,0,0])
+        y = np.array([1,1,0,0])
+        self.assertAlmostEqual(rp.conditional_test(p,a,y),rp.conditional_test(p,a.astype(bool),y.astype(bool)))
+    def test_nuisance_scenario(self):
+        out = rp.scenario(12,8,.2,3,42,1,.7,.55,.1)
+        self.assertEqual(out["missing"], .1)
+        self.assertLessEqual(out["rejects"]+out["failures"],3)
     def test_degenerate(self):
         self.assertIsNone(rp.conditional_test([0,0],[0,1],[1,1]))
     def test_bad_input(self):
