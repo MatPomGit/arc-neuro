@@ -39,3 +39,15 @@ Bez utrwalania danych, tylko raport syntetyczny. Przypięto bezpośrednie zależ
 ```sh
 .venv-anx/bin/python -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_mixed_models.py' -v
 ```
+
+## Symulacja mocy H2/H3 (P3.4)
+
+choice_power.py wykorzystuje referencyjny GLMM, wspólnych uczestników i współzmienne oraz skorelowane losowe intercepty obu zadań. W scenariuszu domyślnym: 444 rekrutowanych, 20% niezależnej utraty uczestników, 2% niezależnej utraty prób, 48 prób/zadanie, beta warunkowa na 5 punktów GAD-7: -0,15 i -0,20; SD interceptów 0,65, korelacja 0,4. Są to założenia projektowe, nie oszacowania z pilotażu. Raport obejmuje odrzucenia surowe i po Holmie, moc kierunkową, moc dowolnej i wszystkich alternatyw, FWER przy co najmniej jednej prawdziwej H0, pokrycie CI, bias i nieudane dopasowania. Niepowodzenia mają p=1 w rodzinie Holma i pozostają w mianowniku mocy; pokrycie warunkowe raportowane osobno.
+
+Przykład uruchomienia pojedynczego scenariusza (koszt CPU zależy od liczby powtórzeń):
+
+```sh
+.venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/choice_power.py --recruited 444 --repetitions 100 --seed 42
+```
+
+Plan właściwej kalibracji przed zamrożeniem: n=250/350/444/550, beta=0/-0,10/-0,15/-0,20 (w tym częściowe H0), SD=0,35/0,65/1,0, rho=0/0,4/0,8; nie wykonywać pełnego iloczynu bez budżetu CPU. Najpierw scenariusze bazowe i skrajne, następnie zawężenie. Minimum 2000 replikacji na finalny scenariusz, ocena MC CI i stopy nieudanych dopasowań; dla FWER użyć także obu H0. Domyślne 100 replikacji jest próbą rozpoznawczą, nie podstawą decyzji o liczebności. Testy CI obejmują kontrakt symulatora, nie wykonują pełnej kampanii obliczeniowej. Nie uruchamiać kampanii na płatnej infrastrukturze bez zgody.
