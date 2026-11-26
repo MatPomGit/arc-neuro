@@ -15,6 +15,7 @@ def conditional_test(person, tone, y):
         raise ValueError('Expected aligned vectors')
     if not np.isin(tone, [0, 1]).all() or not np.isin(y, [0, 1]).all():
         raise ValueError('Expected binary tone and outcome')
+    tone, y = tone.astype(np.int64), y.astype(np.int64)
     if not len(y) or len(np.unique(tone)) < 2:
         return None
     pmf = np.array([1.0]); offset = 0; expected = 0.; observed = 0; informative = 0
