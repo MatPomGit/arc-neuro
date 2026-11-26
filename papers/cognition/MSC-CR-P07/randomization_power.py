@@ -59,5 +59,18 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--replicates',type=int,default=200)
     parser.add_argument('--seed',type=int,default=20261126)
+    parser.add_argument('--grid',action='store_true')
+    parser.add_argument('--output')
     args=parser.parse_args()
-    print(json.dumps([scenario(80,24,b,args.replicates,args.seed) for b in (0,np.log(1.6))],indent=2))
+    ns = (80,120,160,200,240) if args.grid else (80,)
+    ors = (1,1.2,1.4,1.6,1.8) if args.grid else (1,1.6)
+    rows = [scenario(n,24,np.log(o),args.replicates,args.seed)
+            for n in ns for o in ors]
+    for row, o in zip(rows, (o for n in ns for o in ors)):
+        row['odds_ratio'] = o
+    result = json.dumps(rows,indent=2)
+    if args.output:
+        from pathlib import Path
+        Path(args.output).write_text(result+'\n',encoding='utf-8')
+    else:
+        print(result)
