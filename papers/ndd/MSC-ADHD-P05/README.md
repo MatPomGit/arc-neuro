@@ -1,9 +1,14 @@
-# MSC-ADHD-P05 — EEG Muse S Athena zsynchronizowane ze zdarzeniami regulacji
+# MSC-ADHD-P05
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+Event-Locked Wearable EEG During ARC-ADHD Regulation Training: A Muse S Athena Study of Challenge and Recovery Dynamics
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `ACTIVE`.
+**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+**Status:** Prospective manuscript; not a completed study. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+- [Manuscript](main.tex)
+- [Study record](study.md)
+- [Bibliography](references.bib)
+- [Original licensing policy](ORIGINAL_LICENSING.md)
+
+Build locally with APA 7, latexmk and Biber; disable shell escape.

@@ -1,0 +1,46 @@
+\section{Study Design}
+
+\subsection{Development gate}
+
+The camera module should not influence adaptation during its initial validation. Phase A is observational: facial features are computed locally while the game adapts using only the core non-camera policy. This prevents a circular design in which the sensor both changes and predicts the state being evaluated.
+
+
+\subsection{Primary prediction occasion and target}
+
+The proposed primary prediction occasion is immediately before a scheduled, identically worded child check-in at the end of a stationary task block. The binary target is the child's response that the preceding block was \enquote{too hard} versus either of the other offered responses. The schedule must be independent of camera output. Wording, comprehension, frequency, and missing-response handling remain to be frozen after Phase 0 co-design. This is a report of difficulty, not an emotion or clinical endpoint. A child-initiated stop always invokes core safety rules regardless of prediction.
+
+Only information timestamped before the question may enter either model. Earlier reports can enter both models; the current response, subsequent behavior, and post-cutoff adaptations cannot. Challenge level, recovery status, pause requests, and task deterioration remain separate secondary targets.
+
+\subsection{Candidate features and temporal reference}
+
+The base model uses pre-cutoff accuracy and response-time summaries, task rule and difficulty, controller state, optional inertial summaries, and earlier child reports. The camera extension is restricted initially to temporal summaries from brow movement, eye-region movement and blink proxies, mouth press/opening, coarse head orientation, and tracking availability/quality. Candidate summaries are median deviation from an earlier within-child reference and within-window change. Exact coefficient mappings, window lengths, reference sufficiency, and extractor version must be frozen before inspecting evaluation outcomes. No identity embedding, categorical emotion score, or raw image enters the model.
+
+The child's reference uses only earlier unlabeled calibration observations under a specified low-demand task condition. Held-out labels cannot tune that reference, model parameters, thresholds, or feature selection. An insufficient reference follows a documented missing-reference path rather than being computed from future observations.
+
+\subsection{Availability and evaluation population}
+
+Enumerate every scheduled occasion, distinguishing camera declined/disabled, temporarily unavailable, tracking failure, insufficient reference, missing base telemetry, and missing response. The non-camera policy operates when camera data are absent. The two prediction models are compared on identical labeled occasions with usable base and camera data; overall labeled and camera-eligible denominators must also be reported. Children, not events, define the outer train/test split; all preprocessing and tuning stay within training children. A later randomized comparison of controller decisions is contingent on predictive value, coverage, and safety.
+
+\subsection{Recording conditions}
+
+Validation must sample realistic nuisance variation including lighting, glasses, partial occlusion, head rotation, device placement, skin-tone diversity, and movement. Tracking-quality failures are outcomes, not observations to silently discard.
+
+\subsection{Reference labels}
+
+The study should avoid treating a human coder's categorical emotion label as ground truth. Prespecified targets can instead include:
+
+\begin{enumerate}
+\item objectively manipulated challenge level;
+\item explicit child report of difficulty or overload;
+\item recovery-event status from the core ARC-ADHD task;
+\item voluntary pause or stop request;
+\item predefined task-performance deterioration.
+\end{enumerate}
+
+No single target is assumed to be an emotion.
+
+\subsection{Comparison structure}
+
+Each participant contributes repeated challenge and recovery events. A base model uses task performance, task context, explicit child input, and non-camera telemetry. An extended model adds facial features. Model development and evaluation are separated by participant so that data from one child do not leak across training and test folds.
+
+Only after a stable incremental effect is demonstrated should a second study randomize eligible events between performance-only adaptation and performance-plus-facial adaptation. That later experiment asks whether the additional signal improves decisions, not merely predictions.

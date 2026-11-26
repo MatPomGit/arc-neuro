@@ -1,0 +1,7 @@
+\section{Privacy, Data Governance, and Export Boundaries}
+
+A reproducible event model should not require indiscriminate collection. The ARC-ADHD implementation separates local storage from export policy. Fields may exist locally for application operation yet remain ineligible for research export. Export is governed by explicit allowlists, retention and withdrawal rules, backend versioning, acknowledgement, and deduplication semantics.
+
+The schema favors derived, scientifically necessary telemetry over raw media. Facial video, room imagery, raw audio, and other potentially identifying streams are not implied by the recovery-event contract. Optional studies requiring such data need separate governance and participant-facing justification.
+
+Reproducibility and privacy are therefore joint design constraints: an event should retain enough information to reconstruct the scientific process without requiring direct identifiers or unnecessary raw sensor streams.

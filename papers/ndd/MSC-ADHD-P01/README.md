@@ -1,9 +1,15 @@
-# MSC-ADHD-P01 — Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD
+# MSC-ADHD-P01
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+ARC-ADHD: A Closed-Loop Serious Game Framework for Training Executive Control and Emotion-Regulation Recovery in Children With ADHD
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `ACTIVE`.
+**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+**Status:** Prospective manuscript; not a completed study. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+- [Manuscript](main.tex)
+- [Study record](study.md)
+- [Bibliography](references.bib)
+- [Original licensing policy](ORIGINAL_LICENSING.md)
+- [Supplementary methods](supplement.tex)
+
+Build locally with APA 7, latexmk and Biber; disable shell escape.

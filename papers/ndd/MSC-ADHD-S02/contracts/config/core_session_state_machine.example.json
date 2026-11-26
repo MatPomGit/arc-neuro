@@ -1,0 +1,292 @@
+{
+  "schema_version": "0.3",
+  "status": "implementation_contract_not_study_parameter",
+  "initial_state": "BOOT",
+  "terminal_states": [
+    "SESSION_COMPLETE",
+    "SAFE_STOP",
+    "PROTOCOL_ABORT",
+    "FATAL_ERROR"
+  ],
+  "global_priority": [
+    "fatal_integrity_condition",
+    "safety_stop",
+    "explicit_child_stop",
+    "explicit_child_pause",
+    "protocol_abort",
+    "technical_interrupt",
+    "state_specific_scientific_transition",
+    "ordinary_progression"
+  ],
+  "states": {
+    "BOOT": {
+      "category": "system",
+      "transitions": {
+        "initialized": "RESEARCH_SETUP",
+        "fatal_error": "FATAL_ERROR"
+      }
+    },
+    "RESEARCH_SETUP": {
+      "category": "research_setup",
+      "transitions": {
+        "configuration_loaded": "DEVICE_QUALIFICATION",
+        "stop": "SAFE_STOP",
+        "fatal_error": "FATAL_ERROR"
+      }
+    },
+    "DEVICE_QUALIFICATION": {
+      "category": "research_setup",
+      "transitions": {
+        "qualified_core": "CAREGIVER_ONBOARDING",
+        "qualified_with_fallbacks": "CAREGIVER_ONBOARDING",
+        "not_qualified": "PROTOCOL_ABORT",
+        "stop": "SAFE_STOP",
+        "fatal_error": "FATAL_ERROR"
+      }
+    },
+    "CAREGIVER_ONBOARDING": {
+      "category": "onboarding",
+      "transitions": {
+        "onboarding_complete": "CHILD_READINESS",
+        "stop": "SAFE_STOP"
+      }
+    },
+    "CHILD_READINESS": {
+      "category": "onboarding",
+      "transitions": {
+        "tutorial_required": "TUTORIAL",
+        "ready_without_tutorial": "RULE_CALIBRATION",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP"
+      }
+    },
+    "TUTORIAL": {
+      "category": "task",
+      "transitions": {
+        "comprehension_met": "RULE_CALIBRATION",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "comprehension_not_met": "PROTOCOL_ABORT"
+      }
+    },
+    "RULE_CALIBRATION": {
+      "category": "task_calibration",
+      "purpose": [
+        "expose both Signal Gate rule mappings before eligible rule-switch challenges",
+        "verify rule-specific comprehension",
+        "collect target-rule timing references when the device timing profile is qualified"
+      ],
+      "recovery_event_allowed": false,
+      "transitions": {
+        "calibration_complete": "BASELINE_TASK",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT",
+        "calibration_not_met": "PROTOCOL_ABORT"
+      }
+    },
+    "BASELINE_TASK": {
+      "category": "task",
+      "transitions": {
+        "challenge_candidate": "CHALLENGE_PENDING",
+        "session_goal_complete": "SESSION_REFLECTION",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "CHALLENGE_PENDING": {
+      "category": "challenge",
+      "transitions": {
+        "eligible": "CHALLENGE_ACTIVE",
+        "suppressed": "BASELINE_TASK",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "CHALLENGE_ACTIVE": {
+      "category": "challenge",
+      "transitions": {
+        "challenge_delivered": "REGULATION_PAUSE",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "REGULATION_PAUSE": {
+      "category": "regulation",
+      "transitions": {
+        "pause_complete": "ORIENT",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "ORIENT": {
+      "category": "regulation",
+      "transitions": {
+        "orientation_complete": "STRATEGY_SELECTION",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "STRATEGY_SELECTION": {
+      "category": "regulation",
+      "transitions": {
+        "strategy_selected": "STRATEGY_EXECUTION",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "protocol_abort": "PROTOCOL_ABORT",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "STRATEGY_EXECUTION": {
+      "category": "regulation",
+      "transitions": {
+        "strategy_complete": "RECOVERY_MONITORING",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "RECOVERY_MONITORING": {
+      "category": "recovery",
+      "transitions": {
+        "criterion_stable": "RECOVERY_OBSERVED",
+        "censor_limit_reached": "RECOVERY_CENSORED",
+        "required_data_invalid": "RECOVERY_DATA_INVALID",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT",
+        "measurement_context_changed": "RECOVERY_DATA_INVALID"
+      },
+      "measurement_context_lock": {
+        "enabled": true,
+        "freeze": [
+          "task_rule_id",
+          "cognitive_difficulty",
+          "sensory_load",
+          "response_window_ms",
+          "stimulus_distribution_id",
+          "cue_condition"
+        ],
+        "ordinary_adaptation_suspended": true,
+        "on_score_relevant_context_change": "RECOVERY_DATA_INVALID"
+      }
+    },
+    "RECOVERY_OBSERVED": {
+      "category": "recovery_terminal",
+      "transitions": {
+        "event_persisted": "RESUME_GOAL",
+        "stop": "SAFE_STOP",
+        "persistence_failure": "FATAL_ERROR"
+      }
+    },
+    "RECOVERY_CENSORED": {
+      "category": "recovery_terminal",
+      "transitions": {
+        "event_persisted": "RESUME_GOAL",
+        "stop": "SAFE_STOP",
+        "persistence_failure": "FATAL_ERROR"
+      }
+    },
+    "RECOVERY_DATA_INVALID": {
+      "category": "recovery_terminal",
+      "transitions": {
+        "continuation_allowed": "RESUME_GOAL",
+        "stop": "SAFE_STOP",
+        "protocol_abort": "PROTOCOL_ABORT"
+      }
+    },
+    "RESUME_GOAL": {
+      "category": "task",
+      "transitions": {
+        "continue_task": "BASELINE_TASK",
+        "session_goal_complete": "SESSION_REFLECTION",
+        "pause": "PAUSED_BY_CHILD",
+        "stop": "SAFE_STOP",
+        "technical_interrupt": "TECHNICAL_INTERRUPT"
+      }
+    },
+    "PAUSED_BY_CHILD": {
+      "category": "pause",
+      "requires_explicit_resume_target": true,
+      "transitions": {
+        "resume": "$RESUME_TARGET",
+        "stop": "SAFE_STOP"
+      }
+    },
+    "TECHNICAL_INTERRUPT": {
+      "category": "system",
+      "requires_explicit_resume_target": true,
+      "transitions": {
+        "resume_valid": "$RESUME_TARGET",
+        "recovery_invalidated": "RECOVERY_DATA_INVALID",
+        "stop": "SAFE_STOP",
+        "fatal_error": "FATAL_ERROR"
+      }
+    },
+    "SESSION_REFLECTION": {
+      "category": "reflection",
+      "transitions": {
+        "reflection_complete": "SESSION_COMPLETE",
+        "stop": "SAFE_STOP"
+      }
+    },
+    "SESSION_COMPLETE": {
+      "category": "terminal",
+      "transitions": {}
+    },
+    "SAFE_STOP": {
+      "category": "terminal",
+      "transitions": {}
+    },
+    "PROTOCOL_ABORT": {
+      "category": "terminal",
+      "transitions": {}
+    },
+    "FATAL_ERROR": {
+      "category": "terminal",
+      "transitions": {}
+    }
+  },
+  "recovery_terminal_states": [
+    "RECOVERY_OBSERVED",
+    "RECOVERY_CENSORED",
+    "RECOVERY_DATA_INVALID"
+  ],
+  "challenge_suppression_reasons": [
+    "task_id_ineligible",
+    "task_state_ineligible",
+    "target_rule_not_distinct",
+    "switch_cue_unavailable",
+    "rule_mappings_not_calibrated",
+    "target_rule_recovery_reference_unavailable",
+    "recovery_reference_rule_mismatch",
+    "recovery_reference_go_stimulus_mismatch",
+    "insufficient_reference_observations",
+    "insufficient_reference_go_trials",
+    "insufficient_reference_nogo_trials",
+    "reference_rule_mismatch",
+    "reference_not_fresh_after_pause",
+    "reference_not_fresh_after_recovery",
+    "minimum_interchallenge_interval",
+    "insufficient_trials_since_recovery_close",
+    "challenge_limit_reached",
+    "event_budget_not_locked_or_too_short",
+    "insufficient_remaining_session_time",
+    "telemetry_unhealthy",
+    "recovery_event_already_open",
+    "technical_interrupt",
+    "sensory_overload",
+    "safety_override",
+    "recent_pause"
+  ],
+  "timing_feature_unavailability_reasons": [
+    "core_event_ineligible",
+    "timing_profile_unqualified",
+    "target_rule_timing_reference_unavailable"
+  ]
+}

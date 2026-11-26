@@ -1,0 +1,20 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+node distance=3mm,
+phase/.style={draw, rounded corners, align=center, minimum height=9mm, text width=2.35cm},
+arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[phase] (ready) {Readiness\\and check-in};
+\node[phase, right=of ready] (exec) {Executive-control\\mission};
+\node[phase, right=of exec] (challenge) {Controlled\\challenge};
+\node[phase, right=of challenge] (reg) {Regulation\\transition};
+\node[phase, right=of reg] (return) {Recovery, return,\\reflection};
+\draw[arrow] (ready) -- (exec);
+\draw[arrow] (exec) -- (challenge);
+\draw[arrow] (challenge) -- (reg);
+\draw[arrow] (reg) -- (return);
+\end{tikzpicture}
+\caption{Core session logic. Exact timings remain feasibility parameters, but challenge, regulation, and return are kept in a fixed causal order.}
+\label{fig:session}
+\end{figure}

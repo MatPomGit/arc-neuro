@@ -1,9 +1,14 @@
-# MSC-ADHD-R02 — Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych
+# MSC-ADHD-R02
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+Wearable and Low-Density EEG for Task-Locked Monitoring in ADHD and Pediatric Neurodevelopmental Research: A Systematic Scoping Review
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `REVIEW_IN_PROGRESS`.
+**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+**Status:** Prospective scoping review protocol; synthesis not completed. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+- [Manuscript](main.tex)
+- [Study record](study.md)
+- [Bibliography](references.bib)
+- [Original licensing policy](ORIGINAL_LICENSING.md)
+
+Build locally with APA 7, latexmk and Biber; disable shell escape.

@@ -1,0 +1,298 @@
+\section{Mechanistic Model}
+
+\subsection{Central regulation cycle}
+
+The core unit of ARC-ADHD is shown in Figure~\ref{fig:closed-loop} and can be summarized as
+
+\[
+\begin{gathered}
+\text{challenge}
+\rightarrow
+\text{destabilization}
+\rightarrow
+\text{pause}
+\rightarrow
+\text{orient}\\
+\rightarrow
+\text{select strategy}
+\rightarrow
+\text{regulate}
+\rightarrow
+\text{recover}
+\rightarrow
+\text{resume goal}.
+\end{gathered}
+\]
+
+\input{figures/fig1_closed_loop}
+
+The target is not continuous calmness or absence of negative affect. The target is context-appropriate recovery to goal-directed behavior following a bounded perturbation.
+
+\subsection{Latent state and observed proxies}
+
+Let the latent functional state be
+
+\[
+\mathbf{x}_t =
+\begin{bmatrix}
+E_t & R_t & B_t
+\end{bmatrix}^{\mathsf T},
+\]
+
+where \(E_t\) denotes executive-control capability relevant to the current task, \(R_t\) denotes regulation-and-recovery capability, and \(B_t\) denotes body-state awareness relevant to strategy selection. These quantities are theoretical constructs and are not interpreted as stable clinical traits from a game session.
+
+The controller observes only proxies,
+
+\[
+\mathbf{o}_t =
+\left[
+\mathbf{P}_t,
+\mathbf{T}_t,
+\mathbf{I}_t,
+\mathbf{S}^{self}_t,
+\mathbf{S}^{sens}_t,
+\mathbf{C}_t
+\right],
+\]
+
+where \(\mathbf{P}_t\) contains task-performance features, \(\mathbf{T}_t\) touchscreen features, \(\mathbf{I}_t\) optional low-burden inertial summaries, \(\mathbf{S}^{self}_t\) explicit child input, \(\mathbf{S}^{sens}_t\) tolerability or sensory-load indicators, and \(\mathbf{C}_t\) task context.
+
+The intervention action is
+
+\[
+\mathbf{a}_t =
+\left[
+D_t,
+L_t,
+G_t,
+Q_t
+\right],
+\]
+
+where \(D_t\) is cognitive difficulty, \(L_t\) is sensory complexity, \(G_t\) is instructional guidance, and \(Q_t\) is regulation support.
+
+\subsection{Bounded adaptive policy}
+
+Adaptation is constrained by a prespecified safe action space:
+
+\[
+\mathbf{a}_{t+1} =
+\Pi_{\mathcal{A}_{safe}}
+\left[
+\pi_{\theta}\left(\mathbf{o}_{t-k:t},\mathbf{a}_t\right)
+\right].
+\]
+
+Safety rules and explicit child requests take priority over passive inference. Sensory overload is addressed before poor performance is interpreted as insufficient cognitive capacity. Thus \(D_t\) and \(L_t\) remain separable control variables.
+
+\subsection{Operational definition of recovery}
+
+For the first Signal Gate implementation, the pre-Phase 0 feature space is deliberately small. Rather than entering multiple redundant recodings of the same response event, the candidate definition contains one mandatory behavioral feature and two optional timing features.
+
+The behavioral feature \(B\) is balanced rule success. If \(\tilde p_G\) is the Jeffreys-smoothed probability of a correct response on GO trials and \(\tilde p_N\) is the corresponding probability of a correct withhold on NO-GO trials, then
+
+\[
+B(t)
+=
+\frac{1}{2}
+\left[
+\tilde p_G(t)+\tilde p_N(t)
+\right].
+\]
+
+Equal conditional weighting prevents the configured GO/NO-GO frequency from changing the interpretation of the behavioral component. Accuracy, commission errors, omissions, and rule-error rate remain available as descriptive telemetry but are not entered as separate equally weighted recovery dimensions.
+
+The immediate preswitch reference and the recovery-score reference have different roles. The immediate current-rule window determines whether a challenge is eligible, but it does not normalize post-switch recovery. Because A\(\leftrightarrow\)B switching changes the response mapping, each rule has a stable reference collected in \texttt{RULE\_CALIBRATION}. For event \(e\) targeting rule \(r^\ast\), \(B_{\mathrm{ref},r^\ast}\) is computed from the calibration reference for that same rule and GO-stimulus identity.
+
+The behavioral deficit is one-sided:
+
+\[
+d_B(t)
+=
+\max
+\left[
+0,
+\frac{
+B_{\mathrm{ref},r^\ast}-B(t)
+}{
+\max(s_{B,r^\ast}(t),\epsilon_B)
+}
+\right],
+\]
+
+where \(s_{B,r^\ast}(t)\) combines uncertainty in the target-rule Jeffreys-smoothed reference probabilities with the expected finite-window sampling variance under those reference probabilities. The observed postchallenge success rate is not used to enlarge its own denominator.
+
+Two timing features are optional and use only correct GO trials from the same target-rule recovery reference. The immediate preswitch RT distribution is not used as a timing baseline. For target post-switch rule \(r^\ast\), let \(m_{\mathrm{ref},r^\ast}\) be the median correct-GO RT from the stable calibration block with the same rule and GO stimulus identity, and
+
+\[
+s_{\mathrm{RT},r^\ast}
+=
+\max
+\left[
+1.4826\,\mathrm{MAD}(RT_{\mathrm{ref},r^\ast}),
+s_{\mathrm{device}}
+\right],
+\]
+
+where \(s_{\mathrm{device}}\) is the timing floor from the qualified device profile. The correct-response slowing deficit is
+
+\[
+d_S(t)
+=
+\max
+\left[
+0,
+\frac{
+\mathrm{median}(RT_t)-m_{\mathrm{ref},r^\ast}
+}{
+s_{\mathrm{RT},r^\ast}
+}
+\right],
+\]
+
+and the variability-increase deficit is
+
+\[
+d_V(t)
+=
+\max
+\left[
+0,
+\frac{s_t}{s_{\mathrm{RT},r^\ast}}-1
+\right],
+\qquad
+s_t=
+\max
+\left[
+1.4826\,\mathrm{MAD}(RT_t),
+s_{\mathrm{device}}
+\right].
+\]
+
+Faster correct responses and reduced variability do not receive positive credit. For every included component \(j\), define
+
+\[
+z_j(t)=-d_j(t),
+\qquad
+d_j(t)\ge 0.
+\]
+
+The composite score is
+
+\[
+q_e(t)
+=
+\sum_j w_j z_j(t),
+\qquad
+\sum_j w_j=1,
+\]
+
+and therefore \(q_e(t)\le 0\). This non-compensatory construction prevents unusually good performance in one component from cancelling a persistent deficit in another component.
+
+Before Phase 0, only four feature models are admissible:
+
+\begin{enumerate}
+\item \(B\): balanced rule success only, with weight 1.0;
+\item \(B+S\): behavior and slowing, each with weight 0.5;
+\item \(B+V\): behavior and variability increase, each with weight 0.5;
+\item \(B+S+V\): behavior with weight 0.5 and the two timing components with weights 0.25 each.
+\end{enumerate}
+
+There is no timing-only recovery model. Timing-enriched candidates are computable only under a timing-qualified device/profile. The feature definitions, minimum trial counts, candidate weights, and model-selection gates are versioned before Phase 0.
+
+Recovery is evaluated only after the regulation sequence enters \texttt{RECOVERY\_MONITORING}. Let \(t_e\) denote challenge onset, \(t_m^{(e)}\) recovery-monitoring onset, and \(u_{e,k}\) the timestamp of score update \(k\). Define
+
+\[
+k_e^\ast
+=
+\inf
+\left\{
+k:
+q_{e,r}\ge-\delta
+\text{ for }
+r=k,\ldots,k+w-1
+\right\},
+\]
+
+where \(w\) is the required number of consecutive qualifying score updates and the complete confirming run must be observed before the censoring boundary.
+
+The primary performance-recovery latency is
+
+\[
+T_{\mathrm{rec}}^{(e)}
+=
+u_{e,k_e^\ast}-t_m^{(e)}.
+\]
+
+Two additional process times are retained:
+
+\[
+T_{\mathrm{pre}}^{(e)}
+=
+t_m^{(e)}-t_e,
+\]
+
+and
+
+\[
+T_{\mathrm{total}}^{(e)}
+=
+u_{e,k_e^\ast}-t_e
+=
+T_{\mathrm{pre}}^{(e)}+T_{\mathrm{rec}}^{(e)}.
+\]
+
+Thus \(T_{\mathrm{rec}}\) is anchored to the onset of measurable post-regulation task performance rather than challenge onset. \(T_{\mathrm{pre}}\) captures the challenge-to-monitoring interval, including the pause/orient/strategy sequence, while \(T_{\mathrm{total}}\) describes the complete challenge-to-stable-return cycle. This decomposition prevents a longer strategy from mechanically appearing as slower post-regulation performance recovery.
+
+If no complete qualifying stability run is confirmed before \(t_m^{(e)}+c_e\), the primary \(T_{\mathrm{rec}}^{(e)}\) observation is right-censored at \(c_e\). Censoring is therefore anchored to recovery-monitoring onset, not challenge onset.
+
+The initial candidate implementation uses two distinct 12-valid-trial references with different roles: an immediate current-rule eligibility window before a candidate challenge and a stable target-rule recovery reference collected during \texttt{RULE\_CALIBRATION}. Only the latter normalizes \(B\), \(S\), and \(V\). Recovery itself is evaluated with an 8-valid-trial rolling postchallenge window updated every valid trial. The 12/8 counts are explicit Phase 0 measurement hypotheses rather than established psychometric constants. The final feature model, \(\delta\), \(w\), \(c_e\), and window definitions are frozen before Phase 1 inferential use.
+
+\subsection{Recovery measurement-context invariance}
+
+Recovery latency is interpretable only if improved post-challenge performance is not produced by changing the measurement conditions during the same event. On entry to recovery monitoring, the study therefore instantiates a versioned measurement context
+
+\[
+\mathbf{m}_e =
+\left[
+R_e,
+D_e,
+L_e,
+W_e,
+P_e,
+C_e
+\right],
+\]
+
+where \(R_e\) is the active task rule, \(D_e\) the cognitive-difficulty state, \(L_e\) the sensory configuration, \(W_e\) the response-window/timing configuration, \(P_e\) the stimulus-distribution specification, and \(C_e\) any prespecified cue assignment relevant to the event. Ordinary adaptive changes to these quantities are suspended until the recovery event is closed.
+
+For a primary recovery record to remain scientifically valid, \(\mathbf{m}_e\) must remain unchanged throughout the recovery-assessment interval. A safety override, explicit child request, technical interruption, or other necessary action always takes priority over measurement. If such an action changes a score-relevant measurement condition before event closure, the event is recorded as recovery-data-invalid rather than as observed recovery or ordinary right-censoring. Adaptation may resume after the event has been closed and the goal state is restored.
+
+A randomized cue can remain part of the recovery contrast when its assignment is made prospectively, represented in \(\mathbf{m}_e\), and held fixed according to the preregistered event definition. This rule prevents the controller from manufacturing apparently faster recovery by making the task easier, lengthening the response window, or otherwise changing the criterion environment after a difficult challenge.
+
+\subsection{Calibration without outcome-driven tuning}
+
+Phase 0 calibration is a measurement-engineering exercise rather than optimization against clinical response. Candidate feature models are evaluated using prespecified computability, reference-scale, timing-coverage, and leave-one-trial robustness criteria. The robustness test is applied across the complete preregistered neighborhood
+
+\[
+\delta \in \{0.25,0.50,0.75\}
+\]
+
+and stability windows of two or three consecutive score updates. The worst terminal-state flip fraction across this grid is used for the robustness gate; a model cannot be rescued by choosing the threshold pair that makes it appear stable.
+
+The feature-model decision is explicitly parsimonious. If behavior-only \(B\) satisfies all hard measurement gates, it is retained unless a prespecified measurement failure requires an enriched model and that enriched model resolves the failure. If \(B\) fails and multiple enriched candidates pass, the lowest-complexity candidate is preferred; equal-complexity candidates are ordered by feature missingness and perturbation instability rather than clinical association.
+
+Raw \(q\), median \(T_{\mathrm{rec}}\), and censoring proportion are reported as diagnostics but are not feature-selection targets, because their scales differ across candidate models and can be shifted by the score definition. External symptom, EDI, caregiver, teacher, functional, or treatment-group outcomes must not be used to choose the recovery definition. Once the Phase 0 measurement criteria are satisfied, the selected model, feature definitions, weights, window rules, final \(\delta\), stability window, censoring limit, missing-feature policy, and implementation version are locked before Phase 1 inferential use.
+
+\subsection{Transfer hierarchy}
+
+Evidence is classified into four levels:
+
+\begin{enumerate}
+\item trained-task learning;
+\item proximal mechanistic change, such as reduced \(T_{\mathrm{rec}}\);
+\item independent near transfer to an untrained executive task;
+\item far transfer to externally assessed emotion regulation or everyday functioning.
+\end{enumerate}
+
+Clinical efficacy must not be inferred from Levels 1 or 2. A central falsification outcome is therefore substantial in-game improvement without corresponding independent change.

@@ -1,0 +1,34 @@
+{
+  "config_schema": "0.3",
+  "status": "synthetic_example_not_frozen",
+  "definition_version": "candidate-phase0-0.3",
+  "feature_candidate_space": "config/recovery_feature_candidates.phase0.json",
+  "synthetic_model_id": "B+S+V",
+  "observation_interval_ms": 1000,
+  "challenge": {
+    "allowed_types": [
+      "rule_switch"
+    ],
+    "minimum_reference_observations": 12,
+    "minimum_interchallenge_interval_ms": 30000,
+    "minimum_remaining_observation_ms": 20000,
+    "require_no_safety_override": true,
+    "require_no_sensory_overload": true,
+    "require_complete_reference_telemetry": true
+  },
+  "recovery": {
+    "delta": 0.5,
+    "censor_limit_observations": 20,
+    "censor_limit_ms": 20000,
+    "stability_window_updates": 3,
+    "latency_origin": "recovery_monitoring_onset"
+  },
+  "notes": [
+    "This configuration is for deterministic technical simulation only.",
+    "The synthetic_model_id exercises all B/S/V component paths and is not a Phase 0 model-selection decision.",
+    "Component values in the simulator are non-negative deficits; q is their negative weighted composite and cannot exceed zero.",
+    "The synthetic recovery latency is monitoring-anchored. synthetic_pre_monitoring_latency_ms is added only to demonstrate T_total = T_pre + T_rec.",
+    "Phase 0 feature-model selection must use the separate prespecified measurement gates and must not use external clinical outcomes."
+  ],
+  "synthetic_pre_monitoring_latency_ms": 9000
+}

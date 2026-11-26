@@ -1,0 +1,199 @@
+{
+  "schema_version": "0.2",
+  "status": "pre_phase0_candidate_space_not_final_phase1_definition",
+  "task_id": "signal-gate",
+  "eligible_challenge_types": [
+    "rule_switch"
+  ],
+  "rationale": [
+    "The candidate space is deliberately small and contains one mandatory behavior family plus two optional timing features.",
+    "Accuracy, rule-error rate, commission errors and omissions are not entered as separate equally weighted features because they partially encode the same response events.",
+    "External clinical outcomes and treatment-group differences are forbidden inputs to feature-set selection.",
+    "Recovery-score normalization uses a stable target-rule/mapping-matched reference for B, S and V because A↔B switching changes both response mapping and GO-stimulus identity; the immediate pre-switch reference is an eligibility/readiness check, not the q reference."
+  ],
+  "postchallenge_window": {
+    "valid_trials": 8,
+    "update_stride_valid_trials": 1,
+    "minimum_go_trials": 2,
+    "minimum_nogo_trials": 2,
+    "minimum_correct_go_rt_trials_for_slowing": 3,
+    "minimum_correct_go_rt_trials_for_variability": 4
+  },
+  "numerical_rules": {
+    "beta_prior_alpha": 0.5,
+    "beta_prior_beta": 0.5,
+    "robust_scale_mad_multiplier": 1.4826,
+    "minimum_behavior_scale": 0.000001,
+    "timing_scale_floor_source": "qualified_device_timing_floor_ms",
+    "timing_scale_floor_rule": "max(reference_robust_scale_ms, qualified_device_timing_floor_ms)"
+  },
+  "primitive_features": {
+    "balanced_rule_success": {
+      "feature_id": "B",
+      "family": "goal_directed_rule_execution",
+      "required": true,
+      "direction": "higher_is_better",
+      "definition": "0.5 * (Jeffreys-smoothed GO hit probability + Jeffreys-smoothed NO-GO correct-rejection probability)",
+      "deficit": "max(0, (B_ref - B_window) / max(reference_based_comparison_scale_B(window_counts), minimum_behavior_scale))",
+      "notes": [
+        "Equal weighting of GO and NO-GO conditional success prevents target/non-target frequency from changing the meaning of the feature.",
+        "Jeffreys smoothing prevents perfect or zero observed proportions from producing degenerate probability estimates.",
+        "B_ref is calculated from the stable target-rule recovery reference collected in RULE_CALIBRATION, not from the immediate pre-switch current-rule reference.",
+        "The comparison scale combines uncertainty in target-rule reference probabilities with expected sampling variance of the current window under those reference probabilities.",
+        "The denominator does not use the observed postchallenge success rate, so poor performance cannot reduce its own standardized deficit by inflating its variance."
+      ]
+    },
+    "correct_go_rt_slowing": {
+      "feature_id": "S",
+      "family": "timing",
+      "required": false,
+      "direction": "lower_slowing_is_better",
+      "definition": "max(0, (median_correct_GO_RT_window - median_correct_GO_RT_ref) / timing_reference_scale)",
+      "deficit": "feature value itself",
+      "requires_timing_qualified_device": true,
+      "notes": [
+        "Only correct GO trials enter the latency feature.",
+        "The RT reference comes from the same target-rule recovery reference used for B and must match the post-switch rule and GO-stimulus identity.",
+        "Faster correct responses are not penalized; impulsive fast errors are captured by balanced_rule_success.",
+        "Timing reference scale is max(1.4826*MAD_target_rule_ref, qualified device timing floor)."
+      ]
+    },
+    "correct_go_rt_variability_increase": {
+      "feature_id": "V",
+      "family": "timing",
+      "required": false,
+      "direction": "lower_variability_increase_is_better",
+      "definition": "max(0, robust_scale_window / timing_reference_scale - 1)",
+      "deficit": "feature value itself",
+      "requires_timing_qualified_device": true,
+      "notes": [
+        "Robust scale is 1.4826*MAD of correct GO reaction times.",
+        "The timing reference is drawn from the same target-rule recovery reference used for B; immediate pre-switch RT is not used as the q baseline.",
+        "Reduced variability is not penalized.",
+        "The timing floor prevents near-zero baseline MAD from creating arbitrarily large ratios."
+      ]
+    }
+  },
+  "candidate_models": [
+    {
+      "model_id": "B",
+      "features": [
+        "balanced_rule_success"
+      ],
+      "weights": {
+        "balanced_rule_success": 1
+      },
+      "complexity_rank": 1
+    },
+    {
+      "model_id": "B+S",
+      "features": [
+        "balanced_rule_success",
+        "correct_go_rt_slowing"
+      ],
+      "weights": {
+        "balanced_rule_success": 0.5,
+        "correct_go_rt_slowing": 0.5
+      },
+      "complexity_rank": 2
+    },
+    {
+      "model_id": "B+V",
+      "features": [
+        "balanced_rule_success",
+        "correct_go_rt_variability_increase"
+      ],
+      "weights": {
+        "balanced_rule_success": 0.5,
+        "correct_go_rt_variability_increase": 0.5
+      },
+      "complexity_rank": 2
+    },
+    {
+      "model_id": "B+S+V",
+      "features": [
+        "balanced_rule_success",
+        "correct_go_rt_slowing",
+        "correct_go_rt_variability_increase"
+      ],
+      "weights": {
+        "balanced_rule_success": 0.5,
+        "correct_go_rt_slowing": 0.25,
+        "correct_go_rt_variability_increase": 0.25
+      },
+      "complexity_rank": 3
+    }
+  ],
+  "score_definition": {
+    "component_scores": "z_j = -d_j, where d_j >= 0 is the prespecified feature deficit",
+    "composite": "q_e(t) = sum_j w_j * z_j(t); weights sum to 1",
+    "range": "q_e(t) <= 0",
+    "interpretation": {
+      "zero": "no detected deficit relative to the stable target-rule recovery reference under the selected feature definition",
+      "negative": "one or more included feature deficits remain",
+      "recovery_rule": "q_e(t) >= -delta for the full stability window"
+    },
+    "no_positive_compensation": true,
+    "rationale": "Above-reference performance in one feature cannot cancel a clinically or behaviorally relevant deficit in another feature."
+  },
+  "phase0_feature_selection": {
+    "scope": "measurement properties only",
+    "hard_gates": {
+      "eligible_event_computability_fraction_min": 0.9,
+      "reference_scale_floor_fraction_max": 0.2,
+      "leave_one_trial_terminal_state_flip_fraction_max": 0.2,
+      "timing_qualified_event_fraction_min_for_timing_models": 0.9
+    },
+    "diagnostics_not_optimization_targets": [
+      "right_censoring_fraction",
+      "median_recovery_latency",
+      "mean_recovery_score"
+    ],
+    "forbidden_selection_signals": [
+      "caregiver symptom score",
+      "teacher symptom score",
+      "EDI score",
+      "functional outcome",
+      "treatment-group difference",
+      "association with later clinical outcome"
+    ],
+    "decision_rule": [
+      "Reject any candidate that fails a hard gate.",
+      "Evaluate the leave-one-trial robustness gate across the full prespecified delta x stability grid; do not choose the threshold combination that makes a model pass.",
+      "If model B passes all hard gates, retain B unless a more complex model is required by a prespecified measurement failure that B does not resolve.",
+      "If B fails and multiple enriched models pass, prefer the lowest complexity rank.",
+      "Within the same complexity rank, prefer lower feature missingness and lower leave-one-trial instability.",
+      "Do not prefer a model merely because it reduces censoring or produces shorter recovery latency.",
+      "Document all candidate results, including rejected definitions, before freezing the Phase 1 model."
+    ],
+    "robustness_grid": {
+      "delta": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "stability_window_score_updates": [
+        2,
+        3
+      ],
+      "rule": "Apply leave-one-trial perturbation across every prespecified delta x stability combination and use the worst terminal-state flip fraction for the hard gate."
+    }
+  },
+  "eligibility_reference_window": {
+    "role": "immediate_prechallenge_current_rule_readiness_reference_not_used_in_q",
+    "valid_trials": 12,
+    "minimum_go_trials": 4,
+    "minimum_nogo_trials": 4
+  },
+  "target_rule_recovery_reference": {
+    "role": "stable_reference_for_q_under_target_postswitch_rule",
+    "source": "RULE_CALIBRATION",
+    "immutable_within_session": true,
+    "valid_trials": 12,
+    "minimum_go_trials": 4,
+    "minimum_nogo_trials": 4,
+    "minimum_correct_go_rt_trials": 4,
+    "require_same_rule_id_as_recovery": true,
+    "require_same_go_stimulus_id_as_recovery": true
+  }
+}

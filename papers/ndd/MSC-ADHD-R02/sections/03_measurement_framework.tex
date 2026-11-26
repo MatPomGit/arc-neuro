@@ -1,0 +1,27 @@
+\section{A Priori Measurement Framework}
+
+Before screening, evidence quality is organized around five domains.
+
+\subsection{Acquisition transparency}
+Device model, channel count, montage/electrode locations, electrode technology, sampling rate, reference scheme, and firmware/software path should be recoverable.
+
+\subsection{Temporal validity}
+Task-locked inference requires a documented event-marker source, clock domain, synchronization mechanism, and, where possible, measured timing error or drift. Merely stating that two devices were synchronized is insufficient.
+
+\subsection{Signal-quality control}
+The study should report how poor contact, motion, ocular/muscle artifact, environmental noise, and invalid channels or segments were detected and handled. The fraction of rejected or unusable data is itself an outcome of measurement feasibility.
+
+\subsection{Inference boundary}
+Group discrimination, within-person state tracking, prediction, neurofeedback control, and intervention-mechanism monitoring are separate uses and should not be conflated.
+
+\subsection{Reproducibility}
+A reproducible study identifies preprocessing parameters, software, event definitions, feature windows, exclusion rules, and enough device metadata to understand the measurement envelope.
+
+
+\subsection{Operational extraction and reportability}
+
+This a priori framework will be applied to each source at the level of explicitly verifiable fields rather than as an opaque composite score. The event path comprises stimulus generation time, trigger or software marker emission, transport, acquisition-clock association, any clock synchronization transformation, and the recorded sample position. An event-aligned claim must distinguish specified sampling frequency from independently measured timing accuracy. If latency, jitter or clock drift are not reported, these fields remain not reported rather than assumed negligible.
+
+Signal-quality reporting will distinguish raw and retained trial counts, subject-level attrition, contact/impedance checks, electrode dropout, motion, ocular and muscle artifacts, filtering and interpolation. For very low channel counts, the feasibility of ICA and spatial source or network inference must be justified rather than assumed. If analyses concern pre/post resting-state data rather than response-locked or intervention-locked task measurements, that boundary will be explicitly coded.
+
+The interpretation will be stratified by intended use (diagnostic group classification, state tracking, intervention outcome, neurofeedback/BCI control), population (ADHD, other pediatric neurodevelopmental, external technical reference) and validation stage (feasibility, technical timing and signal quality, repeatability, external device comparison, biomarker and clinical). These categories do not confer clinical validity by default.

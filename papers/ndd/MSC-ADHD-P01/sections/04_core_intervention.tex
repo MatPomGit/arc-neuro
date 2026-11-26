@@ -1,0 +1,68 @@
+\section{Core Intervention Architecture}
+
+ARC-ADHD is organized as one repeated regulation sequence rather than as a collection of unrelated minigames. A target session lasts approximately 15 to 20 minutes, with exact dose treated as a feasibility parameter.
+
+\input{figures/fig2_session_timeline}
+
+\subsection{Readiness and calibration}
+
+The application verifies the private phone's current BYOD qualification/capability profile, current sensory preferences, and whether the child wishes to use optional sound or haptics. A brief check-in captures subjective activation and any immediate reason to simplify or stop the session.
+
+Before the first eligible rule-switch challenge, both Signal Gate rule mappings are exposed in a dedicated calibration state. This verifies that the child has encountered both mappings before switching is used as a perturbation. On timing-qualified execution profiles, calibration also supplies a correct-GO timing reference for each target rule and GO-stimulus mapping. Calibration trials are excluded from the recovery-event sample.
+
+\subsection{Executive-control mission}
+
+The minimum viable implementation requires at least one reproducible executive-control task that supports a stable baseline rule, bounded difficulty manipulation, identifiable challenge events, objective response accuracy and latency, and return to the same goal after regulation. Selective attention or inhibition with controlled rule switching is a suitable initial implementation because it can create recoverable perturbations without requiring a large content library.
+
+\subsection{Controlled challenge}
+
+The first Phase 0 operationalization uses one challenge family: an explicit Signal Gate rule switch from A to B or B to A. Other bounded perturbations remain possible later extensions but are not pooled into the initial recovery-measure stabilization sample.
+
+Eligibility is evaluated before the switch and before any post-switch error, omission, slowing, or other apparent destabilization is observed. Thus the mechanistic event sample is not selected retrospectively on the basis of an unfavorable response. The eligibility contract requires an immediate current-rule reference, completed calibration of both mappings, no open recovery event, sufficient pacing and remaining event budget, healthy telemetry, and no active safety, overload, technical-interruption, or post-pause suppression state.
+
+Core behavioral eligibility is distinguished from timing-feature eligibility. An otherwise valid event may contribute to the behavior-only recovery candidate when mobile timing is unqualified, whereas timing-enriched candidates additionally require a qualified timing profile and a target-rule/mapping-matched timing reference.
+
+\subsection{Regulation transition}
+
+The interface removes unnecessary stimulation and prompts a short sequence: pause, orient, choose one strategy, perform it, and return to the goal. Strategies may include paced breathing, muscle release, grounding, attentional redeployment, controlled movement, reappraisal, or simple problem solving. The intervention does not infer that one strategy is universally optimal.
+
+\subsection{Recovery and return to goal}
+
+The original objective resumes after regulation. Recovery is measured using the preregistered behavioral criterion rather than whether the first subsequent response is correct.
+
+\subsection{Reflection and implementation intention}
+
+At the end of the session the child briefly identifies which strategy was useful and connects it to an everyday situation using an implementation intention such as: if I notice \(X\), I will first do \(Y\), then return to \(Z\).
+
+\subsection{Minimum sensory set}
+
+Visual presentation is required for the ordinary task and instructions. Auditory cueing is optional and must not be required for successful completion. Haptic feedback is also optional and initially limited to a small standardized cue set, such as a pause/attention pattern. The intervention must remain usable when audio or haptics are disabled.
+
+This requirement preserves accessibility and prevents sensory richness from being confused with the active treatment mechanism. Cognitive difficulty and sensory load therefore remain separate control variables.
+
+\subsection{Minimal embodiment versus the separate embodied/AR study}
+
+The core system may ask the child to notice breathing, tension, posture, contact with the floor or chair, or urge to move, and may use low-burden movement as part of a regulation strategy. These actions are part of strategy execution, not evidence that embodiment or AR causes transfer.
+
+The separate embodied/AR paper manipulates physical movement and environmental coupling as independent variables. This boundary keeps the core causal claim focused on recovery training while preserving body orientation as a necessary part of some regulation strategies.
+
+\subsection{Adaptation hierarchy}
+
+The minimum controller hierarchy is: safety override; explicit child stop or difficulty request; sensory-overload rule; task-performance rule; recovery-state rule; scheduled research randomization; and ordinary progression. No passive sensor estimate may override an explicit child request or safety rule.
+
+\subsection{Explicitly excluded core components}
+
+The core MVP does not require front-camera adaptation, categorical emotion recognition, augmented-reality missions, spatial mapping, embodied movement as a transfer manipulation, alternating bilateral auditory stimulation, outdoor geolocation, or continuous raw audio/video recording. These exclusions are scientific boundaries rather than merely engineering deferrals.
+
+\subsection{TIDieR implementation record}
+
+For every research build, the intervention record should version: intervention name, rationale, software version, task materials, procedure, training or onboarding, delivery device, setting, session dose, tailoring rules, permitted modifications, and fidelity/telemetry checks \parencite{hoffmann2014tidier}. A frozen intervention manifest should be archived before the pilot randomized trial.
+
+
+\subsection{Active-control boundary}
+
+The active-control condition should use the same application shell and frozen BYOD compatibility policy where practical, with comparable session duration, device interaction, visual quality, neutral feedback, reward density, onboarding, and data-collection schedule. Its purpose is to control for nonspecific digital-game exposure, attention, novelty, expectancy, and study contact.
+
+The control must not systematically reproduce the proposed active sequence. Specifically, it excludes controlled challenge followed by explicit pause--orient--strategy--regulate--recover training, recovery-state adaptation, individualized recovery feedback, and implementation-intention prompts linking the trained regulation sequence to everyday situations. If those elements are reproduced, the comparison no longer isolates the central ARC-ADHD mechanism.
+
+Control credibility should be assessed without describing the condition to families as a placebo or inferior intervention. The software/configuration version, task list, reward configuration, sensory configuration, caregiver instructions, and deviations should be archived for both arms.

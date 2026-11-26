@@ -1,0 +1,11 @@
+\section{Acquisition and Synchronization Pipeline}
+
+The analysis requires event-level synchronization between ARC-ADHD and the EEG recorder.
+
+The preferred implementation uses an authorized Muse research acquisition interface on the same Android device, or a tightly coupled local acquisition service, so application event markers and EEG samples can be related to a common monotonic clock. Muse explicitly directs academic and clinical researchers to its research-tools pathway \parencite{interaxonDevelopers2026}; the study therefore treats research access and Athena-specific acquisition documentation as a prerequisite rather than assuming that consumer-app interfaces expose the required raw stream.
+
+If separate clocks are unavoidable, repeated synchronization markers are used to estimate offset and drift. A documented affine clock transformation maps the EEG clock to application time, while both original and transformed timestamps are retained. Residual synchronization error is quantified and compared with a preregistered tolerance.
+
+Required markers include session start, rule-calibration boundaries, challenge onset and target rule, all regulation-state transitions, recovery-monitoring onset, recovery-score updates, stable-threshold entry, stability confirmation, censor/invalid closure, child pause/stop, overload, and technical interruption.
+
+A nearest-timestamp join without drift characterization is not sufficient for primary event-related analysis.

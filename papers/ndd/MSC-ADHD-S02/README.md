@@ -1,9 +1,14 @@
-# MSC-ADHD-S02 — Reprodukowany schemat zdarzeń recovery i deterministyczny replay
+# MSC-ADHD-S02
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+A Reproducible Challenge--Regulation--Recovery Event Schema for Adaptive Serious Games
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `METHODS_DRAFT`.
+**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+**Status:** Methods manuscript; independent execution evidence remains pending. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+- [Manuscript](main.tex)
+- [Study record](study.md)
+- [Bibliography](references.bib)
+- [Original licensing policy](ORIGINAL_LICENSING.md)
+
+Build locally with APA 7, latexmk and Biber; disable shell escape.

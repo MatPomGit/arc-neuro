@@ -1,0 +1,42 @@
+\section{Measurement Model}
+
+Let \(\boldsymbol{\phi}(t)\) denote a vector of locally extracted facial-behavior features at time \(t\). Candidate components include landmark geometry, head pose, eye-region visibility, selected blendshape dynamics, and tracking-quality measures. Identity embeddings and face-recognition features are excluded.
+
+For participant \(i\), each feature is standardized relative to an individual baseline:
+
+\[
+z_{ij}(t)=
+\frac{\phi_{ij}(t)-\mu^{base}_{ij}}
+{\sigma^{base}_{ij}+\epsilon}.
+\]
+
+A descriptive deviation index may be defined as
+
+\[
+D_{\phi,i}(t)
+=
+\sqrt{\sum_j w_j z_{ij}(t)^2},
+\qquad w_j \ge 0.
+\]
+
+This index is not interpreted as valence, arousal, anxiety, or any categorical emotion. It merely quantifies distance from a participant-specific behavioral reference pattern.
+
+The camera channel is evaluated against a base information set
+
+\[
+\mathbf{b}_t =
+[
+\mathbf{P}_t,
+\mathbf{I}_t,
+\mathbf{S}^{self}_t,
+\mathbf{C}_t
+],
+\]
+
+where task performance, optional inertial summaries, explicit child input, and task context are known. The extended information set is
+
+\[
+\mathbf{b}^{+}_t = [\mathbf{b}_t,\boldsymbol{\phi}(t)].
+\]
+
+The scientific contribution of the camera exists only if prediction or decision quality improves when moving from \(\mathbf{b}_t\) to \(\mathbf{b}^{+}_t\).

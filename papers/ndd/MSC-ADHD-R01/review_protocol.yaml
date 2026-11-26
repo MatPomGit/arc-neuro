@@ -1,0 +1,54 @@
+schema_version: 1
+review_id: ARC_ADHD_R01
+status: frozen_for_first_pass_search
+frozen: 2026-10-01
+review_type: systematic_scoping_review
+reporting_standard: PRISMA_2020
+research_question: "How are temporally defined recovery processes operationalized after discrete perturbations in interactive digital mental-health and cognitive-training research?"
+databases:
+  - PubMed_MEDLINE
+  - PsycINFO
+  - Scopus
+  - Web_of_Science_Core_Collection
+  - IEEE_Xplore
+  - ACM_Digital_Library
+population:
+  include: humans_any_age
+concept:
+  required:
+    - interactive_or_computer_based_task_or_intervention
+    - identifiable_perturbation_or_challenge
+    - temporal_post_perturbation_recovery_definition
+  exclude:
+    - pre_post_only_without_event_linked_recovery
+    - generic_response_time_without_recovery_process
+    - symptom_change_only
+context:
+  include:
+    - digital_mental_health
+    - cognitive_training
+    - serious_games
+    - affective_computing
+    - digital_therapeutics
+    - computerized_experimental_tasks
+extraction_domains:
+  - perturbation_definition
+  - reference_state
+  - temporal_origin
+  - endpoint_family
+  - threshold_rule
+  - stability_rule
+  - censoring
+  - missingness
+  - within_person_normalization
+  - sampling_resolution
+  - modality
+  - reliability
+  - validity
+  - external_outcome_relation
+  - preregistration
+  - code_data_availability
+synthesis:
+  primary: taxonomy_and_structured_narrative
+  meta_analysis: not_planned_due_to_expected_construct_heterogeneity
+deviation_rule: "Any eligibility/search/extraction change after screening begins must be logged in research/deviation_log.yaml and the review search log."

@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.2",
+  "status": "candidate_phase0_not_frozen",
+  "task_id": "signal-gate",
+  "task_version": "candidate-0.2",
+  "response_mode": "single_tap_go_withhold_nogo",
+  "stimulus_dimension": "color",
+  "rules": {
+    "A": {
+      "go": "blue",
+      "nogo": "orange"
+    },
+    "B": {
+      "go": "orange",
+      "nogo": "blue"
+    }
+  },
+  "tutorial": {
+    "enabled": true,
+    "maximum_practice_trials": 12,
+    "minimum_correct_fraction": 0.8,
+    "purpose": "teach response mode and explicit rule-change cue; tutorial performance is not a recovery event"
+  },
+  "timing": {
+    "stimulus_ms": 1000,
+    "response_window_ms": 1500,
+    "inter_trial_interval_ms": 500
+  },
+  "difficulty": {
+    "target_probability_levels": [
+      0.6,
+      0.5,
+      0.4
+    ],
+    "distractor_similarity_levels": [
+      0,
+      1,
+      2
+    ],
+    "rule_switch_frequency_levels": [
+      0,
+      0.05,
+      0.1
+    ],
+    "response_window_ms_levels": [
+      1800,
+      1500,
+      1200
+    ],
+    "initial_level": {
+      "target_probability": 1,
+      "distractor_similarity": 0,
+      "rule_switch_frequency": 0,
+      "response_window_ms": 0
+    }
+  },
+  "challenge": {
+    "primary_type": "rule_switch",
+    "eligibility_config": "config/challenge_eligibility.phase0.example.json",
+    "hidden_rule_switch": false,
+    "explicit_switch_cue_required": true,
+    "permitted_rule_transitions": [
+      "A_to_B",
+      "B_to_A"
+    ],
+    "selection_conditioned_on_observed_error": false
+  },
+  "required_trial_fields": [
+    "trial_id",
+    "stimulus_id",
+    "rule_id",
+    "target_class",
+    "expected_response",
+    "actual_response",
+    "correctness",
+    "omission",
+    "commission_error",
+    "response_latency_ms",
+    "trial_start_ms",
+    "response_window_close_ms",
+    "cognitive_difficulty",
+    "sensory_load",
+    "challenge_event_id"
+  ],
+  "candidate_recovery_features": [
+    "balanced_rule_success",
+    "correct_go_rt_slowing",
+    "correct_go_rt_variability_increase"
+  ],
+  "notes": [
+    "All timing and difficulty values are candidate engineering values for technical implementation and Phase 0 co-design.",
+    "The first study controller should modify at most one cognitive dimension per adaptation transition.",
+    "Sensory load remains a separate state variable.",
+    "The balanced behavior feature is mandatory in every recovery candidate; timing-only recovery models are not allowed.",
+    "The task logic is ready for Phase 0 preregistration, but pacing, safety, child-facing content, BYOD thresholds and final recovery model remain subject to their separate freeze gates."
+  ],
+  "recovery_feature_candidate_space": "config/recovery_feature_candidates.phase0.json",
+  "rule_calibration": {
+    "enabled": true,
+    "required_rule_ids": [
+      "A",
+      "B"
+    ],
+    "minimum_valid_trials_per_rule": 12,
+    "minimum_go_trials_per_rule": 4,
+    "minimum_nogo_trials_per_rule": 4,
+    "timing_reference_minimum_correct_go_trials": 4,
+    "require_explicit_rule_cue": true,
+    "recovery_event_allowed": false,
+    "timing_reference_rule": "same_rule_and_go_stimulus_as_future_postswitch_recovery_window"
+  }
+}

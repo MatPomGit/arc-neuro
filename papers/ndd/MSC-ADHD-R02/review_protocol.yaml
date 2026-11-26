@@ -1,0 +1,61 @@
+schema_version: 1
+review_id: ARC_ADHD_R02
+status: frozen_for_first_pass_search
+frozen: 2026-10-01
+review_type: systematic_scoping_review
+reporting_standard: PRISMA_2020
+research_question: "Under what acquisition, synchronization, signal-quality and reporting conditions can wearable or low-density EEG support reproducible task-locked or intervention-locked inference in pediatric ADHD and related neurodevelopmental research?"
+databases:
+  - PubMed_MEDLINE
+  - PsycINFO
+  - Scopus
+  - Web_of_Science
+  - IEEE_Xplore
+  - Embase_if_accessible
+  - ACM_Digital_Library
+population:
+  primary: pediatric_ADHD
+  contextual: pediatric_neurodevelopmental_conditions
+  age_rule: younger_than_19_or_extractable_pediatric_subset
+concept:
+  include:
+    - wearable_wireless_portable_or_low_density_EEG
+    - task_intervention_state_or_event_locked_measurement
+  comparator_optional:
+    - conventional_lab_EEG
+  exclude:
+    - resting_state_diagnostic_only_without_task_monitoring_relevance
+    - no_recoverable_measurement_methods
+    - nonhuman
+extraction_domains:
+  - device
+  - channels
+  - montage
+  - electrode_technology
+  - sampling_rate
+  - wireless_protocol
+  - task_or_intervention
+  - event_marker_path
+  - synchronization_method
+  - measured_timing_error_or_drift
+  - movement_context
+  - impedance_or_contact_quality
+  - artifact_detection
+  - artifact_removal_or_rejection
+  - rejected_data_fraction
+  - preprocessing
+  - feature_family
+  - analysis_level
+  - repeatability
+  - external_reference_validation
+  - preregistration
+  - code_data_availability
+synthesis:
+  primary: methodological_map_and_reporting_framework
+  application_strata:
+    - diagnosis_classification
+    - task_state_monitoring
+    - intervention_evaluation
+    - neurofeedback_or_BCI
+  meta_analysis: not_planned_initially
+deviation_rule: "Post-freeze eligibility/search/extraction changes must be logged and dated."

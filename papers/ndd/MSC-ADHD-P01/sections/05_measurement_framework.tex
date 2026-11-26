@@ -1,0 +1,118 @@
+\section{Measurement Framework}
+
+\subsection{Construct-to-measurement map}
+
+Every claim must have a manipulable component, proximal observable, independent outcome, and falsification criterion.
+
+\begingroup
+\small
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{p{2.7cm}p{3.2cm}p{3.2cm}p{3.2cm}}
+\caption{Core construct-to-measurement map}\\
+\toprule
+Construct & Manipulation & Proximal measure & Independent test / falsifier \\
+
+\midrule
+\endfirsthead
+\toprule
+Construct & Manipulation & Proximal measure & Independent test / falsifier \\
+
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+Executive control & Rule load, inhibition, switching & Accuracy, latency, rule errors & Untrained executive task; no independent improvement weakens transfer claim \\
+Recovery regulation & Controlled challenge plus strategy sequence & \(T_{\mathrm{rec}}\), unrecovered-event rate & External regulation/\allowbreak function measure; dissociation weakens mechanism claim \\
+Multisensory cueing & Visual vs congruent added cue & Detection or inhibition under randomized eligible events & No proximal advantage implies cue can be simplified \\
+Body orientation & Explicit check and strategy-linked bodily cue & Completion, self-report consistency & No relation to strategy use or recovery argues against retaining the prompt \\
+\end{longtable}
+\endgroup
+
+\subsection{Core hypothesis-to-estimand map}
+
+Table~\ref{tab:core-hypotheses} separates the prerequisite recovery-measurement gate from clinical, transfer, mechanistic, feasibility, and component-level claims. Companion-paper hypotheses on facial feedback, bilateral auditory stimulation, embodied/AR interaction, and wearable EEG are deliberately excluded.
+
+\begingroup
+\small
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{p{0.8cm}p{2.5cm}p{2.5cm}p{2.5cm}p{3.0cm}}
+\caption{Core hypotheses, estimands, outcomes, and falsification criteria}\label{tab:core-hypotheses}\\
+\toprule
+ID & Manipulation / contrast & Estimand & Outcome & Main falsifier \\
+
+\midrule
+\endfirsthead
+\toprule
+ID & Manipulation / contrast & Estimand & Outcome & Main falsifier \\
+
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+M0 & Four prespecified recovery-score candidates evaluated on eligible Phase 0 events & Measurement-gate metrics: computability, reference-scale floor use, leave-one-trial instability, and timing-qualified coverage & Candidate \(B\), \(B+S\), \(B+V\), and \(B+S+V\) definitions & No candidate passes all hard measurement gates; recovery measure must be redesigned rather than selected by clinical association \\
+H1 & Core ARC-ADHD vs active control & Baseline-adjusted between-group post-intervention difference in the future confirmatory trial & Prespecified external regulation/\allowbreak dysregulation endpoint & No clinically meaningful advantage of the core condition in a sufficiently powered confirmatory trial \\
+H2 & Core ARC-ADHD vs active control & Between-group change on an untrained executive assessment & Independent inhibition outcome; secondary flexibility outcome if frozen & Improvement restricted to Signal Gate or other trained tasks \\
+H3 & Longitudinal change in recovery dynamics & Association between change in \(T_{\mathrm{rec}}\) and change in the external endpoint, adjusted for prespecified baseline factors & \(T_{\mathrm{rec}}\) and external regulation/\allowbreak function measure & Recovery telemetry changes without reproducible association with independent outcomes \\
+H4 & Trained-task learning vs independent transfer & Difference in magnitude/pattern of improvement across outcome levels & Trained-task, near-transfer, and far-transfer outcomes & Treating large in-game gains as clinical efficacy when independent transfer is absent \\
+H5 & Home-based delivery under the frozen BYOD policy & Feasibility proportions and uncertainty, not an efficacy effect & Recruitment, retention, dose, valid telemetry, overload, BYOD qualification/\allowbreak fallback & Prespecified red progression criteria or unresolved safety/\allowbreak measurement failure \\
+H6 & Eligible cue event randomized among prespecified sensory conditions & Average proximal cue-condition effect among eligible events & Immediate detection/\allowbreak inhibition/\allowbreak recovery-related process measure & No proximal benefit or an unfavorable overload trade-off, supporting simplification \\
+H7 & Configured body-orientation prompt within the regulation sequence & Prespecified association with strategy execution and subsequent recovery & Prompt completion, strategy use, recovery process & No reproducible relation to strategy use/\allowbreak recovery, arguing against retaining the prompt as an active mechanism \\
+\end{longtable}
+\endgroup
+
+M0 is a measurement-validity gate, not a therapeutic hypothesis. It must be passed before \(T_{\mathrm{rec}}\) is used inferentially as a stable mechanistic quantity. H1 is a future confirmatory hypothesis, not a claim tested by Phase 0 or by the feasibility study. H5 is a progression hypothesis and must not be presented as evidence of efficacy. H6 and H7 are component-level mechanistic questions whose null results should simplify the intervention rather than be reinterpreted as support.
+
+\subsection{Evidence ladder and inference gates}
+
+ARC-ADHD uses four sequential evidence layers.
+
+\begin{enumerate}
+\item \textbf{Measurement validity:} the event definition, target-rule reference, recovery score, timing policy, missingness codes, and censoring rules are sufficiently stable and computable under the prespecified Phase 0 gates.
+\item \textbf{Proximal mechanism change:} under a frozen measurement definition, the distribution of recovery outcomes changes in the prespecified direction across exposure or between randomized conditions.
+\item \textbf{Independent transfer:} change is also observed on an assessment that does not reuse the trained task's stimuli, rule mapping, reward structure, or recovery calculation.
+\item \textbf{Clinical/far-transfer effect:} a later adequately powered comparison shows a prespecified treatment effect on the frozen external endpoint.
+\end{enumerate}
+
+A favorable result at a later layer cannot repair failure of an earlier measurement layer. Conversely, passing measurement validity does not imply mechanism change, and mechanism change does not imply transfer or clinical efficacy. This ladder defines claim boundaries rather than a requirement that every development phase test all four layers simultaneously.
+
+\subsection{Primary outcome candidate set}
+
+The confirmatory primary endpoint is not yet frozen. The current audit identifies the Emotion Dysregulation Inventory (EDI) Reactivity score as the leading \emph{provisional} external endpoint for Phase 1/2 planning, conditional on a defensible Polish-language adaptation and validation pathway. This status is based on strong IRT-based psychometric evidence, demonstrated sensitivity to change, nationally representative youth evidence, and developmental coverage of the target age range \parencite{mazefsky2018edi,mazefsky2021edinational,kim2026edicommon}. The 2026 common-metric work explicitly links the EDI range of 6--17 years with the EDI-YC range of 2--5 years, strengthening developmental continuity without solving the Polish-localization question \parencite{kim2026edicommon}.
+
+The Emotion Regulation Index for Children and Adolescents (ERICA) remains a scientifically relevant backup but its original validation is commonly reported for ages 9--16 and the current audit has not established a validated Polish pathway for the full ARC-ADHD age range. A contemporary evidence-base review rates ERICA more favorably than the older Emotion Regulation Checklist (ERC), while noting substantial limitations in the ERC evidence base \parencite{mazefsky2021measures}. BRIEF2 ERI remains a supporting candidate because the Polish Parent Form translation is officially listed, but its construct overlaps more strongly with executive functioning and Polish responsiveness evidence remains unresolved \parencite{jacobson2020brief2}. A CBCL-derived dysregulation profile remains useful as broad external corroboration but is intentionally transdiagnostic and less specific to the proposed regulation mechanism \parencite{peyre2015cbcldp}.
+
+The provisional EDI choice does not authorize inferential use of an ad hoc Polish translation and does not constitute confirmatory endpoint lock. The choice between the 24-item Reactivity form and the 7-item Reactivity Short Form also remains explicitly unfrozen. Before participant-facing use, the exact EDI form/score, informant, Polish translation/adaptation method, scoring implementation, and evidence supporting longitudinal interpretation must be frozen.
+
+The selection matrix must include:
+
+\begin{enumerate}
+\item construct match to the intended far-transfer claim;
+\item validated age range for 8--12 years;
+\item documented Polish-language adaptation and psychometric evidence;
+\item licensing and administration burden;
+\item caregiver, teacher, or self-report source;
+\item reliability and expected floor/ceiling behavior;
+\item evidence of responsiveness to change;
+\item overlap with ADHD symptom content;
+\item feasibility of blinded or independent administration.
+\end{enumerate}
+
+Until the Polish EDI pathway and confirmatory evidence package are complete, the paper continues to distinguish the provisional Phase 1/2 EDI Reactivity candidate from the formally unfrozen confirmatory primary endpoint.
+
+\subsection{Secondary and mechanistic outcomes}
+
+Secondary outcomes should include ADHD symptoms, functional impairment, quality of life, independent inhibition and working-memory measures, and acceptability/adherence. Teacher report is desirable when feasible because it reduces dependence on the same caregiver who observes intervention use.
+
+Mechanistic outcomes include \(T_{\mathrm{rec}}\), unrecovered-event rate, challenge-specific error trajectories, strategy selection, sensory-overload events, pause frequency, and randomized cue effects.
+
+\subsection{Expectancy and informant bias}
+
+Because caregivers cannot be fully blinded to use of a game intervention, caregiver expectancy and credibility should be measured before meaningful exposure to the intervention and again if appropriate. The exact measure must be selected for suitability to caregiver-rated pediatric digital interventions rather than assumed valid by analogy with adult psychotherapy studies. Teacher or blinded assessor outcomes should be included where feasible.

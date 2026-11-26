@@ -1,9 +1,14 @@
-# MSC-ADHD-P03 — Wpływ obustronnej stymulacji słuchowej na regulację
+# MSC-ADHD-P03
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+Alternating Bilateral Auditory Stimulation During Regulation Training in Children With ADHD: A Mechanism-Focused Experimental Framework
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `ACTIVE`.
+**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+**Status:** Prospective manuscript; not a completed study. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+- [Manuscript](main.tex)
+- [Study record](study.md)
+- [Bibliography](references.bib)
+- [Original licensing policy](ORIGINAL_LICENSING.md)
+
+Build locally with APA 7, latexmk and Biber; disable shell escape.

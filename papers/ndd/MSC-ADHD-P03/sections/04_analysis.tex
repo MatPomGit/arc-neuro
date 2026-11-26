@@ -1,0 +1,28 @@
+\section{Analysis and Falsification}
+
+\subsection{Primary contrast and time origin}
+
+The target population comprises events declared eligible before condition assignment on a qualified phone and headphone configuration. The primary comparison follows randomized assignment to A or B, including assigned events in which the child subsequently stops the sound. Recovery monitoring begins at the same protocol-defined anchor in both conditions; equal-length auditory exposure before this anchor is assessed separately as \(T_{\mathrm{pre}}\). A common prespecified observation horizon \(\tau\), or a challenge-stratum-specific horizon set before allocation, bounds the comparison. A condition must not receive a longer opportunity to recover than its comparator.
+
+For child \(i\) and condition \(a\in\{A,B\}\), let \(S_{ia}(t)\) denote the probability that a qualifying recovery has not yet occurred by monitoring time \(t\), under the prespecified recovery rule and measurement-context lock. The participant-weighted primary estimand is the difference in restricted mean recovery time,
+\[
+\Delta_{AB}
+= \mathbb{E}_{i}\left[
+\int_0^\tau S_{iA}(t)\,\mathrm{d}t
+-
+\int_0^\tau S_{iB}(t)\,\mathrm{d}t
+\right].
+\]
+Negative values favor A. Each child contributes equally to the target average regardless of the number of eligible events; this avoids allowing a high-volume child to dominate the estimand. The exact recovery feature model, horizon and eligibility rule must be frozen before this substudy. This is a proximal event-level contrast, not an ADHD symptom or daily-life benefit estimand.
+
+\subsection{Censoring, stops and missingness}
+
+An event monitored without qualifying recovery through \(\tau\) contributes right-censored recovery time at \(\tau\); it is not recorded as an observed recovery at the horizon. Earlier administrative loss of observation is retained as censoring only when its cause is documented and an independent-censoring assumption is defensible. A child-requested stop, discomfort, sensory overload or a safety override is an intercurrent event and a tolerability outcome, not an ordinary independent censor or an outcome-dependent exclusion. The primary analysis must prespecify a composite failure strategy that assigns such an event no qualifying recovery before \(\tau\), and report stop rates by randomized arm. The resulting contrast measures recovery burden under tolerable delivery, rather than a pure latency effect among children who accept sound.
+
+Telemetry loss or a broken measurement-context lock leaves recovery status unknown and is classified separately from both right-censoring and safety stops. The event remains in the randomized denominator, with missingness and reasons reported by condition and child. The analysis plan must specify a missing-data strategy and sensitivity bounds that vary outcomes for these events before inspecting condition effects. If differential missingness makes the primary contrast uninterpretable, the result is inconclusive rather than evidence for A. An as-delivered, technically valid event analysis is secondary and cannot replace the assignment-based contrast.
+
+\subsection{Estimation and falsification}
+
+The analysis will account for randomization blocks, repeated events within sessions and clustering by child. A prespecified restricted-mean survival estimator, with child-level uncertainty intervals and any adjustment restricted to preassignment variables, will be selected in the final analysis plan. Sample-size and precision planning must use the actual allocation, number of children, events per child, censoring and stop-rate assumptions; no power or effect size is claimed here. The \(B-C\) contrast is secondary. \(T_{\mathrm{pre}}\), \(T_{\mathrm{total}}\), unrecovered-event frequency, task accuracy, comfort and distraction are reported alongside the primary contrast. Order, session and recent exposure are prespecified diagnostics for carryover, not opportunities to select a favorable subgroup after inspection.
+
+A bilateral-specific benefit requires a negative \(\Delta_{AB}\) with uncertainty narrow enough to exclude a prespecified practically negligible effect, acceptable tolerability, and consistency across sessions. That useful-effect threshold and the decision rule must be frozen before outcome access. The claim is not supported if A does not outperform B, if a credible difference depends on order or carryover, or if stops and distraction outweigh a latency gain. Similar improvements of A and B relative to C support a general auditory or pacing explanation. Wide intervals are inconclusive and must not be described as proof of no effect. Exploratory subgroup analyses require independent replication.

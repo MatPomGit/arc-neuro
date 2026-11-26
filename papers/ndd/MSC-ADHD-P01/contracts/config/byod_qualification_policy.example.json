@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1",
+  "status": "candidate_phase0_not_frozen",
+  "qualification_rule_version": "byod-candidate-0.1",
+  "mandatory_checks": [
+    "runtime_compatible",
+    "ui_layout_passed",
+    "touch_passed",
+    "monotonic_clock_passed",
+    "local_storage_passed",
+    "offline_session_passed",
+    "benchmark_passed",
+    "pause_stop_passed",
+    "background_resume_passed"
+  ],
+  "optional_capabilities": {
+    "ordinary_audio_available": "visual_fallback",
+    "haptics_available": "no_haptic_fallback"
+  },
+  "qualification_outcomes": [
+    "qualified_core",
+    "qualified_with_fallbacks",
+    "not_qualified"
+  ],
+  "requalification_triggers": [
+    "first_installation",
+    "scientifically_relevant_app_update",
+    "detected_os_update",
+    "material_capability_profile_change",
+    "repeated_runtime_or_timing_failure",
+    "researcher_requested"
+  ],
+  "privacy_forbidden_identifiers": [
+    "imei",
+    "hardware_serial",
+    "android_id",
+    "advertising_id",
+    "mac_address",
+    "account_identifier",
+    "precise_location"
+  ],
+  "notes": [
+    "The evaluator uses capability/self-test results, not manufacturer or model.",
+    "Optional capability absence can produce a qualified_with_fallbacks outcome.",
+    "Thresholds internal to benchmark_passed are frozen separately after cross-device technical testing."
+  ]
+}

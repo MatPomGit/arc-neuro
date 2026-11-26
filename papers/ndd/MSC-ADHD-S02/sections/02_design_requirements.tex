@@ -1,0 +1,24 @@
+\section{Design Requirements}
+
+The schema follows seven requirements.
+
+\subsection{Event provenance}
+Every reportable event identifies intervention/software version, schema version, session, configuration hash, monotonic timing domain, and the feature-model or decision-rule version that produced derived states.
+
+\subsection{Descriptive logging before inference}
+Records preserve target class, expected response, actual response, timing eligibility, and controller reason codes rather than only an opaque performance score.
+
+\subsection{Explicit measurement context}
+A recovery estimate is valid only relative to the reference state and rule under which it is defined. The event therefore carries the target-rule reference identity, recovery-model identity, threshold parameters, and measurement-context version.
+
+\subsection{Missingness is not censoring}
+Telemetry loss, invalid timing, interruption, and right-censoring have different meanings and are represented separately.
+
+\subsection{Monotonic within-session time}
+Recovery duration is reconstructed from a monotonic time base rather than wall-clock time.
+
+\subsection{Replayable adaptation}
+The state required to explain an adaptive decision must be reconstructable from the event sequence plus versioned configuration.
+
+\subsection{Privacy-minimizing identifiers}
+Participant and installation identifiers are pseudonymous. The telemetry contract does not require IMEI, Android ID, MAC address, advertising identifier, or direct hardware identity.

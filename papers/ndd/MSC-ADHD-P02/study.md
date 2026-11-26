@@ -29,3 +29,17 @@
 Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
 
 Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.
+
+
+## Imported manuscript and scientific contracts
+
+The complete source is [main.tex](main.tex). Prospective manuscript; not a completed study. The following contract snapshots complement the manuscript; their presence does not authorize participant recruitment.
+
+- [contracts/docs/core_statistical_analysis_plan.md](contracts/docs/core_statistical_analysis_plan.md)
+- [contracts/docs/data_management_plan.md](contracts/docs/data_management_plan.md)
+- [contracts/docs/ethics_safety_regulatory.md](contracts/docs/ethics_safety_regulatory.md)
+- [contracts/docs/local_facial_feedback.md](contracts/docs/local_facial_feedback.md)
+- [contracts/docs/measurement_and_telemetry.md](contracts/docs/measurement_and_telemetry.md)
+- [contracts/docs/safety_interaction_rules.md](contracts/docs/safety_interaction_rules.md)
+- [contracts/docs/statistical_reporting_policy.md](contracts/docs/statistical_reporting_policy.md)
+- [contracts/docs/telemetry_specification.md](contracts/docs/telemetry_specification.md)

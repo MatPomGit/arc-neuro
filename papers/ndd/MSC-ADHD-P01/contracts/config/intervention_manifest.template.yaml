@@ -1,0 +1,147 @@
+manifest_schema: "0.5"
+status: "template"
+study_stage: "UNSET"
+study_id: "UNSET"
+repository_commit: "UNSET"
+
+intervention:
+  name: "ARC-ADHD core"
+  version: "UNSET"
+  intended_role: "research prototype"
+  session_duration_minutes:
+    target: 20
+    allowed_range: [15, 20]
+  sessions_per_week: "UNSET"
+  intervention_weeks: "UNSET"
+
+byod_compatibility:
+  qualification_rule_version: "UNSET"
+  compatibility_policy_version: "UNSET"
+  private_android_phone_required: true
+  dedicated_research_phone_required: false
+  core_camera_required: false
+  core_microphone_required: false
+  core_precise_location_required: false
+  core_ar_required: false
+  core_haptics_required: false
+  capability_profile_schema: "0.2"
+  profile_template: "config/device_profile.phase0.template.json"
+
+core_task:
+  task_id: "UNSET"
+  task_version: "UNSET"
+  executive_constructs: []
+  difficulty_parameters: []
+  response_metrics:
+    - accuracy
+    - response_latency
+    - rule_error
+
+challenge:
+  eligibility_rule_version: "UNSET"
+  types:
+    - rule_switch
+    - recoverable_error
+    - temporary_interruption
+    - unexpected_non_threatening_change
+  minimum_interchallenge_interval_ms: "UNSET"
+  safety_suppression_rule_version: "UNSET"
+
+regulation:
+  sequence:
+    - pause
+    - orient
+    - select_strategy
+    - regulate
+    - monitor_recovery
+    - resume_goal
+  strategy_library_version: "UNSET"
+  strategies:
+    - paced_breathing
+    - muscle_release
+    - grounding
+    - attentional_redeployment
+    - simple_reappraisal
+    - problem_solving
+    - controlled_brief_movement
+
+sensory:
+  visual:
+    required: true
+    cue_set_version: "UNSET"
+  audio:
+    required: false
+    bilateral: false
+    cue_set_version: "UNSET"
+  haptic:
+    required: false
+    cue_set_version: "UNSET"
+
+adaptation:
+  controller_version: "UNSET"
+  hierarchy:
+    - safety_override
+    - explicit_child_request
+    - sensory_overload
+    - task_performance
+    - recovery_state
+    - research_randomization
+    - ordinary_progression
+  cognitive_difficulty_separate_from_sensory_load: true
+  ordinary_adaptation_suspended_during_recovery_monitoring: true
+
+recovery:
+  feature_candidate_space: "config/recovery_feature_candidates.phase0.json"
+  selected_model_id: "UNSET"
+  definition_version: "UNSET"
+  feature_set: []
+  feature_signs: {}
+  feature_weights: {}
+  reference_window_ms: "UNSET"
+  delta: "UNSET"
+  stability_window_unit: "score_updates"
+  stability_window_updates: "UNSET"
+  latency_origin: "recovery_monitoring_onset"
+  report_pre_monitoring_latency: true
+  report_total_return_latency: true
+  censor_limit_ms: "UNSET"
+  missing_feature_policy: "UNSET"
+  measurement_context_lock_version: "UNSET"
+  measurement_context_fields:
+    - task_rule_id
+    - cognitive_difficulty
+    - sensory_load
+    - response_window_ms
+    - stimulus_distribution_id
+    - cue_condition
+  invalidate_on_score_relevant_context_change: true
+  timing_feature_eligibility_recorded: true
+  target_rule_recovery_reference_required_for_all_models: true
+  timing_reference_provenance_required_for_timing_models: true
+
+telemetry:
+  schema_version: "0.6.0"
+  recovery_event_schema: "schemas/recovery_event.schema.json"
+  monotonic_session_clock: true
+  direct_identifiers_allowed: false
+  raw_continuous_video: false
+  raw_continuous_audio: false
+
+excluded_modules:
+  facial_adaptation: true
+  bilateral_audio: true
+  augmented_reality: true
+  embodied_transfer_manipulation: true
+  outdoor_geolocation: true
+
+active_control:
+  manifest_version: "UNSET"
+  specification: "docs/active_control_specification.md"
+
+governance:
+  ethics_status: "UNSET"
+  data_protection_status: "UNSET"
+  clinical_lead: "UNSET"
+  statistical_lead: "UNSET"
+  version_locked: false
+  lock_date: null

@@ -1,0 +1,105 @@
+\section{Staged Evaluation Programme}
+
+The development programme is explicitly separated from a future confirmatory protocol. This sequencing is consistent with contemporary guidance for complex interventions, which emphasizes iterative development, explicit theory, context, stakeholder input, feasibility, and uncertainty before definitive evaluation \parencite{skivington2021complex}.
+
+\input{figures/fig3_research_program}
+
+\subsection{Claim boundary by development stage}
+
+The same numerical result has different meaning at different stages. Table~\ref{tab:stage-claims} defines the permitted claim boundary before describing each phase.
+
+\begingroup
+\small
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{p{1.8cm}p{3.0cm}p{3.6cm}p{3.6cm}}
+\caption{Permitted claims across ARC-ADHD development stages}\label{tab:stage-claims}\\
+\toprule
+Stage & Primary purpose & Claims permitted & Claims not permitted \\
+
+\midrule
+\endfirsthead
+\toprule
+Stage & Primary purpose & Claims permitted & Claims not permitted \\
+
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+Phase 0 & Co-design, construct operationalization, technical/safety validation & Comprehension, tolerability, measurability, telemetry validity, parameter stability, BYOD qualification feasibility & Clinical efficacy, superiority, therapeutic effectiveness \\
+Phase 1 & Feasibility & Recruitment, retention, adherence, missingness, safety, recovery-distribution and implementation feasibility & Confirmatory treatment effect or proof of mechanism \\
+Phase 2 & Pilot randomized trial & Effect/variance estimation, treatment separation, active-control response, missingness and design parameters for a definitive trial & Binary efficacy declaration based on nominal significance \\
+Phase 3 & Confirmatory randomized trial & Prespecified causal treatment contrast on the frozen primary endpoint and prespecified secondary/mechanistic analyses & Post hoc endpoint substitution or reinterpretation of null primary results through exploratory outcomes \\
+\end{longtable}
+\endgroup
+
+\subsection{Phase 0: co-design and construct validation}
+
+Phase 0 evaluates comprehension, acceptability, challenge semantics, strategy prompts, sensory tolerability, and the stability of recovery-score construction. A provisional target of approximately 12--20 child-caregiver dyads can be used across iterative rounds, with stopping based on predefined design-coverage criteria and absence of new critical safety or comprehension failures across consecutive rounds rather than on efficacy statistics.
+
+The first recovery-measure round restricts eligible mechanistic events to explicit Signal Gate A\(\leftrightarrow\)B rule switches. Both rule mappings are calibrated before eligible challenges, and challenge eligibility is decided before observing the post-switch response. Core event eligibility is recorded separately from timing-feature eligibility so that BYOD timing limitations remain observable rather than being hidden through post hoc event deletion. The pre-Phase 0 recovery feature space is restricted to \(B\), \(B+S\), \(B+V\), and \(B+S+V\), with model selection based only on prespecified measurement gates.
+
+Clinical or developmental expertise must be represented in this phase. Collaboration should be substantive. Authorship is determined by contribution rather than added as a credibility device.
+
+Key Phase 0 gates include whether at least 85\% of children can complete the challenge-regulation-recovery sequence after onboarding with no more than one neutral prompt, whether at least 90\% of eligible challenge events yield either a valid recovery time or an explicit right-censoring status, whether telemetry captures at least 95\% of required event fields, and whether the BYOD qualification/fallback process is operationally usable across the observed private-phone sample. These thresholds are project design targets rather than universal published cut-offs and must be ratified before the phase begins.
+
+\subsection{Phase 1: feasibility}
+
+A feasibility cohort of approximately 20--30 participants is intended to estimate recruitment, retention, completed dose, telemetry completeness, overload, adverse events, task comprehension, and the distribution/censoring of \(T_{\mathrm{rec}}\). This sample is not powered to establish efficacy.
+
+Randomized pilot and feasibility guidance emphasizes that progression criteria should be prespecified and should address whether a future definitive trial can and should proceed, rather than whether a preliminary efficacy test is statistically significant \parencite{eldridge2016pilot,avery2017progression,mellor2021progression}.
+
+The provisional traffic-light framework is summarized in Table~\ref{tab:progression}. The numerical values are intentionally conservative project targets selected to protect interpretability and participant burden. They must be reviewed by the clinical and statistical team before recruitment and cannot be relaxed after inspection of Phase 1 outcomes simply to permit progression.
+
+\begingroup
+\small
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{p{3.0cm}p{3.0cm}p{3.0cm}p{3.0cm}}
+\caption{Provisional Phase 1 progression criteria}\label{tab:progression}\\
+\toprule
+Domain & Green: go & Amber: amend & Red: stop/reconsider \\
+
+\midrule
+\endfirsthead
+\toprule
+Domain & Green: go & Amber: amend & Red: stop/reconsider \\
+
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+Recruitment & \(\geq 80\%\) of planned participants-per-site-per-month rate & 60--79\% & \(<60\%\) \\
+Retention to post & \(\geq 80\%\) & 65--79\% & \(<65\%\) \\
+Dose completion & \(\geq 75\%\) of participants complete \(\geq 75\%\) of sessions & 55--74\% meet dose & \(<55\%\) meet dose \\
+Telemetry completeness & \(\geq 95\%\) of sessions complete for mechanistic fields & 85--94\% & \(<85\%\) \\
+Valid recovery records & \(\geq 85\%\) of eligible events & 70--84\% & \(<70\%\) \\
+Recovery censoring & \(\leq 25\%\) of eligible events & 26--40\% & \(>40\%\) \\
+Overload termination & \(\leq 10\%\) of sessions & \(>10\)--20\% & \(>20\%\) \\
+BYOD technical feasibility & Prespecified qualification target met; fallbacks and profile changes auditable & Target missed for a remediable device/OS subgroup & Compatibility or timing heterogeneity makes the planned mechanistic analysis uninterpretable \\
+\end{longtable}
+\endgroup
+
+Any intervention-related serious adverse event or recurrent unmitigated safety pattern overrides the traffic-light table and triggers independent review.
+
+\subsection{Phase 2: pilot randomized trial}
+
+The pilot compares a frozen ARC-ADHD build with an active-control game while treatment as usual remains unchanged. Both arms use the same frozen BYOD compatibility policy and private-phone qualification procedure. The active control should match contact time, phone interaction, visual quality, reward density, and general engagement without reproducing the challenge-regulation-recovery sequence.
+
+The pilot is designed to estimate recruitment under randomization, retention, missingness, outcome variance, baseline-follow-up correlation, active-control response, treatment separation, and effect uncertainty. It is not progressed because a nominal clinical \(p\)-value is favorable. Published sample-size guidance can inform the design, but no single rule such as a fixed number of participants per group is universally appropriate \parencite{whitehead2016pilot}.
+
+\subsection{Phase 3: confirmatory randomized trial}
+
+Only after the intervention, primary endpoint, active control, recovery definition, safety rules, and analysis plan are frozen should a confirmatory RCT be designed. Its sample size should be based on a prespecified minimally important effect, expected variance, repeated-measures correlation, attrition, and multiplicity strategy rather than the pilot point estimate alone.
+
+The confirmatory protocol should be prospectively registered and reported according to SPIRIT 2025 \parencite{chan2025spirit}. The intervention description should satisfy TIDieR \parencite{hoffmann2014tidier}, and the completed randomized trial should be reported using CONSORT 2025 \parencite{hopewell2025consort}. Recruitment must not begin before applicable ethics approval and registration requirements are met.
+
+\subsection{Polish implementation context}
+
+The initial planned research setting is Poland. Recruitment sites, ethics-review body, validated Polish versions of all participant-facing measures, consent language, and data-controller responsibilities must be specified before the first participant is enrolled. Where a validated Polish instrument is unavailable, the project must not silently treat an ad hoc translation as equivalent to a validated measure.

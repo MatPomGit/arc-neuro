@@ -1,66 +1,24 @@
-\documentclass[11pt,a4paper]{article}
-
-\usepackage[utf8]{inputenc}
-
-\usepackage[T1]{fontenc}
-
-\usepackage[polish]{babel}
-
-\usepackage{lmodern}
-
-\usepackage{geometry}
-
-\geometry{margin=27mm}
-
-\usepackage[hidelinks]{hyperref}
-
-\title{Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych}
-
-\author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
-
+\documentclass[man]{apa7}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\addbibresource{references.bib}
+\title{Wearable and Low-Density EEG for Task-Locked Monitoring in ADHD and Pediatric Neurodevelopmental Research: A Systematic Scoping Review}
+\shorttitle{Wearable EEG for Task-Locked Monitoring}
+\authorsnames{Mateusz Pomianek}
+\authorsaffiliations{{Department of Computer Science and Automation, Rzeszów University of Technology, Rzeszów, Poland}}
+\keywords{wearable EEG, ADHD, pediatric neurodevelopment, event synchronization, artifact control, low-density EEG, digital intervention}
+\input{sections/00_abstract}
 \begin{document}
-
 \maketitle
-
-\begin{abstract}
-
-Tematem pracy jest Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
-\end{abstract}
-
-\section{Wprowadzenie}
-
-Kontekst obserwacji i wieloźródłowość ocen są kluczowe w interpretacji zachowania i zjawisk neurorozwojowych. Zagadnienie Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
-
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
-
-\section{Materiał i metody}
-
-Przegląd zakresowy publikacji o mobilnym niskokanałowym EEG w zadaniach poznawczych. Pierwszorzędowy wskaźnik: Mapa jakości dowodów dla synchronizacji, artefaktów i wyników funkcjonalnych. Nie przedstawia się przeprowadzonych analiz ani uzyskanych wyników. Przed realizacją konieczne jest określenie źródeł materiału, kryteriów jakości, zasad reprodukowalności i licencji.
-
-\section{Plan analizy}
-
-Proponowany plan analityczny: protokół wyszukiwania, podwójna ekstrakcja i krytyczna ocena metod. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
-
-\section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
-
-\section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+\input{sections/01_introduction}
+\input{sections/02_methods}
+\input{sections/03_measurement_framework}
+\input{sections/04_results}
+\input{sections/05_discussion}
+\input{sections/06_conclusion}
+\printbibliography[title={References}]
 \end{document}
-

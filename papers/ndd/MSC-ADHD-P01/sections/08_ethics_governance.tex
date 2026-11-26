@@ -1,0 +1,35 @@
+\section{Ethics, Data Governance, and Regulatory Boundaries}
+
+\subsection{Research status and clinical oversight}
+
+ARC-ADHD is a research prototype. It does not diagnose ADHD, replace established clinical care, or currently make a therapeutic product claim. The present paper does not state that ethics approval has been obtained. No child-participant recruitment should begin until the relevant Polish ethics-review process, institutional data-protection review, and study documentation are complete.
+
+Clinical and developmental expertise is required before participant-facing phases. The project should involve clinicians or psychologists in construct validation, safety procedures, inclusion/exclusion criteria, adverse-event review, and interpretation. Authorship should follow actual scholarly contribution.
+
+\subsection{Consent and assent}
+
+Participation requires informed permission from the parent or legal guardian and age-appropriate assent from the child. Refusal or withdrawal by the child must stop research procedures even when parental permission exists, subject to applicable legal and ethics requirements.
+
+Nonessential modules must use separable consent choices where scientifically feasible. In particular, the facial-feedback companion study uses a distinct opt-in rather than making camera processing a condition for access to the core intervention.
+
+\subsection{GDPR and data minimization}
+
+The project is designed in the European context and must comply with the General Data Protection Regulation and applicable Polish law. ADHD diagnosis and study variables that reveal mental or physical health status can constitute data concerning health. Biometric data receive special treatment under the GDPR when processed for the purpose of uniquely identifying a person. The ARC-ADHD programme therefore does not use facial processing for identity recognition and must not imply that every facial landmark is automatically an identification biometric \parencite{eu2016gdpr}.
+
+The data-protection impact assessment, lawful basis, Article 9 condition where applicable, retention schedule, pseudonymization procedure, access control, processor agreements, and withdrawal/deletion procedures must be specified with the institutional data protection officer before data collection.
+
+\subsection{Digital inclusion and private-device heterogeneity}
+
+The programme deliberately adopts bring-your-own-device delivery from Phase 0. This improves ecological realism and avoids dependence on a dedicated study handset, but it makes hardware compatibility and access part of the feasibility question rather than eliminating them by design. The study therefore uses a frozen compatibility policy, on-device qualification, privacy-minimized capability profiling, fallbacks for optional modalities, and explicit requalification after material device or operating-system changes.
+
+The proportion of screened private phones that are fully qualified, qualified with fallbacks, or not qualified should be reported. Nonqualification reasons and coarse capability/performance classes should be monitored for systematic exclusion. Device serial numbers, IMEI, Android identifiers, advertising identifiers, account identifiers, installed-app lists, precise location, and unrelated personal media are not required for the core research record. Timing-sensitive outcomes must be interpreted with explicit attention to device/profile changes rather than assuming identical measurement properties across private phones.
+
+\subsection{Regulatory boundary}
+
+Software may fall within the European medical-device framework depending on its intended purpose. The present research framework therefore avoids assuming either that ARC-ADHD is a medical device or that it is outside the MDR. Classification should be assessed when the intended purpose and product claims are fixed \parencite{eu2017mdr}.
+
+Likewise, use of adaptive algorithms does not automatically make ARC-ADHD a high-risk AI system. Under the EU AI Act, classification depends on the intended use and, for product-linked systems, on conditions including whether the AI is a safety component or regulated product subject to the relevant conformity-assessment pathway \parencite{eu2024aiact}. Regulatory analysis must therefore follow the eventual deployed functionality rather than the research label.
+
+\subsection{Safety and engagement}
+
+The core application contains no advertising, loot boxes, streak-loss penalties, coercive engagement mechanics, or dark patterns. Explicit discomfort, overload, repeated failure, or safety events trigger simplification or termination of the current challenge. The adaptive controller logs why each high-level change occurred.

@@ -1,0 +1,29 @@
+\section{Challenge--Regulation--Recovery Event Model}
+
+Let a recovery event $R_j$ be represented as
+\[
+R_j = \langle I_j, C_j, A_j, Q_j, O_j, V_j \rangle,
+\]
+where $I_j$ is the eligibility/reference state, $C_j$ the challenge description, $A_j$ the ordered regulation-action sequence, $Q_j$ the recovery-assessment trajectory, $O_j$ the terminal outcome and censoring state, and $V_j$ the version/provenance context.
+
+Each element is represented by concrete telemetry events rather than inferred retrospectively from a single summary row. The reference implementation uses a JSON Schema contract and validates cross-field semantic invariants in addition to basic JSON types.
+
+\subsection{Versioned structural inventory}
+The recovery-event summary contract is distinct from the ordered telemetry stream and the controller replay fixtures. At the schema snapshot used for this manuscript, the top-level JSON Schema declares 41 properties, 32 of which are required, and the constant \texttt{schema\_version} is \texttt{0.6.0}. Table~\ref{tab:s02-schema-fields} is generated directly from the canonical schema (Git blob \texttt{0a7ee0a3c7e8db771d64c2aa188692fbe0f6c751}), not transcribed by hand. It summarizes only top-level declarations; nested constraints and cross-field semantic checks must be inspected in the schema and validator. This is a pinned descriptive snapshot for reproducibility, not a claim that the participant-facing protocol, export policy, or recovery construct has been prospectively frozen.
+
+\input{tables/schema_fields}
+
+\subsection{Eligibility and reference state}
+Before a challenge is eligible, the system records the task rule, immediate eligibility window, separate recovery-reference identity, timing-feature eligibility, and frozen challenge-rule version. This prevents a preswitch eligibility window from being silently reused as the recovery baseline when the protocol defines a different reference.
+
+\subsection{Challenge and regulation}
+Challenge onset receives a persistent event identifier. Regulation actions reference that identifier and include onset, action type, source of selection, and controller reason.
+
+\subsection{Recovery trajectory}
+Recovery is represented as repeated assessments of a versioned feature model rather than a single post hoc latency. The schema records component deficits, threshold, stability-window progress, and criterion state.
+
+\subsection{Terminal outcome}
+A terminal state specifies whether recovery was observed, right-censored, invalidated, interrupted, or unavailable because required telemetry was missing.
+
+\subsection{Version context}
+The event carries schema, intervention, configuration, device-qualification and measurement-rule versions so events remain interpretable after the application evolves.

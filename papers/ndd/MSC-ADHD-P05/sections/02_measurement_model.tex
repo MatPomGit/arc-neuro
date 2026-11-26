@@ -1,0 +1,69 @@
+\section{EEG Measurement Model}
+
+\subsection{Two distinct references}
+
+The immediate preswitch task state and the target postswitch rule serve different measurement purposes.
+
+The immediate preswitch interval is used to quantify \emph{challenge reactivity}. For band \(b\) and channel \(c\),
+
+\[
+R_{bc}^{(e)}
+=
+\log P_{bc,\mathrm{challenge}}^{(e)}
+-
+\log P_{bc,\mathrm{prechallenge}}^{(e)}.
+\]
+
+Recovery cannot use the same reference without qualification because Signal Gate changes the GO/NO-GO mapping. A stable calibration exposure to the target postswitch rule therefore supplies the recovery reference.
+
+\subsection{Candidate spectral family}
+
+The initial candidate bands are delta 1--4~Hz, theta 4--8~Hz, alpha 8--13~Hz, beta 13--30~Hz, and low gamma 30--45~Hz. These ranges are analysis conventions rather than one-to-one psychological states. Theta, alpha, and beta form the primary spectral family; delta and low gamma are secondary, with low gamma receiving stricter electromyographic-artifact scrutiny.
+
+Theta/beta ratio is not a privileged primary endpoint and must not be interpreted as an ADHD diagnostic biomarker.
+
+\subsection{Neural distance from the target-rule reference}
+
+For quality-passed feature \(j=(b,c)\),
+
+\[
+z_j(t)
+=
+\frac{
+\log P_j(t)
+-
+\operatorname{median}\!\left(\log P_{j,\mathrm{ref,target}}\right)
+}{
+1.4826\,\operatorname{MAD}\!\left(\log P_{j,\mathrm{ref,target}}\right)
++
+\epsilon_j
+}.
+\]
+
+Define the robust neural distance
+
+\[
+D_{\mathrm{EEG}}(t)
+=
+\operatorname{median}_{j\in Q(t)}
+\left|z_j(t)\right|,
+\]
+
+where \(Q(t)\) contains only features passing the frozen signal-quality rule.
+
+A candidate neural recovery latency is
+
+\[
+T_{\mathrm{EEG}}^{(e)}
+=
+\inf
+\left\{
+\tau \ge 0:
+D_{\mathrm{EEG}}(t)\le\delta_{\mathrm{EEG}}
+\text{ for }
+w_{\mathrm{EEG}}
+\text{ consecutive windows}
+\right\}.
+\]
+
+Its time origin is the same \texttt{RECOVERY\_MONITORING} onset used by the core behavioral recovery endpoint. The EEG threshold, valid-feature requirement, stability count, and censoring rule are calibrated from measurement properties only. They cannot be selected to maximize association with behavioral \(T_{\mathrm{rec}}\), external symptoms, or treatment response.
