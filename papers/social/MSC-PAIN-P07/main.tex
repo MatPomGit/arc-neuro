@@ -19,7 +19,7 @@
 Przedstawiono projekt eksperymentu online, w którym uczestnik rozstrzyga, czy zaakceptować osobisty koszt w zamian za korzyść anonimowego odbiorcy. Niezależnie zmieniają się koszt, widoczność indywidualnej decyzji i wielkość korzyści odbiorcy. Głównym estymandem jest interakcja kosztu i widoczności na skali warunkowego logarytmu szans. Wzorzec wyborów pozwoli ocenić konkurencyjne przewidywania dotyczące wartości skutku dla odbiorcy i wartości społecznej czynu. Empatia, oczekiwana ocena oraz uwewnętrznione normy pozostają możliwymi wyjaśnieniami. Liczebność planuje się z użyciem symulacji Monte Carlo. Projekt nie obejmuje akwizycji danych neuronalnych ani uzyskanych wyników empirycznych.
 \end{abstract}
 
-\section{Ramy teoretyczne}
+\section{Wprowadzenie}
 Ta sama decyzja może mieć kilka źródeł. Troska o rezultat dla odbiorcy przewiduje większą częstotliwość pomocy przy większej korzyści dla odbiorcy, również przy wyborze prywatnym. Model nieczystego altruizmu dopuszcza niezależną wartość samego udzielenia pomocy \citep{andreoni1990}. Pozytywna reakcja na akt pomocy może współistnieć z troską o odbiorcę. Badania nad empatią i możliwością opuszczenia sytuacji wskazują, jak rozdzielać przewidywania dotyczące troski o drugą osobę i redukcji własnego dyskomfortu \citep{batson1981}. P07 utrzymuje opis odbiorcy i jego potrzebę na stałym poziomie. Korzyść odbiorcy określa skuteczność działania, a empatia nie jest manipulowana.
 
 Widoczność umożliwia ocenę społeczną wykonawcy. Model reputacji i obrazu siebie dopuszcza, że ten sam czyn niesie informację o preferencjach decydenta \citep{benabou2006}. Badania nad motywacją wizerunkową wykorzystują różnicę między działaniem widocznym a prywatnym \citep{ariely2009}. Metaanaliza wskazuje na zależność związku obserwowalności i prospołeczności od kontekstu \citep{bradley2018}. Przy wyborze partnera publiczna hojność może funkcjonować jako sygnał skłonności do współpracy \citep{barclay2007}. P07 bada słabsze przewidywanie: obserwator zna wymagany koszt, więc widoczność może podnosić atrakcyjność kosztownych decyzji silniej niż atrakcyjność decyzji tanich. Obserwator nie wybiera później partnera i nie przyznaje wypłaty. Test dotyczy zatem sygnalizacji ocenianej przez odbiorcę sygnału, bez testowania opłacalności w równowadze sygnalizacyjnej.
@@ -66,7 +66,7 @@ MSC-PAIN-P02 zakłada pomiar lęku przed szczęściem i przyszłością oraz ana
 
 Wkład względem literatury polega na wspólnym teście w tym samym zadaniu, z osobnymi osiami kosztu i korzyści oraz obserwatorem bez prawa do rewanżu. Literatura obejmuje już manipulacje widocznością, wybór partnera, efektywność pomocy i ocenę norm. Przegląd ukierunkowany nie ustanawia pierwszeństwa. W niniejszym projekcie o jego wartości informuje zdolność oszacowania interakcji kosztu i widoczności przy stałej korzyści odbiorcy.
 
-\section{Eksperyment online}
+\section{Materiał i metody}
 Schemat wewnątrzosobniczy $2\times2\times2$ obejmuje 24 próby, po trzy na kombinację. Decyzja ma dwie opcje. A zachowuje 6 zł bonusu decydenta i nie dodaje bonusu odbiorcy. B pomniejsza bonus decydenta o 1 lub 4 zł oraz zwiększa bonus anonimowego odbiorcy o 2 lub 5 zł, z niezależnego budżetu. Odbiorca nie zna decyzji ani tożsamości decydenta. Prywatność oznacza brak ujawnienia decyzji obserwatorowi. W warunku widocznym niezależny obserwator otrzymuje jednorazowy kod, obydwie opcje i decyzję w jednej wylosowanej do realizacji próbie. Widzi również odmowę, jeżeli wybrano A. Dane badawcze są pseudonimizowane w obu warunkach. Obserwator nie kontaktuje się z decydentem.
 
 Kolejność 24 prób losuje się jednolicie z wielozbioru kombinacji, niezależnie dla każdej osoby. Pozycję opcji równoważy się losowo między osobami. Po zakończeniu losuje się jedną z 24 prób z równymi szansami do realizacji. Kwoty nie kumulują się. Dzięki temu widoczność i koszt jednej decyzji nie zmieniają budżetu pozostałych prób. Możliwe pozostają efekty porównywania warunków, przeniesienia i uczenia się. Instrukcje są neutralne i identyczne poza informacją o skutkach oraz ujawnieniu decyzji. Przed zadaniem badany przechodzi sprawdzian rozumienia reguł bez presji czasu. Po nim ocenia wiarygodność ujawnienia, oczekiwaną aprobatę i stosowność, bez wpływu na wypłatę. Oceny są wskaźnikami pomocniczymi bez deklarowanej trafności psychometrycznej.
@@ -89,6 +89,8 @@ Kolejność 24 prób losuje się jednolicie z wielozbioru kombinacji, niezależn
 Wariant hipotetyczny umożliwia bezpłatne sprawdzenie rozumienia zadania i użyteczności interfejsu. Daje estymand dla deklarowanych wyborów w opisie sytuacji. Hipotetyczny koszt i hipotetyczna ocena mogą zmniejszać stawkę decyzji w różnym stopniu, więc kierunku zmiany interakcji H1 nie można ustalić z góry. Wariant rozstrzygający dotyczy rzeczywistych konsekwencji finansowych i ujawnienia. Wymaga zabezpieczenia do 10 zł na decydenta i odbiorcę łącznie, osobno wynagrodzenia za udział, kosztów obserwatorów i obsługi płatności. Dla 320 decydentów górny limit bonusów wynosi 3200 zł, a dla 640 wynosi 6400 zł. Brak finansowania odracza ten wariant. Możliwość wykonania zdalnego wymaga testu przypisania pseudonimów, logowania losowań i realizacji wypłat.
 
 \section{Plan analizy}
+\noindent Pierwszorzędowy wskaźnik: wybór kosztownej opcji B.
+
 Jednostką obserwacji jest próba, jednostką klastrowania osoba. Wynik $Y_{it}=1$ oznacza wybór B. Czynniki $C,V,B$ przyjmują wartości $-0{,}5$ i $+0{,}5$, gdzie dodatni poziom oznacza wyższy koszt, widoczność lub większą korzyść. Model ma pełną strukturę czynnikową:
 \begin{align*}
 Y_{it}\mid u_i&\sim \operatorname{Bernoulli}(p_{it}), \qquad u_i\sim N(0,\sigma^2),\\
@@ -97,12 +99,14 @@ Y_{it}\mid u_i&\sim \operatorname{Bernoulli}(p_{it}), \qquad u_i\sim N(0,\sigma^
 \end{align*}
 Główny kontrast H1 to $\beta_{CV}>0$. Kontrasty H2 i H3 to odpowiednio $\beta_B-\beta_{VB}/2>0$ i $\beta_C<0$. Przyjmujemy dwustronny test Walda $\alpha=0{,}05$ i wymagamy zgodnego znaku. Dwa wtórne testy tworzą osobną rodzinę Holma. Pozostałe interakcje i standaryzowane predykcje prawdopodobieństw są opisowe. Raport obejmuje estymaty, 95\% przedziały i osiem prawdopodobieństw wyboru po scałkowaniu po rozkładzie efektu losowego. Iloraz ilorazów szans $\exp(\beta_{CV})$ jest warunkowy. Nie można go utożsamić z różnicą różnic prawdopodobieństw.
 
-Do analizy wchodzą dostępne decyzje po randomizacji. Nieukończona próba ma brak wyniku. Oceny manipulacji i czas odpowiedzi nie służą do wykluczania uczestników. Braki mogą zależeć od trudności wyboru lub widoczności, dlatego podstawowe wnioskowanie zależy od zasadności założenia o ignorowalności braków. Protokół określa analizę wzorców rezygnacji, analizę alternatywnej struktury efektów losowych, model odporny na korelację wewnątrzosobniczą i skrajne imputacje ustalone według znaku kontrastu.
+Zamrożenie estymandu i zasad analizy nastąpi przed akwizycją. Do analizy wchodzą dostępne decyzje po randomizacji. Nieukończona próba ma brak wyniku. Oceny manipulacji i czas odpowiedzi nie służą do wykluczania uczestników. Braki mogą zależeć od trudności wyboru lub widoczności, dlatego podstawowe wnioskowanie zależy od zasadności założenia o ignorowalności braków. Protokół określa analizę wzorców rezygnacji, analizę alternatywnej struktury efektów losowych, model odporny na korelację wewnątrzosobniczą i skrajne imputacje ustalone według znaku kontrastu.
 
-\section{Planowanie liczebności i granice wnioskowania}
+\section{Wyniki}
+\subsection{Symulacja liczebności próby}
 Kod Python generuje syntetyczne decyzje, stosuje ten sam model logitowy z losowym wyrazem wolnym i sprawdza dodatni wynik H1. Poziomy efektu 0{,}25, 0{,}40 i 0{,}60 na skali logarytmu ilorazu ilorazów szans stanowią scenariusze projektowe. Scenariusz zerowy kontroluje błąd dodatniego rozstrzygnięcia. Scenariusz heterogeniczny uwzględnia losową wrażliwość na koszt i zwiększony odsetek rezygnacji. Liczebność oznacza uczestników randomizowanych. Zasada wyboru próby wymaga dolnej granicy 95\% przedziału Monte Carlo co najmniej 0{,}80. Nieudane dopasowania zalicza się jako brak rozstrzygnięcia. Wyniki liczbowe zawiera tabela wygenerowana z symulacji.
 \input{power-summary.tex}
 
+\section{Dyskusja i ograniczenia}
 Poziom korzyści może sygnalizować także społeczną stosowność wyboru. Osoby mogą traktować widoczność wobec jednego obserwatora inaczej niż publiczność złożoną ze znajomych. Wybór beneficjenta, rozkład dochodu, poziomy kwot i wiarygodność instrukcji ograniczają uogólnianie. Pilotaż wykonalności ma sprawdzić te elementy przed zamrożeniem protokołu. Stan projektu pozostaje \texttt{PROSPECTIVE}. Nie przeprowadzono rekrutacji ani pomiarów w ramach tej wersji.
 \bibliographystyle{abbrvnat}
 \bibliography{references}

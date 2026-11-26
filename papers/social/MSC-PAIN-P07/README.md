@@ -1,6 +1,6 @@
 # MSC-PAIN-P07 | Eksperymentalne odróżnianie motywów ponoszenia osobistego kosztu
 
-Właściciel naukowy (scientific_owner) i autor: Mateusz Pomianek. Obszar: social. Rodzaj: IDEA. Stan: PROSPECTIVE, wersja 1.0.0 (26.11.2026).
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek. Obszar: social. Rodzaj: IDEA. Stan: PROSPECTIVE, wersja 1.0.0 (26.11.2026).
 
 Katalog zawiera [manuskrypt](main.tex), [kartę badania](study.md), [projekt prerejestracji OSF](preregistration.md), [słownik danych](data-dictionary.csv), [przegląd źródeł i czasopism](evidence.md) oraz [syntetyczne wyniki symulacji](analysis/power.csv). Dane empiryczne nie zostały zebrane.
 

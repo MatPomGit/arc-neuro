@@ -108,6 +108,13 @@ class ManuscriptTexTests(unittest.TestCase):
                                              "H1 jest jedynym testem potwierdzającym",
                                              "akwizycja danych nie została rozpoczęta"):
                                 self.assertIn(required, content)
+                        elif ident == "MSC-PAIN-P07":
+                            self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
+                            self.assertRegex(content, r"\\date\{MSC-PAIN-P07 \\enspace PROSPECTIVE \\enspace wersja 1\.\d+\.\d+")
+                            for required in (r"\subsection{Symulacja liczebności próby}",
+                                             r"\input{power-summary.tex}",
+                                             "Nie przeprowadzono rekrutacji ani pomiarów"):
+                                self.assertIn(required, content)
                         else:
                             self.assertIn("Szkic naukowy, wersja 0.1.1", content)
                     else:
