@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1460" height="1615" viewBox="0 0 1460 1615" role="img" aria-labelledby="prismaTitle prismaDesc">
+<title id="prismaTitle">ARC-ADHD R01 — Preliminary PRISMA-style flow for the automated SciSpace export</title>
+<desc id="prismaDesc">The supplied composite export contains 577 records. Automated title and abstract screening excluded 551 and advanced 26. The nominal next stage marked 23 records included despite missing full text and excluded three. Formal eligibility and included study counts are unknown. This is not a finalized PRISMA 2020 diagram.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto"><path d="M1,1 L8,5 L1,9" fill="none" stroke="#52748D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style><![CDATA[
+  .background {fill:#FFFFFF}
+  .title {font:700 34px "DejaVu Sans",Arial,sans-serif; fill:#173552}
+  .eyebrow {font:700 15px "DejaVu Sans",Arial,sans-serif; letter-spacing:2px;fill:#137782}
+  .subtitle {font:400 17px "DejaVu Sans",Arial,sans-serif; fill:#52657A}
+  .phase {font:700 16px "DejaVu Sans",Arial,sans-serif; fill:#244A68;letter-spacing:.6px}
+  .heading {font:700 22px "DejaVu Sans",Arial,sans-serif; fill:#173552}
+  .number {font:700 30px "DejaVu Sans",Arial,sans-serif; fill:#0B6E77}
+  .body {font:400 17px "DejaVu Sans",Arial,sans-serif; fill:#344D64}
+  .detail {font:400 15px "DejaVu Sans",Arial,sans-serif; fill:#425E74}
+  .small {font:400 14px "DejaVu Sans",Arial,sans-serif; fill:#4C6579}
+  .warning {font:700 17px "DejaVu Sans",Arial,sans-serif; fill:#965015}
+  .pending {font:700 19px "DejaVu Sans",Arial,sans-serif; fill:#76531F}
+  .solid {fill:#F0F6FA; stroke:#7A9DB3;stroke-width:1.5}
+  .side {fill:#F6F9FB; stroke:#B2C4D1;stroke-width:1.4}
+  .chosen {fill:#EAF7F5; stroke:#67A7A8;stroke-width:1.6}
+  .alert {fill:#FFF6EA;stroke:#D8A56D;stroke-width:1.6}
+  .unknown {fill:#FAF9F6;stroke:#B6A282;stroke-width:2;stroke-dasharray:9 7}
+  .arrow {stroke:#52748D;stroke-width:2.4;fill:none;marker-end:url(#arrow)}
+  .connector {stroke:#52748D;stroke-width:2.4;fill:none}
+  .separator {stroke:#CEDDE5;stroke-width:1.4}
+]]></style>
+<rect class="background" width="1460" height="1615"/>
+<text x="76" y="63" class="eyebrow">ARC-ADHD · R01 · EVIDENCE REVIEW</text>
+<text x="76" y="109" class="title">Preliminary PRISMA-style selection flow</text>
+<text x="76" y="146" class="subtitle">Automated SciSpace corpus audit · 29 October 2026 · version 1.0.0</text>
+<rect x="1074" y="46" width="310" height="73" rx="5" class="alert"/>
+<text x="1229" y="75" text-anchor="middle" class="warning">PRELIMINARY ONLY</text>
+<text x="1229" y="100" text-anchor="middle" class="small">Not a finalized PRISMA 2020 flow</text>
+<line x1="75" y1="169" x2="1384" y2="169" class="separator"/>
+<text x="135" y="206" class="phase">01   IDENTIFICATION: COMPOSITE EXPORT</text>
+<rect x="135" y="223" width="740" height="124" rx="8" class="solid"/>
+<text x="165" y="259" class="heading">Records in supplied combined export</text>
+<text x="165" y="309" class="number">n = 577</text>
+<text x="390" y="307" class="detail">CSV rows, not verified unique studies</text>
+<rect x="920" y="223" width="445" height="124" rx="8" class="unknown"/>
+<text x="947" y="259" class="heading">Database provenance</text>
+<text x="947" y="290" class="pending">Not verified</text>
+<text x="947" y="317" class="small">Per-source retrieval / deduplication</text>
+<path d="M505 347 V415" class="arrow"/>
+<text x="135" y="395" class="phase">02   AUTOMATED TITLE–ABSTRACT TRIAGE</text>
+<rect x="135" y="418" width="740" height="130" rx="8" class="solid"/>
+<text x="165" y="453" class="heading">Records screened by SciSpace</text>
+<text x="165" y="503" class="number">n = 577</text>
+<text x="390" y="501" class="detail">Not a verified independent screen</text>
+<rect x="920" y="418" width="445" height="130" rx="8" class="side"/>
+<text x="947" y="451" class="heading">Auto-labelled EXCLUDE</text>
+<text x="947" y="499" class="number">n = 551</text>
+<text x="947" y="526" class="small">101 lack abstracts; Altmann cases flagged</text>
+<path d="M875 484 H916" class="arrow"/>
+<path d="M505 548 V606" class="arrow"/>
+<text x="135" y="583" class="phase">03   AUTOMATED NEXT-STAGE FILTER</text>
+<rect x="135" y="610" width="740" height="116" rx="8" class="chosen"/>
+<text x="165" y="648" class="heading">Records labelled for next stage</text>
+<text x="165" y="694" class="number">n = 26</text>
+<rect x="920" y="610" width="445" height="116" rx="8" class="side"/>
+<text x="947" y="647" class="heading">Retrieval status unknown</text>
+<text x="947" y="675" class="body">This is NOT confirmed full-text</text>
+<text x="947" y="701" class="body">retrieval or eligibility assessment.</text>
+<path d="M505 726 V779" class="connector"/>
+<path d="M424 779 H1058" class="connector"/>
+<path d="M424 779 V819" class="arrow"/>
+<path d="M1058 779 V819" class="arrow"/>
+<rect x="135" y="826" width="578" height="157" rx="8" class="alert"/>
+<text x="163" y="865" class="heading">Auto-labelled INCLUDE</text>
+<text x="163" y="910" class="number">n = 23</text>
+<text x="163" y="942" class="body">PDF unavailable for all 23</text>
+<text x="163" y="966" class="detail">Included by SciSpace from title / abstract</text>
+<rect x="766" y="826" width="599" height="157" rx="8" class="side"/>
+<text x="794" y="865" class="heading">Auto-labelled EXCLUDE</text>
+<text x="794" y="910" class="number">n = 3</text>
+<text x="794" y="942" class="body">Automated score decision</text>
+<text x="794" y="966" class="detail">Not documented formal full-text reasons</text>
+<path d="M424 983 V1025" class="arrow"/>
+<path d="M1058 983 V1025" class="arrow"/>
+<rect x="135" y="1037" width="1230" height="105" rx="8" class="unknown"/>
+<text x="166" y="1074" class="heading">Formal PRISMA 2020 assessment has not been completed</text>
+<text x="166" y="1110" class="body">The two automated labels above must not be counted as formal exclusions or included studies.</text>
+<path d="M750 1142 V1180" class="connector"/>
+<path d="M426 1180 H1063" class="connector"/>
+<path d="M426 1180 V1200" class="arrow"/>
+<path d="M1063 1180 V1200" class="arrow"/>
+<text x="135" y="1172" class="phase">05   FORMAL PRISMA STATUS: OPEN</text>
+<rect x="135" y="1212" width="577" height="140" rx="8" class="unknown"/>
+<text x="163" y="1245" class="heading">Reports sought and retrieved</text>
+<text x="163" y="1282" class="pending">Not established</text>
+<text x="163" y="1310" class="body">Eligibility assessed: not validated</text>
+<text x="163" y="1335" class="small">Requires actual full-text retrieval log</text>
+<rect x="766" y="1212" width="599" height="140" rx="8" class="unknown"/>
+<text x="794" y="1245" class="heading">Studies included in the review</text>
+<text x="794" y="1282" class="pending">Not established</text>
+<text x="794" y="1310" class="body">No defensible final PRISMA numerator</text>
+<text x="794" y="1335" class="small">Formal review decisions and audit pending</text>
+<rect x="135" y="1395" width="1230" height="114" rx="8" class="side"/>
+<text x="165" y="1431" class="heading">Additional independent source checks (outside the automated selection)</text>
+<text x="165" y="1464" class="body">Altmann &amp; Trafton (2007) and Altmann, Trafton &amp; Hambrick (2014): full texts inspected;</text>
+<text x="165" y="1489" class="body">both already occur within the 577 records; independent second-review decisions remain pending.</text>
+<line x1="75" y1="1533" x2="1384" y2="1533" class="separator"/>
+<text x="76" y="1561" class="small">Source: agent-artifacts-zip_cognitive(1).zip · Direct CSV recount · Status as of 2026-10-29</text>
+<text x="76" y="1587" class="small">Counts describe machine labels only. See flow_data_preliminary.json and README for checksums and open review gates.</text>
+</svg>

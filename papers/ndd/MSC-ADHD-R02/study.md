@@ -28,3 +28,11 @@ Nie ma udokumentowanej krawędzi APP→LIB dla tej pracy. Potrzebny przegląd po
 Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
 
 Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.
+
+
+## Imported manuscript and scientific contracts
+
+The complete source is [main.tex](main.tex). Prospective scoping review protocol; synthesis not completed. The following contract snapshots complement the manuscript; their presence does not authorize participant recruitment.
+
+- [contracts/docs/reference_audit_2026.md](contracts/docs/reference_audit_2026.md)
+- [contracts/docs/statistical_reporting_policy.md](contracts/docs/statistical_reporting_policy.md)

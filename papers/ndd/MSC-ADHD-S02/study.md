@@ -29,3 +29,19 @@
 Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
 
 Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.
+
+
+## Imported manuscript and scientific contracts
+
+The complete source is [main.tex](main.tex). Methods manuscript; independent execution evidence remains pending. The following contract snapshots complement the manuscript; their presence does not authorize participant recruitment.
+
+- [contracts/config/controller_rules.example.json](contracts/config/controller_rules.example.json)
+- [contracts/config/core_session_state_machine.example.json](contracts/config/core_session_state_machine.example.json)
+- [contracts/docs/challenge_event_operationalization.md](contracts/docs/challenge_event_operationalization.md)
+- [contracts/docs/data_management_plan.md](contracts/docs/data_management_plan.md)
+- [contracts/docs/recovery_feature_operationalization.md](contracts/docs/recovery_feature_operationalization.md)
+- [contracts/docs/state_machine_specification.md](contracts/docs/state_machine_specification.md)
+- [contracts/docs/telemetry_queue_contract.md](contracts/docs/telemetry_queue_contract.md)
+- [contracts/docs/telemetry_specification.md](contracts/docs/telemetry_specification.md)
+- [contracts/schemas/recovery_event.schema.json](contracts/schemas/recovery_event.schema.json)
+- [contracts/schemas/telemetry_queue_record.schema.json](contracts/schemas/telemetry_queue_record.schema.json)

@@ -1,0 +1,43 @@
+schema_version: 1
+review_id: ARC_ADHD_R02
+status: search_sensitivity_pilot
+updated: 2026-10-01
+purpose: "Seed set for checking recall of empirical wearable/wireless EEG task studies and key secondary sources. It is not a screened study list."
+
+empirical_positive_seeds:
+  - id: R02-SEED-001
+    title: "Task-Rate-Related Neural Dynamics Using Wireless EEG to Assist Diagnosis and Intervention Planning for Preschoolers with ADHD Exhibiting Heterogeneous Cognitive Proficiency"
+    year: 2022
+    doi: 10.3390/jpm12050731
+    expected_screening: include
+    rationale: "Preschool ADHD; wireless wearable EEG; explicit slow/fast cognitive task conditions."
+  - id: R02-SEED-002
+    title: "Neural Dynamics for Facilitating ADHD Diagnosis in Preschoolers: Central and Parietal Delta Synchronization in the Kiddie Continuous Performance Test"
+    year: 2021
+    doi: 10.1109/TNSRE.2021.3097551
+    expected_screening: include
+    rationale: "Preschool ADHD; wireless wearable EEG recorded during a continuous performance task."
+  - id: R02-SEED-003
+    title: "Home-based brain-computer interface attention training program for attention deficit hyperactivity disorder: a feasibility trial"
+    year: 2023
+    doi: 10.1186/s13034-022-00539-x
+    expected_screening: include
+    rationale: "Children with ADHD; tablet intervention paired with wireless EEG used as the BCI measurement/control channel."
+
+secondary_context_seeds:
+  - id: R02-BG-001
+    title: "Wireless Electroencephalography in Research on Children With Developmental Disabilities: Scoping Review"
+    year: 2026
+    doi: 10.2196/84707
+    expected_screening: exclude_secondary_use_for_citation_chaining
+  - id: R02-BG-002
+    title: "A Systematic Review of Techniques for Artifact Detection and Artifact Category Identification in Electroencephalography from Wearable Devices"
+    year: 2025
+    doi: 10.3390/s25185770
+    expected_screening: exclude_secondary_use_for_methods_context
+
+sensitivity_rules:
+  - "Database-specific queries should retrieve all three empirical positive seeds unless the database does not index the source."
+  - "Failure to retrieve an indexed empirical seed triggers a documented search-strategy revision before formal export."
+  - "Secondary reviews are retained for background and backward/forward citation chasing, not counted as empirical included studies."
+  - "No PRISMA counts are populated from this pilot."

@@ -1,0 +1,13 @@
+\section{Rationale and Research Question}
+
+Children with ADHD can show difficulties in recognizing or regulating emotion, but this does not imply that a camera can reliably infer a child's emotional state from a single facial expression \parencite{olayagalindo2023facial,shepard2025emotion}. The scientific value of a camera module must therefore be established at the level at which it is actually used.
+
+The ARC-ADHD facial module is not an emotion-recognition system. It is an optional sensor channel intended to estimate whether observable facial and head-movement dynamics contain incremental information about task demand, disengagement, or recovery. The reference point is the child's own low-demand baseline rather than a universal facial template.
+
+The primary research question is:
+
+\begin{quote}
+After task performance, context, explicit child input, and non-camera telemetry are known, do within-child facial-behavior features improve out-of-sample prediction of prespecified challenge or recovery states enough to justify the additional privacy and engineering burden?
+\end{quote}
+
+The null hypothesis is scientifically useful. If facial features do not add stable predictive value, the module should be removed from the adaptive controller.

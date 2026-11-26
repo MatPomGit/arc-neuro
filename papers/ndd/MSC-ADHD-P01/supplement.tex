@@ -1,0 +1,252 @@
+\documentclass[man]{apa7}
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+
+\addbibresource{references.bib}
+
+\title{Supplementary Methods and Reproducibility Specification for ARC-ADHD}
+\shorttitle{ARC-ADHD Supplementary Methods}
+\authorsnames{Mateusz Pomianek}
+\authorsaffiliations{{Department of Computer Science and Automation, Rzeszów University of Technology, Rzeszów, Poland}}
+
+\begin{document}
+\maketitle
+
+\section{Purpose and status}
+
+This supplement defines the reproducibility boundary for the core ARC-ADHD programme described in the main manuscript. It is a pre-study methods specification, not a report of completed participant data. Values that require Phase 0 measurement work, device benchmarking, psychometric validation, or ethics/governance decisions remain explicitly unfrozen.
+
+The supplement has three functions: (1) to distinguish conceptual definitions from executable research contracts; (2) to state which artifacts must be version-locked before each inferential stage; and (3) to make later deviations auditable rather than silently absorbed into the intervention.
+
+\section{Reproducibility artifact map}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Core claims and corresponding reproducibility artifacts}
+\begin{tabular}{p{3.2cm}p{5.0cm}p{4.5cm}}
+\toprule
+Research component & Authoritative repository artifact & Freeze point \\
+\midrule
+Challenge-regulation-recovery state sequence & \nolinkurl{docs/state_machine_specification.md} and machine-readable state-machine contract & Before participant-facing Phase 0 execution \\
+Eligible challenge event & \nolinkurl{docs/challenge_event_operationalization.md}, machine-readable eligibility rule, and deterministic evaluator & Logical contract before Phase 0; remaining pacing/safety values before recruitment; inferential version before Phase 1 \\
+Recovery event representation & \nolinkurl{schemas/recovery_event.schema.json} & Before Phase 0 telemetry collection \\
+Recovery metric construction & \nolinkurl{docs/recovery_feature_operationalization.md}, candidate-space configuration, and calibration plan & Candidate space before Phase 0; final feature model and parameters before Phase 1 inferential use \\
+Core task & \nolinkurl{docs/core_task_specification.md} and \nolinkurl{config/core_task.signal_gate.example.json} & Final task definition before Phase 0 implementation lock \\
+Controller behavior & \nolinkurl{docs/telemetry_specification.md}, controller replay cases, and replay script & Before participant-facing adaptive use \\
+Active control & \nolinkurl{docs/active_control_specification.md} and later frozen control manifest & Before randomized pilot \\
+Safety and overload rules & \nolinkurl{docs/safety_interaction_rules.md} and machine-readable safety configuration & Before participant-facing Phase 0 \\
+BYOD qualification & \nolinkurl{docs/device_profile_specification.md}, benchmark protocol, and qualification policy & Final thresholds after real-device benchmark and before participant-facing deployment \\
+Clinical/functional outcome definition & Outcome audit and preregistration record & Before pilot database lock; confirmatory endpoint before Phase 3 registration \\
+Intervention version & \nolinkurl{config/intervention_manifest.template.yaml} instantiated for a study build & Before each participant-facing study stage \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The repository commit hash forms part of the study record. A publication build that cannot be traced to the intervention configuration, telemetry schema, analysis plan, and participant-facing materials is considered insufficiently specified even if the prose description is complete.
+
+
+
+\section{Prespecified challenge-event contract}
+
+The first Phase 0 challenge sample is restricted to explicit Signal Gate rule switches A\(\rightarrow\)B and B\(\rightarrow\)A. Both rule mappings are calibrated before the first eligible event. Calibration observations are not recovery events.
+
+Eligibility is evaluated atomically before the rule switch. The application therefore does not select an event because a post-switch error, omission, slowing, or other unfavorable response was observed. An eligible event with little or no detectable perturbation remains part of the measurement sample rather than being retrospectively erased.
+
+The prechallenge reference must be current-rule matched, contain the prespecified minimum GO/NO-GO composition, and be rebuilt after a child pause or previous recovery event. A subsequent challenge also requires explicit separation from the prior event and enough remaining session time to cover the complete locked regulation-plus-recovery event budget.
+
+Core challenge eligibility and timing-feature eligibility are recorded separately. Every core recovery event requires a stable \texttt{RULE\_CALIBRATION} reference matched to the target post-switch rule and GO-stimulus identity; its behavioral counts define the reference for \(B\). Timing-enriched recovery candidates additionally require a qualified timing profile and sufficient correct-GO RT observations in that same reference. Timing unavailability does not by itself invalidate an otherwise eligible behavioral event.
+
+\section{Prespecified recovery feature candidates}
+
+The pre-Phase 0 feature space is limited to four candidate models. All contain balanced rule success \(B\), which gives equal conditional weight to GO hits and NO-GO correct rejections using Jeffreys-smoothed probabilities. The optional timing components are correct-GO slowing \(S\) and correct-GO variability increase \(V\). The admissible models are \(B\), \(B+S\), \(B+V\), and \(B+S+V\); there is no timing-only candidate.
+
+Because the Signal Gate challenge reverses the GO/NO-GO mapping, the immediate preswitch current-rule window is used only for challenge readiness and is not the \(q_e(t)\) normalization baseline. All candidate models use the stable target-rule calibration reference for \(B\). When timing is eligible, \(S\) and \(V\) use the correct-GO RT distribution from that same versioned reference. This separates recovery from rule-, stimulus-, and mapping-specific baseline differences.
+
+Each component is represented as a non-negative deficit \(d_j\), transformed to \(z_j=-d_j\). Consequently \(q_e(t)\le 0\), and above-reference performance in one component cannot compensate for a persistent deficit in another. Timing-enriched candidates are available only in timing-qualified device contexts.
+
+The target-rule calibration reference is immutable within the first Phase 0 session implementation. Reference drift across the session is retained as a Phase 0 diagnostic rather than corrected by silently updating the baseline; material drift would require redesign and a new frozen reference-update rule before Phase 1.
+
+Phase 0 model selection uses prespecified computability, scale-floor, leave-one-trial robustness, and timing-coverage gates. External symptom/function measures, EDI, treatment-group differences, and later clinical associations are explicitly prohibited selection signals. If the behavior-only model passes all gates, parsimony favors retaining it unless a prespecified measurement failure requires an enriched model.
+
+\section{Recovery-measure freeze}
+
+For eligible challenge event \(e\), the main manuscript defines the recovery score
+
+\[
+q_e(t)
+=
+\sum_{j=1}^{J} w_j z_j(t),
+\qquad
+\sum_{j=1}^{J}w_j=1,
+\qquad
+z_j(t)=-d_j(t)\le 0.
+\]
+
+Recovery timing is anchored to entry into \texttt{RECOVERY\_MONITORING}. Let \(t_e\) be challenge onset, \(t_m^{(e)}\) monitoring onset, and \(u_{e,k^\ast}\) the first score update beginning a fully confirmed run of \(w\) consecutive updates satisfying \(q_e\ge-\delta\). Then
+
+\[
+T_{\mathrm{pre}}^{(e)}=t_m^{(e)}-t_e,
+\]
+
+\[
+T_{\mathrm{rec}}^{(e)}=u_{e,k^\ast}-t_m^{(e)},
+\]
+
+and
+
+\[
+T_{\mathrm{total}}^{(e)}
+=
+u_{e,k^\ast}-t_e
+=
+T_{\mathrm{pre}}^{(e)}+T_{\mathrm{rec}}^{(e)}.
+\]
+
+The complete stability run must be confirmed within the monitoring censor window. This separation prevents strategy duration from being silently treated as post-regulation recovery latency.
+
+Before Phase 1 inferential use, the following elements must be frozen together as one measurement definition: selected candidate-model ID, primitive feature definitions, weights, reference and rolling-window rules, numerical/device scale guards, missing-feature policy, \(\delta\), stability window \(w\), censor limit \(c_e\), and right-censoring/invalidity reason codes.
+
+Phase 0 may compare a small prespecified candidate grid using only measurement properties such as computability, censoring proportion, within-person stability, robustness to missing trials, challenge-type behavior, and deterministic replay. External symptom, caregiver, teacher, or functional outcomes must not determine which recovery definition is selected.
+
+A technically missing event is not a censored event. Right-censoring is used only when the recovery process remains observable but the criterion is not reached before \(c_e\). Corrupted timing, missing task state, or absent required features are represented as technical missingness.
+
+The recovery measurement context is also part of the frozen event definition. On entry to recovery monitoring, task rule, cognitive difficulty, sensory configuration, response-window timing, stimulus distribution, and any event-level cue assignment are versioned and held fixed until the event closes. Ordinary controller adaptation is suspended during this interval. If a safety action, explicit child request, or technical event requires a score-relevant context change, the action takes priority but the mechanistic record is marked scientifically invalid rather than observed or right-censored. Scientific recovery validity and telemetry completeness are therefore represented separately.
+
+\section{Mechanism-identification boundary}
+
+ARC-ADHD distinguishes three empirical questions that must not be collapsed into one.
+
+First, the intervention may change the proximal recovery process. This requires evidence that the distribution of \(T_{\mathrm{rec}}\), the unrecovered-event proportion, or another prespecified recovery quantity changes in the expected direction under the frozen intervention relative to its comparator or over prespecified repeated exposure.
+
+Second, recovery change may be associated with independent near-transfer or external functional change. Such an association is evidence of mechanistic coherence, but it is not by itself evidence that recovery change causally mediates the intervention effect.
+
+Third, a later confirmatory trial may show a treatment effect on the frozen external primary endpoint. That clinical contrast remains distinct from the event-level recovery estimand.
+
+Accordingly, the pattern
+\[
+\text{intervention}\rightarrow \Delta T_{\mathrm{rec}},
+\qquad
+\Delta T_{\mathrm{rec}} \leftrightarrow \Delta Y
+\]
+is treated as supportive of the proposed mechanism but not as a formal mediation result. A causal mediation claim would require additional assumptions and a prospectively specified mediation design and analysis that are outside the current core framework.
+
+Important falsification patterns include: improved trained-task performance without improved recovery; improved recovery without independent near/far transfer; external improvement without detectable change in the proposed recovery process; and unstable recovery estimates that depend materially on post hoc parameter choices.
+
+\section{Analysis-denominator contract}
+
+The reproducibility package must make analysis denominators reconstructable from raw event status and versioned eligibility decisions.
+
+The minimum denominator hierarchy is:
+
+\begin{itemize}
+\item all challenge candidates for challenge-scheduling feasibility and suppression summaries;
+\item all core-eligible rule-switch events for the behavior-only recovery candidate when behavioral recovery data remain scientifically valid;
+\item the prespecified timing-qualified subset for timing-enriched recovery candidates;
+\item all exposed participants/sessions for safety and tolerability summaries; and
+\item the randomized intention-to-treat participant population for clinical and transfer contrasts.
+\end{itemize}
+
+A recovery event that becomes scientifically invalid after a score-relevant context change is neither an observed recovery nor an ordinary right-censored recovery. Telemetry missingness is also represented separately. Phase 0 reports candidate-specific applicable denominators rather than comparing only the subset on which every candidate happens to be computable.
+
+\section{Analysis populations and estimands}
+
+External randomized outcomes use the intention-to-treat population. Safety summaries use participants who begin at least one assigned session. Mechanistic analyses use all prespecified eligible challenge events for which a valid recovery or censoring status can be determined.
+
+The pilot clinical estimand is the baseline-adjusted between-group post-intervention contrast on the selected external regulation/dysregulation outcome. Its role is estimation of effect uncertainty and future design parameters, not confirmatory efficacy testing.
+
+The mechanistic recovery estimand is defined on event time with explicit right-censoring and repeated-event dependence. Candidate model families include mixed-effects survival and accelerated-failure-time formulations. The final model specification must be chosen from feasibility-stage information and frozen before pilot inferential analysis.
+
+If cue conditions are micro-randomized among eligible events, the proximal estimand is the average effect of assigned cue condition on the prespecified immediate outcome among events eligible for that randomization. Eligibility, randomization probability, carryover window, proximal-outcome window, and missing-event handling must be fixed prospectively.
+
+\section{Deterministic replay}
+
+A research build must support deterministic reconstruction of high-level adaptation decisions from:
+
+\begin{itemize}
+\item intervention and configuration version;
+\item ordered controller inputs;
+\item task state;
+\item challenge eligibility state;
+\item safety and overload state;
+\item explicit child requests;
+\item controller reason code; and
+\item generated high-level action.
+\end{itemize}
+
+Replay is an engineering reproducibility requirement, not a psychological validity test. Passing replay tests shows that the same logged state yields the same configured decision. It does not show that the decision rule is clinically beneficial.
+
+Synthetic recovery events and replay cases are retained for implementation validation before participant data are collected. Synthetic data must not be presented as empirical support for the behavioral construct.
+
+\section{BYOD measurement control}
+
+Participant or caregiver private Android phones are part of the intended delivery context. Device heterogeneity is therefore modeled explicitly rather than assumed away.
+
+Before participant-facing deployment, the study must define the supported Android/runtime range, mandatory qualification checks, optional-modality fallbacks, material profile-change triggers, and the coarse capability/performance fields retained for analysis. Final thresholds require the repository's cross-device benchmark to be run on real devices.
+
+For timing-sensitive outcomes, a material device/profile change can invalidate continuity of participant-specific timing references. The handling rule must be prespecified, for example reference reset, stratification, or sensitivity analysis. Manufacturer/model must not be introduced post hoc as an unrestricted moderator.
+
+The study should report full qualification, qualification-with-fallback, and nonqualification rates. This makes hardware-related selection visible in the feasibility record.
+
+\section{Stage-specific freeze matrix}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Minimum methodological freeze by stage}
+\begin{tabular}{p{2.3cm}p{9.8cm}}
+\toprule
+Stage & Minimum items that must be fixed before inferential use \\
+\midrule
+Phase 0 & Session state machine, candidate task, challenge-event recording, recovery telemetry schema, safety/stop rules, BYOD execution policy, child-facing materials for the current round, and predefined measurement-calibration grid \\
+Phase 1 & Recovery feature set, normalization, weights, reference-window rule, \(\delta\), \(w\), \(c_e\), challenge eligibility rule, safety rules, supported device/runtime policy, and feasibility progression criteria \\
+Phase 2 & Intervention and active-control builds, randomization, external pilot outcome, independent near-transfer outcomes, analysis populations, statistical models, missing-data strategy, multiplicity labels, and all primary mechanistic definitions \\
+Phase 3 & Single confirmatory primary endpoint, minimally important effect, intervention/control manifests, complete SAP, multiplicity strategy, sample-size assumptions, registration record, and reporting plan \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Deviation record}
+
+Any post-freeze change must record the date, repository commit, affected artifact, reason, decision maker, whether outcome data were visible, and the hypotheses or estimands potentially affected. A change required for participant safety may be implemented immediately, but its inferential consequence must still be documented.
+
+Changes to presentation, accessibility, or device compatibility should be distinguished from changes that alter the active mechanism, event eligibility, outcome construction, or statistical estimand.
+
+\section{Minimum reproducibility package at publication}
+
+For a participant-facing ARC-ADHD study, the archived publication package should include:
+
+\begin{itemize}
+\item preregistration export and registration identifier;
+\item repository commit hash;
+\item intervention and active-control manifests;
+\item task and challenge configuration;
+\item safety configuration;
+\item BYOD qualification-policy version;
+\item telemetry and recovery-event schema versions;
+\item controller replay specification and test cases;
+\item statistical analysis plan;
+\item analysis scripts and software environment record;
+\item participant-facing materials;
+\item deviation log; and
+\item a data dictionary describing each released or restricted analysis field.
+\end{itemize}
+
+Public release of participant-level data is not required when privacy, consent, or legal constraints prohibit it. Reproducibility can instead be supported through schemas, synthetic examples, executable validators, analysis code, and a documented controlled-access pathway where appropriate.
+
+\section{Current unresolved freeze items}
+
+At the current pre-study stage, the following items remain intentionally unresolved: execution of the Polish EDI localization/validation pathway; final external confirmatory endpoint selection; ratification of the candidate challenge pacing/event-budget and safety values; final \(q_e(t)\) feature set after Phase 0; child-facing strategy wording; real-device cross-device benchmark thresholds; supported Android/runtime range; and named institutional governance assignments.
+
+These unresolved items are treated as development gates. They must not be silently filled with convenience defaults in a participant-facing study.
+
+\printbibliography[title={References}]
+\end{document}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1",
+  "status": "technical_reference_not_study_frozen",
+  "controller_version": "reference-0.1",
+  "cognitive_level": {
+    "minimum": 0,
+    "maximum": 4,
+    "step": 1
+  },
+  "sensory_level": {
+    "minimum": 0,
+    "maximum": 3,
+    "step": 1
+  },
+  "priority": [
+    "safety_override",
+    "child_stop",
+    "child_pause",
+    "sensory_overload",
+    "performance_below_with_sensory_load",
+    "performance_below",
+    "recovery_not_observed",
+    "performance_above",
+    "hold"
+  ],
+  "actions": {
+    "safety_override": "safe_stop",
+    "child_stop": "safe_stop",
+    "child_pause": "pause",
+    "sensory_overload": "decrease_sensory",
+    "performance_below_with_sensory_load": "decrease_sensory",
+    "performance_below": "decrease_cognitive",
+    "recovery_not_observed": "hold",
+    "performance_above": "increase_cognitive",
+    "hold": "hold"
+  },
+  "notes": [
+    "This controller exists to validate deterministic priority/replay behavior.",
+    "It is not a frozen Phase 0 or pilot adaptation policy.",
+    "Sensory simplification precedes cognitive reduction when sensory load can still be reduced.",
+    "Explicit child stop and safety override outrank all performance rules."
+  ]
+}

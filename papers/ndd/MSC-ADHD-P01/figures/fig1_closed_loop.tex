@@ -1,0 +1,28 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+node distance=8mm and 6mm,
+box/.style={draw, rounded corners, align=center, minimum height=8mm, text width=2.0cm},
+arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[box] (challenge) {Challenge};
+\node[box, right=of challenge] (destab) {Destabili-\\zation};
+\node[box, right=of destab] (pause) {Pause};
+\node[box, right=of pause] (orient) {Orient};
+\node[box, below=of orient] (strategy) {Select strategy};
+\node[box, left=of strategy] (regulate) {Regulate};
+\node[box, left=of regulate] (recover) {Recover};
+\node[box, left=of recover] (resume) {Resume goal};
+
+\draw[arrow] (challenge) -- (destab);
+\draw[arrow] (destab) -- (pause);
+\draw[arrow] (pause) -- (orient);
+\draw[arrow] (orient) -- (strategy);
+\draw[arrow] (strategy) -- (regulate);
+\draw[arrow] (regulate) -- (recover);
+\draw[arrow] (recover) -- (resume);
+\draw[arrow] (resume.west) |- ++(-5mm,-8mm) -| (challenge.south);
+\end{tikzpicture}
+\caption{Core ARC-ADHD regulation loop. A successful episode may contain destabilization or error; the target is recovery and return to the interrupted goal.}
+\label{fig:closed-loop}
+\end{figure}

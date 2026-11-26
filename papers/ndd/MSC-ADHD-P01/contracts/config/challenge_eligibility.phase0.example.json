@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.3",
+  "status": "pre_phase0_contract_ready_for_preregistration",
+  "eligibility_rule_version": "phase0-rule-switch-0.3",
+  "task_id": "signal-gate",
+  "challenge_type": "rule_switch",
+  "allowed_task_states": [
+    "BASELINE_TASK"
+  ],
+  "allowed_rule_ids": [
+    "A",
+    "B"
+  ],
+  "require_explicit_switch_cue": true,
+  "require_distinct_target_rule": true,
+  "require_both_rule_mappings_calibrated": true,
+  "reference": {
+    "minimum_valid_observations": 12,
+    "minimum_go_trials": 4,
+    "minimum_nogo_trials": 4,
+    "require_same_rule_as_current": true,
+    "require_fresh_since_last_pause": true,
+    "require_fresh_since_last_recovery_close": true
+  },
+  "pacing": {
+    "minimum_interchallenge_interval_ms": 30000,
+    "minimum_valid_trials_since_last_recovery_close": 12,
+    "maximum_challenges_per_session": 3,
+    "require_remaining_time_at_least_event_budget": true
+  },
+  "event_budget": {
+    "minimum_recovery_censor_ms": 20000,
+    "require_budget_from_locked_configuration": true,
+    "note": "required_event_time_ms must include the configured regulation sequence, recovery censor window, and persistence/transition margin; eligibility does not invent that duration from wall-clock state."
+  },
+  "timing_candidate_gate": {
+    "allow_core_event_when_timing_unqualified": true,
+    "require_timing_component_when_timing_qualified": true
+  },
+  "integrity": {
+    "require_telemetry_healthy": true,
+    "require_no_open_recovery_event": true,
+    "suppress_on_technical_interrupt": true
+  },
+  "safety": {
+    "suppress_on_sensory_overload": true,
+    "suppress_on_safety_override": true,
+    "suppress_after_recent_pause": true
+  },
+  "notes": [
+    "Eligibility is evaluated atomically before challenge_event_id is opened.",
+    "Suppressed candidates do not create recovery events.",
+    "The first Phase 0 challenge family is explicit A↔B rule switch only; hidden switching is prohibited.",
+    "The rule-switch event is not conditioned on an error or observed destabilization; selecting only events that visibly perturb performance would condition the sample on a post-challenge response.",
+    "The 30 s interchallenge interval and maximum of three challenges per session remain candidate pacing values to be ratified with the final safety/session design before participant recruitment.",
+    "Every core recovery event requires a target-rule recovery reference for B. Timing qualification only governs whether the same reference can also support S/V."
+  ],
+  "recovery_reference_gate": {
+    "require_target_rule_reference": true,
+    "require_target_rule_match": true,
+    "require_go_stimulus_match": true,
+    "required_source_state": "RULE_CALIBRATION"
+  }
+}

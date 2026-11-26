@@ -1,0 +1,34 @@
+\section{Methods}
+
+The protocol is stored in \texttt{review\_protocol.yaml} and was frozen on 1 October 2026, before formal screening. Eligibility changes require a dated, justified protocol-deviation record; scores assigned by external tools are not themselves inclusion criteria.
+
+\subsection{Population and concept}
+
+Eligible studies include participants younger than 19 years with ADHD or other neurodevelopmental conditions when the paper contributes directly relevant evidence on wearable, portable, wireless, or low-density EEG measurement. Studies with mixed-age samples require extractable pediatric results.
+
+The concept of interest is EEG acquired during a task, intervention, neurofeedback protocol, controlled state transition, or event-linked monitoring paradigm. Conventional high-density wired EEG is retained only when it is used as an explicit reference comparator.
+
+\subsection{Exclusions}
+
+Studies are excluded when EEG is purely resting-state diagnostic classification with no task/state-monitoring relevance, when device, timing, or signal-quality methods are not recoverable, or when the report is not an empirical human study.
+
+\subsection{Information sources}
+
+Planned databases are PubMed/MEDLINE, PsycINFO, Scopus, Web of Science, IEEE Xplore, Embase where accessible, and ACM Digital Library for relevant HCI/BCI studies. Searches combine population terms with wearable/mobile/portable EEG and task, event, intervention, monitoring, synchronization, or neurofeedback concepts.
+
+\subsection{Extraction}
+
+The extraction schema captures device, channels, electrode technology, montage, sampling rate, wireless protocol, task/intervention, event-marker path, timing resolution, synchronization validation, movement context, signal-quality metric, impedance reporting, artifact detection/removal, rejected-data fraction, preprocessing, feature family, within-person versus between-person analysis, repeatability, external reference, preregistration, and code/data availability.
+
+\subsection{Synthesis}
+
+The primary synthesis is methodological. Studies will be grouped by application purpose: diagnosis/classification, task/state monitoring, intervention evaluation, and neurofeedback/BCI. Stronger inference about event-locked monitoring will require explicit timing provenance and interpretable artifact handling.
+
+
+\subsection{Preliminary external export and evidence-integrity assessment}
+
+An expanded SciSpace export supplied on 28 October 2026 was retained as preliminary search material, not as a completed systematic review. The electronic combined record file contains 828 rows, and the LLM-assisted workflow promoted 33 candidates after title and abstract screening and 30 after a nominal full-text stage. However, 21 of the 30 selected records explicitly state that their PDF full text was unavailable and that selection was based on title or abstract alone. The report's asserted 1,005 initial records, 177 duplicates, six databases, 30 empirical included studies and complete full-text review have not yet been independently reconstructed or substantiated. One of the three prespecified positive search-sensitivity seed studies (DOI 10.3390/jpm12050731) is absent from the combined 828-row corpus; other positive seed records were retrieved, and a background-only scoping review (DOI 10.2196/84707) was incorrectly assigned an included empirical label. We therefore treat all available quantitative summaries of synchronization, artifact control, reliability and validation as hypotheses for source-verified extraction rather than established findings. An audit of electronic provenance, screening labels and the 30-row candidate roster is maintained under \texttt{research/r02\_scispace\_2026-10-28/}.
+
+\subsection{Planned verification before synthesis}
+
+Database-specific searches will be repeated or independently authenticated against the frozen protocol, including exact queries, run date, exported record count and stable query provenance. Duplicate IDs and abstract decisions will be audited, full-text eligibility and exclusions recorded with page-level evidence, and at least a second independent reviewer consulted for borderline cases where feasible. Primary empirical studies will be separated from systematic or scoping reviews, technical overviews, preregistrations and adult-only reference-validation studies. Only after extraction will the PRISMA-ScR flow, domain denominators and numerical Results be completed. No preliminary denominator will be reported as validated review prevalence.

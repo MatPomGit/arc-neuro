@@ -1,0 +1,18 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+node distance=6mm,
+phase/.style={draw, rounded corners, align=center, minimum height=10mm, text width=3.0cm},
+arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[phase] (p0) {Phase 0\\Co-design and construct validation};
+\node[phase, right=of p0] (p1) {Phase 1\\Feasibility};
+\node[phase, right=of p1] (p2) {Phase 2\\Pilot RCT};
+\node[phase, right=of p2] (p3) {Phase 3\\Confirmatory RCT};
+\draw[arrow] (p0) -- node[above,align=center]{freeze\\measurement} (p1);
+\draw[arrow] (p1) -- node[above,align=center]{progression\\criteria} (p2);
+\draw[arrow] (p2) -- node[above,align=center]{power and\\protocol freeze} (p3);
+\end{tikzpicture}
+\caption{Staged research programme. The pilot estimates design parameters; the later confirmatory trial tests the frozen clinical hypothesis.}
+\label{fig:programme}
+\end{figure}

@@ -1,0 +1,25 @@
+schema_version: 1
+review_id: ARC_ADHD_R01
+status: search_sensitivity_pilot
+updated: 2026-10-01
+purpose: "Seed set used to test whether database-specific search strategies retrieve known conceptually relevant records. These records are not counted as included studies until they pass the formal deduplicated screening workflow."
+
+positive_or_boundary_seeds:
+  - id: R01-SEED-001
+    title: "Post-error action control is neurobehaviorally modulated under conditions of constant speeded response"
+    year: 2014
+    doi: 10.3389/fnhum.2014.01072
+    expected_screening: likely_include_or_boundary
+    rationale: "Computerized Go/No-go task; discrete errors followed by temporally ordered post-error behavioral recovery/adjustment."
+  - id: R01-SEED-002
+    title: "Examining post-error performance in a complex multitasking environment"
+    year: 2023
+    doi: 10.1186/s41235-023-00512-y
+    expected_screening: likely_include_or_boundary
+    rationale: "Computerized multitasking paradigm with explicit error-linked post-error performance."
+
+sensitivity_rules:
+  - "A query that cannot retrieve both seed papers after database-specific translation is considered under-sensitive and must be revised before formal export."
+  - "Retrieval of a seed is not automatic inclusion; formal screening applies the frozen eligibility criteria."
+  - "Post-error slowing alone is mapped as a candidate recovery/adjustment family and must not be equated automatically with time-to-recovery."
+  - "No PRISMA counts are populated from this pilot."

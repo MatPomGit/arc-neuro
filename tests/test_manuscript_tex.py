@@ -30,6 +30,30 @@ class ManuscriptTexTests(unittest.TestCase):
                 with self.subTest(filename=str(path)):
                     self.assertFalse(path.is_symlink())
                     content = path.read_text(encoding="utf-8")
+                    if path.parent.name in {"MSC-ADHD-P01", "MSC-ADHD-P02", "MSC-ADHD-P03", "MSC-ADHD-P05", "MSC-ADHD-R01", "MSC-ADHD-R02", "MSC-ADHD-S02"}:
+                        ident = path.parent.name
+                        self.assertIn(ident, by_id)
+                        self.assertIn(r"\documentclass[man]{apa7}", content)
+                        self.assertIn(r"\authorsnames{Mateusz Pomianek}", content)
+                        self.assertIn(r"\addbibresource{references.bib}", content)
+                        self.assertTrue((path.parent / "references.bib").is_file())
+                        sections = re.findall(r"\\input\{(sections/[^}]+)\}", content)
+                        self.assertGreaterEqual(len(sections), 6)
+                        self.assertEqual(len(sections), len(set(sections)))
+                        self.assertEqual(set(sections), {"sections/" + p.stem for p in (path.parent / "sections").glob("*.tex")})
+                        expanded = content + "".join((path.parent / (s + ".tex")).read_text(encoding="utf-8") for s in sections)
+                        self.assertGreater(len(expanded), 2200)
+                        self.assertIn(r"\abstract{", expanded)
+                        self.assertIn(r"\printbibliography", content)
+                        self.assertEqual(content.count(r"\begin{document}"), 1)
+                        self.assertEqual(content.count(r"\end{document}"), 1)
+                        self.assertNotIn("MatPomGit/", content)
+                        matched = re.search(r"\\title\{([^{}]+)\}", content)
+                        self.assertIsNotNone(matched)
+                        self.assertNotIn(matched.group(1), titles)
+                        titles.add(matched.group(1))
+                        total += 1
+                        continue
                     self.assertGreater(len(content), 2200)
                     for keyword in (r"\documentclass", r"\begin{document}",
                                     r"\begin{abstract}", r"\section{Wyniki}",

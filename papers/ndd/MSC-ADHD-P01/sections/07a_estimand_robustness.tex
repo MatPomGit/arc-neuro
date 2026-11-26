@@ -1,0 +1,19 @@
+\subsection{Intercurrent events and estimand sensitivity}
+
+The confirmatory estimand must specify how treatment discontinuation, temporary interruption, rescue care, and technical non-delivery affect the target contrast. The preferred clinical policy estimand retains randomized participants regardless of adherence or intervention discontinuation, provided that the external outcome can be ascertained. A supplementary hypothetical estimand may address adequate intervention delivery, but it must not replace the randomized treatment-policy comparison.
+
+For event-level recovery, interruption of the measurement context is not equivalent to discontinuation of the intervention. A safety override that changes the frozen recovery rule makes that event scientifically invalid for the latency endpoint, while remaining countable for safety and feasibility. Conversely, a valid event that reaches the prespecified monitoring limit without stable return is right-censored. The reason for every terminal state must be auditable.
+
+\subsection{Dependence, informative observation, and robustness}
+
+Recovery events are nested within sessions and participants. The number of eligible events may itself depend on previous performance, controller decisions, fatigue, or dropout. Therefore, an event-weighted average does not necessarily estimate the average child-level experience. The primary mechanistic analysis should define its weighting target prospectively, with participant-weighted summaries as a robustness check.
+
+Potentially informative event availability and censoring will be characterized using prespecified predictors measured before the event. Sensitivity analyses may compare complete-event models with approaches that account for event selection or censoring, where identification assumptions are defensible. Such analyses are not presented as correcting unmeasured selection mechanisms.
+
+Model diagnostics will assess time-to-event distributional assumptions, participant-level heterogeneity, influential clusters, and convergence. If proportional hazards assumptions are unsuitable, an accelerated-failure-time specification or restricted mean recovery-time contrast over a fixed horizon can be considered, with the selection rule determined before inferential outcome inspection. A restricted mean must account for right-censoring rather than substituting the censoring horizon as an observed recovery time.
+
+\subsection{Interpretation under null and discordant findings}
+
+A null difference in the external clinical endpoint cannot establish therapeutic equivalence or absence of any benefit. Similarly, a reduction in recovery latency without independent near or far transfer is evidence limited to the measured proximal process. If an optional sensor predicts recovery but fails to improve decisions under a prospective comparison, its incremental predictive value alone does not justify its deployment.
+
+The interpretation will prioritize uncertainty intervals, feasibility limits, missingness, and measurement validity. Claims of clinical efficacy require the separately planned confirmatory evidence and cannot be inferred from engineering verification, simulation, or exploratory subgroup effects.

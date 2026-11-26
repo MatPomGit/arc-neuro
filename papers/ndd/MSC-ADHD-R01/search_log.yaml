@@ -1,0 +1,12 @@
+schema_version: 1
+review_id: ARC_ADHD_R01
+searches: []
+required_fields:
+  - search_id
+  - database
+  - date
+  - exact_query
+  - filters
+  - results_returned
+  - export_filename_or_immutable_reference
+  - deduplication_batch

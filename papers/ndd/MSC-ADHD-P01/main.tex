@@ -1,66 +1,51 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[man]{apa7}
 
-\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
 
-\usepackage[T1]{fontenc}
+\addbibresource{references.bib}
 
-\usepackage[polish]{babel}
+\title{ARC-ADHD: A Closed-Loop Serious Game Framework for Training Executive Control and Emotion-Regulation Recovery in Children With ADHD}
+\shorttitle{ARC-ADHD Closed-Loop Framework}
+\authorsnames{Mateusz Pomianek}
+\authorsaffiliations{{Department of Computer Science and Automation, Rzeszów University of Technology, Rzeszów, Poland}}
+\keywords{ADHD, serious games, emotion regulation, executive functions, closed-loop adaptation, digital health, recovery}
 
-\usepackage{lmodern}
+\input{sections/00_abstract}
 
-\usepackage{geometry}
 
-\geometry{margin=27mm}
-
-\usepackage[hidelinks]{hyperref}
-
-\title{Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD}
-
-\author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
+\hypersetup{
+  pdftitle={ARC-ADHD: A Closed-Loop Serious Game Framework},
+  pdfauthor={Mateusz Pomianek},
+  pdfsubject={Executive control and emotion-regulation recovery in ADHD},
+  pdfkeywords={ADHD, serious games, executive function, emotion regulation}
+}
 
 \begin{document}
-
 \maketitle
 
-\begin{abstract}
+\input{sections/01_introduction}
+\input{sections/02_scope_related_work}
+\input{sections/03_mechanistic_model}
+\input{sections/04_core_intervention}
+\input{sections/05_measurement_framework}
+\input{sections/06_staged_evaluation}
+\input{sections/07_statistical_framework}
+\input{sections/07a_estimand_robustness}
+\input{sections/08_ethics_governance}
+\input{sections/09_discussion}
+\input{sections/10_conclusions}
+\input{sections/11_disclosures}
 
-Tematem pracy jest Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
-\end{abstract}
-
-\section{Wprowadzenie}
-
-Kontekst obserwacji i wieloźródłowość ocen są kluczowe w interpretacji zachowania i zjawisk neurorozwojowych. Zagadnienie Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
-
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
-
-\section{Materiał i metody}
-
-Randomizowany projekt wewnątrzosobniczy: gra o adaptowanej i stałej trudności z jawnie oznaczonymi zakłóceniami zadania. Pierwszorzędowy wskaźnik: Czas powrotu do poprawnej czynności po zakłóceniu, z cenzorowaniem przy końcu próby. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
-
-\section{Plan analizy}
-
-Proponowany plan analityczny: model przeżycia z efektem uczestnika, kontrolą trudności i kolejności. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
-
-\section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
-
-\section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+\printbibliography[title={References}]
 \end{document}
-

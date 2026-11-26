@@ -1,9 +1,18 @@
-# MSC-ADHD-P02 — Wartość inkrementalna zachowania twarzy względem telemetrii zadania
+# MSC-ADHD-P02
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+Does On-Device Facial Behavior Add Useful State Information to an Adaptive ADHD Serious Game? A Multimodal Incremental-Validity Framework
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `ACTIVE`.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`).
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+**Etap:** `ACTIVE`
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+**Tytuł w katalogu:** Wartość inkrementalna zachowania twarzy względem telemetrii zadania
+
+**Status:** Prospective manuscript; not a completed study. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
+
+- [Manuscript](main.tex)
+- [Study record](study.md)
+- [Bibliography](references.bib)
+- [Original licensing policy](ORIGINAL_LICENSING.md)
+
+Build locally with APA 7, latexmk and Biber; disable shell escape.

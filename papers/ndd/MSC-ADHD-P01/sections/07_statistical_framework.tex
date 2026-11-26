@@ -1,0 +1,107 @@
+\section{Statistical Framework and Telemetry}
+
+\subsection{Analysis hierarchy}
+
+The research programme separates measurement-validity estimands, feasibility estimands, mechanistic recovery estimands, independent near-transfer outcomes, and the future confirmatory far-transfer endpoint. A favorable result at a lower level does not substitute for evidence at a higher level, and an inferential recovery analysis is not interpreted before the recovery definition has passed its prespecified measurement gate.
+
+\subsection{Analysis units and denominator contract}
+
+ARC-ADHD uses different analysis units for different scientific questions. These denominators are defined prospectively and must not be exchanged after observing outcomes.
+
+\begingroup
+\small
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{p{3.0cm}p{4.0cm}p{5.0cm}}
+\caption{Primary analysis units and denominator rules}\\
+\toprule
+Analysis & Unit / denominator & Inclusion rule \\
+
+\midrule
+\endfirsthead
+\toprule
+Analysis & Unit / denominator & Inclusion rule \\
+
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+Challenge scheduling & Challenge candidate & Every candidate evaluated by the versioned eligibility rule, including suppressed candidates \\
+Behavior-only recovery candidate \(B\) & Core-eligible rule-switch event & Every core-eligible event with scientifically valid behavioral recovery data; observed recovery and right-censored events remain in the time-to-event risk set \\
+Timing-enriched recovery candidates & Timing-qualified core-eligible event & Prespecified subset of core-eligible events satisfying the frozen timing-profile and target-rule RT-reference requirements \\
+Recovery-model validity & Candidate-specific eligible event & All events to which that candidate is prospectively applicable; computability failures remain visible in the denominator \\
+Safety / tolerability & Participant and initiated session/event & All participants or sessions exposed to the relevant intervention component, regardless of recovery-data validity \\
+Clinical / transfer outcomes & Randomized participant & Intention-to-treat population for randomized comparisons, with outcome-specific missing-data handling \\
+\end{longtable}
+\endgroup
+
+A scientifically invalid recovery event is not ordinary right-censoring and does not remain in the primary recovery risk set after the invalidating context change. A telemetry-missing event is also distinct from a valid unrecovered event. Timing-unqualified events remain informative for the behavior-only candidate when its own requirements are satisfied; they must not be silently deleted from the behavioral denominator merely because \(S\) or \(V\) cannot be computed.
+
+Candidate models can therefore have different applicable denominators during Phase 0. Any comparison of computability, instability, censoring, or latency must state the numerator, denominator, and reason for candidate-specific exclusion explicitly.
+
+\subsection{Pilot clinical estimand}
+
+The pilot randomized trial uses an intention-to-treat framework. The provisional clinical estimand is the between-group difference at post-intervention on the selected external regulation/dysregulation outcome, conditional on baseline value and prespecified design factors. Its purpose is to estimate direction, magnitude, confidence interval, variance, baseline-follow-up correlation, missingness, and parameters needed for the future confirmatory design rather than to make a binary efficacy declaration.
+
+If baseline, post-intervention, and follow-up measurements are collected, a repeated-measures model can include treatment group, time, treatment-by-time interaction, and prespecified stratification variables. The covariance structure and handling of baseline must be frozen before the pilot database is locked.
+
+\subsection{Independent near-transfer and functional outcomes}
+
+Trained-task performance is separated from independent near transfer. The preferred inhibition candidate is a Stop-Signal Task implemented and analyzed according to consensus recommendations, including explicit data-quality checks and a prespecified SSRT estimation method \parencite{verbruggen2019stopsignal}. The assessment must use stimuli, response mapping, reward structure, and instructions that are independent of the trained Signal Gate task.
+
+Because SSRT is timing sensitive, BYOD administration requires a qualified execution profile and prespecified handling of material phone/profile changes. If cross-device timing validation is inadequate, the task should be moved to a controlled assessment context rather than relaxing the measurement rules.
+
+Everyday functional impairment is treated separately from ADHD symptoms and emotion dysregulation. WFIRS-P has published psychometric support in child/adolescent ADHD samples \parencite{gajria2015wfirs}, while the brief parent/teacher Impairment Rating Scale provides another validated child-ADHD impairment framework \parencite{fabiano2006irs}. Their use in the Polish study remains conditional on authorized Polish-language and licensing verification. The Polish SDQ can provide broad corroborating information, but existing Polish population work reported imperfect replication of the original subscale structure and called for further validation \parencite{mazur2007sdqpolish}. Therefore, SDQ is not treated as a substitute for a dedicated functional endpoint.
+
+\subsection{Recovery-event analysis}
+
+Event-level \(T_{\mathrm{rec}}\) is measured from entry into \texttt{RECOVERY\_MONITORING} to the first score update that begins a complete qualifying stability run. It is right-censored when no such run is fully confirmed within the monitoring censor window. Censored values must not be treated as ordinary maximum times. The challenge-to-monitoring interval \(T_{\mathrm{pre}}\) and total challenge-to-stable-return time \(T_{\mathrm{total}}=T_{\mathrm{pre}}+T_{\mathrm{rec}}\) are retained as separate process variables. This prevents strategy duration from being silently absorbed into the primary performance-recovery latency. Depending on the observed data-generating structure in feasibility work, a mixed-effects survival model, accelerated-failure-time model, or another preregistered time-to-event approach may be used. Participant, session, challenge direction, session number, and repeated events must be represented appropriately.
+
+The primary values of \(\delta\), stability window \(w\), censoring limit \(c_e\), feature set, signs, and weights are frozen before pilot outcome inspection. A small preregistered grid around \(\delta\), \(w\), and \(c_e\) may be used for robustness analysis, but sensitivity analyses cannot replace the primary definition when the primary result is inconvenient.
+
+During each recovery event, the score-relevant measurement context is also locked. Task rule, cognitive-difficulty state, sensory configuration, response-window timing, stimulus distribution, and any event-level cue assignment must remain at their prespecified recovery values until the event closes. A safety- or participant-driven change always takes priority, but if it changes the measurement context the event is classified as recovery-data-invalid rather than interpreted as faster recovery or ordinary right-censoring. The event record therefore distinguishes recovery validity from telemetry completeness.
+
+\subsection{Randomized cue events}
+
+Eligible cue events may be micro-randomized among visual-only, visual-plus-auditory, or visual-plus-haptic conditions when such a contrast is scientifically justified and safe. The proximal estimand is the average effect of assigned cue condition on a prespecified immediate outcome among events eligible for randomization.
+
+The eligibility rule, randomization probability, carryover window, outcome window, repeated-event dependence, and missing-event handling must be preregistered. This component is mechanistic and does not create additional clinical primary endpoints.
+
+\subsection{Missing data}
+
+Missing external outcome data and censored recovery events are distinct problems. A participant with missing follow-up is not a censored recovery event, and a challenge event with corrupted telemetry is not treated as a child who failed to recover.
+
+Missingness is reported by arm, time point, event type, and reason. If missing external primary-outcome data are material, the future confirmatory analysis should use a prespecified likelihood-based or multiple-imputation approach when its assumptions are plausible and should include sensitivity analysis to departures from the primary missing-data assumption.
+
+\subsection{Telemetry specification}
+
+The telemetry model is event based and versioned. At minimum, it records participant pseudonym, intervention version, schema version, session identifier, task/trial identifier, challenge-event identifier, challenge type, cognitive difficulty, sensory configuration, challenge onset, pre-challenge reference window, regulation actions, recovery parameters, recovery-monitoring onset, threshold-entry and confirmation timestamps, \(T_{\mathrm{pre}}\), \(T_{\mathrm{rec}}\), \(T_{\mathrm{total}}\) when observed, censoring status and reason, safety override, controller reason code, and missingness flags.
+
+Within-session scientific timing uses a monotonic clock. Right-censoring and missingness have separate codes. Derived interpretable features are preferred over raw streams when raw data are not required by the scientific question.
+
+Deterministic replay of the adaptive controller should be possible from the versioned configuration and logged inputs. The machine-readable recovery-event contract is maintained in the repository alongside the analysis specification.
+
+\subsection{BYOD device heterogeneity}
+
+The intervention is delivered on participant or caregiver private Android phones under a frozen compatibility policy. Qualification outcome, fallback use, coarse capability/performance class, and material device/profile changes are process variables rather than clinical endpoints.
+
+When reaction-time-derived features contribute materially to a mechanistic analysis, the handling of capability class and device/profile changes must be prespecified. A material device change must not be treated as measurement continuity by default; timing-sensitive reference values may require reset, stratification, or sensitivity analysis. Exact manufacturer/model is not introduced post hoc as an unrestricted moderator merely because it is technically observable.
+
+The programme also reports qualification, fallback, and nonqualification rates so that hardware-related exclusion is visible rather than hidden in recruitment loss.
+
+\subsection{Mechanistic coherence is not causal mediation}
+
+The core programme tests whether the proposed recovery process behaves coherently with the intervention theory, but it does not equate that test with proof of mediation. Evidence that ARC-ADHD changes \(T_{\mathrm{rec}}\), together with an association between change in \(T_{\mathrm{rec}}\) and an independent external outcome, supports the plausibility of the proposed mechanism. It does not by itself establish that recovery change causally transmits the intervention effect to the external outcome.
+
+A formal mediation claim would require additional assumptions, a prospectively specified causal mediation estimand, appropriate temporal ordering, treatment of mediator--outcome confounding, and an analysis designed for that purpose. These requirements are outside the present framework unless they are added explicitly before data collection.
+
+The programme therefore treats four patterns as scientifically distinct: improvement in both recovery and independent outcomes; improvement in recovery without independent transfer; independent improvement without detectable recovery change; and improvement restricted to trained-task performance. None of these patterns is reclassified post hoc as proof of the same mechanism.
+
+\subsection{Multiplicity and claim hierarchy}
+
+The research programme distinguishes one future confirmatory primary clinical endpoint from mechanistic and exploratory analyses. Optional companion modules have their own papers and do not enter the multiplicity family of the core trial unless they are explicitly integrated into a later confirmatory design.
+
+Effect estimates should be reported with confidence intervals and clinically interpretable units. The analysis must not infer equivalence from a nonsignificant superiority test, select favorable recovery parameters after seeing the data, or interpret in-game improvement as a clinical endpoint.

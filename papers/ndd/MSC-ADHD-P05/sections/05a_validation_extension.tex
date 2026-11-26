@@ -1,0 +1,12 @@
+\section{EEG Measurement Validation Extension}
+\subsection{Acquisition qualification}
+Raw EEG access, channel metadata, sample timing, amplitude scaling, packet loss, and event synchronization for the specific Muse S Athena acquisition pathway require direct technical verification. Nominal manufacturer specifications are insufficient to establish timing accuracy. Synchronization offset, jitter, motion contamination, and usable-channel coverage will be quantified before pediatric recording.
+
+\subsection{Feasibility estimand}
+The primary feasibility measure is the equal-participant-weighted proportion of eligible task events with synchronized, quality-qualified EEG windows. Report the full eligible-event denominator and missingness by phase, participant, and motion burden. Spectral feature definitions, frequency boundaries, window durations, and multiplicity handling must be frozen before inferential testing.
+
+\subsection{Neural recovery}
+Candidate EEG recovery latency will be derived from a neural reference calibrated independently of behavioral recovery. Thresholds, consecutive-window requirements, and censoring horizons must be fixed before examining neural-behavioral associations. Analyses must account for repeated events and artifact-related selection. Correlation between EEG and behavioral recovery is not proof of causal mediation.
+
+\subsection{Incremental prediction}
+A behavior-and-context model will be compared with a model augmented by EEG using participant-held-out predictions. Training-only preprocessing and matched evaluation occasions prevent leakage. An improvement attributable only to movement, signal quality, or recording availability is not evidence of additional neural information. Failed synchronization or inadequate reproducibility blocks progression to mechanistic EEG claims.

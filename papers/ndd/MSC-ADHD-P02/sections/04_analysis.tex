@@ -1,0 +1,32 @@
+\section{Analysis and Falsification Criteria}
+
+\subsection{Primary incremental validity}
+
+Let \(Y_{ik}\) indicate whether child \(i\) reports that the preceding block was \enquote{too hard} at scheduled occasion \(k\). Let \(p_{0,ik}\) and \(p_{1,ik}\) be predictions from otherwise matched non-camera and camera-extended models, respectively, made strictly before that report. On identical labeled, camera-eligible occasions, define
+\[
+L_{m,i}=\frac{1}{n_i}\sum_{k=1}^{n_i}
+\{-Y_{ik}\log p_{m,ik}-(1-Y_{ik})\log(1-p_{m,ik})\},
+\quad m\in\{0,1\},
+\]
+and the primary estimate
+\[
+\widehat{\Delta}_{\mathrm{child}}
+=\frac{1}{N}\sum_{i=1}^{N}(L_{0,i}-L_{1,i}).
+\]
+Positive values favor the camera extension for this predictive target, not intervention efficacy. Apply the same prespecified numerical probability clipping to both models. Equal child weighting prevents frequent players from dominating. Report paired child differences, eligible child/event counts, events per child, and participant-resampled uncertainty. A minimum useful improvement and an interval-based go/no-go criterion must be frozen before examining outcomes; a point estimate above zero alone is insufficient.
+
+\subsection{Participant-aware development}
+
+Generate each outer-fold prediction with a model trained without outcome labels from that child. Feature selection, missing-value rules, scaling, probability calibration, and hyperparameter choice use participant-grouped inner splits of training children only. Freeze the model family, tuning grid, feature windows, and prediction cutoff before evaluating outer-fold outcomes. The held-out child's baseline may use only prospectively obtained, earlier unlabeled calibration observations. Do not revise the model on the basis of outer-fold results and then describe the same estimate as confirmatory.
+
+The base model includes the same availability indicators and uses the same occasions as the extension. A secondary availability-only model tests whether camera success or failure alone accounts for a gain attributed to facial dynamics. Report class prevalence and calibration with uncertainty; discrimination is secondary. The facial signal remains observational in this phase.
+
+\subsection{Missingness and robustness}
+
+Tabulate all scheduled occasions by consent/camera state, tracking validity, baseline sufficiency, base-telemetry completeness, and child-response availability. Specify an exclusive primary reason while retaining overlapping reasons. Report coverage by child and occasion and compare task/context distributions of camera-eligible and ineligible occasions. A missing child response has no observed label and is never imputed as absence of difficulty. The primary paired estimate is conditional on camera eligibility and cannot automatically generalize to all children or settings.
+
+Prespecify descriptive strata for lighting, glasses/occlusion, head pose, device class, and tracking quality, subject to adequate counts and voluntary metadata. Report subgroup denominators, coverage, paired loss differences, and calibration uncertainty. Sparse strata do not justify fairness claims. No protected characteristic is inferred from facial images for stratification.
+
+\subsection{Decision-level evaluation and falsification}
+
+A subsequent randomized adaptation experiment requires its own prespecified decision outcomes: excessive-challenge exposure, unnecessary difficulty reductions, recovery outcomes, child stopping, and sensory burden. Prediction alone does not authorize camera control of task difficulty. Reject or restrict the optional module when participant-held-out value is not reproducible and practically useful, availability is inadequate or uneven, calibration worsens, decision errors rise, or privacy/device burden outweighs benefit. A null result does not falsify the independently tested core mechanism.

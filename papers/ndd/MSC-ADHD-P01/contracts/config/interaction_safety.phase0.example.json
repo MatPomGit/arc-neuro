@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1",
+  "status": "candidate_phase0_not_frozen",
+  "rule_version": "interaction-safety-0.1",
+  "priority": [
+    "fatal_integrity_condition",
+    "safety_stop",
+    "child_stop",
+    "caregiver_or_researcher_safety_stop",
+    "child_pause",
+    "sensory_overload",
+    "technical_interrupt",
+    "scientific_transition",
+    "ordinary_progression"
+  ],
+  "child_controls": {
+    "pause_enabled": true,
+    "stop_enabled": true,
+    "stop_requires_confirmation": false,
+    "pause_preserves_progress": true,
+    "stop_preserves_earned_progress": true
+  },
+  "caregiver": {
+    "safety_stop_enabled": true,
+    "task_answer_coaching_allowed": false,
+    "strategy_selection_for_child_allowed": false,
+    "difficulty_override_allowed": false,
+    "hidden_condition_access_allowed": false
+  },
+  "researcher": {
+    "safety_stop_enabled": true,
+    "manual_difficulty_override_allowed_in_locked_session": false,
+    "manual_scientific_override_requires_reason_code": true
+  },
+  "sensory_overload": {
+    "explicit_child_report_supported": true,
+    "facial_inference_used": false,
+    "opaque_model_used": false,
+    "simplification_order": [
+      "remove_decorative_audio",
+      "reduce_decorative_animation",
+      "disable_optional_haptics",
+      "replace_optional_audio_with_visual_fallback",
+      "quiet_pause"
+    ],
+    "simplify_before_cognitive_reduction": true
+  },
+  "post_pause": {
+    "suppress_new_challenge": true,
+    "require_return_to_baseline_task": true,
+    "require_fresh_reference_window": true,
+    "require_telemetry_healthy": true,
+    "require_overload_cleared": true
+  },
+  "recovery": {
+    "pause_may_invalidate_measurement": true,
+    "technical_invalidity_is_not_right_censoring": true,
+    "stop_never_fabricates_recovery_latency": true
+  },
+  "notes": [
+    "This is a candidate behavioral configuration for Phase 0.",
+    "No numerical clinical or distress threshold is frozen by this file.",
+    "Child stop and safety actions outrank performance adaptation."
+  ]
+}
