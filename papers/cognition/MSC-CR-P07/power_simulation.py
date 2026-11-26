@@ -1,7 +1,8 @@
 """Prospective Monte Carlo planning; no empirical data.
 
-Crossed random-intercept logistic model, fitted with statsmodels Laplace MAP.
-Wald screening is approximate and must be calibrated using null scenarios.
+Crossed random-intercept logistic model, fitted with statsmodels mean-field variational Bayes.
+Posterior normal screening is approximate; it is not a frequentist Wald test.
+Null calibration is required before recruitment planning.
 """
 import argparse
 import itertools
@@ -47,7 +48,7 @@ def fit_trial(d):
             d, vcp_p=0.5, fe_p=5)
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always")
-            fit = model.fit_map(method="BFGS", minim_opts={"maxiter": 500})
+            fit = model.fit_vb(method="BFGS", minim_opts={"maxiter": 500})
         if caught or not fit.optim_retvals.success:
             return "failed"
         b, se = fit.fe_mean[1], fit.fe_sd[1]
@@ -65,7 +66,7 @@ def scenario(n, tasks, beta, sd_person, sd_task, initial_correct,
     outcomes = []
     for child in np.random.SeedSequence(seed).spawn(replicates):
         rng = np.random.default_rng(child)
-        # statsmodels MAP uses NumPy's legacy RNG for starting values.
+        # statsmodels VB uses NumPy's legacy RNG for starting values.
         state = np.random.get_state()
         try:
             np.random.seed(int(child.generate_state(1)[0]))
