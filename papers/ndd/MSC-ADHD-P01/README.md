@@ -2,7 +2,11 @@
 
 ARC-ADHD: A Closed-Loop Serious Game Framework for Training Executive Control and Emotion-Regulation Recovery in Children With ADHD
 
-**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`).
+
+**Etap:** `ACTIVE`
+
+**Tytuł w katalogu:** Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD
 
 **Status:** Prospective manuscript; not a completed study. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 

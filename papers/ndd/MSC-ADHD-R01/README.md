@@ -2,7 +2,11 @@
 
 Beyond Accuracy and Symptom Scores: A Systematic Scoping Review of Temporal Recovery Metrics in Digital Mental Health and Cognitive Training
 
-**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`).
+
+**Etap:** `REVIEW_IN_PROGRESS`
+
+**Tytuł w katalogu:** Przegląd czasowych miar powrotu do regulacji
 
 **Status:** Prospective scoping review protocol; synthesis not completed. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 

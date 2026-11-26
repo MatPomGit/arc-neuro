@@ -2,7 +2,11 @@
 
 Wearable and Low-Density EEG for Task-Locked Monitoring in ADHD and Pediatric Neurodevelopmental Research: A Systematic Scoping Review
 
-**Scientific owner:** Mateusz Pomianek (`MatPomGit`).
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`).
+
+**Etap:** `REVIEW_IN_PROGRESS`
+
+**Tytuł w katalogu:** Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych
 
 **Status:** Prospective scoping review protocol; synthesis not completed. Public manuscript release authorized by the owner on 2026-11-26. Scientific review and final visual verification remain pending.
 

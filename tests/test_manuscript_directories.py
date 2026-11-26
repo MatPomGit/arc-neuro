@@ -45,7 +45,7 @@ class ManuscriptDirectoryTests(unittest.TestCase):
                     readme,
                     r"(?m)^\*\*Właściciel naukowy i autor szkicu:\*\* Mateusz Pomianek\b",
                 )
-                author_fields = re.findall(r"\\author(?:\[[^\]]*\])?\{([^}]*)\}", tex)
+                author_fields = re.findall(r"\\(?:author|authorsnames)(?:\[[^\]]*\])?\{([^}]*)\}", tex)
                 self.assertEqual(len(author_fields), 1, "Expected one LaTeX author declaration")
                 self.assertIn("Mateusz Pomianek", author_fields[0])
 
