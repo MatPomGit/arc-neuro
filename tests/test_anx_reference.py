@@ -8,7 +8,8 @@ from statistics import median
 P = Path(__file__).resolve().parents[1] / "papers/cognition/MSC-ANX-P01/reference"
 sys.path.insert(0, str(P))
 try:
-    from design import manifest, category
+    from design import manifest, category, balance_metrics, balance_violations
+    from audit_design import sweep
     from power import complete_n, approximate_power, simulate
     from synthetic import synthetic, summarize
 finally:
@@ -39,6 +40,20 @@ class AnxReferenceTests(unittest.TestCase):
                 if a["block"] == b["block"]:
                     self.assertNotEqual(a["cue"], b["cue"])
                     self.assertEqual(a["rule"] != b["rule"], b["transition"] == "switch")
+
+    def test_seed_sweep(self):
+        report = sweep(0, 2048)
+        self.assertEqual(report["passed"], 2048, report["failures"][:10])
+        self.assertEqual(report["ranges"]["switch.stimulus_repeat"], [12, 12])
+        self.assertEqual(report["ranges"]["repeat.stimulus_repeat"], [12, 12])
+
+    def test_balance_validator_rejects_bad_contrast(self):
+        metrics = balance_metrics(manifest(42)["switching"])
+        self.assertFalse(balance_violations(metrics))
+        metrics["switch"]["stimulus_repeat"] = 0
+        self.assertIn("switch:stimulus_repeat", balance_violations(metrics))
+        metrics["switch"]["response_repeat"] = 60
+        self.assertIn("switch:response_repeat", balance_violations(metrics))
 
     def test_decision_design(self):
         rows = manifest(9)["decisions"]
