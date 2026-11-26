@@ -5,6 +5,7 @@ Runs on GitHub-hosted CI, never on persistent research runners.
 """
 from __future__ import annotations
 import argparse
+import re
 import shutil
 import subprocess
 import tempfile
@@ -31,17 +32,38 @@ def compile_all(root: Path = ROOT, timeout: int = 40) -> list[str]:
                     errors.append(f"{rel}: symlink denied")
                     continue
                 try:
+                    apa = r"\documentclass[man]{apa7}" in src.read_text(encoding="utf-8")
+                    if apa:
+                        latexmk = shutil.which("latexmk")
+                        if latexmk is None or shutil.which("biber") is None:
+                            errors.append(f"{rel}: latexmk or biber unavailable")
+                            continue
+                        command = [latexmk, "-norc", "-pdf", "-halt-on-error",
+                                   "-interaction=nonstopmode",
+                                   "-pdflatex=pdflatex -no-shell-escape -file-line-error %O %S",
+                                   f"-outdir={dest}", "main.tex"]
+                    else:
+                        command = [latex, "-halt-on-error", "-interaction=nonstopmode",
+                                   "-no-shell-escape", f"-output-directory={dest}", "main.tex"]
                     result = subprocess.run(
-                        [latex, "-halt-on-error", "-interaction=nonstopmode",
-                         "-no-shell-escape", f"-output-directory={dest}", "main.tex"],
+                        command,
                         cwd=src.parent, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                        text=True, errors="replace", timeout=timeout, check=False,
+                        text=True, errors="replace", timeout=max(timeout, 180) if apa else timeout, check=False,
                     )
                     pdf = dest / "main.pdf"
                     if result.returncode != 0 or not pdf.is_file() or pdf.stat().st_size < 300:
                         lines = result.stdout.splitlines()
                         detail = next((line.strip() for line in lines if line.startswith("!")), "")
                         errors.append(f"{rel}: LaTeX FAIL exit={result.returncode} {detail}")
+                    elif apa and (
+                        not (dest / "main.blg").is_file()
+                        or "ERROR -" in (dest / "main.blg").read_text(errors="replace")
+                        or re.search(
+                            r"(?:Citation .* undefined|There were undefined (?:references|citations))",
+                            (dest / "main.log").read_text(errors="replace"),
+                        )
+                    ):
+                        errors.append(f"{rel}: APA7 bibliography/reference validation failed")
                     else:
                         print(f"PASS PDF: {rel}")
                 except (subprocess.TimeoutExpired, OSError) as exc:
