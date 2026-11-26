@@ -62,3 +62,18 @@ Analiza tłumienia efektu: r_obserwowane = r_latentne × sqrt(Rx × Ry), przy kl
 .venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/reliability.py --n 80 --bootstrap 2000
 .venv-anx/bin/python -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_reliability.py' -v
 ```
+
+## Lokalny demonstrator przeglądarkowy (P3.6a)
+
+Wygeneruj manifest w Pythonie, uruchom statyczny serwer wyłącznie na loopback i otwórz adres localhost. Wczytaj plik JSON ręcznie. Prototyp bez formularzy zdrowotnych, identyfikatorów uczestników, sieciowej akwizycji, pamięci trwałej, telemetrii i publikacji Pages. Eksport DEMO jest jawnie niezgodny z wejściem analiz syntetycznych. Nie udostępniać uczestnikom badania.
+
+```sh
+cd papers/cognition/MSC-ANX-P01/reference
+python3 export_demo.py /tmp/anx-demo.json --seed 42
+python3 -m http.server 8765 --bind 127.0.0.1 --directory browser_demo
+# Otwórz http://127.0.0.1:8765/ w przeglądarce i wybierz /tmp/anx-demo.json.
+# Testy kontraktu JS, Node >=20:
+ANX_DEMO_MANIFEST=/tmp/anx-demo.json node --test browser_demo/core.test.mjs
+```
+
+Implementacja: 336 prób, mapowanie F/J, wskazówka 300 ms, deadline klasyfikacji 2000 ms, ITI 500 ms, przerwy między blokami, kontrola fokusu, odrzucanie powtórzonych zdarzeń klawiszy, rozróżnienie timeout i błędu technicznego. RT = timestamp zdarzenia klawiatury minus znacznik aktualizacji DOM w requestAnimationFrame; nie jest to potwierdzony fizyczny onset. Próg 150 ms nadmiarowego czasu wskazówki jest wstępny. Brak treningu i sprawdzania zrozumienia, brak końcowej walidacji timing na różnych przeglądarkach, brak gwarancji rzeczywistej ekspozycji. Przed pilotażem potrzebne: testy E2E w przeglądarce, kontrola urządzenia i opóźnień, zatwierdzone skale, instrukcje i zgoda etyczna. Nie zastępuje przyszłej aplikacji kanonicznej.
