@@ -5,6 +5,7 @@ Właściciel naukowy: Mateusz Pomianek. Status: prospektywny model syntetyczny, 
 - design.py: deterministyczny manifest 240 prób klasyfikacji (48 bazowych, 192 mieszane), 94 switch / 94 repeat, cztery nieokreślone pierwsze przejścia, 96 wyborów. Dokładnie 12 powtórzeń identycznego bodźca w każdym warunku. Marginesy są kontrolowane w całej sesji; generator przyjmuje wyłącznie sekwencje spełniające jawne tolerancje i przerywa po 128 nieudanych próbach. Wersja bodźców 0.4.1, wersja protokołu 0.4.0. Tolerancje są wstępnymi progami inżynieryjnymi, nie gwarantują pełnej ortogonalności ani rzetelności psychometrycznej. Ziarna 0–15 ilustrują 16 kombinacji przypisania odpowiedzi, kolejności bloków bazowych i kolejności zadań; w badaniu alokację trzeba równoważyć niezależnie od identyfikatora.
 - audit_design.py: audyt 2048 kolejnych ziaren, zakresy marginesów i raport JSON; niezerowy kod wyjścia przy niepowodzeniu.
 - synthetic.py: generowanie wyłącznie rekordów SYN, obliczanie median kosztu i bazowego RT, trafności i kwalifikacji. Minimum 24 poprawne bazowe próby jest dodatkowym proponowanym progiem. Timeout jest niepowodzeniem w analizie trafności, nigdy ważną poprawną reakcją. Nie przechowuje danych ani nie wysyła żądań sieciowych.
+- statistical.py: H1 OLS z HC3 i dwustronnym wnioskowaniem t, kompletne przypadki, jawne kodowanie kategorii i warianty bez bazowego RT oraz depresyjności. H2/H3: uzupełniające GEE logit z odporną macierzą kowariancji klastrowaną po osobie i korektą Holma. GEE nie jest konfirmacyjnym GLMM; różne estymandy marginalne i warunkowe. Dane wejściowe wyłącznie syntetyczne. Stałe współzmienne są jawnie pomijane, stały predyktor hipotezy lub niedostateczny rząd macierzy przerywają analizę.
 - power.py: analityczne przybliżenie Fishera i symulacja Monte Carlo zmiennej liczebności po niezależnej utracie; nie symuluje jeszcze rzetelności kosztu ani modeli H2/H3. Założenie r dotyczy korelacji częściowej obserwowanych zmiennych, nie efektu latentnego.
 
 Uruchomienie z katalogu repozytorium:
@@ -16,3 +17,14 @@ python3 -B papers/cognition/MSC-ANX-P01/reference/power.py --recruited 444 --r .
 ```
 
 Kolejne prace: niezależna weryfikacja generatora, symulacja niezależnych parametrów poziomu prób, pełne modele HC3 i GLMM oraz analiza rzetelności. Implementacja przeglądarkowa, zatwierdzone skale i akwizycja danych wymagają osobnego kanonicznego środowiska, testów timing i decyzji etycznej. Nie wdrażać na GitHub Pages.
+
+## Opcjonalna warstwa statystyczna
+
+```sh
+python3 -m venv .venv-anx
+.venv-anx/bin/python -m pip install -r papers/cognition/MSC-ANX-P01/reference/requirements-analysis.txt
+.venv-anx/bin/python -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p test_statistical.py -v
+.venv-anx/bin/python papers/cognition/MSC-ANX-P01/reference/statistical.py --n 80 --seed 42
+```
+
+Bez utrwalania danych, tylko raport syntetyczny. Przypięto bezpośrednie zależności, nie pełne zależności przechodnie. Modele GLMM oraz analiza prób RT pozostają następnym etapem. Weryfikacja poprawności implementacji nie zastępuje walidacji modelu na zatwierdzonym protokole.

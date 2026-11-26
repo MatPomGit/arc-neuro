@@ -55,6 +55,13 @@ jobs:
       - name: Run offline unit tests
         shell: bash
         run: python3 -B -m unittest discover -s tests -v
+      - name: Test synthetic ANX statistical reference in isolated venv
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv "${RUNNER_TEMP}/arc-neuro-anx-analysis"
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r papers/cognition/MSC-ANX-P01/reference/requirements-analysis.txt
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p test_statistical.py -v
       - name: Read-only v2 migration inventory preflight
         run: python3 -B scripts/migration_preflight.py
       - name: Verify public GitHub review evidence
