@@ -41,7 +41,7 @@ def simulate_trials(rng, n, tasks, alpha, beta, sd_person, sd_task,
 
 def fit_trial(d):
     if any(d[c].nunique() < 2 for c in ("person", "task", "tone", "y")):
-        return "failed"
+        return None
     try:
         model = BinomialBayesMixedGLM.from_formula(
             "y ~ tone", {"person": "0 + C(person)", "task": "0 + C(task)"},
@@ -50,13 +50,13 @@ def fit_trial(d):
             warnings.simplefilter("always")
             fit = model.fit_vb(method="BFGS", minim_opts={"maxiter": 500})
         if caught or not fit.optim_retvals.success:
-            return "failed"
+            return None
         b, se = fit.fe_mean[1], fit.fe_sd[1]
         if not np.isfinite(b) or not np.isfinite(se) or se <= 0:
-            return "failed"
-        return "reject" if 2 * norm.sf(abs(b / se)) < .05 else "retain"
+            return None
+        return float(b), float(se)
     except (ValueError, RuntimeError, ArithmeticError, np.linalg.LinAlgError):
-        return "failed"
+        return None
 
 
 def scenario(n, tasks, beta, sd_person, sd_task, initial_correct,
@@ -75,14 +75,24 @@ def scenario(n, tasks, beta, sd_person, sd_task, initial_correct,
                 initial_correct, missing)))
         finally:
             np.random.set_state(state)
-    rejected = outcomes.count("reject")
-    failed = outcomes.count("failed")
+    valid = np.asarray([o for o in outcomes if o is not None], dtype=float).reshape(-1, 2)
+    failed = replicates - len(valid)
+    estimates, ses = valid.T
+    rejected = int(np.sum(np.abs(estimates / ses) > norm.ppf(.975)))
+    covered = int(np.sum(np.abs(estimates - beta) <= norm.ppf(.975) * ses))
+    coverage_ci = binomtest(covered, len(valid)).proportion_ci(method="exact") if len(valid) else None
     ci = binomtest(rejected, replicates).proportion_ci(method="exact")
     return dict(n=n, tasks=tasks, alpha=alpha, beta=beta,
                 sd_person=sd_person, sd_task=sd_task,
                 initial_correct=initial_correct, missing=missing,
                 replicates=replicates, seed=seed, rejected=rejected,
                 failed=failed, rejection_rate=rejected / replicates,
+                failure_rate=failed / replicates,
+                mean_bias=float(np.mean(estimates - beta)) if len(valid) else None,
+                rmse=float(np.sqrt(np.mean((estimates - beta)**2))) if len(valid) else None,
+                coverage=covered / len(valid) if len(valid) else None,
+                coverage_lower95=coverage_ci.low if coverage_ci else None,
+                coverage_upper95=coverage_ci.high if coverage_ci else None,
                 lower95=ci.low, upper95=ci.high,
                 conditional_rate=(rejected / (replicates - failed)
                                   if failed < replicates else None))
