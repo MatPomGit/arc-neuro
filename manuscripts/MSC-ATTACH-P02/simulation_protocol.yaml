@@ -1,0 +1,101 @@
+schema_version: 1
+manuscript_id: M02
+status: design_structure_frozen_numeric_grid_pending_compute_feasibility_check
+updated: 2026-10-08
+question: "Under which observation conditions can a known dynamical generator be recovered from feedback-regulated action trajectories, and when are competing models practically observationally equivalent?"
+existing_stress_test:
+  config: software/simulator/configs/controller_discrimination.json
+  source: software/simulator/controller_discrimination.py
+  evidence: software/simulator/results/controller_discrimination
+  interpretation: motivation_only_not_confirmatory
+confirmatory_design:
+  generator_classes:
+    required: [P, PI, PID, context_only_baseline, autoregressive_baseline]
+    extension_required: [ARX_or_state_space, nonlinear_saturation, regime_switching]
+  factors:
+    - trajectory_length
+    - observation_interval
+    - analyst_measurement_noise
+    - missingness
+    - feedback_strength
+    - action_clipping
+  split:
+    fitting: first_contiguous_temporal_block
+    model_selection_validation: next_contiguous_temporal_block
+    final_evaluation: last_temporal_block_untouched_until_model_selected
+    development_fractions: [0.60, 0.20, 0.20]
+    dependence: causal_history_and_feedback_cross_temporal_boundaries
+    replication_unit: independently_generated_trajectory
+    new_trajectory_generalization: exploratory_fixed_setting_extension_executed_final_scope_pending
+  common_random_numbers: allowed_within_paired_conditions
+  random_seed_registry: required
+primary_estimands:
+  - generating_family_recovery_probability
+  - paired_final_evaluation_loss_difference
+  - trajectory_level_near_tie_probability
+  - condition_level_paired_mean_loss_equivalence
+secondary_estimands:
+  - parameter_bias
+  - parameter_dispersion
+  - interval_coverage
+  - fit_failure_rate
+  - simple_baseline_dominance_rate
+practical_equivalence:
+  tolerance: pending_freeze_before_confirmatory_run
+  trajectory_near_tie: "absolute paired final-test loss difference < frozen tolerance"
+  condition_equivalence: "prespecified interval for mean paired difference wholly inside [-tolerance, tolerance]"
+  inconclusive: "interval crosses either equivalence boundary"
+  interval_method_and_coverage: pending_freeze_before_confirmatory_run
+  comparison_family_and_multiplicity: pending_freeze_before_confirmatory_run
+  competitor_selection: validation_only_excluding_generating_family
+  tie_breaking_and_degenerate_gain_rules: pending_freeze_before_confirmatory_run
+  implementation_status: reporting_contract_requires_output_reconciliation_before_confirmatory_run
+  rule: "Tolerance must be set from substantive predictive resolution or pre-run simulation-design reasoning, not after inspecting confirmatory outcomes."
+reporting:
+  retain_failed_fits: true
+  retain_null_results: true
+  report_denominators: true
+  report_monte_carlo_uncertainty: true
+  prohibit_human_mechanism_claims: true
+provenance:
+  require_config_hash: true
+  require_source_commit: true
+  require_environment_versions: true
+  require_output_checksums: true
+
+prediction_target:
+  implemented: conditional_one_step_action_given_observed_history
+  recursive_multistep_rollout: not_implemented
+  causal_history_initialization: document_before_confirmatory_freeze
+  future_dependent_preprocessing: prohibited
+degeneracy:
+  nominal_and_effective_family: report_separately
+  zero_integral_or_derivative_gain: lower_order_functional_case
+  practical_gain_threshold: pending_prospective_freeze
+  feature_rank_and_clipping_diagnostics: exported_in_standardized_development
+
+standardized_development:
+  source: software/simulator/controller_identifiability_suite.py
+  targeted_config: software/simulator/configs/m02_standardized_development.json
+  factorial_config: software/simulator/configs/m02_factorial_development.json
+  evidence_ids: [M02-DEV-STANDARDIZED-2026-10-07, M02-DEV-FACTORIAL-2026-10-07]
+  status: executed_development_only
+  distinction: standardized_feedback_plant_not_full_ARC_agent
+  generator_classes: [intercept, ar, p, pi, pid, arx, nonlinear, switching]
+  intervals: pointwise_Wilson_recovery_and_normal_paired_mean
+  final_scoring: deferred_until_validation_choice_frozen
+  parameter_coverage: not_implemented
+  independent_trajectory_generalization: not_implemented
+
+robustness_development:
+  source: software/simulator/controller_identifiability_robustness.py
+  config: software/simulator/configs/m02_robustness_development.json
+  evidence_id: M02-DEV-ROBUSTNESS-2026-10-08
+  status: executed_exploratory_review_response
+  independent_roles: fit_validation_final_with_fresh_innovations
+  scope: fixed_generator_gains_schedule_and_causal_prehistory
+  selectors: [validation_RMSE, working_Gaussian_AIC, working_Gaussian_BIC]
+  intervals: pointwise_percentile_paired_replication_bootstrap
+  prior_factorial_reanalysis: disclosed_four_epsilon_sensitivity_not_confirmation
+  information: conditional_regression_only_not_latent_closed_loop_FIM
+  OSF_registration: draft_not_submitted

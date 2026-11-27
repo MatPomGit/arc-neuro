@@ -1,0 +1,9 @@
+\section{Observation Model and Computational Ethics}
+
+The study uses exclusively synthetic states and actions. It recruits no participants, administers no questionnaires, and makes no individual diagnoses. No ethics approval or institutional exemption is claimed without a documented determination. Human protocols, consent, and measurement instruments belong to the separate M03 and M04 programmes.
+
+The observation model separates latent simulator state, generator-side perception noise, process noise, and analyst-side observation error. Their scales and injection points must be recorded separately. Analyst noise is not questionnaire reliability. Numerical units in the simulator are not calibrated units of human closeness or control.
+
+In the development pipeline, model coefficients are fitted on the first temporal block, family choice uses the next block, and final-test loss uses the last block. These are temporally ordered blocks of one feedback trajectory, not independent trajectories. Lagged observed action and causal error histories support conditional one-step prediction; they do not establish autonomous multi-step forecasting. Integral and derivative histories may cross a split boundary only through past observed information, with a documented initialization rule and no future-dependent filtering. Coefficients and preprocessing choices remain frozen for final evaluation.
+
+Recoverability concerns the specified generator and candidate universe. It cannot establish that a corresponding mechanism or stable trait exists in people. Clipping and zero-gain cases require separate reporting because a nominal PID label may represent a functionally lower-order controller. Public computational artifacts contain synthetic data and provenance only.
