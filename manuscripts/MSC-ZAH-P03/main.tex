@@ -48,7 +48,7 @@ Pierwszorzędowa hipoteza dotyczy interakcji kierunku niedopasowania i zgodnośc
 \]
 Nie należy utożsamiać tych estymandów. Efekty drugorzędowe wymagają korekty wielokrotnych porównań. Brak efektu nie stanowi dowodu równoważności bez uprzednio określonego marginesu.
 
-Robocza implementacja Python/PyMC wykorzystuje przedział kwantylowy a posteriori dla współczynnika interakcji. Częstość fałszywych decyzji wymaga kalibracji przed zamrożeniem protokołu. Obecny generator nie uwzględnia odrębnego efektu kontekstu ani losowych nachyleń. Symulacja mocy powinna zmieniać liczbę obserwatorów i niezależnych klipów, siłę interakcji, wariancję efektów losowych oraz braki odpowiedzi. Należy raportować błąd pierwszego rodzaju, moc, zbieżność i niepewność Monte Carlo. Nie ustalono jeszcze liczebności docelowej.
+Robocza implementacja Python/PyMC wykorzystuje przedział kwantylowy a posteriori dla współczynnika interakcji. Częstość fałszywych decyzji wymaga kalibracji przed zamrożeniem protokołu. Generator uwzględnia odrębne konteksty oraz losowe nachylenia efektu oczekiwania dla obserwatorów i klipów. Identyfikowalność wariancji kontekstów wymaga oceny symulacyjnej; korelacje wyrazów wolnych i nachyleń nie są obecnie modelowane. Symulacja mocy powinna zmieniać liczbę obserwatorów i niezależnych klipów, siłę interakcji, wariancję efektów losowych oraz braki odpowiedzi. Należy raportować błąd pierwszego rodzaju, moc, zbieżność i niepewność Monte Carlo. Nie ustalono jeszcze liczebności docelowej.
 
 \section{Wyniki}
 Nie zebrano jeszcze danych empirycznych i nie wykonano analiz potwierdzających. W niniejszym opracowaniu nie przypisuje się wartości statystycznych, wyników skal, skuteczności diagnostycznej ani dowodów występowania doliny niesamowitości.
