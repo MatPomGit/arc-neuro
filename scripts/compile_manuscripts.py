@@ -57,7 +57,9 @@ def compile_all(root: Path = ROOT, timeout: int = 40) -> list[str]:
                 pdf = dest / "main.pdf"
                 if result.returncode != 0 or not pdf.is_file() or pdf.stat().st_size < 300:
                     lines = result.stdout.splitlines()
-                    detail = next((line.strip() for line in lines if line.startswith("!")), "")
+                    detail = next((line.strip() for line in lines if line.startswith("!") or re.search(r":\d+:\s*(?:LaTeX|Package|Undefined|Missing|Extra|Emergency)", line) or "ERROR -" in line), "")
+                    if not detail:
+                        detail = "\n".join(lines[-25:])
                     errors.append(f"{rel}: LaTeX FAIL exit={result.returncode} {detail}")
                 elif bibliography and (
                     not (dest / "main.blg").is_file()
