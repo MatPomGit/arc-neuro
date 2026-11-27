@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-ANX-P01/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-ANX-P01/pilot-protocol.md",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
@@ -23,7 +23,47 @@
   "stage_evidence": null,
   "schema_version": 3,
   "dependencies": {
-    "tools": [],
+    "tools": [
+      {
+        "ref": "GAD-7",
+        "role": "PROPOSED_INSTRUMENT",
+        "contract_path": "manuscripts/MSC-ANX-P01/pilot-protocol.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Proposed research instrument or task; qualification and applicable permissions pending."
+      },
+      {
+        "ref": "numpy",
+        "role": "SYNTHETIC_ANALYSIS",
+        "contract_path": "manuscripts/MSC-ANX-P01/reference/requirements-analysis.txt",
+        "validation_status": "NOT_VERIFIED",
+        "version": "2.3.5",
+        "notes": "Pinned synthetic analysis dependency; no empirical validation implied."
+      },
+      {
+        "ref": "scipy",
+        "role": "SYNTHETIC_ANALYSIS",
+        "contract_path": "manuscripts/MSC-ANX-P01/reference/requirements-analysis.txt",
+        "validation_status": "NOT_VERIFIED",
+        "version": "1.17.0",
+        "notes": "Pinned synthetic analysis dependency; no empirical validation implied."
+      },
+      {
+        "ref": "pandas",
+        "role": "SYNTHETIC_ANALYSIS",
+        "contract_path": "manuscripts/MSC-ANX-P01/reference/requirements-analysis.txt",
+        "validation_status": "NOT_VERIFIED",
+        "version": "2.2.3",
+        "notes": "Pinned synthetic analysis dependency; no empirical validation implied."
+      },
+      {
+        "ref": "statsmodels",
+        "role": "SYNTHETIC_ANALYSIS",
+        "contract_path": "manuscripts/MSC-ANX-P01/reference/requirements-analysis.txt",
+        "validation_status": "NOT_VERIFIED",
+        "version": "0.14.6",
+        "notes": "Pinned synthetic analysis dependency; no empirical validation implied."
+      }
+    ],
     "equipment": [],
     "datasets": []
   }
