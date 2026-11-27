@@ -27,7 +27,7 @@ def main():
                     browser = playwright.chromium.launch(executable_path=os.environ["ANX_CHROME"])
                     page = browser.new_page(accept_downloads=True)
                     errors = []
-                    page.on("pageerror", errors.append)
+                    page.on("pageerror", lambda error: errors.append(str(error)))
                     page.goto(f"http://127.0.0.1:{server.server_port}/demo.html")
                     page.get_by_role("button", name="Rozpocznij demonstrację").click()
                     for phase in (0, 1, 2, 3):
