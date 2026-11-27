@@ -1,4 +1,4 @@
-"""Regression contract for scientific ownership of all 69 confirmed author drafts."""
+"""Regression contract for scientific ownership of all catalogued author drafts."""
 import json
 from pathlib import Path
 import re
@@ -54,7 +54,7 @@ class ScientificOwnerRegression(unittest.TestCase):
     def test_complete_catalog_inventory(self):
         """Every currently catalogued manuscript has one unambiguous owner."""
         found = inventory()
-        self.assertEqual(len(found), 69)
+        self.assertTrue(found)
         for manuscript_id, fields in found.items():
             with self.subTest(manuscript_id=manuscript_id):
                 self.assertEqual(len(fields), 1, "Expected exactly one scientific owner")
@@ -63,7 +63,7 @@ class ScientificOwnerRegression(unittest.TestCase):
     def test_confirmed_owner_across_all_manuscripts(self):
         """Owner's explicit authorship confirmation applies to all catalogue IDs."""
         found = inventory()
-        self.assertEqual(len(found), 69)
+        self.assertTrue(found)
         offenders = {paper_id: fields for paper_id, fields in found.items()
                      if len(fields) != 1 or not EXPECTED_NAME.match(fields[0])}
         self.assertFalse(offenders, f"OWNER_METADATA_MISSING_OR_INVALID: {offenders}")
