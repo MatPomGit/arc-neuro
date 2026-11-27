@@ -1,0 +1,128 @@
+{
+  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
+  "evidence_status": "historical_synthetic_development_only",
+  "tracked_archive_complete": true,
+  "untracked_trajectory_ledgers_reproduced": false,
+  "files": [
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/README.md",
+      "source_blob_sha": "c7f67f2e6fb0f8a6d26452e85e75c98458fdd12d",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/README.md"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/config.json",
+      "source_blob_sha": "a077e363c385b5bba26e2b4604b8245b3121fa3f",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/config.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/confusion.csv",
+      "source_blob_sha": "4eeed4455d607b1feb6d6422caf868c36d661480",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/confusion.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/development_report.md",
+      "source_blob_sha": "a8dcf9aa011404b6babd855f1cd290f89eda6090",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/development_report.md"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/metadata.json",
+      "source_blob_sha": "9f0a5a37a6eee88ed58ac40a4224d58a0b9ca9af",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/parameters.csv",
+      "source_blob_sha": "f8060f7463813f41e1634519b85731317acd5e4b",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/parameters.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/report_metadata.json",
+      "source_blob_sha": "3999414e0dc86d04cc6b1685318f2f784e43470a",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/report_metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_factorial_development/summary.csv",
+      "source_blob_sha": "1a8a61776339dbd776e402a0eccf86498bbc99ee",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_factorial_development/summary.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/README.md",
+      "source_blob_sha": "aa58804be0c1c7e43b4ad8a2da4fdfd20e8c07f3",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/README.md"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/conditional_information.csv",
+      "source_blob_sha": "47953d7e66e28cb034c91e09b1f8083c8569baf3",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/conditional_information.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/conditional_profiles.csv",
+      "source_blob_sha": "cab1d51bf97c0c19d97f5573e4cf46af5c01fa4b",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/conditional_profiles.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/config.json",
+      "source_blob_sha": "369de9a374f50e6149830eb598cc5cb486ebac19",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/config.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/development_report.md",
+      "source_blob_sha": "16a56ea14dc088b5e53f50ffe0ca69e6a5fd67c0",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/development_report.md"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/execution_diagnostics.json",
+      "source_blob_sha": "cbdb93837ed1cdfdb1e0cd143fd2a2806a697d6f",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/execution_diagnostics.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/factorial_bootstrap_sensitivity.csv",
+      "source_blob_sha": "c578539cf32ede8fc396d3cc8e7cb1554683a5f7",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/factorial_bootstrap_sensitivity.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/metadata.json",
+      "source_blob_sha": "f8d0ccc51d05e92aa87dbe05f478b13ba7c7282a",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/report_metadata.json",
+      "source_blob_sha": "3cbcc25e39b1f525f362c9da807845609388fdd7",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/report_metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_robustness_development/summary.csv",
+      "source_blob_sha": "ff838231b93fe3171146d714a0472cd1220214a2",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_robustness_development/summary.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_standardized_development/README.md",
+      "source_blob_sha": "c86815a2296919c88cd0238008cc491bb16a6581",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/README.md"
+    },
+    {
+      "source_path": "software/simulator/results/m02_standardized_development/config.json",
+      "source_blob_sha": "8402ef0dcbbd95a1be2855853232222b95505c22",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/config.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_standardized_development/confusion.csv",
+      "source_blob_sha": "466c97632ddaad3f51290309c66e4265d2dc02e4",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/confusion.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_standardized_development/metadata.json",
+      "source_blob_sha": "58cc491e49280d443755059e6ced58c501bf7090",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/m02_standardized_development/parameters.csv",
+      "source_blob_sha": "923c612e13a8833f16007b6c43247f28b00c2e92",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/parameters.csv"
+    },
+    {
+      "source_path": "software/simulator/results/m02_standardized_development/summary.csv",
+      "source_blob_sha": "a4551810dc72e9929d63c613cf5f6a873ab5336a",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/summary.csv"
+    }
+  ]
+}
