@@ -5,10 +5,11 @@
 \usepackage{lmodern}
 \usepackage[margin=27mm]{geometry}
 \usepackage{microtype}
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \title{Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary}
 \author{Mateusz Pomianek}
-\date{Szkic naukowy, wersja 0.1.1, 21 listopada 2026}
+\date{Szkic naukowy, wersja 0.2.0, 27 listopada 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -33,6 +34,20 @@ Pierwszorzędowy wskaźnik: Zależność ocen niechęci i niesamowitości od ind
 Hierarchiczny model obserwatora, źródłowej osoby i scenariusza. Ocena rzetelności ekstrakcji, artefaktów i zgodności warunków; brak uogólniania na diagnozę bez odpowiedniej próby.
 
 Zamrożenie estymandu i planu porównań nastąpi po pilotażu technicznym i przed dostępem do danych konfirmacyjnych. Należy zachować oddzielnie analizy eksploracyjne, raportować przedziały niepewności, wielkości efektów oraz reguły wyłączenia bodźców z błędną animacją. Trafność konstruktu wymaga niezależnej kalibracji realizmu wyglądu i percepcyjnej naturalności zachowania.
+\section{Projekt konfirmacyjny}
+Proponuje się trzy poziomy realizmu wizualnego, kalibrowane niezależnie, oraz powtarzanie tych samych sekwencji źródłowych w różnych reprezentacjach awatara. Obserwator otrzymuje tylko jedną wersję danej sekwencji, a przydział wersji jest randomizowany i równoważony między obserwatorami. Każda osoba źródłowa dostarcza wiele sekwencji w porównywalnych kontekstach. Tożsamości awatarów są skrzyżowane z osobami źródłowymi i realizmem. Jednostką niezależnej informacji o cechach zachowania pozostaje osoba źródłowa, a nie liczba ocen.
+
+Jako roboczy predyktor główny proponuje się medianę latencji odpowiedzi gestem lub ruchem głowy po jednoznacznie oznaczonym zdarzeniu komunikacyjnym. Okno pomiarowe, reguły kodowania i postępowanie z brakiem odpowiedzi zostaną ustalone w pilotażu. Predyktor nie jest wskaźnikiem diagnozy ani deficytu. Sekwencje bez obserwowalnego zdarzenia nie dostarczają tego pomiaru; ich udział należy raportować. Rzetelność kodowania i zgodność pomiaru przed retargetingiem oraz po nim wymagają niezależnej oceny.
+
+Pierwszorzędowym punktem końcowym proponuje się pięciokategorialną ocenę niesamowitości; gotowość do interakcji pozostaje odrębnym wynikiem drugorzędowym. Dla standaryzowanego predyktora $x$ oraz kontrastu wysokiego i niskiego realizmu $r$ model kumulacyjny ma postać
+\[
+\operatorname{logit}P(Y\leq c)=\theta_c-(\beta_x x+\beta_r r+\beta_{xr}xr+\boldsymbol{\gamma}^{T}\mathbf{z}+u_o+u_s+u_k+u_a).
+\]
+Wektor $\mathbf{z}$ obejmuje kontrast pośredniego realizmu, jego interakcję z predyktorem oraz kontekst. Efekty losowe dotyczą obserwatora, osoby źródłowej, klipu zagnieżdżonego w osobie i awatara. Należy rozważyć losowe nachylenia realizmu dla obserwatora i osoby źródłowej. H2 odpowiada współczynnikowi $\beta_{xr}$; H1 pozostaje hipotezą drugorzędową. Randomizacja realizmu umożliwia interpretację jego efektu przyczynowego w granicach projektu, ale związek z naturalnie występującą cechą zachowania pozostaje obserwacyjny.
+
+Symulacja Monte Carlo powinna niezależnie zmieniać liczbę osób źródłowych, obserwatorów, klipów, błąd pomiaru predyktora i wariancję efektów losowych. Analiza wrażliwości obejmie selekcję klipów i brak pomiaru latencji. Nie ustalono liczebności docelowej.
+
+Przed rekrutacją konieczne są potwierdzenie praw do retargetingu i przetwarzania danych, kwalifikacja etyczna oraz ocena ryzyka stygmatyzacji z udziałem konsultantów neuroróżnorodnych. Nie wolno publikować identyfikowalnych nagrań ani wykorzystywać ocen do klasyfikacji klinicznej osób źródłowych.
 \section{Wyniki}
 Nie zebrano jeszcze danych empirycznych i nie wykonano analiz potwierdzających. W niniejszym opracowaniu nie przypisuje się wartości statystycznych, wyników skal, skuteczności diagnostycznej ani dowodów występowania doliny niesamowitości.
 \section{Dyskusja i ograniczenia}
