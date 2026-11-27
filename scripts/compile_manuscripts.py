@@ -35,8 +35,8 @@ def compile_all(root: Path = ROOT, timeout: int = 40) -> list[str]:
                 continue
             try:
                 source = src.read_text(encoding="utf-8")
-                apa = r"\documentclass[man]{apa7}" in source
-                bibliography = apa or r"\bibliography{" in source
+                apa = bool(re.search(r"\\documentclass\s*(?:\[[^\]]*\])?\s*\{apa7\}", source))
+                bibliography = apa or r"\bibliography{" in source or r"\addbibresource{" in source
                 if bibliography:
                     latexmk = shutil.which("latexmk")
                     if latexmk is None or (apa and shutil.which("biber") is None):
