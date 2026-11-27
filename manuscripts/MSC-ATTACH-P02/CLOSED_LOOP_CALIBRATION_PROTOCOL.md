@@ -1,6 +1,6 @@
 # M02: pilot of full closed-loop paired-loss interval calibration
 
-Migration status: referenced computational software and archived simulation outputs remain at the historical source revision. Transfer and reproduction in ARC Neuro are not yet verified; commands are not runnable here as written.
+Migration status: source code and compact historical outputs are now present in ARC Neuro. CI has tested the migrated code; the independent full calibration remains unexecuted.
 
 
 Status: **implemented, not yet executed on the full intended grid**.
@@ -16,8 +16,8 @@ missingness, clipping and measurement transformations.
 ## Reproducible pilot (run from repository root)
 
 ```bash
-python -m unittest discover -s software/simulator -p "test_m02_closed_loop_calibration.py" -v
-python software/simulator/m02_closed_loop_calibration.py --output artifacts/m02-closed-loop-calibration --reference-n 200 --trials 20 --sample-n 20 --bootstraps 199
+python -m unittest discover -s manuscripts/MSC-ATTACH-P02/analysis -p "test_m02_closed_loop_calibration.py" -v
+python manuscripts/MSC-ATTACH-P02/analysis/m02_closed_loop_calibration.py --output build/MSC-ATTACH-P02/m02-closed-loop-calibration --reference-n 200 --trials 20 --sample-n 20 --bootstraps 199
 ```
 
 For Windows, use `.venv\\Scripts\\python.exe` instead of `python`.
@@ -58,3 +58,7 @@ cannot be treated as coverage against a known truth.
 
 No assumption about validated human emotional or attachment mechanisms
 follows from this numerical calibration.
+
+## Calibration diagnostics (revision 2)
+
+The calibration allocates disjoint ten-million seed blocks for each reference and trial within a run, avoiding overlaps when trial count reaches 2,000. The generator and observation substreams use offsets up to 5,029,998. Changing the grid or trial count changes the stream allocation; do not pool separate runs as independent without checking their allocations. Report interval validity, Wilson 95% uncertainty for coverage conditional on the estimated reference, median interval half-width and reference SE relative to that width. The fractions containing and overlapping the approximate reference uncertainty band provide sensitivity diagnostics, not exact coverage bounds or corrections. Output directories must be new. No confirmatory decision follows from these diagnostics alone.
