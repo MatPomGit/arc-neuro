@@ -1,0 +1,20 @@
+{
+  "model_version": "0.4.0",
+  "config_sha256": "efc65ac77c5bebfad3d79fbe42275dc849e6db827f0c0f3081af569ec6416ff9",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "rng": "numpy.random.default_rng / PCG64 family",
+  "seed": 21000,
+  "n_runs_per_scenario": 30,
+  "outputs": [
+    "control_responsiveness.pdf",
+    "control_responsiveness.svg",
+    "estimation_flexibility.pdf",
+    "estimation_flexibility.svg",
+    "metadata.json",
+    "scenario_runs.csv",
+    "scenario_summary.csv",
+    "scenario_timeseries.csv.gz"
+  ]
+}

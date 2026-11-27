@@ -1,0 +1,13 @@
+{
+  "model_version": "0.4.0",
+  "config_sha256": "d9e9039889183b10c06cf46eea1ae9e216a7c2e16575b632fd5604e30a60d3bb",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "seed": 9100,
+  "n_runs_per_schedule": 20,
+  "rng": "numpy.random.default_rng / PCG64 family",
+  "outputs": [
+    "sampling_trajectories.csv",
+    "sampling_summary.csv"
+  ]
+}
