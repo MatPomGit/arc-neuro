@@ -54,7 +54,7 @@ def verify_public_reviews(root: Path, fetcher=fetch_review) -> list[str]:
     try:
         approvals = load_publication_approvals(root)
         data = strict_json_loads(
-            (root / "portfolio/projects.json").read_text(encoding="utf-8")
+            (root / "config/public-projects.json").read_text(encoding="utf-8")
         )
         if not isinstance(data, dict) or not isinstance(data.get("projects"), list):
             raise ValueError("Invalid projects registry")

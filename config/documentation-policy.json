@@ -44,8 +44,6 @@
     "docs/adr/[0-9][0-9][0-9][0-9]-*.md": 6500,
     "site/**/*.md": 6000,
     "reviews/*.md": 20000,
-    "areas/*.md": 8000,
-    "portfolio/*.md": 8000,
     "equipment/*.md": 8000,
     "software/*.md": 8000,
     ".github/ISSUE_TEMPLATE/*.md": 5000,

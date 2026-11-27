@@ -36,8 +36,8 @@ class ARCContractTests(unittest.TestCase):
         issues = []
         state = load_project_state(ROOT, issues)
         meta = load_json(ROOT, "program.json", issues)
-        projects = load_json(ROOT, "portfolio/projects.json", issues)
-        papers = load_json(ROOT, "portfolio/papers.json", issues)
+        projects = load_json(ROOT, "config/public-projects.json", issues)
+        papers = {"papers": []}
         check_project_state(state, meta, projects, papers, issues)
         self.assertEqual(issues, [])
 
@@ -58,8 +58,8 @@ class ARCContractTests(unittest.TestCase):
         issues = []
         state = load_project_state(ROOT, issues)
         meta = load_json(ROOT, "program.json", issues)
-        projects = load_json(ROOT, "portfolio/projects.json", issues)
-        papers = load_json(ROOT, "portfolio/papers.json", issues)
+        projects = load_json(ROOT, "config/public-projects.json", issues)
+        papers = {"papers": []}
         changed = {**state, "projects_registered": 8, "scientific_owner": "Incorrect"}
         check_project_state(changed, meta, projects, papers, issues)
         self.assertTrue(any("projects_registered disagrees" in x for x in issues))
@@ -69,8 +69,8 @@ class ARCContractTests(unittest.TestCase):
         issues = []
         state = load_project_state(ROOT, issues)
         meta = load_json(ROOT, "program.json", issues)
-        projects = load_json(ROOT, "portfolio/projects.json", issues)
-        papers = load_json(ROOT, "portfolio/papers.json", issues)
+        projects = load_json(ROOT, "config/public-projects.json", issues)
+        papers = {"papers": []}
         changed = {**state, "updated": "2026-02-30", "public_catalog_status": "approved"}
         check_project_state(changed, meta, projects, papers, issues)
         self.assertTrue(any("updated must be an ISO date" in x for x in issues))
@@ -99,11 +99,11 @@ class ARCContractTests(unittest.TestCase):
     def test_private_project_never_in_public_pages(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d)
-            (root/"portfolio").mkdir()
-            (root/"portfolio/projects.json").write_text(json.dumps({"projects":[{
+            (root/"config").mkdir(exist_ok=True)
+            (root/"config/public-projects.json").write_text(json.dumps({"projects":[{
                 **candidate(),"public_listing":True,"pages_url":"https://internal.example/private"
             }]}),encoding="utf-8")
-            (root/"portfolio/publication-approvals.json").write_text(json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8")
+            (root/"config/publication-approvals.json").write_text(json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8")
             result=render(root)
             self.assertNotIn("Private project",result)
             self.assertNotIn("internal.example",result)
@@ -136,11 +136,11 @@ class ARCContractTests(unittest.TestCase):
         project = self.synthetic_public_project()
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root/"portfolio").mkdir()
-            (root/"portfolio/projects.json").write_text(
+            (root/"config").mkdir(exist_ok=True)
+            (root/"config/public-projects.json").write_text(
                 json.dumps({"projects": [project]}), encoding="utf-8",
             )
-            (root/"portfolio/publication-approvals.json").write_text(
+            (root/"config/publication-approvals.json").write_text(
                 json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8",
             )
             self.assertNotIn("Synthetic open project", render(root))
@@ -153,11 +153,11 @@ class ARCContractTests(unittest.TestCase):
         approval = self.synthetic_approval(project)
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root/"portfolio").mkdir()
-            (root/"portfolio/projects.json").write_text(
+            (root/"config").mkdir(exist_ok=True)
+            (root/"config/public-projects.json").write_text(
                 json.dumps({"projects": [project]}), encoding="utf-8",
             )
-            (root/"portfolio/publication-approvals.json").write_text(
+            (root/"config/publication-approvals.json").write_text(
                 json.dumps({"schema_version": 1, "approvals": [approval]}), encoding="utf-8",
             )
             self.assertIn("Synthetic open project", render(root))
@@ -190,8 +190,8 @@ class ARCContractTests(unittest.TestCase):
         ]
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root/"portfolio").mkdir()
-            target = root/"portfolio/publication-approvals.json"
+            (root/"config").mkdir(exist_ok=True)
+            target = root/"config/publication-approvals.json"
             for records in cases:
                 target.write_text(
                     json.dumps({"schema_version": 1, "approvals": records}),
@@ -218,8 +218,8 @@ class ARCContractTests(unittest.TestCase):
     def test_manifest_duplicate_keys_are_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root / "portfolio").mkdir()
-            target = root / "portfolio/publication-approvals.json"
+            (root / "config").mkdir(exist_ok=True)
+            target = root / "config/publication-approvals.json"
             target.write_text(
                 '{"schema_version":1,"approvals":[],"approvals":[]}', encoding="utf-8",
             )
@@ -248,11 +248,11 @@ class ARCContractTests(unittest.TestCase):
         approval = self.synthetic_approval(project)
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root / "portfolio").mkdir()
-            (root / "portfolio/projects.json").write_text(
+            (root / "config").mkdir(exist_ok=True)
+            (root / "config/public-projects.json").write_text(
                 json.dumps({"projects": [project]}), encoding="utf-8",
             )
-            (root / "portfolio/publication-approvals.json").write_text(
+            (root / "config/publication-approvals.json").write_text(
                 json.dumps({"schema_version": 1, "approvals": [approval]}),
                 encoding="utf-8",
             )
@@ -298,8 +298,8 @@ class ARCContractTests(unittest.TestCase):
             meta=json.loads((dst/"program.json").read_text(encoding="utf-8"))
             meta["programme"]="arc-neuro"
             (dst/"program.json").write_text(json.dumps(meta),encoding="utf-8")
-            (dst/"areas/index.json").write_text(json.dumps({"lines":[{"id":"ndd","title":"NDD"}]}),encoding="utf-8")
-            (dst/"portfolio/projects.json").write_text(json.dumps({"projects":[candidate(),candidate()]}),encoding="utf-8")
+            (dst/"config/research-lines.json").write_text(json.dumps({"lines":[{"id":"ndd","title":"NDD"}]}),encoding="utf-8")
+            (dst/"config/public-projects.json").write_text(json.dumps({"projects":[candidate(),candidate()]}),encoding="utf-8")
             self.assertTrue(any("duplicate project" in x.lower() for x in validate(dst,"scaffold")))
 
     def test_public_source_rejects_unlisted_private_repo(self):
@@ -311,11 +311,11 @@ class ARCContractTests(unittest.TestCase):
                     copy_to = dst / file.relative_to(ROOT)
                     copy_to.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copyfile(file, copy_to)
-            (dst / "areas/index.json").write_text(
+            (dst / "config/research-lines.json").write_text(
                 json.dumps({"lines": [{"id": "ndd", "title": "Neurodiversity"}]}),
                 encoding="utf-8",
             )
-            (dst / "portfolio/projects.json").write_text(
+            (dst / "config/public-projects.json").write_text(
                 json.dumps({"projects": [candidate()]}), encoding="utf-8",
             )
             issues = validate(dst, "scaffold")
@@ -331,7 +331,7 @@ class ARCContractTests(unittest.TestCase):
                             data.pop("repository_visibility", None)
                         else:
                             data["repository_visibility"] = declared
-                    if relative == "portfolio/projects.json":
+                    if relative == "config/public-projects.json":
                         data["projects"] = [candidate()]
                     return data
 
@@ -368,7 +368,7 @@ class ARCContractTests(unittest.TestCase):
     def test_duplicate_repo_with_distinct_project_ids_is_rejected(self):
         def injected(root, relative, issues):
             data = load_json(root, relative, issues)
-            if relative == "portfolio/projects.json":
+            if relative == "config/public-projects.json":
                 first = {**candidate(), "visibility": "public"}
                 second = {**first, "id": "msc-second"}
                 data["projects"] = [first, second]
@@ -380,9 +380,9 @@ class ARCContractTests(unittest.TestCase):
     def test_catalog_fails_closed_for_malformed_projects(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root/"portfolio").mkdir()
-            path = root/"portfolio/projects.json"
-            (root/"portfolio/publication-approvals.json").write_text(json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8")
+            (root/"config").mkdir(exist_ok=True)
+            path = root/"config/public-projects.json"
+            (root/"config/publication-approvals.json").write_text(json.dumps({"schema_version": 1, "approvals": []}), encoding="utf-8")
             for invalid in ([], {"projects": "unexpected"}, {"projects": [5]}):
                 path.write_text(json.dumps(invalid), encoding="utf-8")
                 with self.assertRaises(ValueError):
