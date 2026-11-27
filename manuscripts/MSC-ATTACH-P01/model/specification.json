@@ -1,0 +1,160 @@
+{
+  "model": "ARC",
+  "version": "0.9.0",
+  "status": "parsimonious theoretical and methodological framework; no human validation yet",
+  "novelty_position": "Integration and empirical testing of an explicit temporal attachment-regulation sequence in adult romantic relationships; not a new control-system architecture.",
+  "core_person_level": {
+    "L": {
+      "name": "attachment anxiety",
+      "role": "person-level moderator of relational regulation"
+    },
+    "U": {
+      "name": "attachment avoidance",
+      "role": "person-level moderator of relational regulation"
+    }
+  },
+  "core_sequence": [
+    "r_hat_t perceived relational state",
+    "r_star_t desired relational state",
+    "e_t = r_star_t - r_hat_t",
+    "a_t1 subsequent regulatory action",
+    "p_t1 partner/environment feedback",
+    "r_hat_t1 updated perceived relational state",
+    "recovery or persistence"
+  ],
+  "h1_model_set": {
+    "M0": "context + autoregressive action",
+    "M1": "M0 + perceived state r_hat_t",
+    "M2": "M0 + perceived state r_hat_t + desired state r_star_t as unconstrained separate predictors",
+    "M3": "M0 + signed discrepancy e_t = r_star_t - r_hat_t; primary ARC discrepancy representation",
+    "M4": "M0 + positive discrepancy + negative discrepancy; prespecified asymmetry extension"
+  },
+  "discrepancy_logic": {
+    "primary_inference": "co-primary coefficient-first tests rather than sequential predictive gating",
+    "H1_P1": "one-sided Wald test H0: M2 within-person beta_r_star <= 0.5 versus beta_r_star > 0.5, Holm-controlled with H1-P2",
+    "H1_P2": "one-sided Wald test H0: M3 within-person beta_e <= 0.5 versus beta_e > 0.5, Holm-controlled with H1-P1",
+    "primary_sesoi_beta": 0.5,
+    "multiplicity": "Holm family-wise alpha 0.05 across the two one-sided SESOI tests",
+    "symmetry_contrast": "d_sym = beta_r_star + beta_r_hat",
+    "symmetry_tolerance": 1,
+    "asymmetry_contrast": "d_asym = beta_positive + beta_negative, where beta_negative multiplies max(-e,0)",
+    "predictive_role": "participant-paired temporal-holdout RMSE is secondary evidence and does not gate evaluation of M2, M3, or M4",
+    "no_forced_winner": "M2, M3, and M4 are reported as a structural evidence profile rather than forced into one mandatory winner",
+    "interpretation_limit": "H1-P2 alone does not establish information beyond perceived state; joint H1-P1/H1-P2 support does not uniquely identify a psychological mechanism",
+    "asymmetry_role": "secondary descriptive structural evidence; focused N=84 validation rejected all prespecified confirmatory tolerance candidates"
+  },
+  "target_drift": {
+    "identity": "e_(t+1)-e_t = (r_star_(t+1)-r_star_t) - (r_hat_(t+1)-r_hat_t)",
+    "implication": "discrepancy reduction can occur through relational-state change, target change, or both",
+    "rule": "retain perceived and desired states separately even when discrepancy is the primary predictor"
+  },
+  "recovery": {
+    "status": "multidimensional outcome, not a single latent index",
+    "candidate_metrics": [
+      "discrepancy burden: sum |e_t| * delta_t after a perturbation",
+      "time to preregistered functional tolerance",
+      "overshoot",
+      "return to constructive activity",
+      "relative contribution of state change versus target change"
+    ],
+    "h3_hierarchy": {
+      "R0": "preregistered episode/design covariates",
+      "R1": "R0 + attachment anxiety L + attachment avoidance U",
+      "R2": "R1 + positive secure-base representation S; decisive H3 increment",
+      "R3": "R2 + proximal perceived/observed partner support or dyadic coping"
+    },
+    "h3_rules": [
+      "zero-order S-recovery association is insufficient",
+      "S is not required by the current ARC core",
+      "each confirmatory H3 study nominates one primary recovery endpoint before data inspection; the endpoint must not count target retreat alone as successful recovery",
+      "promotion requires incremental value beyond L/U on the primary recovery endpoint and genuinely out-of-sample predictive improvement",
+      "promotion requires independent replication or a second preregistered design supporting the increment",
+      "secondary recovery metrics provide convergent evidence but cannot rescue failure on the primary endpoint",
+      "if S loses value after proximal support is added, report attenuation conditional on support; do not infer mediation or automatically promote S",
+      "if proximal support predicts recovery but S does not, retain S outside the core and simplify toward episode-level coregulation"
+    ]
+  },
+  "core_hypotheses": [
+    "H1 desired-state information contributes to subsequent regulation beyond perceived state/context/history, and signed desired-minus-perceived discrepancy predicts subsequent action; representation symmetry/asymmetry is tested with prespecified structural contrasts",
+    "H2 attachment anxiety and avoidance moderate channel-specific discrepancy-to-action mappings across approach, distance, and internal regulation"
+  ],
+  "extension_hypotheses": [
+    "H4 mentalized affectivity and emotion-regulation flexibility add pathway-specific moderation only if discriminant and incremental validity are supported",
+    "H5 preregistered dynamic indicators improve held-out prediction of independently measured adult disorganization beyond static attachment baselines"
+  ],
+  "candidate_moderators": {
+    "M": {
+      "name": "mentalized affectivity",
+      "role": "optional predictor/moderator of externally scored state-inference quality",
+      "core": false
+    },
+    "F": {
+      "name": "emotion-regulation flexibility",
+      "role": "optional predictor/moderator of context- and feedback-sensitive policy adaptation",
+      "core": false
+    }
+  },
+  "validation_rules": [
+    "feature engineering and all confirmatory thresholds must not use the final temporal test block",
+    "H1 primary inference uses direct coefficient tests with Holm multiplicity control; holdout RMSE is secondary evidence rather than a sequential gate",
+    "evaluate later observations within known people and generalization to held-out people separately",
+    "the simple difference score is a testable restriction rather than a preprocessing fact",
+    "added dynamic structure is retained only with reproducible held-out or external-validity improvement",
+    "successful temporal prediction does not uniquely identify an underlying computational mechanism",
+    "H2 must be tested on component action channels, not only a signed action summary",
+    "H3 is a promotion test for candidate S rather than a protected core assumption",
+    "S is promoted to required core status only after improvement beyond L/U on a preregistered primary recovery endpoint, genuinely out-of-sample predictive value, and independent replication or a second preregistered design"
+  ],
+  "disorganization": {
+    "status": "external extension, not a core latent state",
+    "criterion": "independently measured adult disorganization",
+    "candidate_predictors": [
+      "poor recovery",
+      "context-residual inconsistency",
+      "persistent approach-avoidance conflict",
+      "maladaptive switching"
+    ],
+    "rule": "do not equate high L+U, raw variability, or a simulator index with disorganization"
+  },
+  "separate_programs": {
+    "identifiability": "manuscripts/02_identifiability",
+    "relational_control_psychometrics": "manuscripts/03_relational_control_psychometrics"
+  },
+  "h2_policy": {
+    "status": "core extension after H1 measurement viability",
+    "action_channels": [
+      "approach/proximity seeking",
+      "overt distancing/space seeking; not a direct measure of autonomy",
+      "internal suppression/disengagement"
+    ],
+    "model": "a_k(t+1) = alpha_k_i + beta_e_k e_wp_t + gamma_L_k L_i*e_wp_t + gamma_U_k U_i*e_wp_t + phi_k_i a_k_t + beta_c_k c_t + error",
+    "key_logic": [
+      "attachment dimensions may alter both response magnitude and response channel",
+      "signed action is insufficient for H2 because high approach and high distance can cancel",
+      "autonomy denotes experienced volition and must be measured separately; distancing alone does not establish autonomy satisfaction or attachment avoidance",
+      "strongest directional expectation concerns positive discrepancy / closeness deficit",
+      "H2 requires a design powered for cross-level moderation and random-slope heterogeneity"
+    ],
+    "falsification": [
+      "remove ARC-specific dynamic role if L/U do not reproducibly moderate within-person discrepancy-to-channel mappings",
+      "do not treat between-person mean action differences alone as H2 support",
+      "do not retain interactions that fail replication or held-out predictive improvement"
+    ]
+  },
+  "core_candidate_person_level": {
+    "S": {
+      "name": "secure-base representation",
+      "status": "prespecified candidate for promotion to the person-level core",
+      "role": "candidate positive predictor of recovery",
+      "rationale": "positive security has an independent theoretical and measurement tradition, but ARC-specific incremental recovery validity beyond L/U is not yet established",
+      "promotion_test": "H3",
+      "promotion_rule": "promote only after S adds reproducible information for a preregistered primary recovery outcome beyond L/U, improves genuinely out-of-sample prediction, and the increment is independently replicated or supported by a second preregistered design; stronger evidence requires persistence after proximal partner support or dyadic coping is modeled",
+      "no_promotion_rule": "if S adds no recovery information beyond L/U, it remains outside the required core; if its increment disappears after proximal support, report attenuation conditional on support rather than identified mediation"
+    }
+  },
+  "candidate_core_hypothesis": {
+    "H3": "positive secure-base representation S earns promotion to the person-level core only if it improves a preregistered primary recovery outcome beyond L/U, adds genuinely out-of-sample predictive value, and the increment is independently replicated or supported by a second preregistered design; stronger tests add proximal partner support"
+  },
+  "full_name": "Attachment Regulation and Control",
+  "acronym_semantics": "Control refers to feedback-based regulation toward relational goals in the control-theoretic sense, not interpersonal dominance, coercion, or a generalized need for control."
+}
