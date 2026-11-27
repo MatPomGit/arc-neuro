@@ -25,13 +25,21 @@ def fit(y, X, groups, seed):
 def run(scenarios, generate, n, reps, seed, output, k=24):
     if n<16 or reps<1 or k<8 or k%4:
         raise ValueError("Invalid design")
+    output=Path(output)
+    if output.exists():
+        raise FileExistsError(output)
+    output.parent.mkdir(parents=True,exist_ok=True)
     rng=np.random.default_rng(seed)
     rows=[]
     for scenario in scenarios:
         valid=hits=0
         for _ in range(reps):
             y,X,groups,indices=generate(rng,n,k,scenario)
-            draws=fit(y,X,groups,int(rng.integers(1,2**30)))
+            try:
+                draws=fit(y,X,groups,int(rng.integers(1,2**30)))
+            except (ValueError, FloatingPointError, np.linalg.LinAlgError, pm.exceptions.SamplingError) as exc:
+                print(f"Fit failed: {type(exc).__name__}: {exc}", flush=True)
+                continue
             if draws is None:
                 continue
             valid+=1
@@ -40,8 +48,6 @@ def run(scenarios, generate, n, reps, seed, output, k=24):
             hits+=int(np.any((lo>0)|(hi<0)))
         rate=hits/valid if valid else float("nan")
         rows.append(dict(scenario=scenario,n=n,clips=k,reps=reps,valid=valid,rejected=hits,rate=rate,mcse=np.sqrt(rate*(1-rate)/valid) if valid else float("nan"),lower=hits/reps,upper=(hits+reps-valid)/reps))
-    output=Path(output)
-    output.parent.mkdir(parents=True,exist_ok=True)
     with output.open("x",newline="") as f:
         writer=csv.DictWriter(f,fieldnames=rows[0].keys())
         writer.writeheader()
