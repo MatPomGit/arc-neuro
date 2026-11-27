@@ -122,8 +122,11 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
     dependencies = {"tools": [], "equipment": [], "datasets": []}
     state = load_project_state(root, issues)
     check_project_state(state, meta, projects, papers, issues)
-    if meta.get("schema_version") != 1 or meta.get("type") != "arc-program":
+    if meta.get("schema_version") != 3 or meta.get("type") != "arc-program":
         issues.append("Invalid program.json schema_version/type")
+    for field, expected in {"repository_full_name": "MatPomGit/arc-neuro", "manuscript_root": "manuscripts", "site_root": "site", "site_output": "build/site"}.items():
+        if meta.get(field) != expected:
+            issues.append(f"Invalid program.json {field}")
     if meta.get("template_version") != "1.0.0":
         issues.append("Unexpected program template version")
     programme = meta.get("programme")

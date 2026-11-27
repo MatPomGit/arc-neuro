@@ -1,0 +1,30 @@
+{
+  "id": "MSC-MGR-P01",
+  "title": "Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe",
+  "area": "affect",
+  "research_state": "planned",
+  "publication_stage": "concept",
+  "relation": "primary",
+  "owner": {
+    "mode": "local",
+    "repository": "MatPomGit/arc-neuro",
+    "project_id": null
+  },
+  "manuscript": {
+    "path": "manuscripts/MSC-MGR-P01/main.tex",
+    "format": "latex"
+  },
+  "study_plan": null,
+  "public_listing": false,
+  "doi": null,
+  "preprint_url": null,
+  "preregistration_url": null,
+  "publication_url": null,
+  "stage_evidence": null,
+  "schema_version": 3,
+  "dependencies": {
+    "tools": [],
+    "equipment": [],
+    "datasets": []
+  }
+}
