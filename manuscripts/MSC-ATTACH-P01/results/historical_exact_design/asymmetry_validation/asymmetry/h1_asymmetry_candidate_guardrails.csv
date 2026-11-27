@@ -1,0 +1,4 @@
+tolerance,worst_M3_symmetry_compatible_rate,worst_M3_false_asymmetry_rate,worst_M4_material_asymmetry_rate,worst_M4_false_symmetry_rate,worst_inconclusive_rate,passes_M3_symmetry_compatibility,passes_M3_false_asymmetry,passes_M4_material_asymmetry,passes_M4_false_symmetry,passes_all_guardrails
+0.25,0.0,0.029,0.291,0.0,0.98,False,True,False,True,False
+0.5,0.0,0.007,0.147,0.0,0.996,False,True,False,True,False
+0.75,0.016,0.001,0.059,0.02,0.983,False,True,False,True,False

@@ -1,0 +1,24 @@
+{
+  "evidence_status": "development_only",
+  "source_commit": "c9676a9996592a86f952891ef52dcd7c8a2869d9",
+  "source_hashes": {
+    "controller_identifiability_suite.py": "7967601602b88fd15163aa2e1bb77eea7835c64b13eb0f7cc4b85465c20dc6c7",
+    "controller_identifiability_split.py": "93290821b772eb8818806f50f00218c2cded3fd8fa7497e5464a6a1b23b3f970",
+    "fit_controller.py": "82b9a7beb6a5ac088cc396a01dbdbff182f1cea6981a4bf9afff0bdb4c6b7a67"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "config_sha256": "3b24d93539ea0dd7a884d66f636351e88a98d4cacc773f3563f720b9e1f71cb4",
+  "seed": 1920260,
+  "attempted_trajectories": 40960,
+  "prediction": "conditional action given error and past observations",
+  "intervals": "pointwise Wilson recovery and normal paired mean",
+  "multiplicity": "no confirmatory familywise conclusions",
+  "outputs_sha256": {
+    "config.json": "3b24d93539ea0dd7a884d66f636351e88a98d4cacc773f3563f720b9e1f71cb4",
+    "confusion.csv": "43942f7b3a83c49ed7388545374cbac466ead8abade3ff7cd2d519d1f413e3a0",
+    "parameters.csv": "fb829a6313e11f98d50eb898049f5c2c175e67b931f88f6013e2d918dc8afcba",
+    "summary.csv": "ac00340ed0fe9d13e64bc70e792e98de8f4ed24d0da8cb195a6bd7fb27418f39",
+    "trajectories.jsonl": "eca20d94c7e1af4d88114c745d62506467938ead4673c1df7a9f42cba3c5549d"
+  }
+}

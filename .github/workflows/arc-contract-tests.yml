@@ -73,6 +73,19 @@ jobs:
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r manuscripts/MSC-ANX-P01/reference/requirements-ci.txt
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip check
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-ANX-P01/reference -p 'test_*.py' -v
+      - name: Test imported H1 statistical modules in compatibility environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-ATTACH-P01/analysis -p 'test_*.py' -v
+      - name: Test imported M02 simulator in isolated environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv "${RUNNER_TEMP}/arc-attachment-m02"
+          "${RUNNER_TEMP}/arc-attachment-m02/bin/python" -m pip install --disable-pip-version-check -r manuscripts/MSC-ATTACH-P02/analysis/requirements-lock.txt
+          "${RUNNER_TEMP}/arc-attachment-m02/bin/python" -m pip check
+          "${RUNNER_TEMP}/arc-attachment-m02/bin/python" -B -m unittest discover -s manuscripts/MSC-ATTACH-P02/analysis -p 'test_*.py' -v
       - name: Test CR-P12 signal detection, contrast and candidate bank
         run: |
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-CR-P12 -p 'test_*.py' -v

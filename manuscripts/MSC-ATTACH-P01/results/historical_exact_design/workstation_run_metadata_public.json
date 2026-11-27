@@ -1,0 +1,12 @@
+{
+  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
+  "source_blob_sha": "439708b9bdeb2af734ff15be9a9d6d5877f8f5ff",
+  "derived_copy": true,
+  "omission": "Host identifier removed.",
+  "completed_at_local": "2026-09-29T20:32:07.8623797+02:00",
+  "logical_processors": 32,
+  "workers_requested": 0,
+  "python": "Python 3.12.10",
+  "git_commit": "737f72b027913d5fa9ee902740c43ce40d1134cb",
+  "gpu_note": "GPU is not used by the current statsmodels GEE simulation."
+}

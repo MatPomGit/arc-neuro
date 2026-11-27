@@ -1,0 +1,9 @@
+{
+  "candidate_fit_status": {
+    "ok": 63273,
+    "rank_deficient": 663
+  },
+  "full_rank_fits_without_finite_variance_MLE": 1920,
+  "mode_criterion_records_without_selection": 1280,
+  "units": "Fits and mode/criterion records are not extra failed triads."
+}

@@ -1,0 +1,10 @@
+{
+  "source_hash": "ecb663990f78e45d12e0defcf53392a97858834fc8c4943f186d943e28b0c934",
+  "artifacts_sha256": {
+    "execution_diagnostics.json": "6d154f6fe57f3125b429af96e7506c653b2684edd52b5edab3f987dd0c3ebf41",
+    "summary.csv": "32ba59133db03294dfd77c9355e35487dc0d8cc602acce4da4f9df3d8ac5d6fd",
+    "factorial_bootstrap_sensitivity.csv": "62bc8595e890a95ef2c9312cf6992c36a80246db53d006832d4c9f1c51cdd32e",
+    "m02_robustness_selection.tex": "21b50c1a05402213f6bd8c4be328a0fab582cbaaf36f43eb03945b3f3ffb2bfa",
+    "m02_robustness_epsilon.tex": "97a548c38c7086a20ed5844cefdb313f882ba5a2fda326c4f83ce77a344db1ad"
+  }
+}

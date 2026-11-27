@@ -1,0 +1,28 @@
+{
+  "evidence_id": "M02-DEV-STANDARDIZED-2026-10-07",
+  "evidence_status": "development_only",
+  "purpose": "Broad generator/observation benchmark. Targeted one-factor arms plus combined adversity and exact PID reduction; not the confirmatory factorial grid.",
+  "seed": 720260,
+  "replications": 80,
+  "generators": ["intercept", "ar", "p", "pi", "pid", "arx", "nonlinear", "switching"],
+  "split": [0.6, 0.2],
+  "epsilon": 0.005,
+  "coverage": 0.95,
+  "integral_leak": 0.85,
+  "action_noise_sd": 0.005,
+  "process_noise_sd": 0.003,
+  "excitation_sd": 0.04,
+  "nonlinear_width": 0.12,
+  "gains": {"kp": 0.6, "ki": 0.06, "kd": 0.08, "rho": 0.65, "amplitude": 0.15, "kp_positive": 0.75, "kp_negative": 0.25},
+  "conditions": [
+    {"id": "reference", "steps": 180, "stride": 1, "noise_sd": 0.0, "missingness": 0.0, "feedback": 0.5, "clip": 1.0},
+    {"id": "analyst_noise", "steps": 180, "stride": 1, "noise_sd": 0.04, "missingness": 0.0, "feedback": 0.5, "clip": 1.0},
+    {"id": "sparse_sampling", "steps": 180, "stride": 3, "noise_sd": 0.0, "missingness": 0.0, "feedback": 0.5, "clip": 1.0},
+    {"id": "missingness", "steps": 180, "stride": 1, "noise_sd": 0.0, "missingness": 0.25, "feedback": 0.5, "clip": 1.0},
+    {"id": "low_feedback", "steps": 180, "stride": 1, "noise_sd": 0.0, "missingness": 0.0, "feedback": 0.1, "clip": 1.0},
+    {"id": "clipping", "steps": 180, "stride": 1, "noise_sd": 0.0, "missingness": 0.0, "feedback": 0.5, "clip": 0.025},
+    {"id": "short", "steps": 60, "stride": 1, "noise_sd": 0.0, "missingness": 0.0, "feedback": 0.5, "clip": 1.0},
+    {"id": "combined", "steps": 120, "stride": 3, "noise_sd": 0.04, "missingness": 0.25, "feedback": 0.1, "clip": 0.025},
+    {"id": "pid_reduced", "steps": 180, "stride": 1, "noise_sd": 0.0, "missingness": 0.0, "feedback": 0.5, "clip": 1.0, "reduced_pid": true}
+  ]
+}

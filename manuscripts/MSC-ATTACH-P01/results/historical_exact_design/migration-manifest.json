@@ -1,50 +1,331 @@
 {
-  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
   "scientific_owner": "Mateusz Pomianek",
+  "source_repository": "MatPomGit/arc-attachment-dynamics",
+  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
   "evidence_status": "historical_synthetic_development_only",
   "complete_archive": false,
+  "counts": {
+    "identical": 33,
+    "derived": 4,
+    "not_transferred": 2
+  },
   "files": [
     {
-      "source_path": "studies/pilot_h1/h1_exact_design_results_report.md",
-      "source_blob_sha": "15cbda6f8d862f88df511986ae07e981fba5948b",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/h1_exact_design_results_report.md"
+      "source_path": "studies/pilot_h1/README.md",
+      "source_blob_sha": "2c4bad8c42798c5760a2366fb112025c1f0d7396",
+      "size_bytes": 5253,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/README.md",
+      "destination_blob_sha": "8448116b331ee1f35ea582b92cd8f03b1b3a0dbe",
+      "status": "derived"
+    },
+    {
+      "source_path": "studies/pilot_h1/analysis_plan.md",
+      "source_blob_sha": "df0cdc3270a6ac848df1b8e006971901403e8a9a",
+      "size_bytes": 14276,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/analysis_plan.md",
+      "destination_blob_sha": "df0cdc3270a6ac848df1b8e006971901403e8a9a",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/asymmetry_validation/asymmetry/h1_asymmetry_candidate_guardrails.csv",
+      "source_blob_sha": "bce8ca18c5cc779f13c4924e7884894ea2c10df5",
+      "size_bytes": 473,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/asymmetry_validation/asymmetry/h1_asymmetry_candidate_guardrails.csv",
+      "destination_blob_sha": "bce8ca18c5cc779f13c4924e7884894ea2c10df5",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/asymmetry_validation/asymmetry/h1_asymmetry_operating_characteristics.csv",
+      "source_blob_sha": "3132535703f93b4f8e03153c6ee15447c47d56c5",
+      "size_bytes": 8222,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/asymmetry_validation/asymmetry/h1_asymmetry_operating_characteristics.csv",
+      "destination_blob_sha": "3132535703f93b4f8e03153c6ee15447c47d56c5",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/asymmetry_validation/merged/h1_exact_merge_manifest.json",
+      "source_blob_sha": "03e8f09209af47f1493b88fd5931c8a6df3de28b",
+      "size_bytes": 1314823,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/asymmetry_validation/merged/h1_merge_coverage_public.json",
+      "destination_blob_sha": "1a6b716f519aa68dd2676cc36796cfbbc3955e57",
+      "status": "derived"
+    },
+    {
+      "source_path": "studies/pilot_h1/asymmetry_validation/merged/h1_exact_summary.csv",
+      "source_blob_sha": "b5d3984ea66c4ac57ce3546193e153b4be035732",
+      "size_bytes": 14288,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/asymmetry_validation/merged/h1_exact_summary.csv",
+      "destination_blob_sha": "b5d3984ea66c4ac57ce3546193e153b4be035732",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/cognitive_interview_plan.md",
+      "source_blob_sha": "37f50f1f804dcdda31413b1c83ca288016a4127e",
+      "size_bytes": 6304,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/cognitive_interview_plan.md",
+      "destination_blob_sha": "37f50f1f804dcdda31413b1c83ca288016a4127e",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/data_dictionary.csv",
+      "source_blob_sha": "9b0274dcf53ceeb8826e91f47cd7e0ce23f4b00c",
+      "size_bytes": 5846,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/data_dictionary.csv",
+      "destination_blob_sha": "9b0274dcf53ceeb8826e91f47cd7e0ce23f4b00c",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/decision_margins.md",
+      "source_blob_sha": "fc21bc87547a361ca358ce0d40c95e03ddf438dd",
+      "size_bytes": 4507,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/decision_margins.md",
+      "destination_blob_sha": "fc21bc87547a361ca358ce0d40c95e03ddf438dd",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/design_config.json",
+      "source_blob_sha": "b4db982810962215e31c4a07eb01ceeae0c15196",
+      "size_bytes": 1055,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/design_config.json",
+      "destination_blob_sha": "b4db982810962215e31c4a07eb01ceeae0c15196",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/design_decision.md",
+      "source_blob_sha": "bcf390120da796eb8c58f6403d375637f40c8511",
+      "size_bytes": 3123,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/design_decision.md",
+      "destination_blob_sha": "bcf390120da796eb8c58f6403d375637f40c8511",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/design_screening_results.csv",
+      "source_blob_sha": "11d412725bf92469d913929d33f5d749e3c5307e",
+      "size_bytes": 1588,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/design_screening_results.csv",
+      "destination_blob_sha": "11d412725bf92469d913929d33f5d749e3c5307e",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/estimator_decision.md",
+      "source_blob_sha": "5d634a3bc31e31d3ceed06b9e3ec8c980e4891fe",
+      "size_bytes": 5113,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/estimator_decision.md",
+      "destination_blob_sha": "5d634a3bc31e31d3ceed06b9e3ec8c980e4891fe",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_design_config.json",
+      "source_blob_sha": "0380ea488050e5aa36502f9bafeb208486ed6c4f",
+      "size_bytes": 8975,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/exact_design_config.json",
+      "destination_blob_sha": "0380ea488050e5aa36502f9bafeb208486ed6c4f",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/decisions/h1_decision_matrix.csv",
+      "source_blob_sha": "821b0fa31b11e4605b5a9dd18873c075236b203a",
+      "size_bytes": 48449,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_decision_matrix.csv",
+      "destination_blob_sha": "821b0fa31b11e4605b5a9dd18873c075236b203a",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/decisions/h1_decisions_long.csv",
+      "source_blob_sha": "4a82a96074a71fe8847e005d59e563a1419e0ddd",
+      "size_bytes": 53790631,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_decisions_long.csv",
+      "destination_blob_sha": null,
+      "status": "not_transferred"
     },
     {
       "source_path": "studies/pilot_h1/exact_results/decisions/h1_design_ranking.csv",
       "source_blob_sha": "6b841d7ce5079566afb47d65264de54491587b7b",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_design_ranking.csv"
+      "size_bytes": 862,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_design_ranking.csv",
+      "destination_blob_sha": "6b841d7ce5079566afb47d65264de54491587b7b",
+      "status": "identical"
     },
     {
-      "source_path": "studies/pilot_h1/exact_results/inference/h1_primary_operating_characteristics.csv",
-      "source_blob_sha": "8ecedf5d959263a27b9b22dc46b9e10410eacf5c",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_primary_operating_characteristics.csv"
-    },
-    {
-      "source_path": "studies/pilot_h1/exact_results/inference/h1_primary_result_matrix.csv",
-      "source_blob_sha": "33d90e149bfc72628de029ebc52011846cf6af3e",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_primary_result_matrix.csv"
-    },
-    {
-      "source_path": "studies/pilot_h1/exact_results/inference/h1_symmetry_result_matrix.csv",
-      "source_blob_sha": "7a4d8bd9ceb9c37c662bdbb7ff858fa6bb9cfa56",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_symmetry_result_matrix.csv"
-    },
-    {
-      "source_path": "studies/pilot_h1/exact_results/inference/h1_asymmetry_result_matrix.csv",
-      "source_blob_sha": "6d1c3c00dcfc40f1a5d1f6e31dc6e8c2e70059c4",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_asymmetry_result_matrix.csv"
+      "source_path": "studies/pilot_h1/exact_results/decisions/h1_margin_operating_characteristics.csv",
+      "source_blob_sha": "777ee814d7fb428702212a2a44c9455f4a14f086",
+      "size_bytes": 86517,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_margin_operating_characteristics.csv",
+      "destination_blob_sha": "777ee814d7fb428702212a2a44c9455f4a14f086",
+      "status": "identical"
     },
     {
       "source_path": "studies/pilot_h1/exact_results/decisions/h1_sesoi_operating_characteristics.csv",
       "source_blob_sha": "ca221b9e5b9b9f1b4cb059d43192719fa32d5927",
-      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_sesoi_operating_characteristics.csv"
+      "size_bytes": 16462,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_sesoi_operating_characteristics.csv",
+      "destination_blob_sha": "ca221b9e5b9b9f1b4cb059d43192719fa32d5927",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_asymmetry_result_matrix.csv",
+      "source_blob_sha": "6d1c3c00dcfc40f1a5d1f6e31dc6e8c2e70059c4",
+      "size_bytes": 5487,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_asymmetry_result_matrix.csv",
+      "destination_blob_sha": "6d1c3c00dcfc40f1a5d1f6e31dc6e8c2e70059c4",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_primary_operating_characteristics.csv",
+      "source_blob_sha": "8ecedf5d959263a27b9b22dc46b9e10410eacf5c",
+      "size_bytes": 6445,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_primary_operating_characteristics.csv",
+      "destination_blob_sha": "8ecedf5d959263a27b9b22dc46b9e10410eacf5c",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_primary_result_matrix.csv",
+      "source_blob_sha": "33d90e149bfc72628de029ebc52011846cf6af3e",
+      "size_bytes": 9299,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_primary_result_matrix.csv",
+      "destination_blob_sha": "33d90e149bfc72628de029ebc52011846cf6af3e",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_symmetry_result_matrix.csv",
+      "source_blob_sha": "7a4d8bd9ceb9c37c662bdbb7ff858fa6bb9cfa56",
+      "size_bytes": 11551,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_symmetry_result_matrix.csv",
+      "destination_blob_sha": "7a4d8bd9ceb9c37c662bdbb7ff858fa6bb9cfa56",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/merged/h1_chunk_inputs.txt",
+      "source_blob_sha": "1ecabab62fe1546d4934883db1bc1734f0266fa9",
+      "size_bytes": 4384923,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/merged/h1_chunk_inputs.txt",
+      "destination_blob_sha": null,
+      "status": "not_transferred"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/merged/h1_exact_merge_manifest.json",
+      "source_blob_sha": "ef1a30e9faf5400de0f7f1324d5ddf3e7b62af9e",
+      "size_bytes": 4993734,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/merged/h1_merge_coverage_public.json",
+      "destination_blob_sha": "e793f7cfc80fef4cd37775b875242d7b40fe5296",
+      "status": "derived"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/merged/h1_exact_summary.csv",
+      "source_blob_sha": "f5ea471cb6f0ab5b4e980c2ec4b6197e865f4f9d",
+      "size_bytes": 157412,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/merged/h1_exact_summary.csv",
+      "destination_blob_sha": "f5ea471cb6f0ab5b4e980c2ec4b6197e865f4f9d",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/workstation_run_metadata.json",
+      "source_blob_sha": "439708b9bdeb2af734ff15be9a9d6d5877f8f5ff",
+      "size_bytes": 335,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/workstation_run_metadata_public.json",
+      "destination_blob_sha": "278483ad402569f96f6cbd2844473a843610c16f",
+      "status": "derived"
+    },
+    {
+      "source_path": "studies/pilot_h1/h1_asymmetry_validation_config.json",
+      "source_blob_sha": "267e2a03c9d85bb571dec098166ea7b3e2a5e747",
+      "size_bytes": 7597,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/h1_asymmetry_validation_config.json",
+      "destination_blob_sha": "267e2a03c9d85bb571dec098166ea7b3e2a5e747",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/h1_asymmetry_validation_results.md",
+      "source_blob_sha": "e880f281f138b691176f2bdd8a2da46ecad48691",
+      "size_bytes": 4195,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/h1_asymmetry_validation_results.md",
+      "destination_blob_sha": "e880f281f138b691176f2bdd8a2da46ecad48691",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/h1_comparable_lag_recalibration_config.json",
+      "source_blob_sha": "612765d9fcee6932f402853edd3173be84e18cf1",
+      "size_bytes": 9782,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/h1_comparable_lag_recalibration_config.json",
+      "destination_blob_sha": "612765d9fcee6932f402853edd3173be84e18cf1",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/h1_comparable_lag_recalibration_plan.md",
+      "source_blob_sha": "f5f6d04a6d15be9c7eab02503c95b37d05c15a67",
+      "size_bytes": 3093,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/h1_comparable_lag_recalibration_plan.md",
+      "destination_blob_sha": "f5f6d04a6d15be9c7eab02503c95b37d05c15a67",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/h1_exact_design_results_report.md",
+      "source_blob_sha": "15cbda6f8d862f88df511986ae07e981fba5948b",
+      "size_bytes": 9346,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/h1_exact_design_results_report.md",
+      "destination_blob_sha": "15cbda6f8d862f88df511986ae07e981fba5948b",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/missing_data_plan.md",
+      "source_blob_sha": "6f19a6e4459fb2531cb2d091bd58caebf5b39ee9",
+      "size_bytes": 5856,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/missing_data_plan.md",
+      "destination_blob_sha": "6f19a6e4459fb2531cb2d091bd58caebf5b39ee9",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/operational_rules.md",
+      "source_blob_sha": "5c922f999375caa1332560ac51a24972d568b3b7",
+      "size_bytes": 6673,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/operational_rules.md",
+      "destination_blob_sha": "5c922f999375caa1332560ac51a24972d568b3b7",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/preliminary_exact_screening.md",
+      "source_blob_sha": "cdfacf2efc22b2449e600eea81b47372181cd5e6",
+      "size_bytes": 4681,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/preliminary_exact_screening.md",
+      "destination_blob_sha": "cdfacf2efc22b2449e600eea81b47372181cd5e6",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/preregistration.md",
+      "source_blob_sha": "631208bf1d03665be7e3dfe001f2994210925b07",
+      "size_bytes": 17698,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/preregistration.md",
+      "destination_blob_sha": "631208bf1d03665be7e3dfe001f2994210925b07",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/protocol.md",
+      "source_blob_sha": "2023fffaccf62f31a6da9af234f83d376caf7068",
+      "size_bytes": 14820,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/protocol.md",
+      "destination_blob_sha": "2023fffaccf62f31a6da9af234f83d376caf7068",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/survey_items.md",
+      "source_blob_sha": "4ffbe001aeaac741c825c6fb5868cae05676509d",
+      "size_bytes": 3432,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/survey_items.md",
+      "destination_blob_sha": "4ffbe001aeaac741c825c6fb5868cae05676509d",
+      "status": "identical"
+    },
+    {
+      "source_path": "studies/pilot_h1/survey_items_pl.md",
+      "source_blob_sha": "8759e7ca18ede5ba72cc08031bf9299857f72b0e",
+      "size_bytes": 5354,
+      "destination_path": "manuscripts/MSC-ATTACH-P01/protocol/survey_items_pl.md",
+      "destination_blob_sha": "8759e7ca18ede5ba72cc08031bf9299857f72b0e",
+      "status": "identical"
     }
   ],
-  "omitted": [
-    "exact_results/decisions/h1_decisions_long.csv",
-    "exact_results/merged/h1_exact_merge_manifest.json",
-    "exact_results/merged/h1_chunk_inputs.txt",
-    "remaining compact summaries and metadata"
-  ],
-  "reason": "Large artifacts require separate byte-preserving archival transfer; no human records transferred."
+  "limitations": [
+    "Derived public manifests omit absolute filesystem paths; public metadata omits workstation name.",
+    "Large original CSV not transferable via cross-repository SHA; GitHub API rejected the reference.",
+    "Original path-list and complete replication-level records remain in source/local archives; retain original repository."
+  ]
 }
