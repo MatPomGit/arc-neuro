@@ -6,8 +6,8 @@
 
 **Przedmiot:** Kandydat: publikacja metod oprogramowania EEG Neurolyze.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
-- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
+- **Proponowany wynik główny:** Zgodność PSD i mocy alfa z SciPy w 18 syntetycznych przypadkach o jawnych parametrach.
+- **Zakres i odrębność:** Weryfikacja oprogramowania. Kwalifikacja urządzenia pozostaje w MSC-EEG-P02.
 - **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 

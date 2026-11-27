@@ -1,66 +1,40 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
-\usepackage[polish]{babel}
-
-\usepackage{lmodern}
-
-\usepackage{geometry}
-
-\geometry{margin=27mm}
-
+\IfFileExists{polish.ldf}{\usepackage[polish]{babel}}{}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath}
+\usepackage[authoryear,round]{natbib}
 \usepackage[hidelinks]{hyperref}
-
 \title{Kandydat: publikacja metod oprogramowania EEG Neurolyze}
-
 \author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
-
+\date{MSC-EEG-P01 | Manuskrypt metod 1.0.0 | 27 listopada 2026}
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
-Tematem pracy jest Kandydat: publikacja metod oprogramowania EEG Neurolyze. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+EEG Neurolyze wspiera demonstrację analizy widmowej różnic między spoczynkiem z oczami otwartymi i zamkniętymi. Przedstawiono wersjonowany przebieg od wygenerowania i archiwizacji sygnału po odtwarzalną analizę mocy alfa. W 18 syntetycznych przypadkach porównano implementację Welcha z SciPy przy wyrównanych parametrach. Największa bezwzględna różnica gęstości widmowej wyniosła $3{,}98\times10^{-13}\,\mu\mathrm{V}^2/\mathrm{Hz}$. Dowody dotyczą zdefiniowanych wejść programowych.
 \end{abstract}
-
 \section{Wprowadzenie}
-
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Kandydat: publikacja metod oprogramowania EEG Neurolyze wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
-
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Kandydat: publikacja metod oprogramowania EEG Neurolyze. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Reprodukowalność EEG obejmuje parametry akwizycji, przetwarzania, opis metadanych i dostępność specyfikacji analizy \citep{pernet2020}. EEG-BIDS porządkuje reprezentację danych, zdarzeń i metadanych \citep{pernet2019}. Wkład Neurolyze rozpatrujemy jako spójność lokalnego przebiegu dydaktycznego i możliwość prześledzenia wyniku od próbek do raportu. Odrębnym punktem odniesienia jest MNE-BIDS-Pipeline, który dostarcza ogólną automatyzację przetwarzania zbiorów BIDS. Artykuł MSC-EEG-P02 obejmuje kwalifikację urządzeń, w tym pytania o synchronizację, mapowanie kanałów i stabilność pomiaru.
 
 \section{Materiał i metody}
+Oprogramowanie generuje próbki syntetyczne oraz oznaczenia warunków EO i EC, zapisuje dane, informacje o kanałach, zdarzenia i manifest SHA-256 w archiwum EEGZ oraz pozwala obliczyć analizę ponownie z zapisu. Sumy kontrolne służą sprawdzeniu integralności. W scenariuszu przykładowym po stabilizacji (30 s) następuje EO (120 s), przerwa (30 s) i EC (120 s). Skrócone sesje wykorzystano w testach integracyjnych. Eksport BrainVision EEG-BIDS obejmuje wejścia syntetyczne z równomiernym próbkowaniem. Zgodność BIDS wymaga wyniku walidatora dla konkretnego zbioru.
 
-Wersjonowany pipeline EEG Neurolyze przetestować na syntetycznych sygnałach i jawnych formatach plików. Pierwszorzędowy wskaźnik: Poprawność przetwarzania i odtwarzalność wyników w tym samym środowisku. Nie przedstawia się przeprowadzonych analiz ani uzyskanych wyników. Przed realizacją konieczne jest określenie źródeł materiału, kryteriów jakości, zasad reprodukowalności i licencji.
+Gęstość widmowa jest estymowana metodą Welcha \citep{welch}. Algorytm usuwa średnią z każdego segmentu, stosuje symetryczne okno Hanna i krok równy połowie długości segmentu po zaokrągleniu w dół. Segmenty mają nominalnie 2 s, przy krótszym wejściu używana jest jego długość. FFT jest dopełniana zerami do najbliższej potęgi dwóch. Widmo jednostronne ma jednostkę $\mu\mathrm{V}^2/\mathrm{Hz}$, a moc alfa liczymy jako
+\[
+ P_\alpha=\Delta f\sum_{k:\,8\leq f_k\leq 13} \widehat S(f_k),
+\]
+gdzie $\Delta f$ oznacza odstęp między częstotliwościami siatki FFT. Różnice w wyborze okna, nakładaniu, obsłudze braków oraz granicach pasma mogą zmieniać wynik.
 
 \section{Plan analizy}
-
-Proponowany plan analityczny: regresyjne testy deterministyczności, profil czasu i pamięci. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Pierwszorzędowy wskaźnik: zgodność wartości PSD i mocy alfa między Neurolyze a SciPy przy wyrównanych ustawieniach. Jednostką porównania jest syntetyczny sygnał o zadanej częstotliwości próbkowania i długości. Zestaw skrzyżował 128, 200 i 256 Hz z dwoma długościami (około 1 i 5 s) oraz trzema typami sygnału. Były to sinus 10 Hz o amplitudzie 20 $\mu$V, sinus 10 Hz z dryfem i szumem oraz sygnał zerowy. SciPy otrzymało jawne okno symetryczne i dokładnie dopasowane parametry. Sprawdzono identyczność siatek oraz zgodność PSD i całki pasmowej z tolerancjami bezwzględną oraz względną $10^{-10}$. Zamrożenie estymandu dla analizy empirycznej pozostaje odrębną decyzją po dopuszczeniu zbioru.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Wszystkie 18 przypadków spełniło kryterium zgodności. Maksimum bezwzględnej różnicy PSD wyniosło $3{,}98\times10^{-13}\,\mu\mathrm{V}^2/\mathrm{Hz}$. Dla sinusa moc 8--13 Hz mieściła się w przedziale 199,935--200,000 $\mu\mathrm{V}^2$ po zaokrągleniu do trzech miejsc. Przeszło także dziewięć testów widmowych i trzy testy integracyjne EO/EC przypiętego źródła. Wśród nich są przypadki wywołania CLI, archiwizacji i błędów znaczników.
 
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+Zgodność z referencją wspiera poprawność numeryczną dla badanych długości, częstotliwości i typów wejścia. Benchmark dotyczy równomiernego próbkowania. Odczyt publicznego EDF w oddzielnym przykładzie MNE, kwalifikacja Muse S Athena i walidacja konkretnego zbioru BIDS wymagają osobnych dowodów. Przed zgłoszeniem należy przypiąć wydanie oprogramowania i udokumentować instalację, licencję oraz odtworzenie procedury przez niezależnego użytkownika. Docelowy format to artykuł o oprogramowaniu badawczym.
+\bibliographystyle{apalike}
+\bibliography{references}
 \end{document}
-
