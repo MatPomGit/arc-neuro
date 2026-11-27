@@ -1,0 +1,18 @@
+table,field,type,allowed_or_unit,meaning
+participant,participant_id,string,random opaque ID,Klucz badawczy bez danych kontaktowych
+participant,protocol_version,string,SemVer,Wersja instrukcji i parametrów
+participant,mode,enum,real|hypothetical,Wariant konsekwencji
+participant,option_b_side,enum,left|right,Położenie B losowane dla sesji
+participant,session_state,enum,randomized|complete|withdrawn|interrupted,Stan sesji
+trial,participant_id,string,foreign key,Powiązanie z tabelą participant
+trial,position,integer,1..24,Pozycja w zaplanowanej kolejności
+trial,cost_pln,integer,1|4,Kwota odjęta od bonusu decydenta w opcji B
+trial,visible,boolean,0|1,Czy obserwator zobaczy wylosowaną decyzję
+trial,benefit_pln,integer,2|5,Dodatkowy bonus odbiorcy w opcji B
+trial,choice,nullable integer,0|1|NA,0 oznacza A i 1 oznacza B
+trial,missing_reason,nullable enum,not_reached|technical|withdrawal|skipped|NA,Przyczyna braku wyniku
+trial,rt_ms,nullable integer,milliseconds,Od prezentacji do zatwierdzenia
+trial,implemented,nullable boolean,0|1|NA,Wylosowanie do realizacji
+check,participant_id,string,foreign key,Powiązanie z tabelą participant
+check,item_id,string,versioned code,Identyfikator pytania i warunku
+check,value,nullable integer,1..7|NA,Odpowiedź na pytanie kontrolne

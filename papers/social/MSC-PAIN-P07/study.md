@@ -1,32 +1,11 @@
-# MSC-PAIN-P07 — Eksperymentalne odróżnianie motywów ponoszenia osobistego kosztu
+# MSC-PAIN-P07 | Karta badania
 
-**Program:** `arc-neuro` · **obszar:** `affect` · **rodzaj:** `IDEA` · **etap źródłowy:** `IDEA_REVIEW`.
+Program: arc-neuro. Obszar: social. Rodzaj: IDEA. Etap: PROSPECTIVE, po IDEA_REVIEW. Właściciel naukowy (scientific_owner): Mateusz Pomianek.
 
-## Projekt badania
+Badanie obejmuje 24 decyzje w schemacie 2×2×2 z niezależną zmianą kosztu osobistego, obserwowalności i korzyści beneficjenta. Wynik główny to decyzja o zaakceptowaniu kosztu. Estymand to interakcja kosztu z obserwowalnością w warunkowych logarytmach szans, uśredniona po korzyści. Wielkość efektu opisuje zachowanie przy wyborze, a odróżnianie motywów dotyczy zgodności wzorców z konkurencyjnymi modelami.
 
-**Przedmiot:** Eksperymentalne odróżnianie motywów ponoszenia osobistego kosztu.
+W katalogu roboczym P02 i P07 mają przypisanie social. W pierwotnej karcie P07 widniało affect. Ujednolicono kartę P07 z katalogiem i definicją obszaru relacji i zachowań społecznych w areas/index.json. P02 zachowuje swoje przypisanie źródłowe w istniejącej karcie i wymaga odrębnego uzgodnienia. portfolio/papers.json i portfolio/projects.json są rejestrami zatwierdzonych wpisów, pustymi w zweryfikowanym stanie bazowym. Publiczny katalog roboczy papers/catalog.json wskazuje jedno źródło LaTeX P07. Brak zatwierdzonego wpisu portfolio nie stanowi podstawy do dopisywania zewnętrznego project_id ani do uznania kompletności prywatnych mapowań. Porównanie P02 i P07 obejmuje publiczne szkice z tego samego commitu bazowego.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
-- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
-- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
-- **Powiązane MSC:** `MSC-PAIN-P02`.
+ST-07 pozostaje historycznym przypisaniem PROPOSED_BY_SCOPE z kwalifikacją NOT_VERIFIED. Eksperyment może zostać zrealizowany na instytucjonalnej platformie online, po walidacji. Istniejące mapowanie do opcjonalnego app-study-web i potencjalnych zależności lib-events, lib-study i lib-vlm nie wymaga ich użycia w protokole. Brak potwierdzonej integracji.
 
-## Stanowisko badawcze
-
-**`ST-07`**. Klasyfikacja `PROPOSED_BY_SCOPE`; kwalifikacja aparatury `NOT_VERIFIED`. Jest to propozycja organizacyjna, nie dowód gotowości stanowiska.
-
-## Aplikacje
-
-- **`app-study-web`** (`APP-ARC-06`): rola `OPTIONAL`, decyzja `RESEARCH_GO`; status repozytorium `PLANNED_NOT_CREATED`.
-
-## Biblioteki
-
-- **`lib-events`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-study-web`. Brak potwierdzonej integracji.
-- **`lib-study`**: status `PLANNED_NOT_CREATED`, proponowana zależność przez `app-study-web`. Brak potwierdzonej integracji.
-- **`lib-vlm`**: status `SCAFFOLD_EXISTS`, proponowana zależność przez `app-study-web`. Brak potwierdzonej integracji.
-
-## Proweniencja i warunki realizacji
-
-Szczegółowa proweniencja materiałów źródłowych, odwołania do repozytoriów niepublicznych i numery rewizji są przechowywane poza publiczną kartą.
-
-Przed wykonaniem badania należy sprawdzić prawa do danych, kompletność protokołu, zgodę etyczną (jeżeli dotyczy), bezpieczeństwo aparatury oraz niezależność wyniku wobec innych manuskryptów. Wpisy biblioteczne i aplikacyjne są **planem**, nie deklaracją działającego API. Brak wyników oznacza `NOT_VERIFIED`, a nie wynik zerowy.
+Robocza decyzja naukowa: REVISE przed rejestracją. Warunki: pilotaż rozumienia i ujawnienia, budżet realnych konsekwencji, wybór najmniejszego interesującego efektu, potwierdzenie procedury etycznej, odpowiedniego terminu rekrutacji i granic analogii z pełnym protokołem P02.

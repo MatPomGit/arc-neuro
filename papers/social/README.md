@@ -19,7 +19,7 @@
 | [MSC-PAIN-P04 — Korekta faktów a normy moralne: warunkowa metaanaliza](MSC-PAIN-P04/README.md) | `CONDITIONAL` |
 | [MSC-PAIN-P05 — Neuronaukowe wyjaśnianie krzywdy i granice wnioskowania odwrotnego](MSC-PAIN-P05/README.md) | `PLAN` |
 | [MSC-PAIN-P06 — Model agentowy karania i współczucia w sieciach społecznych](MSC-PAIN-P06/README.md) | `SYNTHETIC_ONLY` |
-| [MSC-PAIN-P07 — Eksperymentalne odróżnianie motywów ponoszenia osobistego kosztu](MSC-PAIN-P07/README.md) | `IDEA_REVIEW` |
+| [MSC-PAIN-P07 — Eksperymentalne odróżnianie motywów ponoszenia osobistego kosztu](MSC-PAIN-P07/README.md) | `PROSPECTIVE` |
 | [MSC-PAIN-P08 — Rozbieżność aktualizacji faktów i norm moralnych](MSC-PAIN-P08/README.md) | `IDEA_REVIEW` |
 | [MSC-PAIN-P09 — Polityki decyzyjne zależne od odpowiedzialności sprawcy](MSC-PAIN-P09/README.md) | `IDEA_REVIEW` |
 | [MSC-PAIN-P10 — Otwarty audyt błędów wnioskowania odwrotnego w neurokognicji](MSC-PAIN-P10/README.md) | `IDEA_REVIEW` |
