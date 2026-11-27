@@ -1,0 +1,27 @@
+\subsection{Three Distinct Definitions}
+
+\paragraph{Observational equivalence.}
+Let $\mathcal O_T=\{(t_i,\widetilde e_i,\widetilde a_i)\}_{i=1}^{m(T)}$ be the observed record under design $\mathcal D$, including sampling, omission and measurement rules. Two parameterized generators are observationally equivalent under that design when their induced observation laws agree:
+\[
+\mathsf P^{\mathcal D}_{k,\theta_k}(\mathcal O_T\in B)
+=\mathsf P^{\mathcal D}_{l,\theta_l}(\mathcal O_T\in B)
+\quad\text{for every measurable }B.
+\]
+Equivalence for a restricted observation design is weaker than equivalence over all admissible designs and durations. A small empirical loss difference does not establish equality of these probability laws. Exact PID reduction to P is a separate algebraic case: with $k_I=k_D=0$ and matched initial conditions and innovations, the action/state recursion is identical. Different nominal family labels can therefore represent the same mechanism.
+
+\paragraph{Practical predictive equivalence.}
+For independently generated replicate units, define
+\[
+\Delta_j=L_j(\widehat{\mathcal M}_{k,\mathrm{fit}})
+-L_j(\widehat{\mathcal M}_{q_j,\mathrm{fit}}),
+\qquad \mu_\Delta=\mathsf E[\Delta_j],
+\]
+where $q_j$ is chosen before final evaluation and excludes the nominal generating family. It may differ across replicates. The estimand concerns fitted predictions and this competitor-selection rule, not an oracle comparison of latent equations. For a positive tolerance $\epsilon$, practical mean-loss equivalence means $|\mu_\Delta|<\epsilon$; the operational development rule requires interval containment within $[-\epsilon,\epsilon]$. This neither entails observational equivalence nor validates a psychological mechanism.
+
+\paragraph{Family recovery.}
+For $N$ attempted replicate units with nominal generator $k$, the empirical recovery rate is
+\[
+\widehat R_k(\mathcal D)=\frac{1}{N}\sum_{j=1}^{N}
+\mathbf 1\{\widehat k_j=k\}.
+\]
+Failed selections contribute zero. Recovery over evaluable units is additionally reported with its own denominator. Effective-family recovery replaces $k$ with an explicitly defined reduction label; a practical nonzero-gain threshold is not inferred from the observed winners. Within-family parameter identification, family-label recovery and predictive equivalence remain distinct questions.
