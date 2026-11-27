@@ -1,66 +1,47 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
 \usepackage[polish]{babel}
-
 \usepackage{lmodern}
-
 \usepackage{geometry}
-
 \geometry{margin=27mm}
-
 \usepackage[hidelinks]{hyperref}
 
-\title{Synergia EEG, mimiki i zachowania w pomiarze recovery}
-
-\author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
+\title{Synergia EEG, mimiki i zachowania w pomiarze powrotu do regulacji}
+\author{}
+\date{Koncepcja badawcza, IDEA / DEFER, wersja 0.1.2}
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
-
-Tematem pracy jest Synergia EEG, mimiki i zachowania w pomiarze recovery. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Praca przedstawia odroczoną koncepcję oceny, czy łączne wykorzystanie EEG, mimiki i telemetrii zachowania poprawia pomiar powrotu do regulacji (ang.~\emph{recovery}) w porównaniu z poszczególnymi modalnościami. Nie ustalono jeszcze definicji zdarzenia, wyniku pierwszorzędowego ani estymandu. Tekst nie opisuje przeprowadzonego badania i nie zawiera wyników empirycznych.
 \end{abstract}
 
 \section{Wprowadzenie}
-
-Kontekst obserwacji i wieloźródłowość ocen są kluczowe w interpretacji zachowania i zjawisk neurorozwojowych. Zagadnienie Synergia EEG, mimiki i zachowania w pomiarze recovery wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Powrót do regulacji może obejmować odmienne zjawiska: ponowne podjęcie zadania, zmianę zachowania obserwowalnego i zmiany sygnałów fizjologicznych. Zgodność tych wskaźników nie może być zakładana z góry. Przed rozpoczęciem badania należy ustalić, który konstrukt jest przedmiotem pomiaru, a które sygnały pełnią jedynie funkcję predyktorów.
 
 \section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Synergia EEG, mimiki i zachowania w pomiarze recovery. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Planowane pytanie dotyczy tego, czy fuzja EEG, mimiki i telemetrii zadania wnosi wartość predykcyjną ponad model oparty na samym zachowaniu. Rozstrzygnięcia wymaga operacyjna definicja początku i końca epizodu powrotu do regulacji, okno obserwacji, jednostka analizy oraz miara jakości predykcji. Nie sformułowano jeszcze potwierdzonych hipotez kierunkowych.
 
 \section{Materiał i metody}
+Rozważany projekt zakłada rejestrację modalności w tych samych epizodach oraz synchronizację ich znaczników czasu. Ocena jakości sygnału i dopuszczalnego opóźnienia między kanałami powinna poprzedzać analizę. Wariant referencyjny oparty wyłącznie na telemetrii zadania należy porównać z modelami rozszerzanymi o mimikę, EEG i obie modalności. Należy oddzielić cechy dostępne w chwili predykcji od informacji o późniejszym wyniku, aby uniknąć przecieku czasowego.
 
-W tych samych epizodach zestawić EEG, mimikę i telemetrię bez przecieku danych pomiędzy sesjami dziecka. Pierwszorzędowy wskaźnik: Dodatkowa jakość wykrywania powrotu do celu uzyskana przez fuzję modalności. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Badanie pozostaje odroczone (\texttt{DEFER}). Nie potwierdzono kompletnego protokołu, gotowości aparatury, uprawnień do danych, procedur etycznych ani pozyskania próby. Propozycje stanowiska i oprogramowania opisane w \texttt{study.md} nie stanowią dowodu ich wdrożenia.
 
 \section{Plan analizy}
-
-Proponowany plan analityczny: ablacje kanałów, kalibracja oraz walidacja leave-one-participant-out. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Po zdefiniowaniu wyniku i estymandu należy z góry wskazać metryki jakości i kalibracji, scenariusz brakujących modalności oraz analizę wrażliwości na synchronizację. Wstępnym wariantem walidacji jest podział z wyłączeniem całego uczestnika (\emph{leave-one-participant-out}); wszystkie epizody jednego uczestnika muszą należeć wyłącznie do jednej części podziału. Dobór cech, strojenie hiperparametrów i kalibracja powinny odbywać się wewnątrz danych treningowych. Metryka i sposób agregacji na poziomie uczestnika wymagają uprzedniego ustalenia. Analiza nie została wykonana.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Brak danych empirycznych i wyników analiz. Nie należy interpretować projektu porównań modeli jako dowodu synergii.
 
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
+Potencjalne ograniczenia obejmują artefakty EEG, niejednoznaczność mimiki jako wskaźnika stanu afektywnego, nierówną jakość kanałów, brakujące obserwacje i różnice między uczestnikami. Dodatkowa trafność predykcyjna nie dowodzi przyczynowej roli modalności ani użyteczności klinicznej. Odrębność planowanej pracy wobec MSC-ADHD-P02 oraz MSC-ADHD-P05 wymaga oceny na podstawie rzeczywistych protokołów.
 
 \section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Na etapie \texttt{IDEA / DEFER} możliwe jest jedynie określenie warunków sprawdzalności koncepcji. Rozpoczęcie badań wymaga potwierdzenia kanonicznego projektu, protokołu, praw do danych i niezbędnych zgód.
 
 \section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+Pozycje bibliograficzne zostaną dodane dopiero po weryfikacji źródeł i ich związku z konkretnymi twierdzeniami.
 
 \end{document}
-
