@@ -17,3 +17,27 @@ python -B manuscripts/MSC-ATTACH-P02/analysis/m02_closed_loop_calibration.py --o
 ```
 
 This is a development pilot, not a confirmatory run. Historical aggregate results were generated at older source commits and must not be attributed to this migrated revision. Complete reproduction, dependency installation and runtime validation remain outstanding.
+
+## Resumable development data collection
+
+The collector, descriptive reporter and regression tests were migrated from the same pinned source revision. Changes are limited to repository-relative defaults and additional path and report integrity tests. From the repository root:
+
+```bash
+python -B manuscripts/MSC-ATTACH-P02/analysis/collect_m02_data.py
+python -B manuscripts/MSC-ATTACH-P02/analysis/collect_m02_data.py --execute --max-shards 1
+python -B manuscripts/MSC-ATTACH-P02/analysis/report_m02_collection.py
+```
+
+The first command is a dry run. The second explicitly executes at most one shard; repeat with the same commit, configuration and chunk size to resume, or remove `--max-shards` for the full developmental collection. Outputs default to the ignored root `build/MSC-ATTACH-P02/m02-collection/`. Existing shards are checksum-verified; partial or corrupted shards require inspection. Pooled recovery counts are descriptive only. Historical collections have not been transferred or reproduced by this change.
+
+## Configured synthetic experiments
+
+The historical trajectory runner, configurable experiment suite, provenance runner and recovery summarizer are migrated from the pinned source. Run from the repository root:
+
+```bash
+python -B manuscripts/MSC-ATTACH-P02/analysis/run.py
+python -B manuscripts/MSC-ATTACH-P02/analysis/experiments.py --config manuscripts/MSC-ATTACH-P02/analysis/configs/smoke.json
+python -B manuscripts/MSC-ATTACH-P02/analysis/reproduce.py
+```
+
+On Windows, run `RUN_ALL_WINDOWS.bat` from this directory. It creates an isolated environment under the ignored root build directory, installs the pinned dependencies and runs the trajectory, controller fit and configured experiments. Default outputs are under `build/MSC-ATTACH-P02/experiments/`. `configs/default.json` is a preserved legacy configuration, not an input for the experiment dispatcher. All runs are synthetic and developmental; historical outputs are not replaced or reproduced by migration alone.

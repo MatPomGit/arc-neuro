@@ -1,0 +1,12 @@
+{
+  "purpose": "Development verification of three-way fit/validation/final-test separation for M02. Not the confirmatory manuscript grid.",
+  "seed": 31420,
+  "n_runs": 40,
+  "traits": {"L": 0.4, "U": 0.35, "C": 0.5, "S": 0.55, "M": 0.7, "F": 0.55},
+  "simulation": {"steps": 180, "dt": 1, "responsiveness": 0.75, "process_noise": 0.003, "perception_noise": 0.06},
+  "perturbation": {"step": 40, "magnitude": -0.25},
+  "gain_ranges": {"kp": [0.2, 1.1], "ki": [0.0, 0.3], "kd": [0.0, 0.15]},
+  "integral_leak": 0.85,
+  "measurement_noise": [0.0, 0.04],
+  "split": {"fit_fraction": 0.60, "validation_fraction": 0.20}
+}

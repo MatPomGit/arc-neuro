@@ -1,0 +1,40 @@
+{
+  "experiment": "phase_map",
+  "title": "ARC smoke test",
+  "seed": 99,
+  "fixed_traits": {
+    "C": 0.4,
+    "S": 0.6,
+    "M": 0.6,
+    "F": 0.6
+  },
+  "x": {
+    "name": "L",
+    "label": "L",
+    "min": 0.2,
+    "max": 0.8,
+    "n": 3
+  },
+  "y": {
+    "name": "U",
+    "label": "U",
+    "min": 0.2,
+    "max": 0.8,
+    "n": 3
+  },
+  "simulation": {
+    "steps": 50,
+    "dt": 1,
+    "responsiveness": 0.8,
+    "process_noise": 0,
+    "perception_noise": 0.03,
+    "controller_mode": "pid"
+  },
+  "perturbation": {
+    "step": 15,
+    "magnitude": -0.15
+  },
+  "display_metric": "arc_instability_index",
+  "figure": "smoke.png",
+  "csv": "smoke.csv"
+}

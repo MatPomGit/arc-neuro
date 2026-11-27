@@ -123,6 +123,57 @@
       "source_path": "software/simulator/results/m02_standardized_development/summary.csv",
       "source_blob_sha": "a4551810dc72e9929d63c613cf5f6a873ab5336a",
       "destination_path": "manuscripts/MSC-ATTACH-P02/results/m02_standardized_development/summary.csv"
+    },
+    {
+      "source_path": "software/simulator/results/controller_discrimination/discrimination_summary.csv",
+      "source_blob_sha": "e61da541c05f53225030929baa10cf3c7b6e6afe",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/controller_discrimination/discrimination_summary.csv"
+    },
+    {
+      "source_path": "software/simulator/results/controller_discrimination/discrimination_trajectories.csv",
+      "source_blob_sha": "64237f120244aaf8164d39b0977f5f55090bce14",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/controller_discrimination/discrimination_trajectories.csv"
+    },
+    {
+      "source_path": "software/simulator/results/controller_discrimination/metadata.json",
+      "source_blob_sha": "cc866bade0be1d5ed0267256589df4694ffe7f22",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/controller_discrimination/metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/emotion_regulation_scenarios/metadata.json",
+      "source_blob_sha": "64c519652c05465c329c37500eeac7dabf22829e",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/emotion_regulation_scenarios/metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/emotion_regulation_scenarios/scenario_runs.csv",
+      "source_blob_sha": "506302e13513b0039d57d5d73005a012a4f6877b",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/emotion_regulation_scenarios/scenario_runs.csv"
+    },
+    {
+      "source_path": "software/simulator/results/emotion_regulation_scenarios/scenario_summary.csv",
+      "source_blob_sha": "aa75b412b02d8940284b4702cb04dc1095f321de",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/emotion_regulation_scenarios/scenario_summary.csv"
+    },
+    {
+      "source_path": "software/simulator/results/emotion_regulation_scenarios/scenario_timeseries.csv.gz",
+      "source_blob_sha": "18907e29bf9ecbea351da39e4faf108171052201",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/emotion_regulation_scenarios/scenario_timeseries.csv.gz"
+    },
+    {
+      "source_path": "software/simulator/results/sampling_sensitivity/metadata.json",
+      "source_blob_sha": "1c334c10fa69ef17c9076976e52e7d7f3433a30a",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/sampling_sensitivity/metadata.json"
+    },
+    {
+      "source_path": "software/simulator/results/sampling_sensitivity/sampling_summary.csv",
+      "source_blob_sha": "0750d3e3fb897082c08d84dfb67f6f3a17a567cc",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/sampling_sensitivity/sampling_summary.csv"
+    },
+    {
+      "source_path": "software/simulator/results/sampling_sensitivity/sampling_trajectories.csv",
+      "source_blob_sha": "25c77693bd5793faff20924700da31ef1f16dba7",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/results/sampling_sensitivity/sampling_trajectories.csv"
     }
-  ]
+  ],
+  "tracked_archive_scope": "software/simulator/results/ only; excludes artifacts/m02-collection and untracked ledgers"
 }

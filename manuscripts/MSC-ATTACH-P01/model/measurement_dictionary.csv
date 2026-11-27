@@ -1,0 +1,31 @@
+variable,level,status,construct_or_quantity,human_operationalization,role_in_arc2,falsification_target
+L,person,core,attachment anxiety,validated attachment-anxiety score such as ECR-R,moderator of discrepancy-to-action dynamics,remove ARC-specific dynamic role if moderation does not generalize
+U,person,core,attachment avoidance,validated attachment-avoidance score such as ECR-R,moderator of discrepancy-to-action dynamics,remove ARC-specific dynamic role if moderation does not generalize
+S,person,core_candidate,secure-base representation,secure-base script knowledge or preregistered positive security measure,prespecified candidate for promotion to the person-level core through H3,promote only after incremental value beyond L and U on a preregistered primary recovery outcome plus out-of-sample improvement and replication
+r_hat_t,episode,core,perceived relational state,momentary rating on matched relational coordinate,current state estimate,must be retained separately from target for model comparison
+r_star_t,episode,core,desired relational state,momentary desired-state rating on same coordinate,target state,simplify if negligible within-person variation and no incremental information
+e_t,derived,core_candidate,relational discrepancy,r_star_t-r_hat_t,parsimonious H1 predictor,H1-P2 uses the locked coefficient test; interpret jointly with H1-P1 and separate M2 structural evidence; RMSE is secondary
+e_positive_t,derived,optional,closeness-frustration component,max(e_t 0),asymmetric H1 extension,report M4 slopes and d_asym with 95% CI descriptively; no confirmatory asymmetry classification in H1
+e_negative_t,derived,optional,closeness-surfeit component,max(-e_t 0),asymmetric H1 extension,report M4 slopes and d_asym with 95% CI descriptively; no confirmatory asymmetry classification in H1
+a_t1,episode,core,subsequent regulatory action,behavioral coding or time-ordered momentary action report,policy output,must retain direction and function needed for hypothesis
+p_t1,dyadic_context,core,partner/environment feedback,actor perception plus partner report or coding where feasible,closes dyadic loop,must remain distinguishable from actor action and from objective partner behavior
+target_change,derived,core_analysis,change in desired relational state,r_star_t1-r_star_t,target adaptation component,do not interpret discrepancy reduction without separating target change
+state_change,derived,core_analysis,change in perceived relational state,r_hat_t1-r_hat_t,perceived-state update component,do not interpret discrepancy reduction without separating state change
+discrepancy_burden,derived,H3,sum of absolute discrepancy over elapsed time after perturbation,sum |e_t| delta_t,recovery metric,must be preregistered rather than optimized post hoc
+recovery_time,derived,H3,time to functional tolerance,first time discrepancy remains below threshold for m observations,recovery metric,threshold and hold count must be preregistered
+return_to_function,episode,H3,return to constructive activity,momentary or behavioral criterion,positive recovery outcome,must not be replaced by discrepancy reduction alone
+M,person,extension,mentalized affectivity,Mentalized Affectivity Scale plus external state criterion,optional moderator of state-inference accuracy,exclude or merge if no discriminant or incremental validity
+F,person_dynamic,extension,emotion-regulation flexibility,context sensitivity and feedback-responsive adaptation,optional moderator of policy adaptation,exclude or decompose if no pathway-specific incremental validity
+Z_obs,external,extension,adult attachment disorganization,independent criterion,external outcome for H5,dynamic indicators must add held-out information beyond L U interaction and static alternatives
+H_t,derived,optional,weighted discrepancy history,preregistered past-only feature,candidate history dependence,retain only with held-out improvement
+Delta_e_t,derived,optional,change in discrepancy,past-to-current difference divided by elapsed time,candidate change sensitivity,retain only with held-out improvement
+C_candidate,separate_program,separate,relational-control propensity,new scale requiring independent psychometric validation,not part of ARC core,drop merge or rename if discriminant validity fails
+action_approach_t1,episode,H2,approach/proximity-seeking regulation,time-ordered momentary or behavioral coding,channel-specific policy output,H2 requires reproducible L/U moderation of discrepancy-to-approach mapping
+action_distance_t1,episode,H2,overt distancing/space-seeking regulation,time-ordered momentary or behavioral coding; not a direct autonomy measure,channel-specific policy output,H2 requires reproducible L/U moderation of discrepancy-to-distance mapping
+action_internal_t1,episode,H2,internal suppression/disengagement,momentary report or validated coding where feasible,channel-specific policy output,H2 requires reproducible L/U moderation of discrepancy-to-internal-regulation mapping
+Lxe_wp,derived,H2,anxiety by within-person discrepancy interaction,cross-level interaction in preregistered dynamic model,H2 moderator term,retain only with adequate power reproducibility and predictive value
+Uxe_wp,derived,H2,avoidance by within-person discrepancy interaction,cross-level interaction in preregistered dynamic model,H2 moderator term,retain only with adequate power reproducibility and predictive value
+partner_support_episode,dyadic_context,H3,proximal partner support or dyadic coping,partner report actor perception or independent behavioral coding,stronger H3 comparator,separate person-level S from episode-level support
+S_increment,derived,H3_promotion,incremental secure-base contribution,comparison of R2 versus R1,promotion criterion for positive security,promotion also requires out-of-sample value and independent replication or a second preregistered design
+
+

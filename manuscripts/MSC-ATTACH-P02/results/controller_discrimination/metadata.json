@@ -1,0 +1,13 @@
+{
+  "model_version": "0.4.0",
+  "config_sha256": "aa2929b13e41aa4c8c35fa1e3c0a856b82274f43c58ea7814fbffe88db7c2414",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "seed": 11300,
+  "n_runs_per_generator": 40,
+  "rng": "numpy.random.default_rng / PCG64 family",
+  "outputs": [
+    "discrimination_trajectories.csv",
+    "discrimination_summary.csv"
+  ]
+}

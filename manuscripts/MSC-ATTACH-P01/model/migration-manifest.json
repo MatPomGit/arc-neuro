@@ -1,0 +1,44 @@
+{
+  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
+  "scientific_owner": "Mateusz Pomianek",
+  "evidence_status": "historical_theory_and_methodology_not_new_validation",
+  "files": [
+    {
+      "source_path": "model/specification.json",
+      "source_blob_sha": "25dc68ef54efa1d201f05030ff266e09fab2c096",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/model/specification.json",
+      "status": "unchanged_source_text"
+    },
+    {
+      "source_path": "model/measurement_dictionary.csv",
+      "source_blob_sha": "8a033c854e83611f8d0c2c97f19ea1dc074057c8",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/model/measurement_dictionary.csv",
+      "status": "unchanged_source_text"
+    },
+    {
+      "source_path": "manuscripts/02_identifiability/INFERENCE_AUDIT_2026-10-09.md",
+      "source_blob_sha": "eaccfe62201f130cf81068398cc174e2dd888758",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/INFERENCE_AUDIT_2026-10-09.md",
+      "status": "unchanged_source_text"
+    },
+    {
+      "source_path": "manuscripts/02_identifiability/INTERVAL_CALIBRATION_2026-10-08.md",
+      "source_blob_sha": "b862de602d2cd3267da53b327f079f6e58dcfe60",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/INTERVAL_CALIBRATION_2026-10-08.md",
+      "status": "adapted_paths_and_tracking_reference"
+    },
+    {
+      "source_path": "manuscripts/02_identifiability/METHODOLOGICAL_REVIEW.md",
+      "source_blob_sha": "16a7d8b063e1a7999923011d0d2aaf9513ab4300",
+      "destination_path": "manuscripts/MSC-ATTACH-P02/METHODOLOGICAL_REVIEW.md",
+      "status": "adapted_paths_and_tracking_reference"
+    },
+    {
+      "source_path": "research/secondary_data/longitudinal_relationship_dataset_screen.md",
+      "source_blob_sha": "db0c733f4cc13bc4818a46c6a33307d824505604",
+      "destination_path": "manuscripts/MSC-ATTACH-P04/secondary_data/longitudinal_relationship_dataset_screen.md",
+      "status": "adapted_paths_and_tracking_reference"
+    }
+  ],
+  "archive_status": "historical H1 and M02 raw simulation archives remain in source; no deletion authorization"
+}

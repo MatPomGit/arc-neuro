@@ -1,0 +1,40 @@
+{
+  "experiment": "phase_map",
+  "title": "ARC phase map: attachment anxiety by avoidance",
+  "seed": 1000,
+  "fixed_traits": {
+    "C": 0.4,
+    "S": 0.55,
+    "M": 0.65,
+    "F": 0.65
+  },
+  "x": {
+    "name": "L",
+    "label": "Attachment anxiety L",
+    "min": 0,
+    "max": 1,
+    "n": 21
+  },
+  "y": {
+    "name": "U",
+    "label": "Attachment avoidance U",
+    "min": 0,
+    "max": 1,
+    "n": 21
+  },
+  "simulation": {
+    "steps": 160,
+    "dt": 1,
+    "responsiveness": 0.8,
+    "process_noise": 0.003,
+    "perception_noise": 0.08,
+    "controller_mode": "pid"
+  },
+  "perturbation": {
+    "step": 45,
+    "magnitude": -0.25
+  },
+  "display_metric": "arc_instability_index",
+  "figure": "phase_map.png",
+  "csv": "phase_map.csv"
+}

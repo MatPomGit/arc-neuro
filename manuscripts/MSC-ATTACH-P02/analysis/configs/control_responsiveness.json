@@ -1,0 +1,37 @@
+{
+  "experiment": "control_responsiveness",
+  "title": "Relational control by partner/context responsiveness",
+  "seed": 3000,
+  "fixed_traits": {
+    "L": 0.35,
+    "U": 0.35,
+    "S": 0.45,
+    "M": 0.6,
+    "F": 0.35
+  },
+  "C": {
+    "min": 0,
+    "max": 1,
+    "n": 21
+  },
+  "responsiveness": {
+    "min": 0.2,
+    "max": 1.4,
+    "n": 21
+  },
+  "simulation": {
+    "steps": 140,
+    "dt": 1,
+    "responsiveness": 0.8,
+    "process_noise": 0.002,
+    "perception_noise": 0.08,
+    "controller_mode": "pid"
+  },
+  "perturbation": {
+    "step": 35,
+    "magnitude": -0.25
+  },
+  "display_metric": "arc_instability_index",
+  "figure": "control_responsiveness.png",
+  "csv": "control_responsiveness.csv"
+}

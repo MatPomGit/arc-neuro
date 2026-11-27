@@ -1,0 +1,24 @@
+{
+  "traits": {
+    "L": 0.2,
+    "U": 0.2,
+    "C": 0.3,
+    "S": 0.8,
+    "M": 0.8,
+    "F": 0.8
+  },
+  "simulation": {
+    "steps": 200,
+    "responsiveness": 0.8,
+    "process_noise": 0.005,
+    "estimation_noise": 0.08,
+    "temperature": 0.35,
+    "control_gain_scale": 1.6,
+    "target_pole": 0.35
+  },
+  "perturbation": {
+    "type": "impulse",
+    "step": 60,
+    "magnitude": -0.3
+  }
+}
