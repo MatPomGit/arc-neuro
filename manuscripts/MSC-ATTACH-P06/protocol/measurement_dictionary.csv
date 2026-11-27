@@ -1,0 +1,11 @@
+item_id,timeframe,construct,type,minimum,maximum,role,missing_rule
+C_state,current,emotional closeness perceived,numeric,0,100,core_candidate,skipped_or_technical
+C_target,current,emotional closeness desired,numeric,0,100,core_candidate,skipped_or_technical
+A_state,current,volition perceived,numeric,0,100,core_candidate,skipped_or_technical
+A_target,current,volition desired,numeric,0,100,core_candidate,skipped_or_technical
+P_pressure,current,felt pressure to act against own choice,numeric,0,100,discriminating_candidate,skipped_or_technical
+W_solitude,current,wish to spend time apart,numeric,0,100,discriminating_candidate,skipped_or_technical
+X_approach,interval,reported approach action,numeric,0,100,descriptive_action,structural_first_prompt_or_skipped_or_technical
+X_distance,interval,reported distancing action,numeric,0,100,descriptive_action,structural_first_prompt_or_skipped_or_technical
+X_internal,interval,reported internal disengagement,numeric,0,100,descriptive_action,structural_first_prompt_or_skipped_or_technical
+K_contact,interval,meaningful partner contact,binary,0,1,context,structural_first_prompt_or_skipped_or_technical
