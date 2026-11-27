@@ -1,66 +1,39 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
-\usepackage[polish]{babel}
-
-\usepackage{lmodern}
-
-\usepackage{geometry}
-
-\geometry{margin=27mm}
-
+\IfFileExists{polish.ldf}{\usepackage[polish]{babel}}{}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath,booktabs}
+\usepackage[authoryear,round]{natbib}
 \usepackage[hidelinks]{hyperref}
-
 \title{Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze}
-
 \author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
-
+\date{MSC-EEG-P02 | Protokół techniczny 1.0.0 | 27 listopada 2026}
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
-Tematem pracy jest Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Przedstawiono prospektywny protokół kwalifikacji ścieżki pomiarowej Muse S Athena i EEG Neurolyze. Ocenie podlegają kompletność akwizycji, pochodzenie znaczników czasu, mapowanie kanałów i zgodność sygnału z niezależnym odniesieniem. Dowody uporządkowano według jednostki, konfiguracji i poziomu walidacji. Siedem testów oprogramowania wykonano bez urządzenia. Zaplanowana macierz fizyczna pozostaje niezmierzona.
 \end{abstract}
 
 \section{Wprowadzenie}
-
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
-
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Reprodukowalność EEG zależy od udokumentowania urządzenia, rejestracji, metadanych oraz reguł przetwarzania \citep{pernet2020}. EEG-BIDS opisuje sposób zapisu pomiaru i jego metadanych \citep{pernet2019}. Poprawna struktura zbioru oraz jakość pomiaru odpowiadają różnym pytaniom. MSC-EEG-P01 ocenia zgodność numeryczną oprogramowania. W P02 jednostką kwalifikacji jest konfiguracja obejmująca egzemplarz urządzenia, firmware, preset, sterownik, backend i tryb opóźnienia. Wnioski odnoszą się do faktycznie przebadanych konfiguracji.
 
 \section{Materiał i metody}
+Punktem wyjścia jest protokół M03 z repozytorium Neurolyze. Dla każdej obsługiwanej konfiguracji planuje się po trzy próby 60 s na ścieżkę. Przechwycenie surowych powiadomień i akwizycję BrainFlow przeprowadza się w osobnych blokach, z jednym właścicielem połączenia w danej chwili. Kolejność bloków należy równoważyć. Rejestrowane są fazy połączenia, liczba wywołań odbiorczych, liczba poprawnie rozpoznanych ramek, kompletnych próbek, odstępstwa oraz powód przerwania. Nieudaną próbę ujmuje się w mianowniku i zachowuje jej częściowy dziennik.
 
-Na bezpiecznych sygnałach referencyjnych porównać dostępne interfejsy urządzeń EEG. Pierwszorzędowy wskaźnik: Błąd amplitudy, opóźnienie i liczba utraconych próbek w danym środowisku. Nie przedstawia się przeprowadzonych analiz ani uzyskanych wyników. Przed realizacją konieczne jest określenie źródeł materiału, kryteriów jakości, zasad reprodukowalności i licencji.
+Mapowanie kanałów ocenia się na stanowisku z niezależną identyfikacją wejść i informacją o referencji. Ocena czasu wymaga niezależnego znacznika lub wzorca, który można powiązać z pomiarem, a ocena amplitudy wymaga wzorca o udokumentowanej niepewności. Badania stanowiskowe są oddzielone od przyszłych prób z udziałem osób. Wartość progów dla czasu, amplitudy i zakresu częstotliwości ustala się według zastosowania przed pozyskaniem danych porównawczych.
 
 \section{Plan analizy}
+Pierwszorzędowy wskaźnik: odsetek pełnych sesji technicznych spośród wszystkich rozpoczętych prób dla każdej konfiguracji i ścieżki osobno. Pełna sesja wymaga zakończenia akwizycji, poprawnego archiwum i udokumentowanego pokrycia przedziału na właściwej osi czasu. Dla przebiegów demonstracyjnych raportuje się liczbę sukcesów oraz dokładny przedział dwumianowy. Trzy sukcesy w trzech próbach mają dwustronną dolną granicę 95\% równą około 0,292 i dają ograniczoną informację o niezawodności. Przedział ma interpretację przy założeniu niezależności i stałego prawdopodobieństwa sukcesu.
 
-Proponowany plan analityczny: granice zgodności i audyt dostępności rzeczywistych sterowników. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Dla pomiaru zsynchronizowanego estymuje się relację $t_\mathrm{obs}=a+b t_\mathrm{ref}+\varepsilon$, offset $a$, dryf zegara $(b-1)10^6$ w ppm i rozrzut reszt. Przesunięcie po stronie oprogramowania i odchylenie zegara wymagają odpowiednich punktów odniesienia. Osobno raportuje się percentyle opóźnienia zdarzeń i najdłuższe przerwy odbioru. Następstwo liczników analizuje się w obrębie tej samej charakterystyki i sesji, z obsługą zawijania. Zamrożenie estymandu i progów porównawczych nastąpi po wyborze właściwego scenariusza i wzorca, przed odczytem wyników fizycznych.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+W przypiętym kodzie Neurolyze wykonano siedem testów dotyczących kwalifikacji wejść, powtórzonych znaczników czasu i ciągłości indeksu. Wszystkie przeszły. Testy wykrywają między innymi podanie syntetycznego archiwum jako pomiaru, zachowanie zdublowanych znaczników z danych oznaczonych jako mierzone oraz rozróżnienie wadliwej ramki od przerwy w indeksie. Karta kwalifikacji M03 wskazuje brak wykonanych pomiarów dla pełnej macierzy. W tym etapie nie uruchamiano urządzenia i nie oszacowano parametrów toru fizycznego.
 
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+Przerwa powiadomień hosta może wynikać z kolejkowania, opóźnienia wywołania albo zachowania transportu. Powtórzone znaczniki mogą być skutkiem działania źródła programowego. Interpretacja ubytku próbek wymaga ustalenia semantyki liczników i mianownika. Różnica liczby rekordów z oddzielnych sesji dwóch backendów opisuje odrębne przebiegi. Kwalifikacja całej ścieżki wymaga dodatkowo sprawdzenia kanałów, powtarzalności i niezależnego pomiaru czasu. Poprawność pliku EEG-BIDS wymaga uruchomienia walidatora dla konkretnego zbioru.
+\bibliographystyle{apalike}
+\bibliography{references}
 \end{document}
-
