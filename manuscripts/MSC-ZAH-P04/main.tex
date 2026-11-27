@@ -6,10 +6,13 @@
 \usepackage[margin=27mm]{geometry}
 \usepackage{microtype}
 \usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{references.bib}
 \usepackage[hidelinks]{hyperref}
 \title{Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary}
 \author{Mateusz Pomianek}
-\date{Szkic naukowy, wersja 0.2.0, 27 listopada 2026}
+\date{Szkic naukowy, wersja 0.3.0, 27 listopada 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -19,6 +22,13 @@ Czy rzeczywiste wzorce komunikacji osób o różnych profilach, odtwarzane na id
 Zależność między wyglądem jednostki a widocznym przebiegiem jej zachowania jest zasadniczym elementem społecznej percepcji. W kontaktach z robotami społecznymi i realistycznymi awatarami nieoczekiwana mimika, gest, kontakt wzrokowy i dynamika wypowiedzi mogą wpływać na reakcje odbiorcy. Nie oznacza to jednak, że każda atypowa ekspresja musi być oceniana negatywnie, ani że jest uprawnione utożsamianie ekspresji z intensywnością doświadczanych emocji.
 
 Projekt stanowiska ST-08 umożliwi oddzielenie zachowania rzeczywistego człowieka, wyodrębnionego z istniejących nagrań interakcji, od syntetycznej formy jego reprezentacji. Pozwala to porównywać te same zdarzenia w kontrolowanym wyglądzie awatara. Nie można jednak przyjąć, że retargeting automatycznie zachowuje wszystkie własności zachowania. Jego dokładność i sposób deformowania sygnałów muszą być sprawdzone niezależnie od właściwego eksperymentu.
+\section{Podstawy teoretyczne}
+Oceny formułowane na podstawie krótkich fragmentów zachowania stanowią reakcję obserwatora, nie bezpośredni pomiar kompetencji osoby źródłowej. \textcite{sasson2017} wykazali zależność pierwszych wrażeń od dostępności audiowizualnych informacji o zachowaniu w badaniach osób autystycznych. Wynik ten uzasadnia kontrolę kanałów prezentacji, ale nie dowodzi, że latencja odpowiedzi odpowiada za obserwowane różnice.
+
+Koncepcja podwójnej empatii ujmuje trudności komunikacyjne jako potencjalnie wzajemne \parencite{milton2012}. Wyniki badań nad jakością kontaktu w parach o zgodnych i różnych neurotypach wskazują na znaczenie relacyjnego kontekstu \parencite{crompton2020}. Oceny pojedynczego klipu nie są jednak pomiarem wzajemnej empatii ani jakości rzeczywistej interakcji. Uogólnienie badań autyzmu na wszystkie profile neuroróżnorodności wymaga odrębnych danych.
+
+Przegląd \textcite{katsyri2015} dostarcza przesłanek na rzecz niedopasowania percepcyjnego, lecz nie uzasadnia uniwersalnej zależności między humanizacją awatara i dyskomfortem. W projekcie P04 realizm jest eksperymentalnym moderatorem naturalnie występujących cech komunikacji, nie narzędziem klasyfikowania osób. Niesamowitość i gotowość do kontaktu są odrębnymi konstruktami. Alternatywne wyjaśnienia obejmują artefakty animacji, atrakcyjność wyglądu, znajomość awatarów oraz właściwości sytuacji komunikacyjnej.
+
 \section{Cel i hipotezy}
 Czy rzeczywiste wzorce komunikacji osób o różnych profilach, odtwarzane na identycznych awatarach, wywołują odmienne pierwsze wrażenie zależnie od wyglądu postaci?
 \paragraph{H1.} Czasowe i przestrzenne właściwości naturalnie zarejestrowanej ekspresji komunikacyjnej są związane z ocenami pierwszego wrażenia przy kontrolowanej tożsamości awatara.
@@ -48,6 +58,8 @@ Wektor $\mathbf{z}$ obejmuje kontrast pośredniego realizmu, jego interakcję z 
 Symulacja Monte Carlo powinna niezależnie zmieniać liczbę osób źródłowych, obserwatorów, klipów, błąd pomiaru predyktora i wariancję efektów losowych. Analiza wrażliwości obejmie selekcję klipów i brak pomiaru latencji. Nie ustalono liczebności docelowej.
 
 Przed rekrutacją konieczne są potwierdzenie praw do retargetingu i przetwarzania danych, kwalifikacja etyczna oraz ocena ryzyka stygmatyzacji z udziałem konsultantów neuroróżnorodnych. Nie wolno publikować identyfikowalnych nagrań ani wykorzystywać ocen do klasyfikacji klinicznej osób źródłowych.
+\section{Walidacja bodźców}
+Procedura obejmuje niezależne kodowanie latencji, ocenę zgodności czasowej przed retargetingiem i po nim, kontrolę artefaktów oraz niezależny pilotaż realizmu i wierności ruchu. Dobór klipów nie może zależeć od ich ocen niesamowitości. Kryteria akceptacji, marginesy równoważności i reguły wyłączeń wymagają zamrożenia przed badaniem głównym. Szczegółowy protokół walidacji pozostaje dokumentem prospektywnym.
 \section{Wyniki}
 Nie zebrano jeszcze danych empirycznych i nie wykonano analiz potwierdzających. W niniejszym opracowaniu nie przypisuje się wartości statystycznych, wyników skal, skuteczności diagnostycznej ani dowodów występowania doliny niesamowitości.
 \section{Dyskusja i ograniczenia}
@@ -56,4 +68,5 @@ Naturalna neuroróżnorodność nie jest skalą mechaniczności ruchu. Badamy za
 Wyniki negatywne oraz niejednoznaczne mają znaczenie naukowe, jeśli kontrolowano jakość bodźców, precyzję analizy i heterogeniczność kontekstu. Szczególnie w przypadku różnorodności komunikacji nie można wywodzić wewnętrznych stanów psychicznych z nietypowej ekspresji widocznej na twarzy ani sprowadzać zróżnicowania do jednolitej cechy klinicznej.
 \section{Wnioski}
 Zaproponowano odrębny problem naukowy i sposób jego przyszłego falsyfikowania. Uprawnienia do nagrań, walidacja rekonstrukcji zachowania, prerejestracja i badania obserwatorów pozostają do wykonania. Powstanie szkicu LaTeX nie stanowi dowodu gotowości publikacyjnej.
+\printbibliography
 \end{document}
