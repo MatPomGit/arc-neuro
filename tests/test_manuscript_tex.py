@@ -63,6 +63,7 @@ class ManuscriptTexTests(unittest.TestCase):
             files = sorted((ROOT / "manuscripts" / ident / "main.tex" for ident, record in by_id.items() if record["area"] == area))
             self.assertEqual(len(files), expected, area)
             for path in files:
+                total += 1
                 with self.subTest(filename=str(path)):
                     self.assertFalse(path.is_symlink())
                     content = path.read_text(encoding="utf-8")
@@ -88,7 +89,6 @@ class ManuscriptTexTests(unittest.TestCase):
                         self.assertIsNotNone(matched)
                         self.assertNotIn(matched.group(1), titles)
                         titles.add(matched.group(1))
-                        total += 1
                         continue
                     if path.parent.name in {f"MSC-ATTACH-P0{i}" for i in range(1, 5)}:
                         ident = path.parent.name
@@ -131,7 +131,6 @@ class ManuscriptTexTests(unittest.TestCase):
                         self.assertEqual(matched.group(1), expected_titles[ident])
                         self.assertNotIn(matched.group(1), titles)
                         titles.add(matched.group(1))
-                        total += 1
                         continue
                     self.assertGreater(len(content), 2200)
                     for keyword in (r"\documentclass", r"\begin{document}",
@@ -239,7 +238,6 @@ class ManuscriptTexTests(unittest.TestCase):
                             r"\section{Plan analizy statystycznej}" in content or
                             r"\section{Główny estymand i modele statystyczne}" in content
                         )
-                    total += 1
         self.assertEqual(total, 69)
 
 
