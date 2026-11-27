@@ -122,6 +122,10 @@ class ManuscriptTexTests(unittest.TestCase):
                             self.assertEqual(by_id[ident]["stage"], "PROPOSED")
                             self.assertIn("Protokół techniczny 1.0.0", content)
                             self.assertIn(r"\bibliography{references}", content)
+                        elif ident == "MSC-EYE-P01":
+                            self.assertEqual(by_id[ident]["stage"], "PLANNED")
+                            self.assertIn("Protokół prospektywny 1.0.0", content)
+                            self.assertIn(r"\bibliography{references}", content)
                         elif ident == "MSC-PAIN-P07":
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
                             self.assertRegex(content, r"\\date\{MSC-PAIN-P07 \\enspace PROSPECTIVE \\enspace wersja 1\.\d+\.\d+")

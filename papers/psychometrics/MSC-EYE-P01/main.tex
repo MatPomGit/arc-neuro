@@ -1,66 +1,41 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
-\usepackage[polish]{babel}
-
-\usepackage{lmodern}
-
-\usepackage{geometry}
-
-\geometry{margin=27mm}
-
+\IfFileExists{polish.ldf}{\usepackage[polish]{babel}}{}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath}
+\usepackage[authoryear,round]{natbib}
 \usepackage[hidelinks]{hyperref}
-
 \title{Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność}
-
 \author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
-
+\date{MSC-EYE-P01 | Protokół prospektywny 1.0.0 | 27 listopada 2026}
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
-Tematem pracy jest Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Proponowany wskaźnik: Błąd punktowy w pikselach/kącie oraz powtarzalność na sesjach testowych. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Protokół ocenia punktowy pomiar spojrzenia na ekranie Android po kalibracji indywidualnej. Rozdziela błąd względem celu fiksacji, dyspersję wewnątrz fiksacji, dostępność oszacowań i powtarzalność między sesjami. Pierwszorzędowy estymand dotyczy błędu na rozłącznym zbiorze celów w kontrolowanym warunku. Obliczenia geometrii zweryfikowano na przypadkach syntetycznych. Badanie z udziałem osób wymaga działającego toru pomiarowego i dopuszczenia protokołu.
 \end{abstract}
-
 \section{Wprowadzenie}
-
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
-
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność. Proponowany wskaźnik: Błąd punktowy w pikselach/kącie oraz powtarzalność na sesjach testowych. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Estymacja spojrzenia z obrazu kamery mobilnej zależy między innymi od kalibracji i warunków rejestracji \citep{krafka}. Celem jest ilościowa ocena konkretnej, przypiętej implementacji Android w zadaniu fiksacji celów na ekranie. P01 bada lokalizację ciągłą. P02 dotyczy wyboru wiarygodnych oszacowań po zmianie warunków, a P03 dotyczy klasyfikacji regionów w grze. Położenie bodźca stanowi cel zadania, a zgodność oszacowania z rzeczywistą osią wzroku wymaga odrębnego porównania z aparaturą referencyjną.
 
 \section{Materiał i metody}
+W pierwszej fazie kwalifikuje się rejestrację obrazu, układ współrzędnych, wersję estymatora, kalibrację i eksport. W fazie E01 każda osoba wykonuje dwie wizyty, z ponowną kalibracją podczas każdej z nich. Analiza główna wykorzystuje pierwszy zaplanowany blok po kalibracji z każdej wizyty. Kolejność celów oceny losuje się niezależnie od kolejności kalibracji. Cele oceny mają współrzędne różne od celów dopasowania i nie są wykorzystywane do strojenia. Próby po nieudanej kalibracji otrzymują jawny status. Odległość, ustawienie telefonu, oświetlenie i nominalny zakres pozy głowy są rejestrowane. Badanie odporności rozdziela zmiany odległości, pozy i oświetlenia od warunku bazowego. Wnioski o różnicach sprzętu wymagają osobnego projektu obejmującego powtarzanie warunków na kilku urządzeniach.
 
-Znane punkty ekranu telefonu Android rejestrować w powtarzanych sesjach kalibracji kamery. Pierwszorzędowy wskaźnik: Medianowy i skrajny błąd estymacji punktu spojrzenia w pikselach i stopniach. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Dla celu i estymaty wyznacza się wektory $\mathbf u$ i $\mathbf v$ od przyjętego punktu oka do płaszczyzny ekranu. Błąd kątowy oblicza się jako
+\[
+ \theta=\frac{180}{\pi}\operatorname{atan2}
+ \bigl(\lVert\mathbf u\times\mathbf v\rVert,\;\mathbf u\cdot\mathbf v\bigr).
+\]
+Geometria wymaga skali poziomej i pionowej, odległości i rzutu punktu oka na ekran. Gdy geometria nie jest znana, raportuje się błąd pikselowy ze wskazaniem układu odniesienia. Opóźnienie i dyspersja są oddzielnymi charakterystykami.
 
 \section{Plan analizy}
-
-Proponowany plan analityczny: analiza wpływu oświetlenia, odległości oraz powtarzalności między sesjami. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Pierwszorzędowy wskaźnik: średnia międzyosobnicza z median kątowego błędu prób względem celu, w warunku bazowym pierwszej wizyty i przy ważnej kalibracji. Błąd pojedynczej próby pochodzi z mediany współrzędnych w oknie fiksacji. Osoby mają równe wagi. Obok wyniku raportuje się odsetek prób z użytecznym oszacowaniem wśród wszystkich zaplanowanych prób, także przy nieudanej kalibracji. Dodatkowo ocenia się odsetek prób jednocześnie użytecznych i mieszczących się w progu aplikacyjnym. Osobę bez ważnego bloku wykazuje się w mianowniku dostępności. Przedziały ufności uwzględniają grupowanie pomiarów w osobach. Powtarzalność opisuje rozkład różnic między dwiema wizytami oraz ich granice zgodności dla uprzednio określonego wskaźnika na osobę. Zamrożenie estymandu, tolerancji aplikacyjnej i zasad obsługi jakości nastąpi przed zebraniem próby głównej.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Nie zebrano danych uczestników. Dwa syntetyczne przypadki z identycznym przesunięciem $100$ pikseli, przy skali $0{,}1$ mm na piksel i odległości $400$ mm, dały około $1{,}432^\circ$ przy osi oraz $1{,}406^\circ$ poza osią. Obliczenia sprawdzono względem rozwiązania analitycznego w płaszczyźnie. Ten wynik dokumentuje transformację geometryczną.
 
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+Błąd względem celu obejmuje także odchylenie uczestnika od instrukcji fiksacji. Analiza ograniczona do udanych prób może zaniżać obraz trudności w warunkach o dużej utracie śledzenia. Dlatego wynik warunkowy interpretowany jest razem z dostępnością oszacowań. Porównania z urządzeniem referencyjnym wymagają synchronizacji i określenia niepewności obu metod. Gotowość rekrutacyjna zależy od kwalifikacji E00, zamrożenia procedury E01 i uzyskania właściwej decyzji etycznej.
+\bibliographystyle{apalike}
+\bibliography{references}
 \end{document}
-
