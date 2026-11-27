@@ -137,6 +137,9 @@ class ManuscriptTexTests(unittest.TestCase):
                                              r"\input{power-summary.tex}",
                                              "Nie przeprowadzono rekrutacji ani pomiarów"):
                                 self.assertIn(required, content)
+                        elif ident in {"MSC-AAL-P08", "MSC-AAL-P06", "MSC-ADHD-P06", "MSC-ADHD-P07", "MSC-ADHD-P08", "MSC-ADHD-P10"}:
+                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+\}")
+                            self.assertIn("Nie", content)
                         else:
                             self.assertIn("Szkic naukowy, wersja 0.1.1", content)
                     else:

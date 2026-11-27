@@ -1,66 +1,323 @@
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
 \usepackage[polish]{babel}
-
 \usepackage{lmodern}
-
+\usepackage{amsmath}
 \usepackage{geometry}
-
 \geometry{margin=27mm}
-
 \usepackage[hidelinks]{hyperref}
 
+% Kanoniczny tytuł zgodny z identyfikatorem MSC-AAL-P08.
+% Rodzaj tekstu: koncepcja przyszłego badania empirycznego (IDEA/HOLD).
+% Afiliacja autora: do potwierdzenia przed zgłoszeniem, bez domniemania instytucji.
+% ORCID autora: do weryfikacji i uzupełnienia po potwierdzeniu identyfikatora.
+% CRediT: szczegółowe role należy uzgodnić z rzeczywistymi wkładami przed zgłoszeniem.
+% Finansowanie, konflikty interesów, dostępność danych i pozostałe oświadczenia:
+% należy zweryfikować i uzupełnić zgodnie z wymaganiami docelowego czasopisma.
 \title{Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych}
-
 \author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 0.9.1}
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
-
-Tematem pracy jest Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Pamięć prospektywna umożliwia realizację zamiaru odroczonego podczas wykonywania innych czynności. Przerwania zadania mogą utrudniać rozpoznanie właściwego momentu działania i powrót do wcześniejszego celu. Niniejszy tekst przedstawia koncepcję przyszłego eksperymentu behawioralnego porównującego przypomnienia wyzwalane kontekstem czynności z przypomnieniami opartymi na czasie w symulowanym środowisku domowym 2D. Projekt zakłada kontrolę liczby komunikatów oraz rozdzielenie poprawnego wykonania odroczonej intencji od pominięć, powtórzeń czynności i czasu wznowienia zadania. Jako potencjalny wskaźnik główny rozważa się odsetek poprawnie wykonanych odroczonych intencji w uprzednio zdefiniowanym oknie. Przed realizacją wymagane są weryfikacja literatury i odrębności koncepcji, ustalenie schematu porównania, estymandu, reguł pomiaru i planu analiz oraz ocena warunków etycznych i technicznych. Koncepcja pozostaje w stanie \texttt{NEW\_CROSS\_PROGRAM\_IDEA\_HOLD}. Nie zebrano danych i nie przeprowadzono analiz, dlatego nie formułuje się wniosków o skuteczności któregokolwiek rodzaju przypomnienia.
 \end{abstract}
 
+\noindent\textbf{Słowa kluczowe:} pamięć prospektywna; przerwanie zadania; przypomnienia kontekstowe; przypomnienia czasowe; odroczona intencja; wspomaganie czynności domowych.
+
+\section{Status koncepcji i granice własności}
+Właścicielem naukowym i autorem szkicu jest Mateusz Pomianek. Identyfikator koncepcji to \texttt{MSC-AAL-P08}. Jest to propozycja przyszłego badania empirycznego, pozostająca na etapie \texttt{IDEA/HOLD}, a nie manuskrypt oparty na zgromadzonych danych. Obecność szkicu w \texttt{arc-neuro} nie przesądza o lokalizacji kanonicznego projektu, protokołu ani danych. Ich właściciel musi zostać potwierdzony w portfolio przed rozpoczęciem realizacji. Powiązania z koncepcjami \texttt{MSC-AAL-P02}, \texttt{MSC-AAL-P06} i \texttt{MSC-ADHD-P01} wymagają sprawdzenia pod kątem rozłączności pytań i wyników badawczych.
+
 \section{Wprowadzenie}
+Pamięć prospektywna oznacza realizację wcześniej sformułowanego zamiaru w odpowiednim momencie. Wieloprocesowy model jej funkcjonowania rozróżnia świadome monitorowanie wskazówek oraz bardziej spontaniczne przywoływanie zamiaru, zależne od właściwości sytuacji i zadania \cite{McDanielEinstein2000}. Przerwanie czynności może angażować konkurujące cele. Model aktywacji celów opisuje wznowienie działania w kategoriach dostępności celu, interferencji i wskazówek wspomagających jego odzyskanie \cite{AltmannTrafton2002}.
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Zewnętrzne przypomnienia stanowią sposób odciążenia pamięci. Badania nad strategicznym przenoszeniem odroczonych intencji do otoczenia wskazują, że użytkownicy mogą dostosowywać ustanawianie wskazówek do obciążenia pamięciowego i ryzyka rozproszenia \cite{Gilbert2015}. Nie oznacza to automatycznie, że przypomnienia generowane przez system będą równie skuteczne ani że przypomnienie kontekstowe przewyższy czasowe.
 
-\section{Cel i pytania badawcze}
+W projekcie domowego interfejsu 2D szczególnie ważne jest odróżnienie rozpoznania okazji do wykonania odroczonej czynności od kosztów wznowienia zadania głównego. Różnica między interwencjami może wynikać ze zgodności wskazówki z sytuacją, jej przewidywalności, rzeczywistego czasu prezentacji albo dodatkowego kosztu uwagowego. Luka badawcza pozostaje hipotezą wymagającą przeglądu badań bezpośrednio porównujących oba typy przypomnień przy kontrolowanej liczbie, treści i czasie komunikatów.
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+\section{Ramy pojęciowe i stan literatury}
+\subsection{Monitorowanie i spontaniczne przywołanie zamiaru}
+Wieloprocesowa koncepcja pamięci prospektywnej zakłada różny udział monitorowania i spontanicznego przypominania w zależności od właściwości sygnału \cite{McDanielEinstein2000}. Kontekstowe wyzwalanie przypomnienia może zwiększyć diagnostyczność sygnału, ale wymaga empirycznej kontroli związku między sygnałem a okazją do działania.
+
+\subsection{Przerwanie zadania i dostępność celu}
+Model pamięci celów wskazuje na znaczenie interferencji, aktywacji reprezentacji celu i wspomagających wskazówek \cite{AltmannTrafton2002}. Sukces wykonania odroczonej intencji nie jest równoważny szybkiemu wznowieniu zadania. Należy rozdzielić miary obu procesów oraz kontrolować długość i wymagania przerwania.
+
+\subsection{Zewnętrzne wspomaganie i koszt uwagi}
+Zewnętrzne wskazówki mogą zastępować część wewnętrznego monitorowania intencji, czego przykładem są badania nad strategicznym ustanawianiem przypomnień \cite{Gilbert2015}. Projektowane powiadomienia dostarczane przez system różnią się jednak od wskazówek samodzielnie tworzonych przez uczestnika. Możliwe jest zarówno ułatwienie pamiętania, jak i niekorzystne zakłócenie trwającej czynności.
+
+\subsection{Konkurencyjne mechanizmy}
+Rozważane wyjaśnienia obejmują większą zgodność przypomnienia kontekstowego z okazją do działania, większą przewidywalność przypomnienia czasowego, różnice w rzeczywistej chwili prezentacji oraz koszt przełączenia uwagi. Tych mechanizmów nie należy utożsamiać. Jeżeli nie da się ich odrębnie manipulować lub mierzyć, interpretacja musi dotyczyć porównania całych wariantów interfejsu.
+
+\subsection{Warunkowy charakter luki badawczej}
+Zweryfikowane źródła uzasadniają znaczenie wskazówek, pamięci celów i zewnętrznego wspomagania, lecz nie dowodzą braku eksperymentów dokładnie porównujących oba typy przypomnień w scenariuszu AAL. Zadaniem przed wznowieniem prac jest systematyczne wyszukiwanie badań bezpośrednich oraz sprawdzenie odrębności wobec powiązanych koncepcji \texttt{MSC-AAL-P02}, \texttt{MSC-AAL-P06} i \texttt{MSC-ADHD-P01}.
+
+\section{Cel, pytania badawcze i hipotezy robocze}
+Głównym celem przyszłego badania jest porównanie prawdopodobieństwa poprawnego wykonania odroczonej intencji po przerwaniu zadania w warunkach przypomnienia kontekstowego i czasowego. Liczba oraz treść komunikatów powinny być porównywalne. Definicja okazji do działania, estymand i schemat losowania wymagają zatwierdzenia.
+
+\subsection{Pytanie główne}
+Czy rodzaj przypomnienia różnicuje prawdopodobieństwo poprawnego wykonania odroczonego zamiaru w ustalonym oknie po przerwaniu zadania?
+
+\subsection{Potencjalna hipoteza konfirmacyjna}
+Hipoteza robocza \texttt{H1} przewiduje różnicę między warunkami w prawdopodobieństwie poprawnej realizacji zamiaru. Jest to hipoteza dwustronna. Nie jest jeszcze prerejestrowana ani zatwierdzona do testowania konfirmacyjnego. Nadanie jej takiego statusu wymaga przeglądu literatury porównawczej, wyboru estymandu, ustalenia liczebności próby oraz zamrożenia planu analiz przed dostępem do danych. Nie ma obecnie dostatecznych podstaw do deklarowania kierunkowej przewagi przypomnień kontekstowych.
+
+\subsection{Pytania eksploracyjne}
+Eksploracyjnie można badać pominięcia, powtórzenia czynności, czas wznowienia zadania i koszt uwagowy. Rozważanymi moderatorami są długość przerwania, diagnostyczność wskazówki i odstęp między przypomnieniem a okazją do działania. Analizy eksploracyjne nie powinny być później przedstawiane jako pierwotnie konfirmacyjne.
+
+\subsection{Alternatywne interpretacje}
+Ewentualny efekt może wynikać z czasu prezentacji albo informacyjności komunikatu, niekoniecznie z samego rodzaju wyzwalacza. Bez niezależnej kontroli tych cech dopuszczalny będzie wniosek o różnicy między całymi wariantami interfejsu. Brak wykrytej różnicy nie dowodzi równoważności warunków.
 
 \section{Materiał i metody}
 
-W scenariuszu domowym 2D porównać przypomnienia kontekstowe i czasowe przy równej liczbie komunikatów. Pierwszorzędowy wskaźnik: Proporcja poprawnie wykonanych odroczonych intencji w ustalonym oknie. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: Poprawne wykonanie odroczonej intencji w ustalonym oknie, jako kandydat na wynik główny. Jest to propozycja, nie zatwierdzony punkt końcowy.
 
-\section{Plan analizy}
+\subsection{Charakter badania i status protokołu}
+Rozważany jest kontrolowany eksperyment behawioralny w dwuwymiarowym środowisku symulującym wykonywanie czynności domowych. Zadanie główne polegałoby na realizowaniu sekwencji działań w interfejsie, a zadanie prospektywne na wykonaniu wcześniej zakomunikowanej, odroczonej czynności w odpowiednim oknie. Pojawiające się przerwanie powinno wprowadzać odrębną aktywność wymagającą czasowego zawieszenia zadania głównego. Proponowaną jednostką obserwacji jest okazja do realizacji zamiaru w określonej próbie, z uwzględnieniem zależności między próbami tego samego uczestnika i zadania.
 
-Proponowany plan analityczny: regresja logistyczna z efektem uczestnika i zadania oraz kontrolą przerwań. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Warianty eksperymentalne różniłyby się regułą wyzwolenia przypomnienia. W wariancie kontekstowym komunikat pojawiałby się po spełnieniu uprzednio zdefiniowanego warunku odnoszącego się do stanu zadania. W wariancie czasowym jego pojawienie się zależałoby od zegara lub ustalonego odstępu, bez wykorzystania bieżącego stanu zadania. Liczbę, treść, wygląd oraz widoczność komunikatów należy zrównoważyć. Jeżeli reguła czasowa i kontekstowa wywołują powiadomienia w odmiennych momentach, różnica ta stanowi część porównywanej interwencji. Dla rozdzielenia mechanizmów potrzebny byłby dodatkowy warunek kontrolny albo niezależna manipulacja momentem prezentacji.
+
+Jako wariant roboczy można rozważyć schemat wewnątrzosobniczy, w którym każdy uczestnik otrzymuje oba rodzaje przypomnień w odmiennych, porównywalnych próbach. Warunki powinny być równoważone pod względem kolejności, rodzaju zadania, trudności i odstępów czasowych. Ostateczna decyzja między układem wewnątrz- a międzyosobniczym wymaga oceny przenoszenia strategii, uczenia się oraz liczby dostępnych scenariuszy. Nie ustalono jeszcze liczby prób ani długości sesji.
+
+\subsection{Populacja, rekrutacja i kryteria kwalifikacji}
+Populacją roboczą mogliby być dorośli zdolni do świadomego udzielenia zgody i obsługi standardowego interfejsu 2D po instruktażu. Planowane kryteria włączenia obejmowałyby pełnoletność, świadomą zgodę, wystarczające rozumienie instrukcji w języku badania oraz możliwość wykonania czynności w zastosowanym interfejsie przy dopuszczonych udogodnieniach dostępności. Należy określić sposób rekrutacji i dokumentowania kryteriów, unikając arbitralnego wykluczania osób wyłącznie na podstawie diagnozy lub niepełnosprawności.
+
+Wykluczenie z analizy mogłoby dotyczyć braku ważnej zgody, niemożności zrozumienia procedury pomimo standaryzowanego instruktażu, niedostarczenia przypisanej interwencji albo awarii uniemożliwiającej wiarygodne zarejestrowanie wyniku. Reguły powinny rozróżniać wyłączenie osoby przed rozpoczęciem badania od nieważności pojedynczej próby i zostać ustalone przed akwizycją. Potrzebne są także procedury dobrowolnego wycofania się oraz sposób postępowania z już zapisanymi danymi zgodny z informacją przekazaną uczestnikom.
+
+Plan liczebności próby będzie zależał od ostatecznego estymandu, projektu powtarzanych pomiarów, przewidywanej częstości poprawnych wykonań, korelacji wewnątrzosobniczej i dopuszczalnej niepewności oszacowania. Nie ustala się arbitralnej liczby uczestników. Przed rekrutacją należy przygotować udokumentowane obliczenie lub symulację wymaganego rozmiaru próby, z realistycznymi założeniami i uzasadnieniem ich źródeł.
+
+\subsection{Konstrukty, manipulacja i operacjonalizacja}
+Głównym konstruktem jest skuteczność realizacji odroczonego zamiaru po przerwaniu zadania. Zmienna niezależna to reguła wyzwolenia przypomnienia: kontekstowa albo czasowa. Potencjalny wynik główny stanowi binarny wskaźnik poprawnej realizacji intencji podczas zdefiniowanej okazji. Poprawne wykonanie oznaczałoby wykonanie właściwego działania w odpowiednim kontekście i oknie czasowym, bez zastępowania tego wyniku samym kliknięciem potwierdzającym odbiór komunikatu.
+
+Przed realizacją trzeba ustalić początek i koniec okna, sposób identyfikacji prawidłowego działania, dopuszczalność działań przedwczesnych i spóźnionych oraz regułę wielokrotnego wykonania tej samej czynności. Każda okazja powinna otrzymać jeden pierwotny kod wyniku, a dodatkowe zdarzenia należy zachować w dzienniku do analizy wtórnej. Próbę, w której okazja do działania nie wystąpiła z powodu błędu scenariusza, należy oznaczyć jako technicznie nieważną, a nie jako niepowodzenie pamięci. Brak reakcji mimo ważnej okazji jest potencjalnym pominięciem, nie automatycznie brakiem danych.
+
+Drugorzędowe konstrukty obejmują częstość pominięć, powtórzeń i działań w nieprawidłowym momencie, opóźnienie wykonania intencji względem otwarcia okna oraz czas i poprawność wznowienia zadania głównego. Wskaźniki te nie są zamienne z wynikiem głównym. Jako potencjalne czynniki zakłócające należy uwzględnić doświadczenie w obsłudze interfejsów, trudność zadania, kolejność warunków, czas przerwania, obciążenie zadania zakłócającego, diagnostyczność wskazówki i faktyczny czas pojawienia się przypomnienia.
+
+\subsection{Instrumenty i środowisko pomiarowe}
+Podstawowym instrumentem byłby interaktywny scenariusz 2D z rejestracją zdarzeń i znaczników czasu. Przed zbieraniem danych należy przygotować specyfikację interfejsu, listę scenariuszy, instrukcję uczestnika, zestaw prób treningowych, definicję zdarzeń i wersjonowany słownik danych. Planowany \texttt{app-2d-desktop} ma w dokumentacji status \texttt{PLANNED\_NOT\_CREATED}; nie należy traktować go jako gotowego narzędzia ani przypisywać mu zweryfikowanych funkcji. Przywoływane w dokumentacji stanowisko \texttt{ST-07} ma status \texttt{NOT\_VERIFIED}.
+
+Projekt nie zakłada obowiązkowych pomiarów EEG, okulograficznych ani użycia urządzeń XR. Takie pomiary mogłyby stanowić odrębne rozszerzenie po uzasadnieniu konstruktu i osobnym protokole. W podstawowej wersji konieczne są tylko zachowania rejestrowane przez interfejs, bez domniemanego dostępu do aparatury lub bibliotek.
+
+\subsection{Plan przebiegu sesji i pojedynczej próby}
+Po przekazaniu informacji o badaniu i uzyskaniu właściwej zgody uczestnik otrzymałby instrukcję oraz próbę treningową pozwalającą sprawdzić rozumienie zadania. Dopiero potem następowałby przydział do sekwencji warunków i rozpoczęcie prób badawczych. Na początku próby uczestnik zapoznawałby się z odroczonym zamiarem, rozpoczynał zadanie główne i wykonywał je do momentu wystąpienia z góry określonego przerwania. Następnie realizowałby zadanie zakłócające, wracał do scenariusza i mógł wykonać odroczoną czynność po pojawieniu się odpowiedniej okazji. Odpowiedni komunikat byłby prezentowany według przypisanej reguły wyzwolenia.
+
+Należy ustalić procedurę zakończenia próby po wykonaniu intencji, przekroczeniu okna lub wystąpieniu błędu technicznego. Uczestnik nie powinien otrzymywać informacji o poprawności w sposób zmieniający strategię między warunkami, chyba że taka informacja jest jednakowo przewidziana w protokole. Plan przerw wypoczynkowych, kryteria przerwania sesji i sposób obsługi nieukończonych prób wymagają zatwierdzenia. Warto sprawdzić podczas przyszłego pilotażu, czy przerwanie rzeczywiście wymusza zawieszenie celu oraz czy oba warianty powiadomień są zrozumiałe.
+
+\subsection{Rejestracja zdarzeń i integralność danych}
+Dziennik powinien zawierać pseudonimowy identyfikator uczestnika, identyfikator sesji i próby, wersję scenariusza, warunek, kolejność prezentacji oraz znaczniki ustanowienia zamiaru, rozpoczęcia i zakończenia przerwania, otwarcia okna, wyzwolenia i wyświetlenia przypomnienia, działania uczestnika i wznowienia zadania. Należy osobno zapisać zaplanowaną i rzeczywistą chwilę prezentacji komunikatu, aby wykrywać opóźnienia systemowe.
+
+Zdarzenia wymagają wspólnej monotonicznej podstawy czasu w obrębie sesji i kontroli poprawności kolejności. Dane powinny pozwalać na niezależne odtworzenie wskaźników z pierwotnego dziennika, z zachowaniem wersji reguł klasyfikacji. Nie należy rejestrować niepotrzebnych danych identyfikujących, nagrań ekranu ani danych biometrycznych. Plan bezpiecznego przechowywania, retencji, dostępu i usuwania informacji musi zostać przyjęty przed badaniem.
+
+\subsection{Kontrola jakości, pilotaż i zasady wyłączeń}
+Przed rekrutacją należy przeprowadzić izolowane testy scenariuszy obejmujące granice okien czasowych, duplikaty komunikatów, brak okazji do działania, spóźnione zdarzenia i awarie rejestracji. Test techniczny nie jest dowodem skuteczności interwencji. W przyszłym pilotażu z udziałem ludzi należy ocenić zrozumiałość instrukcji, wykonalność próby, czytelność powiadomień, dopasowanie trudności oraz kompletność logów. Przeprowadzenia pilotażu jeszcze nie potwierdzono.
+
+Reguły odrzucania prób powinny być ustalone przed dostępem do wyników i rozdzielać awarie techniczne od błędów wykonania uczestnika. Należy raportować liczbę prób planowanych, wykonanych, nieważnych technicznie i nieuwzględnionych w analizie wraz z przyczynami. Kontrole jakości nie mogą usuwać rzeczywistych pominięć wyłącznie dlatego, że pogarszają wynik warunku.
+
+\subsection{Aspekty etyczne i warunki uruchomienia}
+Przed pozyskaniem danych od ludzi konieczne jest ustalenie wymagań komisji etycznej albo innej właściwej procedury oceny, zasad świadomej zgody, prawa do wycofania oraz sposobu minimalizacji ryzyka i ochrony danych osobowych. Dokumentacja powinna obejmować cele, przebieg, czas obciążenia, dobrowolność udziału i możliwe niedogodności. Nie zakłada się, że zgodę już uzyskano lub że jej uzyskanie nie jest wymagane.
+
+Status \texttt{NEW\_CROSS\_PROGRAM\_IDEA\_HOLD} pozostaje bez zmian. Przed wykonaniem choćby pilotażu konieczne są potwierdzenie kanonicznego projektu, odrębności pytania badawczego, gotowości instrumentu, szczegółowego protokołu, planu analizy, zgód i środków ochrony danych. Żadna z opisanych procedur nie jest deklaracją przeprowadzonego badania.
+
+\section{Plan analizy statystycznej i reprodukowalności}
+\subsection{Status planu i populacja analityczna}
+Poniższa specyfikacja jest propozycją przyszłego planu analizy statystycznej, a nie prerejestracją ani dokumentacją przeprowadzonych obliczeń. Przed rekrutacją należy ustalić, czy analizowany jest efekt przypisania do reguły przypomnienia, czy efekt rzeczywiście otrzymanego powiadomienia. Jako wariant podstawowy rozważany jest efekt przypisania warunku przy zachowaniu wszystkich prawidłowo zainicjowanych i możliwych do oceny okazji do wykonania zamiaru. Nie należy uzależniać włączenia okazji do mianownika od tego, czy uczestnik zauważył przypomnienie lub zrealizował zamiar.
+
+Populację analityczną określi protokół wraz z momentem randomizacji, zasadami kwalifikacji prób i postępowania w przypadku wycofania zgody. Przed rozpoczęciem akwizycji trzeba zatwierdzić sposób traktowania niedostarczonych komunikatów, zdarzeń bez prawidłowej okazji do działania oraz prób przerwanych z przyczyn technicznych. W przypadku losowania wewnątrzosobniczego analiza musi uwzględniać korelację prób tej samej osoby i powtarzalność scenariuszy.
+
+\subsection{Pierwszorzędowy wynik i estymand}
+Kandydatem na zmienną wynikową jest wskaźnik binarny \(Y_{ijt}\), przyjmujący wartość 1, gdy uczestnik \(i\) wykonał poprawnie odroczoną intencję w dopuszczonym oknie próby \(t\) ze scenariuszem \(j\), oraz 0 dla ważnej okazji bez poprawnego wykonania. Definicje poprawności, granic okna, prób z wielokrotnymi działaniami i mianownika wymagają zamrożenia przed badaniem. Pominięcie w ważnej próbie nie jest brakiem danych.
+
+Proponowany pierwszorzędowy estymand to różnica marginalnych prawdopodobieństw poprawnego wykonania przy przypisaniu przypomnienia kontekstowego (\(C\)) względem czasowego (\(T\)), uśredniona po zdefiniowanej populacji uczestników i rozkładzie scenariuszy:
+\[
+\Delta = \Pr(Y=1\mid \operatorname{do}(C))-\Pr(Y=1\mid \operatorname{do}(T)).
+\]
+Zapis przyczynowy jest celem planowanego eksperymentu, nie dowodem identyfikowalności. Interpretacja \(\Delta\) jako efektu przyczynowego wymaga poprawnej randomizacji, spójności interwencji, pozytywności i przejrzystego postępowania z brakami danych. Jeśli randomizacja nie zostanie wdrożona, należy zmienić estymand oraz ograniczyć język przyczynowy.
+
+Wartością podstawową byłaby różnica ryzyk w punktach procentowych, wraz z przedziałem ufności. Iloraz szans lub współczynnik na skali logitowej mogą służyć diagnostyce modelu, ale ze względu na niekolapsowalność ilorazu szans nie powinny zastępować marginalnej różnicy prawdopodobieństw bez uzasadnienia.
+
+\subsection{Model główny i sposób oszacowania}
+Jako model roboczy rozważana jest regresja logistyczna dla prawdopodobieństwa poprawnej odpowiedzi, z efektem warunku, uczestnika i scenariusza:
+\[
+\operatorname{logit}\{\Pr(Y_{ijt}=1)\}
+ = \beta_0+\beta_1 C_{ijt}+b_i+u_j+\boldsymbol{\gamma}^{\mathsf T}\mathbf X_{ijt}.
+\]
+W tym zapisie \(b_i\) i \(u_j\) są efektami losowymi uczestnika i scenariusza, a \(\mathbf X\) obejmuje tylko zmienne uwzględnione w zatwierdzonym planie, np. kolejność prób i z góry określony poziom trudności. Ostateczna struktura efektów, ewentualne nachylenie losowe dla warunku, zasady standaryzacji do marginalnych prawdopodobieństw i metoda wyznaczania niepewności wymagają decyzji po ustaleniu schematu doświadczenia, lecz przed ujawnieniem wyników.
+
+Estymacja różnicy ryzyk powinna być wykonana przez marginalną standaryzację przewidywań modelu, a nie bezpośrednie odczytanie \(\beta_1\). Procedura przedziałów ufności musi uwzględniać zagnieżdżenie i niezależne jednostki losowania, np. przez odpowiedni bootstrap klastrowy lub przybliżenie parametryczne po sprawdzeniu jego zasadności. Przed analizą należy określić postępowanie przy separacji, braku zbieżności i bardzo rzadkich zdarzeniach. Każda zmiana modelu po obejrzeniu wyników musi być ujawniona jako odstępstwo lub analiza eksploracyjna.
+
+\subsection{Hipoteza i wielokrotne testowanie}
+Kandydatka H1 dotyczy dwustronnego kontrastu \(\Delta=0\), bez uprzednio przyjętego kierunku różnicy. Przed prerejestracją należy zatwierdzić poziom błędu pierwszego rodzaju, jednostkę randomizacji i jedyny pierwszorzędowy kontrast. Przy jednym potwierdzonym teście głównym nie jest potrzebna korekta za wielokrotność w obrębie tego testu, o ile nie wybiera się po fakcie najkorzystniejszego wskaźnika, modelu ani podgrupy.
+
+Porównania pominięć, powtórzeń, opóźnienia wykonania i wznowienia zadania są na razie wtórne lub eksploracyjne. Jeśli przed badaniem powstanie rodzina dodatkowych hipotez konfirmacyjnych, należy zdefiniować jej zakres i metodę kontroli rodzinnego prawdopodobieństwa błędu, np. procedurę Holma. W przeciwnym razie należy raportować estymaty i przedziały niepewności oraz jawnie opisać eksploracyjność; nominalnych wartości \(p\) nie należy przedstawiać jako niezależnych potwierdzeń.
+
+\subsection{Braki danych, awarie i zdarzenia po przypisaniu}
+Brak poprawnego działania przy zarejestrowanej, ważnej okazji do wykonania intencji należy kodować jako niepowodzenie. Brak śladu zdarzenia z powodu utraty logu, awarii aplikacji lub nieotwarcia okna wykonania oznacza inny problem i wymaga osobnego kodu przyczyny. Nie należy dopisywać wyniku 0 ani 1 bez podstawy w logu. W raporcie trzeba podać liczby i odsetki braków osobno dla warunków, uczestników i typów przyczyn.
+
+Niedostarczenie przypomnienia po przypisaniu warunku jest potencjalnym odstępstwem od interwencji. Jeśli wyniki pozostają mierzalne, zasadą podstawową może być zachowanie przypisanej grupy. Analiza ograniczona do poprawnie dostarczonych komunikatów nie jest automatycznie wolna od błędu selekcji i może mieć charakter uzupełniający. Dla nieobserwowanych wyników należy zaplanować scenariusze wrażliwości, w tym realistyczne skrajne założenia oraz metody imputacji tylko wtedy, gdy są zgodne z mechanizmem braków i strukturą danych. Mechanizmu brakowania nie wolno uznawać za losowy bez uzasadnienia.
+
+\subsection{Analizy wrażliwości i modele wtórne}
+Przed badaniem należy określić ograniczoną listę analiz sprawdzających stabilność \(\Delta\) względem definicji okna czasowego, klasyfikacji prób technicznie nieważnych, trudności scenariusza, kolejności warunków i długości przerwania. Warto rozważyć model bez wybranych kowariatów oraz alternatywną strukturę efektów, pod warunkiem że wybór nie będzie oparty na korzystnym wyniku.
+
+Zmienne związane z rzeczywistym czasem pojawienia się przypomnienia mogą leżeć na ścieżce mechanizmu interwencji. Ich automatyczne uwzględnienie jako zwykłych zmiennych kontrolnych może zmienić estymand i prowadzić do błędnej interpretacji. Analiza z takim dostosowaniem powinna być jawnie oznaczona jako mechanistyczna albo eksploracyjna, a nie jako zamiennik całkowitego efektu przypisania.
+
+Wskaźniki czasu wznowienia zadania mogą mieć rozkład asymetryczny i być nieobserwowane dla części prób. Dobór modelu czasu lub analizy zdarzeń powinien zależeć od wcześniej zdefiniowanego sposobu cenzurowania, a nie od poszukiwania istotności. Pominięcia i powtórzenia należy analizować zgodnie z ich typem danych, możliwością wielokrotnego zajścia i ekspozycją.
+
+\subsection{Liczebność i precyzja oszacowania}
+Plan liczebności próby musi uwzględniać oczekiwane prawdopodobieństwa poprawnego wykonania, minimalną istotną naukowo różnicę, liczbę okazji na uczestnika, korelację wewnątrzosobniczą, zróżnicowanie scenariuszy, plan randomizacji i przewidywane straty danych. Preferowane jest udokumentowane badanie symulacyjne właściwości planowanego modelu lub analiza precyzji, poprzedzone uzasadnieniem założeń. Wartości parametrów i kryteria akceptacji nie są jeszcze ustalone; nie deklaruje się mocy ani wymaganej liczebności.
+
+\subsection{Oddzielenie prerejestracji od eksploracji}
+Przed dostępem do danych wynikowych należy zdeponować datowaną i jednoznacznie wersjonowaną specyfikację hipotezy, zmiennej głównej, estymandu, populacji, wykluczeń, modelu, niepewności i zakresu analiz wrażliwości. Eksploracja pilotażowa służąca dopracowaniu instrumentu nie może być bez ujawnienia łączona z badaniem konfirmacyjnym. Jeśli po prerejestracji nastąpi zmiana protokołu, należy podać datę, przyczynę, zakres oraz to, czy zmiana poprzedzała wgląd w dane. Analizy spoza planu powinny zachować odrębną etykietę.
+
+\subsection{Ślad reprodukowalności i środowisko narzędziowe}
+Dla przyszłego badania trzeba zachować wersję i dokładny SHA zatwierdzonego protokołu, instrumentu, definicji scenariuszy, słownika zdarzeń, skryptu klasyfikacji prób i skryptów analitycznych. Raport odtwarzalności powinien identyfikować system operacyjny, wersję języka programowania, pakietów statystycznych, zależności i ich plik blokady, a także sposób uruchomienia analizy i użyte ziarna generatora liczb pseudolosowych. Nazw konkretnych wersji nie podaje się przed wyborem i zweryfikowaniem oprogramowania.
+
+Po zatwierdzeniu kanonicznego projektu jego repozytorium będzie przechowywać kod, protokół i uprawnione materiały źródłowe. Niniejszy szkic w \texttt{arc-neuro} nie jest ich drugim źródłem prawdy. Do niezależnego odtworzenia należy zapewnić maszynowo sprawdzalną ścieżkę od dziennika zdarzeń przez walidację, wyznaczenie zmiennych i model do tabel wynikowych. Tam, gdzie danych indywidualnych nie wolno upublicznić, możliwe jest udostępnienie zgodnych z uprawnieniami skryptów, słownika danych i sztucznych danych testowych, wyraźnie oddzielonych od dowodów empirycznych.
+
+\subsection{Bramki gotowości analitycznej}
+Warunkami przejścia z \texttt{HOLD} do realizacji są potwierdzony właściciel kanonicznego projektu, rozstrzygnięty zakres badania, formalnie uzgodniony protokół i estymand, kompletna specyfikacja zdarzeń, zatwierdzony plan liczebności oraz odpowiednie wymogi etyczne i techniczne. Nie uruchomiono analiz, nie oceniano zbieżności modelu i nie potwierdzono reprodukcji żadnych wyników.
+
+Zamrożenie estymandu i reguł analizy musi nastąpić przed dostępem do danych.
 
 \section{Wyniki}
+\subsection{Status szablonów i zasady prezentacji}
+Poniższe tabele i opis wykresu określają wyłącznie przyszły format raportowania. Są szablonami dla projektu \texttt{IDEA/HOLD}, a nie wynikami ani wynikami syntetycznymi. Nie zgromadzono danych i nie wykonano analiz. Wszelkie wartości liczbowe, przedziały ufności i oznaczenia istotności wolno wprowadzić dopiero na podstawie udokumentowanych analiz właściwego badania.
 
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+W przyszłym raporcie należy najpierw przedstawić przepływ uczestników i prób, następnie wynik główny, a dopiero później wyniki wtórne i eksploracyjne. Podpisy muszą określać jednostkę analizy, mianownik wskaźnika, rodzaj estymaty, poziom niepewności i populację analityczną. Wszystkie miary czasu należy wyrażać w sekundach, różnicę ryzyk w punktach procentowych, a prawdopodobieństwa w procentach albo jako liczby od 0 do 1, konsekwentnie w całym tekście.
+
+\subsection{Przepływ uczestników i kompletność prób}
+Tabela~\ref{tab:flow-template} wyznacza układ przyszłego zestawienia liczebności. Należy w niej rozdzielić osoby zakwalifikowane, poddane randomizacji i analizowane, a także okazje ważne, technicznie nieważne oraz nieobserwowalne. Wyniki mają pochodzić z rejestru przyczyn wyłączenia, a nie z odtwarzania liczebności na podstawie samych poprawnych odpowiedzi.
+
+\begin{table}[htbp]
+\centering
+\caption{Szablon raportowania przepływu osób i okazji do wykonania intencji. Wszystkie pola wynikowe wymagają danych empirycznych.}
+\label{tab:flow-template}
+\small
+\begin{tabular}{p{0.48\linewidth}p{0.19\linewidth}p{0.19\linewidth}}
+\hline
+Kategoria i jednostka & Kontekstowe & Czasowe \\
+\hline
+Uczestnicy przypisani, osoby & do uzupełnienia & do uzupełnienia \\
+Okazje zaplanowane, próby & do uzupełnienia & do uzupełnienia \\
+Okazje ważne, próby & do uzupełnienia & do uzupełnienia \\
+Próby technicznie nieważne, próby & do uzupełnienia & do uzupełnienia \\
+Wynik nieobserwowalny, próby & do uzupełnienia & do uzupełnienia \\
+\hline
+\end{tabular}
+\end{table}
+
+W schemacie wewnątrzosobniczym ta sama osoba może wystąpić w obu kolumnach; liczby uczestników nie podlegają wówczas sumowaniu. Dla każdej przyczyny wyłączenia należy opisać regułę i etap jej zastosowania. Liczebności prób nie mogą być utożsamiane z liczebnościami osób.
+
+\subsection{Wynik pierwszorzędowy i niepewność}
+Tabela~\ref{tab:primary-template} określa format prezentacji poprawnych realizacji zamiaru. Odsetek surowy należy odróżniać od marginalnego prawdopodobieństwa oszacowanego modelem. Jedynym roboczym kontrastem pierwszorzędowym pozostaje różnica marginalnych prawdopodobieństw pomiędzy przypisaniem przypomnienia kontekstowego i czasowego. Przedziały ufności i metoda ich wyznaczania wymagają uprzedniego zatwierdzenia w planie analiz.
+
+\begin{table}[htbp]
+\centering
+\caption{Szablon wyniku głównego. Odsetki dotyczą poprawnych wykonań na ważną okazję; kontrast modelowy jest różnicą ryzyk w punktach procentowych. Nie przedstawiono oszacowań.}
+\label{tab:primary-template}
+\small
+\begin{tabular}{p{0.52\linewidth}p{0.35\linewidth}}
+\hline
+Miara i jednostka & Wartość po analizie \\
+\hline
+Poprawne wykonania w warunku kontekstowym, liczba/okazje & do uzupełnienia \\
+Poprawne wykonania w warunku czasowym, liczba/okazje & do uzupełnienia \\
+Surowy odsetek poprawnych wykonań, \% w obu warunkach & do uzupełnienia \\
+Marginalna różnica prawdopodobieństw, pkt proc. & do uzupełnienia \\
+Przedział ufności dla różnicy, pkt proc. & do uzupełnienia \\
+\hline
+\end{tabular}
+\end{table}
+
+Jeżeli model nie będzie identyfikowalny, nie zbiegnie się lub liczba zdarzeń okaże się niewystarczająca, należy to zgłosić zamiast zastępować wynik nieudokumentowaną estymacją. Raport powinien opisywać właściwy mianownik, zastosowaną standaryzację, strukturę efektów losowych i ewentualne odstępstwa od prerejestracji.
+
+\subsection{Wyniki wtórne, eksploracyjne i analizy wrażliwości}
+Przyszłe zestawienia wtórne powinny obejmować pominięcia, powtórzenia odroczonych czynności i opóźnienie wznowienia zadania. Dla zdarzeń należy podawać liczebnik, właściwy mianownik i procent albo częstość, a dla czasu jednostkę w sekundach, liczbę dostępnych obserwacji oraz odpowiednią miarę położenia i rozproszenia. Nie wolno łączyć braku reakcji przy ważnej okazji z utratą danych wskutek awarii.
+
+Wyniki eksploracyjne oraz analizy wrażliwości powinny być raportowane oddzielnie od testu H1. Przy analizach wielokrotnych należy jawnie wskazać rodzinę porównań i zastosowaną korektę, jeżeli została uprzednio zaplanowana. Brak wykrytej różnicy nie uzasadnia twierdzenia o równoważności przypomnień.
+
+\subsection{Projekt wykresu i reguły jego przygotowania}
+Rycina~\ref{fig:effect-plan} przedstawia jedynie specyfikację przyszłej wizualizacji, bez nanoszenia punktów, przedziałów ani danych demonstracyjnych. Oś pozioma ma obrazować różnicę marginalnych prawdopodobieństw w punktach procentowych, a planowana estymata punktowa i przedział ufności mają zostać wyznaczone z zatwierdzonej analizy. Pionowa linia odniesienia powinna odpowiadać zerowej różnicy ryzyk. Oś pionowa może oznaczać zatwierdzony kontrast główny oraz oddzielnie oznaczone kontrasty pomocnicze. Należy zamieścić czytelne etykiety, kierunek różnicy (kontekstowe minus czasowe), zakres osi uzasadniony estymandem i podpis rozróżniający wyniki konfirmacyjne od eksploracyjnych.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.83\linewidth}{\centering
+\textbf{SPECYFIKACJA RYCINY, BEZ DANYCH}\\[1ex]
+Oś X: różnica prawdopodobieństw, punkty procentowe.\\
+Oś Y: zatwierdzony kontrast (ewentualne dodatkowe kontrasty osobno).\\
+Po analizie: punkt oszacowania, przedział ufności, linia wartości zerowej.\\
+Na etapie \texttt{IDEA/HOLD} nie umieszcza się wykresu empirycznego.
+}}
+\caption{Plan przyszłego wykresu efektów przypomnień kontekstowych względem czasowych. Ramka jest opisem formatu, nie wizualizacją obserwacji.}
+\label{fig:effect-plan}
+\end{figure}
+
+Materiały wynikowe należy generować ze zweryfikowanego dziennika zdarzeń i wersjonowanych skryptów. Podpisy tabel i rycin powinny wskazywać populację analityczną, wersję analizy i dokładne źródło pochodzenia danych. Nie należy ręcznie przepisywać wyników do ilustracji bez możliwości ich odtworzenia.
 
 \section{Dyskusja i ograniczenia}
+\subsection{Granice obecnego stanu wiedzy}
+Dyskusja jest planem interpretacji przyszłych dowodów, nie omówieniem wyników przeprowadzonego eksperymentu. Hipoteza H1, wskaźnik główny i estymand nie zostały zatwierdzone ani prerejestrowane. Nie zebrano danych, dlatego nie można rozstrzygnąć, który rodzaj przypomnienia jest korzystniejszy. Po wykonaniu badania podstawą interpretacji powinny być estymata marginalnej różnicy prawdopodobieństw poprawnego wykonania intencji, przedział ufności, charakter randomizacji, kompletność danych i zgodność z protokołem.
 
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
+\subsection{Interpretacja możliwych rozstrzygnięć hipotezy H1}
+Dodatnia różnica prawdopodobieństw, obliczona jako warunek kontekstowy minus czasowy, wskazywałaby na przewagę warunku kontekstowego w badanej populacji i zestawie prób, z zastrzeżeniem precyzji oszacowania. Wynik ujemny wskazywałby na możliwość przewagi warunku czasowego. W obu przypadkach zakres wniosku zależałby od przydziału warunków, poprawności pomiaru i wrażliwości na decyzje analityczne. Nie wolno utożsamiać znaku oszacowania z dowodem konkretnego mechanizmu poznawczego.
 
-\section{Wnioski}
+Przedział ufności obejmujący zero albo obejmujący jednocześnie efekty o odmiennym znaczeniu praktycznym świadczyłby o ograniczonej rozstrzygalności, a nie o wykazanej równoważności. Równoważność wymaga osobnego planu i uzasadnionego marginesu. Hipotezę H1 wolno traktować konfirmacyjnie tylko wtedy, gdy jej kontrast, populacja, model i reguły wyłączeń zostały ustalone przed dostępem do danych. W przeciwnym przypadku wyniki byłyby eksploracyjne.
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+\subsection{Konkurencyjne mechanizmy}
+Odmienny wynik obu warunków może wynikać z trafności kontekstowej wskazówki, przewidywalności przypomnienia czasowego, rzeczywistej chwili jego prezentacji lub kosztów przełączania uwagi. Wieloprocesowy model pamięci prospektywnej \cite{McDanielEinstein2000} i model aktywacji celów \cite{AltmannTrafton2002} opisują różne, potencjalnie współdziałające procesy. Wynik behawioralny nie identyfikuje samodzielnie ich udziału. Badania nad samodzielnym ustanawianiem przypomnień \cite{Gilbert2015} również nie przesądzają o skuteczności powiadomień generowanych przez system. Bez osobnych manipulacji można porównać pakiety interwencji, lecz nie wyizolowany mechanizm wyzwalania.
 
-\section*{Bibliografia}
+\subsection{Wykonanie zamiaru a wznowienie działania}
+Możliwa korzyść w realizacji odroczonej intencji może współwystępować z wydłużeniem wznowienia zadania głównego. Możliwy jest również odwrotny układ. Te wskaźniki należy raportować osobno, bez tworzenia nieuzasadnionej miary złożonej. Efektywność pamięci prospektywnej, koszt uwagowy przypomnienia i poprawność powrotu do działania to powiązane, lecz nietożsame cechy zachowania.
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+\subsection{Implikacje naukowe i projektowe}
+Jeżeli przyszły eksperyment będzie wystarczająco kontrolowany, może dostarczyć oszacowania zależności między rodzajem przypomnienia a wykonaniem zamiaru po przerwaniu. Możliwym wkładem byłoby rozdzielenie korzyści pamięciowych od kosztów wznowienia i wskazanie warunków, w których sygnał zewnętrzny wspiera działanie. Wyniki symulacji 2D nie będą jednak same w sobie walidacją kliniczną, dowodem bezpieczeństwa systemu AAL ani uzasadnieniem wdrożenia w opiece domowej.
+
+\section{Ograniczenia i zagrożenia trafności planowanego badania}
+\subsection{Trafność konstruktu i pomiaru}
+Poprawne wykonanie czynności w określonym oknie jest wskaźnikiem zachowania, nie bezpośrednim pomiarem pamięci prospektywnej. Niepowodzenie może wynikać z niezrozumienia instrukcji, błędu obsługi, niedostarczenia komunikatu, opóźnionej reakcji lub zapomnienia intencji. Należy zatem sprawdzić czytelność sygnałów, poprawność definicji okazji do działania, dokładność znaczników czasu i powtarzalność klasyfikacji prób. Wyrównanie liczby powiadomień nie gwarantuje równoważności ich czasu pojawienia się ani informacyjności.
+
+\subsection{Trafność wewnętrzna i źródła zakłóceń}
+Efekt kolejności warunków, uczenie się scenariuszy, przenoszenie strategii, zmęczenie i trudność przerwań mogą wpływać na wynik. Nawet prawidłowy przydział losowy nie eliminuje błędów dostarczenia interwencji, różnic w jej faktycznym czasie i selektywnych braków danych. Gdy timing komunikatów stanowi składnik manipulacji, nie należy automatycznie kontrolować go jako zwykłej kowariaty, ponieważ zmieniłoby to interpretowany estymand.
+
+\subsection{Dobór próby i ograniczenia statystyczne}
+Rekrutacja dogodnościowa oraz wymagania obsługi interfejsu 2D mogą ograniczać reprezentatywność próby. Liczebność, liczba prób i korelacje wewnątrzosobnicze wymagają uzasadnienia przed badaniem. Mała liczba zdarzeń, niepełne logi, brak zbieżności modelu lub duży odsetek technicznie nieważnych prób mogą uniemożliwić precyzyjną estymację. Pominięcie przy ważnej okazji musi zostać odróżnione od utraty pomiaru. Wiele wskaźników wtórnych i analiz podgrup zwiększa ryzyko pozornych odkryć, dlatego ich status konfirmacyjny lub eksploracyjny wymaga jawnego określenia.
+
+\subsection{Generalizacja i trafność ekologiczna}
+Symulacja 2D nie odtwarza wszystkich wymagań rzeczywistych czynności domowych: wielozmysłowych rozproszeń, nawyków, interakcji społecznych i skutków błędów. Obserwacje u dorosłych użytkowników środowiska komputerowego nie powinny być automatycznie uogólniane na osoby z zaburzeniami poznawczymi, populacje kliniczne ani użytkowników rzeczywistych systemów AAL. Transfer wymagałby dodatkowej walidacji w odpowiednich środowiskach i populacjach.
+
+\section{Wnioski koncepcyjne i warunki wznowienia}
+Opracowana koncepcja pozwala zaplanować porównanie przypomnień kontekstowych i czasowych po przerwaniu zadania oraz rozdzielić wykonanie intencji od wznowienia czynności. Podstawy teoretyczne dopuszczają konkurencyjne mechanizmy, nie uzasadniają jednak z góry przewagi jednego wariantu. Brak danych empirycznych nie pozwala zweryfikować H1, oszacować efektu ani formułować zaleceń wdrożeniowych.
+
+Przed zmianą statusu \texttt{NEW\_CROSS\_PROGRAM\_IDEA\_HOLD} konieczne są potwierdzenie kanonicznego projektu i odrębności pytania badawczego, uzupełnienie przeglądu badań porównawczych, uzgodnienie manipulacji, hipotezy i estymandu, przygotowanie protokołu oraz potwierdzenie wymogów etycznych, ochrony danych i gotowości technicznej. Interpretacja ewentualnych przyszłych obserwacji musi zachować rozdział pomiędzy związkiem statystycznym, uprawnionym wnioskowaniem przyczynowym i zastosowaniem praktycznym.
+
+\section*{Literatura zweryfikowana na etapie koncepcyjnym}
+\begin{thebibliography}{9}
+\bibitem{AltmannTrafton2002} Altmann, E. M., \& Trafton, J. G. (2002). Memory for goals: An activation-based model. \textit{Cognitive Science, 26}(1), 39--83. \url{https://doi.org/10.1207/s15516709cog2601_2}
+\bibitem{Gilbert2015} Gilbert, S. J. (2015). Strategic offloading of delayed intentions into the external environment. \textit{The Quarterly Journal of Experimental Psychology, 68}(5), 971--992. \url{https://doi.org/10.1080/17470218.2014.972963}
+\bibitem{McDanielEinstein2000} McDaniel, M. A., \& Einstein, G. O. (2000). Strategic and automatic processes in prospective memory retrieval: A multiprocess framework. \textit{Applied Cognitive Psychology, 14}(7), S127--S144. \url{https://doi.org/10.1002/acp.775}
+\end{thebibliography}
+
+\section*{Transparentność badawcza i oświadczenia wydawnicze}
+\subsection*{Autorstwo, afiliacja i wkłady}
+Autorem obecnego szkicu i właścicielem naukowym koncepcji \texttt{MSC-AAL-P08} jest Mateusz Pomianek. Nie przypisano współautorów bez potwierdzonego wkładu. Afiliacja oraz ORCID wymagają weryfikacji przed ewentualnym zgłoszeniem tekstu. Oświadczenie CRediT będzie opierać się na rzeczywistych wkładach, bez deklarowania nieprzeprowadzonej akwizycji danych, analiz formalnych lub walidacji.
+
+\subsection*{Stan badania i prerejestracja}
+Koncepcja ma status \texttt{NEW\_CROSS\_PROGRAM\_IDEA\_HOLD}. Nie przeprowadzono eksperymentu, pilotażu ani analizy danych. Nie potwierdzono prerejestracji tego badania i nie podaje się jej identyfikatora ani daty. Przed rozpoczęciem zbierania danych należy zamrozić wersję hipotezy H1, estymandu, definicji wyniku głównego, randomizacji, kryteriów wyłączeń i planu statystycznego w kanonicznym projekcie. Każde późniejsze odstępstwo będzie wymagać daty, uzasadnienia i informacji, czy nastąpiło przed ujawnieniem wyników.
+
+\subsection*{Ocena etyczna i świadoma zgoda}
+Przed rekrutacją konieczne jest rozstrzygnięcie właściwej ścieżki oceny etycznej, zasad informacji dla uczestników, świadomej zgody, prawa do wycofania oraz minimalizacji ryzyka. Nie podano numeru decyzji ani nie zadeklarowano uzyskania zgody komisji. Nie zakłada się również zwolnienia z oceny etycznej. Ostateczne oświadczenie może zostać sformułowane dopiero po potwierdzeniu stanu formalnego.
+
+\subsection*{Dostępność danych i kodu}
+Ponieważ badania nie przeprowadzono, nie istnieje potwierdzony zbiór wyników empirycznych dla tego manuskryptu. Nie deklaruje się publicznego udostępnienia danych ani działającego pakietu analitycznego. Po ustaleniu kanonicznego repozytorium przyszły protokół powinien określić, jakie materiały, słowniki danych, skrypty i pochodne zestawienia można legalnie udostępnić oraz na jakich warunkach. Dzienniki zdarzeń i identyfikatory osób muszą podlegać ocenie ryzyka ponownej identyfikacji. Dane przykładowe lub syntetyczne, jeśli powstaną, będą wyraźnie oddzielone od wyników z udziałem ludzi.
+
+\subsection*{Finansowanie i konflikty interesów}
+Źródła finansowania i potencjalne konflikty interesów nie zostały zweryfikowane dla tego szkicu. Brak potwierdzonej informacji nie jest równoznaczny z oświadczeniem, że finansowania lub konfliktów nie ma. Treść właściwych deklaracji należy uzgodnić z autorem i udokumentować przed wysłaniem manuskryptu do wydawcy.
+
+\subsection*{Granice jawności i odpowiedzialność za źródła}
+Publiczny szkic w \texttt{arc-neuro} nie jest miejscem przechowywania danych uczestników, materiałów poufnych, identyfikatorów niepublicznych projektów ani surowych zapisów pomiarowych. Własność przyszłego protokołu, analiz i materiału dowodowego musi zostać jednoznacznie przypisana do projektu kanonicznego. Nie należy publikować plików przez GitHub Pages bez odrębnego zatwierdzenia. Informacje o dostępności materiałów będą wymagać sprawdzenia praw do udostępniania i zgodności z dokumentacją zgody uczestników.
+
+\subsection*{Standard raportowania}
+Dla przyszłego artykułu empirycznego odpowiednim punktem odniesienia będą \emph{APA Journal Article Reporting Standards for Quantitative Research} (JARS--Quant), obejmujące opis planu, uczestników, procedur, analiz, wielkości efektów, niepewności i ograniczeń. Aktualne wytyczne są dostępne w serwisie APA: \url{https://apastyle.apa.org/jars/index}. Jeśli ostateczny projekt przyjmie postać badania randomizowanego objętego zakresem CONSORT, należy dodatkowo ocenić właściwość listy CONSORT 2025; nie wolno jednak automatycznie traktować prostego eksperymentu laboratoryjnego jako badania klinicznego. Zasady jawności materiałów, kodu i prerejestracji można oceniać również według wytycznych Transparency and Openness Promotion: \url{https://www.apa.org/pubs/journals/resources/transparency-openness-promotion}. Przywołanie tych standardów nie oznacza, że projekt już spełnił ich wymagania.
 
 \end{document}
-

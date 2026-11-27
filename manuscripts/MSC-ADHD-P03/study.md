@@ -6,7 +6,7 @@
 
 **Przedmiot:** Wpływ obustronnej stymulacji słuchowej na regulację.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Proponowany wynik główny:** Różnica ograniczonego średniego czasu recovery między warunkami A i B, ważona na poziomie uczestnika; horyzont i reguła recovery wymagają zamrożenia. Zdarzenia przerwane ze względów bezpieczeństwa i braki telemetrii mają odrębne reguły analizy.
 - **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
 - **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
