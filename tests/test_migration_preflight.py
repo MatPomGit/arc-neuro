@@ -2,6 +2,7 @@
 from collections import Counter
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -27,6 +28,46 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertEqual(report["later_record_ids"], sorted({p["id"] for p in records} - historical_ids))
         self.assertEqual(report["research_lines"], dict(Counter(p["area"] for p in records)))
         self.assertGreater(len(report["historical_stage_values"]), 5)
+
+    def test_valid_catalog_growth_does_not_change_frozen_migration_evidence(self):
+        records = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
+        existing = {p["id"] for p in records["papers"]}
+        index = 1
+        while f"MSC-TEST-P{index:02d}" in existing:
+            index += 1
+        ident = f"MSC-TEST-P{index:02d}"
+        before = audit(ROOT)
+        records["papers"].append({
+            "id": ident, "area": "affect", "record_kind": "IDEA",
+            "stage": "IDEA_REVIEW", "title": "Synthetic inventory fixture",
+            "manuscript_path": f"manuscripts/{ident}/main.tex",
+            "readme_path": f"manuscripts/{ident}/README.md",
+        })
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for relative in ("config/historical-manuscripts-63.txt",
+                             "config/research-lines.json", "program.json"):
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+            (root / "manuscripts").mkdir()
+            (root / "manuscripts/catalog.json").write_text(json.dumps(records), encoding="utf-8")
+            for paper in records["papers"]:
+                for key in ("manuscript_path", "readme_path"):
+                    path = root / paper[key]
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.touch()
+            after = audit(root)
+            self.assertEqual(after["inventory_status"], "PASS", after["findings"])
+            self.assertEqual(after["record_count"], before["record_count"] + 1)
+            self.assertEqual(after["historical_record_count"], before["historical_record_count"])
+            self.assertEqual(after["historical_record_kinds"], before["historical_record_kinds"])
+            self.assertIn(ident, after["later_record_ids"])
+            self.assertFalse(after["migration_ready"])
+            (root / f"manuscripts/{ident}/main.tex").unlink()
+            invalid = audit(root)
+            self.assertEqual(invalid["inventory_status"], "FAIL")
+            self.assertIn("missing_tex:" + ident, invalid["findings"])
 
     def test_frozen_historical_manifest_rejects_silent_replacement(self):
         original_read_bytes = Path.read_bytes
