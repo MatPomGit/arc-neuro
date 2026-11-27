@@ -14,10 +14,15 @@ def fit(y, X, groups, seed):
             sd=pm.HalfNormal(name+"_sd",1)
             z=pm.Normal(name+"_z",0,1,shape=int(ids.max())+1)
             eta=eta+sd*z[ids]
+        for name in ("person","clip"):
+            ids=groups[name]
+            sd=pm.HalfNormal(name+"_slope_sd",.5)
+            z=pm.Normal(name+"_slope_z",0,1,shape=int(ids.max())+1)
+            eta=eta+sd*z[ids]*(X[:,1]-.5)
         cuts=pm.Normal("cuts",0,2,shape=4,transform=pm.distributions.transforms.ordered,initval=[-1.5,-.5,.5,1.5])
         pm.OrderedLogistic("y",eta=eta,cutpoints=cuts,observed=y)
         trace=pm.sample(500,tune=500,chains=4,cores=1,random_seed=seed,target_accept=.95,progressbar=False)
-    summary=az.summary(trace,var_names=["beta","cuts"]+[k+"_sd" for k in groups])
+    summary=az.summary(trace,var_names=["beta","cuts"]+[k+"_sd" for k in groups]+["person_slope_sd","clip_slope_sd"])
     if int(trace.sample_stats.diverging.sum()) or not np.isfinite(summary[["r_hat","ess_bulk","ess_tail"]]).all().all() or summary.r_hat.max()>1.01 or min(summary.ess_bulk.min(),summary.ess_tail.min())<400:
         return None
     return trace.posterior.beta.values.reshape(-1,X.shape[1])
@@ -69,10 +74,11 @@ def generate(rng,n,k,scenario):
     direction=(clip>=k//2).astype(int)
     violation=(clip+person)%2
     avatar=clip%4
+    context=2*((clip//2+person//2)%4)+violation
     X=np.column_stack([direction,violation,direction*violation])
-    eta=.3*direction+.3*violation+scenario*direction*violation+rng.normal(0,.7,n)[person]+rng.normal(0,.5,k)[clip]+rng.normal(0,.4,4)[avatar]+rng.logistic(size=len(clip))
+    eta=.3*direction+.3*violation+scenario*direction*violation+rng.normal(0,.7,n)[person]+rng.normal(0,.5,k)[clip]+rng.normal(0,.4,4)[avatar]+rng.normal(0,.3,8)[context]+(violation-.5)*(rng.normal(0,.35,n)[person]+rng.normal(0,.25,k)[clip])+rng.logistic(size=len(clip))
     keep=rng.random(len(clip))>=.05
-    return np.digitize(eta[keep],[-1.5,-.5,.5,1.5]),X[keep],dict(person=person[keep],clip=clip[keep],avatar=avatar[keep]),[2]
+    return np.digitize(eta[keep],[-1.5,-.5,.5,1.5]),X[keep],dict(person=person[keep],clip=clip[keep],avatar=avatar[keep],context=context[keep]),[2]
 
 if __name__=="__main__":
     cli([0,.25,.5,.75],generate,"results/ordinal_power.csv")
