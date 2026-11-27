@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-FAT-P01/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-FAT-P01/main.tex",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
@@ -23,7 +23,15 @@
   "stage_evidence": null,
   "schema_version": 3,
   "dependencies": {
-    "tools": [],
+    "tools": [
+      {
+        "ref": "SART",
+        "role": "PROPOSED_TASK",
+        "contract_path": "manuscripts/MSC-FAT-P01/main.tex",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Proposed research instrument or task; qualification and applicable permissions pending."
+      }
+    ],
     "equipment": [],
     "datasets": []
   }

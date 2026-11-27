@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-INTERO-P01/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-INTERO-P01/main.tex",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
@@ -23,7 +23,29 @@
   "stage_evidence": null,
   "schema_version": 3,
   "dependencies": {
-    "tools": [],
+    "tools": [
+      {
+        "ref": "MAIA-2",
+        "role": "PROPOSED_INSTRUMENT",
+        "contract_path": "manuscripts/MSC-INTERO-P01/main.tex",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Proposed research instrument or task; qualification and applicable permissions pending."
+      },
+      {
+        "ref": "TAS-20",
+        "role": "PROPOSED_INSTRUMENT",
+        "contract_path": "manuscripts/MSC-INTERO-P01/main.tex",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Proposed research instrument or task; qualification and applicable permissions pending."
+      },
+      {
+        "ref": "DERS",
+        "role": "PROPOSED_INSTRUMENT",
+        "contract_path": "manuscripts/MSC-INTERO-P01/main.tex",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Proposed research instrument or task; qualification and applicable permissions pending."
+      }
+    ],
     "equipment": [],
     "datasets": []
   }

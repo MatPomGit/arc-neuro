@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-CR-P09/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-CR-P09/study.md",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
@@ -23,7 +23,36 @@
   "stage_evidence": null,
   "schema_version": 3,
   "dependencies": {
-    "tools": [],
+    "tools": [
+      {
+        "ref": "app-study-web",
+        "role": "OPTIONAL",
+        "contract_path": "manuscripts/MSC-CR-P09/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: PLANNED_NOT_CREATED; proposed dependency only."
+      },
+      {
+        "ref": "lib-events",
+        "role": "PROPOSED_LIBRARY",
+        "contract_path": "manuscripts/MSC-CR-P09/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: PLANNED_NOT_CREATED; proposed dependency only."
+      },
+      {
+        "ref": "lib-study",
+        "role": "PROPOSED_LIBRARY",
+        "contract_path": "manuscripts/MSC-CR-P09/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: PLANNED_NOT_CREATED; proposed dependency only."
+      },
+      {
+        "ref": "lib-vlm",
+        "role": "PROPOSED_LIBRARY",
+        "contract_path": "manuscripts/MSC-CR-P09/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: SCAFFOLD_EXISTS; proposed dependency only."
+      }
+    ],
     "equipment": [],
     "datasets": []
   }

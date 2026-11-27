@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-NDD-P01/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-NDD-P01/study.md",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
