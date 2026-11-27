@@ -33,3 +33,5 @@ W systemie Windows uruchom `run_simulation.bat`. W pozostałych systemach wykona
 `python -m unittest test_marginal_surface`
 
 Model PyMC wykorzystuje skrzyżowane efekty losowe i decyzję na podstawie przedziałów a posteriori. Nie jest to test ilorazu wiarygodności CLMM. Kalibracja częstości odrzuceń pod hipotezą zerową jest wymagana przed przyjęciem procedury konfirmacyjnej. Wyniki nie zostały jeszcze zweryfikowane wykonawczo.
+
+Pilotaż techniczny: `python run_pilot.py --reps 5`. Dwa scenariusze po pięć replikacji z pełną diagnostyką MCMC; nie służy do ustalenia liczebności ani kalibracji poziomu błędu. Test próbkowania w CI wykorzystuje krótkie łańcuchy wyłącznie do sprawdzenia wykonania kodu.
