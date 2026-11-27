@@ -25,3 +25,5 @@ Czy ten sam klip docelowy wywołuje różne oceny po różnym kontekście oczeki
 `python run_grid.py --reps 100`
 
 Model PyMC wykorzystuje skrzyżowane efekty losowe i decyzję na podstawie przedziałów a posteriori. Nie jest to test ilorazu wiarygodności CLMM. Kalibracja częstości odrzuceń pod hipotezą zerową jest wymagana przed przyjęciem procedury konfirmacyjnej. Wyniki nie zostały jeszcze zweryfikowane wykonawczo.
+
+Pilotaż techniczny: `python run_pilot.py --reps 5`. Dwa scenariusze po pięć replikacji z pełną diagnostyką MCMC; nie służy do ustalenia liczebności ani kalibracji poziomu błędu. Test próbkowania w CI wykorzystuje krótkie łańcuchy wyłącznie do sprawdzenia wykonania kodu.
