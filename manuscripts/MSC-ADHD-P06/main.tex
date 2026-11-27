@@ -7,9 +7,9 @@
 \geometry{margin=27mm}
 \usepackage[hidelinks]{hyperref}
 
-\title{Synergia EEG, mimiki i zachowania w pomiarze powrotu do regulacji}
-\author{}
-\date{Koncepcja badawcza, IDEA / DEFER, wersja 0.1.2}
+\title{Synergia EEG, mimiki i zachowania w pomiarze recovery}
+\author{Mateusz Pomianek}
+\date{Szkic naukowy, wersja 0.1.3}
 
 \begin{document}
 \maketitle
@@ -25,12 +25,17 @@ Powrót do regulacji może obejmować odmienne zjawiska: ponowne podjęcie zadan
 Planowane pytanie dotyczy tego, czy fuzja EEG, mimiki i telemetrii zadania wnosi wartość predykcyjną ponad model oparty na samym zachowaniu. Rozstrzygnięcia wymaga operacyjna definicja początku i końca epizodu powrotu do regulacji, okno obserwacji, jednostka analizy oraz miara jakości predykcji. Nie sformułowano jeszcze potwierdzonych hipotez kierunkowych.
 
 \section{Materiał i metody}
+
+Pierwszorzędowy wskaźnik: Inkrementalna wartość predykcyjna fuzji modalności względem telemetrii zachowania; dokładna miara pozostaje do wyboru. Jest to propozycja, nie zatwierdzony punkt końcowy.
+
 Rozważany projekt zakłada rejestrację modalności w tych samych epizodach oraz synchronizację ich znaczników czasu. Ocena jakości sygnału i dopuszczalnego opóźnienia między kanałami powinna poprzedzać analizę. Wariant referencyjny oparty wyłącznie na telemetrii zadania należy porównać z modelami rozszerzanymi o mimikę, EEG i obie modalności. Należy oddzielić cechy dostępne w chwili predykcji od informacji o późniejszym wyniku, aby uniknąć przecieku czasowego.
 
 Badanie pozostaje odroczone (\texttt{DEFER}). Nie potwierdzono kompletnego protokołu, gotowości aparatury, uprawnień do danych, procedur etycznych ani pozyskania próby. Propozycje stanowiska i oprogramowania opisane w \texttt{study.md} nie stanowią dowodu ich wdrożenia.
 
 \section{Plan analizy}
 Po zdefiniowaniu wyniku i estymandu należy z góry wskazać metryki jakości i kalibracji, scenariusz brakujących modalności oraz analizę wrażliwości na synchronizację. Wstępnym wariantem walidacji jest podział z wyłączeniem całego uczestnika (\emph{leave-one-participant-out}); wszystkie epizody jednego uczestnika muszą należeć wyłącznie do jednej części podziału. Dobór cech, strojenie hiperparametrów i kalibracja powinny odbywać się wewnątrz danych treningowych. Metryka i sposób agregacji na poziomie uczestnika wymagają uprzedniego ustalenia. Analiza nie została wykonana.
+
+Zamrożenie estymandu i reguł analizy musi nastąpić przed dostępem do danych.
 
 \section{Wyniki}
 Brak danych empirycznych i wyników analiz. Nie należy interpretować projektu porównań modeli jako dowodu synergii.

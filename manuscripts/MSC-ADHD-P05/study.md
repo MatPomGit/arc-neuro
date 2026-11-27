@@ -6,7 +6,7 @@
 
 **Przedmiot:** EEG Muse S Athena zsynchronizowane ze zdarzeniami regulacji.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
+- **Proponowany wynik główny:** Nie zatwierdzono wyniku głównego. Kandydackie techniczne miary jakości: rozkład błędu czasowego znaczników względem niezależnego zegara referencyjnego oraz odsetek utraconych okien EEG. Nie są to kliniczne punkty końcowe.
 - **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
 - **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
