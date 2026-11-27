@@ -42,6 +42,35 @@ def wilson(hits, n):
     return max(0.0, float(center-half)), min(1.0, float(center+half))
 
 
+def reference_class(low, high, epsilon):
+    """Classify an approximate reference band, not the unknown true mean."""
+    if -epsilon < low and high < epsilon:
+        return "inside"
+    if low >= epsilon or high <= -epsilon:
+        return "outside"
+    return "ambiguous"
+
+
+def equivalence_diagnostics(hits, valid, trials, ref_low, ref_high, epsilon):
+    status = reference_class(ref_low, ref_high, epsilon)
+    low, high = wilson(hits, valid)
+    return {
+        "epsilon": epsilon,
+        "reference_band_class": status,
+        "equivalence_declarations": hits,
+        "equivalence_fraction_valid": hits / valid if valid else None,
+        "equivalence_fraction_attempted": hits / trials,
+        "equivalence_wilson_95_low": low,
+        "equivalence_wilson_95_high": high,
+        "apparent_false_equivalence_fraction_valid": (
+            hits / valid if status == "outside" and valid else None
+        ),
+        "apparent_equivalence_detection_fraction_valid": (
+            hits / valid if status == "inside" and valid else None
+        ),
+    }
+
+
 def paired_delta(spec, condition, generator, replicate):
     """Use only independent-role validation-RMSE comparisons."""
     records, _, _ = evaluate(spec, condition, generator, replicate)
@@ -79,6 +108,9 @@ def calibrate(spec, conditions, generators, reference_n, trials,
         raise ValueError("Invalid calibration sizes")
     if (reference_n >= 10_000 or sample_n >= 10_000):
         raise ValueError("Role streams require fewer than 10,000 replicates")
+    epsilons = sorted(set(float(v) for v in spec["epsilon_grid"]))
+    if not epsilons or any(not np.isfinite(v) or v <= 0 for v in epsilons):
+        raise ValueError("Invalid exploratory epsilon grid")
     result = []
     for ci, condition in enumerate(conditions):
         for gi, generator in enumerate(generators):
@@ -95,6 +127,7 @@ def calibrate(spec, conditions, generators, reference_n, trials,
             reference_high = truth + 1.96 * reference_se
             counts = {m: [0, 0, 0.0, 0, 0, 0, []] for m in
                       ("normal", "percentile", "studentized")}
+            eq_counts = {m: {e: 0 for e in epsilons} for m in counts}
             failures = 0
             for trial in range(trials):
                 trial_seed = stream_seed(seed, cell, trial + 1, trials)
@@ -117,10 +150,12 @@ def calibrate(spec, conditions, generators, reference_n, trials,
                         counts[method][4] += int(low <= reference_low and high >= reference_high)
                         counts[method][5] += int(low <= reference_high and high >= reference_low)
                         counts[method][6].append((high-low)/2)
+                        for epsilon in epsilons:
+                            eq_counts[method][epsilon] += int(-epsilon < low and high < epsilon)
             for method, (covered, eligible, width, excludes_zero, contains_ref, overlaps_ref, halfwidths) in counts.items():
                 wilson_low, wilson_high = wilson(covered, eligible)
                 median_halfwidth = float(np.median(halfwidths)) if eligible else None
-                result.append({
+                row = {
                     "condition": condition["id"], "generator": generator,
                     "method": method, "reference_n": len(reference),
                     "reference_failures": ref_failed, "reference_mean": truth,
@@ -144,7 +179,13 @@ def calibrate(spec, conditions, generators, reference_n, trials,
                     "excluded_zero_fraction": excludes_zero / eligible if eligible else None,
                     "nominal_coverage": coverage,
                     "status": "exploratory_closed_loop_method_calibration",
-                })
+                    "equivalence_diagnostics_json": json.dumps([
+                        equivalence_diagnostics(eq_counts[method][epsilon], eligible,
+                                                trials, reference_low, reference_high, epsilon)
+                        for epsilon in epsilons
+                    ], allow_nan=False, sort_keys=True),
+                }
+                result.append(row)
     return result
 
 
@@ -191,6 +232,7 @@ def main():
         "source_commit": commit,
         "seed_allocation": "disjoint 10-million blocks per cell and reference/trial; v2",
         "numpy_version": np.__version__,
+        "equivalence_rule": "strict interval containment; reference-band class is approximate; ambiguous references do not receive error-rate labels",
         "coverage_diagnostic": "Wilson intervals conditional on valid trials and fixed estimated reference; reference-band sensitivity is not a coverage correction",
         "config_sha256": hashlib.sha256(args.config.read_bytes()).hexdigest(),
         "output_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),

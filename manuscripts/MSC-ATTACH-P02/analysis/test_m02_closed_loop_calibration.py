@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import unittest
 
-from m02_closed_loop_calibration import paired_delta, sample_stream, calibrate, stream_seed, wilson
+from m02_closed_loop_calibration import paired_delta, sample_stream, calibrate, stream_seed, wilson, equivalence_diagnostics
 
 
 class ClosedLoopCalibrationTests(unittest.TestCase):
@@ -61,6 +61,34 @@ class ClosedLoopCalibrationTests(unittest.TestCase):
                                      row["coverage_against_estimated_reference"])
                 self.assertLessEqual(row["coverage_against_estimated_reference"],
                                      row["fraction_overlapping_reference_band"])
+
+    def test_equivalence_classification_is_conservative(self):
+        outside = equivalence_diagnostics(1, 4, 5, 0.006, 0.009, 0.005)
+        self.assertEqual(outside["reference_band_class"], "outside")
+        self.assertEqual(outside["apparent_false_equivalence_fraction_valid"], 0.25)
+        self.assertEqual(outside["equivalence_fraction_attempted"], 0.2)
+        ambiguous = equivalence_diagnostics(1, 4, 5, 0.004, 0.006, 0.005)
+        self.assertIsNone(ambiguous["apparent_false_equivalence_fraction_valid"])
+        self.assertIsNone(ambiguous["apparent_equivalence_detection_fraction_valid"])
+        inside = equivalence_diagnostics(2, 4, 5, -0.003, 0.004, 0.005)
+        self.assertEqual(inside["apparent_equivalence_detection_fraction_valid"], 0.5)
+
+    def test_bounded_multicell_calibration_pilot(self):
+        # Actual simulator; small CI smoke only, not a coverage assessment.
+        conditions = [c for c in self.spec["conditions"]
+                      if c["id"] in ("reference", "heavy_tail")]
+        rows = calibrate(self.spec, conditions, ["p", "pid"],
+                         12, 4, 6, 39, 731001000, 0.95)
+        self.assertEqual(len(rows), 12)
+        for row in rows:
+            diagnostic = json.loads(row["equivalence_diagnostics_json"])
+            self.assertEqual(len(diagnostic), len(self.spec["epsilon_grid"]))
+            self.assertEqual(row["reference_n"] + row["reference_failures"], 12)
+            for item in diagnostic:
+                self.assertLessEqual(item["equivalence_declarations"], row["valid_intervals"])
+            self.assertEqual(sorted(x["equivalence_declarations"] for x in diagnostic),
+                             [x["equivalence_declarations"] for x in diagnostic])
+        print("M02_CALIBRATION_SMOKE " + json.dumps(rows, allow_nan=False))
 
     def test_invalid_reference_size(self):
         with self.assertRaises(ValueError):
