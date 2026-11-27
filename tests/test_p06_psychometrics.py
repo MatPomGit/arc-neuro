@@ -3,7 +3,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 
-path=Path(__file__).resolve().parents[1]/"papers/cognition/MSC-CR-P06/materials/psychometrics.py"
+path=Path(__file__).resolve().parents[1]/"manuscripts/MSC-CR-P06/materials/psychometrics.py"
 spec=importlib.util.spec_from_file_location("p06_psychometrics",path)
 m=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)

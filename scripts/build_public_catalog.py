@@ -15,9 +15,9 @@ def safe_text(text:str)->str:
 
 
 def render(root:Path)->str:
-    source=strict_json_loads((root/"portfolio/projects.json").read_text(encoding="utf-8"))
+    source=strict_json_loads((root/"config/public-projects.json").read_text(encoding="utf-8"))
     if not isinstance(source, dict) or not isinstance(source.get("projects"), list):
-        raise ValueError("portfolio/projects.json requires an object with projects array")
+        raise ValueError("config/public-projects.json requires an object with projects array")
     projects=source["projects"]
     approvals=load_publication_approvals(root)
     policy_file=root/"config/pages-policy.json"
@@ -26,7 +26,7 @@ def render(root:Path)->str:
     public=[]
     for p in projects:
         if not isinstance(p, dict):
-            raise ValueError("portfolio/projects.json contains a non-object project")
+            raise ValueError("config/public-projects.json contains a non-object project")
         if p.get("visibility")!="public" or p.get("public_listing") is not True:
             continue
         url=p.get("pages_url")
@@ -55,7 +55,7 @@ def render(root:Path)->str:
 
 def main(argv:list[str]|None=None)->int:
     root=Path(__file__).resolve().parents[1]
-    path=root/"pages/projects.md"
+    path=root/"site/projects.md"
     try:
         rendered=render(root)
     except (OSError, ValueError) as exc:

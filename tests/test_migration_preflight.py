@@ -46,13 +46,13 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertFalse(report["migration_ready"])
 
     def test_replacing_a_legacy_id_does_not_rewrite_historical_evidence(self):
-        catalog = json.loads((ROOT / "papers/catalog.json").read_text(encoding="utf-8"))
+        catalog = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
         historical = next(row for row in catalog["papers"] if row["id"] == "MSC-ADHD-P01")
         historical["id"] = "MSC-ADHD-P99"
         metadata = [
-            json.loads((ROOT / "areas/index.json").read_text(encoding="utf-8")),
+            json.loads((ROOT / "config/research-lines.json").read_text(encoding="utf-8")),
             json.loads((ROOT / "program.json").read_text(encoding="utf-8")),
-            json.loads((ROOT / "portfolio/papers.json").read_text(encoding="utf-8")),
+            {"schema_version": 1, "papers": []},
         ]
         with patch("migration_preflight.json.loads", side_effect=[catalog, *metadata]):
             report = audit(ROOT)
@@ -71,12 +71,12 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         )
 
     def test_duplicate_msc_fails(self):
-        catalog = json.loads((ROOT / "papers/catalog.json").read_text(encoding="utf-8"))
+        catalog = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
         catalog["papers"][1]["id"] = catalog["papers"][0]["id"]
         other = [
-            json.loads((ROOT / "areas/index.json").read_text(encoding="utf-8")),
+            json.loads((ROOT / "config/research-lines.json").read_text(encoding="utf-8")),
             json.loads((ROOT / "program.json").read_text(encoding="utf-8")),
-            json.loads((ROOT / "portfolio/papers.json").read_text(encoding="utf-8")),
+            {"schema_version": 1, "papers": []},
         ]
         with patch("migration_preflight.json.loads", side_effect=[catalog, *other]):
             report = audit(ROOT)
@@ -87,7 +87,7 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         original = Path.is_symlink
         def synthetic_symlink(path):
             return (path.as_posix().endswith(
-                "papers/ndd/MSC-ADHD-P01/main.tex") or original(path))
+                "manuscripts/MSC-ADHD-P01/main.tex") or original(path))
         with patch.object(Path, "is_symlink", autospec=True,
                           side_effect=synthetic_symlink):
             report = audit(ROOT)

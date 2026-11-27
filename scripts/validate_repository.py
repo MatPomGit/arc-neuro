@@ -31,11 +31,11 @@ REQUIRED = (
     "CODE_OF_CONDUCT.md", "GOVERNANCE.md", "SUPPORT.md",
     ".github/AGENT_WORKFLOW.md",
     "LICENSE", "CITATION.cff", "VERSION", "mkdocs.yml",
-    "program.json", "areas/index.json", "areas/README.md",
-    "portfolio/projects.json", "portfolio/papers.json",
-    "portfolio/dependencies.json", "portfolio/publication-approvals.json", "portfolio/README.md",
+    "program.json", "config/research-lines.json",
+    "config/public-projects.json",
+    "config/publication-approvals.json",
     "equipment/README.md", "software/README.md",
-    "docs/index.md", "pages/index.md", "pages/projects.md", "docs/scientific-scope.md",
+    "docs/index.md", "site/index.md", "site/projects.md", "docs/scientific-scope.md",
     "docs/publication-policy.md", "docs/data-policy.md", "docs/governance.md",
     "docs/submodules.md", "docs/pages.md", "docs/decisions.md",
     "docs/issues.md", "docs/documentation.md", "docs/releases.md",
@@ -116,10 +116,10 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
             issues.append(f"Missing or empty required regular file: {rel}")
 
     meta = load_json(root, "program.json", issues)
-    areas = load_json(root, "areas/index.json", issues)
-    projects = load_json(root, "portfolio/projects.json", issues)
-    papers = load_json(root, "portfolio/papers.json", issues)
-    dependencies = load_json(root, "portfolio/dependencies.json", issues)
+    areas = load_json(root, "config/research-lines.json", issues)
+    projects = load_json(root, "config/public-projects.json", issues)
+    papers = {"papers": []}
+    dependencies = {"tools": [], "equipment": [], "datasets": []}
     state = load_project_state(root, issues)
     check_project_state(state, meta, projects, papers, issues)
     if meta.get("schema_version") != 1 or meta.get("type") != "arc-program":
@@ -137,11 +137,11 @@ def validate(root: Path, phase: str = "scaffold") -> list[str]:
     if meta.get("owner_of_raw_data") is not False or meta.get("public_catalog_policy") != "explicit_opt_in":
         issues.append("Unsafe programme data/catalog policy")
     if not isinstance(projects.get("projects"), list):
-        issues.append("portfolio/projects.json requires projects array")
+        issues.append("config/public-projects.json requires projects array")
     if not isinstance(papers.get("papers"), list):
         issues.append("portfolio/papers.json requires papers array")
     if not isinstance(areas.get("lines"), list):
-        issues.append("areas/index.json requires lines array")
+        issues.append("config/research-lines.json requires lines array")
     for key in ("tools", "equipment", "datasets"):
         if not isinstance(dependencies.get(key), list):
             issues.append(f"portfolio/dependencies.json requires {key} array")

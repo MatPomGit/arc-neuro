@@ -17,13 +17,13 @@ ARC Neuro integruje badania nad poznaniem, afektem, neurorozwojem, zachowaniem s
 
 ## Manuskrypty i projekty
 
-W katalogu [`papers/`](papers/README.md) znajduje się 69 prospektywnych szkiców i koncepcji manuskryptów LaTeX, opisanych w pięciu liniach badawczych. Stanowią one planowane badania, a nie potwierdzone wyniki eksperymentalne. Kanoniczne identyfikatory i źródła są ujęte w [katalogu manuskryptów](papers/catalog.json).
+W katalogu [`manuscripts/`](manuscripts/README.md) znajduje się 69 prospektywnych szkiców i koncepcji manuskryptów LaTeX, opisanych w pięciu liniach badawczych. Stanowią one planowane badania, a nie potwierdzone wyniki eksperymentalne. Kanoniczne identyfikatory i źródła są ujęte w [katalogu manuskryptów](manuscripts/catalog.json).
 
-[Rejestr projektów](portfolio/projects.json), [rejestr artykułów](portfolio/papers.json) i [rejestr zależności](portfolio/dependencies.json) opisują powiązania między pracami. Dane i protokoły projektów zewnętrznych pozostają w ich repozytoriach kanonicznych.
+[Katalog manuskryptów](manuscripts/catalog.json) określa identyfikatory, klasyfikację i stan prac. [Konfiguracja publicznych projektów](config/public-projects.json) obejmuje wyłącznie publiczne metadane projektów zewnętrznych. Dane i protokoły projektów zewnętrznych pozostają w ich repozytoriach kanonicznych.
 
 ## Publiczna witryna
 
-[Opis programu](pages/index.md), [obszary badawcze](pages/ndd.md) i [katalog artykułów](pages/articles.md) są przygotowane w odrębnym katalogu przeznaczonym na publiczną witrynę. [Katalog projektów](pages/projects.md) obejmuje tylko pozycje zatwierdzone do przedstawienia odbiorcom. Portal może prezentować logo ARC Neuro oraz logo konkretnego projektu, gdy ich wykorzystanie zostało dopuszczone.
+[Opis programu](site/index.md), [obszary badawcze](site/ndd.md) i [katalog artykułów](site/articles.md) są przygotowane w odrębnym katalogu przeznaczonym na publiczną witrynę. [Katalog projektów](site/projects.md) obejmuje tylko pozycje zatwierdzone do przedstawienia odbiorcom. Portal może prezentować logo ARC Neuro oraz logo konkretnego projektu, gdy ich wykorzystanie zostało dopuszczone.
 
 ## Metody i odtwarzalność
 

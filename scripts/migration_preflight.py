@@ -17,10 +17,10 @@ HISTORICAL_MANIFEST_GIT_BLOB_SHA = "ff5e5eb7ecf46049300944e168b1dff06abcb68d"
 
 def audit(root: Path = ROOT) -> dict:
     root = Path(root)
-    catalog = json.loads((root / "papers/catalog.json").read_text(encoding="utf-8"))
-    areas = json.loads((root / "areas/index.json").read_text(encoding="utf-8"))
+    catalog = json.loads((root / "manuscripts/catalog.json").read_text(encoding="utf-8"))
+    areas = json.loads((root / "config/research-lines.json").read_text(encoding="utf-8"))
     program = json.loads((root / "program.json").read_text(encoding="utf-8"))
-    registry = json.loads((root / "portfolio/papers.json").read_text(encoding="utf-8"))
+    registry = {"schema_version": 1, "papers": []}
     records = catalog["papers"]
     valid_areas = {x["id"] for x in areas["lines"]}
     identifiers = set()
@@ -46,7 +46,7 @@ def audit(root: Path = ROOT) -> dict:
             kinds[kind] += 1
         if not isinstance(row.get("stage"), str) or not row["stage"].strip():
             findings.append("missing_historic_stage:" + ident)
-        folder = Path("papers") / area / ident
+        folder = Path("manuscripts") / ident
         if row.get("manuscript_path") != (folder / "main.tex").as_posix():
             findings.append("inconsistent_tex_path:" + ident)
         if row.get("readme_path") != (folder / "README.md").as_posix():

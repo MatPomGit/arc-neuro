@@ -12,7 +12,7 @@ Zapisz w Issue rezultat, zakres, właściciela, kryteria odbioru, klasę R0–R3
 
 Zachowaj kanoniczną własność pojedynczego manuskryptu i unikaj przenoszenia kodu z `app-*` i `lib-*`. W publicznym ARC zapisuj tylko zaakceptowane metadane. Weryfikuj aktualność `remote_head_sha` oddzielnie od zamrożonego `snapshot_sha`, a nie zastępuj jednego drugim automatycznie.
 
-Kontrole offline: `python scripts/validate_repository.py --phase scaffold`, `python scripts/validate_documentation.py`, `python scripts/validate_pages.py`, `python scripts/validate_issues.py`, `python -m unittest discover -s tests -v` i `python scripts/build_public_catalog.py` z kontrolą diff dla `pages/projects.md`. Nie uruchamiaj niezaufanych zmian na stałych runnerach HomeServer/Andromeda. Testy źródłowe i recenzja prywatnych repozytoriów mają osobne uprawnienia.
+Kontrole offline: `python scripts/validate_repository.py --phase scaffold`, `python scripts/validate_documentation.py`, `python scripts/validate_pages.py`, `python scripts/validate_issues.py`, `python -m unittest discover -s tests -v` i `python scripts/build_public_catalog.py` z kontrolą diff dla `site/projects.md`. Nie uruchamiaj niezaufanych zmian na stałych runnerach HomeServer/Andromeda. Testy źródłowe i recenzja prywatnych repozytoriów mają osobne uprawnienia.
 
 ## Review i DoD
 

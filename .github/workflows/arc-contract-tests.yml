@@ -53,7 +53,7 @@ jobs:
           python3 -B scripts/validate_pages.py
           python3 -B scripts/validate_issues.py
       - name: Test EYE-P01 reference geometry
-        run: python3 -B -m unittest discover -s papers/psychometrics/MSC-EYE-P01 -p 'test_geometry.py' -v
+        run: python3 -B -m unittest discover -s manuscripts/MSC-EYE-P01 -p 'test_geometry.py' -v
       - name: Run offline unit tests
         shell: bash
         run: python3 -B -m unittest discover -s tests -v
@@ -62,20 +62,20 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m venv "${RUNNER_TEMP}/arc-neuro-anx-analysis"
-          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r papers/cognition/MSC-ANX-P01/reference/requirements-ci.txt
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r manuscripts/MSC-ANX-P01/reference/requirements-ci.txt
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip check
-          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_*.py' -v
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-ANX-P01/reference -p 'test_*.py' -v
       - name: Test CR-P12 signal detection, contrast and candidate bank
         run: |
-          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-CR-P12 -p 'test_*.py' -v
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-CR-P12 -p 'test_*.py' -v
       - name: Test DERA-P01 synthetic ordinal category risk
         run: |
-          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/psychometrics/MSC-DERA-P01 -p 'test_*.py' -v
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-DERA-P01 -p 'test_*.py' -v
       - name: Test local ANX browser demo contract
         shell: bash
         run: |
           set -euo pipefail
-          ref=papers/cognition/MSC-ANX-P01/reference
+          ref=manuscripts/MSC-ANX-P01/reference
           python3 -B "$ref/export_demo.py" "${RUNNER_TEMP}/anx-demo.json" --seed 42
           node --check "$ref/browser_demo/app.mjs"
           ANX_DEMO_MANIFEST="${RUNNER_TEMP}/anx-demo.json" node --test "$ref/browser_demo/core.test.mjs"
@@ -84,17 +84,17 @@ jobs:
         run: |
           set -euo pipefail
           venv="${RUNNER_TEMP}/arc-neuro-anx-analysis"
-          ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B papers/cognition/MSC-ANX-P01/reference/browser_demo/e2e.py -v
+          ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B manuscripts/MSC-ANX-P01/reference/browser_demo/e2e.py -v
       - name: Test CR-P12 browser prototype in local Chromium
         shell: bash
         run: |
           venv="${RUNNER_TEMP}/arc-neuro-anx-analysis"
-          ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B papers/cognition/MSC-CR-P12/browser_e2e.py
+          ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B manuscripts/MSC-CR-P12/browser_e2e.py
       - name: Record ANX environment provenance
         shell: bash
         run: |
           set -euo pipefail
-          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B papers/cognition/MSC-ANX-P01/reference/environment.py
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B manuscripts/MSC-ANX-P01/reference/environment.py
       - name: Read-only v2 migration inventory preflight
         run: python3 -B scripts/migration_preflight.py
       - name: Verify public GitHub review evidence
@@ -105,7 +105,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 -B scripts/build_public_catalog.py
-          git diff --exit-code -- pages/projects.md
+          git diff --exit-code -- site/projects.md
       - name: Compile all draft LaTeX files to isolated PDFs (not scientific validation)
         shell: bash
         run: |
@@ -122,4 +122,4 @@ jobs:
           python3 -m venv "${RUNNER_TEMP}/arc-neuro-mkdocs"
           "${RUNNER_TEMP}/arc-neuro-mkdocs/bin/python" -m pip install --disable-pip-version-check mkdocs==1.6.1
           "${RUNNER_TEMP}/arc-neuro-mkdocs/bin/python" -m mkdocs build --strict --clean
-          python3 -B scripts/verify_site_output.py site
+          python3 -B scripts/verify_site_output.py build/site

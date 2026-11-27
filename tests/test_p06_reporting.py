@@ -9,7 +9,7 @@ from unittest.mock import patch
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-path=Path(__file__).resolve().parents[1]/"papers/cognition/MSC-CR-P06/materials/reporting.py"
+path=Path(__file__).resolve().parents[1]/"manuscripts/MSC-CR-P06/materials/reporting.py"
 spec=importlib.util.spec_from_file_location("p06_reporting",path)
 m=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)

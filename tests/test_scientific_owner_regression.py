@@ -5,7 +5,7 @@ import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "papers/catalog.json"
+CATALOG = ROOT / "manuscripts/catalog.json"
 OWNER_FIELD = re.compile(
     r"(?im)^(?:\*\*Właściciel naukowy(?: i autor szkicu)?:\*\*|scientific_owner:)"
     r"[ \t]*(?P<value>[^\r\n]+)"
@@ -27,7 +27,7 @@ def inventory():
         raise AssertionError("Duplicate manuscript ids")
     findings = {}
     for p in records:
-        path = ROOT / "papers" / p["area"] / p["id"] / "README.md"
+        path = ROOT / "manuscripts" / p["id"] / "README.md"
         if path.relative_to(ROOT).as_posix() != p["readme_path"]:
             raise AssertionError(f"Invalid README path in catalog: {p['id']}")
         if not path.is_file() or path.is_symlink():

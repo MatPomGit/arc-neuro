@@ -53,7 +53,7 @@ def project_digest(project: dict) -> str:
 
 def load_publication_approvals(root: Path) -> dict[str, dict]:
     """Invalid/missing manifests fail closed, including duplicate entries."""
-    path = root / "portfolio/publication-approvals.json"
+    path = root / "config/publication-approvals.json"
     try:
         data = strict_json_loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, ValueError) as exc:

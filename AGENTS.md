@@ -1,8 +1,8 @@
 # Zasady zmian i przeglądu ARC Neuro
 
-Czytaj po kolei: `program.json`, `PROJECT_STATE.yaml`, `RESEARCH.md`, `ARCHITECTURE.md`, `portfolio/projects.json`, `portfolio/papers.json`, `portfolio/dependencies.json`, `docs/governance.md`.
+Czytaj po kolei: `program.json`, `PROJECT_STATE.yaml`, `RESEARCH.md`, `ARCHITECTURE.md`, `config/public-projects.json`, `docs/governance.md`.
 
-1. To repozytorium **indeksuje** badania; nie kopiuj manuskryptów, wyników pomiarów, kodu `app-*` ani `lib-*`.
+1. To repozytorium przechowuje własne manuskrypty i indeksuje badania zewnętrzne; nie kopiuj cudzych manuskryptów, wyników pomiarów ani kodu `app-*` i `lib-*`.
 2. Każdy manuskrypt ma jedno repozytorium kanoniczne i jedno `project_id`; odnośniki między programami są `related`, nie drugą kopią.
 3. Przed audytem aktualnego programu wykonaj `python scripts/bootstrap.py --mode audit-live` z uwierzytelnionym dostępem do repozytoriów. Raportuj `CURRENT`, `STALE` i `UNAVAILABLE` osobno. Nie opieraj aktualnej recenzji wyłącznie na starym gitlinku.
 4. Przed odtworzeniem wyników użyj przypiętego commitu i manifestu eksperymentu (`--mode reproduce`). Nigdy nie zastępuj zamrożonego SNAPSHOT aktualnym `main` podczas analizy historycznej.
@@ -19,13 +19,13 @@ Czytaj po kolei: `program.json`, `PROJECT_STATE.yaml`, `RESEARCH.md`, `ARCHITECT
 
 ## Granice publicznej witryny i Issues
 
-Dla GitHub Pages używaj tylko `pages/` z jawną listą `config/pages-policy.json`. `docs/`, `.github/`, `papers/`, `portfolio/` i `equipment/` nie mogą stać się źródłem witryny. Nie publikuj instrukcji dla agentów, notatek edytorskich, opisów współtworzenia repo ani poufnych mapowań. Nie dodawaj `CONTRIBUTING.md`.
+Dla GitHub Pages używaj tylko `site/` z jawną listą `config/pages-policy.json`. `docs/`, `.github/`, `manuscripts/`, `equipment/` nie mogą stać się źródłem witryny. Nie publikuj instrukcji dla agentów, notatek edytorskich, opisów współtworzenia repo ani poufnych mapowań. Nie dodawaj `CONTRIBUTING.md`.
 
 Przyjmowanie zadań i ich triage wykonuj zgodnie z [docs/issues.md](docs/issues.md). Nie twórz duplikatów Issues i PR, nie twórz alternatywnej kolejki. Jeden poprawny typ intencji z kanonicznego katalogu, pojedynczy `agent-work-classification:v1`, obowiązkowy wynik, zakres, testy i bramki. Natywne Parent/Depends on/Blocks potwierdzaj odczytem GitHub. Nie oznaczaj tekstowego linku jako relacji natywnej.
 
 **DoR:** potwierdzone repo, base SHA, istniejące zależności, oczekiwany wynik, właściciel, ryzyko R0–R3, kontrola autoryzacji i plan testów. **DoD:** testy dokładnego SHA, przegląd techniczny, dokumentacja, weryfikacja rzeczywistego merge/deploy i pozostawione blokady. R2/R3 wymagają odpowiednich testów i kontroli ryzyka, nie wymagają niezależnego review; udostępnienie danych i publikacja wymagają dodatkowo decyzji właściciela. Etykiety, komentarze i klasyfikacja nie nadają prawa wykonania. Procedura: [.github/AGENT_WORKFLOW.md](.github/AGENT_WORKFLOW.md).
 
 
-13. Publiczne katalogi roboczych artykułów w `papers/` mają rzeczywiste nazwy `MSC-...`, tytuły i przypisania naukowe. Zakaz tworzenia anonimowych `slot-NNN` i ukrywania tytułów wyłącznie z powodu publiczności repozytorium. Ograniczenia jawności dotyczą poufnych danych, kodu i odnośników do prywatnych źródeł; zatwierdzenia Pages pozostają odrębne.
+13. Publiczne katalogi roboczych artykułów w `manuscripts/` mają rzeczywiste nazwy `MSC-...`, tytuły i przypisania naukowe. Zakaz tworzenia anonimowych `slot-NNN` i ukrywania tytułów wyłącznie z powodu publiczności repozytorium. Ograniczenia jawności dotyczą poufnych danych, kodu i odnośników do prywatnych źródeł; zatwierdzenia Pages pozostają odrębne.
 
-14. W każdej własnej publikacji i szkicu naukowym programu, także w `papers/`, jawnie wskazuj `Mateusz Pomianek` jako właściciela naukowego (`scientific_owner`). W polach autora manuskryptu uwzględniaj go, gdy jest autorem pracy; nie usuwaj potwierdzonych współautorów i nie przypisuj autorstwa cudzych publikacji. Nie utożsamiaj właściciela naukowego z lokalizacją kanonicznych źródeł ani z podmiotem praw autorskich. Brak wpisu w publicznym portfolio nie unieważnia tego przypisania. Podczas tworzenia i audytu manuskryptów sprawdzaj zgodność deklaracji autora, README i metadanych bez fabrykowania niepotwierdzonych informacji.
+14. W każdej własnej publikacji i szkicu naukowym programu, także w `manuscripts/`, jawnie wskazuj `Mateusz Pomianek` jako właściciela naukowego (`scientific_owner`). W polach autora manuskryptu uwzględniaj go, gdy jest autorem pracy; nie usuwaj potwierdzonych współautorów i nie przypisuj autorstwa cudzych publikacji. Nie utożsamiaj właściciela naukowego z lokalizacją kanonicznych źródeł ani z podmiotem praw autorskich. Brak wpisu w publicznym portfolio nie unieważnia tego przypisania. Podczas tworzenia i audytu manuskryptów sprawdzaj zgodność deklaracji autora, README i metadanych bez fabrykowania niepotwierdzonych informacji.

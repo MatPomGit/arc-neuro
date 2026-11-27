@@ -3,7 +3,7 @@ import sys
 import random
 import unittest
 from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"papers/cognition/MSC-CR-P06/materials"))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"manuscripts/MSC-CR-P06/materials"))
 import imputation as p
 import analysis as a
 sys.path.pop(0)

@@ -16,5 +16,5 @@
 ## Zatwierdzenie publicznych metadanych (gdy `public_listing=true`)
 
 - [ ] Właściciel rzeczywiście przejrzał dokładny wpis projektu, jego URL i uprawnienia publikacyjne.
-- [ ] Rejestr `portfolio/publication-approvals.json` wskazuje istniejącą recenzję GitHub i SHA-256 niezmienionego wpisu.
+- [ ] Rejestr `config/publication-approvals.json` wskazuje istniejącą recenzję GitHub i SHA-256 niezmienionego wpisu.
 - [ ] Zweryfikowano autora i treść wskazanej recenzji w GitHub; poprawność URL w CI nie stanowi dowodu zgody.

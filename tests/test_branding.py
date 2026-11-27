@@ -21,13 +21,13 @@ class BrandingTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name) / "arc"
         shutil.copytree(ROOT, self.root, ignore=shutil.ignore_patterns(
-            ".git", "site", "__pycache__", ".venv"))
+            ".git", "build", "__pycache__", ".venv"))
 
     def tearDown(self):
         self.tmp.cleanup()
 
     def install(self, path: str) -> None:
-        image = self.root / "pages" / path
+        image = self.root / "site" / path
         image.parent.mkdir(parents=True, exist_ok=True)
         image.write_bytes(b"\x89PNG\r\n\x1a\n" + b"synthetic-approved-logo")
         policy_path = self.root / "config/pages-policy.json"
@@ -52,7 +52,7 @@ class BrandingTests(unittest.TestCase):
         self.assertEqual([], check_pages(self.root))
 
     def test_unapproved_programme_logo_blocks_header(self):
-        image = self.root / "pages/assets/brand/logo.png"
+        image = self.root / "site/assets/brand/logo.png"
         image.parent.mkdir(parents=True)
         image.write_bytes(b"logo")
         with self.assertRaisesRegex(ValueError, "Unapproved"):
@@ -61,7 +61,7 @@ class BrandingTests(unittest.TestCase):
 
     def test_wrong_logo_hash_is_rejected(self):
         self.install("assets/brand/logo.png")
-        (self.root / "pages/assets/brand/logo.png").write_bytes(b"different")
+        (self.root / "site/assets/brand/logo.png").write_bytes(b"different")
         with self.assertRaisesRegex(ValueError, "SHA-256"):
             expected_config(self.root)
 

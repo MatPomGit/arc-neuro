@@ -10,8 +10,8 @@
       "title": "Redukcja obciążenia poznawczego dzięki kontekstowej adaptacji interfejsu Smart Home",
       "record_kind": "IDEA",
       "stage": "SOURCE_PLANNED_ARTICLE",
-      "manuscript_path": "papers/cognition/MSC-AAL-P02/main.tex",
-      "readme_path": "papers/cognition/MSC-AAL-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-AAL-P02/main.tex",
+      "readme_path": "manuscripts/MSC-AAL-P02/README.md"
     },
     {
       "id": "MSC-AAL-P06",
@@ -19,8 +19,8 @@
       "title": "Autonomia użytkownika, zaufanie i obciążenie opiekuna przy eskalacji alarmów AAL",
       "record_kind": "IDEA",
       "stage": "NEW_UNVERIFIED_IDEA",
-      "manuscript_path": "papers/social/MSC-AAL-P06/main.tex",
-      "readme_path": "papers/social/MSC-AAL-P06/README.md"
+      "manuscript_path": "manuscripts/MSC-AAL-P06/main.tex",
+      "readme_path": "manuscripts/MSC-AAL-P06/README.md"
     },
     {
       "id": "MSC-AAL-P08",
@@ -28,8 +28,8 @@
       "title": "Pamięć prospektywna po przerwaniu zadania: przypomnienia kontekstowe wobec czasowych",
       "record_kind": "IDEA",
       "stage": "NEW_CROSS_PROGRAM_IDEA_HOLD",
-      "manuscript_path": "papers/cognition/MSC-AAL-P08/main.tex",
-      "readme_path": "papers/cognition/MSC-AAL-P08/README.md"
+      "manuscript_path": "manuscripts/MSC-AAL-P08/main.tex",
+      "readme_path": "manuscripts/MSC-AAL-P08/README.md"
     },
     {
       "id": "MSC-ADHD-P01",
@@ -37,8 +37,8 @@
       "title": "Gra zamkniętej pętli: wyzwanie, regulacja i powrót do celu u dzieci z ADHD",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P01/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P01/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P01/README.md"
     },
     {
       "id": "MSC-ADHD-P02",
@@ -46,8 +46,8 @@
       "title": "Wartość inkrementalna zachowania twarzy względem telemetrii zadania",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P02/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P02/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P02/README.md"
     },
     {
       "id": "MSC-ADHD-P03",
@@ -55,8 +55,8 @@
       "title": "Wpływ obustronnej stymulacji słuchowej na regulację",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P03/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P03/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P03/README.md"
     },
     {
       "id": "MSC-ADHD-P05",
@@ -64,8 +64,8 @@
       "title": "EEG Muse S Athena zsynchronizowane ze zdarzeniami regulacji",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P05/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P05/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P05/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P05/README.md"
     },
     {
       "id": "MSC-ADHD-P06",
@@ -73,8 +73,8 @@
       "title": "Synergia EEG, mimiki i zachowania w pomiarze recovery",
       "record_kind": "IDEA",
       "stage": "DEFER",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P06/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P06/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P06/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P06/README.md"
     },
     {
       "id": "MSC-ADHD-P07",
@@ -82,8 +82,8 @@
       "title": "Indywidualny dobór strategii regulacji i skuteczność w kontekście",
       "record_kind": "IDEA",
       "stage": "DEFER",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P07/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P07/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P07/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P07/README.md"
     },
     {
       "id": "MSC-ADHD-P08",
@@ -91,8 +91,8 @@
       "title": "Podłużny transfer uczenia regulacji poza grę",
       "record_kind": "IDEA",
       "stage": "DEFER",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P08/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P08/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P08/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P08/README.md"
     },
     {
       "id": "MSC-ADHD-P09",
@@ -100,8 +100,8 @@
       "title": "Odporność ekologiczna pomiaru recovery między urządzeniami i kontekstami",
       "record_kind": "IDEA",
       "stage": "DEFER",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P09/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P09/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P09/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P09/README.md"
     },
     {
       "id": "MSC-ADHD-P10",
@@ -109,8 +109,8 @@
       "title": "Wnioskowanie o czasie recovery przy cenzorowaniu i niepełnej obserwacji",
       "record_kind": "IDEA",
       "stage": "DEFER",
-      "manuscript_path": "papers/ndd/MSC-ADHD-P10/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-P10/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-P10/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-P10/README.md"
     },
     {
       "id": "MSC-ADHD-R01",
@@ -118,8 +118,8 @@
       "title": "Przegląd czasowych miar powrotu do regulacji",
       "record_kind": "MANUSCRIPT",
       "stage": "REVIEW_IN_PROGRESS",
-      "manuscript_path": "papers/ndd/MSC-ADHD-R01/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-R01/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-R01/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-R01/README.md"
     },
     {
       "id": "MSC-ADHD-R02",
@@ -127,8 +127,8 @@
       "title": "Przegląd niskokanałowego i mobilnego EEG w interwencjach poznawczych",
       "record_kind": "MANUSCRIPT",
       "stage": "REVIEW_IN_PROGRESS",
-      "manuscript_path": "papers/ndd/MSC-ADHD-R02/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-R02/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-R02/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-R02/README.md"
     },
     {
       "id": "MSC-ADHD-S02",
@@ -136,8 +136,8 @@
       "title": "Reprodukowany schemat zdarzeń recovery i deterministyczny replay",
       "record_kind": "MANUSCRIPT",
       "stage": "METHODS_DRAFT",
-      "manuscript_path": "papers/ndd/MSC-ADHD-S02/main.tex",
-      "readme_path": "papers/ndd/MSC-ADHD-S02/README.md"
+      "manuscript_path": "manuscripts/MSC-ADHD-S02/main.tex",
+      "readme_path": "manuscripts/MSC-ADHD-S02/README.md"
     },
     {
       "id": "MSC-AFFECT-P05",
@@ -145,8 +145,8 @@
       "title": "Kinematyka dłoni jako wskaźnik wymagań poznawczych ponad intensywność ruchu",
       "record_kind": "MANUSCRIPT",
       "stage": "PLANNED",
-      "manuscript_path": "papers/affect/MSC-AFFECT-P05/main.tex",
-      "readme_path": "papers/affect/MSC-AFFECT-P05/README.md"
+      "manuscript_path": "manuscripts/MSC-AFFECT-P05/main.tex",
+      "readme_path": "manuscripts/MSC-AFFECT-P05/README.md"
     },
     {
       "id": "MSC-ANX-P01",
@@ -154,8 +154,8 @@
       "title": "Nasilenie objawów lękowych a elastyczność poznawcza i strategie podejmowania decyzji w warunkach niepewności",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/cognition/MSC-ANX-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-ANX-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-ANX-P01/main.tex",
+      "readme_path": "manuscripts/MSC-ANX-P01/README.md"
     },
     {
       "id": "MSC-AR-P16",
@@ -163,8 +163,8 @@
       "title": "Paradoks emocjonalnej adaptacji: ochrona przed dyskomfortem a tolerancja frustracji",
       "record_kind": "IDEA",
       "stage": "IDEA_UNREVIEWED",
-      "manuscript_path": "papers/affect/MSC-AR-P16/main.tex",
-      "readme_path": "papers/affect/MSC-AR-P16/README.md"
+      "manuscript_path": "manuscripts/MSC-AR-P16/main.tex",
+      "readme_path": "manuscripts/MSC-AR-P16/README.md"
     },
     {
       "id": "MSC-AR-P24",
@@ -172,8 +172,8 @@
       "title": "Długotrwałe używanie agenta jako regulatora emocji a własne strategie samoregulacji",
       "record_kind": "IDEA",
       "stage": "IDEA_UNREVIEWED",
-      "manuscript_path": "papers/affect/MSC-AR-P24/main.tex",
-      "readme_path": "papers/affect/MSC-AR-P24/README.md"
+      "manuscript_path": "manuscripts/MSC-AR-P24/main.tex",
+      "readme_path": "manuscripts/MSC-AR-P24/README.md"
     },
     {
       "id": "MSC-ATTACH-P01",
@@ -181,8 +181,8 @@
       "title": "Teoria dynamicznej regulacji przywiązania u dorosłych",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/social/MSC-ATTACH-P01/main.tex",
-      "readme_path": "papers/social/MSC-ATTACH-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-ATTACH-P01/main.tex",
+      "readme_path": "manuscripts/MSC-ATTACH-P01/README.md"
     },
     {
       "id": "MSC-ATTACH-P02",
@@ -190,8 +190,8 @@
       "title": "Identyfikowalność mechanizmów regulacji relacyjnej",
       "record_kind": "MANUSCRIPT",
       "stage": "METHODS_DRAFT",
-      "manuscript_path": "papers/social/MSC-ATTACH-P02/main.tex",
-      "readme_path": "papers/social/MSC-ATTACH-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-ATTACH-P02/main.tex",
+      "readme_path": "manuscripts/MSC-ATTACH-P02/README.md"
     },
     {
       "id": "MSC-ATTACH-P03",
@@ -199,8 +199,8 @@
       "title": "Opracowanie i walidacja skali regulacji relacyjnej",
       "record_kind": "MANUSCRIPT",
       "stage": "PLANNED",
-      "manuscript_path": "papers/social/MSC-ATTACH-P03/main.tex",
-      "readme_path": "papers/social/MSC-ATTACH-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-ATTACH-P03/main.tex",
+      "readme_path": "manuscripts/MSC-ATTACH-P03/README.md"
     },
     {
       "id": "MSC-ATTACH-P04",
@@ -208,8 +208,8 @@
       "title": "Badanie podłużne predykcji zachowania w relacjach",
       "record_kind": "MANUSCRIPT",
       "stage": "PLANNED",
-      "manuscript_path": "papers/social/MSC-ATTACH-P04/main.tex",
-      "readme_path": "papers/social/MSC-ATTACH-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-ATTACH-P04/main.tex",
+      "readme_path": "manuscripts/MSC-ATTACH-P04/README.md"
     },
     {
       "id": "MSC-ATTACH-P05",
@@ -217,8 +217,8 @@
       "title": "Informacyjne braki danych i nieregularne interwały pomiaru przywiązania",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/social/MSC-ATTACH-P05/main.tex",
-      "readme_path": "papers/social/MSC-ATTACH-P05/README.md"
+      "manuscript_path": "manuscripts/MSC-ATTACH-P05/main.tex",
+      "readme_path": "manuscripts/MSC-ATTACH-P05/README.md"
     },
     {
       "id": "MSC-ATTACH-P06",
@@ -226,8 +226,8 @@
       "title": "Rozdzielność bliskości i autonomii w różnych kontekstach",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/social/MSC-ATTACH-P06/main.tex",
-      "readme_path": "papers/social/MSC-ATTACH-P06/README.md"
+      "manuscript_path": "manuscripts/MSC-ATTACH-P06/main.tex",
+      "readme_path": "manuscripts/MSC-ATTACH-P06/README.md"
     },
     {
       "id": "MSC-CR-P01",
@@ -235,8 +235,8 @@
       "title": "Jakość dowodów i retoryczna perswazja LLM: niezależny wpływ na trafność osądu",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P01/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P01/README.md"
     },
     {
       "id": "MSC-CR-P02",
@@ -244,8 +244,8 @@
       "title": "Podłużny transfer samodzielnego osądu u dorosłych po korzystaniu z AI",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P02/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P02/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P02/README.md"
     },
     {
       "id": "MSC-CR-P03",
@@ -253,8 +253,8 @@
       "title": "Językowa dyfuzja norm w sieciach społecznych z AI",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/social/MSC-CR-P03/main.tex",
-      "readme_path": "papers/social/MSC-CR-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P03/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P03/README.md"
     },
     {
       "id": "MSC-CR-P04",
@@ -262,8 +262,8 @@
       "title": "Ramowanie porad LLM i brakujący kontekst a rozpoznanie nieuprawnionych założeń",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P04/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P04/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P04/README.md"
     },
     {
       "id": "MSC-CR-P05",
@@ -271,8 +271,8 @@
       "title": "Rozwojowa mapa zaufania i samodzielnego myślenia wobec AI",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P05/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P05/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P05/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P05/README.md"
     },
     {
       "id": "MSC-CR-P06",
@@ -280,8 +280,8 @@
       "title": "Krótka edukacja o AI a niezależność poznawcza",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P06/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P06/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P06/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P06/README.md"
     },
     {
       "id": "MSC-CR-P07",
@@ -289,8 +289,8 @@
       "title": "Pewny ton pierwszej odpowiedzi LLM a bezkrytyczne przyjmowanie rekomendacji",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P07/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P07/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P07/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P07/README.md"
     },
     {
       "id": "MSC-CR-P08",
@@ -298,8 +298,8 @@
       "title": "Naturalne prompty uczniów a ujawnianie założeń i jakość własnego uzasadnienia",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P08/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P08/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P08/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P08/README.md"
     },
     {
       "id": "MSC-CR-P09",
@@ -307,8 +307,8 @@
       "title": "Porady AI, odpowiedzialność i relacje rówieśnicze",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/social/MSC-CR-P09/main.tex",
-      "readme_path": "papers/social/MSC-CR-P09/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P09/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P09/README.md"
     },
     {
       "id": "MSC-CR-P10",
@@ -316,8 +316,8 @@
       "title": "Etap edukacji a odroczony transfer samodzielnego osądu u uczniów korzystających z AI",
       "record_kind": "MANUSCRIPT",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/cognition/MSC-CR-P10/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P10/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P10/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P10/README.md"
     },
     {
       "id": "MSC-CR-P11",
@@ -325,8 +325,8 @@
       "title": "Komputacyjny benchmark jakości argumentów i retoryki LLM",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/cognition/MSC-CR-P11/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P11/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P11/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P11/README.md"
     },
     {
       "id": "MSC-CR-P12",
@@ -334,8 +334,8 @@
       "title": "Transfer odporności poznawczej między dziedzinami",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/cognition/MSC-CR-P12/main.tex",
-      "readme_path": "papers/cognition/MSC-CR-P12/README.md"
+      "manuscript_path": "manuscripts/MSC-CR-P12/main.tex",
+      "readme_path": "manuscripts/MSC-CR-P12/README.md"
     },
     {
       "id": "MSC-DERA-P01",
@@ -343,8 +343,8 @@
       "title": "Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem",
       "record_kind": "IDEA",
       "stage": "CANDIDATE_VALIDATION_DATA_REQUIRED",
-      "manuscript_path": "papers/psychometrics/MSC-DERA-P01/main.tex",
-      "readme_path": "papers/psychometrics/MSC-DERA-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-DERA-P01/main.tex",
+      "readme_path": "manuscripts/MSC-DERA-P01/README.md"
     },
     {
       "id": "MSC-EEG-P01",
@@ -352,8 +352,8 @@
       "title": "Kandydat: publikacja metod oprogramowania EEG Neurolyze",
       "record_kind": "IDEA",
       "stage": "PROPOSED",
-      "manuscript_path": "papers/psychometrics/MSC-EEG-P01/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EEG-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-EEG-P01/main.tex",
+      "readme_path": "manuscripts/MSC-EEG-P01/README.md"
     },
     {
       "id": "MSC-EEG-P02",
@@ -361,8 +361,8 @@
       "title": "Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze",
       "record_kind": "IDEA",
       "stage": "PROPOSED",
-      "manuscript_path": "papers/psychometrics/MSC-EEG-P02/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EEG-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-EEG-P02/main.tex",
+      "readme_path": "manuscripts/MSC-EEG-P02/README.md"
     },
     {
       "id": "MSC-EYE-P01",
@@ -370,8 +370,8 @@
       "title": "Trafność punktowego pomiaru spojrzenia z kamery Android: kalibracja i powtarzalność",
       "record_kind": "MANUSCRIPT",
       "stage": "PLANNED",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P01/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-EYE-P01/main.tex",
+      "readme_path": "manuscripts/MSC-EYE-P01/README.md"
     },
     {
       "id": "MSC-EYE-P02",
@@ -379,8 +379,8 @@
       "title": "Selektor jakości gaze przy zmianie telefonu i warunków",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P02/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-EYE-P02/main.tex",
+      "readme_path": "manuscripts/MSC-EYE-P02/README.md"
     },
     {
       "id": "MSC-EYE-P03",
@@ -388,8 +388,8 @@
       "title": "Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków",
       "record_kind": "IDEA",
       "stage": "IDEA_DEFINED",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P03/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-EYE-P03/main.tex",
+      "readme_path": "manuscripts/MSC-EYE-P03/README.md"
     },
     {
       "id": "MSC-EYE-P04",
@@ -397,8 +397,8 @@
       "title": "Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia",
       "record_kind": "IDEA",
       "stage": "IDEA_DEFINED",
-      "manuscript_path": "papers/psychometrics/MSC-EYE-P04/main.tex",
-      "readme_path": "papers/psychometrics/MSC-EYE-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-EYE-P04/main.tex",
+      "readme_path": "manuscripts/MSC-EYE-P04/README.md"
     },
     {
       "id": "MSC-FAT-P01",
@@ -406,8 +406,8 @@
       "title": "Dynamika zmęczenia poznawczego a efektywność uwagi podtrzymywanej i kontrola wykonawcza u młodych dorosłych",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/cognition/MSC-FAT-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-FAT-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-FAT-P01/main.tex",
+      "readme_path": "manuscripts/MSC-FAT-P01/README.md"
     },
     {
       "id": "MSC-INTERO-P01",
@@ -415,8 +415,8 @@
       "title": "Świadomość interoceptywna i aleksytymia jako korelaty trudności w regulacji emocji u osób dorosłych",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/affect/MSC-INTERO-P01/main.tex",
-      "readme_path": "papers/affect/MSC-INTERO-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-INTERO-P01/main.tex",
+      "readme_path": "manuscripts/MSC-INTERO-P01/README.md"
     },
     {
       "id": "MSC-MGR-P01",
@@ -424,8 +424,8 @@
       "title": "Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe",
       "record_kind": "IDEA",
       "stage": "CANDIDATE_THESIS_DATA_REQUIRED",
-      "manuscript_path": "papers/affect/MSC-MGR-P01/main.tex",
-      "readme_path": "papers/affect/MSC-MGR-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-MGR-P01/main.tex",
+      "readme_path": "manuscripts/MSC-MGR-P01/README.md"
     },
     {
       "id": "MSC-NDD-P01",
@@ -433,8 +433,8 @@
       "title": "Architektura kontekstowej fuzji multimodalnej dla NDD",
       "record_kind": "MANUSCRIPT",
       "stage": "REVISION",
-      "manuscript_path": "papers/ndd/MSC-NDD-P01/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-NDD-P01/main.tex",
+      "readme_path": "manuscripts/MSC-NDD-P01/README.md"
     },
     {
       "id": "MSC-NDD-P02",
@@ -442,8 +442,8 @@
       "title": "Kontekstowe modelowanie zachowania dzieci w środowisku Montessori",
       "record_kind": "MANUSCRIPT",
       "stage": "PREANALYSIS",
-      "manuscript_path": "papers/ndd/MSC-NDD-P02/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-NDD-P02/main.tex",
+      "readme_path": "manuscripts/MSC-NDD-P02/README.md"
     },
     {
       "id": "MSC-NDD-P03",
@@ -451,8 +451,8 @@
       "title": "Niezgodności między obserwatorami jako informacja zależna od kontekstu",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/ndd/MSC-NDD-P03/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-NDD-P03/main.tex",
+      "readme_path": "manuscripts/MSC-NDD-P03/README.md"
     },
     {
       "id": "MSC-NDD-P04",
@@ -460,8 +460,8 @@
       "title": "Triangulacja ocen rodziców i nauczycieli",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/ndd/MSC-NDD-P04/main.tex",
-      "readme_path": "papers/ndd/MSC-NDD-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-NDD-P04/main.tex",
+      "readme_path": "manuscripts/MSC-NDD-P04/README.md"
     },
     {
       "id": "MSC-PAIN-P01",
@@ -469,8 +469,8 @@
       "title": "Od zasługiwania na cierpienie do narzucania wyrzeczeń innym: teoria",
       "record_kind": "MANUSCRIPT",
       "stage": "ACTIVE",
-      "manuscript_path": "papers/social/MSC-PAIN-P01/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P01/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P01/README.md"
     },
     {
       "id": "MSC-PAIN-P02",
@@ -478,8 +478,8 @@
       "title": "Lęk przed szczęściem, przyszłością i unikanie osobistego kosztu",
       "record_kind": "MANUSCRIPT",
       "stage": "SYNTHETIC_ONLY",
-      "manuscript_path": "papers/social/MSC-PAIN-P02/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P02/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P02/README.md"
     },
     {
       "id": "MSC-PAIN-P03",
@@ -487,8 +487,8 @@
       "title": "Religijność, normy moralne, karanie i współczucie",
       "record_kind": "MANUSCRIPT",
       "stage": "PLAN",
-      "manuscript_path": "papers/social/MSC-PAIN-P03/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P03/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P03/README.md"
     },
     {
       "id": "MSC-PAIN-P04",
@@ -496,8 +496,8 @@
       "title": "Korekta faktów a normy moralne: warunkowa metaanaliza",
       "record_kind": "MANUSCRIPT",
       "stage": "CONDITIONAL",
-      "manuscript_path": "papers/social/MSC-PAIN-P04/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P04/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P04/README.md"
     },
     {
       "id": "MSC-PAIN-P05",
@@ -505,8 +505,8 @@
       "title": "Neuronaukowe wyjaśnianie krzywdy i granice wnioskowania odwrotnego",
       "record_kind": "MANUSCRIPT",
       "stage": "PLAN",
-      "manuscript_path": "papers/social/MSC-PAIN-P05/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P05/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P05/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P05/README.md"
     },
     {
       "id": "MSC-PAIN-P06",
@@ -514,8 +514,8 @@
       "title": "Model agentowy karania i współczucia w sieciach społecznych",
       "record_kind": "MANUSCRIPT",
       "stage": "SYNTHETIC_ONLY",
-      "manuscript_path": "papers/social/MSC-PAIN-P06/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P06/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P06/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P06/README.md"
     },
     {
       "id": "MSC-PAIN-P07",
@@ -523,8 +523,8 @@
       "title": "Eksperymentalne odróżnianie motywów ponoszenia osobistego kosztu",
       "record_kind": "IDEA",
       "stage": "PROSPECTIVE",
-      "manuscript_path": "papers/social/MSC-PAIN-P07/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P07/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P07/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P07/README.md"
     },
     {
       "id": "MSC-PAIN-P08",
@@ -532,8 +532,8 @@
       "title": "Rozbieżność aktualizacji faktów i norm moralnych",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/social/MSC-PAIN-P08/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P08/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P08/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P08/README.md"
     },
     {
       "id": "MSC-PAIN-P09",
@@ -541,8 +541,8 @@
       "title": "Polityki decyzyjne zależne od odpowiedzialności sprawcy",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/social/MSC-PAIN-P09/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P09/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P09/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P09/README.md"
     },
     {
       "id": "MSC-PAIN-P10",
@@ -550,8 +550,8 @@
       "title": "Otwarty audyt błędów wnioskowania odwrotnego w neurokognicji",
       "record_kind": "IDEA",
       "stage": "IDEA_REVIEW",
-      "manuscript_path": "papers/social/MSC-PAIN-P10/main.tex",
-      "readme_path": "papers/social/MSC-PAIN-P10/README.md"
+      "manuscript_path": "manuscripts/MSC-PAIN-P10/main.tex",
+      "readme_path": "manuscripts/MSC-PAIN-P10/README.md"
     },
     {
       "id": "MSC-SAPIENS-P01",
@@ -559,8 +559,8 @@
       "title": "Reakcje psychologiczne na ucieleśnioną autonomię humanoida",
       "record_kind": "MANUSCRIPT",
       "stage": "ARCHIVED_REPOSITORY",
-      "manuscript_path": "papers/social/MSC-SAPIENS-P01/main.tex",
-      "readme_path": "papers/social/MSC-SAPIENS-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-SAPIENS-P01/main.tex",
+      "readme_path": "manuscripts/MSC-SAPIENS-P01/README.md"
     },
     {
       "id": "MSC-SAPIENS-P02",
@@ -568,8 +568,8 @@
       "title": "Walidacja miary postrzeganej sprawczości humanoida",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/social/MSC-SAPIENS-P02/main.tex",
-      "readme_path": "papers/social/MSC-SAPIENS-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-SAPIENS-P02/main.tex",
+      "readme_path": "manuscripts/MSC-SAPIENS-P02/README.md"
     },
     {
       "id": "MSC-SAPIENS-P03",
@@ -577,8 +577,8 @@
       "title": "Odbiór zachowania humanoida na nagraniu wideo",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/social/MSC-SAPIENS-P03/main.tex",
-      "readme_path": "papers/social/MSC-SAPIENS-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-SAPIENS-P03/main.tex",
+      "readme_path": "manuscripts/MSC-SAPIENS-P03/README.md"
     },
     {
       "id": "MSC-SYNC-P04",
@@ -586,8 +586,8 @@
       "title": "Przedziały niepewności synchronizacji smartfon–EEG przy dryfie i utracie pakietów",
       "record_kind": "IDEA",
       "stage": "STOP_STANDALONE",
-      "manuscript_path": "papers/psychometrics/MSC-SYNC-P04/main.tex",
-      "readme_path": "papers/psychometrics/MSC-SYNC-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-SYNC-P04/main.tex",
+      "readme_path": "manuscripts/MSC-SYNC-P04/README.md"
     },
     {
       "id": "MSC-TRUST-P01",
@@ -595,8 +595,8 @@
       "title": "Kalibracja polegania na wskazówkach AI w ekranie 2D, XR i symulowanym humanoidzie",
       "record_kind": "IDEA",
       "stage": "NEW_CROSS_DOMAIN_IDEA_HOLD",
-      "manuscript_path": "papers/cognition/MSC-TRUST-P01/main.tex",
-      "readme_path": "papers/cognition/MSC-TRUST-P01/README.md"
+      "manuscript_path": "manuscripts/MSC-TRUST-P01/main.tex",
+      "readme_path": "manuscripts/MSC-TRUST-P01/README.md"
     },
     {
       "id": "MSC-ZAH-P02",
@@ -604,8 +604,8 @@
       "title": "Dwuwymiarowa mapa doliny niesamowitości: realizm wyglądu i naturalność zachowania",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/social/MSC-ZAH-P02/main.tex",
-      "readme_path": "papers/social/MSC-ZAH-P02/README.md"
+      "manuscript_path": "manuscripts/MSC-ZAH-P02/main.tex",
+      "readme_path": "manuscripts/MSC-ZAH-P02/README.md"
     },
     {
       "id": "MSC-ZAH-P03",
@@ -613,8 +613,8 @@
       "title": "Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/social/MSC-ZAH-P03/main.tex",
-      "readme_path": "papers/social/MSC-ZAH-P03/README.md"
+      "manuscript_path": "manuscripts/MSC-ZAH-P03/main.tex",
+      "readme_path": "manuscripts/MSC-ZAH-P03/README.md"
     },
     {
       "id": "MSC-ZAH-P04",
@@ -622,8 +622,8 @@
       "title": "Odbiór rzeczywistych zachowań osób neuroróżnorodnych po przeniesieniu na syntetyczne awatary",
       "record_kind": "IDEA",
       "stage": "IDEA_HOLD",
-      "manuscript_path": "papers/social/MSC-ZAH-P04/main.tex",
-      "readme_path": "papers/social/MSC-ZAH-P04/README.md"
+      "manuscript_path": "manuscripts/MSC-ZAH-P04/main.tex",
+      "readme_path": "manuscripts/MSC-ZAH-P04/README.md"
     }
   ]
 }

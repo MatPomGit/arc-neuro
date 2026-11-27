@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 from statistics import median
 
-P = Path(__file__).resolve().parents[1] / "papers/cognition/MSC-ANX-P01/reference"
+P = Path(__file__).resolve().parents[1] / "manuscripts/MSC-ANX-P01/reference"
 sys.path.insert(0, str(P))
 try:
     from design import manifest, category, balance_metrics, balance_violations
