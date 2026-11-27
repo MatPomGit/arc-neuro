@@ -15,3 +15,11 @@ Czy realizm wyglądu postaci oraz naturalność jej ruchu niezależnie i interak
 **Odrębność:** Jest to mapa podstawowego efektu, nie test przyczynowego wpływu oczekiwań z P03 ani naturalnych profili komunikacji z P04.
 
 [Manuskrypt LaTeX](main.tex), [plan badania](study.yaml), [bibliografia](references.bib). Wspólna platforma: [ST-08](https://github.com/MatPomGit/research-autopilot/blob/main/docs/portfolio/reorganizacja-systemu-badan/shared_research_platforms.md). Nie przedstawiono wyników ani zatwierdzonego protokołu.
+
+## Symulacja wrażliwości
+
+W systemie Windows uruchom `run_simulation.bat`. W pozostałych systemach wykonaj `python -m pip install -r requirements.txt`, a następnie `python simulate_power.py`. Tryb własny: `python simulation_menu.py`. Wyniki CSV i zbiorczy wykres PNG są zapisywane w `results/` i nadpisywane przy kolejnym uruchomieniu. Tryb pełny oznacza większą liczbę replikacji modelu wstępnego, a nie finalny model konfirmacyjny. Model zakłada ciągłe odpowiedzi, niezależne zestawy bodźców i sferyczność kontrastów. Nie zastępuje symulacji modelu porządkowego ze skrzyżowanymi efektami losowymi. Wyników nie zweryfikowano wykonawczo.
+
+## Model porządkowy i kalibracja
+
+`Rscript ordinal_simulation.R 80 100` uruchamia roboczą symulację CLMM (wymagany pakiet R `ordinal`), z katalogu manuskryptu. Parametry oznaczają liczebność i replikacje na scenariusz. Wynik dotyczy interakcji latentnej, nie testu lokalnego maksimum. Nieudane dopasowania są raportowane osobno. Procedura kalibracji: [stimulus_validation.md](stimulus_validation.md). Testy modelu ciągłego: `python -m unittest test_simulate_power`. Nie ustalono liczebności docelowej.

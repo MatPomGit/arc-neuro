@@ -1,0 +1,16 @@
+\section{Operacjonalizacja i projekt eksperymentu}
+Proponuje się układ czynnikowy 4 na 4, z czterema poziomami realizmu wyglądu i czterema poziomami naturalności ruchu. Poziomy są robocze i wymagają niezależnej kalibracji. Manipulacja ruchem powinna dotyczyć parametrów animacji, takich jak ciągłość i koordynacja czasowa, a nie przypisywanej osobie diagnozy. Treść sceny, dźwięk, czas ekspozycji i kadr pozostają stałe. Każda komórka powinna obejmować wiele niezależnych źródeł zachowania i tożsamości awatara. Zrównoważone bloki niepełne ograniczą zmęczenie oraz wielokrotną ekspozycję na ten sam materiał źródłowy.
+
+Pilotaż z niezależnymi obserwatorami oszacuje rozdzielność manipulacji, jakość retargetingu i zrozumiałość skali niesamowitości. Kryteria akceptacji bodźców oraz minimalna istotna różnica zostaną ustalone przed badaniem głównym. Nie należy wykluczać bodźców na podstawie ich ocen niesamowitości w próbie konfirmacyjnej.
+
+\section{Estymandy i analiza konfirmacyjna}
+Niech $\mu_{ij}$ oznacza marginalną oczekiwaną ocenę niesamowitości dla poziomów $i,j$, uśrednioną względem docelowej populacji obserwatorów i bodźców. Interakcję definiuje się przez
+\[
+D_{ij}=\mu_{ij}-\mu_{i\cdot}-\mu_{\cdot j}+\mu_{\cdot\cdot}.
+\]
+Kontrasty $D_{ij}$ opisują addytywność na skali marginalnej. Pierwszorzędowy test dotyczy jednak dziewięciu współczynników interakcji na skali latentnej kumulacyjnego modelu logitowego. Zerowa interakcja latentna nie implikuje zerowych kontrastów marginalnych. Model mieszany uwzględni skrzyżowane efekty obserwatora, źródła zachowania i tożsamości awatara, o ile projekt umożliwi ich identyfikację. Dla odpowiedzi porządkowej zastosowany zostanie model kumulacyjny; kontrasty marginalne na skali oczekiwanej oceny będą odróżniane od interakcji na skali latentnej. Marginalne prawdopodobieństwa kategorii należy obliczać przez całkowanie względem rozkładu efektów losowych, a oczekiwaną ocenę przez sumę iloczynów kategorii i ich prawdopodobieństw. Przedziały jednoczesne wymagają osobnej kalibracji symulacyjnej. Szczegóły testu zostaną zamrożone po pilotażu, bez dostępu do danych głównych.
+
+Hipoteza lokalnego maksimum wymaga porównania komórki wewnętrznej z jej czterema bezpośrednimi sąsiadami. Wnioskowanie o maksimum wymaga dodatnich dolnych granic jednoczesnych przedziałów dla wszystkich czterech kontrastów. Korekta obejmie wszystkie rozpatrywane komórki wewnętrzne. Interpolowana powierzchnia GAMM pozostaje analizą eksploracyjną, dopóki kalibracja nie uzasadni ciągłej skali obu wymiarów.
+
+\section{Plan symulacji i kryteria wykonalności}
+Symulacja Monte Carlo powinna uwzględniać scenariusz zerowy, efekty addytywne, interakcję bez lokalnego maksimum oraz lokalne maksimum. Zmieniane będą liczba obserwatorów, liczba niezależnych bodźców, wariancja efektów losowych, rozkład odpowiedzi i odsetek braków. Raport obejmie błąd pierwszego rodzaju, moc, pokrycie przedziałów, zbieżność oraz niepewność Monte Carlo. Liczebność próby nie jest obecnie ustalona. Warunkiem rozpoczęcia rekrutacji są prawa do materiałów, kwalifikacja etyczna, walidacja bodźców i zamrożenie protokołu.
