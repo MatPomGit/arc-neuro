@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-ATTACH-P01/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-ATTACH-P01/study.md",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
