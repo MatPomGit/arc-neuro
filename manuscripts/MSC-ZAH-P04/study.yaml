@@ -6,6 +6,12 @@ question: "Czy rzeczywiste wzorce komunikacji osób o różnych profilach, odtwa
 hypotheses:
   - "Czasowe i przestrzenne właściwości naturalnie zarejestrowanej ekspresji komunikacyjnej są związane z ocenami pierwszego wrażenia przy kontrolowanej tożsamości awatara."
   - "Realizm wizualny moderuje związek między indywidualnym wzorcem zachowania a oceną niechęci i niesamowitości."
-primary_outcome: "Zależność ocen niechęci i niesamowitości od indywidualnych parametrów zachowania oraz realizmu postaci z uwzględnieniem kontekstu."
+primary_outcome: "Interakcja latencji odpowiedzi komunikacyjnej i kontrastu wysokiego z niskim realizmem w porządkowej ocenie niesamowitości"
 protocol_frozen: false
 empirical_results: not_available
+
+scientific_owner: Mateusz Pomianek
+analysis_status: source_written
+simulation_status: not_run
+primary_predictor_status: provisional_pending_calibration
+secondary_outcome: "Gotowość do interakcji"
