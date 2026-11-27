@@ -1,0 +1,115 @@
+{
+  "evidence_id": "M02-DEV-ROBUSTNESS-2026-10-08",
+  "evidence_status": "development_only",
+  "purpose": "Exploratory response to methodological review. Independent trajectories, equal scoring sample sizes, AIC/BIC working likelihood, observation robustness and bootstrap/tolerance sensitivity.",
+  "seed": 17202600,
+  "replications": 160,
+  "generators": [
+    "intercept",
+    "ar",
+    "p",
+    "pi",
+    "pid",
+    "arx",
+    "nonlinear",
+    "switching"
+  ],
+  "split": [
+    0.6,
+    0.2
+  ],
+  "epsilon": 0.005,
+  "coverage": 0.95,
+  "integral_leak": 0.85,
+  "action_noise_sd": 0.005,
+  "process_noise_sd": 0.003,
+  "excitation_sd": 0.04,
+  "nonlinear_width": 0.12,
+  "gains": {
+    "kp": 0.6,
+    "ki": 0.06,
+    "kd": 0.08,
+    "rho": 0.65,
+    "amplitude": 0.15,
+    "kp_positive": 0.75,
+    "kp_negative": 0.25
+  },
+  "conditions": [
+    {
+      "id": "reference",
+      "steps": 180,
+      "stride": 1,
+      "noise_sd": 0.0,
+      "missingness": 0.0,
+      "feedback": 0.5,
+      "clip": 1.0
+    },
+    {
+      "id": "analyst_noise",
+      "steps": 180,
+      "stride": 1,
+      "noise_sd": 0.04,
+      "missingness": 0.0,
+      "feedback": 0.5,
+      "clip": 1.0
+    },
+    {
+      "id": "heavy_tail",
+      "steps": 180,
+      "stride": 1,
+      "noise_sd": 0.04,
+      "missingness": 0.0,
+      "feedback": 0.5,
+      "clip": 1.0,
+      "noise_distribution": "student_t",
+      "noise_df": 3
+    },
+    {
+      "id": "irregular",
+      "steps": 180,
+      "stride": 3,
+      "noise_sd": 0.0,
+      "missingness": 0.0,
+      "feedback": 0.5,
+      "clip": 1.0,
+      "irregular": true
+    },
+    {
+      "id": "quantized_7",
+      "steps": 180,
+      "stride": 1,
+      "noise_sd": 0.0,
+      "missingness": 0.0,
+      "feedback": 0.5,
+      "clip": 1.0,
+      "quantization_levels": 7,
+      "quantization_bound": 0.25
+    },
+    {
+      "id": "clipping",
+      "steps": 180,
+      "stride": 1,
+      "noise_sd": 0.0,
+      "missingness": 0.0,
+      "feedback": 0.5,
+      "clip": 0.025
+    },
+    {
+      "id": "combined",
+      "steps": 60,
+      "stride": 3,
+      "noise_sd": 0.04,
+      "missingness": 0.25,
+      "feedback": 0.1,
+      "clip": 0.025
+    }
+  ],
+  "bootstrap_resamples": 2000,
+  "bootstrap_seed": 8820260,
+  "epsilon_grid": [
+    0.001,
+    0.0025,
+    0.005,
+    0.01
+  ]
+}
