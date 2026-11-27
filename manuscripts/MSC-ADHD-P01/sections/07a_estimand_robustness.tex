@@ -17,3 +17,35 @@ Model diagnostics will assess time-to-event distributional assumptions, particip
 A null difference in the external clinical endpoint cannot establish therapeutic equivalence or absence of any benefit. Similarly, a reduction in recovery latency without independent near or far transfer is evidence limited to the measured proximal process. If an optional sensor predicts recovery but fails to improve decisions under a prospective comparison, its incremental predictive value alone does not justify its deployment.
 
 The interpretation will prioritize uncertainty intervals, feasibility limits, missingness, and measurement validity. Claims of clinical efficacy require the separately planned confirmatory evidence and cannot be inferred from engineering verification, simulation, or exploratory subgroup effects.
+
+\subsection{Identification of regulation-specific change}
+
+Performance recovery after a rule switch is a task-level operationalization, not a direct observation of emotion regulation. A child may regain accuracy through rule learning, motor practice, spontaneous recovery, or compliance with instructions without a corresponding change in affective regulation. The measurement model therefore distinguishes three propositions: the task generates a reproducible perturbation; the intervention changes recovery under invariant assessment conditions; and the change generalizes to independent measures of regulation. Failure of any proposition limits the claim that can be made.
+
+For the randomized pilot, the primary clinical contrast remains the baseline-adjusted external endpoint. Recovery comparisons between randomized arms require a common assessment probe with identical rule mappings, challenge eligibility, instruction, timing, sensory configuration, and monitoring onset in both arms. The probe must be distinguished from training sessions: the control condition cannot be assumed to provide comparable recovery events simply because it uses the same application shell. If common probes are not feasible, arm-specific telemetry is descriptive and no between-arm recovery effect is identified. Probe exposure and assessment order should be balanced across arms and documented as potential sources of learning.
+
+The manipulation check should quantify immediate post-switch disruption relative to a target-rule-matched reference at a fixed, prospectively defined observation opportunity. A no-switch probe, if feasible and tolerated, can estimate background fluctuation under the same measurement conditions. Neither observed disruption nor its magnitude is used retrospectively to select eligible events. An event without detectable disruption is informative about perturbation specificity, rather than automatically evidence of successful emotion regulation.
+
+\subsection{Participant-weighted recovery estimand}
+
+Let \(A_i\in\{0,1\}\) denote randomized assignment and let \(T_{ij}\) denote the latent valid recovery time for eligible probe \(j\) in participant \(i\). For a prespecified common horizon \(\tau\), define the participant-level target
+\[
+\mu_a(\tau)=
+\mathbb{E}_{i\mid A_i=a}
+\left[
+\mathbb{E}_{j\mid i}\{\min(T_{ij},\tau)\}
+\right],
+\qquad
+\Delta_\tau=\mu_1(\tau)-\mu_0(\tau).
+\]
+The inner expectation refers to a prespecified common probe schedule, not an unrestricted distribution of controller-generated training events. A negative contrast denotes shorter restricted recovery time in the intervention arm. This is a proposed mechanistic estimand, conditional on establishing a comparable probe and defining the target population before randomization. Identification requires adequate support up to \(\tau\) and defensible assumptions about missing and censored observations. Estimation should use a censoring-aware survival procedure with participant-level weighting and participant-cluster uncertainty; direct averaging of observed or censored durations is not sufficient.
+
+Participants with no valid probe cannot be assigned a recovery time of zero or \(\tau\). Their frequency and reasons must be reported by arm, and the difference between the scheduled-probe target and the observed valid-probe population must remain explicit. Sensitivity analyses should vary plausible recovery distributions for unavailable probes and report the resulting contrast without claiming identification from telemetry alone.
+
+\subsection{Measurement feasibility and simulation targets}
+
+Before selecting the pilot design, a simulation study should vary participant heterogeneity, within-child dependence, reference drift, device timing noise, probability of invalid context, and administrative censoring. The simulated data-generating process should distinguish no perturbation, genuine delayed recovery, and apparent improvement caused by reference drift. Each scenario should report bias, interval coverage, convergence, valid-probe yield, and the frequency of discordance between the behavioral and timing-enriched candidates. Null scenarios are necessary to assess spurious apparent recovery effects. The simulation parameters and random seeds should be fixed in a versioned analysis specification; no simulated values are presented here as observed study results.
+
+A participant-level resampling scheme should preserve all sessions and probes belonging to the resampled child. Resampling individual events would underestimate uncertainty when within-child dependence is present. The pilot sample size should be justified by the desired precision of feasibility quantities and the expected number of participants with usable common probes, rather than by treating the total number of recorded events as independent observations. A later confirmatory sample-size calculation should use the selected external endpoint, a clinically justified target difference, baseline correlation, expected attrition, and uncertainty in pilot variance estimates.
+
+The proposed common probe, restricted-time contrast, and simulation plan require prospective review and compatibility checks with the frozen measurement contract. They do not constitute a protocol amendment, a selected clinical endpoint, or an empirical result.
