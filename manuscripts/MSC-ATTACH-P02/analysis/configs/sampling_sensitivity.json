@@ -1,0 +1,12 @@
+{
+  "seed": 9100,
+  "n_runs": 20,
+  "traits": {"L": 0.4, "U": 0.35, "C": 0.5, "S": 0.55, "M": 0.7, "F": 0.55},
+  "simulation": {"steps": 180, "dt": 1, "responsiveness": 0.75, "process_noise": 0.003, "perception_noise": 0.06, "controller_mode": "pid"},
+  "perturbation": {"step": 40, "magnitude": -0.25},
+  "gain_ranges": {"kp": [0.2, 1.1], "ki": [0, 0.3], "kd": [0, 0.15]},
+  "integral_leak": 0.85,
+  "schedules": {"fixed": [1.0], "irregular": [0.5, 1.0, 2.0, 4.0]},
+  "measurement_noise": [0.0, 0.04, 0.12],
+  "missingness": [0.0, 0.3]
+}

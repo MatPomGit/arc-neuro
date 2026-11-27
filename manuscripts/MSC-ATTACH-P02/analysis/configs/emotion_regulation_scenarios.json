@@ -1,0 +1,17 @@
+{
+  "seed": 21000,
+  "n_runs": 30,
+  "traits": {"L": 0.55, "U": 0.35, "C": 0.5, "S": 0.55, "M": 0.5, "F": 0.5},
+  "simulation": {"steps": 110, "dt": 1, "responsiveness": 0.75, "process_noise": 0.004, "perception_noise": 0.08, "controller_mode": "pid"},
+  "perturbation": {"step": 25, "magnitude": -0.3},
+  "groups": {
+    "estimation_flexibility": {
+      "axes": ["M", "F"],
+      "levels": {"M": {"low": 0.15, "high": 0.85}, "F": {"low": 0.15, "high": 0.85}}
+    },
+    "control_responsiveness": {
+      "axes": ["C", "responsiveness"],
+      "levels": {"C": {"low": 0.2, "high": 0.8}, "responsiveness": {"low": 0.2, "high": 0.8}}
+    }
+  }
+}
