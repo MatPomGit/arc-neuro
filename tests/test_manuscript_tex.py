@@ -18,13 +18,13 @@ NEW_IDEAS = {"MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01"}
 class ManuscriptTexTests(unittest.TestCase):
     def test_complete_manuscript_sources(self):
         titles = set()
-        catalog = json.loads((ROOT / "papers/catalog.json").read_text(encoding="utf-8"))
+        catalog = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
         by_id = {record["id"]: record for record in catalog["papers"]}
         self.assertEqual(len(HISTORICAL_IDS), 63)
         self.assertEqual(set(by_id), LEGACY_IDS | NEW_IDEAS)
         total = 0
         for area, expected in AREAS.items():
-            files = sorted((ROOT / "papers" / area).glob("MSC-*/main.tex"))
+            files = sorted((ROOT / "manuscripts" / ident / "main.tex" for ident, record in by_id.items() if record["area"] == area))
             self.assertEqual(len(files), expected, area)
             for path in files:
                 with self.subTest(filename=str(path)):
