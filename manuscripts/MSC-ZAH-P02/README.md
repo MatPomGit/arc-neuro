@@ -22,4 +22,14 @@ W systemie Windows uruchom `run_simulation.bat`. W pozostałych systemach wykona
 
 ## Model porządkowy i kalibracja
 
-`Rscript ordinal_simulation.R 80 100` uruchamia roboczą symulację CLMM (wymagany pakiet R `ordinal`), z katalogu manuskryptu. Parametry oznaczają liczebność i replikacje na scenariusz. Wynik dotyczy interakcji latentnej, nie testu lokalnego maksimum. Nieudane dopasowania są raportowane osobno. Procedura kalibracji: [stimulus_validation.md](stimulus_validation.md). Testy modelu ciągłego: `python -m unittest test_simulate_power`. Nie ustalono liczebności docelowej.
+`python ordinal_simulation.py --n 80 --reps 100` uruchamia roboczą symulację bayesowskiego modelu porządkowego (PyMC), z katalogu manuskryptu. Parametry oznaczają liczebność i replikacje na scenariusz. Wynik dotyczy interakcji latentnej, nie testu lokalnego maksimum. Nieudane dopasowania są raportowane osobno. Procedura kalibracji: [stimulus_validation.md](stimulus_validation.md). Testy modelu ciągłego: `python -m unittest test_simulate_power`. Nie ustalono liczebności docelowej.
+
+## Symulacja porządkowa w Pythonie
+
+`python -m pip install -r requirements.txt`
+
+`python ordinal_simulation.py --n 80 --reps 100`
+
+`python -m unittest test_marginal_surface`
+
+Model PyMC wykorzystuje skrzyżowane efekty losowe i decyzję na podstawie przedziałów a posteriori. Nie jest to test ilorazu wiarygodności CLMM. Kalibracja częstości odrzuceń pod hipotezą zerową jest wymagana przed przyjęciem procedury konfirmacyjnej. Wyniki nie zostały jeszcze zweryfikowane wykonawczo.
