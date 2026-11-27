@@ -16,7 +16,7 @@ def validate(site: Path) -> list[str]:
     forbidden = re.compile(
         r"AGENT_WORKFLOW|CONTRIBUTING\.md|agents\.md|MatPomGit/devices|"
         r"neuro_paper_slots|research-autopilot|instructions to agent|"
-        r"notatk\\w* dla autora|/docs/security/|/papers/(?:ndd|affect|cognition|social|psychometrics)/",
+        r"notatk\\w* dla autora|/docs/security/|/(?:papers/(?:ndd|affect|cognition|social|psychometrics)/|manuscripts/MSC-)",
         re.IGNORECASE,
     )
     errors = []
@@ -30,7 +30,7 @@ def validate(site: Path) -> list[str]:
     return errors
 
 if __name__ == "__main__":
-    errs = validate(Path(sys.argv[1] if len(sys.argv) > 1 else "site"))
+    errs = validate(Path(sys.argv[1] if len(sys.argv) > 1 else "build/site"))
     for e in errs:
         print("FAIL:", e)
     print("arc-site-output:", "FAIL" if errs else "PASS")
