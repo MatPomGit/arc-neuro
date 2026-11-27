@@ -5,10 +5,11 @@
 \usepackage{lmodern}
 \usepackage[margin=27mm]{geometry}
 \usepackage{microtype}
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \title{Błędy predykcji społecznej i asymetria niedopasowania wyglądu i zachowania}
 \author{Mateusz Pomianek}
-\date{Szkic naukowy, wersja 0.1.1, 21 listopada 2026}
+\date{Szkic naukowy, wersja 0.2.0, 27 listopada 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -33,6 +34,17 @@ Pierwszorzędowy wskaźnik: Interakcja kontekstu oczekiwań oraz kierunku niedop
 Model mieszany różnic różnic z efektami uczestnika, klipu i kontekstu; osobno zweryfikować skuteczność manipulacji i kontrolować alternatywne wyjaśnienia.
 
 Zamrożenie estymandu i planu porównań nastąpi po pilotażu technicznym i przed dostępem do danych konfirmacyjnych. Należy zachować oddzielnie analizy eksploracyjne, raportować przedziały niepewności, wielkości efektów oraz reguły wyłączenia bodźców z błędną animacją. Trafność konstruktu wymaga niezależnej kalibracji realizmu wyglądu i percepcyjnej naturalności zachowania.
+\section{Projekt konfirmacyjny}
+Proponuje się układ 2 na 2: kierunek niedopasowania (ludzki wygląd i mechaniczny ruch albo robotyczny wygląd i naturalny ruch) oraz zgodność kontekstu z ruchem docelowym. W obrębie każdego klipu losowo przydziela się kontekst zgodny lub niezgodny. Konteksty powinny być równoważne pod względem walencji, długości, pobudzenia i wiarygodności. Każdy obserwator widzi dany klip tylko raz; przydział kontekstu jest równoważony między obserwatorami. W niezależnej próbie kalibracyjnej należy zmierzyć przewidywany rodzaj ruchu przed pokazaniem klipu. Dodatkowe warunki dopasowanego wyglądu i ruchu mogą służyć jako kontrola eksploracyjna.
+
+Pierwszorzędowa hipoteza dotyczy interakcji kierunku niedopasowania i zgodności kontekstu. Efekt główny kontekstu oraz asymetria kierunku są hipotezami drugorzędowymi. Przy pięciokategorialnej odpowiedzi proponuje się kumulacyjny model logitowy z losowymi wyrazami wolnymi obserwatora, źródła zachowania, awatara i kontekstu, o ile projekt zapewnia identyfikowalność. Dla kodowania czynników jako 0 i 1 współczynnik interakcji jest różnicą różnic na skali latentnej. Na skali marginalnej odrębny estymand wynosi
+\[
+\Delta=(\mu_{11}-\mu_{10})-(\mu_{01}-\mu_{00}).
+\]
+Nie należy utożsamiać tych estymandów. Efekty drugorzędowe wymagają korekty wielokrotnych porównań. Brak efektu nie stanowi dowodu równoważności bez uprzednio określonego marginesu.
+
+Symulacja mocy powinna zmieniać liczbę obserwatorów i niezależnych klipów, siłę interakcji, wariancję efektów losowych oraz braki odpowiedzi. Należy raportować błąd pierwszego rodzaju, moc, zbieżność i niepewność Monte Carlo. Nie ustalono jeszcze liczebności docelowej.
+
 \section{Wyniki}
 Nie zebrano jeszcze danych empirycznych i nie wykonano analiz potwierdzających. W niniejszym opracowaniu nie przypisuje się wartości statystycznych, wyników skal, skuteczności diagnostycznej ani dowodów występowania doliny niesamowitości.
 \section{Dyskusja i ograniczenia}
