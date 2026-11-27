@@ -1,0 +1,27 @@
+schema_version: 1
+manuscript_id: M01
+updated: 2026-10-01
+status: pre_submission_theory
+central_claims:
+  - id: M01-C01
+    claim: "Adult attachment regulation can be represented as a falsifiable temporal feedback sequence linking perceived state, desired state, discrepancy, action, partner feedback, state updating and recovery."
+    class: conceptual_integration
+    empirical_status: proposed_for_human_test
+  - id: M01-C02
+    claim: "The scalar signed discrepancy is a parsimonious modeling restriction that should compete against perceived-only, unconstrained component and asymmetric discrepancy models."
+    class: falsifiable_modeling_claim
+    empirical_status: untested_in_humans
+  - id: M01-C03
+    claim: "Attachment anxiety and avoidance are candidate moderators of discrepancy-to-action channels rather than fixed controller identities."
+    class: theoretical_reframing
+    empirical_status: channel_specific_interactions_untested
+  - id: M01-C04
+    claim: "Positive secure-base representation should enter the required core only if it adds preregistered recovery information beyond anxiety and avoidance and replicates."
+    class: promotion_rule
+    empirical_status: untested
+prohibited_inferences:
+  - simulation_validates_human_attachment_mechanism
+  - p_pi_pid_family_is_identified_in_people
+  - positive_security_is_already_required_core
+  - pilot_data_are_confirmatory
+submission_rule: "Theory submission is allowed without human data only while the manuscript preserves these evidence boundaries."

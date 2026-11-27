@@ -1,0 +1,16 @@
+\section{Identifiability Problem}
+
+Let an observed action sequence be $\mathbf y=(y_1,\ldots,y_T)$ and let $\mathcal M_k$ denote a candidate model family with parameters $\theta_k$. Prediction identifies a model that minimizes an out-of-sample loss,
+\[
+\hat{k}=\arg\min_k L_{\mathrm{val}}(\mathcal M_k,\hat\theta_{k,\mathrm{fit}}),
+\]
+but a small loss difference does not imply that the generating family is uniquely recoverable.
+
+Model choice is frozen before computing final-test loss; the test block never determines $\hat{k}$. Family recovery is agreement between the validation-selected family and the known synthetic generator. Final evaluation estimates predictive performance of that frozen choice, not a second opportunity to select a family.
+
+For replicate $j$, let $\Delta_j=L_{\mathrm{test},j}(\mathcal M_k)-L_{\mathrm{test},j}(\mathcal M_l)$ for a comparison specified before final evaluation. A trajectory-level near tie is $|\Delta_j|<\epsilon$. Its frequency describes practical ambiguity but does not establish statistical equivalence. At the observation-condition level, equivalence is supported only if the prespecified confidence interval for the mean paired difference lies wholly within $[-\epsilon,\epsilon]$. An interval crossing a boundary is inconclusive; a nonsignificant superiority test does not establish equivalence. The tolerance, loss scale, interval method, coverage level, and comparison family remain pending prospective freeze in \texttt{simulation\_protocol.yaml}. This is practical predictive equivalence within the investigated model universe, not structural equality of mechanisms.
+
+Feedback creates a difficult setting because action changes future state. Competing controllers can therefore drive the system toward similar regions even when their internal terms differ. Clipping and policy gating compress observable differences further. Measurement noise affects the analyst's reconstructed discrepancy, while missing observations alter numerical estimates of integral and derivative terms.
+
+Non-identifiability is treated as a substantive result. If a simple baseline or lower-order model is predictively indistinguishable from a richer model, the available observation design does not warrant the richer mechanistic label.
+

@@ -54,6 +54,49 @@ class ManuscriptTexTests(unittest.TestCase):
                         titles.add(matched.group(1))
                         total += 1
                         continue
+                    if path.parent.name in {f"MSC-ATTACH-P0{i}" for i in range(1, 5)}:
+                        ident = path.parent.name
+                        self.assertRegex(content, r"\\documentclass\[man,floatsintext\]\{apa7\}")
+                        self.assertIn(r"\authorsnames{Mateusz Pomianek}", content)
+                        self.assertIn(r"\printbibliography", content)
+                        sections = re.findall(r"\\input\{(sections/[^}]+)\}", content)
+                        self.assertGreaterEqual(len(sections), {"MSC-ATTACH-P01": 9, "MSC-ATTACH-P02": 16, "MSC-ATTACH-P03": 4, "MSC-ATTACH-P04": 2}[ident])
+                        self.assertEqual(len(sections), len(set(sections)))
+                        self.assertEqual(set(sections), {"sections/" + p.stem for p in (path.parent / "sections").glob("*.tex")})
+                        def expand(source, stack=()):
+                            def read_input(match):
+                                relative = Path(match.group(1))
+                                if not relative.suffix:
+                                    relative = relative.with_suffix(".tex")
+                                target = path.parent / relative
+                                self.assertFalse(relative.is_absolute() or ".." in relative.parts)
+                                self.assertTrue(target.is_file() and not target.is_symlink(), str(target))
+                                self.assertNotIn(target, stack, "Cyclic LaTeX input")
+                                return expand(target.read_text(encoding="utf-8"), stack + (target,))
+                            return re.sub(r"\\input\{([^}]+)\}", read_input, source)
+                        expanded = expand(content, (path,))
+                        self.assertGreater(len(expanded), 2200)
+                        self.assertIn(r"\addbibresource{references.bib}", expanded)
+                        self.assertTrue((path.parent / "references.bib").is_file())
+                        self.assertEqual(expanded.count(r"\begin{document}"), 1)
+                        self.assertEqual(expanded.count(r"\end{document}"), 1)
+                        self.assertNotIn("MatPomGit/", content)
+                        if ident in {"MSC-ATTACH-P01", "MSC-ATTACH-P02"}:
+                            self.assertIn(r"\abstract{", expanded)
+                        # Catalogue labels are Polish; preserve the imported English titles.
+                        expected_titles = {
+                            "MSC-ATTACH-P01": "Beyond Anxiety and Avoidance: A Dynamic Feedback-Regulation Framework for Adult Romantic Attachment",
+                            "MSC-ATTACH-P02": "When the True Controller Is Not Recoverable: Observational Equivalence in Models of Relational Regulation",
+                            "MSC-ATTACH-P03": "Is Relational Control a Distinct Construct? Development and Validation of a Measure of Active Relational Regulation",
+                            "MSC-ATTACH-P04": "From Relational-Regulation Propensity to Everyday Behavior: A Prospective Longitudinal Bridge Study",
+                        }
+                        matched = re.search(r"\\title\{([^{}]+)\}", content)
+                        self.assertIsNotNone(matched)
+                        self.assertEqual(matched.group(1), expected_titles[ident])
+                        self.assertNotIn(matched.group(1), titles)
+                        titles.add(matched.group(1))
+                        total += 1
+                        continue
                     self.assertGreater(len(content), 2200)
                     for keyword in (r"\documentclass", r"\begin{document}",
                                     r"\begin{abstract}", r"\section{Wyniki}",

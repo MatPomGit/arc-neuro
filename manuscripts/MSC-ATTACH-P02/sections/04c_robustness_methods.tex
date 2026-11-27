@@ -1,0 +1,41 @@
+\section{Exploratory Methodological Robustness}
+
+The review-driven extension uses fresh seed streams and remains development evidence. Its settings were recorded before this new execution, after the earlier development results were known. It does not retrospectively preregister those results. There are seven targeted conditions and eight generators, with 160 independent replicate triads per cell: 8,960 triads and 26,880 generated trajectories. The standardized plant and gains remain unchanged.
+
+\subsection{Independent Trajectories and Selection Criteria}
+
+Each triad contains separate fitting, validation and final-test trajectories. Coefficients use only the first 60\% of retained observations of the fitting trajectory. Independent validation uses the middle 20\% of its own trajectory and independent final evaluation the last 20\% of its own trajectory, matching the temporal benchmark's scoring windows when retained counts agree. Each trajectory reconstructs its own causal feature history from its preceding observations; no state or history is transferred between roles. Thus generalization concerns fresh innovations under the same generator, gains, target schedule and observation design, with causal prehistory available. It does not test new gains, new initial-state distributions, people or autonomous forecasts. The temporal comparator reuses only the fitting trajectory's 60/20/20 windows. All three trajectories must satisfy the split requirement; failed triads remain in both designs' attempted denominators. This common feasibility gate can be stricter than a single-trajectory gate.
+
+The extension compares validation RMSE with Gaussian working information criteria \parencite{akaike1974newlook,schwarz1978dimension}:
+\[
+\mathrm{AIC}=n\log(\mathrm{RSS}/n)+2q,
+\qquad
+\mathrm{BIC}=n\log(\mathrm{RSS}/n)+q\log n,
+\]
+where $n$ is the fitting count and $q$ counts all fitted regression coefficients, including the intercept, plus residual variance. Common likelihood constants are omitted. Rank-deficient fits are ineligible; nonpositive RSS has no finite working variance MLE and is unavailable for AIC/BIC. Information criteria use fitting data alone, while RMSE uses the designated validation trajectory/block. Coefficients are not refitted after selection. Each method separately freezes its best competitor excluding the nominal family before final scoring.
+
+Nested models can improve fitting RSS by adding coefficients, but validation loss need not improve monotonically with complexity. AIC/BIC are methodological sensitivity checks, not automatic corrections of an invalid likelihood. Clipping, noisy reconstructed predictors, categories and residual dependence limit the Gaussian assumptions. BIC is not a computed Bayes factor here. Full Bayesian model selection requires specified parameter/model priors and a justified observation likelihood; it is deferred rather than approximated by relabeling BIC. Independent trajectories remove shared realized state across roles, but do not guarantee optimal model selection. A finite temporal purge cannot fully reset a feedback process with leaky memory; its adequacy would require a separate dependence analysis.
+
+\subsection{Observation and Interval Sensitivity}
+
+Targeted observation arms add Student-$t$ analyst noise with three degrees of freedom, scaled to the same SD 0.04 as Gaussian noise; irregular Bernoulli sampling with nominal mean stride three; and seven equally spaced categories for discrepancy and action within $[-0.25,0.25]$. Categories are converted back to their simulator-scale centers before fitting. These bounds are explicit computational choices, not validated Likert thresholds, and the transformation changes both the response and regressors. Reference, Gaussian-noise, clipping and combined-adversity arms complete the targeted design. Realized counts and elapsed intervals are retained; no interpolation is applied. Heavy-tail, irregular and quantization arms are one-factor stress tests rather than a full interaction grid or a fitted behavioral measurement model.
+
+Paired-loss uncertainty is additionally evaluated by a percentile bootstrap with 2,000 resamples of independent replicate-level differences. Each difference retains the nominal-family and frozen-competitor losses together. Time points are never resampled as independent units. Pointwise percentile intervals offer a distribution-sensitive comparison, not guaranteed coverage with small samples or rare extreme losses. Permutation tests require a justified exchangeability or sign-symmetry null; they are not substituted automatically for mean-loss intervals. Multiplicity-controlled confirmation and interval-coverage calibration remain open.
+
+An exploratory reanalysis of the previously inspected factorial ledger applies the same bootstrap and evaluates $\epsilon\in\{0.001,0.0025,0.005,0.01\}$. These values equal 0.2, 0.5, 1 and 2 times the latent action-innovation SD 0.005. This gives the tolerance an explicit computational scale while retaining the original pre-run value. It does not supply a human minimal important difference or license choosing the most favorable threshold. The original normal-interval results remain preserved alongside the sensitivity analysis.
+
+\subsection{Conditional Information and Profile Diagnostics}
+
+The extension diagnoses the PID regression with slope features $\Phi$ and an intercept nuisance term. Under a fixed-design Gaussian working model with known $\sigma=0.005$, its conditional slope information is
+\[
+\mathcal I_{\beta\mid\mathrm{intercept}}
+=\sigma^{-2}\Phi^{\mathsf T}
+\left(I-\frac{\mathbf 1\mathbf 1^{\mathsf T}}{n}\right)\Phi.
+\]
+Eigenvalues and conditioning after feature normalization describe local excitation and collinearity in that regression. For each coefficient, an illustrative profile fixes it and refits the remaining coefficients; the working deviance is
+\[
+D_i(v)=\{\mathrm{RSS}_{i,\mathrm{profile}}(v)-\mathrm{RSS}_{\min}\}/\sigma^2.
+\]
+Profiles for a fixed full-rank linear model with known variance are quadratic. Their width describes conditional regression precision under those assumptions, not structural identification of the latent controller. Profiles are retained for the first PID replicate of each arm as explicitly indexed diagnostics, not as representative aggregate evidence.
+
+Profile likelihood is useful when the full parameterized observation likelihood is available \parencite{raue2009profile}. Here the predictors are held fixed while parameters vary. A latent closed-loop likelihood would also propagate gain changes through state, discrepancies, clipping and hidden/noisy histories. This stronger analysis, including boundary masses and measurement error, is not implemented. Rank loss in a finite observed feature matrix cannot by itself distinguish structural non-identifiability from limited excitation or observation-induced misspecification. No latent-gain interval coverage is claimed from these working profiles.

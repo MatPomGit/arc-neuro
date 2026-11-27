@@ -1,9 +1,9 @@
 # MSC-ATTACH-P04 — Badanie podłużne predykcji zachowania w relacjach
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek.
 
 **Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `PLANNED`.
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+Manuskrypt planowanego badania podłużnego. [Plan pomiarowy](human_study/measurement_plan.md), [projekt ESM](human_study/online_esm_blueprint.md), [plan wyników](RESULTS_PLAN.md). Wymaga uprzedniej walidacji skali P03; brak danych ludzkich.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+[Manuskrypt lub szkic](main.tex) · [Karta badania](study.md) · [Metadane](paper.json).

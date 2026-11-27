@@ -1,9 +1,9 @@
 # MSC-ATTACH-P06 — Rozdzielność bliskości i autonomii w różnych kontekstach
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek.
 
 **Rodzaj pracy:** `IDEA`. **Etap badań:** `IDEA_REVIEW`.
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+[Propozycja badawcza](research-proposal.md), [protokół pilotażu](protocol/protocol.md), [plan analizy](protocol/analysis_reporting_plan.md), [bramki przed zbieraniem danych](protocol/precollection_checklist.md). Pilotaż nie jest niezależnym badaniem potwierdzającym; brak danych ludzkich.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+[Manuskrypt lub szkic](main.tex) · [Karta badania](study.md) · [Metadane](paper.json).

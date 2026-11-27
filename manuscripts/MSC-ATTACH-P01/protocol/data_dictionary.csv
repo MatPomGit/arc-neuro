@@ -1,0 +1,56 @@
+variable,level,timing,type,scale_or_values,derivation_or_item,primary_role
+couple_id,couple,baseline,id,pseudonymous,generated study identifier,dyadic clustering
+participant_id,person,baseline,id,pseudonymous,generated study identifier,person clustering
+study_day,observation,prompt,integer,1-14,calendar study day,time index
+prompt_index,observation,prompt,integer,1-6,prompt stratum within day,time index
+scheduled_at,observation,prompt,datetime,ISO-8601,scheduler opening timestamp,data quality
+prompt_expires_at,observation,prompt,datetime,ISO-8601,scheduled_at plus 30 minutes,data quality
+answered_at,observation,prompt,datetime,ISO-8601,response submission timestamp,data quality
+response_latency_minutes,derived,prompt,numeric,minutes,answered_at-scheduled_at,data quality
+scheduled_gap_hours,derived,prompt,numeric,hours,time since previous scheduled prompt,schedule audit
+elapsed_hours,derived,prompt,numeric,hours,time since previous answered prompt,confirmatory time covariate
+technical_invalid,derived,prompt,binary,0/1,violates locked technical-validity rule,analysis exclusion audit
+r_hat_closeness,episode,prompt,numeric,0-100,current perceived closeness,M2 perceived-state predictor / structural component
+r_star_closeness,episode,prompt,numeric,0-100,current desired closeness,H1-P1 M2 target predictor
+e_closeness,derived,prompt,numeric,-100 to 100,r_star_closeness-r_hat_closeness,H1-P2 M3 discrepancy predictor
+negative_affect,episode,prompt,numeric,0-100,current distress/tension/context,covariate
+relational_stressor,episode,interval,binary,0/1,stressor since previous prompt,covariate
+stressor_impact,episode,interval,numeric,0-100,conditional if stressor=1,secondary context
+action_approach,episode,interval,numeric,0-100,approach/proximity seeking since previous prompt,primary component
+action_distance,episode,interval,numeric,0-100,overt distancing/space seeking since previous prompt; not a direct autonomy measure,primary component
+action_signed,derived,interval,numeric,-100 to 100,action_approach-action_distance,primary outcome
+action_internal,episode,interval,numeric,0-100,suppression/minimization/disengagement,secondary outcome
+meaningful_interaction,episode,interval,binary,0/1,meaningful partner interaction since previous prompt,context
+partner_responsiveness,episode,interval,numeric,0-100,conditional on meaningful interaction,feedback
+valid_same_day_lag,derived,analysis,binary,0/1,adjacent same-day prompts both valid and elapsed 1-4 hours with source prompt 2-5; prompt 1->2 excluded,analysis inclusion
+lag_invalid_reason,derived,analysis,categorical,locked reason code,reason a scheduled adjacent pair cannot enter confirmatory analysis,audit
+e_person_mean,derived,analysis,numeric,study-person mean of e_closeness,between-person component
+r_hat_person_mean,derived,analysis,numeric,study-person mean of r_hat_closeness,M1/M2 between-person state component
+r_hat_wp,derived,analysis,numeric,r_hat_closeness-r_hat_person_mean,M1/M2 within-person state component
+r_star_person_mean,derived,analysis,numeric,study-person mean of r_star_closeness,M2 between-person target component
+r_star_wp,derived,analysis,numeric,r_star_closeness-r_star_person_mean,M2 within-person target component
+e_positive,derived,prompt,numeric,0 to 100,max(e_closeness 0),M4 positive discrepancy
+e_negative,derived,prompt,numeric,0 to 100,max(-e_closeness 0),M4 negative discrepancy magnitude
+e_positive_person_mean,derived,analysis,numeric,study-person mean of e_positive,M4 between-person positive component
+e_positive_wp,derived,analysis,numeric,e_positive-e_positive_person_mean,M4 within-person positive component
+e_negative_person_mean,derived,analysis,numeric,study-person mean of e_negative,M4 between-person negative component
+e_negative_wp,derived,analysis,numeric,e_negative-e_negative_person_mean,M4 within-person negative component
+e_wp,derived,analysis,numeric,e_closeness-e_person_mean,H1-P2 within-person M3 predictor
+ecr_anxiety,person,baseline,numeric,instrument native scale,ECR-R anxiety,secondary H2
+ecr_avoidance,person,baseline,numeric,instrument native scale,ECR-R avoidance,secondary H2
+relationship_months,person,baseline,numeric,months,self-report,sample description
+cohabitation_months,person,baseline,numeric,months,self-report,sample description
+prior_response_rate,derived,response_model,numeric,0-1,fraction of earlier scheduled prompts observed,IPW denominator predictor
+previous_observed,derived,response_model,binary,0/1,immediately previous scheduled prompt observed,IPW denominator predictor
+no_observed_history,derived,response_model,binary,0/1,no previous observed prompt available,IPW denominator predictor
+history_negative_affect10,derived,response_model,numeric,10-point units,last observed negative affect centered at 25,IPW denominator predictor
+history_abs_e10,derived,response_model,numeric,10-point units,last observed absolute discrepancy,IPW denominator predictor
+history_abs_action10,derived,response_model,numeric,10-point units,last observed absolute signed action,IPW denominator predictor
+response_p_numerator_raw,derived,response_model,numeric,0-1,unclipped training-fitted numerator response probability,IPW positivity diagnostic
+response_p_denominator_raw,derived,response_model,numeric,0-1,unclipped training-fitted observed-history response probability,IPW positivity diagnostic
+response_p_numerator,derived,response_model,numeric,0-1,probability-floor-clipped numerator probability,IPW weight construction
+response_p_denominator,derived,response_model,numeric,0-1,probability-floor-clipped denominator probability,IPW weight construction
+ipw_raw,derived,analysis,numeric,positive,product of stabilized prompt weights for t and t+1,IPW sensitivity
+ipw,derived,analysis,numeric,positive,training-truncated and training-normalized lag weight,weighted GEE sensitivity
+
+

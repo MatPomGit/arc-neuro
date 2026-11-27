@@ -1,9 +1,9 @@
 # MSC-ATTACH-P05 — Informacyjne braki danych i nieregularne interwały pomiaru przywiązania
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek.
 
 **Rodzaj pracy:** `IDEA`. **Etap badań:** `IDEA_REVIEW`.
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
+[Propozycja badawcza](research-proposal.md) oraz [macierz dowodów](audits/2026-10-12_F-ATT-01_evidence_matrix.md). Koncepcja symulacyjna MAR/MNAR, nieregularne interwały, pokrycie przedziałów i identyfikowalność. Brak zatwierdzonego niezależnego protokołu.
 
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+[Manuskrypt lub szkic](main.tex) · [Karta badania](study.md) · [Metadane](paper.json).

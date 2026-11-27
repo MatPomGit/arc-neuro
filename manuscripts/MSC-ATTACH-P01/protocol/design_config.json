@@ -1,0 +1,39 @@
+{
+  "version": "0.1",
+  "purpose": "Screen candidate H1 pilot designs before a DSEM-specific Monte Carlo analysis.",
+  "seed": 20260926,
+  "replications": 1000,
+  "days": 14,
+  "prompts_per_day": 6,
+  "candidate_couples": [
+    30,
+    40,
+    50,
+    60,
+    72
+  ],
+  "compliance_rates": [
+    0.65,
+    0.75,
+    0.85
+  ],
+  "standardized_discrepancy_effects": [
+    0.05,
+    0.1,
+    0.15
+  ],
+  "action_autoregression": 0.35,
+  "discrepancy_autoregression": 0.4,
+  "context_effect": 0.15,
+  "random_slope_sd": 0.05,
+  "residual_sd": 1,
+  "alpha_two_sided": 0.05,
+  "target_detection_probability": 0.8,
+  "minimum_valid_lag_pairs": 30,
+  "minimum_confirmatory_individuals": 100,
+  "notes": [
+    "The standardized discrepancy effects are design-sensitivity scenarios, not estimated ARC effects.",
+    "This lightweight simulator uses participant fixed effects and cluster-robust standard errors as a screening approximation.",
+    "The final design should be rechecked with the exact preregistered DSEM or multilevel model before recruitment."
+  ]
+}

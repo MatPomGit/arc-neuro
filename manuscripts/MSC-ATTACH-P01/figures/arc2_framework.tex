@@ -1,0 +1,29 @@
+\begin{tikzpicture}[
+  node distance=11mm and 11mm,
+  box/.style={draw, rounded corners, align=center, inner sep=5pt, minimum height=10mm},
+  mod/.style={draw, dashed, rounded corners, align=center, inner sep=5pt},
+  arrow/.style={-{Latex[length=2.1mm]}, thick},
+  dashedarrow/.style={-{Latex[length=2.1mm]}, thick, dashed}
+]
+\node[box] (traits) {Core person level\\\(\Anx,\Avo\)};
+\node[mod, below=of traits] (secure) {Candidate core\\\(\Sec\) via H3};
+\node[box, right=of traits] (state) {Perceived + desired state\\\(\hat{\mathbf r}_t,\mathbf r^\ast_t\)};
+\node[box, right=of state] (error) {Discrepancy\\\(\mathbf e_t\)};
+\node[box, right=of error] (action) {Regulatory action\\\(\mathbf a_{t+1}\)};
+\node[box, below=of action] (feedback) {Partner feedback\\\(\mathbf p_{t+1}\)};
+\node[box, left=of feedback] (update) {Updated state\\\(\hat{\mathbf r}_{t+1}\)};
+\node[box, left=of update] (recovery) {Recovery /\\persistence};
+\node[mod, above=of error] (mods) {Optional moderators\\\(\MentAff,\Flex\)};
+
+\draw[arrow] (state) -- (error);
+\draw[arrow] (error) -- (action);
+\draw[arrow] (action) -- (feedback);
+\draw[arrow] (feedback) -- (update);
+\draw[arrow] (update) -- (recovery);
+\draw[arrow] (update.north) to[bend right=24] (state.south);
+\draw[dashedarrow] (traits) -- (state);
+\draw[dashedarrow] (traits.south) to[bend right=28] (action.west);
+\draw[dashedarrow] (secure.east) to[bend right=18] (recovery.west);
+\draw[dashedarrow] (mods) -- (state);
+\draw[dashedarrow] (mods) -- (action);
+\end{tikzpicture}

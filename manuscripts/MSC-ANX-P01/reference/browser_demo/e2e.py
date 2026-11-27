@@ -96,20 +96,61 @@ class BrowserTests(unittest.TestCase):
 
     def test_two_failed_practices_preserve_decisions(self):
         data=self.start(0)
+        # This test checks practice gating, not physical timing. A delayed
+        # cue or key event may invalidate a trial and pause on a busy runner.
+        # Resume only after verifying the explicit invalidation and progress.
+        invalid=0
         for attempt in (1,2):
-            for i,row in enumerate(data["practice"][attempt-1]):
-                expect(self.page.locator("#progress")).to_contain_text(f"Trening {attempt}: {i+1} / 24")
-                expect(self.page.locator("#stimulus")).to_have_text(str(row["stimulus"]))
+            i=0
+            while i<24:
+                row=data["practice"][attempt-1][i]
+                progress=f"Trening {attempt}: {i+1} / 24"
+                self.page.wait_for_function(
+                    """({progress,stimulus}) => {
+                        const resume=document.querySelector('#resume');
+                        return !resume.hidden || (
+                            document.querySelector('#progress').textContent===progress &&
+                            document.querySelector('#stimulus').textContent===stimulus
+                        );
+                    }""",arg={"progress":progress,"stimulus":str(row["stimulus"])})
+                if self.page.locator("#resume").is_visible():
+                    instruction=self.page.locator("#instruction").inner_text()
+                    if i==23 and ("Powtórz trening" in instruction if attempt==1 else "Pominięto" in instruction):
+                        # A technical failure on the final trial can complete
+                        # the attempt without the intermediate invalidation UI.
+                        invalid+=1
+                        i+=1
+                        break
+                    self.assertIn("Próba treningowa nieważna",instruction)
+                    actual=self.page.locator("#progress").inner_text()
+                    if actual==progress and i>0:
+                        # The previous key event was technically invalid.
+                        pass
+                    elif i<23 and actual==f"Trening {attempt}: {i+2} / 24":
+                        # The current cue was invalid before presentation.
+                        i+=1
+                    else:
+                        self.fail(f"Unexpected progress after invalidation: {actual}")
+                    invalid+=1
+                    self.page.locator("#resume").click()
+                    continue
+                expect(self.page.locator("#progress")).to_have_text(progress)
                 self.page.keyboard.press("f" if row["correct_key"] else "j")
+                i+=1
             expect(self.page.locator("#resume")).to_be_visible()
+            expect(self.page.locator("#instruction")).to_contain_text(
+                "Powtórz trening" if attempt==1 else "Pominięto")
             if attempt==1:
                 self.page.locator("#resume").click()
+        self.assertLessEqual(invalid,2,"Excessive technical timing failures on CI runner")
         expect(self.page.locator("#instruction")).to_contain_text("Pominięto")
         self.page.locator("#resume").click()
         expect(self.page.locator("#quiz")).to_be_visible()
         report=self.export()
         self.assertEqual(len(report["skipped_trials"]),240)
         self.assertEqual(len(report["practice_history"]),2)
+        self.assertEqual([x["correct"] for x in report["practice_history"]],[0,0])
+        self.assertEqual([x["total"] for x in report["practice_history"]],[24,24])
         self.assertFalse(report["training_passed"])
         self.assertEqual(report["completed_trials"],0)
 

@@ -1,0 +1,36 @@
+\section{Standardized Closed-Loop Development Experiment}
+
+To separate observation-design effects from the additional gating and trait-dependent terms of the historical ARC-inspired simulator, a second benchmark uses a standardized dimensionless feedback plant. This complements the previous simulator; it neither replaces ARC nor represents a fitted model of people. At unit latent time steps,
+\[
+ e_t=r_t-x_t,\qquad x_{t+1}=x_t+b a_t+\eta_t,\qquad
+ a_t=\operatorname{clip}\{f_k(e_{\leq t},a_{<t})+\xi_t,-A,A\}.
+\]
+The target $r_t=0.12\sin(t/13)+\zeta_t$ provides persistent excitation. Independent Gaussian target, process and action noise have SD 0.04, 0.003 and 0.005, respectively. These are computational settings, not calibrated human measurement properties. The plant state is not clipped. Feedback strength $b$ and action bound $A$ are design factors.
+
+The eight generators are zero-intercept noise, AR(1), P, PI, PID, ARX, a fixed-width hyperbolic-tangent response and a sign-dependent switching-slope response. The controller regressors use $I_t=0.85I_{t-1}+e_t$ and $D_t=e_t-e_{t-1}$, initialized at zero. Regular gains are $k_P=0.6$, $k_I=0.06$, $k_D=0.08$; AR persistence is 0.65, nonlinear amplitude is 0.15 with width 0.12, and positive/negative switching slopes are 0.75/0.25. The switching boundary is the known discrepancy zero, not an estimated hidden regime. Knowing nonlinear width and switching boundary is an optimistic benchmark assumption.
+
+Candidates are an intercept-only model, observed-lag AR, P/PI/PID, ARX, fixed-width nonlinear regression and sign-dependent slopes, all fitted by ordinary least squares with an intercept. Additive action noise precedes clipping. Consequently, clipped conditions deliberately violate an unclipped linear candidate equation. Estimated regression coefficients under clipping or noisy reconstructed history need not recover latent generator gains. Parameter summaries retain this distinction and do not report unavailable interval coverage.
+
+\begin{table}[htbp]
+\centering
+\caption{Two-level observation-factor grid for the standardized development study}
+\label{tab:m02-development-design}
+\begin{tabular}{ll}
+\toprule
+Factor & Levels \\
+\midrule
+Latent trajectory steps & 60, 180 \\
+Observation stride & 1, 3 latent steps \\
+Analyst discrepancy-noise SD & 0, 0.04 \\
+MCAR omission probability & 0, 0.25 \\
+Feedback coefficient $b$ & 0.1, 0.5 \\
+Symmetric action bound $A$ & 0.025, 1.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The full development design crosses these six factors: 64 observation conditions, eight generators and 80 independent seed blocks per cell. A separate targeted study contains nine conditions, including exact PID reduction to P, and uses a different seed pool. Seed streams are matched across generator families and condition contrasts. Factorial and targeted results remain separate development evidence, with no claim of prospective external registration or a confirmatory psychological tolerance.
+
+Observations retain time zero, remove MCAR snapshots and add discrepancy measurement noise. Derivative/integral features use actual elapsed time and retained observations, without interpolation or hidden latent histories. After gaps, autoregression uses the previous observed action; this is not the previous latent-step action. Temporal 60/20/20 blocks are defined after observation processing. Full-rank candidates are fitted on the first block; exact ties in validation RMSE follow the fixed candidate order. Rank-deficient/numerically failed candidates and trajectories with insufficient observations remain in the ledger. The best competitor excludes the nominal generating family and is frozen on validation. Only after these choices are frozen are final-block actions used to compute losses.
+
+Recovery intervals use Wilson 95\% intervals with attempted trajectories as denominators. Paired mean-loss intervals use a pointwise normal approximation over independent seed blocks. The development equivalence band is $\epsilon=0.005$ in action-RMSE units, set before the first targeted run and retained for the full grid. It is a computational resolution choice, not a human-calibrated minimal difference. Multiple cellwise conclusions are descriptive, with no familywise confirmatory guarantee. Final-test prediction is conditional on observed current discrepancy and past observations; it is not recursive autonomous forecasting.

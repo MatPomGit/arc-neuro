@@ -1,0 +1,25 @@
+\begin{table}[htbp]
+\caption{Competing Observation Models for the H1 Discrepancy Claim}
+\label{tab:h1-competing-models}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{threeparttable}
+\begin{tabular}{p{0.09\linewidth}p{0.30\linewidth}p{0.24\linewidth}p{0.24\linewidth}}
+\toprule
+Model & Additional relational predictors & Question answered & Interpretation \\
+\midrule
+M0 & None beyond context and prior action & Is generic context plus behavioral inertia sufficient? & Baseline model \\
+M1 & Perceived state \(\hat r_t\) & Does current relational perception alone predict action? & Descriptive baseline for relational-state information \\
+M2 & \(\hat r_t\) and \(r^\ast_t\) separately & Does desired state contribute beyond perceived state? & Flexible component model; \(\beta_{r^\ast}\) is H1-P1 \\
+M3 & Discrepancy \(e_t=r^\ast_t-\hat r_t\) & Does signed discrepancy predict subsequent action? & \(\beta_e\) is H1-P2; equality is checked separately in M2 \\
+M4 & Positive and negative discrepancy components & Are closeness frustration and closeness surfeit dynamically asymmetric? & Piecewise discrepancy extension \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Note. All models retain the same preregistered context, elapsed-time, and autoregressive terms. H1-P1 and H1-P2 are direct coefficient tests with Holm family-wise control. Structural contrasts are evaluated separately. Days 12--14 remain untouched for secondary predictive RMSE validation.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

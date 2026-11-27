@@ -1,0 +1,19 @@
+\section{Estimands and Confirmatory Extension}
+
+The primary estimand is generating-family recovery probability under each observation condition. Recovery is evaluated separately for the full candidate set and the nested P/PI/PID subset.
+
+A second estimand is the paired final-evaluation loss difference between the generating-family fit and a competitor selected on validation data, excluding the generating family. The competitor and its parameters are frozen before final evaluation. Separate prespecified pairwise comparisons retain all investigated families; selecting the strongest competitor using final-test error is prohibited. Intervals use independent generated trajectories as the replication unit. If seeds are matched across conditions, resampling preserves the matched seed block. Time points within one trajectory are not independent Monte Carlo replications.
+
+A third estimand is the trajectory-level near-tie probability under a fixed absolute loss-difference tolerance. Condition-level equivalence conclusions additionally require interval containment, as defined above; the two quantities must not share an ambiguous label. The standardized development suite implements these quantities with the pointwise intervals described in its Methods. Confirmatory comparison families, interval coverage, multiplicity handling, effective-order thresholds and loss normalization still require a prospective freeze. Repository specifications do not constitute external preregistration.
+
+Where parameters have a meaningful generating value, the study will report bias, dispersion and interval coverage. These parameter outcomes are secondary to family-level identifiability because precise estimation within the wrong family is not mechanistic recovery.
+
+The analysis will also estimate how family recovery changes with measurement noise, missingness, trajectory length and sampling design. Interactions are interpreted as design sensitivity rather than psychological effects.
+
+No single winner rate will be presented without its denominator, uncertainty and competing-baseline performance. Failed fits and numerical pathologies remain in the run ledger and are summarized rather than silently discarded. Report family recovery over all attempted trajectories, with unsuccessful selections counted as unsuccessful recovery, and additionally over evaluable trajectories. Paired-loss summaries report the number evaluable for both candidates; they do not replace the attempted-run denominator. Numerical failures, insufficient observations, and near ties are separate statuses. No blanket chance rate is appropriate when candidates are unequally nested or failures alter selection opportunities; any chance benchmark must specify its random-selection rule and eligible candidate set.
+
+
+
+The primary implemented predictive target is conditional one-step action prediction given observed discrepancy history and, for the autoregressive candidate, past observed action. A recursive multi-step rollout is a different estimand and is not implemented by the current design. Report that distinction explicitly.
+
+Nominal-family recovery and effective-order recovery must be distinguished for nested models with zero integral or derivative gains. Nonzero gains may also be practically uninformative when regressors lack excitation or clipping dominates. The development ledger exports feature rank, conditioning, generating gains and clipping fraction; exact zero-gain reduction is implemented. A defensible rule for practically negligible nonzero gains remains open. A confidence interval wholly beyond either equivalence boundary supports predictive separation in the indicated direction; an interval crossing a boundary is inconclusive, and an interval wholly inside the band supports only practical predictive equivalence.

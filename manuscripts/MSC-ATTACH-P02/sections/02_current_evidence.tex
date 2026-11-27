@@ -1,0 +1,34 @@
+\section{Current Synthetic Evidence}
+
+\subsection{Original stress test}
+
+The original generator-discrimination experiment generated 40 trajectories for each of P, PI, and PID using matched gain distributions and random seeds across generator families. Each trajectory was fitted with intercept-only (labeled context in code), autoregressive, P, PI, and PID alternatives. Analyst discrepancy-measurement noise was evaluated at SD 0 and 0.04.
+
+Without added analyst measurement noise, the generating nested family was selected in 20/40 P trajectories, 11/40 PI trajectories, and 14/40 PID trajectories. With measurement-noise SD 0.04, correct selections fell to 13/40, 7/40, and 6/40. Under the noisy arm, a simple baseline had the lowest error in 32/40 trajectories for each generator condition.
+
+These results are descriptive rather than confirmatory. The same final 30\% chronological block was used both to choose the model and to describe its holdout performance, so selection accuracy is entangled with performance reporting. The evidence is retained as \texttt{M02-STRESS-TEST-LEGACY} and used only to motivate the identifiability problem.
+
+\subsection{Leakage-resistant development benchmark}
+
+A revised development pipeline separated coefficient fitting (60\%), validation/model selection (20\%), and untouched final evaluation (20\%). The generator set remained P/PI/PID, while candidates included intercept-only (labeled context in code), autoregressive, P, PI, and PID models. Forty trajectories per generator were evaluated at analyst-noise SD 0 and 0.04. This run is registered as \texttt{M02-DEV-SPLIT-2026-10-01}; it verifies analysis architecture but does not freeze the confirmatory design.
+
+\begin{table}[htbp]
+\centering
+\caption{Leakage-resistant development benchmark: validation-selected family recovery}
+\begin{tabular}{llrrrr}
+\toprule
+Generator & Noise SD & $n$ & Nested correct & All-candidate correct & Baseline selected \\
+\midrule
+P   & 0.00 & 40 & 19 & 19 & 0 \\
+PI  & 0.00 & 40 & 12 & 12 & 2 \\
+PID & 0.00 & 40 & 11 & 11 & 1 \\
+P   & 0.04 & 40 & 10 & 0  & 36 \\
+PI  & 0.04 & 40 & 8  & 1  & 39 \\
+PID & 0.04 & 40 & 14 & 0  & 37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Separating model selection from final evaluation did not eliminate the ambiguity. In the zero-noise arm, correct all-candidate selection ranged from 11/40 to 19/40 across generators. With analyst-noise SD 0.04, the generating family was selected from the full candidate set in only 1 of 120 trajectories, whereas a intercept-only (labeled context in code) or autoregressive baseline was selected in 112 of 120. Mean final-test RMSE of the validation-selected model was also lower than that of the true generating family in the noisy arms, indicating that the observable action sequence can favor a simpler predictive explanation even when the simulator's latent generator is known.
+
+This is a development result, not the manuscript's final inferential result. The candidate universe is still narrow, the factor grid is not frozen, and the practical-equivalence tolerance has not been prespecified. The confirmatory study therefore expands generator classes and observation conditions, freezes the numerical grid and equivalence criterion before execution, and reports Monte Carlo uncertainty on untouched final evaluation data.

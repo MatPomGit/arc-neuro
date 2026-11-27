@@ -1,0 +1,235 @@
+{
+  "version": "1.6-recalibration",
+  "purpose": "Focused pre-recruitment recalibration after excluding prompt 1 -> 2 from confirmatory autoregressive lags.",
+  "seed": 20260927,
+  "replications": 1000,
+  "days": 14,
+  "training_days": 11,
+  "prompts_per_day": 6,
+  "waking_hours": 14,
+  "elapsed_reference_hours": 2.3333333333333335,
+  "smoke_couples": 20,
+  "candidate_couples": [
+    72,
+    84,
+    96,
+    108,
+    120
+  ],
+  "compliance_rates": [
+    0.75
+  ],
+  "missingness_strengths": [
+    0,
+    1
+  ],
+  "minimum_valid_lag_pairs": 30,
+  "minimum_holdout_lag_pairs": 3,
+  "candidate_rmse_margins": [
+    0,
+    0.1,
+    0.25,
+    0.5
+  ],
+  "estimator": {
+    "method": "Gaussian GEE",
+    "link": "identity",
+    "cluster": "couple_id",
+    "working_correlation": "independence",
+    "covariance": "bias_reduced sandwich",
+    "software": "statsmodels 0.15.0",
+    "primary_prediction": "couple-clustered participant RMSE difference on days 12-14 with t-based confidence intervals across couples",
+    "note": "Random intercept and slope heterogeneity is generated but is not parameterized as a required random-effects distribution in the primary GEE."
+  },
+  "truth_scenarios": {
+    "M0": {
+      "state": 0,
+      "target": 0,
+      "discrepancy": 0,
+      "positive": 0,
+      "negative": 0
+    },
+    "M1": {
+      "state": -1.5,
+      "target": 0,
+      "discrepancy": 0,
+      "positive": 0,
+      "negative": 0
+    },
+    "M2": {
+      "state": -0.75,
+      "target": 2,
+      "discrepancy": 0,
+      "positive": 0,
+      "negative": 0
+    },
+    "M3": {
+      "state": 0,
+      "target": 0,
+      "discrepancy": 1.5,
+      "positive": 0,
+      "negative": 0
+    },
+    "M4": {
+      "state": 0,
+      "target": 0,
+      "discrepancy": 0,
+      "positive": 2,
+      "negative": -1.2
+    }
+  },
+  "random_effect_sd": {
+    "couple_action_intercept": 3,
+    "person_action_intercept": 6,
+    "person_relational_slope": 0.6,
+    "couple_state_mean": 5,
+    "couple_target_residual": 4,
+    "person_state_mean": 6,
+    "person_target_mean": 5,
+    "response_propensity": 0.55
+  },
+  "dynamics": {
+    "state_grand_mean": 60,
+    "target_grand_mean": 65,
+    "state_within_sd": 10,
+    "target_within_sd": 8,
+    "state_ar": 0.45,
+    "target_ar": 0.65,
+    "state_to_target_coupling": 0.15,
+    "target_innovation_sd": 0.7,
+    "between_state_target_correlation": 0.6,
+    "shared_stressor_probability": 0.08,
+    "individual_stressor_probability": 0.1,
+    "contact_probability": 0.75,
+    "stressor_state_shift": 0.2,
+    "negative_affect_base": 25,
+    "negative_affect_stressor": 10,
+    "negative_affect_discrepancy": 0.1,
+    "negative_affect_noise_sd": 8,
+    "action_ar": 0.35,
+    "overnight_action_persistence": 0.15,
+    "initial_action_sd": 15,
+    "action_residual_sd": 12
+  },
+  "context_effects": {
+    "negative_affect_per_10": 1,
+    "stressor": 1.5,
+    "contact": 0.8,
+    "elapsed_hour": 0.2
+  },
+  "missingness": {
+    "negative_affect_logit_per_10": 0.12,
+    "abs_discrepancy_logit_per_10": 0.05,
+    "abs_action_logit_per_10": 0.03,
+    "note": "missingness_strength=0 gives non-informative prompt nonresponse conditional on person response propensity; 1 applies the full state/action-dependent mechanism."
+  },
+  "notes": [
+    "Relational fixed effects are action-scale points per 10-point within-person change in the corresponding closeness variable.",
+    "candidate_sesoi_beta values are action-scale points per 10-point within-person relational change; they are calibration candidates, not locked human-effect thresholds.",
+    "Truth scenarios are design-sensitivity values, not human ARC effect estimates.",
+    "Prompt schedules use six equal strata across the 14-hour window and enforce at least 90 minutes between scheduled prompts.",
+    "Observed prompts receive a simulated response latency within the locked 30-minute response window; confirmatory lags use actual response-to-response intervals of 1-4 hours.",
+    "Person means used for holdout predictors are estimated from observed days 1-11 prompts only to avoid temporal leakage.",
+    "Heavy full-factorial Monte Carlo is intentionally excluded from ordinary CI.",
+    "Decision-analysis data sufficiency is configuration-driven: at least minimum_people_with_valid_lags people must meet the valid-lag requirement and each predictive comparison must include at least minimum_prediction_couples dyads.",
+    "Post-Monte-Carlo revision: the M1-first sequential RMSE gate is retained only as a historical design-development diagnostic and is not the primary H1 inference rule.",
+    "Focused 8,000-replication N=84 asymmetry validation completed: candidate delta_asym values 0.25/0.5/0.75 all failed prespecified operating-characteristic guardrails, so M4 asymmetry is secondary/descriptive only.",
+    "Primary autoregressive transitions exclude prompt 1 -> 2; only 2->3, 3->4, 4->5, and 5->6 are eligible because the source action must summarize a standardized preceding same-day ESM interval.",
+    "The completed 120,000-replication calibration used the broader adjacent-lag definition; after excluding prompt 1 -> 2, sample-size/data-sufficiency operating characteristics must be recalibrated before recruitment is frozen."
+  ],
+  "minimum_prompt_separation_hours": 1.5,
+  "response_window_minutes": 30,
+  "reminder_after_minutes": 15,
+  "valid_lag_min_hours": 1,
+  "valid_lag_max_hours": 4,
+  "execution": {
+    "recommended_chunk_replications": 10,
+    "replication_indexing": "absolute zero-based within scenario",
+    "merge_utility": "software/study_design/merge_h1_exact_results.py",
+    "note": "Windows FULL preserves deterministic 10-replication chunk identities for resumability, but computes every replication in a fresh Python process. Automatic concurrency is capped at four workers and at most 25% of logical CPUs, with a conservative free-memory guard. Each isolated replication has bounded retries; strict merge rejects overlapping or missing replication keys. Worker processes suppress modal Windows crash dialogs."
+  },
+  "ipw_sensitivity": {
+    "status": "prespecified sensitivity; final truncation choice pending targeted Monte Carlo",
+    "assumption": "history-based MAR conditional on the denominator response model; not a correction guarantee for contemporaneous unobserved-state MNAR",
+    "probability_floor": 0.02,
+    "candidate_truncation_quantiles": [
+      [
+        0,
+        1
+      ],
+      [
+        0.01,
+        0.99
+      ],
+      [
+        0.025,
+        0.975
+      ]
+    ],
+    "provisional_truncation_quantiles": [
+      0.01,
+      0.99
+    ],
+    "numerator_model": [
+      "prompt stratum",
+      "study day"
+    ],
+    "denominator_model": [
+      "prompt stratum",
+      "study day",
+      "prior response rate",
+      "previous scheduled prompt observed",
+      "no prior observed-history indicator",
+      "last observed negative affect",
+      "last observed absolute discrepancy",
+      "last observed absolute signed action"
+    ],
+    "diagnostics": [
+      "minimum denominator response probability",
+      "1st percentile denominator response probability",
+      "maximum stabilized lag weight after truncation",
+      "effective sample size fraction",
+      "weighted versus primary coefficient difference",
+      "weighted versus primary holdout RMSE difference"
+    ],
+    "primary_covariance": "bias_reduced sandwich",
+    "weighted_covariance": "robust sandwich",
+    "covariance_note": "statsmodels 0.15.0 observation weights are incompatible with its bias-reduced covariance path in the pinned implementation; weighted finite-cluster coverage is therefore evaluated explicitly in targeted Monte Carlo"
+  },
+  "candidate_sesoi_beta": [
+    0.25,
+    0.5,
+    1
+  ],
+  "minimum_people_with_valid_lags": 100,
+  "minimum_prediction_couples": 30,
+  "final_design": {
+    "analysis_target_couples": null,
+    "planning_compliance_floor": 0.75,
+    "familywise_alpha": 0.05,
+    "multiplicity": "Holm family-wise alpha 0.05 across the two co-primary one-sided SESOI tests",
+    "primary_tests": [
+      "H1-P1: one-sided Wald test H0: M2 beta_r_star <= 0.5 versus beta_r_star > 0.5",
+      "H1-P2: one-sided Wald test H0: M3 beta_e <= 0.5 versus beta_e > 0.5"
+    ],
+    "primary_sesoi_beta": 0.5,
+    "signed_discrepancy_symmetry_tolerance": 1,
+    "rmse_role": "secondary predictive evidence; no sequential gating",
+    "asymmetry_tolerance_status": "not used; focused N=84 validation rejected all prespecified confirmatory tolerance candidates",
+    "asymmetry_role": "secondary descriptive structural evidence only",
+    "asymmetry_reporting": "report beta_positive, beta_negative, d_asym, and 95% CI without confirmatory threshold classification",
+    "comparable_lag_recalibration_status": "pending_focused_recalibration",
+    "analysis_target_couples_status": "not frozen; select prospectively from recalibration guardrails"
+  },
+  "recalibration_guardrails": {
+    "selection_condition": "compliance=0.75, missingness_strength=1",
+    "minimum_primary_data_sufficiency_rate": 0.99,
+    "minimum_H1_P1_power_under_M2": 0.9,
+    "minimum_H1_P2_power_under_M3": 0.9,
+    "maximum_H1_P1_false_positive_rate_under_M0": 0.075,
+    "maximum_H1_P2_false_positive_rate_under_M0": 0.075,
+    "rule": "Select the smallest candidate N satisfying every guardrail using the prespecified Monte Carlo confidence bounds. If none qualifies, do not freeze recruitment N.",
+    "monte_carlo_confidence_level": 0.95,
+    "uncertainty_rule": "For minimum-rate guardrails require the Wilson lower confidence bound to meet the threshold; for maximum-rate guardrails require the Wilson upper confidence bound to meet the threshold. A point estimate that passes while its bound does not is inconclusive and cannot freeze N."
+  }
+}

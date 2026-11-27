@@ -1,0 +1,50 @@
+{
+  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
+  "scientific_owner": "Mateusz Pomianek",
+  "evidence_status": "historical_synthetic_development_only",
+  "complete_archive": false,
+  "files": [
+    {
+      "source_path": "studies/pilot_h1/h1_exact_design_results_report.md",
+      "source_blob_sha": "15cbda6f8d862f88df511986ae07e981fba5948b",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/h1_exact_design_results_report.md"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/decisions/h1_design_ranking.csv",
+      "source_blob_sha": "6b841d7ce5079566afb47d65264de54491587b7b",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_design_ranking.csv"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_primary_operating_characteristics.csv",
+      "source_blob_sha": "8ecedf5d959263a27b9b22dc46b9e10410eacf5c",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_primary_operating_characteristics.csv"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_primary_result_matrix.csv",
+      "source_blob_sha": "33d90e149bfc72628de029ebc52011846cf6af3e",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_primary_result_matrix.csv"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_symmetry_result_matrix.csv",
+      "source_blob_sha": "7a4d8bd9ceb9c37c662bdbb7ff858fa6bb9cfa56",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_symmetry_result_matrix.csv"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/inference/h1_asymmetry_result_matrix.csv",
+      "source_blob_sha": "6d1c3c00dcfc40f1a5d1f6e31dc6e8c2e70059c4",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/inference/h1_asymmetry_result_matrix.csv"
+    },
+    {
+      "source_path": "studies/pilot_h1/exact_results/decisions/h1_sesoi_operating_characteristics.csv",
+      "source_blob_sha": "ca221b9e5b9b9f1b4cb059d43192719fa32d5927",
+      "destination_path": "manuscripts/MSC-ATTACH-P01/results/historical_exact_design/decisions/h1_sesoi_operating_characteristics.csv"
+    }
+  ],
+  "omitted": [
+    "exact_results/decisions/h1_decisions_long.csv",
+    "exact_results/merged/h1_exact_merge_manifest.json",
+    "exact_results/merged/h1_chunk_inputs.txt",
+    "remaining compact summaries and metadata"
+  ],
+  "reason": "Large artifacts require separate byte-preserving archival transfer; no human records transferred."
+}
