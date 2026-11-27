@@ -1,0 +1,32 @@
+{
+  "evidence_id": "M02-DEV-ROBUSTNESS-2026-10-08",
+  "evidence_status": "development_only",
+  "source_commit": "b7eeee72e10343804bd4d082214789d9544ec71e",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "attempted_triads": 8960,
+  "generated_trajectories": 26880,
+  "failed_triads": 968,
+  "source_hashes": {
+    "controller_identifiability_robustness.py": "bb1d07ed6bbaac88d43a656b4bfbe76d54fb91af4d25d939c90f3032075a1ad0",
+    "controller_identifiability_suite.py": "7967601602b88fd15163aa2e1bb77eea7835c64b13eb0f7cc4b85465c20dc6c7",
+    "controller_identifiability_split.py": "93290821b772eb8818806f50f00218c2cded3fd8fa7497e5464a6a1b23b3f970",
+    "fit_controller.py": "82b9a7beb6a5ac088cc396a01dbdbff182f1cea6981a4bf9afff0bdb4c6b7a67"
+  },
+  "existing_ledger_sha256": "eca20d94c7e1af4d88114c745d62506467938ead4673c1df7a9f42cba3c5549d",
+  "outputs_sha256": {
+    "conditional_information.csv": "7cba88d8ae9106b768ad63d596a9fac75e8890d1989cc36423b446212440442d",
+    "conditional_profiles.csv": "bae8868e1759ffb574ecdb5e5230e02a4e97ea00141f28c38c130a5b84500a29",
+    "config.json": "ac122bf27407ea1184862207c76fbef67ca3ca458bb31b461c03cf637c8c233e",
+    "factorial_bootstrap_sensitivity.csv": "62bc8595e890a95ef2c9312cf6992c36a80246db53d006832d4c9f1c51cdd32e",
+    "summary.csv": "32ba59133db03294dfd77c9355e35487dc0d8cc602acce4da4f9df3d8ac5d6fd",
+    "triads.jsonl": "b6edf5f316f94b734181b97349f9cf4c8a08335c844a7461261fcf4ad086140f"
+  },
+  "limitations": [
+    "pointwise exploratory percentile bootstrap",
+    "working Gaussian AIC/BIC, not Bayesian evidence",
+    "conditional information, not full latent FIM",
+    "fixed gains, within-design fresh innovations",
+    "quantization is not a validated Likert observation"
+  ]
+}

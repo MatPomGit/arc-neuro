@@ -1,0 +1,3 @@
+# M02 historical development evidence
+
+Scientific owner: Mateusz Pomianek. Source repository: ARC Attachment Dynamics, archival revision `9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62`. These are selected original synthetic simulation summaries, configurations and execution metadata. They are not new simulations, not confirmatory evidence, and not participant data. The original source commits, source hashes and output checksums in the metadata are unchanged. The archive is incomplete: some CSV tables, trajectory ledgers and factorial outputs still need byte-preserving transfer. Do not infer successful reproduction from their presence. Preserve the historical repository until archival completeness and reproduction are independently verified.
