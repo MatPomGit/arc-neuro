@@ -1,0 +1,7 @@
+# Separate environment for the hierarchical fit. PyMC 5.26 uses ArviZ InferenceData.
+pymc==5.26.1
+arviz==0.22.0
+h5netcdf==1.8.3
+h5py==3.16.0
+numpy==2.5.5
+scipy==1.18.1
