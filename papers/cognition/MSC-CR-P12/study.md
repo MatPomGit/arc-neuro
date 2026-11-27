@@ -6,9 +6,9 @@
 
 **Przedmiot:** Transfer odporności poznawczej między dziedzinami.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
-- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
-- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Proponowany wynik główny:** Różnica zmian czułości d′ od pomiaru bazowego do dnia 14, uśredniona po dwóch dziedzinach bez treningu, wśród losowanych uczestników.
+- **Zakres i odrębność:** Odrębność od P01 i P06 opisuje [porównanie serii i literatury](novelty.md).
+- **Metodologia:** Projekt randomizacji, kryteria walidacji, plan statystyczny oraz analiza wrażliwości są opisane w [protokole 1.0.0](protocol.md).
 - **Powiązane MSC:** `MSC-CR-P01`.
 
 ## Stanowisko badawcze

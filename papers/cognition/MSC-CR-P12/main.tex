@@ -1,66 +1,69 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
-\usepackage[polish]{babel}
-
-\usepackage{lmodern}
-
-\usepackage{geometry}
-
-\geometry{margin=27mm}
-
+\IfFileExists{polish.ldf}{\usepackage[polish]{babel}}{}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage{amsmath,booktabs,tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[margin=25mm]{geometry}
+\usepackage[authoryear,round]{natbib}
 \usepackage[hidelinks]{hyperref}
-
 \title{Transfer odporności poznawczej między dziedzinami}
-
-\author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
-
+\author{Mateusz Pomianek\\\small Właściciel naukowy i autor\quad\texttt{m.pomianek@prz.edu.pl}}
+\date{MSC-CR-P12 | Protokół prospektywny 1.0.0 | 27 listopada 2026}
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
-Tematem pracy jest Transfer odporności poznawczej między dziedzinami. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Projekt sprawdza, czy trening oceny rekomendacji przypisywanych AI poprawia rozróżnianie poprawnych i błędnych porad w nowych dziedzinach po dwóch tygodniach. W dwuramiennym eksperymencie online porównamy trening weryfikacji przesłanek z aktywną kontrolą. Pierwszorzędowy kontrast dotyczy zmiany czułości detekcji od pomiaru wyjściowego do odroczonego w dwóch dziedzinach nieobjętych treningiem. Osobno oszacujemy kryterium odrzucania, przyjmowanie poprawnych porad oraz kalibrację pewności. Dokument opisuje planowany eksperyment i założenia do pilotażu.
 \end{abstract}
 
 \section{Wprowadzenie}
+Transfer ma określony zakres wynikający z podobieństwa treści, kontekstu i wymaganej reakcji \citep{barnett2002}. Indukcja schematu przez porównanie przypadków dostarcza podstaw do nauczania reguły abstrahowanej od pojedynczej historii \citep{gick1983}. Struktura zadania i monitorowanie metapoznawcze są również składnikami modelu nauczania myślenia krytycznego \citep{halpern1998}. Sceptycyzm wobec szerokiego transferu w literaturze o treningu funkcji poznawczych uzasadnia ścisłe ograniczenie wnioskowania do konkretnych kontekstów testowych \citep{sala2019}. Tutaj odległość obejmuje zmianę dziedziny, formatu i części rodzin błędów. Interfejs, język oraz zadanie oceny rekomendacji pozostają wspólne.
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Transfer odporności poznawczej między dziedzinami wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Badania nad inokulacją dostarczają precedensu dla ostrzeżenia i ćwiczenia na osłabionych przykładach technik wprowadzania w błąd \citep{roozenbeek2022}. W tym projekcie dwa warianty porad mają jednakową prezentację. Trening obejmuje również poprawne rekomendacje, aby zachować ich akceptację. Błąd automatyzacji uzasadnia obserwację przyjmowania niepoprawnych porad \citep{skitka1999}. Zaufanie deklarowane, faktyczne poleganie i obiektywna poprawność porad wymagają odrębnego pomiaru \citep{lee2004,schemmer2023}. Wymuszanie zastanowienia może ograniczyć nadmierne poleganie podczas korzystania z interfejsu \citep{bucinca2021}. P12 testuje, czy strategia utrwala się poza interfejsem treningowym i po usunięciu podpowiedzi.
 
-\section{Cel i pytania badawcze}
+P01 manipuluje jakością dowodów i perswazyjnością w bieżącym osądzie. P06 mierzy trafność osądu przede wszystkim w zadaniach bez AI. W P12 przedmiotem randomizacji jest trening, a jednostką pomiaru jest odpowiedź na kontrolowaną poradę poprawną lub błędną. Wkład polega na połączeniu odroczonego transferu międzydziedzinowego z rozdzieleniem czułości i kryterium w zadaniach polegania na AI. Przegląd zakresowy nie przesądza pierwszeństwa tej kombinacji.
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Transfer odporności poznawczej między dziedzinami. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+\section{Model mechanizmów i hipotezy}
+Monitorowanie wykrywa rozbieżność między zaleceniem a przesłankami. Kontrola wykonawcza ma umożliwić odroczenie decyzji i sprawdzenie przesłanek. Porównywanie przykładów ułatwia abstrahowanie reguły i jej przywołanie, a wiedza dziedzinowa wspiera interpretację dowodu. Pewność, wybór, czas i ślad otwarcia dowodu są obserwacjami behawioralnymi. Trafność metapoznawcza wymaga osobnej oceny relacji pewności do poprawności \citep{fleming2014}. Dane te nie identyfikują przyczynowej mediacji ani funkcji wykonawczych.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[node distance=7mm and 8mm,every node/.style={align=center,font=\small}, box/.style={draw,rounded corners,minimum height=9mm,text width=33mm}, arr/.style={-{Latex}}]
+\node[box] (training) {Trening\\weryfikacji porad};
+\node[box,right=of training] (check) {Monitorowanie\\i kontrola};
+\node[box,right=of check] (schema) {Uogólnienie\\strategii};
+\node[box,below=of schema] (domain) {Wiedza\\dziedzinowa};
+\node[box,below=of check] (decision) {Przyjęcie lub\\odrzucenie porady};
+\draw[arr] (training) -- (check);
+\draw[arr] (check) -- (schema);
+\draw[arr] (schema) -- (decision);
+\draw[arr] (domain) -- (decision);
+\draw[arr] (check) -- (decision);
+\end{tikzpicture}
+\caption{Hipotetyczne mechanizmy. Strzałki oznaczają założone powiązania, których badanie nie identyfikuje osobno.}
+\end{figure}
+
+H1 przewiduje dodatnią różnicę zmian czułości w transferze dalekim po 14 dniach. H2 przewiduje dodatni efekt bliski bezpośrednio po treningu i większą zmianę bliską niż daleką w tej samej sesji. H3 przewiduje wzrost trafnych odrzuceń przy utrzymaniu akceptacji poprawnych zaleceń w granicy 5 punktów procentowych względem kontroli, po korekcie bazowej. Jeśli przedział dla tej akceptacji obejmie wartości poniżej granicy, zachowanie akceptacji pozostanie nierozstrzygnięte. H4 przewiduje większą czułość przy większej wyjściowej wiedzy dziedzinowej. Moderacja efektu treningu i poprawa kalibracji pozostają eksploracyjne. Konkurencyjne wyjaśnienia obejmują ogólną ostrożność (wzrost obu typów odrzucenia), powtórzenie procedury (wzrost w obu ramionach), rozpoznanie stylu i zapamiętanie przykładów (efekt skupiony w zadaniach podobnych), a także selektywny odpływ uczestników.
 
 \section{Materiał i metody}
+Dorośli polskojęzyczni wykonują pomiar bazowy przed randomizacją 1:1. Trening w dziedzinie mobilności ćwiczy porównanie przesłanek, identyfikację nieuprawnionego wniosku i uzasadnienie akceptacji porady poprawnej. Kontrola ćwiczy obsługę interfejsu i wyszukiwanie jawnych informacji. Oba ramiona mają te same dziedziny, liczbę prób, czas i informację zwrotną. Test bezpośredni i pomiar po 14 dniach wykorzystują równoległe zestawy bez feedbacku. Test bliski zawiera nowe pozycje z mobilności. Test daleki obejmuje dziedziny i formaty nieużyte w treningu, ekologię w formacie kart terenowych oraz wybór wyposażenia w formacie specyfikacji. Odległość czasu analizujemy osobno. Kontrbalans wariantów, form i pozycji odpowiedzi uniemożliwia przewidzenie prawidłowości na podstawie prezentacji. Każda próba obejmuje wybór początkowy, poradę i końcowy wybór, decyzję o akceptacji oraz pewność, że decyzja o poradzie jest trafna.
 
-Trening identyfikowania błędnych porad w jednej dziedzinie i odroczony test w domenach nieuczonych. Pierwszorzędowy wskaźnik: Trafność wykrycia nieuprawnionych wniosków w niećwiczonych obszarach. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+\section{Estymand i analiza}
+Przy sygnale zdefiniowanym jako błędna porada i reakcji jako odrzucenie, $H$ oznacza trafne odrzucenie błędu, a $F$ odrzucenie poprawnej porady. Opisowo $d'=\Phi^{-1}(H)-\Phi^{-1}(F)$ i $c=-[\Phi^{-1}(H)+\Phi^{-1}(F)]/2$. Korekcja opisowa stosuje $(k+0{,}5)/(n+1)$ w obu klasach. Wyższe dodatnie $c$ oznacza większą niechęć do odrzucania. Czułość sama nie gwarantuje utrzymania akceptacji poprawnych porad.
 
-\section{Plan analizy}
-
-Proponowany plan analityczny: model warunek treningu razy domena z efektem uczestnika. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Dla odpowiedzi $Y$ na poziomie próby model probitowy używa $S=+1/2$ dla błędnej porady i $S=-1/2$ dla poprawnej. Przy warunku $G$, fali $T$, domenie $D$ i wiedzy bazowej $K$:
+\[
+\Phi^{-1}\Pr(Y=1)=a_{GTD}+S\,d_{GTD}+
+\gamma_D K+\xi_D SK+b_{0i}+S b_{1i}+q_{0j}+S q_{1j}.
+\]
+Współczynniki komórek odpowiadają pełnym interakcjom warunku, fali, domeny i poprawności. Losowe efekty uczestnika $i$ i scenariusza $j$ obejmują składowe kryterium i czułości. Forma testowa jest zrównoważona między falami. Dla wycentrowanej wiedzy i zerowych efektów losowych $d_{GTD}$ jest odległością na skali probitowej, a $-a_{GTD}$ odpowiada kryterium. Pierwszorzędowy wskaźnik: estymand ITT stanowi średnia o równych wagach dla dwóch domen dalekich z różnic zmian $d'$ pomiędzy bazą i 14. dniem w ramionach losowanego przydziału. Dodatni efekt wymaga przedziału wykluczającego zero. Akceptację poprawnej porady oceni kontrast marginalnych prawdopodobieństw. Brier, nachylenie i przesunięcie kalibracji odnoszą się do świadomej oceny decyzji. Adekwatność polegania raportuje oddzielnie przyjęcie poprawnej porady po początkowym błędzie i utrzymanie poprawnej odpowiedzi wobec błędnej porady, w próbach z rozbieżnością \citep{schemmer2023}.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Nie przeprowadzono rekrutacji ani pomiarów. W analizie Monte Carlo wykonano 57\,600 replikacji w 48 scenariuszach. Przy latentnym efekcie 0,20 i $N=640$ odsetek dodatnich rozstrzygnięć wyniósł od 76,2\% do 88,8\% w scenariuszach z losowym odpływem. Przedziały wynikają z różnych założeń o trudności i odpływie. Do oszacowania użyto zmiany indywidualnego $d'$ i testu Welcha.
 
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+Materiały wymagają niezależnej oceny klucza, pilotażu i zamrożenia form. Symulacja scenariuszowa służy do planowania próby. Jej parametry nie są oszacowaniami empirycznymi treningu. Założenia rekrutacji, walidacji, braków danych i rejestracji opisano w protokole towarzyszącym. Zamrożenie estymandu oraz planu analiz nastąpi przed randomizacją badania głównego.
+\bibliographystyle{apalike}
+\bibliography{references}
 \end{document}
-

@@ -108,6 +108,11 @@ class ManuscriptTexTests(unittest.TestCase):
                                              "H1 jest jedynym testem potwierdzającym",
                                              "akwizycja danych nie została rozpoczęta"):
                                 self.assertIn(required, content)
+                        elif ident == "MSC-CR-P12":
+                            self.assertEqual(by_id[ident]["stage"], "IDEA_REVIEW")
+                            self.assertRegex(content, r"\\date\{MSC-CR-P12 \| Protokół prospektywny 1\.\d+\.\d+")
+                            self.assertIn(r"\bibliography{references}", content)
+                            self.assertIn("Nie przeprowadzono rekrutacji ani pomiarów", content)
                         elif ident == "MSC-PAIN-P07":
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
                             self.assertRegex(content, r"\\date\{MSC-PAIN-P07 \\enspace PROSPECTIVE \\enspace wersja 1\.\d+\.\d+")
