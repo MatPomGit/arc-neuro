@@ -105,8 +105,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-lang-polish lmodern latexmk biber texlive-publishers texlive-latex-extra texlive-bibtex-extra texlive-pictures texlive-fonts-recommended
+          # The TeX packages come from Ubuntu. Keep third-party runner feeds out of this step.
+          ubuntu_sources=(-o Dir::Etc::sourcelist=/etc/apt/sources.list.d/ubuntu.sources -o Dir::Etc::sourceparts=-)
+          sudo apt-get "${ubuntu_sources[@]}" update -qq
+          sudo apt-get "${ubuntu_sources[@]}" install -y -qq --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-lang-polish lmodern latexmk biber texlive-publishers texlive-latex-extra texlive-bibtex-extra texlive-pictures texlive-fonts-recommended
           python3 -B scripts/compile_manuscripts.py
       - name: Build curated MkDocs HTML and inspect emitted pages
         shell: bash
