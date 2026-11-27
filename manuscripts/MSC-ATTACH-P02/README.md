@@ -1,9 +1,7 @@
 # MSC-ATTACH-P02 — Identyfikowalność mechanizmów regulacji relacyjnej
 
-**Właściciel naukowy i autor szkicu:** Mateusz Pomianek (`MatPomGit`). Współautorów należy wskazywać zgodnie z potwierdzonym wkładem; repozytorium kanoniczne jest odrębną informacją.
+**Właściciel naukowy i autor:** Mateusz Pomianek.
 
-**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `METHODS_DRAFT`.
+Pełny manuskrypt obliczeniowy w `main.tex`, z wynikami rozwojowymi symulacji, tabelami i wykresami. [Specyfikacja analizy](COMPUTATIONAL_ANALYSIS_SPEC.md), [bramki inferencji](PRECISION_AND_INFERENCE_GATES.md), [protokół symulacyjny](simulation_protocol.yaml). Wyniki nie stanowią dowodu empirycznego u ludzi.
 
-[Manuskrypt LaTeX](main.tex) zawiera odrębny tytuł, pytanie badawcze i projekt analizy. Jest to szkic badawczy; brak w nim niezweryfikowanych wyników empirycznych.
-
-Temat i status odpowiadają jednoznacznemu identyfikatorowi MSC w rejestrze portfolio. Materiały źródłowe i dowody eksperymentalne zachowują właściciela we właściwym projekcie badawczym.
+[Manuskrypt lub szkic](main.tex) · [Karta badania](study.md) · [Metadane](paper.json).
