@@ -21,7 +21,7 @@ class BrandingTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name) / "arc"
         shutil.copytree(ROOT, self.root, ignore=shutil.ignore_patterns(
-            ".git", "site", "__pycache__", ".venv"))
+            ".git", "build", "__pycache__", ".venv"))
 
     def tearDown(self):
         self.tmp.cleanup()
