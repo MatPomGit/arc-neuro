@@ -1,0 +1,11 @@
+\section{Prospective Confirmatory Design}
+
+The confirmatory computational study is specified in \texttt{simulation\_protocol.yaml}. The design varies generator family, trajectory length, observation interval, analyst-side measurement noise, missingness, feedback strength, and action clipping.
+
+The completed development grid is reported above. A separate confirmatory numerical grid and replication count will be frozen before its execution. Development runs may diagnose numerical stability and computational feasibility, but their outcomes may not be used to tune thresholds toward a preferred conclusion. Replication planning must address Monte Carlo precision, particularly in cells with observation failures or unstable paired losses.
+
+For each generated trajectory, data are partitioned into model-fitting, model-selection/validation, and final-evaluation components. Model choice is completed without access to the final component. Family recovery is computed from the frozen validation choice and synthetic generator label; predictive losses are evaluated on the untouched final block. Random seeds, configuration hashes, software versions, and output checksums are archived.
+
+The comparison set includes deliberately simple baselines because identifiability is scientifically relevant only relative to plausible simpler explanations. A complex controller offers little additional predictive resolution if an intercept-only or autoregressive model reproduces observable actions within the prespecified practical tolerance. That finding alone does not establish failed generating-family recovery.
+
+The development implementation uses contiguous 60/20/20 temporal blocks of each trajectory. Temporal blocks remain statistically dependent through feedback and causal histories. Independent generated trajectories, rather than time points or blocks, define Monte Carlo replication. The exploratory extension implements separate role trajectories with fresh innovations under the same fixed generator settings. Generalization to new parameter or initial-state distributions remains a distinct prospective design.

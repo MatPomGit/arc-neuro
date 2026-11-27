@@ -1,0 +1,28 @@
+\section{Reporting and Reproducibility}
+
+The reported experiments are development evidence. Their compact archives contain immutable configuration snapshots, cellwise recovery and paired-loss summaries, confusion matrices, parameter summaries and metadata linking source, environment and output hashes. The complete trajectory-level ledger is regenerated from the documented commands rather than stored as a large repository file. It retains failed attempts and candidate diagnostics. Tables and figures are generated from these archives; the final confirmatory output contract remains in \texttt{RESULTS\_PLAN.md}.
+
+A repeated execution of the full grid in the same Python/NumPy environment reproduced the configuration, summary, confusion, parameter and trajectory-ledger hashes byte for byte. This checks deterministic reproducibility in that environment, not independence of implementations or environments. The execution used Python 3.12.14 and NumPy 2.3.5, recorded in metadata; reproduction under the repository's locked environment remains a separate gate. No human observations were generated or analyzed.
+
+
+\subsection{Local Windows Collection Audit}
+
+A further local Windows execution of the targeted development grid produced
+three collection directories containing 5,760 trajectory records each. File
+manifests passed SHA-256 checks and all three directories contained
+identical trajectory-level records. Consequently, these archives represent
+one unique set of 5,760 developmental attempts, not 17,280 independent
+replications. Their differing source-commit metadata are not evidence of
+independent Monte Carlo streams.
+
+Within the unique targeted dataset, nominal generating-family recovery was
+2,988/5,760 (51.9\%), and all 5,760 attempts had a selected model and a
+paired-loss contrast. Under the exploratory trajectory-level tolerance
+$\epsilon=0.005$, 5,207/5,760 (90.4\%) paired differences were near ties.
+This fraction must not be interpreted as the proportion of cells whose mean
+losses are statistically equivalent. The combined-adversity observation arm
+yielded 118/640 (18.4\%) nominal correct labels across the eight generator
+families. These counts are descriptive repetitions of the previously
+reported targeted experiment, not an additional confirmatory dataset.
+A provenance and deduplication audit is provided in
+\texttt{LOCAL\_COLLECTION\_AUDIT\_2026-10-08.md}.
