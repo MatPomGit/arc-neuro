@@ -12,12 +12,12 @@ def simulate(n, probabilities, seed, reps=2000, loading=0.65):
     failures = 0
     for start in range(0, reps, 50):
         count = min(reps - start, 50)
-        factors = rng.normal(size=(count, n, 3))
-        residuals = rng.normal(size=(count, n, 12))
-        latent = loading * np.repeat(factors, 4, axis=-1) + np.sqrt(1 - loading**2) * residuals
+        factors = rng.normal(size=(count, n, 5))
+        residuals = rng.normal(size=(count, n, 45))
+        latent = loading * np.repeat(factors, [11, 12, 10, 4, 8], axis=-1) + np.sqrt(1 - loading**2) * residuals
         categories = np.searchsorted(thresholds, latent)
         failures += np.any(
-            np.stack([(categories == level).sum(axis=1) < 5 for level in range(5)]),
+            np.stack([(categories == level).sum(axis=1) < 5 for level in range(len(probabilities))]),
             axis=(0, 2),
         ).sum()
     return int(failures)
@@ -25,9 +25,9 @@ def simulate(n, probabilities, seed, reps=2000, loading=0.65):
 
 def main():
     distributions = {
-        "balanced": (0.10, 0.20, 0.40, 0.20, 0.10),
-        "skewed": (0.02, 0.06, 0.17, 0.30, 0.45),
-        "strongly_skewed": (0.01, 0.04, 0.10, 0.25, 0.60),
+        "balanced": (0.10, 0.12, 0.15, 0.26, 0.15, 0.12, 0.10),
+        "skewed": (0.02, 0.04, 0.07, 0.12, 0.18, 0.24, 0.33),
+        "strongly_skewed": (0.01, 0.02, 0.04, 0.08, 0.15, 0.25, 0.45),
     }
     seed = 27112026
     reps = 2000

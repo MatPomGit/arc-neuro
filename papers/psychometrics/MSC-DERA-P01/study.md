@@ -8,7 +8,7 @@
 
 - **Proponowany wynik główny:** Replikowalność modelu czynnikowego DERA-HRI na niezależnej próbie oraz przedziały dla rzetelności i trafności
 - **Zakres i odrębność:** Psychometryczna walidacja skali, odrębna od zależności między subiektywnym i fizycznym bezpieczeństwem w MSC-HRI-P08.
-- **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
+- **Metodologia:** [Protokół 1.0.0](protocol.md) opisuje źródło roboczej wersji v3.0-PL, niezależne próby EFA i CFA oraz warunki porównań między scenariuszami. Parametry liczebności wymagają danych pilotażowych.
 - **Powiązane MSC:** `INS-DERA-I01`, `MSC-HRI-P08`.
 
 ## Stanowisko badawcze
