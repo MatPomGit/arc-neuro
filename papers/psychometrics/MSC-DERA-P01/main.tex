@@ -1,66 +1,46 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
-
-\usepackage[polish]{babel}
-
-\usepackage{lmodern}
-
-\usepackage{geometry}
-
-\geometry{margin=27mm}
-
+\IfFileExists{polish.ldf}{\usepackage[polish]{babel}}{}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[margin=26mm]{geometry}
+\usepackage[authoryear,round]{natbib}
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
-
 \title{Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem}
-
 \author{Mateusz Pomianek}
-
-\date{Szkic naukowy, wersja 0.1.1}
-
+\date{MSC-DERA-P01 | Protokół prospektywny 1.0.0 | 27 listopada 2026}
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
-Tematem pracy jest Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Proponowany wskaźnik: Replikowalność modelu czynnikowego DERA-HRI na niezależnej próbie oraz przedziały dla rzetelności i trafności. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
-
+Badanie ma dostarczyć dowodów trafności interpretacji wyników DERA-HRI po bezpośredniej interakcji z humanoidem. Projekt łączy ocenę treści i procesu odpowiadania, eksplorację na pierwszej próbie oraz konfirmację na niezależnej próbie. Wyniki będą odnoszone do wersji kwestionariusza, języka i zdefiniowanego scenariusza. Przed rozpoczęciem badań niezbędne jest ustalenie proweniencji pozycji, klucza oraz planu użycia narzędzia.
 \end{abstract}
-
 \section{Wprowadzenie}
+Kwestionariusz doświadczenia po interakcji może operacjonalizować reakcję na konkretną sytuację. Miary Godspeed obejmują między innymi postrzegane bezpieczeństwo i sympatię, a RoSAS odnosi się do ocen ciepła, kompetencji i dyskomfortu \citep{bartneck,carpinella}. Plan walidacji dobiera komparatory do rzeczywistej treści podskal. Ciepło i sympatia mogą współwystępować z małym dyskomfortem, lecz są odrębnymi hipotezami pomiarowymi. Klasyfikacja kontekstu HRI pozwala opisać rolę człowieka i robota, zadanie oraz ich zależność \citep{onnasch}. Projekt MSC-HRI-P08 bada relację między subiektywnym a fizycznym bezpieczeństwem. P01 dotyczy znaczenia i jakości wyników kwestionariusza w zdefiniowanym użyciu.
 
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+\section{Pytania badawcze}
+Czy pozycje pokrywają wymagany obszar doświadczenia i czy respondenci odnoszą odpowiedzi do zakończonej interakcji? Czy model wybrany w fazie eksploracyjnej odtwarza zależności między wskaźnikami w niezależnej próbie? Z jaką precyzją można oszacować rzetelność wyników oraz zależności z dopasowanymi i odmiennymi miarami? Czy progi i ładunki są porównywalne w scenariuszach, dla których planowane są porównania grup?
 
-\section{Cel i pytania badawcze}
-
-Celem pracy jest rozstrzygnięcie zagadnienia: Struktura czynnikowa i trafność narzędzia DERA-HRI do oceny doświadczenia interakcji z humanoidem. Proponowany wskaźnik: Replikowalność modelu czynnikowego DERA-HRI na niezależnej próbie oraz przedziały dla rzetelności i trafności. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Wersja rozwojowa v3.0-PL obejmuje 45 pozycji głównych z siedmioma kategoriami odpowiedzi. Pięć hipotetycznych domen obejmuje reakcje cielesne i afektywne (EAR-D), czytelność ekspresji (SEI-D), przewidywanie zachowania (SAP-D), przypisywanie stanów i intencji (MP-D) oraz ocenę regulacji afektu (RAR-D). Cztery pozycje dodatkowe pozostają poza modelem podstawowym. Klucz i kierunki punktacji wymagają zatwierdzenia. Hipoteza trafności przewiduje silniejsze zależności latentne dla komparatorów zgodnych treściowo niż dla odmiennych. Jeżeli analiza potwierdzi odrębny wskaźnik dyskomfortu, przewiduje się jego dodatnią zależność z dyskomfortem RoSAS i ujemną z postrzeganym bezpieczeństwem Godspeed. Wyniki urządzenia i deklaracje uczestników wymagają różnych źródeł dowodów.
 
 \section{Materiał i metody}
-
-Niezależne próby eksploracyjna i konfirmacyjna dla skali DERA-HRI oraz test trafności różnicowej. Pierwszorzędowy wskaźnik: Replikacja struktury czynnikowej, omega i współczynniki trafności skali. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Faza A obejmuje kontrolę praw do użycia pozycji, ocenę ekspertów oraz wywiady poznawcze z dorosłymi polskojęzycznymi. Bank dalszych pozycji i reguły punktowania wynikają z potwierdzonej wersji. Faza B obejmuje eksplorację po porównywalnej interakcji zadaniowej z humanoidem. Faza C przewiduje odrębną rekrutację, blokadę modelu, pomiar kotwic i analizę potwierdzającą. Kolejność skal po interakcji randomizuje się. Warunkowe pozycje SEI otrzymują kod braku strukturalnego, gdy wymagane kanały nie wystąpiły. Próbę podstawową projektuje się pod stabilną dostępność kanałów. Przerwania interakcji, różnice między operatorami i odstępstwa sprzętowe rejestruje się jako informacje o realizacji procedury. Analiza pierwszorzędowa wykorzystuje pierwszą udokumentowaną sesję każdego uczestnika.
 
 \section{Plan analizy}
+Dla pozycji $j$ z odpowiedzią porządkową i progami $\tau_{jk}$ model zakłada
+\[
+ \Pr(Y_{ij}\leq k\mid\boldsymbol\eta_i)
+ =\Phi(\tau_{jk}-\boldsymbol\lambda_j^\top\boldsymbol\eta_i).
+\]
+Pierwszorzędowy wskaźnik: replikacja zamrożonego modelu progowo-czynnikowego w niezależnej próbie, oceniana łącznie przez dopasowanie globalne, lokalne reszty i stabilność ładunków. Eksploracja wykorzystuje korelacje polichoryczne, analizę równoległą i rotację ukośną. Dobór estymatora uwzględnia porządkowy charakter danych \citep{flora}. Na etapie konfirmacji ocenia się wszystkie prerejestrowane modele konkurencyjne, w tym model jednoczynnikowy, pięć skorelowanych czynników oraz alternatywę czteroczynnikową łączącą SAP-D i MP-D. Modele wyższego rzędu wymagają uzasadnienia treściowego i identyfikowalności. Raport obejmuje zbieżność, rozwiązania niewłaściwe, rozkłady progów, ładunki oraz dopasowanie globalne i lokalne.
 
-Proponowany plan analityczny: CFA z adekwatnym estymatorem, inwariancja i analiza lokalnej zależności pozycji. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Omega oparta na modelu dotyczy każdej uzasadnionej podskali. Omega dla latentnej odpowiedzi i rzetelność obserwowanej sumy ordinalnej wymagają osobnego nazwania. W modelu jednoczynnikowym bez skorelowanych błędów i przy wariancji czynnika równej jeden stosunek dla sumy odpowiedzi latentnych ma postać $(\sum_j\lambda_j)^2/[(\sum_j\lambda_j)^2+\sum_j\theta_j]$. Niepewność estymuje się przez powtórne dopasowania bootstrapowe na poziomie osób. Inwariancja progów i ładunków wymaga jawnych ograniczeń identyfikujących \citep{wu}. Porównania średnich latentnych są warunkowe względem adekwatności modelu pomiarowego. Zamrożenie estymandu, modeli, kryteriów i reguł analizy nastąpi przed odczytem próby konfirmacyjnej.
 
 \section{Wyniki}
-
-W niniejszym pliku nie umieszczono wyników empirycznych, statystyk ani nieprzeprowadzonych analiz. Sekcja wymaga uzupełnienia po uzyskaniu i weryfikacji materiału dowodowego.
+Nie przeprowadzono rekrutacji ani pomiarów. Do planowania wykonano syntetyczną symulację ryzyka rzadkich kategorii dla hipotetycznego banku. W 24\,000 replikacji dla 45 syntetycznych pozycji i siedmiu kategorii oceniono ryzyko wystąpienia co najmniej jednej kategorii z mniej niż pięcioma odpowiedziami. Przy $N=600$ ryzyko wyniosło 25,5\% dla prawdopodobieństwa najrzadszej kategorii 0,02 i 100\% w 2000 replikacji dla prawdopodobieństwa 0,01. Pełną analizę liczebności dla replikacji modelu przeprowadza się po rozpoznaniu struktury i progów autoryzowanej wersji.
 
 \section{Dyskusja i ograniczenia}
-
-Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mechanizmy i ograniczoną możliwość uogólniania. Korelacja nie dowodzi przyczynowości; poprawność techniczna nie jest dowodem znaczenia klinicznego.
-
-\section{Wnioski}
-
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
-
-\section*{Bibliografia}
-
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
-
+Zakres wniosków wyznaczają wersja kwestionariusza, kontekst, populacja i sposób realizacji interakcji. Stabilność testu po ponownej ekspozycji zależy również od habituacji i zmiany doświadczenia. Interpretacja subiektywnego poczucia bezpieczeństwa wymaga rozróżnienia od wyników fizycznych. Kandydatem na czasopismo po walidacji jest \emph{International Journal of Social Robotics}.
+\bibliographystyle{apalike}
+\bibliography{references}
 \end{document}
-

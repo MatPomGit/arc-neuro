@@ -6,8 +6,8 @@
 
 **Przedmiot:** Kandydat: walidacja techniczna urządzeń EEG w EEG Neurolyze.
 
-- **Proponowany wynik główny:** Nie określono dotychczas w rejestrze. Należy zdefiniować estymand, miarę i jednostkę analizy przed akwizycją.
-- **Zakres i odrębność:** Wymaga odrębnego przeglądu nowości i porównania ze źródłowym protokołem.
+- **Proponowany wynik główny:** Odsetek pełnych sesji technicznych spośród rozpoczętych prób w obrębie konfiguracji i backendu.
+- **Zakres i odrębność:** Kwalifikacja pomiarowa urządzenia i metadanych względem niezależnego odniesienia. MSC-EEG-P01 obejmuje poprawność oprogramowania.
 - **Metodologia:** hipotezy, dobór próby lub scenariuszy, kryteria jakości, plan statystyczny i analiza wrażliwości wymagają potwierdzenia we właściwym projekcie. Ten plik nie potwierdza uzyskania wyników.
 - **Powiązane MSC:** brak jawnego powiązania w rejestrze.
 

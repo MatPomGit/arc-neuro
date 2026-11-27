@@ -108,15 +108,28 @@ class ManuscriptTexTests(unittest.TestCase):
                                              "H1 jest jedynym testem potwierdzającym",
                                              "akwizycja danych nie została rozpoczęta"):
                                 self.assertIn(required, content)
-                        elif ident == "MSC-EEG-P01":
-                            self.assertEqual(by_id[ident]["stage"], "PROPOSED")
-                            self.assertIn("Manuskrypt metod 1.0.0", content)
+                        elif ident == "MSC-DERA-P01":
+                            self.assertEqual(by_id[ident]["stage"], "CANDIDATE_VALIDATION_DATA_REQUIRED")
+                            self.assertRegex(content, r"\\date\{MSC-DERA-P01 \| Protokół prospektywny 1\.\d+\.\d+")
                             self.assertIn(r"\bibliography{references}", content)
+                            self.assertIn("Nie przeprowadzono rekrutacji ani pomiarów", content)
                         elif ident == "MSC-CR-P12":
                             self.assertEqual(by_id[ident]["stage"], "IDEA_REVIEW")
                             self.assertRegex(content, r"\\date\{MSC-CR-P12 \| Protokół prospektywny 1\.\d+\.\d+")
                             self.assertIn(r"\bibliography{references}", content)
                             self.assertIn("Nie przeprowadzono rekrutacji ani pomiarów", content)
+                        elif ident == "MSC-EEG-P01":
+                            self.assertEqual(by_id[ident]["stage"], "PROPOSED")
+                            self.assertIn("Manuskrypt metod 1.0.0", content)
+                            self.assertIn(r"\bibliography{references}", content)
+                        elif ident == "MSC-EEG-P02":
+                            self.assertEqual(by_id[ident]["stage"], "PROPOSED")
+                            self.assertIn("Protokół techniczny 1.0.0", content)
+                            self.assertIn(r"\bibliography{references}", content)
+                        elif ident == "MSC-EYE-P01":
+                            self.assertEqual(by_id[ident]["stage"], "PLANNED")
+                            self.assertIn("Protokół prospektywny 1.0.0", content)
+                            self.assertIn(r"\bibliography{references}", content)
                         elif ident == "MSC-PAIN-P07":
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
                             self.assertRegex(content, r"\\date\{MSC-PAIN-P07 \\enspace PROSPECTIVE \\enspace wersja 1\.\d+\.\d+")
