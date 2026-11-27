@@ -6,7 +6,7 @@ import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"papers/cognition/MSC-CR-P06/materials"))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"manuscripts/MSC-CR-P06/materials"))
 import simulation_matrix as m
 sys.path.pop(0)
 

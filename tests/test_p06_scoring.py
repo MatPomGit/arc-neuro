@@ -3,7 +3,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 
-MATERIALS = Path(__file__).resolve().parents[1] / "papers/cognition/MSC-CR-P06/materials"
+MATERIALS = Path(__file__).resolve().parents[1] / "manuscripts/MSC-CR-P06/materials"
 spec = importlib.util.spec_from_file_location("p06_scoring", MATERIALS / "scoring.py")
 scoring = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(scoring)
