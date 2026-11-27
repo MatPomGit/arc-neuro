@@ -63,6 +63,9 @@ jobs:
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip install --disable-pip-version-check -r papers/cognition/MSC-ANX-P01/reference/requirements-ci.txt
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -m pip check
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-ANX-P01/reference -p 'test_*.py' -v
+      - name: Test CR-P12 signal detection, contrast and candidate bank
+        run: |
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-CR-P12 -p 'test_*.py' -v
       - name: Test local ANX browser demo contract
         shell: bash
         run: |
@@ -77,6 +80,11 @@ jobs:
           set -euo pipefail
           venv="${RUNNER_TEMP}/arc-neuro-anx-analysis"
           ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B papers/cognition/MSC-ANX-P01/reference/browser_demo/e2e.py -v
+      - name: Test CR-P12 browser prototype in local Chromium
+        shell: bash
+        run: |
+          venv="${RUNNER_TEMP}/arc-neuro-anx-analysis"
+          ANX_CHROME="$(command -v google-chrome)" "$venv/bin/python" -B papers/cognition/MSC-CR-P12/browser_e2e.py
       - name: Record ANX environment provenance
         shell: bash
         run: |
@@ -97,8 +105,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-lang-polish lmodern latexmk biber texlive-publishers texlive-latex-extra texlive-bibtex-extra texlive-pictures texlive-fonts-recommended
+          # The TeX packages come from Ubuntu. Keep third-party runner feeds out of this step.
+          ubuntu_sources=(-o Dir::Etc::sourcelist=/etc/apt/sources.list.d/ubuntu.sources -o Dir::Etc::sourceparts=-)
+          sudo apt-get "${ubuntu_sources[@]}" update -qq
+          sudo apt-get "${ubuntu_sources[@]}" install -y -qq --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-lang-polish lmodern latexmk biber texlive-publishers texlive-latex-extra texlive-bibtex-extra texlive-pictures texlive-fonts-recommended
           python3 -B scripts/compile_manuscripts.py
       - name: Build curated MkDocs HTML and inspect emitted pages
         shell: bash

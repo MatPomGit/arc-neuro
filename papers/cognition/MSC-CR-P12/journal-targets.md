@@ -58,3 +58,7 @@ Punkty 140/140/200 odpowiadają wykazowi z 5 stycznia 2024 r. i wymagają ponown
 - https://www.sciencedirect.com/journal/learning-and-instruction
 
 Dokument nie stanowi prerejestracji, wyniku badań, akceptacji etycznej ani zezwolenia na publikację w GitHub Pages.
+
+## Aktualizacja 27.11.2026
+
+*Computers in Human Behavior* pozostaje pierwszym wyborem dzięki pytaniu o zachowanie podczas interakcji z rekomendacjami AI. Zgłoszenie empiryczne może nastąpić po pilotażu, prerejestracji i badaniu głównym. Profil wydawcy obejmuje psychologiczne skutki korzystania z komputerów. Przed zgłoszeniem trzeba zweryfikować aktualne pola etyki, dostępności danych, deklaracji finansowania i użycia AI oraz dopasowanie języka i formatu. Punktacja w tabeli pochodzi z przywołanego historycznego wykazu. Ewentualną ścieżkę publikacji bez opłat należy potwierdzić dla ostatecznego rodzaju zgłoszenia u wydawcy. [Profil czasopisma](https://www.sciencedirect.com/journal/computers-in-human-behavior) · [Wytyczne dla autorów](https://www.sciencedirect.com/journal/computers-in-human-behavior/publish/guide-for-authors)
