@@ -15,7 +15,43 @@ LEGACY_IDS = HISTORICAL_IDS | {"MSC-ZAH-P02", "MSC-ZAH-P03", "MSC-ZAH-P04"}
 NEW_IDEAS = {"MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01"}
 
 
+# Validate version syntax, not the current release number. Keep manuscript
+# type labels and scientific state checks independent of version increments.
+SEMVER_CORE = r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)"
+
+
+def has_versioned_date(content, label):
+    dates = re.findall(r"\\date\{([^{}]+)\}", content)
+    if len(dates) != 1:
+        return False
+    # Supported date metadata conventions: no suffix, comma, pipe or LaTeX spacing.
+    suffix = r"(?:,\s+[^{}]+|\s+\|\s+[^{}]+|\s+\\enspace\s+[^{}]+)?"
+    return re.fullmatch(re.escape(label) + r" " + SEMVER_CORE + suffix, dates[0]) is not None
+
+
 class ManuscriptTexTests(unittest.TestCase):
+    def test_versioned_date_accepts_release_increments(self):
+        for version in ("0.1.1", "0.4.0", "0.10.3", "1.0.0", "12.34.56"):
+            for label, suffix in (
+                ("Szkic naukowy, wersja", ""),
+                ("Szkic naukowy, wersja", ", 27 listopada 2026"),
+                ("MSC-EEG-P01 | Manuskrypt metod", " | 27 listopada 2026"),
+                (r"MSC-PAIN-P07 \enspace PROSPECTIVE \enspace wersja", r" \enspace 26.11.2026"),
+            ):
+                with self.subTest(version=version, label=label):
+                    self.assertTrue(has_versioned_date(
+                        r"\date{" + label + " " + version + suffix + "}", label))
+
+    def test_versioned_date_rejects_malformed_metadata(self):
+        label = "Szkic naukowy, wersja"
+        for version in ("0.1", "01.2.3", "1.02.3", "1.2.03", "1.2.3.4", "1.2.3abc", "-1.2.3", "1.2.3,"):
+            with self.subTest(version=version):
+                self.assertFalse(has_versioned_date(r"\date{" + label + " " + version + "}", label))
+        self.assertFalse(has_versioned_date(label + " 1.2.3", label))
+        self.assertFalse(has_versioned_date(r"\date{Inny typ 1.2.3}", label))
+        self.assertFalse(has_versioned_date(
+            r"\date{Szkic naukowy, wersja 1.2.3}\date{Szkic naukowy, wersja 1.2.4}", label))
+
     def test_complete_manuscript_sources(self):
         titles = set()
         catalog = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
@@ -115,7 +151,7 @@ class ManuscriptTexTests(unittest.TestCase):
                     if ident == "MSC-AAL-P02":
                         self.assertEqual(by_id[ident]["record_kind"], "IDEA")
                         self.assertEqual(by_id[ident]["stage"], "SOURCE_PLANNED_ARTICLE")
-                        self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+\}")
+                        self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
                         for heading in ("Wprowadzenie", "Materiał i metody",
                                         "Plan analizy", "Dyskusja i ograniczenia"):
                             self.assertIn(r"\section{" + heading + "}", content)
@@ -141,11 +177,11 @@ class ManuscriptTexTests(unittest.TestCase):
                                          r"\section{Dyskusja i ograniczenia}"):
                             self.assertIn(required, content)
                         if ident == "MSC-CR-P06":
-                            self.assertRegex(content, r"\\date\{Projekt badania, wersja 0\.[1-9]\d*\.\d+,")
+                            self.assertTrue(has_versioned_date(content, "Projekt badania, wersja"), ident)
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
                             self.assertIn("Nie rozpoczęto akwizycji danych", content)
                         elif ident == "MSC-CR-P07":
-                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.[2-9]\d*\.\d+\}")
+                            self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
                             for required in ("marginalna różnica ryzyka", "efektami losowymi uczestnika i zadania",
                                              "H1 jest jedynym testem potwierdzającym",
@@ -153,43 +189,43 @@ class ManuscriptTexTests(unittest.TestCase):
                                 self.assertIn(required, content)
                         elif ident == "MSC-DERA-P01":
                             self.assertEqual(by_id[ident]["stage"], "CANDIDATE_VALIDATION_DATA_REQUIRED")
-                            self.assertRegex(content, r"\\date\{MSC-DERA-P01 \| Protokół prospektywny 1\.\d+\.\d+")
+                            self.assertTrue(has_versioned_date(content, "MSC-DERA-P01 | Protokół prospektywny"), ident)
                             self.assertIn(r"\bibliography{references}", content)
                             self.assertIn("Nie przeprowadzono rekrutacji ani pomiarów", content)
                         elif ident == "MSC-CR-P12":
                             self.assertEqual(by_id[ident]["stage"], "IDEA_REVIEW")
-                            self.assertRegex(content, r"\\date\{MSC-CR-P12 \| Protokół prospektywny 1\.\d+\.\d+")
+                            self.assertTrue(has_versioned_date(content, "MSC-CR-P12 | Protokół prospektywny"), ident)
                             self.assertIn(r"\bibliography{references}", content)
                             self.assertIn("Nie przeprowadzono rekrutacji ani pomiarów", content)
                         elif ident == "MSC-EEG-P01":
                             self.assertEqual(by_id[ident]["stage"], "PROPOSED")
-                            self.assertIn("Manuskrypt metod 1.0.0", content)
+                            self.assertTrue(has_versioned_date(content, "MSC-EEG-P01 | Manuskrypt metod"), ident)
                             self.assertIn(r"\bibliography{references}", content)
                         elif ident == "MSC-EEG-P02":
                             self.assertEqual(by_id[ident]["stage"], "PROPOSED")
-                            self.assertIn("Protokół techniczny 1.0.0", content)
+                            self.assertTrue(has_versioned_date(content, "MSC-EEG-P02 | Protokół techniczny"), ident)
                             self.assertIn(r"\bibliography{references}", content)
                         elif ident == "MSC-EYE-P01":
                             self.assertEqual(by_id[ident]["stage"], "PLANNED")
-                            self.assertIn("Protokół prospektywny 1.0.0", content)
+                            self.assertTrue(has_versioned_date(content, "MSC-EYE-P01 | Protokół prospektywny"), ident)
                             self.assertIn(r"\bibliography{references}", content)
                         elif ident == "MSC-PAIN-P07":
                             self.assertEqual(by_id[ident]["stage"], "PROSPECTIVE")
-                            self.assertRegex(content, r"\\date\{MSC-PAIN-P07 \\enspace PROSPECTIVE \\enspace wersja 1\.\d+\.\d+")
+                            self.assertTrue(has_versioned_date(content, "MSC-PAIN-P07 \\enspace PROSPECTIVE \\enspace wersja"), ident)
                             for required in (r"\subsection{Symulacja liczebności próby}",
                                              r"\input{power-summary.tex}",
                                              "Nie przeprowadzono rekrutacji ani pomiarów"):
                                 self.assertIn(required, content)
                         elif ident == "MSC-ZAH-P02":
-                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.[4-9]\d*\.\d+,")
+                            self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
                             self.assertEqual(by_id[ident]["stage"], "IDEA_HOLD")
                             self.assertIn(r"\input{design.tex}", content)
                             self.assertIn("Nie zebrano jeszcze danych empirycznych", content)
                         elif ident in {"MSC-AAL-P08", "MSC-AAL-P06", "MSC-ADHD-P06", "MSC-ADHD-P07", "MSC-ADHD-P08", "MSC-ADHD-P10"}:
-                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+\}")
+                            self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
                             self.assertIn("Nie", content)
                         else:
-                            self.assertIn("Szkic naukowy, wersja 0.1.1", content)
+                            self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
                     else:
                         self.assertIn(ident, NEW_IDEAS)
                         self.assertEqual(by_id[ident]["record_kind"], "IDEA")
