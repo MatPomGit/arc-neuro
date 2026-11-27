@@ -1,0 +1,31 @@
+{
+  "source_repository": "MatPomGit/arc-attachment-dynamics",
+  "source_revision": "9ddb0708dfcd380bcdc5a33f3a52d3b3c8df4b62",
+  "evidence_status": "historical_collection_unverified_in_destination",
+  "groups": [
+    {
+      "source_path": "artifacts/m02-collection/334af737286466bd1316",
+      "source_tree_sha": "1b359d63d63dccda217a174f16dbe5cc715251c1",
+      "tracked_file_count": 4609,
+      "bytes": 21310790,
+      "status": "not_transferred"
+    },
+    {
+      "source_path": "artifacts/m02-collection/ac5a95390e6e8d0338d3",
+      "source_tree_sha": "c04a27db8082a072d82cdcc60c3889b40eef05fb",
+      "tracked_file_count": 4609,
+      "bytes": 21310790,
+      "status": "not_transferred"
+    },
+    {
+      "source_path": "artifacts/m02-collection/e27409a62eda9cb6c741",
+      "source_tree_sha": "70f4037a1be657b5fcbce3095016e6a26f75eee9",
+      "tracked_file_count": 4609,
+      "bytes": 21310790,
+      "status": "not_transferred"
+    }
+  ],
+  "total_tracked_files": 13827,
+  "total_bytes": 63932370,
+  "note": "These are tracked source artifact subtrees, not proof that they are the missing aggregate-run trajectory ledgers. Cross-repository tree copying requires actual Git object transfer. Do not remove the source repository until backup and content mapping are verified."
+}
