@@ -88,8 +88,8 @@ def audit(root: Path = ROOT) -> dict:
         findings.append("unexpected_historical_manuscript_idea_split")
     if len(records) != len(identifiers):
         findings.append("non_unique_new_msc")
-    if program.get("schema_version") != 1 or registry.get("schema_version") != 1:
-        findings.append("unexpected_legacy_schema")
+    if program.get("schema_version") != 3 or registry.get("schema_version") != 1:
+        findings.append("unexpected_program_or_legacy_registry_schema")
     if registry.get("papers") != []:
         findings.append("legacy_public_registry_is_not_empty")
 
@@ -108,7 +108,7 @@ def audit(root: Path = ROOT) -> dict:
                                             if isinstance(x.get("stage"), str)}),
         "unresolved_decisions": [
             "canonical_owner_for_each_msc",
-            "mapping_of_historical_stage_to_v2_research_state_and_publication_stage",
+            "mapping_of_historical_stage_to_v3_research_state_and_publication_stage",
             "approval_of_public_listing_is_separate",
         ],
         "findings": sorted(set(findings)),

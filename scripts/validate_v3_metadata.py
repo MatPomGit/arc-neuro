@@ -14,6 +14,11 @@ def validate(root=ROOT):
     Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     errors = []
+    program_schema = strict_json_loads((root / "schemas/program.v3.schema.json").read_text(encoding="utf-8"))
+    Draft202012Validator.check_schema(program_schema)
+    programme = strict_json_loads((root / "program.json").read_text(encoding="utf-8"))
+    for error in Draft202012Validator(program_schema, format_checker=FormatChecker()).iter_errors(programme):
+        errors.append(f"program.json:{list(error.absolute_path)}: {error.message}")
     paths = sorted((root / "manuscripts").glob("MSC-*/paper.json"))
     catalog = strict_json_loads((root / "manuscripts/catalog.json").read_text(encoding="utf-8"))
     expected = {p["id"] for p in catalog["papers"]}
