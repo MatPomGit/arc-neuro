@@ -1,0 +1,10 @@
+{
+  "report_source_sha256": "d491184d7ac486efaded8cc0910d2ea24e01df3fad58ddd50ff64542de89e121",
+  "summary_sha256": "ac00340ed0fe9d13e64bc70e792e98de8f4ed24d0da8cb195a6bd7fb27418f39",
+  "matplotlib": "3.10.8",
+  "generated_sha256": {
+    "tables/m02_standardized_development.tex": "f224e0b92023a07a1df5349533960af1445e371e287174bdfccd8df5d3b25b77",
+    "figures/m02_development_recovery.pdf": "2fd5177b2c0f95d1cb9b79b8cf4c6d97d442e4c16b8f66aa414e0f5c44feaa71",
+    "figures/m02_development_paired_loss.pdf": "1bee3c8659f2a52e05689eb8e5e3164f0452be0e3728c49489505e296829a8d2"
+  }
+}
