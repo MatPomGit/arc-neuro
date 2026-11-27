@@ -6,7 +6,7 @@ question: "Czy realizm wyglądu postaci oraz naturalność jej ruchu niezależni
 hypotheses:
   - "Realizm wyglądu i naturalność ruchu oddziałują na subiektywną ocenę niesamowitości ponad ich niezależne efekty."
   - "Powierzchnia ocen może mieć lokalne maksima dyskomfortu, lecz istnienie takiej struktury nie jest przyjmowane z góry."
-primary_outcome: "Dziewięciostopniowy test interakcji A i B na skali latentnej CLMM"
+primary_outcome: "Dziewięć współczynników interakcji A i B na skali latentnej modelu kumulacyjnego"
 protocol_frozen: false
 empirical_results: not_available
 
@@ -15,3 +15,5 @@ factorial_design: "4x4 provisional"
 secondary_outcome: "Marginalna powierzchnia oczekiwanych ocen i jednoczesne kontrasty lokalnych maksimów"
 analysis_status: source_written
 simulation_status: not_run
+
+inference_status: provisional_bayesian_calibration_required

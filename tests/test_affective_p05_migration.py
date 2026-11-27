@@ -25,7 +25,8 @@ class AffectiveP05MigrationTest(unittest.TestCase):
         self.assertFalse((ROOT/"research/affective/MSC-AFFECT-P05").exists())
         records=json.loads((ROOT/"manuscripts/catalog.json").read_text(encoding="utf-8"))["papers"]
         dirs=[p["id"] for p in records if p["area"] == "affect" and (ROOT/"manuscripts"/p["id"]).is_dir()]
-        self.assertEqual(set(dirs),{"MSC-AFFECT-P05","MSC-AR-P16","MSC-AR-P24","MSC-MGR-P01","MSC-INTERO-P01"})
+        self.assertTrue({"MSC-AFFECT-P05","MSC-AR-P16","MSC-AR-P24","MSC-MGR-P01","MSC-INTERO-P01"} <= set(dirs))
+        self.assertEqual(set(dirs), {p["id"] for p in records if p["area"] == "affect"})
         self.assertIn("MSC-AFFECT-P05",(ROOT/"manuscripts/README.md").read_text(encoding="utf-8"))
 if __name__=="__main__":
     unittest.main()

@@ -92,6 +92,19 @@ jobs:
       - name: Test DERA-P01 synthetic ordinal category risk
         run: |
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s manuscripts/MSC-DERA-P01 -p 'test_*.py' -v
+      - name: Test ZAH Python ordinal models in isolated environment
+        shell: bash
+        env:
+          ARC_PYMC_SMOKE: "1"
+        run: |
+          set -euo pipefail
+          venv="${RUNNER_TEMP}/arc-zah"
+          python3 -m venv "$venv"
+          "$venv/bin/python" -m pip install --disable-pip-version-check -r manuscripts/MSC-ZAH-P02/requirements.txt -r manuscripts/MSC-ZAH-P03/requirements.txt
+          "$venv/bin/python" -m pip check
+          for paper in MSC-ZAH-P02 MSC-ZAH-P03; do
+            "$venv/bin/python" -B -m unittest discover -s "manuscripts/$paper" -p 'test_*.py' -v
+          done
       - name: Test local ANX browser demo contract
         shell: bash
         run: |

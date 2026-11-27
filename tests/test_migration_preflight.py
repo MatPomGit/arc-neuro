@@ -1,6 +1,8 @@
 """Regression tests for a read-only ARC Neuro migration inventory."""
+from collections import Counter
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -16,16 +18,56 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertEqual(report["inventory_status"], "PASS", report["findings"])
         self.assertEqual(report["migration_status"], "BLOCKED")
         self.assertFalse(report["migration_ready"])
-        self.assertEqual(report["record_count"], 69)
-        self.assertEqual(report["record_kinds"], {"IDEA": 37, "MANUSCRIPT": 32})
+        records = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))["papers"]
+        self.assertEqual(report["record_count"], len(records))
+        self.assertEqual(report["record_kinds"], dict(Counter(p["record_kind"] for p in records)))
         self.assertEqual(report["historical_record_count"], 63)
         self.assertEqual(report["historical_record_kinds"], {"IDEA": 31, "MANUSCRIPT": 32})
-        self.assertEqual(report["later_record_ids"], sorted({
-            "MSC-ZAH-P02", "MSC-ZAH-P03", "MSC-ZAH-P04",
-            "MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01",
-        }))
-        self.assertEqual(sum(report["research_lines"].values()), 69)
+        historical_ids = {line.strip() for line in (ROOT / "config/historical-manuscripts-63.txt").read_text(encoding="utf-8").splitlines()
+                          if line.strip() and not line.lstrip().startswith("#")}
+        self.assertEqual(report["later_record_ids"], sorted({p["id"] for p in records} - historical_ids))
+        self.assertEqual(report["research_lines"], dict(Counter(p["area"] for p in records)))
         self.assertGreater(len(report["historical_stage_values"]), 5)
+
+    def test_valid_catalog_growth_does_not_change_frozen_migration_evidence(self):
+        records = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
+        existing = {p["id"] for p in records["papers"]}
+        index = 1
+        while f"MSC-TEST-P{index:02d}" in existing:
+            index += 1
+        ident = f"MSC-TEST-P{index:02d}"
+        before = audit(ROOT)
+        records["papers"].append({
+            "id": ident, "area": "affect", "record_kind": "IDEA",
+            "stage": "IDEA_REVIEW", "title": "Synthetic inventory fixture",
+            "manuscript_path": f"manuscripts/{ident}/main.tex",
+            "readme_path": f"manuscripts/{ident}/README.md",
+        })
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for relative in ("config/historical-manuscripts-63.txt",
+                             "config/research-lines.json", "program.json"):
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+            (root / "manuscripts").mkdir()
+            (root / "manuscripts/catalog.json").write_text(json.dumps(records), encoding="utf-8")
+            for paper in records["papers"]:
+                for key in ("manuscript_path", "readme_path"):
+                    path = root / paper[key]
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.touch()
+            after = audit(root)
+            self.assertEqual(after["inventory_status"], "PASS", after["findings"])
+            self.assertEqual(after["record_count"], before["record_count"] + 1)
+            self.assertEqual(after["historical_record_count"], before["historical_record_count"])
+            self.assertEqual(after["historical_record_kinds"], before["historical_record_kinds"])
+            self.assertIn(ident, after["later_record_ids"])
+            self.assertFalse(after["migration_ready"])
+            (root / f"manuscripts/{ident}/main.tex").unlink()
+            invalid = audit(root)
+            self.assertEqual(invalid["inventory_status"], "FAIL")
+            self.assertIn("missing_tex:" + ident, invalid["findings"])
 
     def test_frozen_historical_manifest_rejects_silent_replacement(self):
         original_read_bytes = Path.read_bytes
@@ -64,11 +106,7 @@ class NeuroMigrationPreflightTests(unittest.TestCase):
         self.assertEqual(report["historical_record_count"], 63)
         self.assertEqual(report["migration_status"], "BLOCKED")
         self.assertFalse(report["migration_ready"])
-        self.assertEqual(
-            set(report["later_record_ids"]) -
-            {"MSC-ZAH-P02", "MSC-ZAH-P03", "MSC-ZAH-P04"},
-            {"MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01"},
-        )
+        self.assertTrue({"MSC-ANX-P01", "MSC-FAT-P01", "MSC-INTERO-P01"} <= set(report["later_record_ids"]))
 
     def test_duplicate_msc_fails(self):
         catalog = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))

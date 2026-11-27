@@ -5,7 +5,7 @@ import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-AREAS = {"ndd": 16, "affect": 5, "cognition": 15, "social": 25, "psychometrics": 8}
+AREAS = {line["id"] for line in json.loads((ROOT / "config/research-lines.json").read_text(encoding="utf-8"))["lines"]}
 HISTORICAL_IDS = {
     line.strip() for line in
     (ROOT / "config/historical-manuscripts-63.txt").read_text(encoding="utf-8").splitlines()
@@ -57,11 +57,12 @@ class ManuscriptTexTests(unittest.TestCase):
         catalog = json.loads((ROOT / "manuscripts/catalog.json").read_text(encoding="utf-8"))
         by_id = {record["id"]: record for record in catalog["papers"]}
         self.assertEqual(len(HISTORICAL_IDS), 63)
-        self.assertEqual(set(by_id), LEGACY_IDS | NEW_IDEAS)
+        self.assertEqual(len(by_id), len(catalog["papers"]), "Duplicate catalogue IDs")
+        self.assertTrue(LEGACY_IDS | NEW_IDEAS <= set(by_id), "Previously registered manuscript missing")
+        self.assertTrue({p["area"] for p in by_id.values()} <= AREAS)
         total = 0
-        for area, expected in AREAS.items():
+        for area in AREAS:
             files = sorted((ROOT / "manuscripts" / ident / "main.tex" for ident, record in by_id.items() if record["area"] == area))
-            self.assertEqual(len(files), expected, area)
             for path in files:
                 total += 1
                 with self.subTest(filename=str(path)):
@@ -131,6 +132,20 @@ class ManuscriptTexTests(unittest.TestCase):
                         self.assertEqual(matched.group(1), expected_titles[ident])
                         self.assertNotIn(matched.group(1), titles)
                         titles.add(matched.group(1))
+                        continue
+                    if path.parent.name not in LEGACY_IDS | NEW_IDEAS:
+                        ident = path.parent.name
+                        self.assertIn(by_id[ident]["record_kind"], {"IDEA", "MANUSCRIPT"})
+                        self.assertTrue(by_id[ident]["stage"].strip())
+                        self.assertRegex(content, r"\\documentclass(?:\[[^]]*\])?\{[^{}]+\}")
+                        self.assertEqual(content.count(r"\begin{document}"), 1)
+                        self.assertEqual(content.count(r"\end{document}"), 1)
+                        matched = re.search(r"\\title\{([^{}]+)\}", content)
+                        self.assertIsNotNone(matched)
+                        self.assertEqual(matched.group(1).replace("--", "–"), by_id[ident]["title"])
+                        self.assertNotIn(matched.group(1), titles)
+                        titles.add(matched.group(1))
+                        self.assertNotIn("MatPomGit/", content)
                         continue
                     self.assertGreater(len(content), 2200)
                     for keyword in (r"\documentclass", r"\begin{document}",
@@ -221,7 +236,7 @@ class ManuscriptTexTests(unittest.TestCase):
                             self.assertIn(r"\input{design.tex}", content)
                             self.assertIn("Nie zebrano jeszcze danych empirycznych", content)
                         elif ident == "MSC-ZAH-P03":
-                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+,")
+                            self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
                             self.assertEqual(by_id[ident]["stage"], "IDEA_HOLD")
                             self.assertIn("Nie zebrano jeszcze danych empirycznych", content)
                         elif ident in {"MSC-AAL-P08", "MSC-AAL-P06", "MSC-ADHD-P06", "MSC-ADHD-P07", "MSC-ADHD-P08", "MSC-ADHD-P10"}:
@@ -229,8 +244,7 @@ class ManuscriptTexTests(unittest.TestCase):
                             self.assertIn("Nie", content)
                         else:
                             self.assertTrue(has_versioned_date(content, "Szkic naukowy, wersja"), ident)
-                    else:
-                        self.assertIn(ident, NEW_IDEAS)
+                    elif ident in NEW_IDEAS:
                         self.assertEqual(by_id[ident]["record_kind"], "IDEA")
                         self.assertEqual(by_id[ident]["stage"], "IDEA_REVIEW")
                         self.assertIn(r"\textbf{Status:}", content)
@@ -242,7 +256,7 @@ class ManuscriptTexTests(unittest.TestCase):
                             r"\section{Plan analizy statystycznej}" in content or
                             r"\section{Główny estymand i modele statystyczne}" in content
                         )
-        self.assertEqual(total, 69)
+        self.assertEqual(total, len(by_id))
 
 
 if __name__ == "__main__":
