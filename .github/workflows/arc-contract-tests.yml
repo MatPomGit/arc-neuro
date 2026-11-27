@@ -66,6 +66,9 @@ jobs:
       - name: Test CR-P12 signal detection, contrast and candidate bank
         run: |
           "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/cognition/MSC-CR-P12 -p 'test_*.py' -v
+      - name: Test DERA-P01 synthetic ordinal category risk
+        run: |
+          "${RUNNER_TEMP}/arc-neuro-anx-analysis/bin/python" -B -m unittest discover -s papers/psychometrics/MSC-DERA-P01 -p 'test_*.py' -v
       - name: Test local ANX browser demo contract
         shell: bash
         run: |
