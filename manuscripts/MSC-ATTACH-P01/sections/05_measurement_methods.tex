@@ -1,0 +1,180 @@
+\section{Measurement and Methods}
+
+\subsection{Stage 1: confirmatory feasibility study for H1}
+
+The first human study should test the minimum temporal claim before expanding ARC. The temporal design comprises 14 consecutive days with six synchronized, semi-random prompts per day, yielding 84 planned observations per participant. The earlier 120{,}000-replication exact-design Monte Carlo selected 84 cohabiting romantic couples as the smallest tested candidate robust to the then-current confirmatory lag-sufficiency criterion at approximately 75\% prompt compliance under the prespecified informative-missingness stress condition. Because the confirmatory analysis now excludes the non-comparable prompt-1-to-prompt-2 transition, the final analysis target is being recalibrated prospectively across 72, 84, 96, 108, and 120 couples before recruitment is frozen. The recruitment ceiling remains a separate pre-recruitment operational decision because couple-level attrition was not calibrated by either simulation. Enrollment may not be extended in response to observed H1 coefficients, structural classifications, or holdout performance.
+
+The proposed design is intentionally denser than a once-daily diary. Recent simulation work on dynamic structural equation models indicates that satisfactory estimation depends jointly on the number of individuals and the number of repeated observations; configurations around at least 100 individuals and 30 or more time points have performed adequately for common DSEM targets, while more complex within-level moderation requires larger \(N\), larger \(T\), or both \parencite{mcneish2020dsem,fang2024missing,wang2026dsem,holtmann2025latent}. The ARC-specific exact-design simulation provides the direct planning basis for this study: the design assumes prompt compliance of approximately 75\% or higher, whereas none of the tested candidate sample sizes was robust to the same lag-sufficiency rule at sustained 65\% compliance.
+
+\subsection{Temporal ordering and the H1 estimands}
+
+At prompt \(t\), participants first report perceived relational state \(\hat{\mathbf r}_{i,t}\) and desired relational state \(\mathbf r^\ast_{i,t}\) on matched coordinates. The primary pilot coordinate is closeness because the desired and experienced state can be expressed on the same response scale. The discrepancy is calculated as
+\[
+\mathbf e_{i,t}=\mathbf r^\ast_{i,t}-\hat{\mathbf r}_{i,t}.
+\]
+
+At prompt \(t+1\), participants report regulatory actions that occurred since the previous prompt. This preserves the intended temporal order from discrepancy measured at \(t\) to action occurring during the subsequent interval. Overnight transitions and the within-day prompt-1-to-prompt-2 transition are excluded from the primary lagged analysis because the source action at the first prompt does not summarize a standardized preceding same-day ESM interval.
+
+The primary action outcome is a signed relational-action score,
+\[
+a^{\mathrm{signed}}_{i,t+1}
+=
+a^{\mathrm{approach}}_{i,t+1}
+-
+a^{\mathrm{distance}}_{i,t+1},
+\]
+while the approach and distance components are retained separately for mandatory sensitivity analyses. Internal regulation, such as suppression or cognitive distancing without overt relational action, is measured separately rather than forced into the signed interpersonal-action score.
+
+The primary H1 test is coefficient-first. H1-P1 evaluates the within-person desired-state coefficient in the unconstrained M2 model after adjustment for perceived state, context, and action history. H1-P2 evaluates the within-person signed-discrepancy coefficient in M3. The two tests form one Holm-controlled confirmatory family and directly test whether each coefficient exceeds a preregistered smallest effect size of interest, rather than first testing against zero and then applying a separate relevance filter. Structural representation is characterized separately through the M2 symmetry contrast and the M4 positive--negative discrepancy contrast.
+
+All time-varying relational predictors are decomposed into within-person deviations and participant means. Participant-paired RMSE on the locked days 12--14 temporal holdout is retained as secondary predictive evidence rather than a sequential model-selection gate. For example, the signed-discrepancy model is
+\begin{equation}
+a^{\mathrm{signed}}_{i,t+1}
+=
+\alpha
++
+\beta_e e^{\mathrm{WP}}_{i,t}
++
+\beta_{\bar e}\bar e_i
++
+\phi a^{\mathrm{signed,WP}}_{i,t}
++
+\phi_B\bar a_i
++
+\boldsymbol{\beta}_c^\top \mathbf c_{i,t}
++
+\epsilon_{i,t+1},
+\label{eq:h1-pilot}
+\end{equation}
+where \(\mathbf c_{i,t}\) contains the locked context terms and elapsed time. A positive \(\beta_e\) is one of the two co-primary H1 claims. Its interpretation depends on multiplicity-controlled uncertainty and the preregistered effect-size threshold, not on a preceding M1-versus-M0 prediction gate.
+
+\subsection{The discrepancy score is a testable restriction}
+
+The primary discrepancy model is not compared only against a null model. Because \(e_t=r^\ast_t-\hat r_t\) constrains target and perception to have equal-and-opposite effects, the analysis explicitly compares the model hierarchy in Table~\ref{tab:h1-competing-models}. In particular, M2 estimates perceived and desired closeness separately:
+\begin{equation}
+a^{\mathrm{signed}}_{i,t+1}
+=
+\alpha_i
++
+\beta_{\hat r}\hat r^{\mathrm{WP}}_{i,t}
++
+\beta_{r^\ast}r^{\ast,\mathrm{WP}}_{i,t}
++
+\phi_i a^{\mathrm{signed}}_{i,t}
++
+\boldsymbol{\beta}_c^\top\mathbf c_{i,t}
++
+\epsilon_{i,t+1}.
+\label{eq:h1-components}
+\end{equation}
+
+The simple discrepancy representation corresponds to the restriction \(\beta_{r^\ast}=-\beta_{\hat r}\), equivalently \(d_{\mathrm{sym}}=\beta_{r^\ast}+\beta_{\hat r}=0\). The restriction is evaluated directly with a preregistered equivalence tolerance. Held-out M3-versus-M2 prediction is reported as convergent or discordant secondary evidence, but predictive non-inferiority is not used as a gate for whether the structural restriction may be tested.
+
+A second sensitivity model decomposes
+\[
+e^+_t=\max(e_t,0),
+\qquad
+e^-_t=\max(-e_t,0),
+\]
+because closeness frustration and closeness surfeit need not regulate symmetrically \parencite{pusch2022closeness,pietras2024closeness}. This piecewise model is an extension of H1 rather than a replacement chosen after inspecting the data.
+
+\subsection{Prompt schedule}
+
+Each couple receives six synchronized prompts per day across a preregistered waking interval. The schedule is semi-randomized within daily strata and enforces minimum spacing so that repeated observations remain intensive without becoming effectively continuous. Prompts expire after a preregistered response window, and confirmatory lags use actual response timestamps rather than nominal prompt order. Exact scheduling parameters, reminder timing, validity rules, and implementation details are maintained in the study protocol and reproducibility package rather than treated as theoretical claims in the main text.
+
+This design is intended to produce enough same-day lag pairs for a dynamic analysis while avoiding excessive burden. The pilot protocol therefore excludes physiological sensing, lengthy momentary questionnaires, and disorganization measures from the primary H1 test.
+
+\subsection{Person-level measures}
+
+Attachment anxiety and avoidance are measured at baseline with a validated dimensional instrument such as the ECR-R \parencite{fraley2000irt,sibley2005ecrr}. These measures describe the sample and support exploratory H2 analyses, but they are not needed to establish H1.
+
+Positive secure-base representation is not required for the H1 confirmatory analysis. It may be collected for feasibility work toward H3 only if a validated implementation and scoring workflow are available \parencite{waters2006workingmodels,waters2019securebase}. Mentalized affectivity and emotion-regulation flexibility are optional and should not be added merely to maximize the number of ARC constructs measured \parencite{greenberg2017mentalized,mosannenzadeh2024flexibility}.
+
+\subsection{Momentary measurement}
+
+The H1 pilot prioritizes a small set of repeatedly measurable variables:
+
+\begin{enumerate}[label=(\arabic*)]
+\item current perceived closeness to the partner, \(\hat r_t\);
+\item current desired closeness, \(r^\ast_t\), on the identical response scale;
+\item approach or proximity-seeking action since the previous prompt;
+\item overt distancing or space-seeking action since the previous prompt, without treating it as a direct measure of autonomy;
+\item internal suppression or disengagement since the previous prompt;
+\item perceived partner responsiveness or availability since the previous prompt;
+\item negative affect or attachment-relevant distress;
+\item conflict or salient relational stressor since the previous prompt;
+\item interaction/contact context and elapsed time.
+\end{enumerate}
+
+The exact item wording is treated as a measurement instrument and must be cognitively piloted before confirmatory data collection. If a Polish-language study is conducted, translation and adaptation should be completed before preregistration rather than after inspection of the outcome data.
+
+Repeatedly asking about both perceived and desired relational states may itself alter attention to relational discrepancies or induce target drift. Measurement reactivity is therefore treated as a design threat rather than assumed away. The pilot should preregister a descriptive reactivity diagnostic that tests whether perceived state, desired state, or signed discrepancy shows a systematic study-day trend after accounting for time-of-day structure and other locked covariates. A monotonic trend is not by itself proof of reactivity, because genuine relationship change can produce the same pattern, but a pronounced trend would motivate sensitivity analyses with study day and day-by-discrepancy terms and would constrain interpretation of later-wave dynamics.
+
+\subsection{Validation architecture}
+
+H1 has both inferential and predictive components, but the confirmatory claim is primarily inferential. The locked M0--M4 family is fit using days 1--11. H1-P1 and H1-P2 are evaluated directly from the preregistered within-person coefficients with Holm multiplicity control and an effect-size threshold. M2/M3/M4 structural quantities are reported independently rather than collapsed into a mandatory winning representation. The M2 symmetry restriction is evaluated against the preregistered equivalence region. A focused N=84 Monte Carlo showed that the M4 asymmetry contrast is too imprecise for a defensible confirmatory practical-equivalence threshold in this pilot, so \(d_{\mathrm{asym}}\) is retained as secondary descriptive structural evidence with its confidence interval. Participant-paired RMSE on days 12--14 provides an untouched secondary test of temporal generalization.
+
+Person-level means used in within/between decomposition are estimated from observed training-period prompts only. Holdout observations therefore cannot alter centering, feature construction, or between-person summaries. This prevents a subtle form of temporal leakage that would otherwise allow days 12--14 to influence their own predictors.
+
+Model specification, transformations, lag definitions, context terms, estimator settings, and the predictive comparison margin are fixed before the test period is opened. The current pilot evaluates later observations within known participants; generalization to entirely held-out participants is a distinct, stronger validation target for a later study.
+
+Missingness, compliance, and the number of valid same-day lag pairs are treated as design outcomes rather than nuisance details. A study that fails to retain enough repeated observations for the planned model is classified as a feasibility failure rather than interpreted as evidence against H1.
+
+\subsection{Missing-data sensitivity}
+
+The primary analysis uses observed valid same-day lags and never reconstructs missed prompts. Because ordinary GEE can be sensitive to informative observation processes, a prespecified sensitivity analysis uses stabilized inverse-probability-of-observation weights estimated from response history \parencite{chen2010wgee,cole2008ipw}. Both the numerator and denominator response models are fit using days 1--11 only, and the training-derived model and truncation bounds are then applied unchanged to days 12--14.
+
+The denominator model uses only information available before each scheduled prompt, including prompt stratum, study day, prior response rate, immediately previous response status, and last observed negative affect, absolute discrepancy, and absolute signed action. The current unobserved prompt state is never used to predict its own availability. Weight distributions, fitted response probabilities, truncation frequency, and effective sample size are reported.
+
+This weighted analysis is interpreted as a missing-at-random sensitivity conditional on the specified observed history. It is not claimed to identify or correct a missing-not-at-random mechanism in which response depends on the contemporaneous unobserved relational state or action. The exact-design Monte Carlo deliberately retains such a contemporaneous state/action-dependent nonresponse condition as a stress test. Robustness across unweighted and weighted analyses is informative, but agreement between them does not establish that missingness is MAR.
+
+\subsection{Analytic progression}
+
+The confirmatory H1 estimator is a Gaussian generalized estimating equation with identity link, couple-level clustering, an independence working correlation, and a bias-reduced sandwich covariance estimator \parencite{zeger1986gee,mancl2001gee}. The mean model contains explicit within-person deviations and participant means, the locked context terms, prompt stratum, elapsed time, and the relevant M0--M4 relational predictors. This estimates population-average temporal associations while allowing repeated observations from both partners in a couple to remain statistically dependent.
+
+The choice is deliberately narrower than a full latent dynamic model. H1 asks whether the average state/target architecture adds predictive information and which observation representation is warranted; it does not require estimation of a person-specific latent controller. Couple and person random intercepts and relational-slope heterogeneity are nevertheless included in the Monte Carlo data generator. The confirmatory GEE must therefore demonstrate acceptable bias, interval coverage, false-positive behavior, and predictive model selection under richer heterogeneity than it explicitly parameterizes.
+
+The working correlation is set to independence so that the within-couple covariance structure is not selected from the data. Robust sandwich inference is used for correlation misspecification, with a finite-cluster correction prespecified for primary inference \parencite{zeger1986gee,mancl2001gee}. Software versions, convergence tolerances, iteration limits, and Monte Carlo execution parameters are frozen in the reproducibility package and study protocol rather than repeated in the theoretical manuscript. There are no Bayesian priors and no required random-effects distribution in the primary H1 estimator.
+
+DSEM, multilevel mixed models, actor--partner interdependence models, continuous-time state-space models, and multilevel vector autoregression remain scientifically useful sensitivity or later-stage models \parencite{mcneish2020dsem,wang2026dsem,holtmann2025latent}. In particular, H2 requires explicit study of random-slope and cross-level moderation and should not inherit the simpler H1 estimator by default.
+
+\subsection{Stage 2: attachment-dependent policy}
+
+H2 should not be tested by adding one omnibus attachment interaction to the signed H1 outcome. The action channels are modeled separately:
+\[
+a^{\mathrm{approach}}_{t+1},\quad
+a^{\mathrm{distance}}_{t+1},\quad
+a^{\mathrm{internal}}_{t+1}.
+\]
+The confirmatory H2 model adds cross-level interactions between person-level \Anx/\Avo\ and within-person discrepancy to otherwise identical action equations. This requires more between-person information than H1, so the H1 pilot should not be retroactively treated as a definitive H2 test merely because ECR-R scores are available.
+
+The Stage 2 design should therefore be powered specifically for random-slope heterogeneity and cross-level moderation. At minimum it should preregister:
+\begin{enumerate}[label=(\arabic*)]
+\item which discrepancy representation survived H1 model comparison;
+\item the action channel or channels that are confirmatory;
+\item directional predictions for \Anx\ and \Avo\ by discrepancy sign;
+\item whether actor and partner attachment effects are both modeled;
+\item how multiple channel-specific interactions are controlled or hierarchically modeled;
+\item a design-specific simulation for the interaction effect.
+\end{enumerate}
+
+A dyadic extension can include partner attachment and partner behavior, but actor-only moderation should remain distinguishable from actor--partner interaction effects. Existing dynamic dyadic studies demonstrate that such moderation is estimable, while also showing that sex/gender, partner role, and modest sample size can complicate interpretation \parencite{xie2025interdependence}.
+
+\subsection{Stage 2b: candidate-core promotion through secure-base recovery}
+
+H3 requires a design that actually contains recoverable perturbations. An ESM study without identifiable stress episodes can estimate ordinary discrepancy dynamics but may provide weak information about recovery time. Two complementary designs are therefore appropriate.
+
+\textbf{Ecological recovery.} Event-contingent sampling identifies relationship conflict, perceived rejection, separation, or another preregistered attachment-relevant perturbation. Recovery is then quantified from subsequent prompts using discrepancy burden, time to functional tolerance, return to constructive activity, and target-versus-state change.
+
+\textbf{Laboratory recovery.} A standardized dyadic stress or conflict paradigm is followed by a prespecified recovery period. Behavioral recovery can be coded directly, and physiological outcomes such as cortisol can be added when resources permit. Prior studies demonstrate that attachment and dyadic coping are associated with observed and physiological recovery after interpersonal stress \parencite{powers2006cortisol,meuwly2012cortisol,salvatore2011recovery}.
+
+The H3 candidate \Sec\ must be a positive secure-base representation or secure-base construct measured independently of the outcome. Secure-base behavior observed in the recovery episode is better treated as a proximal process or validation variable than as the same person-level \Sec\ predictor \parencite{crowell2002securebase}. The decisive promotion comparison is whether adding \Sec\ improves a preregistered primary recovery outcome after \Anx\ and \Avo\ are already in the model and improves genuinely out-of-sample prediction. Failure of this comparison leaves \Sec\ outside the required ARC core. A study must nominate one primary recovery endpoint before data inspection. The endpoint must not treat a reduction in \(|e_t|\) caused solely by retreat of \(r_t^\ast\) as successful recovery. In ecological ESM, discrepancy burden may be used only together with the preregistered decomposition of target change and perceived-state change; an outcome such as return to constructive activity provides a useful criterion that is not algebraically determined by the discrepancy score. Laboratory studies may instead nominate a behavioral or physiological recovery endpoint. Secondary outcomes test convergence rather than provide alternative opportunities for promotion.
+
+A stronger model subsequently adds observed or perceived partner support. This tests whether \Sec\ captures person-level representational information beyond the support available in the episode. If only proximal support predicts recovery, ARC should not retain a separate \Sec\ effect without evidence.
+
+\subsection{Stage 3: dynamic organization and external disorganization}
+
+Stage 3 evaluates candidate dynamic indicators of disorganization against independent criteria only after the core temporal and recovery architecture is viable. Interview, behavioral, and self-report disorganization measures are treated as different external criteria rather than assumed to be interchangeable \parencite{pollard2023disorganized}.
+
+The full H1 pilot protocol, preregistration draft, data dictionary, and design-simulation specification are maintained under \texttt{studies/pilot\_h1/}.
+

@@ -1,0 +1,232 @@
+\section{The Attachment Regulation and Control Framework}
+
+\subsection{A parsimonious core}
+
+ARC distinguishes person-level modulators from momentary process variables.
+
+\textbf{Person-level core.} Attachment anxiety (\Anx) and avoidance (\Avo) are the current required person-level dimensions and candidate moderators of relational regulation.
+
+\textbf{Prespecified candidate core.} Positive secure-base representation (\Sec) is not required to instantiate ARC. It is retained as a theoretically motivated candidate whose proposed dynamic correlate is effective recovery. H3 functions as its promotion test: \Sec\ should enter the person-level core only if it demonstrates reproducible incremental validity for recovery beyond \Anx\ and \Avo.
+
+\input{tables/construct_status}
+
+\textbf{Momentary core.} At observation \(t\), the person reports or otherwise yields an estimate \(\hat{\mathbf r}_{i,t}\) of the current relational state and a desired state \(\mathbf r^\ast_{i,t}\) on matched coordinates. Their discrepancy is
+\begin{equation}
+\mathbf e_{i,t}=\mathbf r^\ast_{i,t}-\hat{\mathbf r}_{i,t}.
+\label{eq:core-discrepancy}
+\end{equation}
+The subsequent regulatory action is \(\mathbf a_{i,t+1}\), followed by measured partner or environmental feedback \(\mathbf p_{i,t+1}\), an updated relational state, and recovery or persistence.
+
+The core sequence is therefore:
+\[
+\hat{\mathbf r}_{t},\mathbf r^\ast_t
+\rightarrow
+\mathbf e_t
+\rightarrow
+\mathbf a_{t+1}
+\rightarrow
+\mathbf p_{t+1}
+\rightarrow
+\hat{\mathbf r}_{t+1}
+\rightarrow
+\mathrm{recovery}.
+\]
+
+\subsection{Relational state and target}
+
+Relational state can be scalar in an initial pilot or multidimensional when the data justify it. Candidate coordinates include perceived responsiveness, availability, closeness, or autonomy. The desired state must be measured on the same coordinates. Autonomy here means experienced volition rather than low closeness or overt distancing. Evidence from close-relationship research indicates that autonomy and relatedness can be jointly satisfied, so a person may want both closeness and autonomy rather than trading one mechanically against the other \parencite{kluwer2020autonomy}.
+
+A natural two-coordinate extension is
+\[
+\mathbf r_{i,t}=
+\begin{bmatrix}
+r^{\mathrm{close}}_{i,t}\\
+r^{\mathrm{aut}}_{i,t}
+\end{bmatrix},
+\qquad
+\mathbf e_{i,t}=
+\begin{bmatrix}
+r^{\ast,\mathrm{close}}_{i,t}-\hat r^{\mathrm{close}}_{i,t}\\
+r^{\ast,\mathrm{aut}}_{i,t}-\hat r^{\mathrm{aut}}_{i,t}
+\end{bmatrix}.
+\]
+This representation permits simultaneously high desired closeness and high desired autonomy. It does not assume that the two coordinates are opposite ends of one axis. Whether they behave as approximately separable regulatory loops or require cross-coordinate coupling is an empirical question represented by the off-diagonal elements of \(\mathbf B_{e,i}\) in Equation~\ref{eq:minimal-action}. A two-coordinate extension therefore requires separate matched state and target ratings and its own measurement and design evaluation. It is not an additional confirmatory variable in the current scalar H1 pilot. ARC does not assume one universal set point; targets may differ between people, partners, contexts, and episodes.
+
+\subsection{Minimal action model}
+
+The first empirical model should be deliberately modest:
+\begin{equation}
+\mathbf a_{i,t+1}
+=
+\boldsymbol{\alpha}_i
++
+\mathbf B_{e,i}\mathbf e_{i,t}
++
+\mathbf \Phi_i\mathbf a_{i,t}
++
+\mathbf B_{c,i}\mathbf c_{i,t}
++
+\boldsymbol{\epsilon}_{i,t+1}.
+\label{eq:minimal-action}
+\end{equation}
+
+Crucially, the discrepancy term is a testable restriction rather than a mandatory preprocessing step. For a scalar state and target, the unconstrained target-aware model can be written as
+\begin{equation}
+a_{i,t+1}
+=
+\alpha_i
++
+\beta_{\hat r}\hat r^{\mathrm{WP}}_{i,t}
++
+\beta_{r^\ast}r^{\ast,\mathrm{WP}}_{i,t}
++
+\phi_i a_{i,t}
++
+\boldsymbol{\beta}^{\top}_c\mathbf c_{i,t}
++
+\epsilon_{i,t+1}.
+\label{eq:unconstrained-target-state}
+\end{equation}
+Substituting \(e^{\mathrm{WP}}_{i,t}=r^{\ast,\mathrm{WP}}_{i,t}-\hat r^{\mathrm{WP}}_{i,t}\) into Equation~\ref{eq:minimal-action} shows that the signed-discrepancy model imposes
+\begin{equation}
+\beta_{r^\ast}=\beta_e,
+\qquad
+\beta_{\hat r}=-\beta_e.
+\label{eq:discrepancy-restriction}
+\end{equation}
+Thus M3 asserts more than predictive usefulness of state and target: it asserts that their within-person contributions are equal in magnitude and opposite in sign on the action scale. M2 directly relaxes this restriction, whereas M4 relaxes linear symmetry by estimating closeness-deficit and closeness-surfeit slopes separately. This nesting logic makes the difference-score representation empirically defeasible.
+
+The first empirical hinge is therefore tested with direct, prespecified coefficient-level claims rather than a sequential predictive gate. H1-P1 asks whether desired relational state contributes to subsequent regulation beyond perceived state, context, and behavioral persistence in the unconstrained M2 model. H1-P2 asks whether the signed discrepancy predicts subsequent regulation in the preregistered direction in M3. The equality restriction in Equation~\ref{eq:discrepancy-restriction} is then evaluated separately through the contrast \(d_{\mathrm{sym}}=\beta_{r^\ast}+\beta_{\hat r}\), while M4 describes positive--negative discrepancy asymmetry with an estimate and confidence interval; the current H1 pilot has no confirmatory asymmetry threshold. Held-out prediction remains an important secondary validation layer, but failure of one restricted predictive approximation does not prevent evaluation of another prespecified representation. More complex history, nonlinear, state-space, switching, active-inference, reinforcement-learning, or P/PI/PID models are competitors, not assumptions.
+
+\subsection{Attachment-dependent policy is channel specific}
+
+For H2, regulatory action is represented as a vector rather than only by a signed summary:
+\[
+\mathbf a_{i,t}
+=
+\begin{bmatrix}
+a^{\mathrm{approach}}_{i,t} \\
+a^{\mathrm{distance}}_{i,t} \\
+a^{\mathrm{internal}}_{i,t}
+\end{bmatrix}.
+\]
+A channel-specific extension of Equation~\ref{eq:minimal-action} is
+\begin{equation}
+a^{(k)}_{i,t+1}
+=
+\alpha^{(k)}_i
++
+\beta^{(k)}_e e^{\mathrm{WP}}_{i,t}
++
+\gamma^{(k)}_L \left(\Anx_i e^{\mathrm{WP}}_{i,t}\right)
++
+\gamma^{(k)}_U \left(\Avo_i e^{\mathrm{WP}}_{i,t}\right)
++
+\phi^{(k)}_i a^{(k)}_{i,t}
++
+\boldsymbol{\beta}^{(k)\top}_c\mathbf c_{i,t}
++
+\epsilon^{(k)}_{i,t+1},
+\label{eq:h2-policy}
+\end{equation}
+for \(k\in\{\mathrm{approach},\mathrm{distance},\mathrm{internal}\}\).
+
+This formulation allows attachment dimensions to alter both response magnitude and response channel. It avoids assuming that higher avoidance is simply the negative end of the same behavioral axis as higher anxiety. The signed action score remains useful for H1 parsimony, but H2 is evaluated on the component channels as well.
+
+The strongest preregisterable directional expectation concerns closeness deficit (\(e_t>0\)): higher \Anx\ should be associated with stronger overt proximity-seeking or reassurance-oriented responses, whereas higher \Avo\ should be associated with weaker overt approach and greater use of distancing or internal disengagement. Because attachment-related responses are conditional on relational context and attachment-system activation \parencite{campbell2011interactionist}, channel-specific moderation is more defensible than a universal ``high gain'' versus ``low gain'' interpretation.
+
+\subsection{Feedback and state updating}
+
+A minimal transition model is
+\begin{equation}
+\hat{\mathbf r}_{i,t+1}
+=
+f_i(
+\hat{\mathbf r}_{i,t},
+\mathbf a_{i,t+1},
+\mathbf p_{i,t+1},
+\mathbf c_{i,t+1}
+)
++
+\boldsymbol{\omega}_{i,t+1}.
+\label{eq:state-update}
+\end{equation}
+
+Here \(\mathbf p_{i,t+1}\) denotes partner or environmental feedback available to the actor. In a single-participant design this may be the actor's perceived partner response. In a stronger dyadic design, perceived feedback should be separated from the partner's self-reported or independently coded behavior. The latter is not treated as an error-free objective measure, but as a second source that can distinguish actor perception from partner-reported or observed behavior. This distinction matters because perceived responsiveness is itself psychologically consequential and attachment related \parencite{ruan2020responsiveness,segal2016responsiveness}.
+
+For partners \(A\) and \(B\), a dyadic extension can write the feedback received by \(A\) as
+\[
+\mathbf p_{A,t+1}
+=
+g_A\!\left(
+\mathbf a_{B,t+1},
+\hat{\mathbf r}_{B,t},
+\mathbf c_{AB,t+1}
+\right)
++
+\boldsymbol{\nu}_{A,t+1},
+\]
+with an analogous equation for \(B\). Thus partner feedback is generated partly by the partner's regulatory action but need not equal that action one-to-one. A later APIM-style or dynamic dyadic model can estimate actor, partner, and reciprocal cross-lagged paths while keeping perceived responsiveness distinct from partner-reported behavior.
+
+\subsection{Discrepancy reduction can occur through two routes}
+
+Because
+\begin{equation}
+\mathbf e_{i,t+1}-\mathbf e_{i,t}
+=
+\left(\mathbf r^\ast_{i,t+1}-\mathbf r^\ast_{i,t}\right)
+-
+\left(\hat{\mathbf r}_{i,t+1}-\hat{\mathbf r}_{i,t}\right),
+\label{eq:discrepancy-decomposition}
+\end{equation}
+a reduction in discrepancy can arise because perceived relational conditions move toward the target, because the target itself changes, or because both processes occur. ARC therefore does not equate discrepancy reduction with one psychological mechanism.
+
+This decomposition is especially important for adult relationships. A person may restore closeness by eliciting partner responsiveness, or may adaptively revise a closeness goal after new information. Conversely, apparent recovery could reflect defensive target retreat rather than improved relational conditions. Empirical analyses should retain \(\hat{\mathbf r}_t\) and \(\mathbf r^\ast_t\) separately even when their difference is the primary predictor.
+
+\subsection{Recovery as a multidimensional outcome}
+
+Recovery is not defined by one exponential return coefficient. Following an attachment-relevant perturbation at \(t_0\), candidate preregistered quantities include
+\begin{align}
+B_i &= \sum_{t=t_0}^{t_1} |\mathbf e_{i,t}|\,\Delta t_{i,t},
+\\
+T^{\mathrm{rec}}_i
+&=
+\inf\left\{
+t>t_0:
+|\mathbf e_{i,t}|<\delta
+\text{ for }m\text{ consecutive observations}
+\right\},
+\end{align}
+together with overshoot, return to constructive activity, and the relative contribution of state change versus target change. \(B_i\) is discrepancy burden and \(T^{\mathrm{rec}}_i\) is time to a preregistered functional tolerance. These are parallel outcomes, not ingredients of a single unvalidated recovery index.
+
+The H3 promotion claim is correspondingly specific: positive secure-base representation should predict more effective recovery beyond low \Anx\ and \Avo\ across preregistered recovery outcomes. Evidence should be reproducible and not depend on one selectively favorable metric. Until that criterion is met, \Sec\ remains outside the required person-level core.
+
+\subsection{Positive security must earn promotion to the core}
+
+ARC distinguishes \Sec\ from the absence of insecurity, but treats this distinction as a candidate empirical addition rather than a protected core assumption. The minimum H3 promotion comparison is therefore hierarchical:
+\[
+R_0
+\subset
+R_1=R_0+\Anx+\Avo
+\subset
+R_2=R_1+\Sec.
+\]
+\(R_0\) contains preregistered episode-level and design covariates. Promotion of \Sec\ to the ARC person-level core requires \(R_2\) to improve prediction of a preregistered primary recovery outcome relative to \(R_1\), with the increment surviving held-out or otherwise genuinely out-of-sample evaluation. A correlation between \Sec\ and recovery is insufficient if the same information is already contained in low \Anx\ and \Avo. Promotion should occur only after the incremental effect is independently replicated or supported by a second preregistered design; secondary recovery metrics provide convergence but cannot substitute for failure on the primary outcome.
+
+A stronger extension adds proximal partner support or observed dyadic coping to form \(R_3\). This distinguishes a positive person-level secure-base representation from the support actually available in a given episode. If \Sec\ loses all incremental value once proximal support is included, it should not be promoted as an independent core construct; the theory should instead emphasize episode-level support or coregulation.
+
+\subsection{Candidate moderators}
+
+Mentalized affectivity (\MentAff) and emotion-regulation flexibility (\Flex) are placed outside the core. \MentAff\ is tested only as a candidate predictor or moderator of externally scored relational-state inference accuracy. \Flex\ is tested only as a candidate predictor or moderator of context-sensitive policy revision and effective feedback use. If they do not provide discriminant and incremental information, ARC does not require them.
+
+\subsection{Disorganization as an external extension}
+
+ARC does not define adult disorganization as high \Anx\ plus high \Avo, raw variability, or a simulator index. Candidate dynamic indicators such as poor recovery, context-residual inconsistency, persistent approach--avoidance conflict, and maladaptive switching must be validated against an independent disorganization criterion.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{\input{figures/arc2_framework}}
+\caption{Parsimonious ARC architecture. Anxiety and avoidance form the current person-level core and may modulate relational policy. Positive secure-base representation is a prespecified candidate for promotion to the core if it adds recovery information beyond anxiety and avoidance. Mentalized affectivity and emotion-regulation flexibility remain optional moderators.}
+\label{fig:arc2-framework}
+\end{figure}
+
