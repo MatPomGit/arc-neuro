@@ -1,0 +1,76 @@
+{
+  "experiment": "recovery_profiles",
+  "title": "Perturbation and regulatory recovery",
+  "seed": 200,
+  "simulation": {
+    "steps": 150,
+    "dt": 1,
+    "responsiveness": 0.8,
+    "process_noise": 0.002,
+    "perception_noise": 0.08,
+    "controller_mode": "pid"
+  },
+  "perturbation": {
+    "step": 40,
+    "magnitude": -0.3
+  },
+  "profiles": [
+    {
+      "name": "secure-like",
+      "traits": {
+        "L": 0.2,
+        "U": 0.2,
+        "C": 0.3,
+        "S": 0.8,
+        "M": 0.8,
+        "F": 0.8
+      }
+    },
+    {
+      "name": "organized anxious",
+      "traits": {
+        "L": 0.8,
+        "U": 0.1,
+        "C": 0.45,
+        "S": 0.35,
+        "M": 0.55,
+        "F": 0.45
+      }
+    },
+    {
+      "name": "organized avoidant",
+      "traits": {
+        "L": 0.1,
+        "U": 0.8,
+        "C": 0.45,
+        "S": 0.35,
+        "M": 0.55,
+        "F": 0.45
+      }
+    },
+    {
+      "name": "integrated mixed",
+      "traits": {
+        "L": 0.75,
+        "U": 0.75,
+        "C": 0.4,
+        "S": 0.55,
+        "M": 0.85,
+        "F": 0.85
+      }
+    },
+    {
+      "name": "unstable candidate",
+      "traits": {
+        "L": 0.85,
+        "U": 0.85,
+        "C": 0.65,
+        "S": 0.2,
+        "M": 0.2,
+        "F": 0.2
+      }
+    }
+  ],
+  "figure": "recovery_profiles.png",
+  "csv": "recovery_profiles.csv"
+}
