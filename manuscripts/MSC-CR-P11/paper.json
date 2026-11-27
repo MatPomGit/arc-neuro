@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-CR-P11/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-CR-P11/study.md",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
