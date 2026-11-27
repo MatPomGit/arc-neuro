@@ -1,6 +1,8 @@
 # MSC-ATTACH-P04 — Badanie podłużne predykcji zachowania w relacjach
 
-**Właściciel naukowy i autor:** Mateusz Pomianek.
+**Właściciel naukowy i autor szkicu:** Mateusz Pomianek.
+
+**Rodzaj pracy:** `MANUSCRIPT`. **Etap badań:** `PLANNED`.
 
 Manuskrypt planowanego badania podłużnego. [Plan pomiarowy](human_study/measurement_plan.md), [projekt ESM](human_study/online_esm_blueprint.md), [plan wyników](RESULTS_PLAN.md). Wymaga uprzedniej walidacji skali P03; brak danych ludzkich.
 
