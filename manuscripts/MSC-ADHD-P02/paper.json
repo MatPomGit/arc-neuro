@@ -14,7 +14,7 @@
     "path": "manuscripts/MSC-ADHD-P02/main.tex",
     "format": "latex"
   },
-  "study_plan": null,
+  "study_plan": "manuscripts/MSC-ADHD-P02/study.md",
   "public_listing": false,
   "doi": null,
   "preprint_url": null,
@@ -23,7 +23,29 @@
   "stage_evidence": null,
   "schema_version": 3,
   "dependencies": {
-    "tools": [],
+    "tools": [
+      {
+        "ref": "app-regulation-mobile",
+        "role": "PRIMARY",
+        "contract_path": "manuscripts/MSC-ADHD-P02/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: PLANNED_NOT_CREATED; proposed dependency only."
+      },
+      {
+        "ref": "lib-adapt",
+        "role": "PROPOSED_LIBRARY",
+        "contract_path": "manuscripts/MSC-ADHD-P02/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: PLANNED_NOT_CREATED; proposed dependency only."
+      },
+      {
+        "ref": "lib-events",
+        "role": "PROPOSED_LIBRARY",
+        "contract_path": "manuscripts/MSC-ADHD-P02/study.md",
+        "validation_status": "NOT_VERIFIED",
+        "notes": "Source repository status: PLANNED_NOT_CREATED; proposed dependency only."
+      }
+    ],
     "equipment": [],
     "datasets": []
   }
