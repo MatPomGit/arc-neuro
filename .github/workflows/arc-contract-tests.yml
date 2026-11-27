@@ -57,6 +57,14 @@ jobs:
       - name: Run offline unit tests
         shell: bash
         run: python3 -B -m unittest discover -s tests -v
+      - name: Validate v3 paper metadata against pinned JSON Schema
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv "${RUNNER_TEMP}/arc-v3-schema"
+          "${RUNNER_TEMP}/arc-v3-schema/bin/python" -m pip install --disable-pip-version-check -r config/schema-requirements.txt
+          "${RUNNER_TEMP}/arc-v3-schema/bin/python" -m pip check
+          "${RUNNER_TEMP}/arc-v3-schema/bin/python" -B scripts/validate_v3_metadata.py
       - name: Test synthetic ANX statistical reference in isolated venv
         shell: bash
         run: |
