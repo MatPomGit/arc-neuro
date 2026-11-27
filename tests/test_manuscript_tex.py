@@ -185,6 +185,10 @@ class ManuscriptTexTests(unittest.TestCase):
                             self.assertEqual(by_id[ident]["stage"], "IDEA_HOLD")
                             self.assertIn(r"\input{design.tex}", content)
                             self.assertIn("Nie zebrano jeszcze danych empirycznych", content)
+                        elif ident == "MSC-ZAH-P03":
+                            self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+,")
+                            self.assertEqual(by_id[ident]["stage"], "IDEA_HOLD")
+                            self.assertIn("Nie zebrano jeszcze danych empirycznych", content)
                         elif ident in {"MSC-AAL-P08", "MSC-AAL-P06", "MSC-ADHD-P06", "MSC-ADHD-P07", "MSC-ADHD-P08", "MSC-ADHD-P10"}:
                             self.assertRegex(content, r"\\date\{Szkic naukowy, wersja 0\.\d+\.\d+\}")
                             self.assertIn("Nie", content)
