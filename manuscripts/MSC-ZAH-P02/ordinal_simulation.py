@@ -6,7 +6,7 @@ import numpy as np
 import pymc as pm
 import arviz as az
 
-def fit(y, X, groups, seed):
+def fit(y, X, groups, seed, *, draws=500, tune=500, chains=4, diagnostic=True):
     with pm.Model():
         b=pm.Normal("beta",0,1.5,shape=X.shape[1])
         eta=pm.math.dot(X,b)
@@ -16,7 +16,9 @@ def fit(y, X, groups, seed):
             eta=eta+sd*z[ids]
         cuts=pm.Normal("cuts",0,2,shape=4,transform=pm.distributions.transforms.ordered,initval=[-1.5,-.5,.5,1.5])
         pm.OrderedLogistic("y",eta=eta,cutpoints=cuts,observed=y)
-        trace=pm.sample(500,tune=500,chains=4,cores=1,random_seed=seed,target_accept=.95,progressbar=False)
+        trace=pm.sample(draws,tune=tune,chains=chains,cores=1,random_seed=seed,target_accept=.95,progressbar=False)
+    if not diagnostic:
+        return trace.posterior.beta.values.reshape(-1,X.shape[1])
     summary=az.summary(trace,var_names=["beta","cuts"]+[k+"_sd" for k in groups])
     if int(trace.sample_stats.diverging.sum()) or not np.isfinite(summary[["r_hat","ess_bulk","ess_tail"]]).all().all() or summary.r_hat.max()>1.01 or min(summary.ess_bulk.min(),summary.ess_tail.min())<400:
         return None
