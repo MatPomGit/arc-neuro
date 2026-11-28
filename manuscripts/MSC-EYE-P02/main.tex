@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,25 +26,31 @@
 
 \begin{abstract}
 
-Tematem pracy jest Selektor jakości gaze przy zmianie telefonu i warunków. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to różnica ryzyka błędu wśród zachowanych klatek przy wspólnym pokryciu.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Selektor jakości gaze przy zmianie telefonu i warunków wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Estymacja spojrzenia z kamer urządzeń mobilnych jest wykonalna w warunkach opisanych przez Krafkę et al. (2016). Kalibracja prawdopodobieństwa wymaga niezależnych danych i jawnej definicji trafności (Guo et al., 2017).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Selektor jakości gaze przy zmianie telefonu i warunków. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} Przy porównywalnym pokryciu wynoszącym 70 procent selektor oparty na jakości obrazu i geometrii twarzy osiągnie niższy odsetek błędnych zaakceptowanych pomiarów niż selektor oparty wyłącznie na pewności modelu bazowego.
 
 \section{Materiał i metody}
 
-Na różnych telefonach i przy różnych warunkach rejestrować estymację jakości gaze i niezależne punkty referencyjne. Pierwszorzędowy wskaźnik: Kalibracja prawdopodobieństwa poprawnego pomiaru i selekcja według progu. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: różnica ryzyka błędu wśród zachowanych klatek przy wspólnym pokryciu.
+
+Trafność oznacza błąd kątowy nie większy niż 3 stopnie względem referencji, a pokrycie oznacza udział zachowanych klatek. Operacyjny próg ustali walidacja rozwojowa, a analiza krzywej ryzyko–pokrycie wykorzysta osobny telefon i nowych użytkowników. Wynik Briera opisze kalibrację.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: ROC, Expected Calibration Error i walidacja na niewidzianych urządzeniach. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +62,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Guo, C., Pleiss, G., Sun, Y., \& Weinberger, K. Q. (2017). On calibration of modern neural networks. \textit{Proceedings of the 34th International Conference on Machine Learning, 70}, 1321--1330. \url{https://proceedings.mlr.press/v70/guo17a.html}\par
+\hangindent=1.27cm
+Krafka, K., Khosla, A., Kellnhofer, P., Kannan, H., Bhandarkar, S., Matusik, W., \& Torralba, A. (2016). Eye tracking for everyone. \textit{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 2176--2184. \url{https://openaccess.thecvf.com/content_cvpr_2016/html/Krafka_Eye_Tracking_for_CVPR_2016_paper.html}\par
+}
 
 \end{document}
-

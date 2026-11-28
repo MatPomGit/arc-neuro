@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.3}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,17 +26,19 @@
 
 \begin{abstract}
 
-Tematem pracy jest Wnioskowanie o czasie recovery przy cenzorowaniu i niepełnej obserwacji. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to bezwzględne obciążenie oszacowania skumulowanej częstości poprawnego powrotu do 30 s.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Kontekst obserwacji i wieloźródłowość ocen są kluczowe w interpretacji zachowania i zjawisk neurorozwojowych. Zagadnienie Wnioskowanie o czasie recovery przy cenzorowaniu i niepełnej obserwacji wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Zdarzenie konkurencyjne zmienia interpretację prawdopodobieństwa zdarzenia docelowego (Austin et al., 2016). Wynik Briera pozwala oceniać jakość prognoz przeżycia przy odpowiedniej korekcie cenzorowania (Graf et al., 1999).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Wnioskowanie o czasie recovery przy cenzorowaniu i niepełnej obserwacji. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} Przy dodatniej częstości definitywnego porzucenia zadania estymator skumulowanej częstości powrotu uwzględniający porzucenie ma mniejsze bezwzględne obciążenie prawdopodobieństwa powrotu do 30 s niż dopełnienie estymatora Kaplana i Meiera cenzorujące porzucenie.
 
 \section{Status koncepcji i granice dowodów}
 
@@ -44,14 +46,15 @@ Koncepcja ma status IDEA i DEFER. Nie wskazano zatwierdzonego protokołu, kanoni
 
 \section{Materiał i metody}
 
-Pierwszorzędowy wskaźnik: Rozkład czasu do odzyskania celu z jawnym rozróżnieniem cenzorowania i braków obserwacji. Jest to propozycja, nie zatwierdzony punkt końcowy.
+Pierwszorzędowy wskaźnik: bezwzględne obciążenie oszacowania skumulowanej częstości poprawnego powrotu do 30 s.
 
+W symulacji referencją jest prawdopodobieństwo zadane przez generator. Należy oddzielić administracyjny koniec okna, definitywne porzucenie i utratę pomiaru; zależną od niewidocznego stanu utratę obserwacji zbada analiza wrażliwości. Porównanie obejmie scenariusz kontrolny bez zdarzeń konkurencyjnych.
 
-W przyszłym protokole należy operacyjnie zdefiniować początek epizodu, kryterium odzyskania celu (recovery), jednostkę analizy oraz koniec okna obserwacji. Należy odróżnić zaobserwowane zdarzenie od prawostronnego cenzorowania z powodu końca obserwacji. Rezygnacja z udziału, utrata pomiaru i inne zdarzenia uniemożliwiające obserwację wymagają osobnej klasyfikacji; nie należy automatycznie traktować ich jako cenzorowania nieinformacyjnego. Kandydatem na główny estymand jest rozkład czasu do recovery w uprzednio określonej populacji i horyzoncie obserwacji. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan obejmuje opis funkcji przeżycia bez utożsamiania cenzorowania ze zdarzeniem, porównanie przydatności modeli przyspieszonego czasu przeżycia (AFT) i modeli hazardu oraz analizę wrażliwości na informacyjne braki danych. Przed estymacją trzeba zbadać założenia dotyczące mechanizmu cenzorowania, powtarzanych epizodów u tej samej osoby, rozdzielczości pomiaru i ewentualnych zdarzeń konkurujących. Niekompletność obserwacji może uniemożliwić identyfikację estymandu bez dodatkowych założeń. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -63,11 +66,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Austin, P. C., Lee, D. S., \& Fine, J. P. (2016). Introduction to the analysis of survival data in the presence of competing risks. \textit{Circulation, 133}(6), 601--609. \url{https://doi.org/10.1161/CIRCULATIONAHA.115.017719}\par
+\hangindent=1.27cm
+Graf, E., Schmoor, C., Sauerbrei, W., \& Schumacher, M. (1999). Assessment and comparison of prognostic classification schemes for survival data. \textit{Statistics in Medicine, 18}(17--18), 2529--2545. \url{https://pubmed.ncbi.nlm.nih.gov/10474158/}\par
+}
 
 \end{document}
-

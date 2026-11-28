@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,25 +26,31 @@
 
 \begin{abstract}
 
-Tematem pracy jest Komputacyjny benchmark jakości argumentów i retoryki LLM. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to różnica korelacji rang z ocenami ekspertów między dwoma predyktorami.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Samodzielność osądu i funkcje poznawcze zależą od jakości informacji oraz sposobu jej przedstawienia. Zagadnienie Komputacyjny benchmark jakości argumentów i retoryki LLM wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Ocena argumentacji obejmuje wymiary z teorii i kryteria używane w praktyce (Wachsmuth et al., 2017). Zadania predykcji przekonującego stylu dostarczają odrębnego punktu odniesienia (Habernal \& Gurevych, 2016).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Komputacyjny benchmark jakości argumentów i retoryki LLM. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} Predyktor wykorzystujący weryfikowalność przesłanek i adekwatność dowodu osiągnie wyższą korelację rang z zaślepioną oceną ekspertów niż predyktor oparty na cechach stylu, w tematach wyłączonych z dopasowania.
 
 \section{Materiał i metody}
 
-Zamrożony benchmark odpowiedzi LLM o różnej rzetelności argumentacji z niezależnym zaślepionym kodowaniem. Pierwszorzędowy wskaźnik: Zgodność predykcji jakości argumentu z oceną ekspertów na niewidzianych tematach. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: różnica korelacji rang z ocenami ekspertów między dwoma predyktorami.
+
+Eksperci osobno zakodują jakość dowodu i perswazyjność. Ocena obejmie tę samą pulę odpowiedzi dla obu predyktorów i bootstrap po tematach; rodziny parafraz nie mogą przekraczać granicy rozdziału zbiorów. Wrażliwość zbada podział według modeli generujących.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: walidacja na nieuczonych modelach i domenach, zgodność sędziów i odporność na parafrazy. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +62,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Habernal, I., \& Gurevych, I. (2016). Which argument is more convincing? Analyzing and predicting convincingness of Web arguments using bidirectional LSTM. \textit{Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, 1589--1599. \url{https://doi.org/10.18653/v1/P16-1150}\par
+\hangindent=1.27cm
+Wachsmuth, H., Naderi, N., Habernal, I., Hou, Y., Hirst, G., Gurevych, I., \& Stein, B. (2017). Argumentation quality assessment: Theory vs. practice. \textit{Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)}, 250--255. \url{https://doi.org/10.18653/v1/P17-2039}\par
+}
 
 \end{document}
-

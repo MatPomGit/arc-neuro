@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -32,19 +32,27 @@ Tematem pracy jest Nasilenie objawów pourazowych a deklarowane korzystanie z ge
 
 \section{Wprowadzenie}
 
-Zachowania samoregulacyjne wymagają rozdzielenia stanu emocjonalnego, sytuacji zadaniowej i fizjologicznych korelatów. Zagadnienie Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+PCL-5 mierzy nasilenie objawów pourazowych (Blevins et al., 2015). Badanie ustrukturyzowanego agenta tekstowego pokazuje precedens użycia narzędzia konwersacyjnego w obszarze zdrowia psychicznego (Fitzpatrick et al., 2017). Dotyczy odrębnej technologii i populacji, więc stanowi wyłącznie kontekst dla hipotezy o generatywnej AI.
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Nasilenie objawów pourazowych a deklarowane korzystanie z generatywnej AI do wsparcia emocjonalnego: badanie przekrojowe. Proponowany wskaźnik: Asocjacyjny OR z dwustronnym 95\% CI na 1 SD PCL-5 wobec binarnego Y\_E w zdefiniowanej populacji A\_X, zgodnie z SAP pracy. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} W zdefiniowanej populacji analitycznej $A_X$ wzrost wyniku PCL-5 o jedno odchylenie standardowe będzie związany z większymi szansami deklarowanego użycia generatywnej AI do wsparcia emocjonalnego, czyli OR dla $Y_E$ będzie większy od 1.
 
 \section{Materiał i metody}
 
-Przekrojowy pomiar PCL-5 i zdefiniowanej binarnej deklaracji korzystania z AI do wsparcia emocjonalnego. Pierwszorzędowy wskaźnik: Iloraz szans korzystania na wzrost wyniku PCL-5 o jedno odchylenie standardowe. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: iloraz szans deklarowanego użycia na jedno odchylenie standardowe wyniku PCL-5.
+
+Estymandem pozostaje asocjacyjny iloraz szans z dwustronnym 95-procentowym przedziałem ufności. Definicje populacji, ekspozycji i wyniku pozostają zgodne z zamrożoną specyfikacją pracy. Deklaracja użycia oraz nasilenie objawów dotyczą pomiaru przekrojowego.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: regresja logistyczna z 95-procentowym CI i planem zmiennych zakłócających. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Model regresji logistycznej oszacuje współczynnik dla standaryzowanego PCL-5 z zestawem zmiennych towarzyszących określonym w planie analizy pracy magisterskiej.
+
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +64,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Blevins, C. A., Weathers, F. W., Davis, M. T., Witte, T. K., \& Domino, J. L. (2015). The Posttraumatic Stress Disorder Checklist for DSM-5 (PCL-5): Development and initial psychometric evaluation. \textit{Journal of Traumatic Stress, 28}(6), 489--498. \url{https://doi.org/10.1002/jts.22059}\par
+\hangindent=1.27cm
+Fitzpatrick, K. K., Darcy, A., \& Vierhile, M. (2017). Delivering cognitive behavior therapy to young adults with symptoms of depression and anxiety using a fully automated conversational agent (Woebot): A randomized controlled trial. \textit{JMIR Mental Health, 4}(2), Article e19. \url{https://doi.org/10.2196/mental.7785}\par
+}
 
 \end{document}
-
