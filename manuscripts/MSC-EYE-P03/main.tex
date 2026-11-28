@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,25 +26,33 @@
 
 \begin{abstract}
 
-Tematem pracy jest Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Proponowany wskaźnik: F1/zgodność klasyfikacji ROI w scenariuszach gry i zmiennych warunkach. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to różnica makro-F1 między dwoma poziomami oświetlenia.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Mobilny pomiar spojrzenia wykorzystuje obraz z kamery przedniej (Krafka et al., 2016). Przenoszenie modelu między warunkami wymaga osobnej oceny klasyfikacji i jej pewności (Guo et al., 2017).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Zgodność klasyfikacji regionów spojrzenia w mobilnej grze 2D przy zmianie warunków. Proponowany wskaźnik: F1/zgodność klasyfikacji ROI w scenariuszach gry i zmiennych warunkach. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} Przy ustalonych regionach gry i modelu wyuczonym w dobrym oświetleniu makro-F1 spadnie po obniżeniu oświetlenia.
+
+\paragraph{H2.} Spadek będzie większy na telefonie niewykorzystywanym w dopasowaniu niż na telefonie rozwojowym.
 
 \section{Materiał i metody}
 
-W mobilnej grze 2D zestawić klasyfikację regionów spojrzenia z referencją przy zmianie oświetlenia i telefonu. Pierwszorzędowy wskaźnik: Macro-F1 oraz częstość błędnego przypisania obszaru zainteresowania. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: różnica makro-F1 między dwoma poziomami oświetlenia.
+
+Rozkład prób i przypisanie regionów ustali się względem zsynchronizowanej referencji. Główny kontrast obejmie wszystkie uprzednio kwalifikowane próby, z raportowaniem braku klasyfikacji oraz przedziałami otrzymanymi przez bootstrap po osobach. Trudność rozróżnienia regionów sąsiadujących będzie analizowana oddzielnie.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: macierze pomyłek, bootstrap po osobie i test uogólnienia między urządzeniami. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +64,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Guo, C., Pleiss, G., Sun, Y., \& Weinberger, K. Q. (2017). On calibration of modern neural networks. \textit{Proceedings of the 34th International Conference on Machine Learning, 70}, 1321--1330. \url{https://proceedings.mlr.press/v70/guo17a.html}\par
+\hangindent=1.27cm
+Krafka, K., Khosla, A., Kellnhofer, P., Kannan, H., Bhandarkar, S., Matusik, W., \& Torralba, A. (2016). Eye tracking for everyone. \textit{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 2176--2184. \url{https://openaccess.thecvf.com/content_cvpr_2016/html/Krafka_Eye_Tracking_for_CVPR_2016_paper.html}\par
+}
 
 \end{document}
-

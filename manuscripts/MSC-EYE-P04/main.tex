@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,25 +26,33 @@
 
 \begin{abstract}
 
-Tematem pracy jest Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to różnica odsetków zbędnych podpowiedzi na wszystkie okazje decyzyjne.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Pomiar spojrzenia na urządzeniach mobilnych dostarcza sygnału o niepewnej trafności (Krafka et al., 2016). Odpowiednie poleganie na automatyzacji zależy od powiązania działania z jakością informacji (Lee \& See, 2004).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Kiedy adaptacyjny interfejs powinien podpowiadać? Ostrożna adaptacja 2D oparta na jakości spojrzenia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} Polityka podpowiedzi warunkowana jakością spojrzenia obniży odsetek niepotrzebnych podpowiedzi na wszystkie okazje decyzyjne względem polityki adaptacyjnej bez bramki jakości.
+
+\paragraph{H2.} Odsetek poprawnie zakończonych prób będzie niższy od wyniku trybu statycznego o mniej niż 5 punktów procentowych lub będzie wyższy.
 
 \section{Materiał i metody}
 
-W grze 2D losowo porównać adaptacyjne podpowiedzi warunkowane jakością spojrzenia z trybem statycznym. Pierwszorzędowy wskaźnik: Trafność decyzji i częstość podpowiedzi wydanych przy niepewnym pomiarze. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: różnica odsetków zbędnych podpowiedzi na wszystkie okazje decyzyjne.
+
+Randomizację trzech warunków należy skrzyżować z kolejnością. To, czy podpowiedź była potrzebna, określa stan gry według wcześniej ustalonych kryteriów oceniany bez dostępu do przypisanej polityki. Odsetek pominiętych potrzebnych podpowiedzi pozwoli zinterpretować koszt abstencji.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: analiza kosztu fałszywych podpowiedzi i polityki abstencji. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +64,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Krafka, K., Khosla, A., Kellnhofer, P., Kannan, H., Bhandarkar, S., Matusik, W., \& Torralba, A. (2016). Eye tracking for everyone. \textit{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 2176--2184. \url{https://openaccess.thecvf.com/content_cvpr_2016/html/Krafka_Eye_Tracking_for_CVPR_2016_paper.html}\par
+\hangindent=1.27cm
+Lee, J. D., \& See, K. A. (2004). Trust in automation: Designing for appropriate reliance. \textit{Human Factors, 46}(1), 50--80. \url{https://doi.org/10.1518/hfes.46.1.50_30392}\par
+}
 
 \end{document}
-

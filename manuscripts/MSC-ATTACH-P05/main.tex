@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,25 +26,33 @@
 
 \begin{abstract}
 
-Tematem pracy jest Informacyjne braki danych i nieregularne interwały pomiaru przywiązania. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to obciążenie estymatora trendu względem wartości z generatora.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Postawy społeczne, przywiązanie i normy moralne wymagają rozróżnienia deklaracji, zachowania i sytuacji społecznej. Zagadnienie Informacyjne braki danych i nieregularne interwały pomiaru przywiązania wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Pomiary chwilowe ujawniają dynamikę doświadczenia w kontekście (Shiffman et al., 2008). Modele mieszanin wzorców pozwalają jawnie uzależnić wnioski od założeń o brakujących obserwacjach (Little, 1993).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Informacyjne braki danych i nieregularne interwały pomiaru przywiązania. Dobór pierwszorzędowego wskaźnika pozostaje elementem przyszłego protokołu. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} Jeżeli prawdopodobieństwo odpowiedzi maleje wraz z nieobserwowaną intensywnością reakcji i ta zależność wzmacnia się w czasie, analiza dostępnych pomiarów zaniży dodatni trend w porównaniu z prawdą generatora.
+
+\paragraph{H2.} Przy brakach MAR i nieregularnych odstępach model z rzeczywistym czasem zmniejszy błąd estymacji trendu względem modelu indeksującego czas numerem pomiaru.
 
 \section{Materiał i metody}
 
-Symulować nieregularne pomiary i mechanizmy braków zależne od latentnej intensywności przywiązania. Pierwszorzędowy wskaźnik: Obciążenie oszacowania trendu i pokrycie przedziałów dla braków MAR i MNAR. Nie zebrano danych w ramach tego szkicu. Przed rozpoczęciem badania z udziałem ludzi należy ustalić plan doboru i liczebności próby, wymogi etyczne, procedury zgody i ochrony danych.
+Pierwszorzędowy wskaźnik: obciążenie estymatora trendu względem wartości z generatora.
+
+Porównanie symulacyjne wykorzysta obciążenie estymatora nachylenia i pokrycie 95-procentowych przedziałów. Analiza MNAR zmienia założoną wielkość różnicy między obserwowanymi i brakującymi wynikami oraz raportuje, kiedy odwraca się znak wniosku.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: porównanie imputacji, ważenia i modeli wspólnych z analizą czułości. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +64,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Little, R. J. A. (1993). Pattern-mixture models for multivariate incomplete data. \textit{Journal of the American Statistical Association, 88}(421), 125--134. \url{https://doi.org/10.1080/01621459.1993.10594302}\par
+\hangindent=1.27cm
+Shiffman, S., Stone, A. A., \& Hufford, M. R. (2008). Ecological momentary assessment. \textit{Annual Review of Clinical Psychology, 4}, 1--32. \url{https://doi.org/10.1146/annurev.clinpsy.3.022806.091415}\par
+}
 
 \end{document}
-

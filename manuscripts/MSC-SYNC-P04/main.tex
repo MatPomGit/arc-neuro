@@ -18,7 +18,7 @@
 
 \author{Mateusz Pomianek}
 
-\date{Szkic naukowy, wersja 0.1.1}
+\date{Szkic naukowy, wersja 1.0.0 | 28 listopada 2026}
 
 \begin{document}
 
@@ -26,25 +26,31 @@
 
 \begin{abstract}
 
-Tematem pracy jest Przedziały niepewności synchronizacji smartfon--EEG przy dryfie i utracie pakietów. Tekst systematyzuje uzasadnienie, hipotezy i sposób weryfikacji zagadnienia. Proponowany wskaźnik: Pokrycie nominalnych 95-proc. przedziałów niepewności czasu i ich szerokość względem niezależnej referencji zegarowej. Nie przedstawia się niezweryfikowanych wyników ani fikcyjnych cytowań.
+Proponowana miara główna to różnica bezwzględnych odchyleń pokrycia od nominalnych 95 procent.
 
 \end{abstract}
 
 \section{Wprowadzenie}
 
-Wnioskowanie na podstawie pomiaru wymaga walidacji definicji sygnału, kalibracji i kontroli błędów. Zagadnienie Przedziały niepewności synchronizacji smartfon--EEG przy dryfie i utracie pakietów wymaga odróżnienia badanego konstruktu od jego operacjonalizacji i kontekstowych źródeł zmienności. Trzeba porównać możliwe wyjaśnienia i ustalić granice interpretacji dowodów.
+Dokumentowanie synchronizacji jest częścią reprodukowalnego przebiegu badań EEG (Pernet et al., 2020). Różnice względem wspólnej referencji pozwalają opisać obciążenie i rozrzut zgodności (Bland \& Altman, 1986).
 
 \section{Cel i pytania badawcze}
 
-Celem pracy jest rozstrzygnięcie zagadnienia: Przedziały niepewności synchronizacji smartfon--EEG przy dryfie i utracie pakietów. Proponowany wskaźnik: Pokrycie nominalnych 95-proc. przedziałów niepewności czasu i ich szerokość względem niezależnej referencji zegarowej. Hipotezy i ich kierunki muszą zostać określone przed analizą danych lub krytyczną syntezą źródeł.
+Hipotezy robocze wymagają zatwierdzenia przed rozpoczęciem właściwej weryfikacji.
+
+\paragraph{H1.} W scenariuszach z monotonicznym dryfem przedziały wyznaczone przez model z estymacją nachylenia relacji zegarów będą miały pokrycie bliższe nominalnym 95 procentom niż przedziały modelu stałego przesunięcia.
 
 \section{Materiał i metody}
 
-W rejestrze smartfon i EEG wprowadzać syntetyczny dryf zegarów, opóźnienia i utraty pakietów. Pierwszorzędowy wskaźnik: Pokrycie i szerokość przedziałów niepewności błędu synchronizacji. Nie przedstawia się przeprowadzonych analiz ani uzyskanych wyników. Przed realizacją konieczne jest określenie źródeł materiału, kryteriów jakości, zasad reprodukowalności i licencji.
+Pierwszorzędowy wskaźnik: różnica bezwzględnych odchyleń pokrycia od nominalnych 95 procent.
+
+W symulacji z zadaną mapą czasu porówna się pokrycie i szerokość na zdarzeniach niewykorzystanych do dopasowania. Oddzielnie ocenia się losową i blokową utratę pakietów. To zadanie dotyczy walidacji komponentu synchronizacji w ramach istniejącej decyzji o wstrzymaniu samodzielnego artykułu.
+
+Przed badaniem z udziałem ludzi należy zatwierdzić wymagania etyczne, zasady zgody i ochronę danych.
 
 \section{Plan analizy}
 
-Proponowany plan analityczny: Monte Carlo po profilach zakłóceń i analiza odporności na naruszenia założeń. Zamrożenie estymandu, kryteriów jakości i analiz wrażliwości nastąpi przed dostępem do danych; na tym etapie nie ma oszacowań ani wyników.
+Zamrożenie estymandu, reguł oceny jakości i obsługi braków nastąpi przed dostępem do danych wynikowych. Raport obejmie oszacowanie kontrastu głównego z przedziałem niepewności i pełne mianowniki. Jeśli przewidziano hipotezy drugorzędowe, przed analizą należy ustalić sposób kontroli wielokrotności.
 
 \section{Wyniki}
 
@@ -56,11 +62,16 @@ Ograniczenia obejmują możliwe błędy pomiaru, dobór próby, alternatywne mec
 
 \section{Wnioski}
 
-Zdefiniowano ramy opracowania, ale nie sformułowano wniosków wykraczających poza dostępny stan dowodów.
+Hipotezy i sposób pomiaru stanowią podstawę oceny wykonalności oraz przygotowania właściwego protokołu.
 
 \section*{Bibliografia}
 
-Weryfikacja literatury i przypisanie cytowań do stwierdzeń są kolejnym etapem prac.
+{\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hangindent=1.27cm
+Bland, J. M., \& Altman, D. G. (1986). Statistical methods for assessing agreement between two methods of clinical measurement. \textit{The Lancet, 327}(8476), 307--310. \url{https://doi.org/10.1016/S0140-6736(86)90837-8}\par
+\hangindent=1.27cm
+Pernet, C., Garrido, M. I., Gramfort, A., Maurits, N., Michel, C. M., Pang, E., Salmelin, R., Schoffelen, J.-M., Valdes-Sosa, P. A., \& Puce, A. (2020). Issues and recommendations from the OHBM COBIDAS MEEG committee for reproducible EEG and MEG research. \textit{Nature Neuroscience, 23}(12), 1473--1483. \url{https://doi.org/10.1038/s41593-020-00709-0}\par
+}
 
 \end{document}
-
